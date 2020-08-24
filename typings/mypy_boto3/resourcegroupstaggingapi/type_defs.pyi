@@ -1,0 +1,33 @@
+from mypy_boto3_resourcegroupstaggingapi.type_defs import (
+    ComplianceDetailsTypeDef,
+    FailureInfoTypeDef,
+    ResourceTagMappingTypeDef,
+    SummaryTypeDef,
+    TagTypeDef,
+    DescribeReportCreationOutputTypeDef,
+    GetComplianceSummaryOutputTypeDef,
+    GetResourcesOutputTypeDef,
+    GetTagKeysOutputTypeDef,
+    GetTagValuesOutputTypeDef,
+    PaginatorConfigTypeDef,
+    TagFilterTypeDef,
+    TagResourcesOutputTypeDef,
+    UntagResourcesOutputTypeDef,
+)
+
+__all__ = (
+    "ComplianceDetailsTypeDef",
+    "FailureInfoTypeDef",
+    "ResourceTagMappingTypeDef",
+    "SummaryTypeDef",
+    "TagTypeDef",
+    "DescribeReportCreationOutputTypeDef",
+    "GetComplianceSummaryOutputTypeDef",
+    "GetResourcesOutputTypeDef",
+    "GetTagKeysOutputTypeDef",
+    "GetTagValuesOutputTypeDef",
+    "PaginatorConfigTypeDef",
+    "TagFilterTypeDef",
+    "TagResourcesOutputTypeDef",
+    "UntagResourcesOutputTypeDef",
+)

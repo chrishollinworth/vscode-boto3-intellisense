@@ -1,0 +1,33 @@
+from mypy_boto3_appstream import (
+    AppStreamClient,
+    Client,
+    DescribeDirectoryConfigsPaginator,
+    DescribeFleetsPaginator,
+    DescribeImageBuildersPaginator,
+    DescribeImagesPaginator,
+    DescribeSessionsPaginator,
+    DescribeStacksPaginator,
+    DescribeUserStackAssociationsPaginator,
+    DescribeUsersPaginator,
+    FleetStartedWaiter,
+    FleetStoppedWaiter,
+    ListAssociatedFleetsPaginator,
+    ListAssociatedStacksPaginator,
+)
+
+__all__ = (
+    "AppStreamClient",
+    "Client",
+    "DescribeDirectoryConfigsPaginator",
+    "DescribeFleetsPaginator",
+    "DescribeImageBuildersPaginator",
+    "DescribeImagesPaginator",
+    "DescribeSessionsPaginator",
+    "DescribeStacksPaginator",
+    "DescribeUserStackAssociationsPaginator",
+    "DescribeUsersPaginator",
+    "FleetStartedWaiter",
+    "FleetStoppedWaiter",
+    "ListAssociatedFleetsPaginator",
+    "ListAssociatedStacksPaginator",
+)

@@ -1,0 +1,31 @@
+from mypy_boto3_polly.type_defs import (
+    LexiconAttributesTypeDef,
+    LexiconDescriptionTypeDef,
+    LexiconTypeDef,
+    SynthesisTaskTypeDef,
+    VoiceTypeDef,
+    DescribeVoicesOutputTypeDef,
+    GetLexiconOutputTypeDef,
+    GetSpeechSynthesisTaskOutputTypeDef,
+    ListLexiconsOutputTypeDef,
+    ListSpeechSynthesisTasksOutputTypeDef,
+    PaginatorConfigTypeDef,
+    StartSpeechSynthesisTaskOutputTypeDef,
+    SynthesizeSpeechOutputTypeDef,
+)
+
+__all__ = (
+    "LexiconAttributesTypeDef",
+    "LexiconDescriptionTypeDef",
+    "LexiconTypeDef",
+    "SynthesisTaskTypeDef",
+    "VoiceTypeDef",
+    "DescribeVoicesOutputTypeDef",
+    "GetLexiconOutputTypeDef",
+    "GetSpeechSynthesisTaskOutputTypeDef",
+    "ListLexiconsOutputTypeDef",
+    "ListSpeechSynthesisTasksOutputTypeDef",
+    "PaginatorConfigTypeDef",
+    "StartSpeechSynthesisTaskOutputTypeDef",
+    "SynthesizeSpeechOutputTypeDef",
+)

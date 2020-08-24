@@ -1,0 +1,31 @@
+from mypy_boto3_s3 import (
+    BucketExistsWaiter,
+    BucketNotExistsWaiter,
+    Client,
+    ListMultipartUploadsPaginator,
+    ListObjectVersionsPaginator,
+    ListObjectsPaginator,
+    ListObjectsV2Paginator,
+    ListPartsPaginator,
+    ObjectExistsWaiter,
+    ObjectNotExistsWaiter,
+    S3Client,
+    S3ServiceResource,
+    ServiceResource,
+)
+
+__all__ = (
+    "BucketExistsWaiter",
+    "BucketNotExistsWaiter",
+    "Client",
+    "ListMultipartUploadsPaginator",
+    "ListObjectVersionsPaginator",
+    "ListObjectsPaginator",
+    "ListObjectsV2Paginator",
+    "ListPartsPaginator",
+    "ObjectExistsWaiter",
+    "ObjectNotExistsWaiter",
+    "S3Client",
+    "S3ServiceResource",
+    "ServiceResource",
+)

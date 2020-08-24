@@ -1,0 +1,31 @@
+from mypy_boto3_dynamodbstreams.type_defs import (
+    IdentityTypeDef,
+    KeySchemaElementTypeDef,
+    RecordTypeDef,
+    SequenceNumberRangeTypeDef,
+    ShardTypeDef,
+    StreamDescriptionTypeDef,
+    StreamRecordTypeDef,
+    StreamTypeDef,
+    DescribeStreamOutputTypeDef,
+    AttributeValueTypeDef,
+    GetRecordsOutputTypeDef,
+    GetShardIteratorOutputTypeDef,
+    ListStreamsOutputTypeDef,
+)
+
+__all__ = (
+    "IdentityTypeDef",
+    "KeySchemaElementTypeDef",
+    "RecordTypeDef",
+    "SequenceNumberRangeTypeDef",
+    "ShardTypeDef",
+    "StreamDescriptionTypeDef",
+    "StreamRecordTypeDef",
+    "StreamTypeDef",
+    "DescribeStreamOutputTypeDef",
+    "AttributeValueTypeDef",
+    "GetRecordsOutputTypeDef",
+    "GetShardIteratorOutputTypeDef",
+    "ListStreamsOutputTypeDef",
+)

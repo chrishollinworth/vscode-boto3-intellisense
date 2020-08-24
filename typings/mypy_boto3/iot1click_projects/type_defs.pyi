@@ -1,0 +1,31 @@
+from mypy_boto3_iot1click_projects.type_defs import (
+    DeviceTemplateTypeDef,
+    PlacementDescriptionTypeDef,
+    PlacementSummaryTypeDef,
+    PlacementTemplateTypeDef,
+    ProjectDescriptionTypeDef,
+    ProjectSummaryTypeDef,
+    DescribePlacementResponseTypeDef,
+    DescribeProjectResponseTypeDef,
+    GetDevicesInPlacementResponseTypeDef,
+    ListPlacementsResponseTypeDef,
+    ListProjectsResponseTypeDef,
+    ListTagsForResourceResponseTypeDef,
+    PaginatorConfigTypeDef,
+)
+
+__all__ = (
+    "DeviceTemplateTypeDef",
+    "PlacementDescriptionTypeDef",
+    "PlacementSummaryTypeDef",
+    "PlacementTemplateTypeDef",
+    "ProjectDescriptionTypeDef",
+    "ProjectSummaryTypeDef",
+    "DescribePlacementResponseTypeDef",
+    "DescribeProjectResponseTypeDef",
+    "GetDevicesInPlacementResponseTypeDef",
+    "ListPlacementsResponseTypeDef",
+    "ListProjectsResponseTypeDef",
+    "ListTagsForResourceResponseTypeDef",
+    "PaginatorConfigTypeDef",
+)

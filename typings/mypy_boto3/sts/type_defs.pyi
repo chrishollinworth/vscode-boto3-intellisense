@@ -1,0 +1,31 @@
+from mypy_boto3_sts.type_defs import (
+    AssumedRoleUserTypeDef,
+    CredentialsTypeDef,
+    FederatedUserTypeDef,
+    AssumeRoleResponseTypeDef,
+    AssumeRoleWithSAMLResponseTypeDef,
+    AssumeRoleWithWebIdentityResponseTypeDef,
+    DecodeAuthorizationMessageResponseTypeDef,
+    GetAccessKeyInfoResponseTypeDef,
+    GetCallerIdentityResponseTypeDef,
+    GetFederationTokenResponseTypeDef,
+    GetSessionTokenResponseTypeDef,
+    PolicyDescriptorTypeTypeDef,
+    TagTypeDef,
+)
+
+__all__ = (
+    "AssumedRoleUserTypeDef",
+    "CredentialsTypeDef",
+    "FederatedUserTypeDef",
+    "AssumeRoleResponseTypeDef",
+    "AssumeRoleWithSAMLResponseTypeDef",
+    "AssumeRoleWithWebIdentityResponseTypeDef",
+    "DecodeAuthorizationMessageResponseTypeDef",
+    "GetAccessKeyInfoResponseTypeDef",
+    "GetCallerIdentityResponseTypeDef",
+    "GetFederationTokenResponseTypeDef",
+    "GetSessionTokenResponseTypeDef",
+    "PolicyDescriptorTypeTypeDef",
+    "TagTypeDef",
+)
