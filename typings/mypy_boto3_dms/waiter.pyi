@@ -51,7 +51,7 @@ __all__ = (
 
 class EndpointDeletedWaiter(Boto3Waiter):
     """
-    [Waiter.EndpointDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/dms.html#DatabaseMigrationService.Waiter.EndpointDeleted)
+    [Waiter.EndpointDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Waiter.EndpointDeleted)
     """
 
     def wait(
@@ -62,13 +62,13 @@ class EndpointDeletedWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [EndpointDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/dms.html#DatabaseMigrationService.Waiter.EndpointDeleted.wait)
+        [EndpointDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Waiter.EndpointDeleted.wait)
         """
 
 
 class ReplicationInstanceAvailableWaiter(Boto3Waiter):
     """
-    [Waiter.ReplicationInstanceAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationInstanceAvailable)
+    [Waiter.ReplicationInstanceAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationInstanceAvailable)
     """
 
     def wait(
@@ -79,13 +79,13 @@ class ReplicationInstanceAvailableWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [ReplicationInstanceAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationInstanceAvailable.wait)
+        [ReplicationInstanceAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationInstanceAvailable.wait)
         """
 
 
 class ReplicationInstanceDeletedWaiter(Boto3Waiter):
     """
-    [Waiter.ReplicationInstanceDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationInstanceDeleted)
+    [Waiter.ReplicationInstanceDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationInstanceDeleted)
     """
 
     def wait(
@@ -96,13 +96,13 @@ class ReplicationInstanceDeletedWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [ReplicationInstanceDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationInstanceDeleted.wait)
+        [ReplicationInstanceDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationInstanceDeleted.wait)
         """
 
 
 class ReplicationTaskDeletedWaiter(Boto3Waiter):
     """
-    [Waiter.ReplicationTaskDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationTaskDeleted)
+    [Waiter.ReplicationTaskDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationTaskDeleted)
     """
 
     def wait(
@@ -114,13 +114,13 @@ class ReplicationTaskDeletedWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [ReplicationTaskDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationTaskDeleted.wait)
+        [ReplicationTaskDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationTaskDeleted.wait)
         """
 
 
 class ReplicationTaskReadyWaiter(Boto3Waiter):
     """
-    [Waiter.ReplicationTaskReady documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationTaskReady)
+    [Waiter.ReplicationTaskReady documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationTaskReady)
     """
 
     def wait(
@@ -132,13 +132,13 @@ class ReplicationTaskReadyWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [ReplicationTaskReady.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationTaskReady.wait)
+        [ReplicationTaskReady.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationTaskReady.wait)
         """
 
 
 class ReplicationTaskRunningWaiter(Boto3Waiter):
     """
-    [Waiter.ReplicationTaskRunning documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationTaskRunning)
+    [Waiter.ReplicationTaskRunning documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationTaskRunning)
     """
 
     def wait(
@@ -150,13 +150,13 @@ class ReplicationTaskRunningWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [ReplicationTaskRunning.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationTaskRunning.wait)
+        [ReplicationTaskRunning.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationTaskRunning.wait)
         """
 
 
 class ReplicationTaskStoppedWaiter(Boto3Waiter):
     """
-    [Waiter.ReplicationTaskStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationTaskStopped)
+    [Waiter.ReplicationTaskStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationTaskStopped)
     """
 
     def wait(
@@ -168,13 +168,13 @@ class ReplicationTaskStoppedWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [ReplicationTaskStopped.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationTaskStopped.wait)
+        [ReplicationTaskStopped.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationTaskStopped.wait)
         """
 
 
 class TestConnectionSucceedsWaiter(Boto3Waiter):
     """
-    [Waiter.TestConnectionSucceeds documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/dms.html#DatabaseMigrationService.Waiter.TestConnectionSucceeds)
+    [Waiter.TestConnectionSucceeds documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Waiter.TestConnectionSucceeds)
     """
 
     def wait(
@@ -185,5 +185,5 @@ class TestConnectionSucceedsWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [TestConnectionSucceeds.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/dms.html#DatabaseMigrationService.Waiter.TestConnectionSucceeds.wait)
+        [TestConnectionSucceeds.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Waiter.TestConnectionSucceeds.wait)
         """

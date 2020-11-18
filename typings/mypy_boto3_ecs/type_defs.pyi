@@ -17,7 +17,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -46,6 +45,8 @@ __all__ = (
     "EFSAuthorizationConfigTypeDef",
     "EFSVolumeConfigurationTypeDef",
     "EnvironmentFileTypeDef",
+    "FSxWindowsFileServerAuthorizationConfigTypeDef",
+    "FSxWindowsFileServerVolumeConfigurationTypeDef",
     "FailureTypeDef",
     "FirelensConfigurationTypeDef",
     "HealthCheckTypeDef",
@@ -444,6 +445,19 @@ class EFSVolumeConfigurationTypeDef(
 
 
 EnvironmentFileTypeDef = TypedDict("EnvironmentFileTypeDef", {"value": str, "type": Literal["s3"]})
+
+FSxWindowsFileServerAuthorizationConfigTypeDef = TypedDict(
+    "FSxWindowsFileServerAuthorizationConfigTypeDef", {"credentialsParameter": str, "domain": str}
+)
+
+FSxWindowsFileServerVolumeConfigurationTypeDef = TypedDict(
+    "FSxWindowsFileServerVolumeConfigurationTypeDef",
+    {
+        "fileSystemId": str,
+        "rootDirectory": str,
+        "authorizationConfig": "FSxWindowsFileServerAuthorizationConfigTypeDef",
+    },
+)
 
 FailureTypeDef = TypedDict(
     "FailureTypeDef", {"arn": str, "reason": str, "detail": str}, total=False
@@ -857,6 +871,7 @@ VolumeTypeDef = TypedDict(
         "host": "HostVolumePropertiesTypeDef",
         "dockerVolumeConfiguration": "DockerVolumeConfigurationTypeDef",
         "efsVolumeConfiguration": "EFSVolumeConfigurationTypeDef",
+        "fsxWindowsFileServerVolumeConfiguration": "FSxWindowsFileServerVolumeConfigurationTypeDef",
     },
     total=False,
 )

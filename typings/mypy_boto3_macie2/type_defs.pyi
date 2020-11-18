@@ -17,7 +17,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -42,6 +41,7 @@ __all__ = (
     "BucketPermissionConfigurationTypeDef",
     "BucketPolicyTypeDef",
     "BucketPublicAccessTypeDef",
+    "CellTypeDef",
     "ClassificationDetailsTypeDef",
     "ClassificationExportConfigurationTypeDef",
     "ClassificationResultStatusTypeDef",
@@ -71,11 +71,17 @@ __all__ = (
     "JobScopingBlockTypeDef",
     "JobSummaryTypeDef",
     "KeyValuePairTypeDef",
+    "LastRunErrorStatusTypeDef",
     "ListJobsFilterTermTypeDef",
     "MemberTypeDef",
     "MonthlyScheduleTypeDef",
     "ObjectCountByEncryptionTypeTypeDef",
+    "ObjectLevelStatisticsTypeDef",
+    "OccurrencesTypeDef",
+    "PageTypeDef",
     "PolicyDetailsTypeDef",
+    "RangeTypeDef",
+    "RecordTypeDef",
     "ReplicationDetailsTypeDef",
     "ResourcesAffectedTypeDef",
     "S3BucketDefinitionForJobTypeDef",
@@ -102,6 +108,7 @@ __all__ = (
     "UsageTotalTypeDef",
     "UserIdentityRootTypeDef",
     "UserIdentityTypeDef",
+    "UserPausedDetailsTypeDef",
     "WeeklyScheduleTypeDef",
     "AccountDetailTypeDef",
     "BatchGetCustomDataIdentifiersResponseTypeDef",
@@ -215,7 +222,7 @@ BlockPublicAccessTypeDef = TypedDict(
 
 BucketCountByEffectivePermissionTypeDef = TypedDict(
     "BucketCountByEffectivePermissionTypeDef",
-    {"publiclyAccessible": int, "publiclyReadable": int, "publiclyWritable": int},
+    {"publiclyAccessible": int, "publiclyReadable": int, "publiclyWritable": int, "unknown": int},
     total=False,
 )
 
@@ -227,7 +234,7 @@ BucketCountByEncryptionTypeTypeDef = TypedDict(
 
 BucketCountBySharedAccessTypeTypeDef = TypedDict(
     "BucketCountBySharedAccessTypeTypeDef",
-    {"external": int, "internal": int, "notShared": int},
+    {"external": int, "internal": int, "notShared": int, "unknown": int},
     total=False,
 )
 
@@ -249,16 +256,19 @@ BucketMetadataTypeDef = TypedDict(
         "bucketCreatedAt": datetime,
         "bucketName": str,
         "classifiableObjectCount": int,
+        "classifiableSizeInBytes": int,
         "lastUpdated": datetime,
         "objectCount": int,
         "objectCountByEncryptionType": "ObjectCountByEncryptionTypeTypeDef",
         "publicAccess": "BucketPublicAccessTypeDef",
         "region": str,
         "replicationDetails": "ReplicationDetailsTypeDef",
-        "sharedAccess": Literal["EXTERNAL", "INTERNAL", "NOT_SHARED"],
+        "sharedAccess": Literal["EXTERNAL", "INTERNAL", "NOT_SHARED", "UNKNOWN"],
         "sizeInBytes": int,
         "sizeInBytesCompressed": int,
         "tags": List["KeyValuePairTypeDef"],
+        "unclassifiableObjectCount": "ObjectLevelStatisticsTypeDef",
+        "unclassifiableObjectSizeInBytes": "ObjectLevelStatisticsTypeDef",
         "versioning": bool,
     },
     total=False,
@@ -282,10 +292,14 @@ BucketPolicyTypeDef = TypedDict(
 BucketPublicAccessTypeDef = TypedDict(
     "BucketPublicAccessTypeDef",
     {
-        "effectivePermission": Literal["PUBLIC", "NOT_PUBLIC"],
+        "effectivePermission": Literal["PUBLIC", "NOT_PUBLIC", "UNKNOWN"],
         "permissionConfiguration": "BucketPermissionConfigurationTypeDef",
     },
     total=False,
+)
+
+CellTypeDef = TypedDict(
+    "CellTypeDef", {"cellReference": str, "column": int, "columnName": str, "row": int}, total=False
 )
 
 ClassificationDetailsTypeDef = TypedDict(
@@ -312,6 +326,7 @@ ClassificationResultStatusTypeDef = TypedDict(
 ClassificationResultTypeDef = TypedDict(
     "ClassificationResultTypeDef",
     {
+        "additionalOccurrences": bool,
         "customDataIdentifiers": "CustomDataIdentifiersTypeDef",
         "mimeType": str,
         "sensitiveData": List["SensitiveDataItemTypeDef"],
@@ -323,7 +338,15 @@ ClassificationResultTypeDef = TypedDict(
 
 CriterionAdditionalPropertiesTypeDef = TypedDict(
     "CriterionAdditionalPropertiesTypeDef",
-    {"eq": List[str], "gt": int, "gte": int, "lt": int, "lte": int, "neq": List[str]},
+    {
+        "eq": List[str],
+        "eqExactMatch": List[str],
+        "gt": int,
+        "gte": int,
+        "lt": int,
+        "lte": int,
+        "neq": List[str],
+    },
     total=False,
 )
 
@@ -340,11 +363,15 @@ CustomDataIdentifiersTypeDef = TypedDict(
 )
 
 CustomDetectionTypeDef = TypedDict(
-    "CustomDetectionTypeDef", {"arn": str, "count": int, "name": str}, total=False
+    "CustomDetectionTypeDef",
+    {"arn": str, "count": int, "name": str, "occurrences": "OccurrencesTypeDef"},
+    total=False,
 )
 
 DefaultDetectionTypeDef = TypedDict(
-    "DefaultDetectionTypeDef", {"count": int, "type": str}, total=False
+    "DefaultDetectionTypeDef",
+    {"count": int, "occurrences": "OccurrencesTypeDef", "type": str},
+    total=False,
 )
 
 DomainDetailsTypeDef = TypedDict("DomainDetailsTypeDef", {"domainName": str}, total=False)
@@ -509,14 +536,20 @@ JobSummaryTypeDef = TypedDict(
         "bucketDefinitions": List["S3BucketDefinitionForJobTypeDef"],
         "createdAt": datetime,
         "jobId": str,
-        "jobStatus": Literal["RUNNING", "PAUSED", "CANCELLED", "COMPLETE", "IDLE"],
+        "jobStatus": Literal["RUNNING", "PAUSED", "CANCELLED", "COMPLETE", "IDLE", "USER_PAUSED"],
         "jobType": Literal["ONE_TIME", "SCHEDULED"],
+        "lastRunErrorStatus": "LastRunErrorStatusTypeDef",
         "name": str,
+        "userPausedDetails": "UserPausedDetailsTypeDef",
     },
     total=False,
 )
 
 KeyValuePairTypeDef = TypedDict("KeyValuePairTypeDef", {"key": str, "value": str}, total=False)
+
+LastRunErrorStatusTypeDef = TypedDict(
+    "LastRunErrorStatusTypeDef", {"code": Literal["NONE", "ERROR"]}, total=False
+)
 
 ListJobsFilterTermTypeDef = TypedDict(
     "ListJobsFilterTermTypeDef",
@@ -562,11 +595,41 @@ ObjectCountByEncryptionTypeTypeDef = TypedDict(
     total=False,
 )
 
+ObjectLevelStatisticsTypeDef = TypedDict(
+    "ObjectLevelStatisticsTypeDef",
+    {"fileType": int, "storageClass": int, "total": int},
+    total=False,
+)
+
+OccurrencesTypeDef = TypedDict(
+    "OccurrencesTypeDef",
+    {
+        "cells": List["CellTypeDef"],
+        "lineRanges": List["RangeTypeDef"],
+        "offsetRanges": List["RangeTypeDef"],
+        "pages": List["PageTypeDef"],
+        "records": List["RecordTypeDef"],
+    },
+    total=False,
+)
+
+PageTypeDef = TypedDict(
+    "PageTypeDef",
+    {"lineRange": "RangeTypeDef", "offsetRange": "RangeTypeDef", "pageNumber": int},
+    total=False,
+)
+
 PolicyDetailsTypeDef = TypedDict(
     "PolicyDetailsTypeDef",
     {"action": "FindingActionTypeDef", "actor": "FindingActorTypeDef"},
     total=False,
 )
+
+RangeTypeDef = TypedDict(
+    "RangeTypeDef", {"end": int, "start": int, "startColumn": int}, total=False
+)
+
+RecordTypeDef = TypedDict("RecordTypeDef", {"jsonPath": str, "recordIndex": int}, total=False)
 
 ReplicationDetailsTypeDef = TypedDict(
     "ReplicationDetailsTypeDef",
@@ -787,6 +850,12 @@ UserIdentityTypeDef = TypedDict(
     total=False,
 )
 
+UserPausedDetailsTypeDef = TypedDict(
+    "UserPausedDetailsTypeDef",
+    {"jobExpiresAt": datetime, "jobImminentExpirationHealthEventArn": str, "jobPausedAt": datetime},
+    total=False,
+)
+
 WeeklyScheduleTypeDef = TypedDict(
     "WeeklyScheduleTypeDef",
     {
@@ -876,8 +945,9 @@ DescribeClassificationJobResponseTypeDef = TypedDict(
         "initialRun": bool,
         "jobArn": str,
         "jobId": str,
-        "jobStatus": Literal["RUNNING", "PAUSED", "CANCELLED", "COMPLETE", "IDLE"],
+        "jobStatus": Literal["RUNNING", "PAUSED", "CANCELLED", "COMPLETE", "IDLE", "USER_PAUSED"],
         "jobType": Literal["ONE_TIME", "SCHEDULED"],
+        "lastRunErrorStatus": "LastRunErrorStatusTypeDef",
         "lastRunTime": datetime,
         "name": str,
         "s3JobDefinition": "S3JobDefinitionTypeDef",
@@ -885,6 +955,7 @@ DescribeClassificationJobResponseTypeDef = TypedDict(
         "scheduleFrequency": "JobScheduleFrequencyTypeDef",
         "statistics": "StatisticsTypeDef",
         "tags": Dict[str, str],
+        "userPausedDetails": "UserPausedDetailsTypeDef",
     },
     total=False,
 )
@@ -909,10 +980,13 @@ GetBucketStatisticsResponseTypeDef = TypedDict(
         "bucketCountByEncryptionType": "BucketCountByEncryptionTypeTypeDef",
         "bucketCountBySharedAccessType": "BucketCountBySharedAccessTypeTypeDef",
         "classifiableObjectCount": int,
+        "classifiableSizeInBytes": int,
         "lastUpdated": datetime,
         "objectCount": int,
         "sizeInBytes": int,
         "sizeInBytesCompressed": int,
+        "unclassifiableObjectCount": "ObjectLevelStatisticsTypeDef",
+        "unclassifiableObjectSizeInBytes": "ObjectLevelStatisticsTypeDef",
     },
     total=False,
 )

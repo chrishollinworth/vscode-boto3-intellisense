@@ -10,7 +10,7 @@ Usage::
     ```
 """
 import sys
-from typing import List
+from typing import Any, Dict, List
 
 if sys.version_info >= (3, 8):
     from typing import TypedDict
@@ -21,6 +21,7 @@ else:
 __all__ = (
     "InstanceTypeItemTypeDef",
     "OutpostTypeDef",
+    "ResponseMetadata",
     "SiteTypeDef",
     "CreateOutpostOutputTypeDef",
     "GetOutpostInstanceTypesOutputTypeDef",
@@ -47,12 +48,25 @@ OutpostTypeDef = TypedDict(
     total=False,
 )
 
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
+
 SiteTypeDef = TypedDict(
     "SiteTypeDef", {"SiteId": str, "AccountId": str, "Name": str, "Description": str}, total=False
 )
 
 CreateOutpostOutputTypeDef = TypedDict(
-    "CreateOutpostOutputTypeDef", {"Outpost": "OutpostTypeDef"}, total=False
+    "CreateOutpostOutputTypeDef",
+    {"Outpost": "OutpostTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 GetOutpostInstanceTypesOutputTypeDef = TypedDict(
@@ -62,18 +76,25 @@ GetOutpostInstanceTypesOutputTypeDef = TypedDict(
         "NextToken": str,
         "OutpostId": str,
         "OutpostArn": str,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
 GetOutpostOutputTypeDef = TypedDict(
-    "GetOutpostOutputTypeDef", {"Outpost": "OutpostTypeDef"}, total=False
+    "GetOutpostOutputTypeDef",
+    {"Outpost": "OutpostTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ListOutpostsOutputTypeDef = TypedDict(
-    "ListOutpostsOutputTypeDef", {"Outposts": List["OutpostTypeDef"], "NextToken": str}, total=False
+    "ListOutpostsOutputTypeDef",
+    {"Outposts": List["OutpostTypeDef"], "NextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ListSitesOutputTypeDef = TypedDict(
-    "ListSitesOutputTypeDef", {"Sites": List["SiteTypeDef"], "NextToken": str}, total=False
+    "ListSitesOutputTypeDef",
+    {"Sites": List["SiteTypeDef"], "NextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )

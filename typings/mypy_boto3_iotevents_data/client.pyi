@@ -1,4 +1,4 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import
+# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for iotevents-data service client
 
@@ -13,7 +13,7 @@ Usage::
 """
 from typing import Any, Dict, List, Type
 
-from botocore.exceptions import ClientError as Boto3ClientError
+from botocore.client import ClientMeta
 
 from mypy_boto3_iotevents_data.type_defs import (
     BatchPutMessageResponseTypeDef,
@@ -27,44 +27,53 @@ from mypy_boto3_iotevents_data.type_defs import (
 __all__ = ("IoTEventsDataClient",)
 
 
+class BotocoreClientError(BaseException):
+    MSG_TEMPLATE: str
+
+    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
+        self.response: Dict[str, Any]
+        self.operation_name: str
+
+
 class Exceptions:
-    ClientError: Type[Boto3ClientError]
-    InternalFailureException: Type[Boto3ClientError]
-    InvalidRequestException: Type[Boto3ClientError]
-    ResourceNotFoundException: Type[Boto3ClientError]
-    ServiceUnavailableException: Type[Boto3ClientError]
-    ThrottlingException: Type[Boto3ClientError]
+    ClientError: Type[BotocoreClientError]
+    InternalFailureException: Type[BotocoreClientError]
+    InvalidRequestException: Type[BotocoreClientError]
+    ResourceNotFoundException: Type[BotocoreClientError]
+    ServiceUnavailableException: Type[BotocoreClientError]
+    ThrottlingException: Type[BotocoreClientError]
 
 
 class IoTEventsDataClient:
     """
-    [IoTEventsData.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iotevents-data.html#IoTEventsData.Client)
+    [IoTEventsData.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotevents-data.html#IoTEventsData.Client)
     """
 
+    meta: ClientMeta
     exceptions: Exceptions
 
     def batch_put_message(self, messages: List[MessageTypeDef]) -> BatchPutMessageResponseTypeDef:
         """
-        [Client.batch_put_message documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iotevents-data.html#IoTEventsData.Client.batch_put_message)
+        [Client.batch_put_message documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotevents-data.html#IoTEventsData.Client.batch_put_message)
         """
 
     def batch_update_detector(
         self, detectors: List[UpdateDetectorRequestTypeDef]
     ) -> BatchUpdateDetectorResponseTypeDef:
         """
-        [Client.batch_update_detector documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iotevents-data.html#IoTEventsData.Client.batch_update_detector)
+        [Client.batch_update_detector documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotevents-data.html#IoTEventsData.Client.batch_update_detector)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iotevents-data.html#IoTEventsData.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotevents-data.html#IoTEventsData.Client.can_paginate)
         """
 
     def describe_detector(
         self, detectorModelName: str, keyValue: str = None
     ) -> DescribeDetectorResponseTypeDef:
         """
-        [Client.describe_detector documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iotevents-data.html#IoTEventsData.Client.describe_detector)
+        [Client.describe_detector documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotevents-data.html#IoTEventsData.Client.describe_detector)
         """
 
     def generate_presigned_url(
@@ -75,7 +84,7 @@ class IoTEventsDataClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iotevents-data.html#IoTEventsData.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotevents-data.html#IoTEventsData.Client.generate_presigned_url)
         """
 
     def list_detectors(
@@ -86,5 +95,5 @@ class IoTEventsDataClient:
         maxResults: int = None,
     ) -> ListDetectorsResponseTypeDef:
         """
-        [Client.list_detectors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iotevents-data.html#IoTEventsData.Client.list_detectors)
+        [Client.list_detectors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotevents-data.html#IoTEventsData.Client.list_detectors)
         """

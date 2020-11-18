@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import List
+from typing import IO, Any, Dict, List, Union
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -37,9 +36,11 @@ __all__ = (
     "ComparedFaceTypeDef",
     "ComparedSourceImageFaceTypeDef",
     "ContentModerationDetectionTypeDef",
+    "CoversBodyPartTypeDef",
     "CustomLabelTypeDef",
     "DetectionFilterTypeDef",
     "EmotionTypeDef",
+    "EquipmentDetectionTypeDef",
     "EvaluationResultTypeDef",
     "EyeOpenTypeDef",
     "EyeglassesTypeDef",
@@ -73,7 +74,11 @@ __all__ = (
     "PoseTypeDef",
     "ProjectDescriptionTypeDef",
     "ProjectVersionDescriptionTypeDef",
+    "ProtectiveEquipmentBodyPartTypeDef",
+    "ProtectiveEquipmentPersonTypeDef",
+    "ProtectiveEquipmentSummaryTypeDef",
     "RegionOfInterestTypeDef",
+    "ResponseMetadata",
     "S3ObjectTypeDef",
     "SegmentDetectionTypeDef",
     "SegmentTypeInfoTypeDef",
@@ -95,6 +100,7 @@ __all__ = (
     "TrainingDataResultTypeDef",
     "TrainingDataTypeDef",
     "UnindexedFaceTypeDef",
+    "ValidationDataTypeDef",
     "VideoMetadataTypeDef",
     "CompareFacesResponseTypeDef",
     "CreateCollectionResponseTypeDef",
@@ -113,6 +119,7 @@ __all__ = (
     "DetectFacesResponseTypeDef",
     "DetectLabelsResponseTypeDef",
     "DetectModerationLabelsResponseTypeDef",
+    "DetectProtectiveEquipmentResponseTypeDef",
     "DetectTextFiltersTypeDef",
     "DetectTextResponseTypeDef",
     "GetCelebrityInfoResponseTypeDef",
@@ -132,6 +139,7 @@ __all__ = (
     "ListStreamProcessorsResponseTypeDef",
     "NotificationChannelTypeDef",
     "PaginatorConfigTypeDef",
+    "ProtectiveEquipmentSummarizationAttributesTypeDef",
     "RecognizeCelebritiesResponseTypeDef",
     "SearchFacesByImageResponseTypeDef",
     "SearchFacesResponseTypeDef",
@@ -230,6 +238,10 @@ ContentModerationDetectionTypeDef = TypedDict(
     total=False,
 )
 
+CoversBodyPartTypeDef = TypedDict(
+    "CoversBodyPartTypeDef", {"Confidence": float, "Value": bool}, total=False
+)
+
 CustomLabelTypeDef = TypedDict(
     "CustomLabelTypeDef",
     {"Name": str, "Confidence": float, "Geometry": "GeometryTypeDef"},
@@ -249,6 +261,17 @@ EmotionTypeDef = TypedDict(
             "HAPPY", "SAD", "ANGRY", "CONFUSED", "DISGUSTED", "SURPRISED", "CALM", "UNKNOWN", "FEAR"
         ],
         "Confidence": float,
+    },
+    total=False,
+)
+
+EquipmentDetectionTypeDef = TypedDict(
+    "EquipmentDetectionTypeDef",
+    {
+        "BoundingBox": "BoundingBoxTypeDef",
+        "Confidence": float,
+        "Type": Literal["FACE_COVER", "HAND_COVER", "HEAD_COVER"],
+        "CoversBodyPart": "CoversBodyPartTypeDef",
     },
     total=False,
 )
@@ -333,6 +356,7 @@ HumanLoopActivationOutputTypeDef = TypedDict(
         "HumanLoopArn": str,
         "HumanLoopActivationReasons": List[str],
         "HumanLoopActivationConditionsEvaluationResults": str,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -483,12 +507,55 @@ ProjectVersionDescriptionTypeDef = TypedDict(
         "TrainingDataResult": "TrainingDataResultTypeDef",
         "TestingDataResult": "TestingDataResultTypeDef",
         "EvaluationResult": "EvaluationResultTypeDef",
+        "ManifestSummary": "GroundTruthManifestTypeDef",
+    },
+    total=False,
+)
+
+ProtectiveEquipmentBodyPartTypeDef = TypedDict(
+    "ProtectiveEquipmentBodyPartTypeDef",
+    {
+        "Name": Literal["FACE", "HEAD", "LEFT_HAND", "RIGHT_HAND"],
+        "Confidence": float,
+        "EquipmentDetections": List["EquipmentDetectionTypeDef"],
+    },
+    total=False,
+)
+
+ProtectiveEquipmentPersonTypeDef = TypedDict(
+    "ProtectiveEquipmentPersonTypeDef",
+    {
+        "BodyParts": List["ProtectiveEquipmentBodyPartTypeDef"],
+        "BoundingBox": "BoundingBoxTypeDef",
+        "Confidence": float,
+        "Id": int,
+    },
+    total=False,
+)
+
+ProtectiveEquipmentSummaryTypeDef = TypedDict(
+    "ProtectiveEquipmentSummaryTypeDef",
+    {
+        "PersonsWithRequiredEquipment": List[int],
+        "PersonsWithoutRequiredEquipment": List[int],
+        "PersonsIndeterminate": List[int],
     },
     total=False,
 )
 
 RegionOfInterestTypeDef = TypedDict(
     "RegionOfInterestTypeDef", {"BoundingBox": "BoundingBoxTypeDef"}, total=False
+)
+
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
 )
 
 S3ObjectTypeDef = TypedDict(
@@ -536,7 +603,9 @@ StreamProcessorInputTypeDef = TypedDict(
 )
 
 StreamProcessorOutputTypeDef = TypedDict(
-    "StreamProcessorOutputTypeDef", {"KinesisDataStream": "KinesisDataStreamTypeDef"}, total=False
+    "StreamProcessorOutputTypeDef",
+    {"KinesisDataStream": "KinesisDataStreamTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 StreamProcessorSettingsTypeDef = TypedDict(
@@ -563,7 +632,11 @@ TechnicalCueSegmentTypeDef = TypedDict(
 
 TestingDataResultTypeDef = TypedDict(
     "TestingDataResultTypeDef",
-    {"Input": "TestingDataTypeDef", "Output": "TestingDataTypeDef"},
+    {
+        "Input": "TestingDataTypeDef",
+        "Output": "TestingDataTypeDef",
+        "Validation": "ValidationDataTypeDef",
+    },
     total=False,
 )
 
@@ -592,7 +665,11 @@ TextDetectionTypeDef = TypedDict(
 
 TrainingDataResultTypeDef = TypedDict(
     "TrainingDataResultTypeDef",
-    {"Input": "TrainingDataTypeDef", "Output": "TrainingDataTypeDef"},
+    {
+        "Input": "TrainingDataTypeDef",
+        "Output": "TrainingDataTypeDef",
+        "Validation": "ValidationDataTypeDef",
+    },
     total=False,
 )
 
@@ -617,6 +694,10 @@ UnindexedFaceTypeDef = TypedDict(
         "FaceDetail": "FaceDetailTypeDef",
     },
     total=False,
+)
+
+ValidationDataTypeDef = TypedDict(
+    "ValidationDataTypeDef", {"Assets": List["AssetTypeDef"]}, total=False
 )
 
 VideoMetadataTypeDef = TypedDict(
@@ -771,6 +852,16 @@ DetectModerationLabelsResponseTypeDef = TypedDict(
     total=False,
 )
 
+DetectProtectiveEquipmentResponseTypeDef = TypedDict(
+    "DetectProtectiveEquipmentResponseTypeDef",
+    {
+        "ProtectiveEquipmentModelVersion": str,
+        "Persons": List["ProtectiveEquipmentPersonTypeDef"],
+        "Summary": "ProtectiveEquipmentSummaryTypeDef",
+    },
+    total=False,
+)
+
 DetectTextFiltersTypeDef = TypedDict(
     "DetectTextFiltersTypeDef",
     {"WordFilter": "DetectionFilterTypeDef", "RegionsOfInterest": List["RegionOfInterestTypeDef"]},
@@ -903,7 +994,7 @@ class HumanLoopConfigTypeDef(_RequiredHumanLoopConfigTypeDef, _OptionalHumanLoop
 
 
 ImageTypeDef = TypedDict(
-    "ImageTypeDef", {"Bytes": bytes, "S3Object": "S3ObjectTypeDef"}, total=False
+    "ImageTypeDef", {"Bytes": Union[bytes, IO[bytes]], "S3Object": "S3ObjectTypeDef"}, total=False
 )
 
 IndexFacesResponseTypeDef = TypedDict(
@@ -941,6 +1032,14 @@ NotificationChannelTypeDef = TypedDict(
 
 PaginatorConfigTypeDef = TypedDict(
     "PaginatorConfigTypeDef", {"MaxItems": int, "PageSize": int, "StartingToken": str}, total=False
+)
+
+ProtectiveEquipmentSummarizationAttributesTypeDef = TypedDict(
+    "ProtectiveEquipmentSummarizationAttributesTypeDef",
+    {
+        "MinConfidence": float,
+        "RequiredEquipmentTypes": List[Literal["FACE_COVER", "HAND_COVER", "HEAD_COVER"]],
+    },
 )
 
 RecognizeCelebritiesResponseTypeDef = TypedDict(

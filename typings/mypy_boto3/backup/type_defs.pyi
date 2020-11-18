@@ -1,4 +1,5 @@
 from mypy_boto3_backup.type_defs import (
+    AdvancedBackupSettingTypeDef,
     BackupJobTypeDef,
     BackupPlanTemplatesListMemberTypeDef,
     BackupPlanTypeDef,
@@ -17,6 +18,7 @@ from mypy_boto3_backup.type_defs import (
     RecoveryPointByBackupVaultTypeDef,
     RecoveryPointByResourceTypeDef,
     RecoveryPointCreatorTypeDef,
+    ResponseMetadata,
     RestoreJobsListMemberTypeDef,
     BackupPlanInputTypeDef,
     CreateBackupPlanOutputTypeDef,
@@ -59,6 +61,7 @@ from mypy_boto3_backup.type_defs import (
 )
 
 __all__ = (
+    "AdvancedBackupSettingTypeDef",
     "BackupJobTypeDef",
     "BackupPlanTemplatesListMemberTypeDef",
     "BackupPlanTypeDef",
@@ -77,6 +80,7 @@ __all__ = (
     "RecoveryPointByBackupVaultTypeDef",
     "RecoveryPointByResourceTypeDef",
     "RecoveryPointCreatorTypeDef",
+    "ResponseMetadata",
     "RestoreJobsListMemberTypeDef",
     "BackupPlanInputTypeDef",
     "CreateBackupPlanOutputTypeDef",

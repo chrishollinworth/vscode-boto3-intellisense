@@ -17,7 +17,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -43,9 +42,19 @@ ConnectionStateTypeDef = TypedDict(
     total=False,
 )
 
-DestinationConfigTypeDef = TypedDict(
-    "DestinationConfigTypeDef", {"thingName": str, "services": List[str]}
+_RequiredDestinationConfigTypeDef = TypedDict(
+    "_RequiredDestinationConfigTypeDef", {"services": List[str]}
 )
+_OptionalDestinationConfigTypeDef = TypedDict(
+    "_OptionalDestinationConfigTypeDef", {"thingName": str}, total=False
+)
+
+
+class DestinationConfigTypeDef(
+    _RequiredDestinationConfigTypeDef, _OptionalDestinationConfigTypeDef
+):
+    pass
+
 
 TagTypeDef = TypedDict("TagTypeDef", {"key": str, "value": str})
 

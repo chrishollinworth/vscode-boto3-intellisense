@@ -41,7 +41,7 @@ __all__ = ("ListAccountsPaginator", "ListUsersPaginator")
 
 class ListAccountsPaginator(Boto3Paginator):
     """
-    [Paginator.ListAccounts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/chime.html#Chime.Paginator.ListAccounts)
+    [Paginator.ListAccounts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/chime.html#Chime.Paginator.ListAccounts)
     """
 
     def paginate(
@@ -51,13 +51,13 @@ class ListAccountsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListAccountsResponseTypeDef]:
         """
-        [ListAccounts.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/chime.html#Chime.Paginator.ListAccounts.paginate)
+        [ListAccounts.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/chime.html#Chime.Paginator.ListAccounts.paginate)
         """
 
 
 class ListUsersPaginator(Boto3Paginator):
     """
-    [Paginator.ListUsers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/chime.html#Chime.Paginator.ListUsers)
+    [Paginator.ListUsers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/chime.html#Chime.Paginator.ListUsers)
     """
 
     def paginate(
@@ -68,5 +68,5 @@ class ListUsersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListUsersResponseTypeDef]:
         """
-        [ListUsers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/chime.html#Chime.Paginator.ListUsers.paginate)
+        [ListUsers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/chime.html#Chime.Paginator.ListUsers.paginate)
         """

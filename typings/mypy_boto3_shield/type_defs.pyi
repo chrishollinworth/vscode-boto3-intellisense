@@ -17,7 +17,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -27,28 +26,41 @@ else:
 __all__ = (
     "AttackDetailTypeDef",
     "AttackPropertyTypeDef",
+    "AttackStatisticsDataItemTypeDef",
     "AttackSummaryTypeDef",
     "AttackVectorDescriptionTypeDef",
+    "AttackVolumeStatisticsTypeDef",
+    "AttackVolumeTypeDef",
     "ContributorTypeDef",
     "EmergencyContactTypeDef",
     "LimitTypeDef",
     "MitigationTypeDef",
+    "ProtectionGroupArbitraryPatternLimitsTypeDef",
+    "ProtectionGroupLimitsTypeDef",
+    "ProtectionGroupPatternTypeLimitsTypeDef",
+    "ProtectionGroupTypeDef",
+    "ProtectionLimitsTypeDef",
     "ProtectionTypeDef",
     "SubResourceSummaryTypeDef",
+    "SubscriptionLimitsTypeDef",
     "SubscriptionTypeDef",
     "SummarizedAttackVectorTypeDef",
     "SummarizedCounterTypeDef",
+    "TimeRangeTypeDef",
     "CreateProtectionResponseTypeDef",
     "DescribeAttackResponseTypeDef",
+    "DescribeAttackStatisticsResponseTypeDef",
     "DescribeDRTAccessResponseTypeDef",
     "DescribeEmergencyContactSettingsResponseTypeDef",
+    "DescribeProtectionGroupResponseTypeDef",
     "DescribeProtectionResponseTypeDef",
     "DescribeSubscriptionResponseTypeDef",
     "GetSubscriptionStateResponseTypeDef",
     "ListAttacksResponseTypeDef",
+    "ListProtectionGroupsResponseTypeDef",
     "ListProtectionsResponseTypeDef",
+    "ListResourcesInProtectionGroupResponseTypeDef",
     "PaginatorConfigTypeDef",
-    "TimeRangeTypeDef",
 )
 
 AttackDetailTypeDef = TypedDict(
@@ -87,6 +99,20 @@ AttackPropertyTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredAttackStatisticsDataItemTypeDef = TypedDict(
+    "_RequiredAttackStatisticsDataItemTypeDef", {"AttackCount": int}
+)
+_OptionalAttackStatisticsDataItemTypeDef = TypedDict(
+    "_OptionalAttackStatisticsDataItemTypeDef", {"AttackVolume": "AttackVolumeTypeDef"}, total=False
+)
+
+
+class AttackStatisticsDataItemTypeDef(
+    _RequiredAttackStatisticsDataItemTypeDef, _OptionalAttackStatisticsDataItemTypeDef
+):
+    pass
+
+
 AttackSummaryTypeDef = TypedDict(
     "AttackSummaryTypeDef",
     {
@@ -100,6 +126,18 @@ AttackSummaryTypeDef = TypedDict(
 )
 
 AttackVectorDescriptionTypeDef = TypedDict("AttackVectorDescriptionTypeDef", {"VectorType": str})
+
+AttackVolumeStatisticsTypeDef = TypedDict("AttackVolumeStatisticsTypeDef", {"Max": float})
+
+AttackVolumeTypeDef = TypedDict(
+    "AttackVolumeTypeDef",
+    {
+        "BitsPerSecond": "AttackVolumeStatisticsTypeDef",
+        "PacketsPerSecond": "AttackVolumeStatisticsTypeDef",
+        "RequestsPerSecond": "AttackVolumeStatisticsTypeDef",
+    },
+    total=False,
+)
 
 ContributorTypeDef = TypedDict("ContributorTypeDef", {"Name": str, "Value": int}, total=False)
 
@@ -119,6 +157,53 @@ LimitTypeDef = TypedDict("LimitTypeDef", {"Type": str, "Max": int}, total=False)
 
 MitigationTypeDef = TypedDict("MitigationTypeDef", {"MitigationName": str}, total=False)
 
+ProtectionGroupArbitraryPatternLimitsTypeDef = TypedDict(
+    "ProtectionGroupArbitraryPatternLimitsTypeDef", {"MaxMembers": int}
+)
+
+ProtectionGroupLimitsTypeDef = TypedDict(
+    "ProtectionGroupLimitsTypeDef",
+    {"MaxProtectionGroups": int, "PatternTypeLimits": "ProtectionGroupPatternTypeLimitsTypeDef"},
+)
+
+ProtectionGroupPatternTypeLimitsTypeDef = TypedDict(
+    "ProtectionGroupPatternTypeLimitsTypeDef",
+    {"ArbitraryPatternLimits": "ProtectionGroupArbitraryPatternLimitsTypeDef"},
+)
+
+_RequiredProtectionGroupTypeDef = TypedDict(
+    "_RequiredProtectionGroupTypeDef",
+    {
+        "ProtectionGroupId": str,
+        "Aggregation": Literal["SUM", "MEAN", "MAX"],
+        "Pattern": Literal["ALL", "ARBITRARY", "BY_RESOURCE_TYPE"],
+        "Members": List[str],
+    },
+)
+_OptionalProtectionGroupTypeDef = TypedDict(
+    "_OptionalProtectionGroupTypeDef",
+    {
+        "ResourceType": Literal[
+            "CLOUDFRONT_DISTRIBUTION",
+            "ROUTE_53_HOSTED_ZONE",
+            "ELASTIC_IP_ALLOCATION",
+            "CLASSIC_LOAD_BALANCER",
+            "APPLICATION_LOAD_BALANCER",
+            "GLOBAL_ACCELERATOR",
+        ]
+    },
+    total=False,
+)
+
+
+class ProtectionGroupTypeDef(_RequiredProtectionGroupTypeDef, _OptionalProtectionGroupTypeDef):
+    pass
+
+
+ProtectionLimitsTypeDef = TypedDict(
+    "ProtectionLimitsTypeDef", {"ProtectedResourceTypeLimits": List["LimitTypeDef"]}
+)
+
 ProtectionTypeDef = TypedDict(
     "ProtectionTypeDef",
     {"Id": str, "Name": str, "ResourceArn": str, "HealthCheckIds": List[str]},
@@ -136,8 +221,19 @@ SubResourceSummaryTypeDef = TypedDict(
     total=False,
 )
 
-SubscriptionTypeDef = TypedDict(
-    "SubscriptionTypeDef",
+SubscriptionLimitsTypeDef = TypedDict(
+    "SubscriptionLimitsTypeDef",
+    {
+        "ProtectionLimits": "ProtectionLimitsTypeDef",
+        "ProtectionGroupLimits": "ProtectionGroupLimitsTypeDef",
+    },
+)
+
+_RequiredSubscriptionTypeDef = TypedDict(
+    "_RequiredSubscriptionTypeDef", {"SubscriptionLimits": "SubscriptionLimitsTypeDef"}
+)
+_OptionalSubscriptionTypeDef = TypedDict(
+    "_OptionalSubscriptionTypeDef",
     {
         "StartTime": datetime,
         "EndTime": datetime,
@@ -148,6 +244,11 @@ SubscriptionTypeDef = TypedDict(
     },
     total=False,
 )
+
+
+class SubscriptionTypeDef(_RequiredSubscriptionTypeDef, _OptionalSubscriptionTypeDef):
+    pass
+
 
 _RequiredSummarizedAttackVectorTypeDef = TypedDict(
     "_RequiredSummarizedAttackVectorTypeDef", {"VectorType": str}
@@ -171,12 +272,21 @@ SummarizedCounterTypeDef = TypedDict(
     total=False,
 )
 
+TimeRangeTypeDef = TypedDict(
+    "TimeRangeTypeDef", {"FromInclusive": datetime, "ToExclusive": datetime}, total=False
+)
+
 CreateProtectionResponseTypeDef = TypedDict(
     "CreateProtectionResponseTypeDef", {"ProtectionId": str}, total=False
 )
 
 DescribeAttackResponseTypeDef = TypedDict(
     "DescribeAttackResponseTypeDef", {"Attack": "AttackDetailTypeDef"}, total=False
+)
+
+DescribeAttackStatisticsResponseTypeDef = TypedDict(
+    "DescribeAttackStatisticsResponseTypeDef",
+    {"TimeRange": "TimeRangeTypeDef", "DataItems": List["AttackStatisticsDataItemTypeDef"]},
 )
 
 DescribeDRTAccessResponseTypeDef = TypedDict(
@@ -187,6 +297,10 @@ DescribeEmergencyContactSettingsResponseTypeDef = TypedDict(
     "DescribeEmergencyContactSettingsResponseTypeDef",
     {"EmergencyContactList": List["EmergencyContactTypeDef"]},
     total=False,
+)
+
+DescribeProtectionGroupResponseTypeDef = TypedDict(
+    "DescribeProtectionGroupResponseTypeDef", {"ProtectionGroup": "ProtectionGroupTypeDef"}
 )
 
 DescribeProtectionResponseTypeDef = TypedDict(
@@ -207,16 +321,42 @@ ListAttacksResponseTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredListProtectionGroupsResponseTypeDef = TypedDict(
+    "_RequiredListProtectionGroupsResponseTypeDef",
+    {"ProtectionGroups": List["ProtectionGroupTypeDef"]},
+)
+_OptionalListProtectionGroupsResponseTypeDef = TypedDict(
+    "_OptionalListProtectionGroupsResponseTypeDef", {"NextToken": str}, total=False
+)
+
+
+class ListProtectionGroupsResponseTypeDef(
+    _RequiredListProtectionGroupsResponseTypeDef, _OptionalListProtectionGroupsResponseTypeDef
+):
+    pass
+
+
 ListProtectionsResponseTypeDef = TypedDict(
     "ListProtectionsResponseTypeDef",
     {"Protections": List["ProtectionTypeDef"], "NextToken": str},
     total=False,
 )
 
-PaginatorConfigTypeDef = TypedDict(
-    "PaginatorConfigTypeDef", {"MaxItems": int, "PageSize": int, "StartingToken": str}, total=False
+_RequiredListResourcesInProtectionGroupResponseTypeDef = TypedDict(
+    "_RequiredListResourcesInProtectionGroupResponseTypeDef", {"ResourceArns": List[str]}
+)
+_OptionalListResourcesInProtectionGroupResponseTypeDef = TypedDict(
+    "_OptionalListResourcesInProtectionGroupResponseTypeDef", {"NextToken": str}, total=False
 )
 
-TimeRangeTypeDef = TypedDict(
-    "TimeRangeTypeDef", {"FromInclusive": datetime, "ToExclusive": datetime}, total=False
+
+class ListResourcesInProtectionGroupResponseTypeDef(
+    _RequiredListResourcesInProtectionGroupResponseTypeDef,
+    _OptionalListResourcesInProtectionGroupResponseTypeDef,
+):
+    pass
+
+
+PaginatorConfigTypeDef = TypedDict(
+    "PaginatorConfigTypeDef", {"MaxItems": int, "PageSize": int, "StartingToken": str}, total=False
 )

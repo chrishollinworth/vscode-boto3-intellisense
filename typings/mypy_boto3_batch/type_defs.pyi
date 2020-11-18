@@ -16,7 +16,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -36,6 +35,7 @@ __all__ = (
     "ContainerPropertiesTypeDef",
     "ContainerSummaryTypeDef",
     "DeviceTypeDef",
+    "EvaluateOnExitTypeDef",
     "HostTypeDef",
     "JobDefinitionTypeDef",
     "JobDependencyTypeDef",
@@ -46,6 +46,7 @@ __all__ = (
     "KeyValuePairTypeDef",
     "LaunchTemplateSpecificationTypeDef",
     "LinuxParametersTypeDef",
+    "LogConfigurationTypeDef",
     "MountPointTypeDef",
     "NetworkInterfaceTypeDef",
     "NodeDetailsTypeDef",
@@ -55,6 +56,8 @@ __all__ = (
     "NodeRangePropertyTypeDef",
     "ResourceRequirementTypeDef",
     "RetryStrategyTypeDef",
+    "SecretTypeDef",
+    "TmpfsTypeDef",
     "UlimitTypeDef",
     "VolumeTypeDef",
     "ArrayPropertiesTypeDef",
@@ -66,6 +69,7 @@ __all__ = (
     "DescribeJobQueuesResponseTypeDef",
     "DescribeJobsResponseTypeDef",
     "ListJobsResponseTypeDef",
+    "ListTagsForResourceResponseTypeDef",
     "NodeOverridesTypeDef",
     "PaginatorConfigTypeDef",
     "RegisterJobDefinitionResponseTypeDef",
@@ -115,6 +119,7 @@ _RequiredComputeEnvironmentDetailTypeDef = TypedDict(
 _OptionalComputeEnvironmentDetailTypeDef = TypedDict(
     "_OptionalComputeEnvironmentDetailTypeDef",
     {
+        "tags": Dict[str, str],
         "type": Literal["MANAGED", "UNMANAGED"],
         "state": Literal["ENABLED", "DISABLED"],
         "status": Literal["CREATING", "UPDATING", "DELETING", "DELETED", "VALID", "INVALID"],
@@ -179,6 +184,7 @@ ContainerDetailTypeDef = TypedDict(
         "memory": int,
         "command": List[str],
         "jobRoleArn": str,
+        "executionRoleArn": str,
         "volumes": List["VolumeTypeDef"],
         "environment": List["KeyValuePairTypeDef"],
         "mountPoints": List["MountPointTypeDef"],
@@ -195,6 +201,8 @@ ContainerDetailTypeDef = TypedDict(
         "networkInterfaces": List["NetworkInterfaceTypeDef"],
         "resourceRequirements": List["ResourceRequirementTypeDef"],
         "linuxParameters": "LinuxParametersTypeDef",
+        "logConfiguration": "LogConfigurationTypeDef",
+        "secrets": List["SecretTypeDef"],
     },
     total=False,
 )
@@ -220,6 +228,7 @@ ContainerPropertiesTypeDef = TypedDict(
         "memory": int,
         "command": List[str],
         "jobRoleArn": str,
+        "executionRoleArn": str,
         "volumes": List["VolumeTypeDef"],
         "environment": List["KeyValuePairTypeDef"],
         "mountPoints": List["MountPointTypeDef"],
@@ -230,6 +239,8 @@ ContainerPropertiesTypeDef = TypedDict(
         "instanceType": str,
         "resourceRequirements": List["ResourceRequirementTypeDef"],
         "linuxParameters": "LinuxParametersTypeDef",
+        "logConfiguration": "LogConfigurationTypeDef",
+        "secrets": List["SecretTypeDef"],
     },
     total=False,
 )
@@ -250,6 +261,20 @@ class DeviceTypeDef(_RequiredDeviceTypeDef, _OptionalDeviceTypeDef):
     pass
 
 
+_RequiredEvaluateOnExitTypeDef = TypedDict(
+    "_RequiredEvaluateOnExitTypeDef", {"action": Literal["RETRY", "EXIT"]}
+)
+_OptionalEvaluateOnExitTypeDef = TypedDict(
+    "_OptionalEvaluateOnExitTypeDef",
+    {"onStatusReason": str, "onReason": str, "onExitCode": str},
+    total=False,
+)
+
+
+class EvaluateOnExitTypeDef(_RequiredEvaluateOnExitTypeDef, _OptionalEvaluateOnExitTypeDef):
+    pass
+
+
 HostTypeDef = TypedDict("HostTypeDef", {"sourcePath": str}, total=False)
 
 _RequiredJobDefinitionTypeDef = TypedDict(
@@ -265,6 +290,7 @@ _OptionalJobDefinitionTypeDef = TypedDict(
         "containerProperties": "ContainerPropertiesTypeDef",
         "timeout": "JobTimeoutTypeDef",
         "nodeProperties": "NodePropertiesTypeDef",
+        "tags": Dict[str, str],
     },
     total=False,
 )
@@ -294,6 +320,7 @@ _RequiredJobDetailTypeDef = TypedDict(
 _OptionalJobDetailTypeDef = TypedDict(
     "_OptionalJobDetailTypeDef",
     {
+        "jobArn": str,
         "attempts": List["AttemptDetailTypeDef"],
         "statusReason": str,
         "createdAt": int,
@@ -306,6 +333,7 @@ _OptionalJobDetailTypeDef = TypedDict(
         "nodeProperties": "NodePropertiesTypeDef",
         "arrayProperties": "ArrayPropertiesDetailTypeDef",
         "timeout": "JobTimeoutTypeDef",
+        "tags": Dict[str, str],
     },
     total=False,
 )
@@ -330,6 +358,7 @@ _OptionalJobQueueDetailTypeDef = TypedDict(
     {
         "status": Literal["CREATING", "UPDATING", "DELETING", "DELETED", "VALID", "INVALID"],
         "statusReason": str,
+        "tags": Dict[str, str],
     },
     total=False,
 )
@@ -343,6 +372,7 @@ _RequiredJobSummaryTypeDef = TypedDict("_RequiredJobSummaryTypeDef", {"jobId": s
 _OptionalJobSummaryTypeDef = TypedDict(
     "_OptionalJobSummaryTypeDef",
     {
+        "jobArn": str,
         "createdAt": int,
         "status": Literal[
             "SUBMITTED", "PENDING", "RUNNABLE", "STARTING", "RUNNING", "SUCCEEDED", "FAILED"
@@ -373,8 +403,36 @@ LaunchTemplateSpecificationTypeDef = TypedDict(
 )
 
 LinuxParametersTypeDef = TypedDict(
-    "LinuxParametersTypeDef", {"devices": List["DeviceTypeDef"]}, total=False
+    "LinuxParametersTypeDef",
+    {
+        "devices": List["DeviceTypeDef"],
+        "initProcessEnabled": bool,
+        "sharedMemorySize": int,
+        "tmpfs": List["TmpfsTypeDef"],
+        "maxSwap": int,
+        "swappiness": int,
+    },
+    total=False,
 )
+
+_RequiredLogConfigurationTypeDef = TypedDict(
+    "_RequiredLogConfigurationTypeDef",
+    {
+        "logDriver": Literal[
+            "json-file", "syslog", "journald", "gelf", "fluentd", "awslogs", "splunk"
+        ]
+    },
+)
+_OptionalLogConfigurationTypeDef = TypedDict(
+    "_OptionalLogConfigurationTypeDef",
+    {"options": Dict[str, str], "secretOptions": List["SecretTypeDef"]},
+    total=False,
+)
+
+
+class LogConfigurationTypeDef(_RequiredLogConfigurationTypeDef, _OptionalLogConfigurationTypeDef):
+    pass
+
 
 MountPointTypeDef = TypedDict(
     "MountPointTypeDef", {"containerPath": str, "readOnly": bool, "sourceVolume": str}, total=False
@@ -435,7 +493,21 @@ ResourceRequirementTypeDef = TypedDict(
     "ResourceRequirementTypeDef", {"value": str, "type": Literal["GPU"]}
 )
 
-RetryStrategyTypeDef = TypedDict("RetryStrategyTypeDef", {"attempts": int}, total=False)
+RetryStrategyTypeDef = TypedDict(
+    "RetryStrategyTypeDef",
+    {"attempts": int, "evaluateOnExit": List["EvaluateOnExitTypeDef"]},
+    total=False,
+)
+
+SecretTypeDef = TypedDict("SecretTypeDef", {"name": str, "valueFrom": str})
+
+_RequiredTmpfsTypeDef = TypedDict("_RequiredTmpfsTypeDef", {"containerPath": str, "size": int})
+_OptionalTmpfsTypeDef = TypedDict("_OptionalTmpfsTypeDef", {"mountOptions": List[str]}, total=False)
+
+
+class TmpfsTypeDef(_RequiredTmpfsTypeDef, _OptionalTmpfsTypeDef):
+    pass
+
 
 UlimitTypeDef = TypedDict("UlimitTypeDef", {"hardLimit": int, "name": str, "softLimit": int})
 
@@ -493,6 +565,10 @@ class ListJobsResponseTypeDef(_RequiredListJobsResponseTypeDef, _OptionalListJob
     pass
 
 
+ListTagsForResourceResponseTypeDef = TypedDict(
+    "ListTagsForResourceResponseTypeDef", {"tags": Dict[str, str]}, total=False
+)
+
 NodeOverridesTypeDef = TypedDict(
     "NodeOverridesTypeDef",
     {"numNodes": int, "nodePropertyOverrides": List["NodePropertyOverrideTypeDef"]},
@@ -508,7 +584,19 @@ RegisterJobDefinitionResponseTypeDef = TypedDict(
     {"jobDefinitionName": str, "jobDefinitionArn": str, "revision": int},
 )
 
-SubmitJobResponseTypeDef = TypedDict("SubmitJobResponseTypeDef", {"jobName": str, "jobId": str})
+_RequiredSubmitJobResponseTypeDef = TypedDict(
+    "_RequiredSubmitJobResponseTypeDef", {"jobName": str, "jobId": str}
+)
+_OptionalSubmitJobResponseTypeDef = TypedDict(
+    "_OptionalSubmitJobResponseTypeDef", {"jobArn": str}, total=False
+)
+
+
+class SubmitJobResponseTypeDef(
+    _RequiredSubmitJobResponseTypeDef, _OptionalSubmitJobResponseTypeDef
+):
+    pass
+
 
 UpdateComputeEnvironmentResponseTypeDef = TypedDict(
     "UpdateComputeEnvironmentResponseTypeDef",

@@ -1,4 +1,4 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import
+# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for codeartifact service client
 
@@ -14,8 +14,7 @@ Usage::
 import sys
 from typing import Any, Dict, List, Type, overload
 
-from botocore.exceptions import ClientError as Boto3ClientError
-from botocore.paginate import Paginator as Boto3Paginator
+from botocore.client import ClientMeta
 
 from mypy_boto3_codeartifact.paginator import (
     ListDomainsPaginator,
@@ -53,8 +52,10 @@ from mypy_boto3_codeartifact.type_defs import (
     ListPackageVersionsResultTypeDef,
     ListRepositoriesInDomainResultTypeDef,
     ListRepositoriesResultTypeDef,
+    ListTagsForResourceResultTypeDef,
     PutDomainPermissionsPolicyResultTypeDef,
     PutRepositoryPermissionsPolicyResultTypeDef,
+    TagTypeDef,
     UpdatePackageVersionsStatusResultTypeDef,
     UpdateRepositoryResultTypeDef,
     UpstreamRepositoryTypeDef,
@@ -69,34 +70,43 @@ else:
 __all__ = ("CodeArtifactClient",)
 
 
+class BotocoreClientError(BaseException):
+    MSG_TEMPLATE: str
+
+    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
+        self.response: Dict[str, Any]
+        self.operation_name: str
+
+
 class Exceptions:
-    AccessDeniedException: Type[Boto3ClientError]
-    ClientError: Type[Boto3ClientError]
-    ConflictException: Type[Boto3ClientError]
-    InternalServerException: Type[Boto3ClientError]
-    ResourceNotFoundException: Type[Boto3ClientError]
-    ServiceQuotaExceededException: Type[Boto3ClientError]
-    ThrottlingException: Type[Boto3ClientError]
-    ValidationException: Type[Boto3ClientError]
+    AccessDeniedException: Type[BotocoreClientError]
+    ClientError: Type[BotocoreClientError]
+    ConflictException: Type[BotocoreClientError]
+    InternalServerException: Type[BotocoreClientError]
+    ResourceNotFoundException: Type[BotocoreClientError]
+    ServiceQuotaExceededException: Type[BotocoreClientError]
+    ThrottlingException: Type[BotocoreClientError]
+    ValidationException: Type[BotocoreClientError]
 
 
 class CodeArtifactClient:
     """
-    [CodeArtifact.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codeartifact.html#CodeArtifact.Client)
+    [CodeArtifact.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Client)
     """
 
+    meta: ClientMeta
     exceptions: Exceptions
 
     def associate_external_connection(
         self, domain: str, repository: str, externalConnection: str, domainOwner: str = None
     ) -> AssociateExternalConnectionResultTypeDef:
         """
-        [Client.associate_external_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codeartifact.html#CodeArtifact.Client.associate_external_connection)
+        [Client.associate_external_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Client.associate_external_connection)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codeartifact.html#CodeArtifact.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Client.can_paginate)
         """
 
     def copy_package_versions(
@@ -114,12 +124,14 @@ class CodeArtifactClient:
         includeFromUpstream: bool = None,
     ) -> CopyPackageVersionsResultTypeDef:
         """
-        [Client.copy_package_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codeartifact.html#CodeArtifact.Client.copy_package_versions)
+        [Client.copy_package_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Client.copy_package_versions)
         """
 
-    def create_domain(self, domain: str, encryptionKey: str = None) -> CreateDomainResultTypeDef:
+    def create_domain(
+        self, domain: str, encryptionKey: str = None, tags: List["TagTypeDef"] = None
+    ) -> CreateDomainResultTypeDef:
         """
-        [Client.create_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codeartifact.html#CodeArtifact.Client.create_domain)
+        [Client.create_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Client.create_domain)
         """
 
     def create_repository(
@@ -129,21 +141,22 @@ class CodeArtifactClient:
         domainOwner: str = None,
         description: str = None,
         upstreams: List[UpstreamRepositoryTypeDef] = None,
+        tags: List["TagTypeDef"] = None,
     ) -> CreateRepositoryResultTypeDef:
         """
-        [Client.create_repository documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codeartifact.html#CodeArtifact.Client.create_repository)
+        [Client.create_repository documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Client.create_repository)
         """
 
     def delete_domain(self, domain: str, domainOwner: str = None) -> DeleteDomainResultTypeDef:
         """
-        [Client.delete_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codeartifact.html#CodeArtifact.Client.delete_domain)
+        [Client.delete_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Client.delete_domain)
         """
 
     def delete_domain_permissions_policy(
         self, domain: str, domainOwner: str = None, policyRevision: str = None
     ) -> DeleteDomainPermissionsPolicyResultTypeDef:
         """
-        [Client.delete_domain_permissions_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codeartifact.html#CodeArtifact.Client.delete_domain_permissions_policy)
+        [Client.delete_domain_permissions_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Client.delete_domain_permissions_policy)
         """
 
     def delete_package_versions(
@@ -160,26 +173,26 @@ class CodeArtifactClient:
         ] = None,
     ) -> DeletePackageVersionsResultTypeDef:
         """
-        [Client.delete_package_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codeartifact.html#CodeArtifact.Client.delete_package_versions)
+        [Client.delete_package_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Client.delete_package_versions)
         """
 
     def delete_repository(
         self, domain: str, repository: str, domainOwner: str = None
     ) -> DeleteRepositoryResultTypeDef:
         """
-        [Client.delete_repository documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codeartifact.html#CodeArtifact.Client.delete_repository)
+        [Client.delete_repository documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Client.delete_repository)
         """
 
     def delete_repository_permissions_policy(
         self, domain: str, repository: str, domainOwner: str = None, policyRevision: str = None
     ) -> DeleteRepositoryPermissionsPolicyResultTypeDef:
         """
-        [Client.delete_repository_permissions_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codeartifact.html#CodeArtifact.Client.delete_repository_permissions_policy)
+        [Client.delete_repository_permissions_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Client.delete_repository_permissions_policy)
         """
 
     def describe_domain(self, domain: str, domainOwner: str = None) -> DescribeDomainResultTypeDef:
         """
-        [Client.describe_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codeartifact.html#CodeArtifact.Client.describe_domain)
+        [Client.describe_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Client.describe_domain)
         """
 
     def describe_package_version(
@@ -193,21 +206,21 @@ class CodeArtifactClient:
         namespace: str = None,
     ) -> DescribePackageVersionResultTypeDef:
         """
-        [Client.describe_package_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codeartifact.html#CodeArtifact.Client.describe_package_version)
+        [Client.describe_package_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Client.describe_package_version)
         """
 
     def describe_repository(
         self, domain: str, repository: str, domainOwner: str = None
     ) -> DescribeRepositoryResultTypeDef:
         """
-        [Client.describe_repository documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codeartifact.html#CodeArtifact.Client.describe_repository)
+        [Client.describe_repository documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Client.describe_repository)
         """
 
     def disassociate_external_connection(
         self, domain: str, repository: str, externalConnection: str, domainOwner: str = None
     ) -> DisassociateExternalConnectionResultTypeDef:
         """
-        [Client.disassociate_external_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codeartifact.html#CodeArtifact.Client.disassociate_external_connection)
+        [Client.disassociate_external_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Client.disassociate_external_connection)
         """
 
     def dispose_package_versions(
@@ -225,7 +238,7 @@ class CodeArtifactClient:
         ] = None,
     ) -> DisposePackageVersionsResultTypeDef:
         """
-        [Client.dispose_package_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codeartifact.html#CodeArtifact.Client.dispose_package_versions)
+        [Client.dispose_package_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Client.dispose_package_versions)
         """
 
     def generate_presigned_url(
@@ -236,21 +249,21 @@ class CodeArtifactClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codeartifact.html#CodeArtifact.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Client.generate_presigned_url)
         """
 
     def get_authorization_token(
         self, domain: str, domainOwner: str = None, durationSeconds: int = None
     ) -> GetAuthorizationTokenResultTypeDef:
         """
-        [Client.get_authorization_token documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codeartifact.html#CodeArtifact.Client.get_authorization_token)
+        [Client.get_authorization_token documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Client.get_authorization_token)
         """
 
     def get_domain_permissions_policy(
         self, domain: str, domainOwner: str = None
     ) -> GetDomainPermissionsPolicyResultTypeDef:
         """
-        [Client.get_domain_permissions_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codeartifact.html#CodeArtifact.Client.get_domain_permissions_policy)
+        [Client.get_domain_permissions_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Client.get_domain_permissions_policy)
         """
 
     def get_package_version_asset(
@@ -266,7 +279,7 @@ class CodeArtifactClient:
         packageVersionRevision: str = None,
     ) -> GetPackageVersionAssetResultTypeDef:
         """
-        [Client.get_package_version_asset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codeartifact.html#CodeArtifact.Client.get_package_version_asset)
+        [Client.get_package_version_asset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Client.get_package_version_asset)
         """
 
     def get_package_version_readme(
@@ -280,7 +293,7 @@ class CodeArtifactClient:
         namespace: str = None,
     ) -> GetPackageVersionReadmeResultTypeDef:
         """
-        [Client.get_package_version_readme documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codeartifact.html#CodeArtifact.Client.get_package_version_readme)
+        [Client.get_package_version_readme documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Client.get_package_version_readme)
         """
 
     def get_repository_endpoint(
@@ -291,21 +304,21 @@ class CodeArtifactClient:
         domainOwner: str = None,
     ) -> GetRepositoryEndpointResultTypeDef:
         """
-        [Client.get_repository_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codeartifact.html#CodeArtifact.Client.get_repository_endpoint)
+        [Client.get_repository_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Client.get_repository_endpoint)
         """
 
     def get_repository_permissions_policy(
         self, domain: str, repository: str, domainOwner: str = None
     ) -> GetRepositoryPermissionsPolicyResultTypeDef:
         """
-        [Client.get_repository_permissions_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codeartifact.html#CodeArtifact.Client.get_repository_permissions_policy)
+        [Client.get_repository_permissions_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Client.get_repository_permissions_policy)
         """
 
     def list_domains(
         self, maxResults: int = None, nextToken: str = None
     ) -> ListDomainsResultTypeDef:
         """
-        [Client.list_domains documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codeartifact.html#CodeArtifact.Client.list_domains)
+        [Client.list_domains documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Client.list_domains)
         """
 
     def list_package_version_assets(
@@ -321,7 +334,7 @@ class CodeArtifactClient:
         nextToken: str = None,
     ) -> ListPackageVersionAssetsResultTypeDef:
         """
-        [Client.list_package_version_assets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codeartifact.html#CodeArtifact.Client.list_package_version_assets)
+        [Client.list_package_version_assets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Client.list_package_version_assets)
         """
 
     def list_package_version_dependencies(
@@ -336,7 +349,7 @@ class CodeArtifactClient:
         nextToken: str = None,
     ) -> ListPackageVersionDependenciesResultTypeDef:
         """
-        [Client.list_package_version_dependencies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codeartifact.html#CodeArtifact.Client.list_package_version_dependencies)
+        [Client.list_package_version_dependencies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Client.list_package_version_dependencies)
         """
 
     def list_package_versions(
@@ -355,7 +368,7 @@ class CodeArtifactClient:
         nextToken: str = None,
     ) -> ListPackageVersionsResultTypeDef:
         """
-        [Client.list_package_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codeartifact.html#CodeArtifact.Client.list_package_versions)
+        [Client.list_package_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Client.list_package_versions)
         """
 
     def list_packages(
@@ -370,14 +383,14 @@ class CodeArtifactClient:
         nextToken: str = None,
     ) -> ListPackagesResultTypeDef:
         """
-        [Client.list_packages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codeartifact.html#CodeArtifact.Client.list_packages)
+        [Client.list_packages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Client.list_packages)
         """
 
     def list_repositories(
         self, repositoryPrefix: str = None, maxResults: int = None, nextToken: str = None
     ) -> ListRepositoriesResultTypeDef:
         """
-        [Client.list_repositories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codeartifact.html#CodeArtifact.Client.list_repositories)
+        [Client.list_repositories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Client.list_repositories)
         """
 
     def list_repositories_in_domain(
@@ -390,14 +403,19 @@ class CodeArtifactClient:
         nextToken: str = None,
     ) -> ListRepositoriesInDomainResultTypeDef:
         """
-        [Client.list_repositories_in_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codeartifact.html#CodeArtifact.Client.list_repositories_in_domain)
+        [Client.list_repositories_in_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Client.list_repositories_in_domain)
+        """
+
+    def list_tags_for_resource(self, resourceArn: str) -> ListTagsForResourceResultTypeDef:
+        """
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Client.list_tags_for_resource)
         """
 
     def put_domain_permissions_policy(
         self, domain: str, policyDocument: str, domainOwner: str = None, policyRevision: str = None
     ) -> PutDomainPermissionsPolicyResultTypeDef:
         """
-        [Client.put_domain_permissions_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codeartifact.html#CodeArtifact.Client.put_domain_permissions_policy)
+        [Client.put_domain_permissions_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Client.put_domain_permissions_policy)
         """
 
     def put_repository_permissions_policy(
@@ -409,7 +427,17 @@ class CodeArtifactClient:
         policyRevision: str = None,
     ) -> PutRepositoryPermissionsPolicyResultTypeDef:
         """
-        [Client.put_repository_permissions_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codeartifact.html#CodeArtifact.Client.put_repository_permissions_policy)
+        [Client.put_repository_permissions_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Client.put_repository_permissions_policy)
+        """
+
+    def tag_resource(self, resourceArn: str, tags: List["TagTypeDef"]) -> Dict[str, Any]:
+        """
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Client.tag_resource)
+        """
+
+    def untag_resource(self, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
+        """
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Client.untag_resource)
         """
 
     def update_package_versions_status(
@@ -430,7 +458,7 @@ class CodeArtifactClient:
         ] = None,
     ) -> UpdatePackageVersionsStatusResultTypeDef:
         """
-        [Client.update_package_versions_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codeartifact.html#CodeArtifact.Client.update_package_versions_status)
+        [Client.update_package_versions_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Client.update_package_versions_status)
         """
 
     def update_repository(
@@ -442,13 +470,13 @@ class CodeArtifactClient:
         upstreams: List[UpstreamRepositoryTypeDef] = None,
     ) -> UpdateRepositoryResultTypeDef:
         """
-        [Client.update_repository documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codeartifact.html#CodeArtifact.Client.update_repository)
+        [Client.update_repository documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Client.update_repository)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_domains"]) -> ListDomainsPaginator:
         """
-        [Paginator.ListDomains documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codeartifact.html#CodeArtifact.Paginator.ListDomains)
+        [Paginator.ListDomains documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Paginator.ListDomains)
         """
 
     @overload
@@ -456,7 +484,7 @@ class CodeArtifactClient:
         self, operation_name: Literal["list_package_version_assets"]
     ) -> ListPackageVersionAssetsPaginator:
         """
-        [Paginator.ListPackageVersionAssets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codeartifact.html#CodeArtifact.Paginator.ListPackageVersionAssets)
+        [Paginator.ListPackageVersionAssets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Paginator.ListPackageVersionAssets)
         """
 
     @overload
@@ -464,13 +492,13 @@ class CodeArtifactClient:
         self, operation_name: Literal["list_package_versions"]
     ) -> ListPackageVersionsPaginator:
         """
-        [Paginator.ListPackageVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codeartifact.html#CodeArtifact.Paginator.ListPackageVersions)
+        [Paginator.ListPackageVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Paginator.ListPackageVersions)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_packages"]) -> ListPackagesPaginator:
         """
-        [Paginator.ListPackages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codeartifact.html#CodeArtifact.Paginator.ListPackages)
+        [Paginator.ListPackages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Paginator.ListPackages)
         """
 
     @overload
@@ -478,7 +506,7 @@ class CodeArtifactClient:
         self, operation_name: Literal["list_repositories"]
     ) -> ListRepositoriesPaginator:
         """
-        [Paginator.ListRepositories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codeartifact.html#CodeArtifact.Paginator.ListRepositories)
+        [Paginator.ListRepositories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Paginator.ListRepositories)
         """
 
     @overload
@@ -486,8 +514,5 @@ class CodeArtifactClient:
         self, operation_name: Literal["list_repositories_in_domain"]
     ) -> ListRepositoriesInDomainPaginator:
         """
-        [Paginator.ListRepositoriesInDomain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codeartifact.html#CodeArtifact.Paginator.ListRepositoriesInDomain)
+        [Paginator.ListRepositoriesInDomain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Paginator.ListRepositoriesInDomain)
         """
-
-    def get_paginator(self, operation_name: str) -> Boto3Paginator:
-        pass

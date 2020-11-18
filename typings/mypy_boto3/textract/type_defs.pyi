@@ -7,6 +7,7 @@ from mypy_boto3_textract.type_defs import (
     HumanLoopDataAttributesTypeDef,
     PointTypeDef,
     RelationshipTypeDef,
+    ResponseMetadata,
     S3ObjectTypeDef,
     WarningTypeDef,
     AnalyzeDocumentResponseTypeDef,
@@ -17,6 +18,7 @@ from mypy_boto3_textract.type_defs import (
     GetDocumentTextDetectionResponseTypeDef,
     HumanLoopConfigTypeDef,
     NotificationChannelTypeDef,
+    OutputConfigTypeDef,
     StartDocumentAnalysisResponseTypeDef,
     StartDocumentTextDetectionResponseTypeDef,
 )
@@ -30,6 +32,7 @@ __all__ = (
     "HumanLoopDataAttributesTypeDef",
     "PointTypeDef",
     "RelationshipTypeDef",
+    "ResponseMetadata",
     "S3ObjectTypeDef",
     "WarningTypeDef",
     "AnalyzeDocumentResponseTypeDef",
@@ -40,6 +43,7 @@ __all__ = (
     "GetDocumentTextDetectionResponseTypeDef",
     "HumanLoopConfigTypeDef",
     "NotificationChannelTypeDef",
+    "OutputConfigTypeDef",
     "StartDocumentAnalysisResponseTypeDef",
     "StartDocumentTextDetectionResponseTypeDef",
 )

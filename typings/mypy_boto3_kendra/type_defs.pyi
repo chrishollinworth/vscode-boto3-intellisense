@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import IO, Any, Dict, List, Union
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -33,6 +32,15 @@ __all__ = (
     "BatchPutDocumentResponseFailedDocumentTypeDef",
     "CapacityUnitsConfigurationTypeDef",
     "ColumnConfigurationTypeDef",
+    "ConfluenceAttachmentConfigurationTypeDef",
+    "ConfluenceAttachmentToIndexFieldMappingTypeDef",
+    "ConfluenceBlogConfigurationTypeDef",
+    "ConfluenceBlogToIndexFieldMappingTypeDef",
+    "ConfluenceConfigurationTypeDef",
+    "ConfluencePageConfigurationTypeDef",
+    "ConfluencePageToIndexFieldMappingTypeDef",
+    "ConfluenceSpaceConfigurationTypeDef",
+    "ConfluenceSpaceToIndexFieldMappingTypeDef",
     "ConnectionConfigurationTypeDef",
     "DataSourceConfigurationTypeDef",
     "DataSourceSummaryTypeDef",
@@ -52,6 +60,8 @@ __all__ = (
     "HighlightTypeDef",
     "IndexConfigurationSummaryTypeDef",
     "IndexStatisticsTypeDef",
+    "JsonTokenTypeConfigurationTypeDef",
+    "JwtTokenTypeConfigurationTypeDef",
     "OneDriveConfigurationTypeDef",
     "OneDriveUsersTypeDef",
     "PrincipalTypeDef",
@@ -66,6 +76,7 @@ __all__ = (
     "SalesforceStandardKnowledgeArticleTypeConfigurationTypeDef",
     "SalesforceStandardObjectAttachmentConfigurationTypeDef",
     "SalesforceStandardObjectConfigurationTypeDef",
+    "ScoreAttributesTypeDef",
     "SearchTypeDef",
     "ServerSideEncryptionConfigurationTypeDef",
     "ServiceNowConfigurationTypeDef",
@@ -76,6 +87,7 @@ __all__ = (
     "TagTypeDef",
     "TextDocumentStatisticsTypeDef",
     "TextWithHighlightsTypeDef",
+    "UserTokenConfigurationTypeDef",
     "BatchDeleteDocumentResponseTypeDef",
     "BatchPutDocumentResponseTypeDef",
     "ClickFeedbackTypeDef",
@@ -99,6 +111,7 @@ __all__ = (
     "SortingConfigurationTypeDef",
     "StartDataSourceSyncJobResponseTypeDef",
     "TimeRangeTypeDef",
+    "UserContextTypeDef",
 )
 
 AccessControlListConfigurationTypeDef = TypedDict(
@@ -159,6 +172,139 @@ class ColumnConfigurationTypeDef(
     pass
 
 
+ConfluenceAttachmentConfigurationTypeDef = TypedDict(
+    "ConfluenceAttachmentConfigurationTypeDef",
+    {
+        "CrawlAttachments": bool,
+        "AttachmentFieldMappings": List["ConfluenceAttachmentToIndexFieldMappingTypeDef"],
+    },
+    total=False,
+)
+
+ConfluenceAttachmentToIndexFieldMappingTypeDef = TypedDict(
+    "ConfluenceAttachmentToIndexFieldMappingTypeDef",
+    {
+        "DataSourceFieldName": Literal[
+            "AUTHOR",
+            "CONTENT_TYPE",
+            "CREATED_DATE",
+            "DISPLAY_URL",
+            "FILE_SIZE",
+            "ITEM_TYPE",
+            "PARENT_ID",
+            "SPACE_KEY",
+            "SPACE_NAME",
+            "URL",
+            "VERSION",
+        ],
+        "DateFieldFormat": str,
+        "IndexFieldName": str,
+    },
+    total=False,
+)
+
+ConfluenceBlogConfigurationTypeDef = TypedDict(
+    "ConfluenceBlogConfigurationTypeDef",
+    {"BlogFieldMappings": List["ConfluenceBlogToIndexFieldMappingTypeDef"]},
+    total=False,
+)
+
+ConfluenceBlogToIndexFieldMappingTypeDef = TypedDict(
+    "ConfluenceBlogToIndexFieldMappingTypeDef",
+    {
+        "DataSourceFieldName": Literal[
+            "AUTHOR",
+            "DISPLAY_URL",
+            "ITEM_TYPE",
+            "LABELS",
+            "PUBLISH_DATE",
+            "SPACE_KEY",
+            "SPACE_NAME",
+            "URL",
+            "VERSION",
+        ],
+        "DateFieldFormat": str,
+        "IndexFieldName": str,
+    },
+    total=False,
+)
+
+_RequiredConfluenceConfigurationTypeDef = TypedDict(
+    "_RequiredConfluenceConfigurationTypeDef",
+    {"ServerUrl": str, "SecretArn": str, "Version": Literal["CLOUD", "SERVER"]},
+)
+_OptionalConfluenceConfigurationTypeDef = TypedDict(
+    "_OptionalConfluenceConfigurationTypeDef",
+    {
+        "SpaceConfiguration": "ConfluenceSpaceConfigurationTypeDef",
+        "PageConfiguration": "ConfluencePageConfigurationTypeDef",
+        "BlogConfiguration": "ConfluenceBlogConfigurationTypeDef",
+        "AttachmentConfiguration": "ConfluenceAttachmentConfigurationTypeDef",
+        "VpcConfiguration": "DataSourceVpcConfigurationTypeDef",
+        "InclusionPatterns": List[str],
+        "ExclusionPatterns": List[str],
+    },
+    total=False,
+)
+
+
+class ConfluenceConfigurationTypeDef(
+    _RequiredConfluenceConfigurationTypeDef, _OptionalConfluenceConfigurationTypeDef
+):
+    pass
+
+
+ConfluencePageConfigurationTypeDef = TypedDict(
+    "ConfluencePageConfigurationTypeDef",
+    {"PageFieldMappings": List["ConfluencePageToIndexFieldMappingTypeDef"]},
+    total=False,
+)
+
+ConfluencePageToIndexFieldMappingTypeDef = TypedDict(
+    "ConfluencePageToIndexFieldMappingTypeDef",
+    {
+        "DataSourceFieldName": Literal[
+            "AUTHOR",
+            "CONTENT_STATUS",
+            "CREATED_DATE",
+            "DISPLAY_URL",
+            "ITEM_TYPE",
+            "LABELS",
+            "MODIFIED_DATE",
+            "PARENT_ID",
+            "SPACE_KEY",
+            "SPACE_NAME",
+            "URL",
+            "VERSION",
+        ],
+        "DateFieldFormat": str,
+        "IndexFieldName": str,
+    },
+    total=False,
+)
+
+ConfluenceSpaceConfigurationTypeDef = TypedDict(
+    "ConfluenceSpaceConfigurationTypeDef",
+    {
+        "CrawlPersonalSpaces": bool,
+        "CrawlArchivedSpaces": bool,
+        "IncludeSpaces": List[str],
+        "ExcludeSpaces": List[str],
+        "SpaceFieldMappings": List["ConfluenceSpaceToIndexFieldMappingTypeDef"],
+    },
+    total=False,
+)
+
+ConfluenceSpaceToIndexFieldMappingTypeDef = TypedDict(
+    "ConfluenceSpaceToIndexFieldMappingTypeDef",
+    {
+        "DataSourceFieldName": Literal["DISPLAY_URL", "ITEM_TYPE", "SPACE_KEY", "URL"],
+        "DateFieldFormat": str,
+        "IndexFieldName": str,
+    },
+    total=False,
+)
+
 ConnectionConfigurationTypeDef = TypedDict(
     "ConnectionConfigurationTypeDef",
     {
@@ -179,6 +325,7 @@ DataSourceConfigurationTypeDef = TypedDict(
         "SalesforceConfiguration": "SalesforceConfigurationTypeDef",
         "OneDriveConfiguration": "OneDriveConfigurationTypeDef",
         "ServiceNowConfiguration": "ServiceNowConfigurationTypeDef",
+        "ConfluenceConfiguration": "ConfluenceConfigurationTypeDef",
     },
     total=False,
 )
@@ -188,7 +335,16 @@ DataSourceSummaryTypeDef = TypedDict(
     {
         "Name": str,
         "Id": str,
-        "Type": Literal["S3", "SHAREPOINT", "DATABASE", "SALESFORCE", "ONEDRIVE", "SERVICENOW"],
+        "Type": Literal[
+            "S3",
+            "SHAREPOINT",
+            "DATABASE",
+            "SALESFORCE",
+            "ONEDRIVE",
+            "SERVICENOW",
+            "CUSTOM",
+            "CONFLUENCE",
+        ],
         "CreatedAt": datetime,
         "UpdatedAt": datetime,
         "Status": Literal["CREATING", "DELETING", "FAILED", "UPDATING", "ACTIVE"],
@@ -318,6 +474,9 @@ FacetResultTypeDef = TypedDict(
     "FacetResultTypeDef",
     {
         "DocumentAttributeKey": str,
+        "DocumentAttributeValueType": Literal[
+            "STRING_VALUE", "STRING_LIST_VALUE", "LONG_VALUE", "DATE_VALUE"
+        ],
         "DocumentAttributeValueCountPairs": List["DocumentAttributeValueCountPairTypeDef"],
     },
     total=False,
@@ -333,6 +492,7 @@ FaqSummaryTypeDef = TypedDict(
         "Status": Literal["CREATING", "UPDATING", "ACTIVE", "DELETING", "FAILED"],
         "CreatedAt": datetime,
         "UpdatedAt": datetime,
+        "FileFormat": Literal["CSV", "CSV_WITH_HEADER", "JSON"],
     },
     total=False,
 )
@@ -378,6 +538,33 @@ IndexStatisticsTypeDef = TypedDict(
     },
 )
 
+JsonTokenTypeConfigurationTypeDef = TypedDict(
+    "JsonTokenTypeConfigurationTypeDef", {"UserNameAttributeField": str, "GroupAttributeField": str}
+)
+
+_RequiredJwtTokenTypeConfigurationTypeDef = TypedDict(
+    "_RequiredJwtTokenTypeConfigurationTypeDef", {"KeyLocation": Literal["URL", "SECRET_MANAGER"]}
+)
+_OptionalJwtTokenTypeConfigurationTypeDef = TypedDict(
+    "_OptionalJwtTokenTypeConfigurationTypeDef",
+    {
+        "URL": str,
+        "SecretManagerArn": str,
+        "UserNameAttributeField": str,
+        "GroupAttributeField": str,
+        "Issuer": str,
+        "ClaimRegex": str,
+    },
+    total=False,
+)
+
+
+class JwtTokenTypeConfigurationTypeDef(
+    _RequiredJwtTokenTypeConfigurationTypeDef, _OptionalJwtTokenTypeConfigurationTypeDef
+):
+    pass
+
+
 _RequiredOneDriveConfigurationTypeDef = TypedDict(
     "_RequiredOneDriveConfigurationTypeDef",
     {"TenantDomain": str, "SecretArn": str, "OneDriveUsers": "OneDriveUsersTypeDef"},
@@ -388,6 +575,7 @@ _OptionalOneDriveConfigurationTypeDef = TypedDict(
         "InclusionPatterns": List[str],
         "ExclusionPatterns": List[str],
         "FieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
+        "DisableLocalGroups": bool,
     },
     total=False,
 )
@@ -421,6 +609,7 @@ QueryResultItemTypeDef = TypedDict(
         "DocumentExcerpt": "TextWithHighlightsTypeDef",
         "DocumentURI": str,
         "DocumentAttributes": List["DocumentAttributeTypeDef"],
+        "ScoreAttributes": "ScoreAttributesTypeDef",
     },
     total=False,
 )
@@ -444,6 +633,7 @@ _OptionalS3DataSourceConfigurationTypeDef = TypedDict(
     "_OptionalS3DataSourceConfigurationTypeDef",
     {
         "InclusionPrefixes": List[str],
+        "InclusionPatterns": List[str],
         "ExclusionPatterns": List[str],
         "DocumentsMetadataConfiguration": "DocumentsMetadataConfigurationTypeDef",
         "AccessControlListConfiguration": "AccessControlListConfigurationTypeDef",
@@ -609,6 +799,12 @@ class SalesforceStandardObjectConfigurationTypeDef(
     pass
 
 
+ScoreAttributesTypeDef = TypedDict(
+    "ScoreAttributesTypeDef",
+    {"ScoreConfidence": Literal["VERY_HIGH", "HIGH", "MEDIUM", "LOW"]},
+    total=False,
+)
+
 SearchTypeDef = TypedDict(
     "SearchTypeDef",
     {"Facetable": bool, "Searchable": bool, "Displayable": bool, "Sortable": bool},
@@ -699,6 +895,7 @@ _OptionalSharePointConfigurationTypeDef = TypedDict(
         "VpcConfiguration": "DataSourceVpcConfigurationTypeDef",
         "FieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
         "DocumentTitleFieldName": str,
+        "DisableLocalGroups": bool,
     },
     total=False,
 )
@@ -724,6 +921,15 @@ TextDocumentStatisticsTypeDef = TypedDict(
 
 TextWithHighlightsTypeDef = TypedDict(
     "TextWithHighlightsTypeDef", {"Text": str, "Highlights": List["HighlightTypeDef"]}, total=False
+)
+
+UserTokenConfigurationTypeDef = TypedDict(
+    "UserTokenConfigurationTypeDef",
+    {
+        "JwtTokenTypeConfiguration": "JwtTokenTypeConfigurationTypeDef",
+        "JsonTokenTypeConfiguration": "JsonTokenTypeConfigurationTypeDef",
+    },
+    total=False,
 )
 
 BatchDeleteDocumentResponseTypeDef = TypedDict(
@@ -756,7 +962,16 @@ DescribeDataSourceResponseTypeDef = TypedDict(
         "Id": str,
         "IndexId": str,
         "Name": str,
-        "Type": Literal["S3", "SHAREPOINT", "DATABASE", "SALESFORCE", "ONEDRIVE", "SERVICENOW"],
+        "Type": Literal[
+            "S3",
+            "SHAREPOINT",
+            "DATABASE",
+            "SALESFORCE",
+            "ONEDRIVE",
+            "SERVICENOW",
+            "CUSTOM",
+            "CONFLUENCE",
+        ],
         "Configuration": "DataSourceConfigurationTypeDef",
         "CreatedAt": datetime,
         "UpdatedAt": datetime,
@@ -782,6 +997,7 @@ DescribeFaqResponseTypeDef = TypedDict(
         "Status": Literal["CREATING", "UPDATING", "ACTIVE", "DELETING", "FAILED"],
         "RoleArn": str,
         "ErrorMessage": str,
+        "FileFormat": Literal["CSV", "CSV_WITH_HEADER", "JSON"],
     },
     total=False,
 )
@@ -804,6 +1020,8 @@ DescribeIndexResponseTypeDef = TypedDict(
         "IndexStatistics": "IndexStatisticsTypeDef",
         "ErrorMessage": str,
         "CapacityUnits": "CapacityUnitsConfigurationTypeDef",
+        "UserTokenConfigurations": List["UserTokenConfigurationTypeDef"],
+        "UserContextPolicy": Literal["ATTRIBUTE_FILTER", "USER_TOKEN"],
     },
     total=False,
 )
@@ -830,7 +1048,7 @@ _OptionalDocumentTypeDef = TypedDict(
     "_OptionalDocumentTypeDef",
     {
         "Title": str,
-        "Blob": bytes,
+        "Blob": Union[bytes, IO[bytes]],
         "S3Path": "S3PathTypeDef",
         "Attributes": List["DocumentAttributeTypeDef"],
         "AccessControlList": List["PrincipalTypeDef"],
@@ -902,3 +1120,5 @@ StartDataSourceSyncJobResponseTypeDef = TypedDict(
 TimeRangeTypeDef = TypedDict(
     "TimeRangeTypeDef", {"StartTime": datetime, "EndTime": datetime}, total=False
 )
+
+UserContextTypeDef = TypedDict("UserContextTypeDef", {"Token": str}, total=False)

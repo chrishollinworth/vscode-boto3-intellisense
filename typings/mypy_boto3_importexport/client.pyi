@@ -1,4 +1,4 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import
+# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for importexport service client
 
@@ -14,7 +14,7 @@ Usage::
 import sys
 from typing import Any, Dict, List, Type
 
-from botocore.exceptions import ClientError as Boto3ClientError
+from botocore.client import ClientMeta
 
 from mypy_boto3_importexport.paginator import ListJobsPaginator
 from mypy_boto3_importexport.type_defs import (
@@ -35,45 +35,54 @@ else:
 __all__ = ("ImportExportClient",)
 
 
+class BotocoreClientError(BaseException):
+    MSG_TEMPLATE: str
+
+    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
+        self.response: Dict[str, Any]
+        self.operation_name: str
+
+
 class Exceptions:
-    BucketPermissionException: Type[Boto3ClientError]
-    CanceledJobIdException: Type[Boto3ClientError]
-    ClientError: Type[Boto3ClientError]
-    CreateJobQuotaExceededException: Type[Boto3ClientError]
-    ExpiredJobIdException: Type[Boto3ClientError]
-    InvalidAccessKeyIdException: Type[Boto3ClientError]
-    InvalidAddressException: Type[Boto3ClientError]
-    InvalidCustomsException: Type[Boto3ClientError]
-    InvalidFileSystemException: Type[Boto3ClientError]
-    InvalidJobIdException: Type[Boto3ClientError]
-    InvalidManifestFieldException: Type[Boto3ClientError]
-    InvalidParameterException: Type[Boto3ClientError]
-    InvalidVersionException: Type[Boto3ClientError]
-    MalformedManifestException: Type[Boto3ClientError]
-    MissingCustomsException: Type[Boto3ClientError]
-    MissingManifestFieldException: Type[Boto3ClientError]
-    MissingParameterException: Type[Boto3ClientError]
-    MultipleRegionsException: Type[Boto3ClientError]
-    NoSuchBucketException: Type[Boto3ClientError]
-    UnableToCancelJobIdException: Type[Boto3ClientError]
-    UnableToUpdateJobIdException: Type[Boto3ClientError]
+    BucketPermissionException: Type[BotocoreClientError]
+    CanceledJobIdException: Type[BotocoreClientError]
+    ClientError: Type[BotocoreClientError]
+    CreateJobQuotaExceededException: Type[BotocoreClientError]
+    ExpiredJobIdException: Type[BotocoreClientError]
+    InvalidAccessKeyIdException: Type[BotocoreClientError]
+    InvalidAddressException: Type[BotocoreClientError]
+    InvalidCustomsException: Type[BotocoreClientError]
+    InvalidFileSystemException: Type[BotocoreClientError]
+    InvalidJobIdException: Type[BotocoreClientError]
+    InvalidManifestFieldException: Type[BotocoreClientError]
+    InvalidParameterException: Type[BotocoreClientError]
+    InvalidVersionException: Type[BotocoreClientError]
+    MalformedManifestException: Type[BotocoreClientError]
+    MissingCustomsException: Type[BotocoreClientError]
+    MissingManifestFieldException: Type[BotocoreClientError]
+    MissingParameterException: Type[BotocoreClientError]
+    MultipleRegionsException: Type[BotocoreClientError]
+    NoSuchBucketException: Type[BotocoreClientError]
+    UnableToCancelJobIdException: Type[BotocoreClientError]
+    UnableToUpdateJobIdException: Type[BotocoreClientError]
 
 
 class ImportExportClient:
     """
-    [ImportExport.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/importexport.html#ImportExport.Client)
+    [ImportExport.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/importexport.html#ImportExport.Client)
     """
 
+    meta: ClientMeta
     exceptions: Exceptions
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/importexport.html#ImportExport.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/importexport.html#ImportExport.Client.can_paginate)
         """
 
     def cancel_job(self, JobId: str, APIVersion: str = None) -> CancelJobOutputTypeDef:
         """
-        [Client.cancel_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/importexport.html#ImportExport.Client.cancel_job)
+        [Client.cancel_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/importexport.html#ImportExport.Client.cancel_job)
         """
 
     def create_job(
@@ -85,7 +94,7 @@ class ImportExportClient:
         APIVersion: str = None,
     ) -> CreateJobOutputTypeDef:
         """
-        [Client.create_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/importexport.html#ImportExport.Client.create_job)
+        [Client.create_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/importexport.html#ImportExport.Client.create_job)
         """
 
     def generate_presigned_url(
@@ -96,7 +105,7 @@ class ImportExportClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/importexport.html#ImportExport.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/importexport.html#ImportExport.Client.generate_presigned_url)
         """
 
     def get_shipping_label(
@@ -115,19 +124,19 @@ class ImportExportClient:
         APIVersion: str = None,
     ) -> GetShippingLabelOutputTypeDef:
         """
-        [Client.get_shipping_label documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/importexport.html#ImportExport.Client.get_shipping_label)
+        [Client.get_shipping_label documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/importexport.html#ImportExport.Client.get_shipping_label)
         """
 
     def get_status(self, JobId: str, APIVersion: str = None) -> GetStatusOutputTypeDef:
         """
-        [Client.get_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/importexport.html#ImportExport.Client.get_status)
+        [Client.get_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/importexport.html#ImportExport.Client.get_status)
         """
 
     def list_jobs(
         self, MaxJobs: int = None, Marker: str = None, APIVersion: str = None
     ) -> ListJobsOutputTypeDef:
         """
-        [Client.list_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/importexport.html#ImportExport.Client.list_jobs)
+        [Client.list_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/importexport.html#ImportExport.Client.list_jobs)
         """
 
     def update_job(
@@ -139,10 +148,10 @@ class ImportExportClient:
         APIVersion: str = None,
     ) -> UpdateJobOutputTypeDef:
         """
-        [Client.update_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/importexport.html#ImportExport.Client.update_job)
+        [Client.update_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/importexport.html#ImportExport.Client.update_job)
         """
 
     def get_paginator(self, operation_name: Literal["list_jobs"]) -> ListJobsPaginator:
         """
-        [Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/importexport.html#ImportExport.Paginator.ListJobs)
+        [Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/importexport.html#ImportExport.Paginator.ListJobs)
         """

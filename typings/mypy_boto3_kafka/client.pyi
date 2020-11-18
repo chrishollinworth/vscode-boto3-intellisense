@@ -1,4 +1,4 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import
+# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for kafka service client
 
@@ -14,8 +14,7 @@ Usage::
 import sys
 from typing import IO, Any, Dict, List, Type, Union, overload
 
-from botocore.exceptions import ClientError as Boto3ClientError
-from botocore.paginate import Paginator as Boto3Paginator
+from botocore.client import ClientMeta
 
 from mypy_boto3_kafka.paginator import (
     ListClusterOperationsPaginator,
@@ -24,8 +23,11 @@ from mypy_boto3_kafka.paginator import (
     ListConfigurationsPaginator,
     ListKafkaVersionsPaginator,
     ListNodesPaginator,
+    ListScramSecretsPaginator,
 )
 from mypy_boto3_kafka.type_defs import (
+    BatchAssociateScramSecretResponseTypeDef,
+    BatchDisassociateScramSecretResponseTypeDef,
     BrokerEBSVolumeInfoTypeDef,
     BrokerNodeGroupInfoTypeDef,
     ClientAuthenticationTypeDef,
@@ -33,6 +35,7 @@ from mypy_boto3_kafka.type_defs import (
     CreateClusterResponseTypeDef,
     CreateConfigurationResponseTypeDef,
     DeleteClusterResponseTypeDef,
+    DeleteConfigurationResponseTypeDef,
     DescribeClusterOperationResponseTypeDef,
     DescribeClusterResponseTypeDef,
     DescribeConfigurationResponseTypeDef,
@@ -46,6 +49,7 @@ from mypy_boto3_kafka.type_defs import (
     ListConfigurationsResponseTypeDef,
     ListKafkaVersionsResponseTypeDef,
     ListNodesResponseTypeDef,
+    ListScramSecretsResponseTypeDef,
     ListTagsForResourceResponseTypeDef,
     LoggingInfoTypeDef,
     OpenMonitoringInfoTypeDef,
@@ -54,6 +58,7 @@ from mypy_boto3_kafka.type_defs import (
     UpdateBrokerStorageResponseTypeDef,
     UpdateClusterConfigurationResponseTypeDef,
     UpdateClusterKafkaVersionResponseTypeDef,
+    UpdateConfigurationResponseTypeDef,
     UpdateMonitoringResponseTypeDef,
 )
 
@@ -66,28 +71,51 @@ else:
 __all__ = ("KafkaClient",)
 
 
+class BotocoreClientError(BaseException):
+    MSG_TEMPLATE: str
+
+    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
+        self.response: Dict[str, Any]
+        self.operation_name: str
+
+
 class Exceptions:
-    BadRequestException: Type[Boto3ClientError]
-    ClientError: Type[Boto3ClientError]
-    ConflictException: Type[Boto3ClientError]
-    ForbiddenException: Type[Boto3ClientError]
-    InternalServerErrorException: Type[Boto3ClientError]
-    NotFoundException: Type[Boto3ClientError]
-    ServiceUnavailableException: Type[Boto3ClientError]
-    TooManyRequestsException: Type[Boto3ClientError]
-    UnauthorizedException: Type[Boto3ClientError]
+    BadRequestException: Type[BotocoreClientError]
+    ClientError: Type[BotocoreClientError]
+    ConflictException: Type[BotocoreClientError]
+    ForbiddenException: Type[BotocoreClientError]
+    InternalServerErrorException: Type[BotocoreClientError]
+    NotFoundException: Type[BotocoreClientError]
+    ServiceUnavailableException: Type[BotocoreClientError]
+    TooManyRequestsException: Type[BotocoreClientError]
+    UnauthorizedException: Type[BotocoreClientError]
 
 
 class KafkaClient:
     """
-    [Kafka.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kafka.html#Kafka.Client)
+    [Kafka.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kafka.html#Kafka.Client)
     """
 
+    meta: ClientMeta
     exceptions: Exceptions
+
+    def batch_associate_scram_secret(
+        self, ClusterArn: str, SecretArnList: List[str]
+    ) -> BatchAssociateScramSecretResponseTypeDef:
+        """
+        [Client.batch_associate_scram_secret documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kafka.html#Kafka.Client.batch_associate_scram_secret)
+        """
+
+    def batch_disassociate_scram_secret(
+        self, ClusterArn: str, SecretArnList: List[str]
+    ) -> BatchDisassociateScramSecretResponseTypeDef:
+        """
+        [Client.batch_disassociate_scram_secret documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kafka.html#Kafka.Client.batch_disassociate_scram_secret)
+        """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kafka.html#Kafka.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kafka.html#Kafka.Client.can_paginate)
         """
 
     def create_cluster(
@@ -105,7 +133,7 @@ class KafkaClient:
         Tags: Dict[str, str] = None,
     ) -> CreateClusterResponseTypeDef:
         """
-        [Client.create_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kafka.html#Kafka.Client.create_cluster)
+        [Client.create_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kafka.html#Kafka.Client.create_cluster)
         """
 
     def create_configuration(
@@ -116,38 +144,43 @@ class KafkaClient:
         KafkaVersions: List[str] = None,
     ) -> CreateConfigurationResponseTypeDef:
         """
-        [Client.create_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kafka.html#Kafka.Client.create_configuration)
+        [Client.create_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kafka.html#Kafka.Client.create_configuration)
         """
 
     def delete_cluster(
         self, ClusterArn: str, CurrentVersion: str = None
     ) -> DeleteClusterResponseTypeDef:
         """
-        [Client.delete_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kafka.html#Kafka.Client.delete_cluster)
+        [Client.delete_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kafka.html#Kafka.Client.delete_cluster)
+        """
+
+    def delete_configuration(self, Arn: str) -> DeleteConfigurationResponseTypeDef:
+        """
+        [Client.delete_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kafka.html#Kafka.Client.delete_configuration)
         """
 
     def describe_cluster(self, ClusterArn: str) -> DescribeClusterResponseTypeDef:
         """
-        [Client.describe_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kafka.html#Kafka.Client.describe_cluster)
+        [Client.describe_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kafka.html#Kafka.Client.describe_cluster)
         """
 
     def describe_cluster_operation(
         self, ClusterOperationArn: str
     ) -> DescribeClusterOperationResponseTypeDef:
         """
-        [Client.describe_cluster_operation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kafka.html#Kafka.Client.describe_cluster_operation)
+        [Client.describe_cluster_operation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kafka.html#Kafka.Client.describe_cluster_operation)
         """
 
     def describe_configuration(self, Arn: str) -> DescribeConfigurationResponseTypeDef:
         """
-        [Client.describe_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kafka.html#Kafka.Client.describe_configuration)
+        [Client.describe_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kafka.html#Kafka.Client.describe_configuration)
         """
 
     def describe_configuration_revision(
         self, Arn: str, Revision: int
     ) -> DescribeConfigurationRevisionResponseTypeDef:
         """
-        [Client.describe_configuration_revision documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kafka.html#Kafka.Client.describe_configuration_revision)
+        [Client.describe_configuration_revision documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kafka.html#Kafka.Client.describe_configuration_revision)
         """
 
     def generate_presigned_url(
@@ -158,88 +191,95 @@ class KafkaClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kafka.html#Kafka.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kafka.html#Kafka.Client.generate_presigned_url)
         """
 
     def get_bootstrap_brokers(self, ClusterArn: str) -> GetBootstrapBrokersResponseTypeDef:
         """
-        [Client.get_bootstrap_brokers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kafka.html#Kafka.Client.get_bootstrap_brokers)
+        [Client.get_bootstrap_brokers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kafka.html#Kafka.Client.get_bootstrap_brokers)
         """
 
     def get_compatible_kafka_versions(
         self, ClusterArn: str = None
     ) -> GetCompatibleKafkaVersionsResponseTypeDef:
         """
-        [Client.get_compatible_kafka_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kafka.html#Kafka.Client.get_compatible_kafka_versions)
+        [Client.get_compatible_kafka_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kafka.html#Kafka.Client.get_compatible_kafka_versions)
         """
 
     def list_cluster_operations(
         self, ClusterArn: str, MaxResults: int = None, NextToken: str = None
     ) -> ListClusterOperationsResponseTypeDef:
         """
-        [Client.list_cluster_operations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kafka.html#Kafka.Client.list_cluster_operations)
+        [Client.list_cluster_operations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kafka.html#Kafka.Client.list_cluster_operations)
         """
 
     def list_clusters(
         self, ClusterNameFilter: str = None, MaxResults: int = None, NextToken: str = None
     ) -> ListClustersResponseTypeDef:
         """
-        [Client.list_clusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kafka.html#Kafka.Client.list_clusters)
+        [Client.list_clusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kafka.html#Kafka.Client.list_clusters)
         """
 
     def list_configuration_revisions(
         self, Arn: str, MaxResults: int = None, NextToken: str = None
     ) -> ListConfigurationRevisionsResponseTypeDef:
         """
-        [Client.list_configuration_revisions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kafka.html#Kafka.Client.list_configuration_revisions)
+        [Client.list_configuration_revisions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kafka.html#Kafka.Client.list_configuration_revisions)
         """
 
     def list_configurations(
         self, MaxResults: int = None, NextToken: str = None
     ) -> ListConfigurationsResponseTypeDef:
         """
-        [Client.list_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kafka.html#Kafka.Client.list_configurations)
+        [Client.list_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kafka.html#Kafka.Client.list_configurations)
         """
 
     def list_kafka_versions(
         self, MaxResults: int = None, NextToken: str = None
     ) -> ListKafkaVersionsResponseTypeDef:
         """
-        [Client.list_kafka_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kafka.html#Kafka.Client.list_kafka_versions)
+        [Client.list_kafka_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kafka.html#Kafka.Client.list_kafka_versions)
         """
 
     def list_nodes(
         self, ClusterArn: str, MaxResults: int = None, NextToken: str = None
     ) -> ListNodesResponseTypeDef:
         """
-        [Client.list_nodes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kafka.html#Kafka.Client.list_nodes)
+        [Client.list_nodes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kafka.html#Kafka.Client.list_nodes)
+        """
+
+    def list_scram_secrets(
+        self, ClusterArn: str, MaxResults: int = None, NextToken: str = None
+    ) -> ListScramSecretsResponseTypeDef:
+        """
+        [Client.list_scram_secrets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kafka.html#Kafka.Client.list_scram_secrets)
         """
 
     def list_tags_for_resource(self, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kafka.html#Kafka.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kafka.html#Kafka.Client.list_tags_for_resource)
         """
 
     def reboot_broker(self, BrokerIds: List[str], ClusterArn: str) -> RebootBrokerResponseTypeDef:
         """
-        [Client.reboot_broker documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kafka.html#Kafka.Client.reboot_broker)
+        [Client.reboot_broker documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kafka.html#Kafka.Client.reboot_broker)
         """
 
     def tag_resource(self, ResourceArn: str, Tags: Dict[str, str]) -> None:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kafka.html#Kafka.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kafka.html#Kafka.Client.tag_resource)
         """
 
     def untag_resource(self, ResourceArn: str, TagKeys: List[str]) -> None:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kafka.html#Kafka.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kafka.html#Kafka.Client.untag_resource)
         """
 
     def update_broker_count(
         self, ClusterArn: str, CurrentVersion: str, TargetNumberOfBrokerNodes: int
     ) -> UpdateBrokerCountResponseTypeDef:
         """
-        [Client.update_broker_count documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kafka.html#Kafka.Client.update_broker_count)
+        [Client.update_broker_count documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kafka.html#Kafka.Client.update_broker_count)
         """
 
     def update_broker_storage(
@@ -249,14 +289,14 @@ class KafkaClient:
         TargetBrokerEBSVolumeInfo: List["BrokerEBSVolumeInfoTypeDef"],
     ) -> UpdateBrokerStorageResponseTypeDef:
         """
-        [Client.update_broker_storage documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kafka.html#Kafka.Client.update_broker_storage)
+        [Client.update_broker_storage documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kafka.html#Kafka.Client.update_broker_storage)
         """
 
     def update_cluster_configuration(
         self, ClusterArn: str, ConfigurationInfo: "ConfigurationInfoTypeDef", CurrentVersion: str
     ) -> UpdateClusterConfigurationResponseTypeDef:
         """
-        [Client.update_cluster_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kafka.html#Kafka.Client.update_cluster_configuration)
+        [Client.update_cluster_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kafka.html#Kafka.Client.update_cluster_configuration)
         """
 
     def update_cluster_kafka_version(
@@ -267,7 +307,14 @@ class KafkaClient:
         ConfigurationInfo: "ConfigurationInfoTypeDef" = None,
     ) -> UpdateClusterKafkaVersionResponseTypeDef:
         """
-        [Client.update_cluster_kafka_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kafka.html#Kafka.Client.update_cluster_kafka_version)
+        [Client.update_cluster_kafka_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kafka.html#Kafka.Client.update_cluster_kafka_version)
+        """
+
+    def update_configuration(
+        self, Arn: str, ServerProperties: Union[bytes, IO[bytes]], Description: str = None
+    ) -> UpdateConfigurationResponseTypeDef:
+        """
+        [Client.update_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kafka.html#Kafka.Client.update_configuration)
         """
 
     def update_monitoring(
@@ -279,7 +326,7 @@ class KafkaClient:
         LoggingInfo: "LoggingInfoTypeDef" = None,
     ) -> UpdateMonitoringResponseTypeDef:
         """
-        [Client.update_monitoring documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kafka.html#Kafka.Client.update_monitoring)
+        [Client.update_monitoring documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kafka.html#Kafka.Client.update_monitoring)
         """
 
     @overload
@@ -287,13 +334,13 @@ class KafkaClient:
         self, operation_name: Literal["list_cluster_operations"]
     ) -> ListClusterOperationsPaginator:
         """
-        [Paginator.ListClusterOperations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kafka.html#Kafka.Paginator.ListClusterOperations)
+        [Paginator.ListClusterOperations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kafka.html#Kafka.Paginator.ListClusterOperations)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_clusters"]) -> ListClustersPaginator:
         """
-        [Paginator.ListClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kafka.html#Kafka.Paginator.ListClusters)
+        [Paginator.ListClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kafka.html#Kafka.Paginator.ListClusters)
         """
 
     @overload
@@ -301,7 +348,7 @@ class KafkaClient:
         self, operation_name: Literal["list_configuration_revisions"]
     ) -> ListConfigurationRevisionsPaginator:
         """
-        [Paginator.ListConfigurationRevisions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kafka.html#Kafka.Paginator.ListConfigurationRevisions)
+        [Paginator.ListConfigurationRevisions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kafka.html#Kafka.Paginator.ListConfigurationRevisions)
         """
 
     @overload
@@ -309,7 +356,7 @@ class KafkaClient:
         self, operation_name: Literal["list_configurations"]
     ) -> ListConfigurationsPaginator:
         """
-        [Paginator.ListConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kafka.html#Kafka.Paginator.ListConfigurations)
+        [Paginator.ListConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kafka.html#Kafka.Paginator.ListConfigurations)
         """
 
     @overload
@@ -317,14 +364,19 @@ class KafkaClient:
         self, operation_name: Literal["list_kafka_versions"]
     ) -> ListKafkaVersionsPaginator:
         """
-        [Paginator.ListKafkaVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kafka.html#Kafka.Paginator.ListKafkaVersions)
+        [Paginator.ListKafkaVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kafka.html#Kafka.Paginator.ListKafkaVersions)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_nodes"]) -> ListNodesPaginator:
         """
-        [Paginator.ListNodes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kafka.html#Kafka.Paginator.ListNodes)
+        [Paginator.ListNodes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kafka.html#Kafka.Paginator.ListNodes)
         """
 
-    def get_paginator(self, operation_name: str) -> Boto3Paginator:
-        pass
+    @overload
+    def get_paginator(
+        self, operation_name: Literal["list_scram_secrets"]
+    ) -> ListScramSecretsPaginator:
+        """
+        [Paginator.ListScramSecrets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kafka.html#Kafka.Paginator.ListScramSecrets)
+        """

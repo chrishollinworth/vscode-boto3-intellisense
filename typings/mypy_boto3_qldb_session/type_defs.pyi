@@ -10,7 +10,7 @@ Usage::
     ```
 """
 import sys
-from typing import Any, Dict, List
+from typing import IO, Any, Dict, List, Union
 
 if sys.version_info >= (3, 8):
     from typing import TypedDict
@@ -34,7 +34,9 @@ __all__ = (
 )
 
 CommitTransactionResultTypeDef = TypedDict(
-    "CommitTransactionResultTypeDef", {"TransactionId": str, "CommitDigest": bytes}, total=False
+    "CommitTransactionResultTypeDef",
+    {"TransactionId": str, "CommitDigest": Union[bytes, IO[bytes]]},
+    total=False,
 )
 
 ExecuteStatementResultTypeDef = TypedDict(
@@ -56,11 +58,12 @@ StartTransactionResultTypeDef = TypedDict(
 )
 
 ValueHolderTypeDef = TypedDict(
-    "ValueHolderTypeDef", {"IonBinary": bytes, "IonText": str}, total=False
+    "ValueHolderTypeDef", {"IonBinary": Union[bytes, IO[bytes]], "IonText": str}, total=False
 )
 
 CommitTransactionRequestTypeDef = TypedDict(
-    "CommitTransactionRequestTypeDef", {"TransactionId": str, "CommitDigest": bytes}
+    "CommitTransactionRequestTypeDef",
+    {"TransactionId": str, "CommitDigest": Union[bytes, IO[bytes]]},
 )
 
 _RequiredExecuteStatementRequestTypeDef = TypedDict(

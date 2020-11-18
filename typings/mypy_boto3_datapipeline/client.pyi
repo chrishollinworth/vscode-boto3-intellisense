@@ -1,4 +1,4 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import
+# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for datapipeline service client
 
@@ -15,8 +15,7 @@ import sys
 from datetime import datetime
 from typing import Any, Dict, List, Type, overload
 
-from botocore.exceptions import ClientError as Boto3ClientError
-from botocore.paginate import Paginator as Boto3Paginator
+from botocore.client import ClientMeta
 
 from mypy_boto3_datapipeline.paginator import (
     DescribeObjectsPaginator,
@@ -54,20 +53,29 @@ else:
 __all__ = ("DataPipelineClient",)
 
 
+class BotocoreClientError(BaseException):
+    MSG_TEMPLATE: str
+
+    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
+        self.response: Dict[str, Any]
+        self.operation_name: str
+
+
 class Exceptions:
-    ClientError: Type[Boto3ClientError]
-    InternalServiceError: Type[Boto3ClientError]
-    InvalidRequestException: Type[Boto3ClientError]
-    PipelineDeletedException: Type[Boto3ClientError]
-    PipelineNotFoundException: Type[Boto3ClientError]
-    TaskNotFoundException: Type[Boto3ClientError]
+    ClientError: Type[BotocoreClientError]
+    InternalServiceError: Type[BotocoreClientError]
+    InvalidRequestException: Type[BotocoreClientError]
+    PipelineDeletedException: Type[BotocoreClientError]
+    PipelineNotFoundException: Type[BotocoreClientError]
+    TaskNotFoundException: Type[BotocoreClientError]
 
 
 class DataPipelineClient:
     """
-    [DataPipeline.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datapipeline.html#DataPipeline.Client)
+    [DataPipeline.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datapipeline.html#DataPipeline.Client)
     """
 
+    meta: ClientMeta
     exceptions: Exceptions
 
     def activate_pipeline(
@@ -77,34 +85,34 @@ class DataPipelineClient:
         startTimestamp: datetime = None,
     ) -> Dict[str, Any]:
         """
-        [Client.activate_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datapipeline.html#DataPipeline.Client.activate_pipeline)
+        [Client.activate_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datapipeline.html#DataPipeline.Client.activate_pipeline)
         """
 
     def add_tags(self, pipelineId: str, tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
-        [Client.add_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datapipeline.html#DataPipeline.Client.add_tags)
+        [Client.add_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datapipeline.html#DataPipeline.Client.add_tags)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datapipeline.html#DataPipeline.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datapipeline.html#DataPipeline.Client.can_paginate)
         """
 
     def create_pipeline(
         self, name: str, uniqueId: str, description: str = None, tags: List["TagTypeDef"] = None
     ) -> CreatePipelineOutputTypeDef:
         """
-        [Client.create_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datapipeline.html#DataPipeline.Client.create_pipeline)
+        [Client.create_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datapipeline.html#DataPipeline.Client.create_pipeline)
         """
 
     def deactivate_pipeline(self, pipelineId: str, cancelActive: bool = None) -> Dict[str, Any]:
         """
-        [Client.deactivate_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datapipeline.html#DataPipeline.Client.deactivate_pipeline)
+        [Client.deactivate_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datapipeline.html#DataPipeline.Client.deactivate_pipeline)
         """
 
     def delete_pipeline(self, pipelineId: str) -> None:
         """
-        [Client.delete_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datapipeline.html#DataPipeline.Client.delete_pipeline)
+        [Client.delete_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datapipeline.html#DataPipeline.Client.delete_pipeline)
         """
 
     def describe_objects(
@@ -115,19 +123,19 @@ class DataPipelineClient:
         marker: str = None,
     ) -> DescribeObjectsOutputTypeDef:
         """
-        [Client.describe_objects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datapipeline.html#DataPipeline.Client.describe_objects)
+        [Client.describe_objects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datapipeline.html#DataPipeline.Client.describe_objects)
         """
 
     def describe_pipelines(self, pipelineIds: List[str]) -> DescribePipelinesOutputTypeDef:
         """
-        [Client.describe_pipelines documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datapipeline.html#DataPipeline.Client.describe_pipelines)
+        [Client.describe_pipelines documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datapipeline.html#DataPipeline.Client.describe_pipelines)
         """
 
     def evaluate_expression(
         self, pipelineId: str, objectId: str, expression: str
     ) -> EvaluateExpressionOutputTypeDef:
         """
-        [Client.evaluate_expression documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datapipeline.html#DataPipeline.Client.evaluate_expression)
+        [Client.evaluate_expression documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datapipeline.html#DataPipeline.Client.evaluate_expression)
         """
 
     def generate_presigned_url(
@@ -138,19 +146,19 @@ class DataPipelineClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datapipeline.html#DataPipeline.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datapipeline.html#DataPipeline.Client.generate_presigned_url)
         """
 
     def get_pipeline_definition(
         self, pipelineId: str, version: str = None
     ) -> GetPipelineDefinitionOutputTypeDef:
         """
-        [Client.get_pipeline_definition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datapipeline.html#DataPipeline.Client.get_pipeline_definition)
+        [Client.get_pipeline_definition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datapipeline.html#DataPipeline.Client.get_pipeline_definition)
         """
 
     def list_pipelines(self, marker: str = None) -> ListPipelinesOutputTypeDef:
         """
-        [Client.list_pipelines documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datapipeline.html#DataPipeline.Client.list_pipelines)
+        [Client.list_pipelines documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datapipeline.html#DataPipeline.Client.list_pipelines)
         """
 
     def poll_for_task(
@@ -160,7 +168,7 @@ class DataPipelineClient:
         instanceIdentity: InstanceIdentityTypeDef = None,
     ) -> PollForTaskOutputTypeDef:
         """
-        [Client.poll_for_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datapipeline.html#DataPipeline.Client.poll_for_task)
+        [Client.poll_for_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datapipeline.html#DataPipeline.Client.poll_for_task)
         """
 
     def put_pipeline_definition(
@@ -171,7 +179,7 @@ class DataPipelineClient:
         parameterValues: List["ParameterValueTypeDef"] = None,
     ) -> PutPipelineDefinitionOutputTypeDef:
         """
-        [Client.put_pipeline_definition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datapipeline.html#DataPipeline.Client.put_pipeline_definition)
+        [Client.put_pipeline_definition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datapipeline.html#DataPipeline.Client.put_pipeline_definition)
         """
 
     def query_objects(
@@ -183,31 +191,31 @@ class DataPipelineClient:
         limit: int = None,
     ) -> QueryObjectsOutputTypeDef:
         """
-        [Client.query_objects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datapipeline.html#DataPipeline.Client.query_objects)
+        [Client.query_objects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datapipeline.html#DataPipeline.Client.query_objects)
         """
 
     def remove_tags(self, pipelineId: str, tagKeys: List[str]) -> Dict[str, Any]:
         """
-        [Client.remove_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datapipeline.html#DataPipeline.Client.remove_tags)
+        [Client.remove_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datapipeline.html#DataPipeline.Client.remove_tags)
         """
 
     def report_task_progress(
         self, taskId: str, fields: List["FieldTypeDef"] = None
     ) -> ReportTaskProgressOutputTypeDef:
         """
-        [Client.report_task_progress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datapipeline.html#DataPipeline.Client.report_task_progress)
+        [Client.report_task_progress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datapipeline.html#DataPipeline.Client.report_task_progress)
         """
 
     def report_task_runner_heartbeat(
         self, taskrunnerId: str, workerGroup: str = None, hostname: str = None
     ) -> ReportTaskRunnerHeartbeatOutputTypeDef:
         """
-        [Client.report_task_runner_heartbeat documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datapipeline.html#DataPipeline.Client.report_task_runner_heartbeat)
+        [Client.report_task_runner_heartbeat documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datapipeline.html#DataPipeline.Client.report_task_runner_heartbeat)
         """
 
     def set_status(self, pipelineId: str, objectIds: List[str], status: str) -> None:
         """
-        [Client.set_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datapipeline.html#DataPipeline.Client.set_status)
+        [Client.set_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datapipeline.html#DataPipeline.Client.set_status)
         """
 
     def set_task_status(
@@ -219,7 +227,7 @@ class DataPipelineClient:
         errorStackTrace: str = None,
     ) -> Dict[str, Any]:
         """
-        [Client.set_task_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datapipeline.html#DataPipeline.Client.set_task_status)
+        [Client.set_task_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datapipeline.html#DataPipeline.Client.set_task_status)
         """
 
     def validate_pipeline_definition(
@@ -230,7 +238,7 @@ class DataPipelineClient:
         parameterValues: List["ParameterValueTypeDef"] = None,
     ) -> ValidatePipelineDefinitionOutputTypeDef:
         """
-        [Client.validate_pipeline_definition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datapipeline.html#DataPipeline.Client.validate_pipeline_definition)
+        [Client.validate_pipeline_definition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datapipeline.html#DataPipeline.Client.validate_pipeline_definition)
         """
 
     @overload
@@ -238,20 +246,17 @@ class DataPipelineClient:
         self, operation_name: Literal["describe_objects"]
     ) -> DescribeObjectsPaginator:
         """
-        [Paginator.DescribeObjects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datapipeline.html#DataPipeline.Paginator.DescribeObjects)
+        [Paginator.DescribeObjects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datapipeline.html#DataPipeline.Paginator.DescribeObjects)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_pipelines"]) -> ListPipelinesPaginator:
         """
-        [Paginator.ListPipelines documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datapipeline.html#DataPipeline.Paginator.ListPipelines)
+        [Paginator.ListPipelines documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datapipeline.html#DataPipeline.Paginator.ListPipelines)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["query_objects"]) -> QueryObjectsPaginator:
         """
-        [Paginator.QueryObjects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datapipeline.html#DataPipeline.Paginator.QueryObjects)
+        [Paginator.QueryObjects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datapipeline.html#DataPipeline.Paginator.QueryObjects)
         """
-
-    def get_paginator(self, operation_name: str) -> Boto3Paginator:
-        pass

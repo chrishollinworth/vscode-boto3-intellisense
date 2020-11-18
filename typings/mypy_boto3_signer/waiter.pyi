@@ -26,10 +26,10 @@ __all__ = ("SuccessfulSigningJobWaiter",)
 
 class SuccessfulSigningJobWaiter(Boto3Waiter):
     """
-    [Waiter.SuccessfulSigningJob documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/signer.html#Signer.Waiter.SuccessfulSigningJob)
+    [Waiter.SuccessfulSigningJob documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/signer.html#Signer.Waiter.SuccessfulSigningJob)
     """
 
     def wait(self, jobId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [SuccessfulSigningJob.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/signer.html#Signer.Waiter.SuccessfulSigningJob.wait)
+        [SuccessfulSigningJob.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/signer.html#Signer.Waiter.SuccessfulSigningJob.wait)
         """

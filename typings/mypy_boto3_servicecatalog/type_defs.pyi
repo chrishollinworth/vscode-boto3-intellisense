@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Dict, List
+from typing import Any, Dict, List
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -59,6 +58,7 @@ __all__ = (
     "ResourceChangeTypeDef",
     "ResourceDetailTypeDef",
     "ResourceTargetDefinitionTypeDef",
+    "ResponseMetadata",
     "ServiceActionDetailTypeDef",
     "ServiceActionSummaryTypeDef",
     "ShareDetailsTypeDef",
@@ -100,6 +100,8 @@ __all__ = (
     "ExecuteProvisionedProductPlanOutputTypeDef",
     "ExecuteProvisionedProductServiceActionOutputTypeDef",
     "GetAWSOrganizationsAccessStatusOutputTypeDef",
+    "GetProvisionedProductOutputsOutputTypeDef",
+    "ImportAsProvisionedProductOutputTypeDef",
     "ListAcceptedPortfolioSharesOutputTypeDef",
     "ListBudgetsForResourceOutputTypeDef",
     "ListConstraintsForPortfolioOutputTypeDef",
@@ -300,6 +302,7 @@ ProvisionedProductDetailTypeDef = TypedDict(
         "LastSuccessfulProvisioningRecordId": str,
         "ProductId": str,
         "ProvisioningArtifactId": str,
+        "LaunchRoleArn": str,
     },
     total=False,
 )
@@ -361,7 +364,9 @@ ProvisioningArtifactDetailTypeDef = TypedDict(
 )
 
 ProvisioningArtifactOutputTypeDef = TypedDict(
-    "ProvisioningArtifactOutputTypeDef", {"Key": str, "Description": str}, total=False
+    "ProvisioningArtifactOutputTypeDef",
+    {"Key": str, "Description": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ProvisioningArtifactParameterTypeDef = TypedDict(
@@ -432,6 +437,7 @@ RecordDetailTypeDef = TypedDict(
         "PathId": str,
         "RecordErrors": List["RecordErrorTypeDef"],
         "RecordTags": List["RecordTagTypeDef"],
+        "LaunchRoleArn": str,
     },
     total=False,
 )
@@ -439,7 +445,14 @@ RecordDetailTypeDef = TypedDict(
 RecordErrorTypeDef = TypedDict("RecordErrorTypeDef", {"Code": str, "Description": str}, total=False)
 
 RecordOutputTypeDef = TypedDict(
-    "RecordOutputTypeDef", {"OutputKey": str, "OutputValue": str, "Description": str}, total=False
+    "RecordOutputTypeDef",
+    {
+        "OutputKey": str,
+        "OutputValue": str,
+        "Description": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
+    total=False,
 )
 
 RecordTagTypeDef = TypedDict("RecordTagTypeDef", {"Key": str, "Value": str}, total=False)
@@ -488,6 +501,17 @@ ResourceTargetDefinitionTypeDef = TypedDict(
         "RequiresRecreation": Literal["NEVER", "CONDITIONALLY", "ALWAYS"],
     },
     total=False,
+)
+
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
 )
 
 ServiceActionDetailTypeDef = TypedDict(
@@ -553,18 +577,26 @@ AccessLevelFilterTypeDef = TypedDict(
 
 BatchAssociateServiceActionWithProvisioningArtifactOutputTypeDef = TypedDict(
     "BatchAssociateServiceActionWithProvisioningArtifactOutputTypeDef",
-    {"FailedServiceActionAssociations": List["FailedServiceActionAssociationTypeDef"]},
+    {
+        "FailedServiceActionAssociations": List["FailedServiceActionAssociationTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 BatchDisassociateServiceActionFromProvisioningArtifactOutputTypeDef = TypedDict(
     "BatchDisassociateServiceActionFromProvisioningArtifactOutputTypeDef",
-    {"FailedServiceActionAssociations": List["FailedServiceActionAssociationTypeDef"]},
+    {
+        "FailedServiceActionAssociations": List["FailedServiceActionAssociationTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 CopyProductOutputTypeDef = TypedDict(
-    "CopyProductOutputTypeDef", {"CopyProductToken": str}, total=False
+    "CopyProductOutputTypeDef",
+    {"CopyProductToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 CreateConstraintOutputTypeDef = TypedDict(
@@ -573,18 +605,25 @@ CreateConstraintOutputTypeDef = TypedDict(
         "ConstraintDetail": "ConstraintDetailTypeDef",
         "ConstraintParameters": str,
         "Status": Literal["AVAILABLE", "CREATING", "FAILED"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
 CreatePortfolioOutputTypeDef = TypedDict(
     "CreatePortfolioOutputTypeDef",
-    {"PortfolioDetail": "PortfolioDetailTypeDef", "Tags": List["TagTypeDef"]},
+    {
+        "PortfolioDetail": "PortfolioDetailTypeDef",
+        "Tags": List["TagTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 CreatePortfolioShareOutputTypeDef = TypedDict(
-    "CreatePortfolioShareOutputTypeDef", {"PortfolioShareToken": str}, total=False
+    "CreatePortfolioShareOutputTypeDef",
+    {"PortfolioShareToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 CreateProductOutputTypeDef = TypedDict(
@@ -593,6 +632,7 @@ CreateProductOutputTypeDef = TypedDict(
         "ProductViewDetail": "ProductViewDetailTypeDef",
         "ProvisioningArtifactDetail": "ProvisioningArtifactDetailTypeDef",
         "Tags": List["TagTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -605,6 +645,7 @@ CreateProvisionedProductPlanOutputTypeDef = TypedDict(
         "ProvisionProductId": str,
         "ProvisionedProductName": str,
         "ProvisioningArtifactId": str,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -615,22 +656,27 @@ CreateProvisioningArtifactOutputTypeDef = TypedDict(
         "ProvisioningArtifactDetail": "ProvisioningArtifactDetailTypeDef",
         "Info": Dict[str, str],
         "Status": Literal["AVAILABLE", "CREATING", "FAILED"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
 CreateServiceActionOutputTypeDef = TypedDict(
     "CreateServiceActionOutputTypeDef",
-    {"ServiceActionDetail": "ServiceActionDetailTypeDef"},
+    {"ServiceActionDetail": "ServiceActionDetailTypeDef", "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 CreateTagOptionOutputTypeDef = TypedDict(
-    "CreateTagOptionOutputTypeDef", {"TagOptionDetail": "TagOptionDetailTypeDef"}, total=False
+    "CreateTagOptionOutputTypeDef",
+    {"TagOptionDetail": "TagOptionDetailTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 DeletePortfolioShareOutputTypeDef = TypedDict(
-    "DeletePortfolioShareOutputTypeDef", {"PortfolioShareToken": str}, total=False
+    "DeletePortfolioShareOutputTypeDef",
+    {"PortfolioShareToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 DescribeConstraintOutputTypeDef = TypedDict(
@@ -639,6 +685,7 @@ DescribeConstraintOutputTypeDef = TypedDict(
         "ConstraintDetail": "ConstraintDetailTypeDef",
         "ConstraintParameters": str,
         "Status": Literal["AVAILABLE", "CREATING", "FAILED"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -649,6 +696,7 @@ DescribeCopyProductStatusOutputTypeDef = TypedDict(
         "CopyProductStatus": Literal["SUCCEEDED", "IN_PROGRESS", "FAILED"],
         "TargetProductId": str,
         "StatusDetail": str,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -660,6 +708,7 @@ DescribePortfolioOutputTypeDef = TypedDict(
         "Tags": List["TagTypeDef"],
         "TagOptions": List["TagOptionDetailTypeDef"],
         "Budgets": List["BudgetDetailTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -674,6 +723,7 @@ DescribePortfolioShareStatusOutputTypeDef = TypedDict(
             "NOT_STARTED", "IN_PROGRESS", "COMPLETED", "COMPLETED_WITH_ERRORS", "ERROR"
         ],
         "ShareDetails": "ShareDetailsTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -686,6 +736,7 @@ DescribeProductAsAdminOutputTypeDef = TypedDict(
         "Tags": List["TagTypeDef"],
         "TagOptions": List["TagOptionDetailTypeDef"],
         "Budgets": List["BudgetDetailTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -697,6 +748,7 @@ DescribeProductOutputTypeDef = TypedDict(
         "ProvisioningArtifacts": List["ProvisioningArtifactTypeDef"],
         "Budgets": List["BudgetDetailTypeDef"],
         "LaunchPaths": List["LaunchPathTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -706,6 +758,7 @@ DescribeProductViewOutputTypeDef = TypedDict(
     {
         "ProductViewSummary": "ProductViewSummaryTypeDef",
         "ProvisioningArtifacts": List["ProvisioningArtifactTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -715,6 +768,7 @@ DescribeProvisionedProductOutputTypeDef = TypedDict(
     {
         "ProvisionedProductDetail": "ProvisionedProductDetailTypeDef",
         "CloudWatchDashboards": List["CloudWatchDashboardTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -725,6 +779,7 @@ DescribeProvisionedProductPlanOutputTypeDef = TypedDict(
         "ProvisionedProductPlanDetails": "ProvisionedProductPlanDetailsTypeDef",
         "ResourceChanges": List["ResourceChangeTypeDef"],
         "NextPageToken": str,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -735,6 +790,7 @@ DescribeProvisioningArtifactOutputTypeDef = TypedDict(
         "ProvisioningArtifactDetail": "ProvisioningArtifactDetailTypeDef",
         "Info": Dict[str, str],
         "Status": Literal["AVAILABLE", "CREATING", "FAILED"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -748,6 +804,7 @@ DescribeProvisioningParametersOutputTypeDef = TypedDict(
         "TagOptions": List["TagOptionSummaryTypeDef"],
         "ProvisioningArtifactPreferences": "ProvisioningArtifactPreferencesTypeDef",
         "ProvisioningArtifactOutputs": List["ProvisioningArtifactOutputTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -758,105 +815,172 @@ DescribeRecordOutputTypeDef = TypedDict(
         "RecordDetail": "RecordDetailTypeDef",
         "RecordOutputs": List["RecordOutputTypeDef"],
         "NextPageToken": str,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
 DescribeServiceActionExecutionParametersOutputTypeDef = TypedDict(
     "DescribeServiceActionExecutionParametersOutputTypeDef",
-    {"ServiceActionParameters": List["ExecutionParameterTypeDef"]},
+    {
+        "ServiceActionParameters": List["ExecutionParameterTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 DescribeServiceActionOutputTypeDef = TypedDict(
     "DescribeServiceActionOutputTypeDef",
-    {"ServiceActionDetail": "ServiceActionDetailTypeDef"},
+    {"ServiceActionDetail": "ServiceActionDetailTypeDef", "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 DescribeTagOptionOutputTypeDef = TypedDict(
-    "DescribeTagOptionOutputTypeDef", {"TagOptionDetail": "TagOptionDetailTypeDef"}, total=False
+    "DescribeTagOptionOutputTypeDef",
+    {"TagOptionDetail": "TagOptionDetailTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ExecuteProvisionedProductPlanOutputTypeDef = TypedDict(
     "ExecuteProvisionedProductPlanOutputTypeDef",
-    {"RecordDetail": "RecordDetailTypeDef"},
+    {"RecordDetail": "RecordDetailTypeDef", "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 ExecuteProvisionedProductServiceActionOutputTypeDef = TypedDict(
     "ExecuteProvisionedProductServiceActionOutputTypeDef",
-    {"RecordDetail": "RecordDetailTypeDef"},
+    {"RecordDetail": "RecordDetailTypeDef", "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 GetAWSOrganizationsAccessStatusOutputTypeDef = TypedDict(
     "GetAWSOrganizationsAccessStatusOutputTypeDef",
-    {"AccessStatus": Literal["ENABLED", "UNDER_CHANGE", "DISABLED"]},
+    {
+        "AccessStatus": Literal["ENABLED", "UNDER_CHANGE", "DISABLED"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
+    total=False,
+)
+
+GetProvisionedProductOutputsOutputTypeDef = TypedDict(
+    "GetProvisionedProductOutputsOutputTypeDef",
+    {
+        "Outputs": List["RecordOutputTypeDef"],
+        "NextPageToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
+    total=False,
+)
+
+ImportAsProvisionedProductOutputTypeDef = TypedDict(
+    "ImportAsProvisionedProductOutputTypeDef",
+    {"RecordDetail": "RecordDetailTypeDef", "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 ListAcceptedPortfolioSharesOutputTypeDef = TypedDict(
     "ListAcceptedPortfolioSharesOutputTypeDef",
-    {"PortfolioDetails": List["PortfolioDetailTypeDef"], "NextPageToken": str},
+    {
+        "PortfolioDetails": List["PortfolioDetailTypeDef"],
+        "NextPageToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListBudgetsForResourceOutputTypeDef = TypedDict(
     "ListBudgetsForResourceOutputTypeDef",
-    {"Budgets": List["BudgetDetailTypeDef"], "NextPageToken": str},
+    {
+        "Budgets": List["BudgetDetailTypeDef"],
+        "NextPageToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListConstraintsForPortfolioOutputTypeDef = TypedDict(
     "ListConstraintsForPortfolioOutputTypeDef",
-    {"ConstraintDetails": List["ConstraintDetailTypeDef"], "NextPageToken": str},
+    {
+        "ConstraintDetails": List["ConstraintDetailTypeDef"],
+        "NextPageToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListLaunchPathsOutputTypeDef = TypedDict(
     "ListLaunchPathsOutputTypeDef",
-    {"LaunchPathSummaries": List["LaunchPathSummaryTypeDef"], "NextPageToken": str},
+    {
+        "LaunchPathSummaries": List["LaunchPathSummaryTypeDef"],
+        "NextPageToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListOrganizationPortfolioAccessOutputTypeDef = TypedDict(
     "ListOrganizationPortfolioAccessOutputTypeDef",
-    {"OrganizationNodes": List["OrganizationNodeTypeDef"], "NextPageToken": str},
+    {
+        "OrganizationNodes": List["OrganizationNodeTypeDef"],
+        "NextPageToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListPortfolioAccessOutputTypeDef = TypedDict(
-    "ListPortfolioAccessOutputTypeDef", {"AccountIds": List[str], "NextPageToken": str}, total=False
+    "ListPortfolioAccessOutputTypeDef",
+    {"AccountIds": List[str], "NextPageToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ListPortfoliosForProductOutputTypeDef = TypedDict(
     "ListPortfoliosForProductOutputTypeDef",
-    {"PortfolioDetails": List["PortfolioDetailTypeDef"], "NextPageToken": str},
+    {
+        "PortfolioDetails": List["PortfolioDetailTypeDef"],
+        "NextPageToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListPortfoliosOutputTypeDef = TypedDict(
     "ListPortfoliosOutputTypeDef",
-    {"PortfolioDetails": List["PortfolioDetailTypeDef"], "NextPageToken": str},
+    {
+        "PortfolioDetails": List["PortfolioDetailTypeDef"],
+        "NextPageToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListPrincipalsForPortfolioOutputTypeDef = TypedDict(
     "ListPrincipalsForPortfolioOutputTypeDef",
-    {"Principals": List["PrincipalTypeDef"], "NextPageToken": str},
+    {
+        "Principals": List["PrincipalTypeDef"],
+        "NextPageToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListProvisionedProductPlansOutputTypeDef = TypedDict(
     "ListProvisionedProductPlansOutputTypeDef",
-    {"ProvisionedProductPlans": List["ProvisionedProductPlanSummaryTypeDef"], "NextPageToken": str},
+    {
+        "ProvisionedProductPlans": List["ProvisionedProductPlanSummaryTypeDef"],
+        "NextPageToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListProvisioningArtifactsForServiceActionOutputTypeDef = TypedDict(
     "ListProvisioningArtifactsForServiceActionOutputTypeDef",
-    {"ProvisioningArtifactViews": List["ProvisioningArtifactViewTypeDef"], "NextPageToken": str},
+    {
+        "ProvisioningArtifactViews": List["ProvisioningArtifactViewTypeDef"],
+        "NextPageToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -865,13 +989,18 @@ ListProvisioningArtifactsOutputTypeDef = TypedDict(
     {
         "ProvisioningArtifactDetails": List["ProvisioningArtifactDetailTypeDef"],
         "NextPageToken": str,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
 ListRecordHistoryOutputTypeDef = TypedDict(
     "ListRecordHistoryOutputTypeDef",
-    {"RecordDetails": List["RecordDetailTypeDef"], "NextPageToken": str},
+    {
+        "RecordDetails": List["RecordDetailTypeDef"],
+        "NextPageToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -881,25 +1010,41 @@ ListRecordHistorySearchFilterTypeDef = TypedDict(
 
 ListResourcesForTagOptionOutputTypeDef = TypedDict(
     "ListResourcesForTagOptionOutputTypeDef",
-    {"ResourceDetails": List["ResourceDetailTypeDef"], "PageToken": str},
+    {
+        "ResourceDetails": List["ResourceDetailTypeDef"],
+        "PageToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListServiceActionsForProvisioningArtifactOutputTypeDef = TypedDict(
     "ListServiceActionsForProvisioningArtifactOutputTypeDef",
-    {"ServiceActionSummaries": List["ServiceActionSummaryTypeDef"], "NextPageToken": str},
+    {
+        "ServiceActionSummaries": List["ServiceActionSummaryTypeDef"],
+        "NextPageToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListServiceActionsOutputTypeDef = TypedDict(
     "ListServiceActionsOutputTypeDef",
-    {"ServiceActionSummaries": List["ServiceActionSummaryTypeDef"], "NextPageToken": str},
+    {
+        "ServiceActionSummaries": List["ServiceActionSummaryTypeDef"],
+        "NextPageToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListStackInstancesForProvisionedProductOutputTypeDef = TypedDict(
     "ListStackInstancesForProvisionedProductOutputTypeDef",
-    {"StackInstances": List["StackInstanceTypeDef"], "NextPageToken": str},
+    {
+        "StackInstances": List["StackInstanceTypeDef"],
+        "NextPageToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -909,7 +1054,11 @@ ListTagOptionsFiltersTypeDef = TypedDict(
 
 ListTagOptionsOutputTypeDef = TypedDict(
     "ListTagOptionsOutputTypeDef",
-    {"TagOptionDetails": List["TagOptionDetailTypeDef"], "PageToken": str},
+    {
+        "TagOptionDetails": List["TagOptionDetailTypeDef"],
+        "PageToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -918,7 +1067,9 @@ PaginatorConfigTypeDef = TypedDict(
 )
 
 ProvisionProductOutputTypeDef = TypedDict(
-    "ProvisionProductOutputTypeDef", {"RecordDetail": "RecordDetailTypeDef"}, total=False
+    "ProvisionProductOutputTypeDef",
+    {"RecordDetail": "RecordDetailTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 _RequiredProvisioningArtifactPropertiesTypeDef = TypedDict(
@@ -961,13 +1112,21 @@ ProvisioningPreferencesTypeDef = TypedDict(
 
 ScanProvisionedProductsOutputTypeDef = TypedDict(
     "ScanProvisionedProductsOutputTypeDef",
-    {"ProvisionedProducts": List["ProvisionedProductDetailTypeDef"], "NextPageToken": str},
+    {
+        "ProvisionedProducts": List["ProvisionedProductDetailTypeDef"],
+        "NextPageToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 SearchProductsAsAdminOutputTypeDef = TypedDict(
     "SearchProductsAsAdminOutputTypeDef",
-    {"ProductViewDetails": List["ProductViewDetailTypeDef"], "NextPageToken": str},
+    {
+        "ProductViewDetails": List["ProductViewDetailTypeDef"],
+        "NextPageToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -977,6 +1136,7 @@ SearchProductsOutputTypeDef = TypedDict(
         "ProductViewSummaries": List["ProductViewSummaryTypeDef"],
         "ProductViewAggregations": Dict[str, List["ProductViewAggregationValueTypeDef"]],
         "NextPageToken": str,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -987,6 +1147,7 @@ SearchProvisionedProductsOutputTypeDef = TypedDict(
         "ProvisionedProducts": List["ProvisionedProductAttributeTypeDef"],
         "TotalResultsCount": int,
         "NextPageToken": str,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -997,7 +1158,9 @@ ServiceActionAssociationTypeDef = TypedDict(
 )
 
 TerminateProvisionedProductOutputTypeDef = TypedDict(
-    "TerminateProvisionedProductOutputTypeDef", {"RecordDetail": "RecordDetailTypeDef"}, total=False
+    "TerminateProvisionedProductOutputTypeDef",
+    {"RecordDetail": "RecordDetailTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 UpdateConstraintOutputTypeDef = TypedDict(
@@ -1006,33 +1169,45 @@ UpdateConstraintOutputTypeDef = TypedDict(
         "ConstraintDetail": "ConstraintDetailTypeDef",
         "ConstraintParameters": str,
         "Status": Literal["AVAILABLE", "CREATING", "FAILED"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
 UpdatePortfolioOutputTypeDef = TypedDict(
     "UpdatePortfolioOutputTypeDef",
-    {"PortfolioDetail": "PortfolioDetailTypeDef", "Tags": List["TagTypeDef"]},
+    {
+        "PortfolioDetail": "PortfolioDetailTypeDef",
+        "Tags": List["TagTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 UpdateProductOutputTypeDef = TypedDict(
     "UpdateProductOutputTypeDef",
-    {"ProductViewDetail": "ProductViewDetailTypeDef", "Tags": List["TagTypeDef"]},
+    {
+        "ProductViewDetail": "ProductViewDetailTypeDef",
+        "Tags": List["TagTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 UpdateProvisionedProductOutputTypeDef = TypedDict(
-    "UpdateProvisionedProductOutputTypeDef", {"RecordDetail": "RecordDetailTypeDef"}, total=False
+    "UpdateProvisionedProductOutputTypeDef",
+    {"RecordDetail": "RecordDetailTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 UpdateProvisionedProductPropertiesOutputTypeDef = TypedDict(
     "UpdateProvisionedProductPropertiesOutputTypeDef",
     {
         "ProvisionedProductId": str,
-        "ProvisionedProductProperties": Dict[Literal["OWNER"], str],
+        "ProvisionedProductProperties": Dict[Literal["OWNER", "LAUNCH_ROLE"], str],
         "RecordId": str,
         "Status": Literal["CREATED", "IN_PROGRESS", "IN_PROGRESS_IN_ERROR", "SUCCEEDED", "FAILED"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -1043,6 +1218,7 @@ UpdateProvisioningArtifactOutputTypeDef = TypedDict(
         "ProvisioningArtifactDetail": "ProvisioningArtifactDetailTypeDef",
         "Info": Dict[str, str],
         "Status": Literal["AVAILABLE", "CREATING", "FAILED"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -1063,10 +1239,12 @@ UpdateProvisioningPreferencesTypeDef = TypedDict(
 
 UpdateServiceActionOutputTypeDef = TypedDict(
     "UpdateServiceActionOutputTypeDef",
-    {"ServiceActionDetail": "ServiceActionDetailTypeDef"},
+    {"ServiceActionDetail": "ServiceActionDetailTypeDef", "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 UpdateTagOptionOutputTypeDef = TypedDict(
-    "UpdateTagOptionOutputTypeDef", {"TagOptionDetail": "TagOptionDetailTypeDef"}, total=False
+    "UpdateTagOptionOutputTypeDef",
+    {"TagOptionDetail": "TagOptionDetailTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )

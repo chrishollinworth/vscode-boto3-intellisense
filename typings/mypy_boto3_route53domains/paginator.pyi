@@ -38,33 +38,33 @@ __all__ = ("ListDomainsPaginator", "ListOperationsPaginator", "ViewBillingPagina
 
 class ListDomainsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDomains documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/route53domains.html#Route53Domains.Paginator.ListDomains)
+    [Paginator.ListDomains documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/route53domains.html#Route53Domains.Paginator.ListDomains)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDomainsResponseTypeDef]:
         """
-        [ListDomains.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/route53domains.html#Route53Domains.Paginator.ListDomains.paginate)
+        [ListDomains.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/route53domains.html#Route53Domains.Paginator.ListDomains.paginate)
         """
 
 
 class ListOperationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListOperations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/route53domains.html#Route53Domains.Paginator.ListOperations)
+    [Paginator.ListOperations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/route53domains.html#Route53Domains.Paginator.ListOperations)
     """
 
     def paginate(
         self, SubmittedSince: datetime = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListOperationsResponseTypeDef]:
         """
-        [ListOperations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/route53domains.html#Route53Domains.Paginator.ListOperations.paginate)
+        [ListOperations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/route53domains.html#Route53Domains.Paginator.ListOperations.paginate)
         """
 
 
 class ViewBillingPaginator(Boto3Paginator):
     """
-    [Paginator.ViewBilling documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/route53domains.html#Route53Domains.Paginator.ViewBilling)
+    [Paginator.ViewBilling documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/route53domains.html#Route53Domains.Paginator.ViewBilling)
     """
 
     def paginate(
@@ -74,5 +74,5 @@ class ViewBillingPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ViewBillingResponseTypeDef]:
         """
-        [ViewBilling.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/route53domains.html#Route53Domains.Paginator.ViewBilling.paginate)
+        [ViewBilling.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/route53domains.html#Route53Domains.Paginator.ViewBilling.paginate)
         """

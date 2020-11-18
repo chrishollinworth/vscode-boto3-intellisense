@@ -9,6 +9,8 @@ Usage::
         Client,
         ListEntitlementsPaginator,
         ListFlowsPaginator,
+        ListOfferingsPaginator,
+        ListReservationsPaginator,
         MediaConnectClient,
     )
 
@@ -19,12 +21,26 @@ Usage::
 
     list_entitlements_paginator: ListEntitlementsPaginator = client.get_paginator("list_entitlements")
     list_flows_paginator: ListFlowsPaginator = client.get_paginator("list_flows")
+    list_offerings_paginator: ListOfferingsPaginator = client.get_paginator("list_offerings")
+    list_reservations_paginator: ListReservationsPaginator = client.get_paginator("list_reservations")
     ```
 """
 from mypy_boto3_mediaconnect.client import MediaConnectClient
-from mypy_boto3_mediaconnect.paginator import ListEntitlementsPaginator, ListFlowsPaginator
+from mypy_boto3_mediaconnect.paginator import (
+    ListEntitlementsPaginator,
+    ListFlowsPaginator,
+    ListOfferingsPaginator,
+    ListReservationsPaginator,
+)
 
 Client = MediaConnectClient
 
 
-__all__ = ("Client", "ListEntitlementsPaginator", "ListFlowsPaginator", "MediaConnectClient")
+__all__ = (
+    "Client",
+    "ListEntitlementsPaginator",
+    "ListFlowsPaginator",
+    "ListOfferingsPaginator",
+    "ListReservationsPaginator",
+    "MediaConnectClient",
+)

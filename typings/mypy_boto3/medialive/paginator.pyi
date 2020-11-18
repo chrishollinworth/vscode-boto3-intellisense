@@ -1,6 +1,7 @@
 from mypy_boto3_medialive.paginator import (
     DescribeSchedulePaginator,
     ListChannelsPaginator,
+    ListInputDeviceTransfersPaginator,
     ListInputDevicesPaginator,
     ListInputSecurityGroupsPaginator,
     ListInputsPaginator,
@@ -13,6 +14,7 @@ from mypy_boto3_medialive.paginator import (
 __all__ = (
     "DescribeSchedulePaginator",
     "ListChannelsPaginator",
+    "ListInputDeviceTransfersPaginator",
     "ListInputDevicesPaginator",
     "ListInputSecurityGroupsPaginator",
     "ListInputsPaginator",

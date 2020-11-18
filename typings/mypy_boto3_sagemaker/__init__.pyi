@@ -22,6 +22,8 @@ Usage::
         ListFlowDefinitionsPaginator,
         ListHumanTaskUisPaginator,
         ListHyperParameterTuningJobsPaginator,
+        ListImageVersionsPaginator,
+        ListImagesPaginator,
         ListLabelingJobsForWorkteamPaginator,
         ListLabelingJobsPaginator,
         ListModelPackagesPaginator,
@@ -78,6 +80,8 @@ Usage::
     list_flow_definitions_paginator: ListFlowDefinitionsPaginator = client.get_paginator("list_flow_definitions")
     list_human_task_uis_paginator: ListHumanTaskUisPaginator = client.get_paginator("list_human_task_uis")
     list_hyper_parameter_tuning_jobs_paginator: ListHyperParameterTuningJobsPaginator = client.get_paginator("list_hyper_parameter_tuning_jobs")
+    list_image_versions_paginator: ListImageVersionsPaginator = client.get_paginator("list_image_versions")
+    list_images_paginator: ListImagesPaginator = client.get_paginator("list_images")
     list_labeling_jobs_paginator: ListLabelingJobsPaginator = client.get_paginator("list_labeling_jobs")
     list_labeling_jobs_for_workteam_paginator: ListLabelingJobsForWorkteamPaginator = client.get_paginator("list_labeling_jobs_for_workteam")
     list_model_packages_paginator: ListModelPackagesPaginator = client.get_paginator("list_model_packages")
@@ -115,6 +119,8 @@ from mypy_boto3_sagemaker.paginator import (
     ListFlowDefinitionsPaginator,
     ListHumanTaskUisPaginator,
     ListHyperParameterTuningJobsPaginator,
+    ListImagesPaginator,
+    ListImageVersionsPaginator,
     ListLabelingJobsForWorkteamPaginator,
     ListLabelingJobsPaginator,
     ListModelPackagesPaginator,
@@ -167,6 +173,8 @@ __all__ = (
     "ListFlowDefinitionsPaginator",
     "ListHumanTaskUisPaginator",
     "ListHyperParameterTuningJobsPaginator",
+    "ListImageVersionsPaginator",
+    "ListImagesPaginator",
     "ListLabelingJobsForWorkteamPaginator",
     "ListLabelingJobsPaginator",
     "ListModelPackagesPaginator",

@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Dict, List
+from typing import IO, Dict, List, Union
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -307,7 +306,7 @@ PlacementStatisticsTypeDef = TypedDict(
     total=False,
 )
 
-RawMessageTypeDef = TypedDict("RawMessageTypeDef", {"Data": bytes})
+RawMessageTypeDef = TypedDict("RawMessageTypeDef", {"Data": Union[bytes, IO[bytes]]})
 
 ReputationOptionsTypeDef = TypedDict(
     "ReputationOptionsTypeDef",

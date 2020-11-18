@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Dict, List
+from typing import IO, Dict, List, Union
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -46,6 +45,7 @@ __all__ = (
     "MethodSnapshotTypeDef",
     "MethodTypeDef",
     "ModelTypeDef",
+    "MutualTlsAuthenticationTypeDef",
     "QuotaSettingsTypeDef",
     "RequestValidatorTypeDef",
     "ResourceTypeDef",
@@ -73,6 +73,7 @@ __all__ = (
     "ExportResponseTypeDef",
     "GatewayResponsesTypeDef",
     "ModelsTypeDef",
+    "MutualTlsAuthenticationInputTypeDef",
     "PaginatorConfigTypeDef",
     "PatchOperationTypeDef",
     "RequestValidatorsTypeDef",
@@ -237,6 +238,7 @@ DomainNameTypeDef = TypedDict(
         "domainNameStatusMessage": str,
         "securityPolicy": Literal["TLS_1_0", "TLS_1_2"],
         "tags": Dict[str, str],
+        "mutualTlsAuthentication": "MutualTlsAuthenticationTypeDef",
     },
     total=False,
 )
@@ -367,6 +369,12 @@ ModelTypeDef = TypedDict(
     total=False,
 )
 
+MutualTlsAuthenticationTypeDef = TypedDict(
+    "MutualTlsAuthenticationTypeDef",
+    {"truststoreUri": str, "truststoreVersion": str, "truststoreWarnings": List[str]},
+    total=False,
+)
+
 QuotaSettingsTypeDef = TypedDict(
     "QuotaSettingsTypeDef",
     {"limit": int, "offset": int, "period": Literal["DAY", "WEEK", "MONTH"]},
@@ -406,6 +414,7 @@ RestApiTypeDef = TypedDict(
         "endpointConfiguration": "EndpointConfigurationTypeDef",
         "policy": str,
         "tags": Dict[str, str],
+        "disableExecuteApiEndpoint": bool,
     },
     total=False,
 )
@@ -565,7 +574,7 @@ DomainNamesTypeDef = TypedDict(
 
 ExportResponseTypeDef = TypedDict(
     "ExportResponseTypeDef",
-    {"contentType": str, "contentDisposition": str, "body": bytes},
+    {"contentType": str, "contentDisposition": str, "body": Union[bytes, IO[bytes]]},
     total=False,
 )
 
@@ -577,6 +586,12 @@ GatewayResponsesTypeDef = TypedDict(
 
 ModelsTypeDef = TypedDict(
     "ModelsTypeDef", {"position": str, "items": List["ModelTypeDef"]}, total=False
+)
+
+MutualTlsAuthenticationInputTypeDef = TypedDict(
+    "MutualTlsAuthenticationInputTypeDef",
+    {"truststoreUri": str, "truststoreVersion": str},
+    total=False,
 )
 
 PaginatorConfigTypeDef = TypedDict(
@@ -610,7 +625,7 @@ RestApisTypeDef = TypedDict(
 
 SdkResponseTypeDef = TypedDict(
     "SdkResponseTypeDef",
-    {"contentType": str, "contentDisposition": str, "body": bytes},
+    {"contentType": str, "contentDisposition": str, "body": Union[bytes, IO[bytes]]},
     total=False,
 )
 

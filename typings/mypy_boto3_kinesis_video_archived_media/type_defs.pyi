@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import IO, List
+from typing import IO, Any, Dict, List
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -29,6 +28,7 @@ __all__ = (
     "DASHTimestampRangeTypeDef",
     "FragmentTypeDef",
     "HLSTimestampRangeTypeDef",
+    "ResponseMetadata",
     "TimestampRangeTypeDef",
     "ClipFragmentSelectorTypeDef",
     "DASHFragmentSelectorTypeDef",
@@ -66,6 +66,17 @@ HLSTimestampRangeTypeDef = TypedDict(
     "HLSTimestampRangeTypeDef", {"StartTimestamp": datetime, "EndTimestamp": datetime}, total=False
 )
 
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
+
 TimestampRangeTypeDef = TypedDict(
     "TimestampRangeTypeDef", {"StartTimestamp": datetime, "EndTimestamp": datetime}
 )
@@ -96,19 +107,27 @@ FragmentSelectorTypeDef = TypedDict(
 )
 
 GetClipOutputTypeDef = TypedDict(
-    "GetClipOutputTypeDef", {"ContentType": str, "Payload": IO[bytes]}, total=False
+    "GetClipOutputTypeDef",
+    {"ContentType": str, "Payload": IO[bytes], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 GetDASHStreamingSessionURLOutputTypeDef = TypedDict(
-    "GetDASHStreamingSessionURLOutputTypeDef", {"DASHStreamingSessionURL": str}, total=False
+    "GetDASHStreamingSessionURLOutputTypeDef",
+    {"DASHStreamingSessionURL": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 GetHLSStreamingSessionURLOutputTypeDef = TypedDict(
-    "GetHLSStreamingSessionURLOutputTypeDef", {"HLSStreamingSessionURL": str}, total=False
+    "GetHLSStreamingSessionURLOutputTypeDef",
+    {"HLSStreamingSessionURL": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 GetMediaForFragmentListOutputTypeDef = TypedDict(
-    "GetMediaForFragmentListOutputTypeDef", {"ContentType": str, "Payload": IO[bytes]}, total=False
+    "GetMediaForFragmentListOutputTypeDef",
+    {"ContentType": str, "Payload": IO[bytes], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 HLSFragmentSelectorTypeDef = TypedDict(
@@ -122,7 +141,11 @@ HLSFragmentSelectorTypeDef = TypedDict(
 
 ListFragmentsOutputTypeDef = TypedDict(
     "ListFragmentsOutputTypeDef",
-    {"Fragments": List["FragmentTypeDef"], "NextToken": str},
+    {
+        "Fragments": List["FragmentTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 

@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import List
+from typing import IO, List, Union
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -194,7 +193,7 @@ ByteMatchTupleTypeDef = TypedDict(
     "ByteMatchTupleTypeDef",
     {
         "FieldToMatch": "FieldToMatchTypeDef",
-        "TargetString": bytes,
+        "TargetString": Union[bytes, IO[bytes]],
         "TextTransformation": Literal[
             "NONE",
             "COMPRESS_WHITE_SPACE",

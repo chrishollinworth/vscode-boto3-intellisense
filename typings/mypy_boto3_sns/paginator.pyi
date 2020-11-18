@@ -53,77 +53,77 @@ __all__ = (
 
 class ListEndpointsByPlatformApplicationPaginator(Boto3Paginator):
     """
-    [Paginator.ListEndpointsByPlatformApplication documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sns.html#SNS.Paginator.ListEndpointsByPlatformApplication)
+    [Paginator.ListEndpointsByPlatformApplication documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sns.html#SNS.Paginator.ListEndpointsByPlatformApplication)
     """
 
     def paginate(
         self, PlatformApplicationArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListEndpointsByPlatformApplicationResponseTypeDef]:
         """
-        [ListEndpointsByPlatformApplication.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sns.html#SNS.Paginator.ListEndpointsByPlatformApplication.paginate)
+        [ListEndpointsByPlatformApplication.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sns.html#SNS.Paginator.ListEndpointsByPlatformApplication.paginate)
         """
 
 
 class ListPhoneNumbersOptedOutPaginator(Boto3Paginator):
     """
-    [Paginator.ListPhoneNumbersOptedOut documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sns.html#SNS.Paginator.ListPhoneNumbersOptedOut)
+    [Paginator.ListPhoneNumbersOptedOut documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sns.html#SNS.Paginator.ListPhoneNumbersOptedOut)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPhoneNumbersOptedOutResponseTypeDef]:
         """
-        [ListPhoneNumbersOptedOut.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sns.html#SNS.Paginator.ListPhoneNumbersOptedOut.paginate)
+        [ListPhoneNumbersOptedOut.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sns.html#SNS.Paginator.ListPhoneNumbersOptedOut.paginate)
         """
 
 
 class ListPlatformApplicationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListPlatformApplications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sns.html#SNS.Paginator.ListPlatformApplications)
+    [Paginator.ListPlatformApplications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sns.html#SNS.Paginator.ListPlatformApplications)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPlatformApplicationsResponseTypeDef]:
         """
-        [ListPlatformApplications.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sns.html#SNS.Paginator.ListPlatformApplications.paginate)
+        [ListPlatformApplications.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sns.html#SNS.Paginator.ListPlatformApplications.paginate)
         """
 
 
 class ListSubscriptionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListSubscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sns.html#SNS.Paginator.ListSubscriptions)
+    [Paginator.ListSubscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sns.html#SNS.Paginator.ListSubscriptions)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSubscriptionsResponseTypeDef]:
         """
-        [ListSubscriptions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sns.html#SNS.Paginator.ListSubscriptions.paginate)
+        [ListSubscriptions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sns.html#SNS.Paginator.ListSubscriptions.paginate)
         """
 
 
 class ListSubscriptionsByTopicPaginator(Boto3Paginator):
     """
-    [Paginator.ListSubscriptionsByTopic documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sns.html#SNS.Paginator.ListSubscriptionsByTopic)
+    [Paginator.ListSubscriptionsByTopic documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sns.html#SNS.Paginator.ListSubscriptionsByTopic)
     """
 
     def paginate(
         self, TopicArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSubscriptionsByTopicResponseTypeDef]:
         """
-        [ListSubscriptionsByTopic.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sns.html#SNS.Paginator.ListSubscriptionsByTopic.paginate)
+        [ListSubscriptionsByTopic.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sns.html#SNS.Paginator.ListSubscriptionsByTopic.paginate)
         """
 
 
 class ListTopicsPaginator(Boto3Paginator):
     """
-    [Paginator.ListTopics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sns.html#SNS.Paginator.ListTopics)
+    [Paginator.ListTopics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sns.html#SNS.Paginator.ListTopics)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTopicsResponseTypeDef]:
         """
-        [ListTopics.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sns.html#SNS.Paginator.ListTopics.paginate)
+        [ListTopics.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sns.html#SNS.Paginator.ListTopics.paginate)
         """

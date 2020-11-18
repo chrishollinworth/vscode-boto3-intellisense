@@ -17,7 +17,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -33,6 +32,7 @@ __all__ = (
     "DatasetImportJobSummaryTypeDef",
     "DatasetSummaryTypeDef",
     "EncryptionConfigTypeDef",
+    "ErrorMetricTypeDef",
     "EvaluationParametersTypeDef",
     "EvaluationResultTypeDef",
     "FeaturizationConfigTypeDef",
@@ -152,6 +152,10 @@ DatasetSummaryTypeDef = TypedDict(
 )
 
 EncryptionConfigTypeDef = TypedDict("EncryptionConfigTypeDef", {"RoleArn": str, "KMSKeyArn": str})
+
+ErrorMetricTypeDef = TypedDict(
+    "ErrorMetricTypeDef", {"ForecastType": str, "WAPE": float, "RMSE": float}, total=False
+)
 
 EvaluationParametersTypeDef = TypedDict(
     "EvaluationParametersTypeDef",
@@ -276,7 +280,11 @@ class IntegerParameterRangeTypeDef(
 
 MetricsTypeDef = TypedDict(
     "MetricsTypeDef",
-    {"RMSE": float, "WeightedQuantileLosses": List["WeightedQuantileLossTypeDef"]},
+    {
+        "RMSE": float,
+        "WeightedQuantileLosses": List["WeightedQuantileLossTypeDef"],
+        "ErrorMetrics": List["ErrorMetricTypeDef"],
+    },
     total=False,
 )
 
@@ -502,6 +510,7 @@ DescribePredictorResponseTypeDef = TypedDict(
         "PredictorName": str,
         "AlgorithmArn": str,
         "ForecastHorizon": int,
+        "ForecastTypes": List[str],
         "PerformAutoML": bool,
         "PerformHPO": bool,
         "TrainingParameters": Dict[str, str],

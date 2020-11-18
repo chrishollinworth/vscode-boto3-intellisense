@@ -14,6 +14,7 @@ Usage::
         ListConfigurationsPaginator,
         ListKafkaVersionsPaginator,
         ListNodesPaginator,
+        ListScramSecretsPaginator,
     )
 
     session = boto3.Session()
@@ -27,6 +28,7 @@ Usage::
     list_configurations_paginator: ListConfigurationsPaginator = client.get_paginator("list_configurations")
     list_kafka_versions_paginator: ListKafkaVersionsPaginator = client.get_paginator("list_kafka_versions")
     list_nodes_paginator: ListNodesPaginator = client.get_paginator("list_nodes")
+    list_scram_secrets_paginator: ListScramSecretsPaginator = client.get_paginator("list_scram_secrets")
     ```
 """
 from mypy_boto3_kafka.client import KafkaClient
@@ -37,6 +39,7 @@ from mypy_boto3_kafka.paginator import (
     ListConfigurationsPaginator,
     ListKafkaVersionsPaginator,
     ListNodesPaginator,
+    ListScramSecretsPaginator,
 )
 
 Client = KafkaClient
@@ -51,4 +54,5 @@ __all__ = (
     "ListConfigurationsPaginator",
     "ListKafkaVersionsPaginator",
     "ListNodesPaginator",
+    "ListScramSecretsPaginator",
 )

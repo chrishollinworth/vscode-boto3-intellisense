@@ -17,7 +17,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -26,6 +25,7 @@ else:
 
 __all__ = (
     "ContactFlowSummaryTypeDef",
+    "ContactFlowTypeDef",
     "CredentialsTypeDef",
     "CurrentMetricDataTypeDef",
     "CurrentMetricResultTypeDef",
@@ -34,16 +34,22 @@ __all__ = (
     "HierarchyGroupSummaryTypeDef",
     "HierarchyGroupTypeDef",
     "HierarchyLevelTypeDef",
+    "HierarchyLevelUpdateTypeDef",
     "HierarchyPathTypeDef",
     "HierarchyStructureTypeDef",
     "HistoricalMetricDataTypeDef",
     "HistoricalMetricResultTypeDef",
     "HistoricalMetricTypeDef",
     "HoursOfOperationSummaryTypeDef",
+    "MediaConcurrencyTypeDef",
     "PhoneNumberSummaryTypeDef",
+    "PromptSummaryTypeDef",
     "QueueReferenceTypeDef",
     "QueueSummaryTypeDef",
+    "RoutingProfileQueueConfigSummaryTypeDef",
+    "RoutingProfileQueueReferenceTypeDef",
     "RoutingProfileSummaryTypeDef",
+    "RoutingProfileTypeDef",
     "SecurityProfileSummaryTypeDef",
     "ThresholdTypeDef",
     "UserIdentityInfoTypeDef",
@@ -51,7 +57,12 @@ __all__ = (
     "UserSummaryTypeDef",
     "UserTypeDef",
     "ChatMessageTypeDef",
+    "CreateContactFlowResponseTypeDef",
+    "CreateRoutingProfileResponseTypeDef",
+    "CreateUserHierarchyGroupResponseTypeDef",
     "CreateUserResponseTypeDef",
+    "DescribeContactFlowResponseTypeDef",
+    "DescribeRoutingProfileResponseTypeDef",
     "DescribeUserHierarchyGroupResponseTypeDef",
     "DescribeUserHierarchyStructureResponseTypeDef",
     "DescribeUserResponseTypeDef",
@@ -60,10 +71,13 @@ __all__ = (
     "GetCurrentMetricDataResponseTypeDef",
     "GetFederationTokenResponseTypeDef",
     "GetMetricDataResponseTypeDef",
+    "HierarchyStructureUpdateTypeDef",
     "ListContactFlowsResponseTypeDef",
     "ListHoursOfOperationsResponseTypeDef",
     "ListPhoneNumbersResponseTypeDef",
+    "ListPromptsResponseTypeDef",
     "ListQueuesResponseTypeDef",
+    "ListRoutingProfileQueuesResponseTypeDef",
     "ListRoutingProfilesResponseTypeDef",
     "ListSecurityProfilesResponseTypeDef",
     "ListTagsForResourceResponseTypeDef",
@@ -71,6 +85,7 @@ __all__ = (
     "ListUsersResponseTypeDef",
     "PaginatorConfigTypeDef",
     "ParticipantDetailsTypeDef",
+    "RoutingProfileQueueConfigTypeDef",
     "StartChatContactResponseTypeDef",
     "StartOutboundVoiceContactResponseTypeDef",
     "VoiceRecordingConfigurationTypeDef",
@@ -93,6 +108,30 @@ ContactFlowSummaryTypeDef = TypedDict(
             "AGENT_TRANSFER",
             "QUEUE_TRANSFER",
         ],
+    },
+    total=False,
+)
+
+ContactFlowTypeDef = TypedDict(
+    "ContactFlowTypeDef",
+    {
+        "Arn": str,
+        "Id": str,
+        "Name": str,
+        "Type": Literal[
+            "CONTACT_FLOW",
+            "CUSTOMER_QUEUE",
+            "CUSTOMER_HOLD",
+            "CUSTOMER_WHISPER",
+            "AGENT_HOLD",
+            "AGENT_WHISPER",
+            "OUTBOUND_WHISPER",
+            "AGENT_TRANSFER",
+            "QUEUE_TRANSFER",
+        ],
+        "Description": str,
+        "Content": str,
+        "Tags": Dict[str, str],
     },
     total=False,
 )
@@ -160,6 +199,8 @@ HierarchyGroupTypeDef = TypedDict(
 HierarchyLevelTypeDef = TypedDict(
     "HierarchyLevelTypeDef", {"Id": str, "Arn": str, "Name": str}, total=False
 )
+
+HierarchyLevelUpdateTypeDef = TypedDict("HierarchyLevelUpdateTypeDef", {"Name": str})
 
 HierarchyPathTypeDef = TypedDict(
     "HierarchyPathTypeDef",
@@ -236,6 +277,10 @@ HistoricalMetricTypeDef = TypedDict(
 
 HoursOfOperationSummaryTypeDef = TypedDict(
     "HoursOfOperationSummaryTypeDef", {"Id": str, "Arn": str, "Name": str}, total=False
+)
+
+MediaConcurrencyTypeDef = TypedDict(
+    "MediaConcurrencyTypeDef", {"Channel": Literal["VOICE", "CHAT"], "Concurrency": int}
 )
 
 PhoneNumberSummaryTypeDef = TypedDict(
@@ -488,6 +533,10 @@ PhoneNumberSummaryTypeDef = TypedDict(
     total=False,
 )
 
+PromptSummaryTypeDef = TypedDict(
+    "PromptSummaryTypeDef", {"Id": str, "Arn": str, "Name": str}, total=False
+)
+
 QueueReferenceTypeDef = TypedDict("QueueReferenceTypeDef", {"Id": str, "Arn": str}, total=False)
 
 QueueSummaryTypeDef = TypedDict(
@@ -496,8 +545,39 @@ QueueSummaryTypeDef = TypedDict(
     total=False,
 )
 
+RoutingProfileQueueConfigSummaryTypeDef = TypedDict(
+    "RoutingProfileQueueConfigSummaryTypeDef",
+    {
+        "QueueId": str,
+        "QueueArn": str,
+        "QueueName": str,
+        "Priority": int,
+        "Delay": int,
+        "Channel": Literal["VOICE", "CHAT"],
+    },
+)
+
+RoutingProfileQueueReferenceTypeDef = TypedDict(
+    "RoutingProfileQueueReferenceTypeDef", {"QueueId": str, "Channel": Literal["VOICE", "CHAT"]}
+)
+
 RoutingProfileSummaryTypeDef = TypedDict(
     "RoutingProfileSummaryTypeDef", {"Id": str, "Arn": str, "Name": str}, total=False
+)
+
+RoutingProfileTypeDef = TypedDict(
+    "RoutingProfileTypeDef",
+    {
+        "InstanceId": str,
+        "Name": str,
+        "RoutingProfileArn": str,
+        "RoutingProfileId": str,
+        "Description": str,
+        "MediaConcurrencies": List["MediaConcurrencyTypeDef"],
+        "DefaultOutboundQueueId": str,
+        "Tags": Dict[str, str],
+    },
+    total=False,
 )
 
 SecurityProfileSummaryTypeDef = TypedDict(
@@ -549,8 +629,34 @@ UserTypeDef = TypedDict(
 
 ChatMessageTypeDef = TypedDict("ChatMessageTypeDef", {"ContentType": str, "Content": str})
 
+CreateContactFlowResponseTypeDef = TypedDict(
+    "CreateContactFlowResponseTypeDef", {"ContactFlowId": str, "ContactFlowArn": str}, total=False
+)
+
+CreateRoutingProfileResponseTypeDef = TypedDict(
+    "CreateRoutingProfileResponseTypeDef",
+    {"RoutingProfileArn": str, "RoutingProfileId": str},
+    total=False,
+)
+
+CreateUserHierarchyGroupResponseTypeDef = TypedDict(
+    "CreateUserHierarchyGroupResponseTypeDef",
+    {"HierarchyGroupId": str, "HierarchyGroupArn": str},
+    total=False,
+)
+
 CreateUserResponseTypeDef = TypedDict(
     "CreateUserResponseTypeDef", {"UserId": str, "UserArn": str}, total=False
+)
+
+DescribeContactFlowResponseTypeDef = TypedDict(
+    "DescribeContactFlowResponseTypeDef", {"ContactFlow": "ContactFlowTypeDef"}, total=False
+)
+
+DescribeRoutingProfileResponseTypeDef = TypedDict(
+    "DescribeRoutingProfileResponseTypeDef",
+    {"RoutingProfile": "RoutingProfileTypeDef"},
+    total=False,
 )
 
 DescribeUserHierarchyGroupResponseTypeDef = TypedDict(
@@ -597,6 +703,18 @@ GetMetricDataResponseTypeDef = TypedDict(
     total=False,
 )
 
+HierarchyStructureUpdateTypeDef = TypedDict(
+    "HierarchyStructureUpdateTypeDef",
+    {
+        "LevelOne": "HierarchyLevelUpdateTypeDef",
+        "LevelTwo": "HierarchyLevelUpdateTypeDef",
+        "LevelThree": "HierarchyLevelUpdateTypeDef",
+        "LevelFour": "HierarchyLevelUpdateTypeDef",
+        "LevelFive": "HierarchyLevelUpdateTypeDef",
+    },
+    total=False,
+)
+
 ListContactFlowsResponseTypeDef = TypedDict(
     "ListContactFlowsResponseTypeDef",
     {"ContactFlowSummaryList": List["ContactFlowSummaryTypeDef"], "NextToken": str},
@@ -615,9 +733,24 @@ ListPhoneNumbersResponseTypeDef = TypedDict(
     total=False,
 )
 
+ListPromptsResponseTypeDef = TypedDict(
+    "ListPromptsResponseTypeDef",
+    {"PromptSummaryList": List["PromptSummaryTypeDef"], "NextToken": str},
+    total=False,
+)
+
 ListQueuesResponseTypeDef = TypedDict(
     "ListQueuesResponseTypeDef",
     {"QueueSummaryList": List["QueueSummaryTypeDef"], "NextToken": str},
+    total=False,
+)
+
+ListRoutingProfileQueuesResponseTypeDef = TypedDict(
+    "ListRoutingProfileQueuesResponseTypeDef",
+    {
+        "NextToken": str,
+        "RoutingProfileQueueConfigSummaryList": List["RoutingProfileQueueConfigSummaryTypeDef"],
+    },
     total=False,
 )
 
@@ -654,6 +787,11 @@ PaginatorConfigTypeDef = TypedDict(
 )
 
 ParticipantDetailsTypeDef = TypedDict("ParticipantDetailsTypeDef", {"DisplayName": str})
+
+RoutingProfileQueueConfigTypeDef = TypedDict(
+    "RoutingProfileQueueConfigTypeDef",
+    {"QueueReference": "RoutingProfileQueueReferenceTypeDef", "Priority": int, "Delay": int},
+)
 
 StartChatContactResponseTypeDef = TypedDict(
     "StartChatContactResponseTypeDef",

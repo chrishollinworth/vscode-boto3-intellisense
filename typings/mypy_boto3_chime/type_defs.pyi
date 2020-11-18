@@ -17,7 +17,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -59,6 +58,12 @@ __all__ = (
     "RoomRetentionSettingsTypeDef",
     "RoomTypeDef",
     "SigninDelegateGroupTypeDef",
+    "SipMediaApplicationCallTypeDef",
+    "SipMediaApplicationEndpointTypeDef",
+    "SipMediaApplicationLoggingConfigurationTypeDef",
+    "SipMediaApplicationTypeDef",
+    "SipRuleTargetApplicationTypeDef",
+    "SipRuleTypeDef",
     "StreamingConfigurationTypeDef",
     "StreamingNotificationTargetTypeDef",
     "TagTypeDef",
@@ -85,12 +90,16 @@ __all__ = (
     "CreateAttendeeRequestItemTypeDef",
     "CreateAttendeeResponseTypeDef",
     "CreateBotResponseTypeDef",
+    "CreateMeetingDialOutResponseTypeDef",
     "CreateMeetingResponseTypeDef",
     "CreateMeetingWithAttendeesResponseTypeDef",
     "CreatePhoneNumberOrderResponseTypeDef",
     "CreateProxySessionResponseTypeDef",
     "CreateRoomMembershipResponseTypeDef",
     "CreateRoomResponseTypeDef",
+    "CreateSipMediaApplicationCallResponseTypeDef",
+    "CreateSipMediaApplicationResponseTypeDef",
+    "CreateSipRuleResponseTypeDef",
     "CreateUserResponseTypeDef",
     "CreateVoiceConnectorGroupResponseTypeDef",
     "CreateVoiceConnectorResponseTypeDef",
@@ -110,6 +119,9 @@ __all__ = (
     "GetProxySessionResponseTypeDef",
     "GetRetentionSettingsResponseTypeDef",
     "GetRoomResponseTypeDef",
+    "GetSipMediaApplicationLoggingConfigurationResponseTypeDef",
+    "GetSipMediaApplicationResponseTypeDef",
+    "GetSipRuleResponseTypeDef",
     "GetUserResponseTypeDef",
     "GetUserSettingsResponseTypeDef",
     "GetVoiceConnectorEmergencyCallingConfigurationResponseTypeDef",
@@ -133,6 +145,8 @@ __all__ = (
     "ListProxySessionsResponseTypeDef",
     "ListRoomMembershipsResponseTypeDef",
     "ListRoomsResponseTypeDef",
+    "ListSipMediaApplicationsResponseTypeDef",
+    "ListSipRulesResponseTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "ListUsersResponseTypeDef",
     "ListVoiceConnectorGroupsResponseTypeDef",
@@ -143,6 +157,7 @@ __all__ = (
     "PaginatorConfigTypeDef",
     "PutEventsConfigurationResponseTypeDef",
     "PutRetentionSettingsResponseTypeDef",
+    "PutSipMediaApplicationLoggingConfigurationResponseTypeDef",
     "PutVoiceConnectorEmergencyCallingConfigurationResponseTypeDef",
     "PutVoiceConnectorLoggingConfigurationResponseTypeDef",
     "PutVoiceConnectorOriginationResponseTypeDef",
@@ -160,6 +175,8 @@ __all__ = (
     "UpdateProxySessionResponseTypeDef",
     "UpdateRoomMembershipResponseTypeDef",
     "UpdateRoomResponseTypeDef",
+    "UpdateSipMediaApplicationResponseTypeDef",
+    "UpdateSipRuleResponseTypeDef",
     "UpdateUserRequestItemTypeDef",
     "UpdateUserResponseTypeDef",
     "UpdateVoiceConnectorGroupResponseTypeDef",
@@ -362,7 +379,9 @@ PhoneNumberAssociationTypeDef = TypedDict(
     "PhoneNumberAssociationTypeDef",
     {
         "Value": str,
-        "Name": Literal["AccountId", "UserId", "VoiceConnectorId", "VoiceConnectorGroupId"],
+        "Name": Literal[
+            "AccountId", "UserId", "VoiceConnectorId", "VoiceConnectorGroupId", "SipRuleId"
+        ],
         "AssociatedTimestamp": datetime,
     },
     total=False,
@@ -521,6 +540,54 @@ RoomTypeDef = TypedDict(
 
 SigninDelegateGroupTypeDef = TypedDict(
     "SigninDelegateGroupTypeDef", {"GroupName": str}, total=False
+)
+
+SipMediaApplicationCallTypeDef = TypedDict(
+    "SipMediaApplicationCallTypeDef", {"TransactionId": str}, total=False
+)
+
+SipMediaApplicationEndpointTypeDef = TypedDict(
+    "SipMediaApplicationEndpointTypeDef", {"LambdaArn": str}, total=False
+)
+
+SipMediaApplicationLoggingConfigurationTypeDef = TypedDict(
+    "SipMediaApplicationLoggingConfigurationTypeDef",
+    {"EnableSipMediaApplicationMessageLogs": bool},
+    total=False,
+)
+
+SipMediaApplicationTypeDef = TypedDict(
+    "SipMediaApplicationTypeDef",
+    {
+        "SipMediaApplicationId": str,
+        "AwsRegion": str,
+        "Name": str,
+        "Endpoints": List["SipMediaApplicationEndpointTypeDef"],
+        "CreatedTimestamp": datetime,
+        "UpdatedTimestamp": datetime,
+    },
+    total=False,
+)
+
+SipRuleTargetApplicationTypeDef = TypedDict(
+    "SipRuleTargetApplicationTypeDef",
+    {"SipMediaApplicationId": str, "Priority": int, "AwsRegion": str},
+    total=False,
+)
+
+SipRuleTypeDef = TypedDict(
+    "SipRuleTypeDef",
+    {
+        "SipRuleId": str,
+        "Name": str,
+        "Disabled": bool,
+        "TriggerType": Literal["ToPhoneNumber", "RequestUriHostname"],
+        "TriggerValue": str,
+        "TargetApplications": List["SipRuleTargetApplicationTypeDef"],
+        "CreatedTimestamp": datetime,
+        "UpdatedTimestamp": datetime,
+    },
+    total=False,
 )
 
 _RequiredStreamingConfigurationTypeDef = TypedDict(
@@ -723,6 +790,10 @@ CreateAttendeeResponseTypeDef = TypedDict(
 
 CreateBotResponseTypeDef = TypedDict("CreateBotResponseTypeDef", {"Bot": "BotTypeDef"}, total=False)
 
+CreateMeetingDialOutResponseTypeDef = TypedDict(
+    "CreateMeetingDialOutResponseTypeDef", {"TransactionId": str}, total=False
+)
+
 CreateMeetingResponseTypeDef = TypedDict(
     "CreateMeetingResponseTypeDef", {"Meeting": "MeetingTypeDef"}, total=False
 )
@@ -753,6 +824,22 @@ CreateRoomMembershipResponseTypeDef = TypedDict(
 
 CreateRoomResponseTypeDef = TypedDict(
     "CreateRoomResponseTypeDef", {"Room": "RoomTypeDef"}, total=False
+)
+
+CreateSipMediaApplicationCallResponseTypeDef = TypedDict(
+    "CreateSipMediaApplicationCallResponseTypeDef",
+    {"SipMediaApplicationCall": "SipMediaApplicationCallTypeDef"},
+    total=False,
+)
+
+CreateSipMediaApplicationResponseTypeDef = TypedDict(
+    "CreateSipMediaApplicationResponseTypeDef",
+    {"SipMediaApplication": "SipMediaApplicationTypeDef"},
+    total=False,
+)
+
+CreateSipRuleResponseTypeDef = TypedDict(
+    "CreateSipRuleResponseTypeDef", {"SipRule": "SipRuleTypeDef"}, total=False
 )
 
 CreateUserResponseTypeDef = TypedDict(
@@ -843,6 +930,22 @@ GetRetentionSettingsResponseTypeDef = TypedDict(
 )
 
 GetRoomResponseTypeDef = TypedDict("GetRoomResponseTypeDef", {"Room": "RoomTypeDef"}, total=False)
+
+GetSipMediaApplicationLoggingConfigurationResponseTypeDef = TypedDict(
+    "GetSipMediaApplicationLoggingConfigurationResponseTypeDef",
+    {"SipMediaApplicationLoggingConfiguration": "SipMediaApplicationLoggingConfigurationTypeDef"},
+    total=False,
+)
+
+GetSipMediaApplicationResponseTypeDef = TypedDict(
+    "GetSipMediaApplicationResponseTypeDef",
+    {"SipMediaApplication": "SipMediaApplicationTypeDef"},
+    total=False,
+)
+
+GetSipRuleResponseTypeDef = TypedDict(
+    "GetSipRuleResponseTypeDef", {"SipRule": "SipRuleTypeDef"}, total=False
+)
 
 GetUserResponseTypeDef = TypedDict("GetUserResponseTypeDef", {"User": "UserTypeDef"}, total=False)
 
@@ -962,6 +1065,18 @@ ListRoomsResponseTypeDef = TypedDict(
     "ListRoomsResponseTypeDef", {"Rooms": List["RoomTypeDef"], "NextToken": str}, total=False
 )
 
+ListSipMediaApplicationsResponseTypeDef = TypedDict(
+    "ListSipMediaApplicationsResponseTypeDef",
+    {"SipMediaApplications": List["SipMediaApplicationTypeDef"], "NextToken": str},
+    total=False,
+)
+
+ListSipRulesResponseTypeDef = TypedDict(
+    "ListSipRulesResponseTypeDef",
+    {"SipRules": List["SipRuleTypeDef"], "NextToken": str},
+    total=False,
+)
+
 ListTagsForResourceResponseTypeDef = TypedDict(
     "ListTagsForResourceResponseTypeDef", {"Tags": List["TagTypeDef"]}, total=False
 )
@@ -1009,6 +1124,12 @@ PutEventsConfigurationResponseTypeDef = TypedDict(
 PutRetentionSettingsResponseTypeDef = TypedDict(
     "PutRetentionSettingsResponseTypeDef",
     {"RetentionSettings": "RetentionSettingsTypeDef", "InitiateDeletionTimestamp": datetime},
+    total=False,
+)
+
+PutSipMediaApplicationLoggingConfigurationResponseTypeDef = TypedDict(
+    "PutSipMediaApplicationLoggingConfigurationResponseTypeDef",
+    {"SipMediaApplicationLoggingConfiguration": "SipMediaApplicationLoggingConfigurationTypeDef"},
     total=False,
 )
 
@@ -1098,6 +1219,16 @@ UpdateRoomMembershipResponseTypeDef = TypedDict(
 
 UpdateRoomResponseTypeDef = TypedDict(
     "UpdateRoomResponseTypeDef", {"Room": "RoomTypeDef"}, total=False
+)
+
+UpdateSipMediaApplicationResponseTypeDef = TypedDict(
+    "UpdateSipMediaApplicationResponseTypeDef",
+    {"SipMediaApplication": "SipMediaApplicationTypeDef"},
+    total=False,
+)
+
+UpdateSipRuleResponseTypeDef = TypedDict(
+    "UpdateSipRuleResponseTypeDef", {"SipRule": "SipRuleTypeDef"}, total=False
 )
 
 _RequiredUpdateUserRequestItemTypeDef = TypedDict(

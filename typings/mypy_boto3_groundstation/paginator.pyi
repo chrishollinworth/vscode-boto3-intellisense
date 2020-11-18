@@ -61,20 +61,20 @@ __all__ = (
 
 class ListConfigsPaginator(Boto3Paginator):
     """
-    [Paginator.ListConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/groundstation.html#GroundStation.Paginator.ListConfigs)
+    [Paginator.ListConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/groundstation.html#GroundStation.Paginator.ListConfigs)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListConfigsResponseTypeDef]:
         """
-        [ListConfigs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/groundstation.html#GroundStation.Paginator.ListConfigs.paginate)
+        [ListConfigs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/groundstation.html#GroundStation.Paginator.ListConfigs.paginate)
         """
 
 
 class ListContactsPaginator(Boto3Paginator):
     """
-    [Paginator.ListContacts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/groundstation.html#GroundStation.Paginator.ListContacts)
+    [Paginator.ListContacts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/groundstation.html#GroundStation.Paginator.ListContacts)
     """
 
     def paginate(
@@ -85,6 +85,7 @@ class ListContactsPaginator(Boto3Paginator):
             Literal[
                 "AVAILABLE",
                 "AWS_CANCELLED",
+                "AWS_FAILED",
                 "CANCELLED",
                 "CANCELLING",
                 "COMPLETED",
@@ -103,57 +104,57 @@ class ListContactsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListContactsResponseTypeDef]:
         """
-        [ListContacts.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/groundstation.html#GroundStation.Paginator.ListContacts.paginate)
+        [ListContacts.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/groundstation.html#GroundStation.Paginator.ListContacts.paginate)
         """
 
 
 class ListDataflowEndpointGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDataflowEndpointGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/groundstation.html#GroundStation.Paginator.ListDataflowEndpointGroups)
+    [Paginator.ListDataflowEndpointGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/groundstation.html#GroundStation.Paginator.ListDataflowEndpointGroups)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDataflowEndpointGroupsResponseTypeDef]:
         """
-        [ListDataflowEndpointGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/groundstation.html#GroundStation.Paginator.ListDataflowEndpointGroups.paginate)
+        [ListDataflowEndpointGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/groundstation.html#GroundStation.Paginator.ListDataflowEndpointGroups.paginate)
         """
 
 
 class ListGroundStationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListGroundStations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/groundstation.html#GroundStation.Paginator.ListGroundStations)
+    [Paginator.ListGroundStations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/groundstation.html#GroundStation.Paginator.ListGroundStations)
     """
 
     def paginate(
         self, satelliteId: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListGroundStationsResponseTypeDef]:
         """
-        [ListGroundStations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/groundstation.html#GroundStation.Paginator.ListGroundStations.paginate)
+        [ListGroundStations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/groundstation.html#GroundStation.Paginator.ListGroundStations.paginate)
         """
 
 
 class ListMissionProfilesPaginator(Boto3Paginator):
     """
-    [Paginator.ListMissionProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/groundstation.html#GroundStation.Paginator.ListMissionProfiles)
+    [Paginator.ListMissionProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/groundstation.html#GroundStation.Paginator.ListMissionProfiles)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListMissionProfilesResponseTypeDef]:
         """
-        [ListMissionProfiles.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/groundstation.html#GroundStation.Paginator.ListMissionProfiles.paginate)
+        [ListMissionProfiles.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/groundstation.html#GroundStation.Paginator.ListMissionProfiles.paginate)
         """
 
 
 class ListSatellitesPaginator(Boto3Paginator):
     """
-    [Paginator.ListSatellites documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/groundstation.html#GroundStation.Paginator.ListSatellites)
+    [Paginator.ListSatellites documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/groundstation.html#GroundStation.Paginator.ListSatellites)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSatellitesResponseTypeDef]:
         """
-        [ListSatellites.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/groundstation.html#GroundStation.Paginator.ListSatellites.paginate)
+        [ListSatellites.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/groundstation.html#GroundStation.Paginator.ListSatellites.paginate)
         """

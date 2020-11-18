@@ -10,13 +10,12 @@ Usage::
     ```
 """
 import sys
-from typing import Dict, List
+from typing import Any, Dict, List
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -32,6 +31,7 @@ __all__ = (
     "PipelineDescriptionTypeDef",
     "PipelineIdNameTypeDef",
     "PipelineObjectTypeDef",
+    "ResponseMetadata",
     "SelectorTypeDef",
     "TagTypeDef",
     "TaskObjectTypeDef",
@@ -101,6 +101,17 @@ PipelineObjectTypeDef = TypedDict(
     "PipelineObjectTypeDef", {"id": str, "name": str, "fields": List["FieldTypeDef"]}
 )
 
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
+
 SelectorTypeDef = TypedDict(
     "SelectorTypeDef", {"fieldName": str, "operator": "OperatorTypeDef"}, total=False
 )
@@ -126,13 +137,27 @@ ValidationWarningTypeDef = TypedDict(
     "ValidationWarningTypeDef", {"id": str, "warnings": List[str]}, total=False
 )
 
-CreatePipelineOutputTypeDef = TypedDict("CreatePipelineOutputTypeDef", {"pipelineId": str})
+_RequiredCreatePipelineOutputTypeDef = TypedDict(
+    "_RequiredCreatePipelineOutputTypeDef", {"pipelineId": str}
+)
+_OptionalCreatePipelineOutputTypeDef = TypedDict(
+    "_OptionalCreatePipelineOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
+)
+
+
+class CreatePipelineOutputTypeDef(
+    _RequiredCreatePipelineOutputTypeDef, _OptionalCreatePipelineOutputTypeDef
+):
+    pass
+
 
 _RequiredDescribeObjectsOutputTypeDef = TypedDict(
     "_RequiredDescribeObjectsOutputTypeDef", {"pipelineObjects": List["PipelineObjectTypeDef"]}
 )
 _OptionalDescribeObjectsOutputTypeDef = TypedDict(
-    "_OptionalDescribeObjectsOutputTypeDef", {"marker": str, "hasMoreResults": bool}, total=False
+    "_OptionalDescribeObjectsOutputTypeDef",
+    {"marker": str, "hasMoreResults": bool, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 
@@ -142,14 +167,36 @@ class DescribeObjectsOutputTypeDef(
     pass
 
 
-DescribePipelinesOutputTypeDef = TypedDict(
-    "DescribePipelinesOutputTypeDef",
+_RequiredDescribePipelinesOutputTypeDef = TypedDict(
+    "_RequiredDescribePipelinesOutputTypeDef",
     {"pipelineDescriptionList": List["PipelineDescriptionTypeDef"]},
 )
-
-EvaluateExpressionOutputTypeDef = TypedDict(
-    "EvaluateExpressionOutputTypeDef", {"evaluatedExpression": str}
+_OptionalDescribePipelinesOutputTypeDef = TypedDict(
+    "_OptionalDescribePipelinesOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
 )
+
+
+class DescribePipelinesOutputTypeDef(
+    _RequiredDescribePipelinesOutputTypeDef, _OptionalDescribePipelinesOutputTypeDef
+):
+    pass
+
+
+_RequiredEvaluateExpressionOutputTypeDef = TypedDict(
+    "_RequiredEvaluateExpressionOutputTypeDef", {"evaluatedExpression": str}
+)
+_OptionalEvaluateExpressionOutputTypeDef = TypedDict(
+    "_OptionalEvaluateExpressionOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+
+class EvaluateExpressionOutputTypeDef(
+    _RequiredEvaluateExpressionOutputTypeDef, _OptionalEvaluateExpressionOutputTypeDef
+):
+    pass
+
 
 GetPipelineDefinitionOutputTypeDef = TypedDict(
     "GetPipelineDefinitionOutputTypeDef",
@@ -157,6 +204,7 @@ GetPipelineDefinitionOutputTypeDef = TypedDict(
         "pipelineObjects": List["PipelineObjectTypeDef"],
         "parameterObjects": List["ParameterObjectTypeDef"],
         "parameterValues": List["ParameterValueTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -169,7 +217,9 @@ _RequiredListPipelinesOutputTypeDef = TypedDict(
     "_RequiredListPipelinesOutputTypeDef", {"pipelineIdList": List["PipelineIdNameTypeDef"]}
 )
 _OptionalListPipelinesOutputTypeDef = TypedDict(
-    "_OptionalListPipelinesOutputTypeDef", {"marker": str, "hasMoreResults": bool}, total=False
+    "_OptionalListPipelinesOutputTypeDef",
+    {"marker": str, "hasMoreResults": bool, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 
@@ -184,7 +234,9 @@ PaginatorConfigTypeDef = TypedDict(
 )
 
 PollForTaskOutputTypeDef = TypedDict(
-    "PollForTaskOutputTypeDef", {"taskObject": "TaskObjectTypeDef"}, total=False
+    "PollForTaskOutputTypeDef",
+    {"taskObject": "TaskObjectTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 _RequiredPutPipelineDefinitionOutputTypeDef = TypedDict(
@@ -195,6 +247,7 @@ _OptionalPutPipelineDefinitionOutputTypeDef = TypedDict(
     {
         "validationErrors": List["ValidationErrorTypeDef"],
         "validationWarnings": List["ValidationWarningTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -208,17 +261,48 @@ class PutPipelineDefinitionOutputTypeDef(
 
 QueryObjectsOutputTypeDef = TypedDict(
     "QueryObjectsOutputTypeDef",
-    {"ids": List[str], "marker": str, "hasMoreResults": bool},
+    {
+        "ids": List[str],
+        "marker": str,
+        "hasMoreResults": bool,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 QueryTypeDef = TypedDict("QueryTypeDef", {"selectors": List["SelectorTypeDef"]}, total=False)
 
-ReportTaskProgressOutputTypeDef = TypedDict("ReportTaskProgressOutputTypeDef", {"canceled": bool})
-
-ReportTaskRunnerHeartbeatOutputTypeDef = TypedDict(
-    "ReportTaskRunnerHeartbeatOutputTypeDef", {"terminate": bool}
+_RequiredReportTaskProgressOutputTypeDef = TypedDict(
+    "_RequiredReportTaskProgressOutputTypeDef", {"canceled": bool}
 )
+_OptionalReportTaskProgressOutputTypeDef = TypedDict(
+    "_OptionalReportTaskProgressOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+
+class ReportTaskProgressOutputTypeDef(
+    _RequiredReportTaskProgressOutputTypeDef, _OptionalReportTaskProgressOutputTypeDef
+):
+    pass
+
+
+_RequiredReportTaskRunnerHeartbeatOutputTypeDef = TypedDict(
+    "_RequiredReportTaskRunnerHeartbeatOutputTypeDef", {"terminate": bool}
+)
+_OptionalReportTaskRunnerHeartbeatOutputTypeDef = TypedDict(
+    "_OptionalReportTaskRunnerHeartbeatOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+
+class ReportTaskRunnerHeartbeatOutputTypeDef(
+    _RequiredReportTaskRunnerHeartbeatOutputTypeDef, _OptionalReportTaskRunnerHeartbeatOutputTypeDef
+):
+    pass
+
 
 _RequiredValidatePipelineDefinitionOutputTypeDef = TypedDict(
     "_RequiredValidatePipelineDefinitionOutputTypeDef", {"errored": bool}
@@ -228,6 +312,7 @@ _OptionalValidatePipelineDefinitionOutputTypeDef = TypedDict(
     {
         "validationErrors": List["ValidationErrorTypeDef"],
         "validationWarnings": List["ValidationWarningTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )

@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Dict, List
+from typing import Any, Dict, List
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -63,6 +62,7 @@ __all__ = (
     "ReportGroupTypeDef",
     "ReportTypeDef",
     "ResolvedArtifactTypeDef",
+    "ResponseMetadata",
     "S3LogsConfigTypeDef",
     "S3ReportExportConfigTypeDef",
     "SourceAuthTypeDef",
@@ -660,6 +660,17 @@ ResolvedArtifactTypeDef = TypedDict(
     total=False,
 )
 
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
+
 _RequiredS3LogsConfigTypeDef = TypedDict(
     "_RequiredS3LogsConfigTypeDef", {"status": Literal["ENABLED", "DISABLED"]}
 )
@@ -764,37 +775,61 @@ WebhookTypeDef = TypedDict(
 
 BatchDeleteBuildsOutputTypeDef = TypedDict(
     "BatchDeleteBuildsOutputTypeDef",
-    {"buildsDeleted": List[str], "buildsNotDeleted": List["BuildNotDeletedTypeDef"]},
+    {
+        "buildsDeleted": List[str],
+        "buildsNotDeleted": List["BuildNotDeletedTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 BatchGetBuildBatchesOutputTypeDef = TypedDict(
     "BatchGetBuildBatchesOutputTypeDef",
-    {"buildBatches": List["BuildBatchTypeDef"], "buildBatchesNotFound": List[str]},
+    {
+        "buildBatches": List["BuildBatchTypeDef"],
+        "buildBatchesNotFound": List[str],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 BatchGetBuildsOutputTypeDef = TypedDict(
     "BatchGetBuildsOutputTypeDef",
-    {"builds": List["BuildTypeDef"], "buildsNotFound": List[str]},
+    {
+        "builds": List["BuildTypeDef"],
+        "buildsNotFound": List[str],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 BatchGetProjectsOutputTypeDef = TypedDict(
     "BatchGetProjectsOutputTypeDef",
-    {"projects": List["ProjectTypeDef"], "projectsNotFound": List[str]},
+    {
+        "projects": List["ProjectTypeDef"],
+        "projectsNotFound": List[str],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 BatchGetReportGroupsOutputTypeDef = TypedDict(
     "BatchGetReportGroupsOutputTypeDef",
-    {"reportGroups": List["ReportGroupTypeDef"], "reportGroupsNotFound": List[str]},
+    {
+        "reportGroups": List["ReportGroupTypeDef"],
+        "reportGroupsNotFound": List[str],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 BatchGetReportsOutputTypeDef = TypedDict(
     "BatchGetReportsOutputTypeDef",
-    {"reports": List["ReportTypeDef"], "reportsNotFound": List[str]},
+    {
+        "reports": List["ReportTypeDef"],
+        "reportsNotFound": List[str],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -805,15 +840,21 @@ BuildBatchFilterTypeDef = TypedDict(
 )
 
 CreateProjectOutputTypeDef = TypedDict(
-    "CreateProjectOutputTypeDef", {"project": "ProjectTypeDef"}, total=False
+    "CreateProjectOutputTypeDef",
+    {"project": "ProjectTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 CreateReportGroupOutputTypeDef = TypedDict(
-    "CreateReportGroupOutputTypeDef", {"reportGroup": "ReportGroupTypeDef"}, total=False
+    "CreateReportGroupOutputTypeDef",
+    {"reportGroup": "ReportGroupTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 CreateWebhookOutputTypeDef = TypedDict(
-    "CreateWebhookOutputTypeDef", {"webhook": "WebhookTypeDef"}, total=False
+    "CreateWebhookOutputTypeDef",
+    {"webhook": "WebhookTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 DeleteBuildBatchOutputTypeDef = TypedDict(
@@ -822,85 +863,121 @@ DeleteBuildBatchOutputTypeDef = TypedDict(
         "statusCode": str,
         "buildsDeleted": List[str],
         "buildsNotDeleted": List["BuildNotDeletedTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
 DeleteSourceCredentialsOutputTypeDef = TypedDict(
-    "DeleteSourceCredentialsOutputTypeDef", {"arn": str}, total=False
+    "DeleteSourceCredentialsOutputTypeDef",
+    {"arn": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 DescribeCodeCoveragesOutputTypeDef = TypedDict(
     "DescribeCodeCoveragesOutputTypeDef",
-    {"nextToken": str, "codeCoverages": List["CodeCoverageTypeDef"]},
+    {
+        "nextToken": str,
+        "codeCoverages": List["CodeCoverageTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 DescribeTestCasesOutputTypeDef = TypedDict(
     "DescribeTestCasesOutputTypeDef",
-    {"nextToken": str, "testCases": List["TestCaseTypeDef"]},
+    {
+        "nextToken": str,
+        "testCases": List["TestCaseTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 GetResourcePolicyOutputTypeDef = TypedDict(
-    "GetResourcePolicyOutputTypeDef", {"policy": str}, total=False
+    "GetResourcePolicyOutputTypeDef",
+    {"policy": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ImportSourceCredentialsOutputTypeDef = TypedDict(
-    "ImportSourceCredentialsOutputTypeDef", {"arn": str}, total=False
+    "ImportSourceCredentialsOutputTypeDef",
+    {"arn": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ListBuildBatchesForProjectOutputTypeDef = TypedDict(
-    "ListBuildBatchesForProjectOutputTypeDef", {"ids": List[str], "nextToken": str}, total=False
+    "ListBuildBatchesForProjectOutputTypeDef",
+    {"ids": List[str], "nextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ListBuildBatchesOutputTypeDef = TypedDict(
-    "ListBuildBatchesOutputTypeDef", {"ids": List[str], "nextToken": str}, total=False
+    "ListBuildBatchesOutputTypeDef",
+    {"ids": List[str], "nextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ListBuildsForProjectOutputTypeDef = TypedDict(
-    "ListBuildsForProjectOutputTypeDef", {"ids": List[str], "nextToken": str}, total=False
+    "ListBuildsForProjectOutputTypeDef",
+    {"ids": List[str], "nextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ListBuildsOutputTypeDef = TypedDict(
-    "ListBuildsOutputTypeDef", {"ids": List[str], "nextToken": str}, total=False
+    "ListBuildsOutputTypeDef",
+    {"ids": List[str], "nextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ListCuratedEnvironmentImagesOutputTypeDef = TypedDict(
     "ListCuratedEnvironmentImagesOutputTypeDef",
-    {"platforms": List["EnvironmentPlatformTypeDef"]},
+    {"platforms": List["EnvironmentPlatformTypeDef"], "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 ListProjectsOutputTypeDef = TypedDict(
-    "ListProjectsOutputTypeDef", {"nextToken": str, "projects": List[str]}, total=False
+    "ListProjectsOutputTypeDef",
+    {"nextToken": str, "projects": List[str], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ListReportGroupsOutputTypeDef = TypedDict(
-    "ListReportGroupsOutputTypeDef", {"nextToken": str, "reportGroups": List[str]}, total=False
+    "ListReportGroupsOutputTypeDef",
+    {"nextToken": str, "reportGroups": List[str], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ListReportsForReportGroupOutputTypeDef = TypedDict(
-    "ListReportsForReportGroupOutputTypeDef", {"nextToken": str, "reports": List[str]}, total=False
+    "ListReportsForReportGroupOutputTypeDef",
+    {"nextToken": str, "reports": List[str], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ListReportsOutputTypeDef = TypedDict(
-    "ListReportsOutputTypeDef", {"nextToken": str, "reports": List[str]}, total=False
+    "ListReportsOutputTypeDef",
+    {"nextToken": str, "reports": List[str], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ListSharedProjectsOutputTypeDef = TypedDict(
-    "ListSharedProjectsOutputTypeDef", {"nextToken": str, "projects": List[str]}, total=False
+    "ListSharedProjectsOutputTypeDef",
+    {"nextToken": str, "projects": List[str], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ListSharedReportGroupsOutputTypeDef = TypedDict(
     "ListSharedReportGroupsOutputTypeDef",
-    {"nextToken": str, "reportGroups": List[str]},
+    {"nextToken": str, "reportGroups": List[str], "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 ListSourceCredentialsOutputTypeDef = TypedDict(
     "ListSourceCredentialsOutputTypeDef",
-    {"sourceCredentialsInfos": List["SourceCredentialsInfoTypeDef"]},
+    {
+        "sourceCredentialsInfos": List["SourceCredentialsInfoTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -909,7 +986,9 @@ PaginatorConfigTypeDef = TypedDict(
 )
 
 PutResourcePolicyOutputTypeDef = TypedDict(
-    "PutResourcePolicyOutputTypeDef", {"resourceArn": str}, total=False
+    "PutResourcePolicyOutputTypeDef",
+    {"resourceArn": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ReportFilterTypeDef = TypedDict(
@@ -919,37 +998,59 @@ ReportFilterTypeDef = TypedDict(
 )
 
 RetryBuildBatchOutputTypeDef = TypedDict(
-    "RetryBuildBatchOutputTypeDef", {"buildBatch": "BuildBatchTypeDef"}, total=False
+    "RetryBuildBatchOutputTypeDef",
+    {"buildBatch": "BuildBatchTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 RetryBuildOutputTypeDef = TypedDict(
-    "RetryBuildOutputTypeDef", {"build": "BuildTypeDef"}, total=False
+    "RetryBuildOutputTypeDef",
+    {"build": "BuildTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 StartBuildBatchOutputTypeDef = TypedDict(
-    "StartBuildBatchOutputTypeDef", {"buildBatch": "BuildBatchTypeDef"}, total=False
+    "StartBuildBatchOutputTypeDef",
+    {"buildBatch": "BuildBatchTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 StartBuildOutputTypeDef = TypedDict(
-    "StartBuildOutputTypeDef", {"build": "BuildTypeDef"}, total=False
+    "StartBuildOutputTypeDef",
+    {"build": "BuildTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 StopBuildBatchOutputTypeDef = TypedDict(
-    "StopBuildBatchOutputTypeDef", {"buildBatch": "BuildBatchTypeDef"}, total=False
+    "StopBuildBatchOutputTypeDef",
+    {"buildBatch": "BuildBatchTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
-StopBuildOutputTypeDef = TypedDict("StopBuildOutputTypeDef", {"build": "BuildTypeDef"}, total=False)
+StopBuildOutputTypeDef = TypedDict(
+    "StopBuildOutputTypeDef",
+    {"build": "BuildTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
 
-TestCaseFilterTypeDef = TypedDict("TestCaseFilterTypeDef", {"status": str}, total=False)
+TestCaseFilterTypeDef = TypedDict(
+    "TestCaseFilterTypeDef", {"status": str, "keyword": str}, total=False
+)
 
 UpdateProjectOutputTypeDef = TypedDict(
-    "UpdateProjectOutputTypeDef", {"project": "ProjectTypeDef"}, total=False
+    "UpdateProjectOutputTypeDef",
+    {"project": "ProjectTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 UpdateReportGroupOutputTypeDef = TypedDict(
-    "UpdateReportGroupOutputTypeDef", {"reportGroup": "ReportGroupTypeDef"}, total=False
+    "UpdateReportGroupOutputTypeDef",
+    {"reportGroup": "ReportGroupTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 UpdateWebhookOutputTypeDef = TypedDict(
-    "UpdateWebhookOutputTypeDef", {"webhook": "WebhookTypeDef"}, total=False
+    "UpdateWebhookOutputTypeDef",
+    {"webhook": "WebhookTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )

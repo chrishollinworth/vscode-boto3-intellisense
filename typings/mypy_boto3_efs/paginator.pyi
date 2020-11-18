@@ -37,7 +37,7 @@ __all__ = ("DescribeFileSystemsPaginator", "DescribeMountTargetsPaginator", "Des
 
 class DescribeFileSystemsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeFileSystems documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/efs.html#EFS.Paginator.DescribeFileSystems)
+    [Paginator.DescribeFileSystems documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/efs.html#EFS.Paginator.DescribeFileSystems)
     """
 
     def paginate(
@@ -47,13 +47,13 @@ class DescribeFileSystemsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeFileSystemsResponseTypeDef]:
         """
-        [DescribeFileSystems.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/efs.html#EFS.Paginator.DescribeFileSystems.paginate)
+        [DescribeFileSystems.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/efs.html#EFS.Paginator.DescribeFileSystems.paginate)
         """
 
 
 class DescribeMountTargetsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeMountTargets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/efs.html#EFS.Paginator.DescribeMountTargets)
+    [Paginator.DescribeMountTargets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/efs.html#EFS.Paginator.DescribeMountTargets)
     """
 
     def paginate(
@@ -64,18 +64,18 @@ class DescribeMountTargetsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeMountTargetsResponseTypeDef]:
         """
-        [DescribeMountTargets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/efs.html#EFS.Paginator.DescribeMountTargets.paginate)
+        [DescribeMountTargets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/efs.html#EFS.Paginator.DescribeMountTargets.paginate)
         """
 
 
 class DescribeTagsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeTags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/efs.html#EFS.Paginator.DescribeTags)
+    [Paginator.DescribeTags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/efs.html#EFS.Paginator.DescribeTags)
     """
 
     def paginate(
         self, FileSystemId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeTagsResponseTypeDef]:
         """
-        [DescribeTags.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/efs.html#EFS.Paginator.DescribeTags.paginate)
+        [DescribeTags.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/efs.html#EFS.Paginator.DescribeTags.paginate)
         """

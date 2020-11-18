@@ -1,4 +1,4 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import
+# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for snowball service client
 
@@ -14,8 +14,7 @@ Usage::
 import sys
 from typing import Any, Dict, Type, overload
 
-from botocore.exceptions import ClientError as Boto3ClientError
-from botocore.paginate import Paginator as Boto3Paginator
+from botocore.client import ClientMeta
 
 from mypy_boto3_snowball.paginator import (
     DescribeAddressesPaginator,
@@ -29,10 +28,12 @@ from mypy_boto3_snowball.type_defs import (
     CreateAddressResultTypeDef,
     CreateClusterResultTypeDef,
     CreateJobResultTypeDef,
+    CreateReturnShippingLabelResultTypeDef,
     DescribeAddressesResultTypeDef,
     DescribeAddressResultTypeDef,
     DescribeClusterResultTypeDef,
     DescribeJobResultTypeDef,
+    DescribeReturnShippingLabelResultTypeDef,
     DeviceConfigurationTypeDef,
     GetJobManifestResultTypeDef,
     GetJobUnlockCodeResultTypeDef,
@@ -56,44 +57,55 @@ else:
 __all__ = ("SnowballClient",)
 
 
+class BotocoreClientError(BaseException):
+    MSG_TEMPLATE: str
+
+    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
+        self.response: Dict[str, Any]
+        self.operation_name: str
+
+
 class Exceptions:
-    ClientError: Type[Boto3ClientError]
-    ClusterLimitExceededException: Type[Boto3ClientError]
-    Ec2RequestFailedException: Type[Boto3ClientError]
-    InvalidAddressException: Type[Boto3ClientError]
-    InvalidInputCombinationException: Type[Boto3ClientError]
-    InvalidJobStateException: Type[Boto3ClientError]
-    InvalidNextTokenException: Type[Boto3ClientError]
-    InvalidResourceException: Type[Boto3ClientError]
-    KMSRequestFailedException: Type[Boto3ClientError]
-    UnsupportedAddressException: Type[Boto3ClientError]
+    ClientError: Type[BotocoreClientError]
+    ClusterLimitExceededException: Type[BotocoreClientError]
+    ConflictException: Type[BotocoreClientError]
+    Ec2RequestFailedException: Type[BotocoreClientError]
+    InvalidAddressException: Type[BotocoreClientError]
+    InvalidInputCombinationException: Type[BotocoreClientError]
+    InvalidJobStateException: Type[BotocoreClientError]
+    InvalidNextTokenException: Type[BotocoreClientError]
+    InvalidResourceException: Type[BotocoreClientError]
+    KMSRequestFailedException: Type[BotocoreClientError]
+    ReturnShippingLabelAlreadyExistsException: Type[BotocoreClientError]
+    UnsupportedAddressException: Type[BotocoreClientError]
 
 
 class SnowballClient:
     """
-    [Snowball.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/snowball.html#Snowball.Client)
+    [Snowball.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/snowball.html#Snowball.Client)
     """
 
+    meta: ClientMeta
     exceptions: Exceptions
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/snowball.html#Snowball.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/snowball.html#Snowball.Client.can_paginate)
         """
 
     def cancel_cluster(self, ClusterId: str) -> Dict[str, Any]:
         """
-        [Client.cancel_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/snowball.html#Snowball.Client.cancel_cluster)
+        [Client.cancel_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/snowball.html#Snowball.Client.cancel_cluster)
         """
 
     def cancel_job(self, JobId: str) -> Dict[str, Any]:
         """
-        [Client.cancel_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/snowball.html#Snowball.Client.cancel_job)
+        [Client.cancel_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/snowball.html#Snowball.Client.cancel_job)
         """
 
     def create_address(self, Address: "AddressTypeDef") -> CreateAddressResultTypeDef:
         """
-        [Client.create_address documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/snowball.html#Snowball.Client.create_address)
+        [Client.create_address documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/snowball.html#Snowball.Client.create_address)
         """
 
     def create_cluster(
@@ -111,7 +123,7 @@ class SnowballClient:
         TaxDocuments: "TaxDocumentsTypeDef" = None,
     ) -> CreateClusterResultTypeDef:
         """
-        [Client.create_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/snowball.html#Snowball.Client.create_cluster)
+        [Client.create_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/snowball.html#Snowball.Client.create_cluster)
         """
 
     def create_job(
@@ -134,29 +146,45 @@ class SnowballClient:
         DeviceConfiguration: "DeviceConfigurationTypeDef" = None,
     ) -> CreateJobResultTypeDef:
         """
-        [Client.create_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/snowball.html#Snowball.Client.create_job)
+        [Client.create_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/snowball.html#Snowball.Client.create_job)
+        """
+
+    def create_return_shipping_label(
+        self,
+        JobId: str,
+        ShippingOption: Literal["SECOND_DAY", "NEXT_DAY", "EXPRESS", "STANDARD"] = None,
+    ) -> CreateReturnShippingLabelResultTypeDef:
+        """
+        [Client.create_return_shipping_label documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/snowball.html#Snowball.Client.create_return_shipping_label)
         """
 
     def describe_address(self, AddressId: str) -> DescribeAddressResultTypeDef:
         """
-        [Client.describe_address documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/snowball.html#Snowball.Client.describe_address)
+        [Client.describe_address documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/snowball.html#Snowball.Client.describe_address)
         """
 
     def describe_addresses(
         self, MaxResults: int = None, NextToken: str = None
     ) -> DescribeAddressesResultTypeDef:
         """
-        [Client.describe_addresses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/snowball.html#Snowball.Client.describe_addresses)
+        [Client.describe_addresses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/snowball.html#Snowball.Client.describe_addresses)
         """
 
     def describe_cluster(self, ClusterId: str) -> DescribeClusterResultTypeDef:
         """
-        [Client.describe_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/snowball.html#Snowball.Client.describe_cluster)
+        [Client.describe_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/snowball.html#Snowball.Client.describe_cluster)
         """
 
     def describe_job(self, JobId: str) -> DescribeJobResultTypeDef:
         """
-        [Client.describe_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/snowball.html#Snowball.Client.describe_job)
+        [Client.describe_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/snowball.html#Snowball.Client.describe_job)
+        """
+
+    def describe_return_shipping_label(
+        self, JobId: str = None
+    ) -> DescribeReturnShippingLabelResultTypeDef:
+        """
+        [Client.describe_return_shipping_label documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/snowball.html#Snowball.Client.describe_return_shipping_label)
         """
 
     def generate_presigned_url(
@@ -167,53 +195,53 @@ class SnowballClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/snowball.html#Snowball.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/snowball.html#Snowball.Client.generate_presigned_url)
         """
 
     def get_job_manifest(self, JobId: str) -> GetJobManifestResultTypeDef:
         """
-        [Client.get_job_manifest documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/snowball.html#Snowball.Client.get_job_manifest)
+        [Client.get_job_manifest documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/snowball.html#Snowball.Client.get_job_manifest)
         """
 
     def get_job_unlock_code(self, JobId: str) -> GetJobUnlockCodeResultTypeDef:
         """
-        [Client.get_job_unlock_code documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/snowball.html#Snowball.Client.get_job_unlock_code)
+        [Client.get_job_unlock_code documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/snowball.html#Snowball.Client.get_job_unlock_code)
         """
 
     def get_snowball_usage(self) -> GetSnowballUsageResultTypeDef:
         """
-        [Client.get_snowball_usage documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/snowball.html#Snowball.Client.get_snowball_usage)
+        [Client.get_snowball_usage documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/snowball.html#Snowball.Client.get_snowball_usage)
         """
 
     def get_software_updates(self, JobId: str) -> GetSoftwareUpdatesResultTypeDef:
         """
-        [Client.get_software_updates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/snowball.html#Snowball.Client.get_software_updates)
+        [Client.get_software_updates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/snowball.html#Snowball.Client.get_software_updates)
         """
 
     def list_cluster_jobs(
         self, ClusterId: str, MaxResults: int = None, NextToken: str = None
     ) -> ListClusterJobsResultTypeDef:
         """
-        [Client.list_cluster_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/snowball.html#Snowball.Client.list_cluster_jobs)
+        [Client.list_cluster_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/snowball.html#Snowball.Client.list_cluster_jobs)
         """
 
     def list_clusters(
         self, MaxResults: int = None, NextToken: str = None
     ) -> ListClustersResultTypeDef:
         """
-        [Client.list_clusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/snowball.html#Snowball.Client.list_clusters)
+        [Client.list_clusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/snowball.html#Snowball.Client.list_clusters)
         """
 
     def list_compatible_images(
         self, MaxResults: int = None, NextToken: str = None
     ) -> ListCompatibleImagesResultTypeDef:
         """
-        [Client.list_compatible_images documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/snowball.html#Snowball.Client.list_compatible_images)
+        [Client.list_compatible_images documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/snowball.html#Snowball.Client.list_compatible_images)
         """
 
     def list_jobs(self, MaxResults: int = None, NextToken: str = None) -> ListJobsResultTypeDef:
         """
-        [Client.list_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/snowball.html#Snowball.Client.list_jobs)
+        [Client.list_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/snowball.html#Snowball.Client.list_jobs)
         """
 
     def update_cluster(
@@ -228,7 +256,7 @@ class SnowballClient:
         ForwardingAddressId: str = None,
     ) -> Dict[str, Any]:
         """
-        [Client.update_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/snowball.html#Snowball.Client.update_cluster)
+        [Client.update_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/snowball.html#Snowball.Client.update_cluster)
         """
 
     def update_job(
@@ -246,7 +274,14 @@ class SnowballClient:
         ForwardingAddressId: str = None,
     ) -> Dict[str, Any]:
         """
-        [Client.update_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/snowball.html#Snowball.Client.update_job)
+        [Client.update_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/snowball.html#Snowball.Client.update_job)
+        """
+
+    def update_job_shipment_state(
+        self, JobId: str, ShipmentState: Literal["RECEIVED", "RETURNED"]
+    ) -> Dict[str, Any]:
+        """
+        [Client.update_job_shipment_state documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/snowball.html#Snowball.Client.update_job_shipment_state)
         """
 
     @overload
@@ -254,7 +289,7 @@ class SnowballClient:
         self, operation_name: Literal["describe_addresses"]
     ) -> DescribeAddressesPaginator:
         """
-        [Paginator.DescribeAddresses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/snowball.html#Snowball.Paginator.DescribeAddresses)
+        [Paginator.DescribeAddresses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/snowball.html#Snowball.Paginator.DescribeAddresses)
         """
 
     @overload
@@ -262,13 +297,13 @@ class SnowballClient:
         self, operation_name: Literal["list_cluster_jobs"]
     ) -> ListClusterJobsPaginator:
         """
-        [Paginator.ListClusterJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/snowball.html#Snowball.Paginator.ListClusterJobs)
+        [Paginator.ListClusterJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/snowball.html#Snowball.Paginator.ListClusterJobs)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_clusters"]) -> ListClustersPaginator:
         """
-        [Paginator.ListClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/snowball.html#Snowball.Paginator.ListClusters)
+        [Paginator.ListClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/snowball.html#Snowball.Paginator.ListClusters)
         """
 
     @overload
@@ -276,14 +311,11 @@ class SnowballClient:
         self, operation_name: Literal["list_compatible_images"]
     ) -> ListCompatibleImagesPaginator:
         """
-        [Paginator.ListCompatibleImages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/snowball.html#Snowball.Paginator.ListCompatibleImages)
+        [Paginator.ListCompatibleImages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/snowball.html#Snowball.Paginator.ListCompatibleImages)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_jobs"]) -> ListJobsPaginator:
         """
-        [Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/snowball.html#Snowball.Paginator.ListJobs)
+        [Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/snowball.html#Snowball.Paginator.ListJobs)
         """
-
-    def get_paginator(self, operation_name: str) -> Boto3Paginator:
-        pass

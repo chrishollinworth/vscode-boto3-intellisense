@@ -1,6 +1,7 @@
 from mypy_boto3_importexport.type_defs import (
     ArtifactTypeDef,
     JobTypeDef,
+    ResponseMetadata,
     CancelJobOutputTypeDef,
     CreateJobOutputTypeDef,
     GetShippingLabelOutputTypeDef,
@@ -13,6 +14,7 @@ from mypy_boto3_importexport.type_defs import (
 __all__ = (
     "ArtifactTypeDef",
     "JobTypeDef",
+    "ResponseMetadata",
     "CancelJobOutputTypeDef",
     "CreateJobOutputTypeDef",
     "GetShippingLabelOutputTypeDef",

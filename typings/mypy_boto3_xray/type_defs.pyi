@@ -17,7 +17,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -27,6 +26,7 @@ else:
 __all__ = (
     "AliasTypeDef",
     "AnnotationValueTypeDef",
+    "AnomalousServiceTypeDef",
     "AvailabilityZoneDetailTypeDef",
     "BackendConnectionErrorsTypeDef",
     "EdgeStatisticsTypeDef",
@@ -40,11 +40,19 @@ __all__ = (
     "FaultRootCauseServiceTypeDef",
     "FaultRootCauseTypeDef",
     "FaultStatisticsTypeDef",
+    "ForecastStatisticsTypeDef",
     "GroupSummaryTypeDef",
     "GroupTypeDef",
     "HistogramEntryTypeDef",
     "HttpTypeDef",
+    "InsightEventTypeDef",
+    "InsightImpactGraphEdgeTypeDef",
+    "InsightImpactGraphServiceTypeDef",
+    "InsightSummaryTypeDef",
+    "InsightTypeDef",
+    "InsightsConfigurationTypeDef",
     "InstanceIdDetailTypeDef",
+    "RequestImpactStatisticsTypeDef",
     "ResourceARNDetailTypeDef",
     "ResponseTimeRootCauseEntityTypeDef",
     "ResponseTimeRootCauseServiceTypeDef",
@@ -58,6 +66,7 @@ __all__ = (
     "ServiceIdTypeDef",
     "ServiceStatisticsTypeDef",
     "ServiceTypeDef",
+    "TagTypeDef",
     "TimeSeriesServiceStatisticsTypeDef",
     "TraceSummaryTypeDef",
     "TraceTypeDef",
@@ -72,6 +81,10 @@ __all__ = (
     "GetEncryptionConfigResultTypeDef",
     "GetGroupResultTypeDef",
     "GetGroupsResultTypeDef",
+    "GetInsightEventsResultTypeDef",
+    "GetInsightImpactGraphResultTypeDef",
+    "GetInsightResultTypeDef",
+    "GetInsightSummariesResultTypeDef",
     "GetSamplingRulesResultTypeDef",
     "GetSamplingStatisticSummariesResultTypeDef",
     "GetSamplingTargetsResultTypeDef",
@@ -79,6 +92,7 @@ __all__ = (
     "GetTimeSeriesServiceStatisticsResultTypeDef",
     "GetTraceGraphResultTypeDef",
     "GetTraceSummariesResultTypeDef",
+    "ListTagsForResourceResponseTypeDef",
     "PaginatorConfigTypeDef",
     "PutEncryptionConfigResultTypeDef",
     "PutTraceSegmentsResultTypeDef",
@@ -98,6 +112,10 @@ AnnotationValueTypeDef = TypedDict(
     "AnnotationValueTypeDef",
     {"NumberValue": float, "BooleanValue": bool, "StringValue": str},
     total=False,
+)
+
+AnomalousServiceTypeDef = TypedDict(
+    "AnomalousServiceTypeDef", {"ServiceId": "ServiceIdTypeDef"}, total=False
 )
 
 AvailabilityZoneDetailTypeDef = TypedDict(
@@ -208,12 +226,30 @@ FaultStatisticsTypeDef = TypedDict(
     "FaultStatisticsTypeDef", {"OtherCount": int, "TotalCount": int}, total=False
 )
 
+ForecastStatisticsTypeDef = TypedDict(
+    "ForecastStatisticsTypeDef", {"FaultCountHigh": int, "FaultCountLow": int}, total=False
+)
+
 GroupSummaryTypeDef = TypedDict(
-    "GroupSummaryTypeDef", {"GroupName": str, "GroupARN": str, "FilterExpression": str}, total=False
+    "GroupSummaryTypeDef",
+    {
+        "GroupName": str,
+        "GroupARN": str,
+        "FilterExpression": str,
+        "InsightsConfiguration": "InsightsConfigurationTypeDef",
+    },
+    total=False,
 )
 
 GroupTypeDef = TypedDict(
-    "GroupTypeDef", {"GroupName": str, "GroupARN": str, "FilterExpression": str}, total=False
+    "GroupTypeDef",
+    {
+        "GroupName": str,
+        "GroupARN": str,
+        "FilterExpression": str,
+        "InsightsConfiguration": "InsightsConfigurationTypeDef",
+    },
+    total=False,
 )
 
 HistogramEntryTypeDef = TypedDict(
@@ -226,7 +262,87 @@ HttpTypeDef = TypedDict(
     total=False,
 )
 
+InsightEventTypeDef = TypedDict(
+    "InsightEventTypeDef",
+    {
+        "Summary": str,
+        "EventTime": datetime,
+        "ClientRequestImpactStatistics": "RequestImpactStatisticsTypeDef",
+        "RootCauseServiceRequestImpactStatistics": "RequestImpactStatisticsTypeDef",
+        "TopAnomalousServices": List["AnomalousServiceTypeDef"],
+    },
+    total=False,
+)
+
+InsightImpactGraphEdgeTypeDef = TypedDict(
+    "InsightImpactGraphEdgeTypeDef", {"ReferenceId": int}, total=False
+)
+
+InsightImpactGraphServiceTypeDef = TypedDict(
+    "InsightImpactGraphServiceTypeDef",
+    {
+        "ReferenceId": int,
+        "Type": str,
+        "Name": str,
+        "Names": List[str],
+        "AccountId": str,
+        "Edges": List["InsightImpactGraphEdgeTypeDef"],
+    },
+    total=False,
+)
+
+InsightSummaryTypeDef = TypedDict(
+    "InsightSummaryTypeDef",
+    {
+        "InsightId": str,
+        "GroupARN": str,
+        "GroupName": str,
+        "RootCauseServiceId": "ServiceIdTypeDef",
+        "Categories": List[Literal["FAULT"]],
+        "State": Literal["ACTIVE", "CLOSED"],
+        "StartTime": datetime,
+        "EndTime": datetime,
+        "Summary": str,
+        "ClientRequestImpactStatistics": "RequestImpactStatisticsTypeDef",
+        "RootCauseServiceRequestImpactStatistics": "RequestImpactStatisticsTypeDef",
+        "TopAnomalousServices": List["AnomalousServiceTypeDef"],
+        "LastUpdateTime": datetime,
+    },
+    total=False,
+)
+
+InsightTypeDef = TypedDict(
+    "InsightTypeDef",
+    {
+        "InsightId": str,
+        "GroupARN": str,
+        "GroupName": str,
+        "RootCauseServiceId": "ServiceIdTypeDef",
+        "Categories": List[Literal["FAULT"]],
+        "State": Literal["ACTIVE", "CLOSED"],
+        "StartTime": datetime,
+        "EndTime": datetime,
+        "Summary": str,
+        "ClientRequestImpactStatistics": "RequestImpactStatisticsTypeDef",
+        "RootCauseServiceRequestImpactStatistics": "RequestImpactStatisticsTypeDef",
+        "TopAnomalousServices": List["AnomalousServiceTypeDef"],
+    },
+    total=False,
+)
+
+InsightsConfigurationTypeDef = TypedDict(
+    "InsightsConfigurationTypeDef",
+    {"InsightsEnabled": bool, "NotificationsEnabled": bool},
+    total=False,
+)
+
 InstanceIdDetailTypeDef = TypedDict("InstanceIdDetailTypeDef", {"Id": str}, total=False)
+
+RequestImpactStatisticsTypeDef = TypedDict(
+    "RequestImpactStatisticsTypeDef",
+    {"FaultCount": int, "OkCount": int, "TotalCount": int},
+    total=False,
+)
 
 ResourceARNDetailTypeDef = TypedDict("ResourceARNDetailTypeDef", {"ARN": str}, total=False)
 
@@ -355,12 +471,15 @@ ServiceTypeDef = TypedDict(
     total=False,
 )
 
+TagTypeDef = TypedDict("TagTypeDef", {"Key": str, "Value": str})
+
 TimeSeriesServiceStatisticsTypeDef = TypedDict(
     "TimeSeriesServiceStatisticsTypeDef",
     {
         "Timestamp": datetime,
         "EdgeSummaryStatistics": "EdgeStatisticsTypeDef",
         "ServiceSummaryStatistics": "ServiceStatisticsTypeDef",
+        "ServiceForecastStatistics": "ForecastStatisticsTypeDef",
         "ResponseTimeHistogram": List["HistogramEntryTypeDef"],
     },
     total=False,
@@ -394,7 +513,9 @@ TraceSummaryTypeDef = TypedDict(
 )
 
 TraceTypeDef = TypedDict(
-    "TraceTypeDef", {"Id": str, "Duration": float, "Segments": List["SegmentTypeDef"]}, total=False
+    "TraceTypeDef",
+    {"Id": str, "Duration": float, "LimitExceeded": bool, "Segments": List["SegmentTypeDef"]},
+    total=False,
 )
 
 TraceUserTypeDef = TypedDict(
@@ -445,6 +566,36 @@ GetGroupResultTypeDef = TypedDict("GetGroupResultTypeDef", {"Group": "GroupTypeD
 
 GetGroupsResultTypeDef = TypedDict(
     "GetGroupsResultTypeDef", {"Groups": List["GroupSummaryTypeDef"], "NextToken": str}, total=False
+)
+
+GetInsightEventsResultTypeDef = TypedDict(
+    "GetInsightEventsResultTypeDef",
+    {"InsightEvents": List["InsightEventTypeDef"], "NextToken": str},
+    total=False,
+)
+
+GetInsightImpactGraphResultTypeDef = TypedDict(
+    "GetInsightImpactGraphResultTypeDef",
+    {
+        "InsightId": str,
+        "StartTime": datetime,
+        "EndTime": datetime,
+        "ServiceGraphStartTime": datetime,
+        "ServiceGraphEndTime": datetime,
+        "Services": List["InsightImpactGraphServiceTypeDef"],
+        "NextToken": str,
+    },
+    total=False,
+)
+
+GetInsightResultTypeDef = TypedDict(
+    "GetInsightResultTypeDef", {"Insight": "InsightTypeDef"}, total=False
+)
+
+GetInsightSummariesResultTypeDef = TypedDict(
+    "GetInsightSummariesResultTypeDef",
+    {"InsightSummaries": List["InsightSummaryTypeDef"], "NextToken": str},
+    total=False,
 )
 
 GetSamplingRulesResultTypeDef = TypedDict(
@@ -505,6 +656,12 @@ GetTraceSummariesResultTypeDef = TypedDict(
         "TracesProcessedCount": int,
         "NextToken": str,
     },
+    total=False,
+)
+
+ListTagsForResourceResponseTypeDef = TypedDict(
+    "ListTagsForResourceResponseTypeDef",
+    {"Tags": List["TagTypeDef"], "NextToken": str},
     total=False,
 )
 

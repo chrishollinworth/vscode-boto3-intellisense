@@ -1,6 +1,7 @@
 from mypy_boto3_kinesisvideo.type_defs import (
     ChannelInfoTypeDef,
     ResourceEndpointListItemTypeDef,
+    ResponseMetadata,
     SingleMasterConfigurationTypeDef,
     StreamInfoTypeDef,
     ChannelNameConditionTypeDef,
@@ -23,6 +24,7 @@ from mypy_boto3_kinesisvideo.type_defs import (
 __all__ = (
     "ChannelInfoTypeDef",
     "ResourceEndpointListItemTypeDef",
+    "ResponseMetadata",
     "SingleMasterConfigurationTypeDef",
     "StreamInfoTypeDef",
     "ChannelNameConditionTypeDef",

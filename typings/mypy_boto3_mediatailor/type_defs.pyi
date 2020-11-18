@@ -4,9 +4,9 @@ Main interface for mediatailor service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_mediatailor.type_defs import AvailSuppressionTypeDef
+    from mypy_boto3_mediatailor.type_defs import AdMarkerPassthroughTypeDef
 
-    data: AvailSuppressionTypeDef = {...}
+    data: AdMarkerPassthroughTypeDef = {...}
     ```
 """
 import sys
@@ -16,7 +16,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -24,12 +23,14 @@ else:
 
 
 __all__ = (
+    "AdMarkerPassthroughTypeDef",
     "AvailSuppressionTypeDef",
     "BumperTypeDef",
     "CdnConfigurationTypeDef",
     "DashConfigurationTypeDef",
     "HlsConfigurationTypeDef",
     "LivePreRollConfigurationTypeDef",
+    "ManifestProcessingRulesTypeDef",
     "PlaybackConfigurationTypeDef",
     "DashConfigurationForPutTypeDef",
     "GetPlaybackConfigurationResponseTypeDef",
@@ -38,6 +39,8 @@ __all__ = (
     "PaginatorConfigTypeDef",
     "PutPlaybackConfigurationResponseTypeDef",
 )
+
+AdMarkerPassthroughTypeDef = TypedDict("AdMarkerPassthroughTypeDef", {"Enabled": bool}, total=False)
 
 AvailSuppressionTypeDef = TypedDict(
     "AvailSuppressionTypeDef",
@@ -73,6 +76,12 @@ LivePreRollConfigurationTypeDef = TypedDict(
     total=False,
 )
 
+ManifestProcessingRulesTypeDef = TypedDict(
+    "ManifestProcessingRulesTypeDef",
+    {"AdMarkerPassthrough": "AdMarkerPassthroughTypeDef"},
+    total=False,
+)
+
 PlaybackConfigurationTypeDef = TypedDict(
     "PlaybackConfigurationTypeDef",
     {
@@ -82,6 +91,7 @@ PlaybackConfigurationTypeDef = TypedDict(
         "CdnConfiguration": "CdnConfigurationTypeDef",
         "DashConfiguration": "DashConfigurationTypeDef",
         "HlsConfiguration": "HlsConfigurationTypeDef",
+        "ManifestProcessingRules": "ManifestProcessingRulesTypeDef",
         "Name": str,
         "PlaybackConfigurationArn": str,
         "PlaybackEndpointPrefix": str,
@@ -111,6 +121,7 @@ GetPlaybackConfigurationResponseTypeDef = TypedDict(
         "DashConfiguration": "DashConfigurationTypeDef",
         "HlsConfiguration": "HlsConfigurationTypeDef",
         "LivePreRollConfiguration": "LivePreRollConfigurationTypeDef",
+        "ManifestProcessingRules": "ManifestProcessingRulesTypeDef",
         "Name": str,
         "PersonalizationThresholdSeconds": int,
         "PlaybackConfigurationArn": str,
@@ -148,6 +159,7 @@ PutPlaybackConfigurationResponseTypeDef = TypedDict(
         "DashConfiguration": "DashConfigurationTypeDef",
         "HlsConfiguration": "HlsConfigurationTypeDef",
         "LivePreRollConfiguration": "LivePreRollConfigurationTypeDef",
+        "ManifestProcessingRules": "ManifestProcessingRulesTypeDef",
         "Name": str,
         "PersonalizationThresholdSeconds": int,
         "PlaybackConfigurationArn": str,

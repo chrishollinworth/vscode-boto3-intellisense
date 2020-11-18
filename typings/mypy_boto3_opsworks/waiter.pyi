@@ -45,7 +45,7 @@ __all__ = (
 
 class AppExistsWaiter(Boto3Waiter):
     """
-    [Waiter.AppExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/opsworks.html#OpsWorks.Waiter.AppExists)
+    [Waiter.AppExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworks.html#OpsWorks.Waiter.AppExists)
     """
 
     def wait(
@@ -55,13 +55,13 @@ class AppExistsWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [AppExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/opsworks.html#OpsWorks.Waiter.AppExists.wait)
+        [AppExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworks.html#OpsWorks.Waiter.AppExists.wait)
         """
 
 
 class DeploymentSuccessfulWaiter(Boto3Waiter):
     """
-    [Waiter.DeploymentSuccessful documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/opsworks.html#OpsWorks.Waiter.DeploymentSuccessful)
+    [Waiter.DeploymentSuccessful documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworks.html#OpsWorks.Waiter.DeploymentSuccessful)
     """
 
     def wait(
@@ -72,13 +72,13 @@ class DeploymentSuccessfulWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [DeploymentSuccessful.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/opsworks.html#OpsWorks.Waiter.DeploymentSuccessful.wait)
+        [DeploymentSuccessful.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworks.html#OpsWorks.Waiter.DeploymentSuccessful.wait)
         """
 
 
 class InstanceOnlineWaiter(Boto3Waiter):
     """
-    [Waiter.InstanceOnline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/opsworks.html#OpsWorks.Waiter.InstanceOnline)
+    [Waiter.InstanceOnline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworks.html#OpsWorks.Waiter.InstanceOnline)
     """
 
     def wait(
@@ -89,13 +89,13 @@ class InstanceOnlineWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [InstanceOnline.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/opsworks.html#OpsWorks.Waiter.InstanceOnline.wait)
+        [InstanceOnline.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworks.html#OpsWorks.Waiter.InstanceOnline.wait)
         """
 
 
 class InstanceRegisteredWaiter(Boto3Waiter):
     """
-    [Waiter.InstanceRegistered documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/opsworks.html#OpsWorks.Waiter.InstanceRegistered)
+    [Waiter.InstanceRegistered documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworks.html#OpsWorks.Waiter.InstanceRegistered)
     """
 
     def wait(
@@ -106,13 +106,13 @@ class InstanceRegisteredWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [InstanceRegistered.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/opsworks.html#OpsWorks.Waiter.InstanceRegistered.wait)
+        [InstanceRegistered.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworks.html#OpsWorks.Waiter.InstanceRegistered.wait)
         """
 
 
 class InstanceStoppedWaiter(Boto3Waiter):
     """
-    [Waiter.InstanceStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/opsworks.html#OpsWorks.Waiter.InstanceStopped)
+    [Waiter.InstanceStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworks.html#OpsWorks.Waiter.InstanceStopped)
     """
 
     def wait(
@@ -123,13 +123,13 @@ class InstanceStoppedWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [InstanceStopped.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/opsworks.html#OpsWorks.Waiter.InstanceStopped.wait)
+        [InstanceStopped.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworks.html#OpsWorks.Waiter.InstanceStopped.wait)
         """
 
 
 class InstanceTerminatedWaiter(Boto3Waiter):
     """
-    [Waiter.InstanceTerminated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/opsworks.html#OpsWorks.Waiter.InstanceTerminated)
+    [Waiter.InstanceTerminated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworks.html#OpsWorks.Waiter.InstanceTerminated)
     """
 
     def wait(
@@ -140,5 +140,5 @@ class InstanceTerminatedWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [InstanceTerminated.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/opsworks.html#OpsWorks.Waiter.InstanceTerminated.wait)
+        [InstanceTerminated.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworks.html#OpsWorks.Waiter.InstanceTerminated.wait)
         """

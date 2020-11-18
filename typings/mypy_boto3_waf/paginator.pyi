@@ -93,207 +93,207 @@ __all__ = (
 
 class GetRateBasedRuleManagedKeysPaginator(Boto3Paginator):
     """
-    [Paginator.GetRateBasedRuleManagedKeys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/waf.html#WAF.Paginator.GetRateBasedRuleManagedKeys)
+    [Paginator.GetRateBasedRuleManagedKeys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/waf.html#WAF.Paginator.GetRateBasedRuleManagedKeys)
     """
 
     def paginate(
         self, RuleId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetRateBasedRuleManagedKeysResponseTypeDef]:
         """
-        [GetRateBasedRuleManagedKeys.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/waf.html#WAF.Paginator.GetRateBasedRuleManagedKeys.paginate)
+        [GetRateBasedRuleManagedKeys.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/waf.html#WAF.Paginator.GetRateBasedRuleManagedKeys.paginate)
         """
 
 
 class ListActivatedRulesInRuleGroupPaginator(Boto3Paginator):
     """
-    [Paginator.ListActivatedRulesInRuleGroup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/waf.html#WAF.Paginator.ListActivatedRulesInRuleGroup)
+    [Paginator.ListActivatedRulesInRuleGroup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/waf.html#WAF.Paginator.ListActivatedRulesInRuleGroup)
     """
 
     def paginate(
         self, RuleGroupId: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListActivatedRulesInRuleGroupResponseTypeDef]:
         """
-        [ListActivatedRulesInRuleGroup.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/waf.html#WAF.Paginator.ListActivatedRulesInRuleGroup.paginate)
+        [ListActivatedRulesInRuleGroup.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/waf.html#WAF.Paginator.ListActivatedRulesInRuleGroup.paginate)
         """
 
 
 class ListByteMatchSetsPaginator(Boto3Paginator):
     """
-    [Paginator.ListByteMatchSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/waf.html#WAF.Paginator.ListByteMatchSets)
+    [Paginator.ListByteMatchSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/waf.html#WAF.Paginator.ListByteMatchSets)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListByteMatchSetsResponseTypeDef]:
         """
-        [ListByteMatchSets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/waf.html#WAF.Paginator.ListByteMatchSets.paginate)
+        [ListByteMatchSets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/waf.html#WAF.Paginator.ListByteMatchSets.paginate)
         """
 
 
 class ListGeoMatchSetsPaginator(Boto3Paginator):
     """
-    [Paginator.ListGeoMatchSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/waf.html#WAF.Paginator.ListGeoMatchSets)
+    [Paginator.ListGeoMatchSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/waf.html#WAF.Paginator.ListGeoMatchSets)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListGeoMatchSetsResponseTypeDef]:
         """
-        [ListGeoMatchSets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/waf.html#WAF.Paginator.ListGeoMatchSets.paginate)
+        [ListGeoMatchSets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/waf.html#WAF.Paginator.ListGeoMatchSets.paginate)
         """
 
 
 class ListIPSetsPaginator(Boto3Paginator):
     """
-    [Paginator.ListIPSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/waf.html#WAF.Paginator.ListIPSets)
+    [Paginator.ListIPSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/waf.html#WAF.Paginator.ListIPSets)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListIPSetsResponseTypeDef]:
         """
-        [ListIPSets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/waf.html#WAF.Paginator.ListIPSets.paginate)
+        [ListIPSets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/waf.html#WAF.Paginator.ListIPSets.paginate)
         """
 
 
 class ListLoggingConfigurationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListLoggingConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/waf.html#WAF.Paginator.ListLoggingConfigurations)
+    [Paginator.ListLoggingConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/waf.html#WAF.Paginator.ListLoggingConfigurations)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListLoggingConfigurationsResponseTypeDef]:
         """
-        [ListLoggingConfigurations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/waf.html#WAF.Paginator.ListLoggingConfigurations.paginate)
+        [ListLoggingConfigurations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/waf.html#WAF.Paginator.ListLoggingConfigurations.paginate)
         """
 
 
 class ListRateBasedRulesPaginator(Boto3Paginator):
     """
-    [Paginator.ListRateBasedRules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/waf.html#WAF.Paginator.ListRateBasedRules)
+    [Paginator.ListRateBasedRules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/waf.html#WAF.Paginator.ListRateBasedRules)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRateBasedRulesResponseTypeDef]:
         """
-        [ListRateBasedRules.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/waf.html#WAF.Paginator.ListRateBasedRules.paginate)
+        [ListRateBasedRules.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/waf.html#WAF.Paginator.ListRateBasedRules.paginate)
         """
 
 
 class ListRegexMatchSetsPaginator(Boto3Paginator):
     """
-    [Paginator.ListRegexMatchSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/waf.html#WAF.Paginator.ListRegexMatchSets)
+    [Paginator.ListRegexMatchSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/waf.html#WAF.Paginator.ListRegexMatchSets)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRegexMatchSetsResponseTypeDef]:
         """
-        [ListRegexMatchSets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/waf.html#WAF.Paginator.ListRegexMatchSets.paginate)
+        [ListRegexMatchSets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/waf.html#WAF.Paginator.ListRegexMatchSets.paginate)
         """
 
 
 class ListRegexPatternSetsPaginator(Boto3Paginator):
     """
-    [Paginator.ListRegexPatternSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/waf.html#WAF.Paginator.ListRegexPatternSets)
+    [Paginator.ListRegexPatternSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/waf.html#WAF.Paginator.ListRegexPatternSets)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRegexPatternSetsResponseTypeDef]:
         """
-        [ListRegexPatternSets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/waf.html#WAF.Paginator.ListRegexPatternSets.paginate)
+        [ListRegexPatternSets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/waf.html#WAF.Paginator.ListRegexPatternSets.paginate)
         """
 
 
 class ListRuleGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.ListRuleGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/waf.html#WAF.Paginator.ListRuleGroups)
+    [Paginator.ListRuleGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/waf.html#WAF.Paginator.ListRuleGroups)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRuleGroupsResponseTypeDef]:
         """
-        [ListRuleGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/waf.html#WAF.Paginator.ListRuleGroups.paginate)
+        [ListRuleGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/waf.html#WAF.Paginator.ListRuleGroups.paginate)
         """
 
 
 class ListRulesPaginator(Boto3Paginator):
     """
-    [Paginator.ListRules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/waf.html#WAF.Paginator.ListRules)
+    [Paginator.ListRules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/waf.html#WAF.Paginator.ListRules)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRulesResponseTypeDef]:
         """
-        [ListRules.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/waf.html#WAF.Paginator.ListRules.paginate)
+        [ListRules.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/waf.html#WAF.Paginator.ListRules.paginate)
         """
 
 
 class ListSizeConstraintSetsPaginator(Boto3Paginator):
     """
-    [Paginator.ListSizeConstraintSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/waf.html#WAF.Paginator.ListSizeConstraintSets)
+    [Paginator.ListSizeConstraintSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/waf.html#WAF.Paginator.ListSizeConstraintSets)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSizeConstraintSetsResponseTypeDef]:
         """
-        [ListSizeConstraintSets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/waf.html#WAF.Paginator.ListSizeConstraintSets.paginate)
+        [ListSizeConstraintSets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/waf.html#WAF.Paginator.ListSizeConstraintSets.paginate)
         """
 
 
 class ListSqlInjectionMatchSetsPaginator(Boto3Paginator):
     """
-    [Paginator.ListSqlInjectionMatchSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/waf.html#WAF.Paginator.ListSqlInjectionMatchSets)
+    [Paginator.ListSqlInjectionMatchSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/waf.html#WAF.Paginator.ListSqlInjectionMatchSets)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSqlInjectionMatchSetsResponseTypeDef]:
         """
-        [ListSqlInjectionMatchSets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/waf.html#WAF.Paginator.ListSqlInjectionMatchSets.paginate)
+        [ListSqlInjectionMatchSets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/waf.html#WAF.Paginator.ListSqlInjectionMatchSets.paginate)
         """
 
 
 class ListSubscribedRuleGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.ListSubscribedRuleGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/waf.html#WAF.Paginator.ListSubscribedRuleGroups)
+    [Paginator.ListSubscribedRuleGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/waf.html#WAF.Paginator.ListSubscribedRuleGroups)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSubscribedRuleGroupsResponseTypeDef]:
         """
-        [ListSubscribedRuleGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/waf.html#WAF.Paginator.ListSubscribedRuleGroups.paginate)
+        [ListSubscribedRuleGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/waf.html#WAF.Paginator.ListSubscribedRuleGroups.paginate)
         """
 
 
 class ListWebACLsPaginator(Boto3Paginator):
     """
-    [Paginator.ListWebACLs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/waf.html#WAF.Paginator.ListWebACLs)
+    [Paginator.ListWebACLs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/waf.html#WAF.Paginator.ListWebACLs)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListWebACLsResponseTypeDef]:
         """
-        [ListWebACLs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/waf.html#WAF.Paginator.ListWebACLs.paginate)
+        [ListWebACLs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/waf.html#WAF.Paginator.ListWebACLs.paginate)
         """
 
 
 class ListXssMatchSetsPaginator(Boto3Paginator):
     """
-    [Paginator.ListXssMatchSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/waf.html#WAF.Paginator.ListXssMatchSets)
+    [Paginator.ListXssMatchSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/waf.html#WAF.Paginator.ListXssMatchSets)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListXssMatchSetsResponseTypeDef]:
         """
-        [ListXssMatchSets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/waf.html#WAF.Paginator.ListXssMatchSets.paginate)
+        [ListXssMatchSets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/waf.html#WAF.Paginator.ListXssMatchSets.paginate)
         """

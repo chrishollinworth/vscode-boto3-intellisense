@@ -1,4 +1,4 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import
+# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for acm service client
 
@@ -14,7 +14,7 @@ Usage::
 import sys
 from typing import IO, Any, Dict, List, Type, Union
 
-from botocore.exceptions import ClientError as Boto3ClientError
+from botocore.client import ClientMeta
 
 from mypy_boto3_acm.paginator import ListCertificatesPaginator
 from mypy_boto3_acm.type_defs import (
@@ -41,54 +41,63 @@ else:
 __all__ = ("ACMClient",)
 
 
+class BotocoreClientError(BaseException):
+    MSG_TEMPLATE: str
+
+    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
+        self.response: Dict[str, Any]
+        self.operation_name: str
+
+
 class Exceptions:
-    ClientError: Type[Boto3ClientError]
-    InvalidArgsException: Type[Boto3ClientError]
-    InvalidArnException: Type[Boto3ClientError]
-    InvalidDomainValidationOptionsException: Type[Boto3ClientError]
-    InvalidParameterException: Type[Boto3ClientError]
-    InvalidStateException: Type[Boto3ClientError]
-    InvalidTagException: Type[Boto3ClientError]
-    LimitExceededException: Type[Boto3ClientError]
-    RequestInProgressException: Type[Boto3ClientError]
-    ResourceInUseException: Type[Boto3ClientError]
-    ResourceNotFoundException: Type[Boto3ClientError]
-    TagPolicyException: Type[Boto3ClientError]
-    TooManyTagsException: Type[Boto3ClientError]
+    ClientError: Type[BotocoreClientError]
+    InvalidArgsException: Type[BotocoreClientError]
+    InvalidArnException: Type[BotocoreClientError]
+    InvalidDomainValidationOptionsException: Type[BotocoreClientError]
+    InvalidParameterException: Type[BotocoreClientError]
+    InvalidStateException: Type[BotocoreClientError]
+    InvalidTagException: Type[BotocoreClientError]
+    LimitExceededException: Type[BotocoreClientError]
+    RequestInProgressException: Type[BotocoreClientError]
+    ResourceInUseException: Type[BotocoreClientError]
+    ResourceNotFoundException: Type[BotocoreClientError]
+    TagPolicyException: Type[BotocoreClientError]
+    TooManyTagsException: Type[BotocoreClientError]
 
 
 class ACMClient:
     """
-    [ACM.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/acm.html#ACM.Client)
+    [ACM.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm.html#ACM.Client)
     """
 
+    meta: ClientMeta
     exceptions: Exceptions
 
     def add_tags_to_certificate(self, CertificateArn: str, Tags: List["TagTypeDef"]) -> None:
         """
-        [Client.add_tags_to_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/acm.html#ACM.Client.add_tags_to_certificate)
+        [Client.add_tags_to_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm.html#ACM.Client.add_tags_to_certificate)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/acm.html#ACM.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm.html#ACM.Client.can_paginate)
         """
 
     def delete_certificate(self, CertificateArn: str) -> None:
         """
-        [Client.delete_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/acm.html#ACM.Client.delete_certificate)
+        [Client.delete_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm.html#ACM.Client.delete_certificate)
         """
 
     def describe_certificate(self, CertificateArn: str) -> DescribeCertificateResponseTypeDef:
         """
-        [Client.describe_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/acm.html#ACM.Client.describe_certificate)
+        [Client.describe_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm.html#ACM.Client.describe_certificate)
         """
 
     def export_certificate(
         self, CertificateArn: str, Passphrase: Union[bytes, IO[bytes]]
     ) -> ExportCertificateResponseTypeDef:
         """
-        [Client.export_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/acm.html#ACM.Client.export_certificate)
+        [Client.export_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm.html#ACM.Client.export_certificate)
         """
 
     def generate_presigned_url(
@@ -99,12 +108,12 @@ class ACMClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/acm.html#ACM.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm.html#ACM.Client.generate_presigned_url)
         """
 
     def get_certificate(self, CertificateArn: str) -> GetCertificateResponseTypeDef:
         """
-        [Client.get_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/acm.html#ACM.Client.get_certificate)
+        [Client.get_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm.html#ACM.Client.get_certificate)
         """
 
     def import_certificate(
@@ -116,7 +125,7 @@ class ACMClient:
         Tags: List["TagTypeDef"] = None,
     ) -> ImportCertificateResponseTypeDef:
         """
-        [Client.import_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/acm.html#ACM.Client.import_certificate)
+        [Client.import_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm.html#ACM.Client.import_certificate)
         """
 
     def list_certificates(
@@ -137,24 +146,24 @@ class ACMClient:
         MaxItems: int = None,
     ) -> ListCertificatesResponseTypeDef:
         """
-        [Client.list_certificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/acm.html#ACM.Client.list_certificates)
+        [Client.list_certificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm.html#ACM.Client.list_certificates)
         """
 
     def list_tags_for_certificate(
         self, CertificateArn: str
     ) -> ListTagsForCertificateResponseTypeDef:
         """
-        [Client.list_tags_for_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/acm.html#ACM.Client.list_tags_for_certificate)
+        [Client.list_tags_for_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm.html#ACM.Client.list_tags_for_certificate)
         """
 
     def remove_tags_from_certificate(self, CertificateArn: str, Tags: List["TagTypeDef"]) -> None:
         """
-        [Client.remove_tags_from_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/acm.html#ACM.Client.remove_tags_from_certificate)
+        [Client.remove_tags_from_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm.html#ACM.Client.remove_tags_from_certificate)
         """
 
     def renew_certificate(self, CertificateArn: str) -> None:
         """
-        [Client.renew_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/acm.html#ACM.Client.renew_certificate)
+        [Client.renew_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm.html#ACM.Client.renew_certificate)
         """
 
     def request_certificate(
@@ -169,33 +178,33 @@ class ACMClient:
         Tags: List["TagTypeDef"] = None,
     ) -> RequestCertificateResponseTypeDef:
         """
-        [Client.request_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/acm.html#ACM.Client.request_certificate)
+        [Client.request_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm.html#ACM.Client.request_certificate)
         """
 
     def resend_validation_email(
         self, CertificateArn: str, Domain: str, ValidationDomain: str
     ) -> None:
         """
-        [Client.resend_validation_email documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/acm.html#ACM.Client.resend_validation_email)
+        [Client.resend_validation_email documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm.html#ACM.Client.resend_validation_email)
         """
 
     def update_certificate_options(
         self, CertificateArn: str, Options: "CertificateOptionsTypeDef"
     ) -> None:
         """
-        [Client.update_certificate_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/acm.html#ACM.Client.update_certificate_options)
+        [Client.update_certificate_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm.html#ACM.Client.update_certificate_options)
         """
 
     def get_paginator(
         self, operation_name: Literal["list_certificates"]
     ) -> ListCertificatesPaginator:
         """
-        [Paginator.ListCertificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/acm.html#ACM.Paginator.ListCertificates)
+        [Paginator.ListCertificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm.html#ACM.Paginator.ListCertificates)
         """
 
     def get_waiter(
         self, waiter_name: Literal["certificate_validated"]
     ) -> CertificateValidatedWaiter:
         """
-        [Waiter.CertificateValidated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/acm.html#ACM.Waiter.CertificateValidated)
+        [Waiter.CertificateValidated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm.html#ACM.Waiter.CertificateValidated)
         """

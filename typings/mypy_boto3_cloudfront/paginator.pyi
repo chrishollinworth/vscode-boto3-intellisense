@@ -45,51 +45,51 @@ __all__ = (
 
 class ListCloudFrontOriginAccessIdentitiesPaginator(Boto3Paginator):
     """
-    [Paginator.ListCloudFrontOriginAccessIdentities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudfront.html#CloudFront.Paginator.ListCloudFrontOriginAccessIdentities)
+    [Paginator.ListCloudFrontOriginAccessIdentities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudfront.html#CloudFront.Paginator.ListCloudFrontOriginAccessIdentities)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListCloudFrontOriginAccessIdentitiesResultTypeDef]:
         """
-        [ListCloudFrontOriginAccessIdentities.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudfront.html#CloudFront.Paginator.ListCloudFrontOriginAccessIdentities.paginate)
+        [ListCloudFrontOriginAccessIdentities.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudfront.html#CloudFront.Paginator.ListCloudFrontOriginAccessIdentities.paginate)
         """
 
 
 class ListDistributionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDistributions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudfront.html#CloudFront.Paginator.ListDistributions)
+    [Paginator.ListDistributions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudfront.html#CloudFront.Paginator.ListDistributions)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDistributionsResultTypeDef]:
         """
-        [ListDistributions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudfront.html#CloudFront.Paginator.ListDistributions.paginate)
+        [ListDistributions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudfront.html#CloudFront.Paginator.ListDistributions.paginate)
         """
 
 
 class ListInvalidationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListInvalidations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudfront.html#CloudFront.Paginator.ListInvalidations)
+    [Paginator.ListInvalidations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudfront.html#CloudFront.Paginator.ListInvalidations)
     """
 
     def paginate(
         self, DistributionId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListInvalidationsResultTypeDef]:
         """
-        [ListInvalidations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudfront.html#CloudFront.Paginator.ListInvalidations.paginate)
+        [ListInvalidations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudfront.html#CloudFront.Paginator.ListInvalidations.paginate)
         """
 
 
 class ListStreamingDistributionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListStreamingDistributions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudfront.html#CloudFront.Paginator.ListStreamingDistributions)
+    [Paginator.ListStreamingDistributions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudfront.html#CloudFront.Paginator.ListStreamingDistributions)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListStreamingDistributionsResultTypeDef]:
         """
-        [ListStreamingDistributions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudfront.html#CloudFront.Paginator.ListStreamingDistributions.paginate)
+        [ListStreamingDistributions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudfront.html#CloudFront.Paginator.ListStreamingDistributions.paginate)
         """

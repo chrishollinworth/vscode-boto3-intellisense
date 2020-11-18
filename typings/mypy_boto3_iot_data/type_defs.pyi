@@ -10,7 +10,7 @@ Usage::
     ```
 """
 import sys
-from typing import List
+from typing import IO, List, Union
 
 if sys.version_info >= (3, 8):
     from typing import TypedDict
@@ -25,10 +25,12 @@ __all__ = (
     "UpdateThingShadowResponseTypeDef",
 )
 
-DeleteThingShadowResponseTypeDef = TypedDict("DeleteThingShadowResponseTypeDef", {"payload": bytes})
+DeleteThingShadowResponseTypeDef = TypedDict(
+    "DeleteThingShadowResponseTypeDef", {"payload": Union[bytes, IO[bytes]]}
+)
 
 GetThingShadowResponseTypeDef = TypedDict(
-    "GetThingShadowResponseTypeDef", {"payload": bytes}, total=False
+    "GetThingShadowResponseTypeDef", {"payload": Union[bytes, IO[bytes]]}, total=False
 )
 
 ListNamedShadowsForThingResponseTypeDef = TypedDict(
@@ -38,5 +40,5 @@ ListNamedShadowsForThingResponseTypeDef = TypedDict(
 )
 
 UpdateThingShadowResponseTypeDef = TypedDict(
-    "UpdateThingShadowResponseTypeDef", {"payload": bytes}, total=False
+    "UpdateThingShadowResponseTypeDef", {"payload": Union[bytes, IO[bytes]]}, total=False
 )

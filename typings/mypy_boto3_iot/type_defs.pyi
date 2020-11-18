@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Dict, List
+from typing import IO, Dict, List, Union
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -176,6 +175,9 @@ __all__ = (
     "ThingTypeMetadataTypeDef",
     "ThingTypePropertiesTypeDef",
     "TimeoutConfigTypeDef",
+    "TimestreamActionTypeDef",
+    "TimestreamDimensionTypeDef",
+    "TimestreamTimestampTypeDef",
     "TopicRuleDestinationSummaryTypeDef",
     "TopicRuleDestinationTypeDef",
     "TopicRuleListItemTypeDef",
@@ -369,6 +371,7 @@ ActionTypeDef = TypedDict(
         "iotEvents": "IotEventsActionTypeDef",
         "iotSiteWise": "IotSiteWiseActionTypeDef",
         "stepFunctions": "StepFunctionsActionTypeDef",
+        "timestream": "TimestreamActionTypeDef",
         "http": "HttpActionTypeDef",
     },
     total=False,
@@ -803,7 +806,7 @@ CodeSigningCertificateChainTypeDef = TypedDict(
 )
 
 CodeSigningSignatureTypeDef = TypedDict(
-    "CodeSigningSignatureTypeDef", {"inlineDocument": bytes}, total=False
+    "CodeSigningSignatureTypeDef", {"inlineDocument": Union[bytes, IO[bytes]]}, total=False
 )
 
 CodeSigningTypeDef = TypedDict(
@@ -920,7 +923,7 @@ _RequiredFirehoseActionTypeDef = TypedDict(
     "_RequiredFirehoseActionTypeDef", {"roleArn": str, "deliveryStreamName": str}
 )
 _OptionalFirehoseActionTypeDef = TypedDict(
-    "_OptionalFirehoseActionTypeDef", {"separator": str}, total=False
+    "_OptionalFirehoseActionTypeDef", {"separator": str, "batchMode": bool}, total=False
 )
 
 
@@ -972,7 +975,7 @@ ImplicitDenyTypeDef = TypedDict(
 
 IotAnalyticsActionTypeDef = TypedDict(
     "IotAnalyticsActionTypeDef",
-    {"channelArn": str, "channelName": str, "roleArn": str},
+    {"channelArn": str, "channelName": str, "batchMode": bool, "roleArn": str},
     total=False,
 )
 
@@ -980,7 +983,7 @@ _RequiredIotEventsActionTypeDef = TypedDict(
     "_RequiredIotEventsActionTypeDef", {"inputName": str, "roleArn": str}
 )
 _OptionalIotEventsActionTypeDef = TypedDict(
-    "_OptionalIotEventsActionTypeDef", {"messageId": str}, total=False
+    "_OptionalIotEventsActionTypeDef", {"messageId": str, "batchMode": bool}, total=False
 )
 
 
@@ -1114,6 +1117,7 @@ JobTypeDef = TypedDict(
         "completedAt": datetime,
         "jobProcessDetails": "JobProcessDetailsTypeDef",
         "timeoutConfig": "TimeoutConfigTypeDef",
+        "namespaceId": str,
     },
     total=False,
 )
@@ -1754,6 +1758,28 @@ TimeoutConfigTypeDef = TypedDict(
     "TimeoutConfigTypeDef", {"inProgressTimeoutInMinutes": int}, total=False
 )
 
+_RequiredTimestreamActionTypeDef = TypedDict(
+    "_RequiredTimestreamActionTypeDef",
+    {
+        "roleArn": str,
+        "databaseName": str,
+        "tableName": str,
+        "dimensions": List["TimestreamDimensionTypeDef"],
+    },
+)
+_OptionalTimestreamActionTypeDef = TypedDict(
+    "_OptionalTimestreamActionTypeDef", {"timestamp": "TimestreamTimestampTypeDef"}, total=False
+)
+
+
+class TimestreamActionTypeDef(_RequiredTimestreamActionTypeDef, _OptionalTimestreamActionTypeDef):
+    pass
+
+
+TimestreamDimensionTypeDef = TypedDict("TimestreamDimensionTypeDef", {"name": str, "value": str})
+
+TimestreamTimestampTypeDef = TypedDict("TimestreamTimestampTypeDef", {"value": str, "unit": str})
+
 TopicRuleDestinationSummaryTypeDef = TypedDict(
     "TopicRuleDestinationSummaryTypeDef",
     {
@@ -2125,6 +2151,7 @@ DescribeDomainConfigurationResponseTypeDef = TypedDict(
         "domainConfigurationStatus": Literal["ENABLED", "DISABLED"],
         "serviceType": Literal["DATA", "CREDENTIAL_PROVIDER", "JOBS"],
         "domainType": Literal["ENDPOINT", "AWS_MANAGED", "CUSTOMER_MANAGED"],
+        "lastStatusChangeDate": datetime,
     },
     total=False,
 )
@@ -2636,7 +2663,7 @@ ListThingGroupsResponseTypeDef = TypedDict(
 )
 
 ListThingPrincipalsResponseTypeDef = TypedDict(
-    "ListThingPrincipalsResponseTypeDef", {"principals": List[str]}, total=False
+    "ListThingPrincipalsResponseTypeDef", {"principals": List[str], "nextToken": str}, total=False
 )
 
 ListThingRegistrationTaskReportsResponseTypeDef = TypedDict(
@@ -2712,7 +2739,9 @@ class LoggingOptionsPayloadTypeDef(
 
 
 MqttContextTypeDef = TypedDict(
-    "MqttContextTypeDef", {"username": str, "password": bytes, "clientId": str}, total=False
+    "MqttContextTypeDef",
+    {"username": str, "password": Union[bytes, IO[bytes]], "clientId": str},
+    total=False,
 )
 
 PaginatorConfigTypeDef = TypedDict(

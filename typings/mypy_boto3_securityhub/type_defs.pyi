@@ -17,7 +17,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -27,16 +26,42 @@ else:
 __all__ = (
     "ActionTargetTypeDef",
     "AvailabilityZoneTypeDef",
+    "AwsApiGatewayAccessLogSettingsTypeDef",
+    "AwsApiGatewayCanarySettingsTypeDef",
+    "AwsApiGatewayEndpointConfigurationTypeDef",
+    "AwsApiGatewayMethodSettingsTypeDef",
+    "AwsApiGatewayRestApiDetailsTypeDef",
+    "AwsApiGatewayStageDetailsTypeDef",
+    "AwsApiGatewayV2ApiDetailsTypeDef",
+    "AwsApiGatewayV2RouteSettingsTypeDef",
+    "AwsApiGatewayV2StageDetailsTypeDef",
     "AwsAutoScalingAutoScalingGroupDetailsTypeDef",
+    "AwsCertificateManagerCertificateDetailsTypeDef",
+    "AwsCertificateManagerCertificateDomainValidationOptionTypeDef",
+    "AwsCertificateManagerCertificateExtendedKeyUsageTypeDef",
+    "AwsCertificateManagerCertificateKeyUsageTypeDef",
+    "AwsCertificateManagerCertificateOptionsTypeDef",
+    "AwsCertificateManagerCertificateRenewalSummaryTypeDef",
+    "AwsCertificateManagerCertificateResourceRecordTypeDef",
+    "AwsCloudFrontDistributionCacheBehaviorTypeDef",
+    "AwsCloudFrontDistributionCacheBehaviorsTypeDef",
+    "AwsCloudFrontDistributionDefaultCacheBehaviorTypeDef",
     "AwsCloudFrontDistributionDetailsTypeDef",
     "AwsCloudFrontDistributionLoggingTypeDef",
+    "AwsCloudFrontDistributionOriginGroupFailoverStatusCodesTypeDef",
+    "AwsCloudFrontDistributionOriginGroupFailoverTypeDef",
+    "AwsCloudFrontDistributionOriginGroupTypeDef",
+    "AwsCloudFrontDistributionOriginGroupsTypeDef",
     "AwsCloudFrontDistributionOriginItemTypeDef",
+    "AwsCloudFrontDistributionOriginS3OriginConfigTypeDef",
     "AwsCloudFrontDistributionOriginsTypeDef",
+    "AwsCloudTrailTrailDetailsTypeDef",
     "AwsCodeBuildProjectDetailsTypeDef",
     "AwsCodeBuildProjectEnvironmentRegistryCredentialTypeDef",
     "AwsCodeBuildProjectEnvironmentTypeDef",
     "AwsCodeBuildProjectSourceTypeDef",
     "AwsCodeBuildProjectVpcConfigTypeDef",
+    "AwsCorsConfigurationTypeDef",
     "AwsDynamoDbTableAttributeDefinitionTypeDef",
     "AwsDynamoDbTableBillingModeSummaryTypeDef",
     "AwsDynamoDbTableDetailsTypeDef",
@@ -70,13 +95,36 @@ __all__ = (
     "AwsElasticsearchDomainEncryptionAtRestOptionsTypeDef",
     "AwsElasticsearchDomainNodeToNodeEncryptionOptionsTypeDef",
     "AwsElasticsearchDomainVPCOptionsTypeDef",
+    "AwsElbAppCookieStickinessPolicyTypeDef",
+    "AwsElbLbCookieStickinessPolicyTypeDef",
+    "AwsElbLoadBalancerAccessLogTypeDef",
+    "AwsElbLoadBalancerAttributesTypeDef",
+    "AwsElbLoadBalancerBackendServerDescriptionTypeDef",
+    "AwsElbLoadBalancerConnectionDrainingTypeDef",
+    "AwsElbLoadBalancerConnectionSettingsTypeDef",
+    "AwsElbLoadBalancerCrossZoneLoadBalancingTypeDef",
+    "AwsElbLoadBalancerDetailsTypeDef",
+    "AwsElbLoadBalancerHealthCheckTypeDef",
+    "AwsElbLoadBalancerInstanceTypeDef",
+    "AwsElbLoadBalancerListenerDescriptionTypeDef",
+    "AwsElbLoadBalancerListenerTypeDef",
+    "AwsElbLoadBalancerPoliciesTypeDef",
+    "AwsElbLoadBalancerSourceSecurityGroupTypeDef",
     "AwsElbv2LoadBalancerDetailsTypeDef",
     "AwsIamAccessKeyDetailsTypeDef",
+    "AwsIamAccessKeySessionContextAttributesTypeDef",
+    "AwsIamAccessKeySessionContextSessionIssuerTypeDef",
+    "AwsIamAccessKeySessionContextTypeDef",
     "AwsIamAttachedManagedPolicyTypeDef",
+    "AwsIamGroupDetailsTypeDef",
+    "AwsIamGroupPolicyTypeDef",
+    "AwsIamInstanceProfileRoleTypeDef",
+    "AwsIamInstanceProfileTypeDef",
     "AwsIamPermissionsBoundaryTypeDef",
     "AwsIamPolicyDetailsTypeDef",
     "AwsIamPolicyVersionTypeDef",
     "AwsIamRoleDetailsTypeDef",
+    "AwsIamRolePolicyTypeDef",
     "AwsIamUserDetailsTypeDef",
     "AwsIamUserPolicyTypeDef",
     "AwsKmsKeyDetailsTypeDef",
@@ -109,6 +157,21 @@ __all__ = (
     "AwsRdsDbSubnetGroupSubnetTypeDef",
     "AwsRdsDbSubnetGroupTypeDef",
     "AwsRdsPendingCloudWatchLogsExportsTypeDef",
+    "AwsRedshiftClusterClusterNodeTypeDef",
+    "AwsRedshiftClusterClusterParameterGroupTypeDef",
+    "AwsRedshiftClusterClusterParameterStatusTypeDef",
+    "AwsRedshiftClusterClusterSecurityGroupTypeDef",
+    "AwsRedshiftClusterClusterSnapshotCopyStatusTypeDef",
+    "AwsRedshiftClusterDeferredMaintenanceWindowTypeDef",
+    "AwsRedshiftClusterDetailsTypeDef",
+    "AwsRedshiftClusterElasticIpStatusTypeDef",
+    "AwsRedshiftClusterEndpointTypeDef",
+    "AwsRedshiftClusterHsmStatusTypeDef",
+    "AwsRedshiftClusterIamRoleTypeDef",
+    "AwsRedshiftClusterPendingModifiedValuesTypeDef",
+    "AwsRedshiftClusterResizeInfoTypeDef",
+    "AwsRedshiftClusterRestoreStatusTypeDef",
+    "AwsRedshiftClusterVpcSecurityGroupTypeDef",
     "AwsS3BucketDetailsTypeDef",
     "AwsS3BucketServerSideEncryptionByDefaultTypeDef",
     "AwsS3BucketServerSideEncryptionConfigurationTypeDef",
@@ -149,6 +212,7 @@ __all__ = (
     "NetworkTypeDef",
     "NoteTypeDef",
     "NumberFilterTypeDef",
+    "PatchSummaryTypeDef",
     "PortRangeTypeDef",
     "ProcessDetailsTypeDef",
     "ProductTypeDef",
@@ -219,6 +283,131 @@ AvailabilityZoneTypeDef = TypedDict(
     "AvailabilityZoneTypeDef", {"ZoneName": str, "SubnetId": str}, total=False
 )
 
+AwsApiGatewayAccessLogSettingsTypeDef = TypedDict(
+    "AwsApiGatewayAccessLogSettingsTypeDef", {"Format": str, "DestinationArn": str}, total=False
+)
+
+AwsApiGatewayCanarySettingsTypeDef = TypedDict(
+    "AwsApiGatewayCanarySettingsTypeDef",
+    {
+        "PercentTraffic": float,
+        "DeploymentId": str,
+        "StageVariableOverrides": Dict[str, str],
+        "UseStageCache": bool,
+    },
+    total=False,
+)
+
+AwsApiGatewayEndpointConfigurationTypeDef = TypedDict(
+    "AwsApiGatewayEndpointConfigurationTypeDef", {"Types": List[str]}, total=False
+)
+
+AwsApiGatewayMethodSettingsTypeDef = TypedDict(
+    "AwsApiGatewayMethodSettingsTypeDef",
+    {
+        "MetricsEnabled": bool,
+        "LoggingLevel": str,
+        "DataTraceEnabled": bool,
+        "ThrottlingBurstLimit": int,
+        "ThrottlingRateLimit": float,
+        "CachingEnabled": bool,
+        "CacheTtlInSeconds": int,
+        "CacheDataEncrypted": bool,
+        "RequireAuthorizationForCacheControl": bool,
+        "UnauthorizedCacheControlHeaderStrategy": str,
+        "HttpMethod": str,
+        "ResourcePath": str,
+    },
+    total=False,
+)
+
+AwsApiGatewayRestApiDetailsTypeDef = TypedDict(
+    "AwsApiGatewayRestApiDetailsTypeDef",
+    {
+        "Id": str,
+        "Name": str,
+        "Description": str,
+        "CreatedDate": str,
+        "Version": str,
+        "BinaryMediaTypes": List[str],
+        "MinimumCompressionSize": int,
+        "ApiKeySource": str,
+        "EndpointConfiguration": "AwsApiGatewayEndpointConfigurationTypeDef",
+    },
+    total=False,
+)
+
+AwsApiGatewayStageDetailsTypeDef = TypedDict(
+    "AwsApiGatewayStageDetailsTypeDef",
+    {
+        "DeploymentId": str,
+        "ClientCertificateId": str,
+        "StageName": str,
+        "Description": str,
+        "CacheClusterEnabled": bool,
+        "CacheClusterSize": str,
+        "CacheClusterStatus": str,
+        "MethodSettings": List["AwsApiGatewayMethodSettingsTypeDef"],
+        "Variables": Dict[str, str],
+        "DocumentationVersion": str,
+        "AccessLogSettings": "AwsApiGatewayAccessLogSettingsTypeDef",
+        "CanarySettings": "AwsApiGatewayCanarySettingsTypeDef",
+        "TracingEnabled": bool,
+        "CreatedDate": str,
+        "LastUpdatedDate": str,
+        "WebAclArn": str,
+    },
+    total=False,
+)
+
+AwsApiGatewayV2ApiDetailsTypeDef = TypedDict(
+    "AwsApiGatewayV2ApiDetailsTypeDef",
+    {
+        "ApiEndpoint": str,
+        "ApiId": str,
+        "ApiKeySelectionExpression": str,
+        "CreatedDate": str,
+        "Description": str,
+        "Version": str,
+        "Name": str,
+        "ProtocolType": str,
+        "RouteSelectionExpression": str,
+        "CorsConfiguration": "AwsCorsConfigurationTypeDef",
+    },
+    total=False,
+)
+
+AwsApiGatewayV2RouteSettingsTypeDef = TypedDict(
+    "AwsApiGatewayV2RouteSettingsTypeDef",
+    {
+        "DetailedMetricsEnabled": bool,
+        "LoggingLevel": str,
+        "DataTraceEnabled": bool,
+        "ThrottlingBurstLimit": int,
+        "ThrottlingRateLimit": float,
+    },
+    total=False,
+)
+
+AwsApiGatewayV2StageDetailsTypeDef = TypedDict(
+    "AwsApiGatewayV2StageDetailsTypeDef",
+    {
+        "CreatedDate": str,
+        "Description": str,
+        "DefaultRouteSettings": "AwsApiGatewayV2RouteSettingsTypeDef",
+        "DeploymentId": str,
+        "LastUpdatedDate": str,
+        "RouteSettings": "AwsApiGatewayV2RouteSettingsTypeDef",
+        "StageName": str,
+        "StageVariables": Dict[str, str],
+        "AccessLogSettings": "AwsApiGatewayAccessLogSettingsTypeDef",
+        "AutoDeploy": bool,
+        "LastDeploymentStatusMessage": str,
+        "ApiGatewayManaged": bool,
+    },
+    total=False,
+)
+
 AwsAutoScalingAutoScalingGroupDetailsTypeDef = TypedDict(
     "AwsAutoScalingAutoScalingGroupDetailsTypeDef",
     {
@@ -231,14 +420,114 @@ AwsAutoScalingAutoScalingGroupDetailsTypeDef = TypedDict(
     total=False,
 )
 
+AwsCertificateManagerCertificateDetailsTypeDef = TypedDict(
+    "AwsCertificateManagerCertificateDetailsTypeDef",
+    {
+        "CertificateAuthorityArn": str,
+        "CreatedAt": str,
+        "DomainName": str,
+        "DomainValidationOptions": List[
+            "AwsCertificateManagerCertificateDomainValidationOptionTypeDef"
+        ],
+        "ExtendedKeyUsages": List["AwsCertificateManagerCertificateExtendedKeyUsageTypeDef"],
+        "FailureReason": str,
+        "ImportedAt": str,
+        "InUseBy": List[str],
+        "IssuedAt": str,
+        "Issuer": str,
+        "KeyAlgorithm": str,
+        "KeyUsages": List["AwsCertificateManagerCertificateKeyUsageTypeDef"],
+        "NotAfter": str,
+        "NotBefore": str,
+        "Options": "AwsCertificateManagerCertificateOptionsTypeDef",
+        "RenewalEligibility": str,
+        "RenewalSummary": "AwsCertificateManagerCertificateRenewalSummaryTypeDef",
+        "Serial": str,
+        "SignatureAlgorithm": str,
+        "Status": str,
+        "Subject": str,
+        "SubjectAlternativeNames": List[str],
+        "Type": str,
+    },
+    total=False,
+)
+
+AwsCertificateManagerCertificateDomainValidationOptionTypeDef = TypedDict(
+    "AwsCertificateManagerCertificateDomainValidationOptionTypeDef",
+    {
+        "DomainName": str,
+        "ResourceRecord": "AwsCertificateManagerCertificateResourceRecordTypeDef",
+        "ValidationDomain": str,
+        "ValidationEmails": List[str],
+        "ValidationMethod": str,
+        "ValidationStatus": str,
+    },
+    total=False,
+)
+
+AwsCertificateManagerCertificateExtendedKeyUsageTypeDef = TypedDict(
+    "AwsCertificateManagerCertificateExtendedKeyUsageTypeDef",
+    {"Name": str, "OId": str},
+    total=False,
+)
+
+AwsCertificateManagerCertificateKeyUsageTypeDef = TypedDict(
+    "AwsCertificateManagerCertificateKeyUsageTypeDef", {"Name": str}, total=False
+)
+
+AwsCertificateManagerCertificateOptionsTypeDef = TypedDict(
+    "AwsCertificateManagerCertificateOptionsTypeDef",
+    {"CertificateTransparencyLoggingPreference": str},
+    total=False,
+)
+
+AwsCertificateManagerCertificateRenewalSummaryTypeDef = TypedDict(
+    "AwsCertificateManagerCertificateRenewalSummaryTypeDef",
+    {
+        "DomainValidationOptions": List[
+            "AwsCertificateManagerCertificateDomainValidationOptionTypeDef"
+        ],
+        "RenewalStatus": str,
+        "RenewalStatusReason": str,
+        "UpdatedAt": str,
+    },
+    total=False,
+)
+
+AwsCertificateManagerCertificateResourceRecordTypeDef = TypedDict(
+    "AwsCertificateManagerCertificateResourceRecordTypeDef",
+    {"Name": str, "Type": str, "Value": str},
+    total=False,
+)
+
+AwsCloudFrontDistributionCacheBehaviorTypeDef = TypedDict(
+    "AwsCloudFrontDistributionCacheBehaviorTypeDef", {"ViewerProtocolPolicy": str}, total=False
+)
+
+AwsCloudFrontDistributionCacheBehaviorsTypeDef = TypedDict(
+    "AwsCloudFrontDistributionCacheBehaviorsTypeDef",
+    {"Items": List["AwsCloudFrontDistributionCacheBehaviorTypeDef"]},
+    total=False,
+)
+
+AwsCloudFrontDistributionDefaultCacheBehaviorTypeDef = TypedDict(
+    "AwsCloudFrontDistributionDefaultCacheBehaviorTypeDef",
+    {"ViewerProtocolPolicy": str},
+    total=False,
+)
+
 AwsCloudFrontDistributionDetailsTypeDef = TypedDict(
     "AwsCloudFrontDistributionDetailsTypeDef",
     {
+        "CacheBehaviors": "AwsCloudFrontDistributionCacheBehaviorsTypeDef",
+        "DefaultCacheBehavior": "AwsCloudFrontDistributionDefaultCacheBehaviorTypeDef",
+        "DefaultRootObject": str,
         "DomainName": str,
         "ETag": str,
         "LastModifiedTime": str,
         "Logging": "AwsCloudFrontDistributionLoggingTypeDef",
         "Origins": "AwsCloudFrontDistributionOriginsTypeDef",
+        "OriginGroups": "AwsCloudFrontDistributionOriginGroupsTypeDef",
         "Status": str,
         "WebAclId": str,
     },
@@ -251,15 +540,72 @@ AwsCloudFrontDistributionLoggingTypeDef = TypedDict(
     total=False,
 )
 
+AwsCloudFrontDistributionOriginGroupFailoverStatusCodesTypeDef = TypedDict(
+    "AwsCloudFrontDistributionOriginGroupFailoverStatusCodesTypeDef",
+    {"Items": List[int], "Quantity": int},
+    total=False,
+)
+
+AwsCloudFrontDistributionOriginGroupFailoverTypeDef = TypedDict(
+    "AwsCloudFrontDistributionOriginGroupFailoverTypeDef",
+    {"StatusCodes": "AwsCloudFrontDistributionOriginGroupFailoverStatusCodesTypeDef"},
+    total=False,
+)
+
+AwsCloudFrontDistributionOriginGroupTypeDef = TypedDict(
+    "AwsCloudFrontDistributionOriginGroupTypeDef",
+    {"FailoverCriteria": "AwsCloudFrontDistributionOriginGroupFailoverTypeDef"},
+    total=False,
+)
+
+AwsCloudFrontDistributionOriginGroupsTypeDef = TypedDict(
+    "AwsCloudFrontDistributionOriginGroupsTypeDef",
+    {"Items": List["AwsCloudFrontDistributionOriginGroupTypeDef"]},
+    total=False,
+)
+
 AwsCloudFrontDistributionOriginItemTypeDef = TypedDict(
     "AwsCloudFrontDistributionOriginItemTypeDef",
-    {"DomainName": str, "Id": str, "OriginPath": str},
+    {
+        "DomainName": str,
+        "Id": str,
+        "OriginPath": str,
+        "S3OriginConfig": "AwsCloudFrontDistributionOriginS3OriginConfigTypeDef",
+    },
+    total=False,
+)
+
+AwsCloudFrontDistributionOriginS3OriginConfigTypeDef = TypedDict(
+    "AwsCloudFrontDistributionOriginS3OriginConfigTypeDef",
+    {"OriginAccessIdentity": str},
     total=False,
 )
 
 AwsCloudFrontDistributionOriginsTypeDef = TypedDict(
     "AwsCloudFrontDistributionOriginsTypeDef",
     {"Items": List["AwsCloudFrontDistributionOriginItemTypeDef"]},
+    total=False,
+)
+
+AwsCloudTrailTrailDetailsTypeDef = TypedDict(
+    "AwsCloudTrailTrailDetailsTypeDef",
+    {
+        "CloudWatchLogsLogGroupArn": str,
+        "CloudWatchLogsRoleArn": str,
+        "HasCustomEventSelectors": bool,
+        "HomeRegion": str,
+        "IncludeGlobalServiceEvents": bool,
+        "IsMultiRegionTrail": bool,
+        "IsOrganizationTrail": bool,
+        "KmsKeyId": str,
+        "LogFileValidationEnabled": bool,
+        "Name": str,
+        "S3BucketName": str,
+        "S3KeyPrefix": str,
+        "SnsTopicArn": str,
+        "SnsTopicName": str,
+        "TrailArn": str,
+    },
     total=False,
 )
 
@@ -302,6 +648,19 @@ AwsCodeBuildProjectSourceTypeDef = TypedDict(
 AwsCodeBuildProjectVpcConfigTypeDef = TypedDict(
     "AwsCodeBuildProjectVpcConfigTypeDef",
     {"VpcId": str, "Subnets": List[str], "SecurityGroupIds": List[str]},
+    total=False,
+)
+
+AwsCorsConfigurationTypeDef = TypedDict(
+    "AwsCorsConfigurationTypeDef",
+    {
+        "AllowOrigins": List[str],
+        "AllowCredentials": bool,
+        "ExposeHeaders": List[str],
+        "MaxAge": int,
+        "AllowMethods": List[str],
+        "AllowHeaders": List[str],
+    },
     total=False,
 )
 
@@ -630,6 +989,125 @@ AwsElasticsearchDomainVPCOptionsTypeDef = TypedDict(
     total=False,
 )
 
+AwsElbAppCookieStickinessPolicyTypeDef = TypedDict(
+    "AwsElbAppCookieStickinessPolicyTypeDef", {"CookieName": str, "PolicyName": str}, total=False
+)
+
+AwsElbLbCookieStickinessPolicyTypeDef = TypedDict(
+    "AwsElbLbCookieStickinessPolicyTypeDef",
+    {"CookieExpirationPeriod": int, "PolicyName": str},
+    total=False,
+)
+
+AwsElbLoadBalancerAccessLogTypeDef = TypedDict(
+    "AwsElbLoadBalancerAccessLogTypeDef",
+    {"EmitInterval": int, "Enabled": bool, "S3BucketName": str, "S3BucketPrefix": str},
+    total=False,
+)
+
+AwsElbLoadBalancerAttributesTypeDef = TypedDict(
+    "AwsElbLoadBalancerAttributesTypeDef",
+    {
+        "AccessLog": "AwsElbLoadBalancerAccessLogTypeDef",
+        "ConnectionDraining": "AwsElbLoadBalancerConnectionDrainingTypeDef",
+        "ConnectionSettings": "AwsElbLoadBalancerConnectionSettingsTypeDef",
+        "CrossZoneLoadBalancing": "AwsElbLoadBalancerCrossZoneLoadBalancingTypeDef",
+    },
+    total=False,
+)
+
+AwsElbLoadBalancerBackendServerDescriptionTypeDef = TypedDict(
+    "AwsElbLoadBalancerBackendServerDescriptionTypeDef",
+    {"InstancePort": int, "PolicyNames": List[str]},
+    total=False,
+)
+
+AwsElbLoadBalancerConnectionDrainingTypeDef = TypedDict(
+    "AwsElbLoadBalancerConnectionDrainingTypeDef", {"Enabled": bool, "Timeout": int}, total=False
+)
+
+AwsElbLoadBalancerConnectionSettingsTypeDef = TypedDict(
+    "AwsElbLoadBalancerConnectionSettingsTypeDef", {"IdleTimeout": int}, total=False
+)
+
+AwsElbLoadBalancerCrossZoneLoadBalancingTypeDef = TypedDict(
+    "AwsElbLoadBalancerCrossZoneLoadBalancingTypeDef", {"Enabled": bool}, total=False
+)
+
+AwsElbLoadBalancerDetailsTypeDef = TypedDict(
+    "AwsElbLoadBalancerDetailsTypeDef",
+    {
+        "AvailabilityZones": List[str],
+        "BackendServerDescriptions": List["AwsElbLoadBalancerBackendServerDescriptionTypeDef"],
+        "CanonicalHostedZoneName": str,
+        "CanonicalHostedZoneNameID": str,
+        "CreatedTime": str,
+        "DnsName": str,
+        "HealthCheck": "AwsElbLoadBalancerHealthCheckTypeDef",
+        "Instances": List["AwsElbLoadBalancerInstanceTypeDef"],
+        "ListenerDescriptions": List["AwsElbLoadBalancerListenerDescriptionTypeDef"],
+        "LoadBalancerAttributes": "AwsElbLoadBalancerAttributesTypeDef",
+        "LoadBalancerName": str,
+        "Policies": "AwsElbLoadBalancerPoliciesTypeDef",
+        "Scheme": str,
+        "SecurityGroups": List[str],
+        "SourceSecurityGroup": "AwsElbLoadBalancerSourceSecurityGroupTypeDef",
+        "Subnets": List[str],
+        "VpcId": str,
+    },
+    total=False,
+)
+
+AwsElbLoadBalancerHealthCheckTypeDef = TypedDict(
+    "AwsElbLoadBalancerHealthCheckTypeDef",
+    {
+        "HealthyThreshold": int,
+        "Interval": int,
+        "Target": str,
+        "Timeout": int,
+        "UnhealthyThreshold": int,
+    },
+    total=False,
+)
+
+AwsElbLoadBalancerInstanceTypeDef = TypedDict(
+    "AwsElbLoadBalancerInstanceTypeDef", {"InstanceId": str}, total=False
+)
+
+AwsElbLoadBalancerListenerDescriptionTypeDef = TypedDict(
+    "AwsElbLoadBalancerListenerDescriptionTypeDef",
+    {"Listener": "AwsElbLoadBalancerListenerTypeDef", "PolicyNames": List[str]},
+    total=False,
+)
+
+AwsElbLoadBalancerListenerTypeDef = TypedDict(
+    "AwsElbLoadBalancerListenerTypeDef",
+    {
+        "InstancePort": int,
+        "InstanceProtocol": str,
+        "LoadBalancerPort": int,
+        "Protocol": str,
+        "SslCertificateId": str,
+    },
+    total=False,
+)
+
+AwsElbLoadBalancerPoliciesTypeDef = TypedDict(
+    "AwsElbLoadBalancerPoliciesTypeDef",
+    {
+        "AppCookieStickinessPolicies": List["AwsElbAppCookieStickinessPolicyTypeDef"],
+        "LbCookieStickinessPolicies": List["AwsElbLbCookieStickinessPolicyTypeDef"],
+        "OtherPolicies": List[str],
+    },
+    total=False,
+)
+
+AwsElbLoadBalancerSourceSecurityGroupTypeDef = TypedDict(
+    "AwsElbLoadBalancerSourceSecurityGroupTypeDef",
+    {"GroupName": str, "OwnerAlias": str},
+    total=False,
+)
+
 AwsElbv2LoadBalancerDetailsTypeDef = TypedDict(
     "AwsElbv2LoadBalancerDetailsTypeDef",
     {
@@ -656,12 +1134,77 @@ AwsIamAccessKeyDetailsTypeDef = TypedDict(
         "PrincipalId": str,
         "PrincipalType": str,
         "PrincipalName": str,
+        "AccountId": str,
+        "AccessKeyId": str,
+        "SessionContext": "AwsIamAccessKeySessionContextTypeDef",
+    },
+    total=False,
+)
+
+AwsIamAccessKeySessionContextAttributesTypeDef = TypedDict(
+    "AwsIamAccessKeySessionContextAttributesTypeDef",
+    {"MfaAuthenticated": bool, "CreationDate": str},
+    total=False,
+)
+
+AwsIamAccessKeySessionContextSessionIssuerTypeDef = TypedDict(
+    "AwsIamAccessKeySessionContextSessionIssuerTypeDef",
+    {"Type": str, "PrincipalId": str, "Arn": str, "AccountId": str, "UserName": str},
+    total=False,
+)
+
+AwsIamAccessKeySessionContextTypeDef = TypedDict(
+    "AwsIamAccessKeySessionContextTypeDef",
+    {
+        "Attributes": "AwsIamAccessKeySessionContextAttributesTypeDef",
+        "SessionIssuer": "AwsIamAccessKeySessionContextSessionIssuerTypeDef",
     },
     total=False,
 )
 
 AwsIamAttachedManagedPolicyTypeDef = TypedDict(
     "AwsIamAttachedManagedPolicyTypeDef", {"PolicyName": str, "PolicyArn": str}, total=False
+)
+
+AwsIamGroupDetailsTypeDef = TypedDict(
+    "AwsIamGroupDetailsTypeDef",
+    {
+        "AttachedManagedPolicies": List["AwsIamAttachedManagedPolicyTypeDef"],
+        "CreateDate": str,
+        "GroupId": str,
+        "GroupName": str,
+        "GroupPolicyList": List["AwsIamGroupPolicyTypeDef"],
+        "Path": str,
+    },
+    total=False,
+)
+
+AwsIamGroupPolicyTypeDef = TypedDict("AwsIamGroupPolicyTypeDef", {"PolicyName": str}, total=False)
+
+AwsIamInstanceProfileRoleTypeDef = TypedDict(
+    "AwsIamInstanceProfileRoleTypeDef",
+    {
+        "Arn": str,
+        "AssumeRolePolicyDocument": str,
+        "CreateDate": str,
+        "Path": str,
+        "RoleId": str,
+        "RoleName": str,
+    },
+    total=False,
+)
+
+AwsIamInstanceProfileTypeDef = TypedDict(
+    "AwsIamInstanceProfileTypeDef",
+    {
+        "Arn": str,
+        "CreateDate": str,
+        "InstanceProfileId": str,
+        "InstanceProfileName": str,
+        "Path": str,
+        "Roles": List["AwsIamInstanceProfileRoleTypeDef"],
+    },
+    total=False,
 )
 
 AwsIamPermissionsBoundaryTypeDef = TypedDict(
@@ -698,14 +1241,20 @@ AwsIamRoleDetailsTypeDef = TypedDict(
     "AwsIamRoleDetailsTypeDef",
     {
         "AssumeRolePolicyDocument": str,
+        "AttachedManagedPolicies": List["AwsIamAttachedManagedPolicyTypeDef"],
         "CreateDate": str,
+        "InstanceProfileList": List["AwsIamInstanceProfileTypeDef"],
+        "PermissionsBoundary": "AwsIamPermissionsBoundaryTypeDef",
         "RoleId": str,
         "RoleName": str,
+        "RolePolicyList": List["AwsIamRolePolicyTypeDef"],
         "MaxSessionDuration": int,
         "Path": str,
     },
     total=False,
 )
+
+AwsIamRolePolicyTypeDef = TypedDict("AwsIamRolePolicyTypeDef", {"PolicyName": str}, total=False)
 
 AwsIamUserDetailsTypeDef = TypedDict(
     "AwsIamUserDetailsTypeDef",
@@ -1090,6 +1639,166 @@ AwsRdsPendingCloudWatchLogsExportsTypeDef = TypedDict(
     total=False,
 )
 
+AwsRedshiftClusterClusterNodeTypeDef = TypedDict(
+    "AwsRedshiftClusterClusterNodeTypeDef",
+    {"NodeRole": str, "PrivateIpAddress": str, "PublicIpAddress": str},
+    total=False,
+)
+
+AwsRedshiftClusterClusterParameterGroupTypeDef = TypedDict(
+    "AwsRedshiftClusterClusterParameterGroupTypeDef",
+    {
+        "ClusterParameterStatusList": List["AwsRedshiftClusterClusterParameterStatusTypeDef"],
+        "ParameterApplyStatus": str,
+        "ParameterGroupName": str,
+    },
+    total=False,
+)
+
+AwsRedshiftClusterClusterParameterStatusTypeDef = TypedDict(
+    "AwsRedshiftClusterClusterParameterStatusTypeDef",
+    {"ParameterName": str, "ParameterApplyStatus": str, "ParameterApplyErrorDescription": str},
+    total=False,
+)
+
+AwsRedshiftClusterClusterSecurityGroupTypeDef = TypedDict(
+    "AwsRedshiftClusterClusterSecurityGroupTypeDef",
+    {"ClusterSecurityGroupName": str, "Status": str},
+    total=False,
+)
+
+AwsRedshiftClusterClusterSnapshotCopyStatusTypeDef = TypedDict(
+    "AwsRedshiftClusterClusterSnapshotCopyStatusTypeDef",
+    {
+        "DestinationRegion": str,
+        "ManualSnapshotRetentionPeriod": int,
+        "RetentionPeriod": int,
+        "SnapshotCopyGrantName": str,
+    },
+    total=False,
+)
+
+AwsRedshiftClusterDeferredMaintenanceWindowTypeDef = TypedDict(
+    "AwsRedshiftClusterDeferredMaintenanceWindowTypeDef",
+    {
+        "DeferMaintenanceEndTime": str,
+        "DeferMaintenanceIdentifier": str,
+        "DeferMaintenanceStartTime": str,
+    },
+    total=False,
+)
+
+AwsRedshiftClusterDetailsTypeDef = TypedDict(
+    "AwsRedshiftClusterDetailsTypeDef",
+    {
+        "AllowVersionUpgrade": bool,
+        "AutomatedSnapshotRetentionPeriod": int,
+        "AvailabilityZone": str,
+        "ClusterAvailabilityStatus": str,
+        "ClusterCreateTime": str,
+        "ClusterIdentifier": str,
+        "ClusterNodes": List["AwsRedshiftClusterClusterNodeTypeDef"],
+        "ClusterParameterGroups": List["AwsRedshiftClusterClusterParameterGroupTypeDef"],
+        "ClusterPublicKey": str,
+        "ClusterRevisionNumber": str,
+        "ClusterSecurityGroups": List["AwsRedshiftClusterClusterSecurityGroupTypeDef"],
+        "ClusterSnapshotCopyStatus": "AwsRedshiftClusterClusterSnapshotCopyStatusTypeDef",
+        "ClusterStatus": str,
+        "ClusterSubnetGroupName": str,
+        "ClusterVersion": str,
+        "DBName": str,
+        "DeferredMaintenanceWindows": List["AwsRedshiftClusterDeferredMaintenanceWindowTypeDef"],
+        "ElasticIpStatus": "AwsRedshiftClusterElasticIpStatusTypeDef",
+        "ElasticResizeNumberOfNodeOptions": str,
+        "Encrypted": bool,
+        "Endpoint": "AwsRedshiftClusterEndpointTypeDef",
+        "EnhancedVpcRouting": bool,
+        "ExpectedNextSnapshotScheduleTime": str,
+        "ExpectedNextSnapshotScheduleTimeStatus": str,
+        "HsmStatus": "AwsRedshiftClusterHsmStatusTypeDef",
+        "IamRoles": List["AwsRedshiftClusterIamRoleTypeDef"],
+        "KmsKeyId": str,
+        "MaintenanceTrackName": str,
+        "ManualSnapshotRetentionPeriod": int,
+        "MasterUsername": str,
+        "NextMaintenanceWindowStartTime": str,
+        "NodeType": str,
+        "NumberOfNodes": int,
+        "PendingActions": List[str],
+        "PendingModifiedValues": "AwsRedshiftClusterPendingModifiedValuesTypeDef",
+        "PreferredMaintenanceWindow": str,
+        "PubliclyAccessible": bool,
+        "ResizeInfo": "AwsRedshiftClusterResizeInfoTypeDef",
+        "RestoreStatus": "AwsRedshiftClusterRestoreStatusTypeDef",
+        "SnapshotScheduleIdentifier": str,
+        "SnapshotScheduleState": str,
+        "VpcId": str,
+        "VpcSecurityGroups": List["AwsRedshiftClusterVpcSecurityGroupTypeDef"],
+    },
+    total=False,
+)
+
+AwsRedshiftClusterElasticIpStatusTypeDef = TypedDict(
+    "AwsRedshiftClusterElasticIpStatusTypeDef", {"ElasticIp": str, "Status": str}, total=False
+)
+
+AwsRedshiftClusterEndpointTypeDef = TypedDict(
+    "AwsRedshiftClusterEndpointTypeDef", {"Address": str, "Port": int}, total=False
+)
+
+AwsRedshiftClusterHsmStatusTypeDef = TypedDict(
+    "AwsRedshiftClusterHsmStatusTypeDef",
+    {"HsmClientCertificateIdentifier": str, "HsmConfigurationIdentifier": str, "Status": str},
+    total=False,
+)
+
+AwsRedshiftClusterIamRoleTypeDef = TypedDict(
+    "AwsRedshiftClusterIamRoleTypeDef", {"ApplyStatus": str, "IamRoleArn": str}, total=False
+)
+
+AwsRedshiftClusterPendingModifiedValuesTypeDef = TypedDict(
+    "AwsRedshiftClusterPendingModifiedValuesTypeDef",
+    {
+        "AutomatedSnapshotRetentionPeriod": int,
+        "ClusterIdentifier": str,
+        "ClusterType": str,
+        "ClusterVersion": str,
+        "EncryptionType": str,
+        "EnhancedVpcRouting": bool,
+        "MaintenanceTrackName": str,
+        "MasterUserPassword": str,
+        "NodeType": str,
+        "NumberOfNodes": int,
+        "PubliclyAccessible": bool,
+    },
+    total=False,
+)
+
+AwsRedshiftClusterResizeInfoTypeDef = TypedDict(
+    "AwsRedshiftClusterResizeInfoTypeDef",
+    {"AllowCancelResize": bool, "ResizeType": str},
+    total=False,
+)
+
+AwsRedshiftClusterRestoreStatusTypeDef = TypedDict(
+    "AwsRedshiftClusterRestoreStatusTypeDef",
+    {
+        "CurrentRestoreRateInMegaBytesPerSecond": float,
+        "ElapsedTimeInSeconds": int,
+        "EstimatedTimeToCompletionInSeconds": int,
+        "ProgressInMegaBytes": int,
+        "SnapshotSizeInMegaBytes": int,
+        "Status": str,
+    },
+    total=False,
+)
+
+AwsRedshiftClusterVpcSecurityGroupTypeDef = TypedDict(
+    "AwsRedshiftClusterVpcSecurityGroupTypeDef",
+    {"Status": str, "VpcSecurityGroupId": str},
+    total=False,
+)
+
 AwsS3BucketDetailsTypeDef = TypedDict(
     "AwsS3BucketDetailsTypeDef",
     {
@@ -1289,6 +1998,7 @@ _OptionalAwsSecurityFindingTypeDef = TypedDict(
         "RelatedFindings": List["RelatedFindingTypeDef"],
         "Note": "NoteTypeDef",
         "Vulnerabilities": List["VulnerabilityTypeDef"],
+        "PatchSummary": "PatchSummaryTypeDef",
     },
     total=False,
 )
@@ -1534,6 +2244,29 @@ NumberFilterTypeDef = TypedDict(
     "NumberFilterTypeDef", {"Gte": float, "Lte": float, "Eq": float}, total=False
 )
 
+_RequiredPatchSummaryTypeDef = TypedDict("_RequiredPatchSummaryTypeDef", {"Id": str})
+_OptionalPatchSummaryTypeDef = TypedDict(
+    "_OptionalPatchSummaryTypeDef",
+    {
+        "InstalledCount": int,
+        "MissingCount": int,
+        "FailedCount": int,
+        "InstalledOtherCount": int,
+        "InstalledRejectedCount": int,
+        "InstalledPendingReboot": int,
+        "OperationStartTime": str,
+        "OperationEndTime": str,
+        "RebootOption": str,
+        "Operation": str,
+    },
+    total=False,
+)
+
+
+class PatchSummaryTypeDef(_RequiredPatchSummaryTypeDef, _OptionalPatchSummaryTypeDef):
+    pass
+
+
 PortRangeTypeDef = TypedDict("PortRangeTypeDef", {"Begin": int, "End": int}, total=False)
 
 ProcessDetailsTypeDef = TypedDict(
@@ -1600,7 +2333,16 @@ ResourceDetailsTypeDef = TypedDict(
         "AwsIamAccessKey": "AwsIamAccessKeyDetailsTypeDef",
         "AwsIamUser": "AwsIamUserDetailsTypeDef",
         "AwsIamPolicy": "AwsIamPolicyDetailsTypeDef",
+        "AwsApiGatewayV2Stage": "AwsApiGatewayV2StageDetailsTypeDef",
+        "AwsApiGatewayV2Api": "AwsApiGatewayV2ApiDetailsTypeDef",
         "AwsDynamoDbTable": "AwsDynamoDbTableDetailsTypeDef",
+        "AwsApiGatewayStage": "AwsApiGatewayStageDetailsTypeDef",
+        "AwsApiGatewayRestApi": "AwsApiGatewayRestApiDetailsTypeDef",
+        "AwsCloudTrailTrail": "AwsCloudTrailTrailDetailsTypeDef",
+        "AwsCertificateManagerCertificate": "AwsCertificateManagerCertificateDetailsTypeDef",
+        "AwsRedshiftCluster": "AwsRedshiftClusterDetailsTypeDef",
+        "AwsElbLoadBalancer": "AwsElbLoadBalancerDetailsTypeDef",
+        "AwsIamGroup": "AwsIamGroupDetailsTypeDef",
         "AwsIamRole": "AwsIamRoleDetailsTypeDef",
         "AwsKmsKey": "AwsKmsKeyDetailsTypeDef",
         "AwsLambdaFunction": "AwsLambdaFunctionDetailsTypeDef",
@@ -1624,6 +2366,7 @@ _OptionalResourceTypeDef = TypedDict(
     {
         "Partition": Literal["aws", "aws-cn", "aws-us-gov"],
         "Region": str,
+        "ResourceRole": str,
         "Tags": Dict[str, str],
         "Details": "ResourceDetailsTypeDef",
     },

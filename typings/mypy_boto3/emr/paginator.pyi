@@ -4,6 +4,7 @@ from mypy_boto3_emr.paginator import (
     ListInstanceFleetsPaginator,
     ListInstanceGroupsPaginator,
     ListInstancesPaginator,
+    ListNotebookExecutionsPaginator,
     ListSecurityConfigurationsPaginator,
     ListStepsPaginator,
 )
@@ -14,6 +15,7 @@ __all__ = (
     "ListInstanceFleetsPaginator",
     "ListInstanceGroupsPaginator",
     "ListInstancesPaginator",
+    "ListNotebookExecutionsPaginator",
     "ListSecurityConfigurationsPaginator",
     "ListStepsPaginator",
 )

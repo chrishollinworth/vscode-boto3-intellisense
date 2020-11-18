@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Dict, List
+from typing import IO, Any, Dict, List, Union
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -73,6 +72,7 @@ __all__ = (
     "RepositoryNameIdPairTypeDef",
     "RepositoryTriggerExecutionFailureTypeDef",
     "RepositoryTriggerTypeDef",
+    "ResponseMetadata",
     "SetFileModeEntryTypeDef",
     "SourceFileSpecifierTypeDef",
     "SubModuleTypeDef",
@@ -541,7 +541,7 @@ _RequiredReplaceContentEntryTypeDef = TypedDict(
 )
 _OptionalReplaceContentEntryTypeDef = TypedDict(
     "_OptionalReplaceContentEntryTypeDef",
-    {"content": bytes, "fileMode": Literal["EXECUTABLE", "NORMAL", "SYMLINK"]},
+    {"content": Union[bytes, IO[bytes]], "fileMode": Literal["EXECUTABLE", "NORMAL", "SYMLINK"]},
     total=False,
 )
 
@@ -596,6 +596,17 @@ class RepositoryTriggerTypeDef(
     pass
 
 
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
+
 SetFileModeEntryTypeDef = TypedDict(
     "SetFileModeEntryTypeDef",
     {"filePath": str, "fileMode": Literal["EXECUTABLE", "NORMAL", "SYMLINK"]},
@@ -634,13 +645,26 @@ UserInfoTypeDef = TypedDict(
     "UserInfoTypeDef", {"name": str, "email": str, "date": str}, total=False
 )
 
-BatchAssociateApprovalRuleTemplateWithRepositoriesOutputTypeDef = TypedDict(
-    "BatchAssociateApprovalRuleTemplateWithRepositoriesOutputTypeDef",
+_RequiredBatchAssociateApprovalRuleTemplateWithRepositoriesOutputTypeDef = TypedDict(
+    "_RequiredBatchAssociateApprovalRuleTemplateWithRepositoriesOutputTypeDef",
     {
         "associatedRepositoryNames": List[str],
         "errors": List["BatchAssociateApprovalRuleTemplateWithRepositoriesErrorTypeDef"],
     },
 )
+_OptionalBatchAssociateApprovalRuleTemplateWithRepositoriesOutputTypeDef = TypedDict(
+    "_OptionalBatchAssociateApprovalRuleTemplateWithRepositoriesOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+
+class BatchAssociateApprovalRuleTemplateWithRepositoriesOutputTypeDef(
+    _RequiredBatchAssociateApprovalRuleTemplateWithRepositoriesOutputTypeDef,
+    _OptionalBatchAssociateApprovalRuleTemplateWithRepositoriesOutputTypeDef,
+):
+    pass
+
 
 _RequiredBatchDescribeMergeConflictsOutputTypeDef = TypedDict(
     "_RequiredBatchDescribeMergeConflictsOutputTypeDef",
@@ -652,6 +676,7 @@ _OptionalBatchDescribeMergeConflictsOutputTypeDef = TypedDict(
         "nextToken": str,
         "errors": List["BatchDescribeMergeConflictsErrorTypeDef"],
         "baseCommitId": str,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -664,23 +689,44 @@ class BatchDescribeMergeConflictsOutputTypeDef(
     pass
 
 
-BatchDisassociateApprovalRuleTemplateFromRepositoriesOutputTypeDef = TypedDict(
-    "BatchDisassociateApprovalRuleTemplateFromRepositoriesOutputTypeDef",
+_RequiredBatchDisassociateApprovalRuleTemplateFromRepositoriesOutputTypeDef = TypedDict(
+    "_RequiredBatchDisassociateApprovalRuleTemplateFromRepositoriesOutputTypeDef",
     {
         "disassociatedRepositoryNames": List[str],
         "errors": List["BatchDisassociateApprovalRuleTemplateFromRepositoriesErrorTypeDef"],
     },
 )
+_OptionalBatchDisassociateApprovalRuleTemplateFromRepositoriesOutputTypeDef = TypedDict(
+    "_OptionalBatchDisassociateApprovalRuleTemplateFromRepositoriesOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+
+class BatchDisassociateApprovalRuleTemplateFromRepositoriesOutputTypeDef(
+    _RequiredBatchDisassociateApprovalRuleTemplateFromRepositoriesOutputTypeDef,
+    _OptionalBatchDisassociateApprovalRuleTemplateFromRepositoriesOutputTypeDef,
+):
+    pass
+
 
 BatchGetCommitsOutputTypeDef = TypedDict(
     "BatchGetCommitsOutputTypeDef",
-    {"commits": List["CommitTypeDef"], "errors": List["BatchGetCommitsErrorTypeDef"]},
+    {
+        "commits": List["CommitTypeDef"],
+        "errors": List["BatchGetCommitsErrorTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 BatchGetRepositoriesOutputTypeDef = TypedDict(
     "BatchGetRepositoriesOutputTypeDef",
-    {"repositories": List["RepositoryMetadataTypeDef"], "repositoriesNotFound": List[str]},
+    {
+        "repositories": List["RepositoryMetadataTypeDef"],
+        "repositoriesNotFound": List[str],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -694,10 +740,23 @@ ConflictResolutionTypeDef = TypedDict(
     total=False,
 )
 
-CreateApprovalRuleTemplateOutputTypeDef = TypedDict(
-    "CreateApprovalRuleTemplateOutputTypeDef",
+_RequiredCreateApprovalRuleTemplateOutputTypeDef = TypedDict(
+    "_RequiredCreateApprovalRuleTemplateOutputTypeDef",
     {"approvalRuleTemplate": "ApprovalRuleTemplateTypeDef"},
 )
+_OptionalCreateApprovalRuleTemplateOutputTypeDef = TypedDict(
+    "_OptionalCreateApprovalRuleTemplateOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+
+class CreateApprovalRuleTemplateOutputTypeDef(
+    _RequiredCreateApprovalRuleTemplateOutputTypeDef,
+    _OptionalCreateApprovalRuleTemplateOutputTypeDef,
+):
+    pass
+
 
 CreateCommitOutputTypeDef = TypedDict(
     "CreateCommitOutputTypeDef",
@@ -707,50 +766,117 @@ CreateCommitOutputTypeDef = TypedDict(
         "filesAdded": List["FileMetadataTypeDef"],
         "filesUpdated": List["FileMetadataTypeDef"],
         "filesDeleted": List["FileMetadataTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
-CreatePullRequestApprovalRuleOutputTypeDef = TypedDict(
-    "CreatePullRequestApprovalRuleOutputTypeDef", {"approvalRule": "ApprovalRuleTypeDef"}
+_RequiredCreatePullRequestApprovalRuleOutputTypeDef = TypedDict(
+    "_RequiredCreatePullRequestApprovalRuleOutputTypeDef", {"approvalRule": "ApprovalRuleTypeDef"}
+)
+_OptionalCreatePullRequestApprovalRuleOutputTypeDef = TypedDict(
+    "_OptionalCreatePullRequestApprovalRuleOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
-CreatePullRequestOutputTypeDef = TypedDict(
-    "CreatePullRequestOutputTypeDef", {"pullRequest": "PullRequestTypeDef"}
+
+class CreatePullRequestApprovalRuleOutputTypeDef(
+    _RequiredCreatePullRequestApprovalRuleOutputTypeDef,
+    _OptionalCreatePullRequestApprovalRuleOutputTypeDef,
+):
+    pass
+
+
+_RequiredCreatePullRequestOutputTypeDef = TypedDict(
+    "_RequiredCreatePullRequestOutputTypeDef", {"pullRequest": "PullRequestTypeDef"}
 )
+_OptionalCreatePullRequestOutputTypeDef = TypedDict(
+    "_OptionalCreatePullRequestOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
+)
+
+
+class CreatePullRequestOutputTypeDef(
+    _RequiredCreatePullRequestOutputTypeDef, _OptionalCreatePullRequestOutputTypeDef
+):
+    pass
+
 
 CreateRepositoryOutputTypeDef = TypedDict(
     "CreateRepositoryOutputTypeDef",
-    {"repositoryMetadata": "RepositoryMetadataTypeDef"},
+    {"repositoryMetadata": "RepositoryMetadataTypeDef", "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 CreateUnreferencedMergeCommitOutputTypeDef = TypedDict(
-    "CreateUnreferencedMergeCommitOutputTypeDef", {"commitId": str, "treeId": str}, total=False
+    "CreateUnreferencedMergeCommitOutputTypeDef",
+    {"commitId": str, "treeId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
-DeleteApprovalRuleTemplateOutputTypeDef = TypedDict(
-    "DeleteApprovalRuleTemplateOutputTypeDef", {"approvalRuleTemplateId": str}
+_RequiredDeleteApprovalRuleTemplateOutputTypeDef = TypedDict(
+    "_RequiredDeleteApprovalRuleTemplateOutputTypeDef", {"approvalRuleTemplateId": str}
 )
+_OptionalDeleteApprovalRuleTemplateOutputTypeDef = TypedDict(
+    "_OptionalDeleteApprovalRuleTemplateOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+
+class DeleteApprovalRuleTemplateOutputTypeDef(
+    _RequiredDeleteApprovalRuleTemplateOutputTypeDef,
+    _OptionalDeleteApprovalRuleTemplateOutputTypeDef,
+):
+    pass
+
 
 DeleteBranchOutputTypeDef = TypedDict(
-    "DeleteBranchOutputTypeDef", {"deletedBranch": "BranchInfoTypeDef"}, total=False
+    "DeleteBranchOutputTypeDef",
+    {"deletedBranch": "BranchInfoTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 DeleteCommentContentOutputTypeDef = TypedDict(
-    "DeleteCommentContentOutputTypeDef", {"comment": "CommentTypeDef"}, total=False
+    "DeleteCommentContentOutputTypeDef",
+    {"comment": "CommentTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
-DeleteFileOutputTypeDef = TypedDict(
-    "DeleteFileOutputTypeDef", {"commitId": str, "blobId": str, "treeId": str, "filePath": str}
+_RequiredDeleteFileOutputTypeDef = TypedDict(
+    "_RequiredDeleteFileOutputTypeDef",
+    {"commitId": str, "blobId": str, "treeId": str, "filePath": str},
+)
+_OptionalDeleteFileOutputTypeDef = TypedDict(
+    "_OptionalDeleteFileOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
 )
 
-DeletePullRequestApprovalRuleOutputTypeDef = TypedDict(
-    "DeletePullRequestApprovalRuleOutputTypeDef", {"approvalRuleId": str}
+
+class DeleteFileOutputTypeDef(_RequiredDeleteFileOutputTypeDef, _OptionalDeleteFileOutputTypeDef):
+    pass
+
+
+_RequiredDeletePullRequestApprovalRuleOutputTypeDef = TypedDict(
+    "_RequiredDeletePullRequestApprovalRuleOutputTypeDef", {"approvalRuleId": str}
 )
+_OptionalDeletePullRequestApprovalRuleOutputTypeDef = TypedDict(
+    "_OptionalDeletePullRequestApprovalRuleOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+
+class DeletePullRequestApprovalRuleOutputTypeDef(
+    _RequiredDeletePullRequestApprovalRuleOutputTypeDef,
+    _OptionalDeletePullRequestApprovalRuleOutputTypeDef,
+):
+    pass
+
 
 DeleteRepositoryOutputTypeDef = TypedDict(
-    "DeleteRepositoryOutputTypeDef", {"repositoryId": str}, total=False
+    "DeleteRepositoryOutputTypeDef",
+    {"repositoryId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 _RequiredDescribeMergeConflictsOutputTypeDef = TypedDict(
@@ -764,7 +890,7 @@ _RequiredDescribeMergeConflictsOutputTypeDef = TypedDict(
 )
 _OptionalDescribeMergeConflictsOutputTypeDef = TypedDict(
     "_OptionalDescribeMergeConflictsOutputTypeDef",
-    {"nextToken": str, "baseCommitId": str},
+    {"nextToken": str, "baseCommitId": str, "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
@@ -780,7 +906,9 @@ _RequiredDescribePullRequestEventsOutputTypeDef = TypedDict(
     {"pullRequestEvents": List["PullRequestEventTypeDef"]},
 )
 _OptionalDescribePullRequestEventsOutputTypeDef = TypedDict(
-    "_OptionalDescribePullRequestEventsOutputTypeDef", {"nextToken": str}, total=False
+    "_OptionalDescribePullRequestEventsOutputTypeDef",
+    {"nextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 
@@ -790,22 +918,62 @@ class DescribePullRequestEventsOutputTypeDef(
     pass
 
 
-EvaluatePullRequestApprovalRulesOutputTypeDef = TypedDict(
-    "EvaluatePullRequestApprovalRulesOutputTypeDef", {"evaluation": "EvaluationTypeDef"}
+_RequiredEvaluatePullRequestApprovalRulesOutputTypeDef = TypedDict(
+    "_RequiredEvaluatePullRequestApprovalRulesOutputTypeDef", {"evaluation": "EvaluationTypeDef"}
+)
+_OptionalEvaluatePullRequestApprovalRulesOutputTypeDef = TypedDict(
+    "_OptionalEvaluatePullRequestApprovalRulesOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
-GetApprovalRuleTemplateOutputTypeDef = TypedDict(
-    "GetApprovalRuleTemplateOutputTypeDef", {"approvalRuleTemplate": "ApprovalRuleTemplateTypeDef"}
+
+class EvaluatePullRequestApprovalRulesOutputTypeDef(
+    _RequiredEvaluatePullRequestApprovalRulesOutputTypeDef,
+    _OptionalEvaluatePullRequestApprovalRulesOutputTypeDef,
+):
+    pass
+
+
+_RequiredGetApprovalRuleTemplateOutputTypeDef = TypedDict(
+    "_RequiredGetApprovalRuleTemplateOutputTypeDef",
+    {"approvalRuleTemplate": "ApprovalRuleTemplateTypeDef"},
+)
+_OptionalGetApprovalRuleTemplateOutputTypeDef = TypedDict(
+    "_OptionalGetApprovalRuleTemplateOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
-GetBlobOutputTypeDef = TypedDict("GetBlobOutputTypeDef", {"content": bytes})
+
+class GetApprovalRuleTemplateOutputTypeDef(
+    _RequiredGetApprovalRuleTemplateOutputTypeDef, _OptionalGetApprovalRuleTemplateOutputTypeDef
+):
+    pass
+
+
+_RequiredGetBlobOutputTypeDef = TypedDict(
+    "_RequiredGetBlobOutputTypeDef", {"content": Union[bytes, IO[bytes]]}
+)
+_OptionalGetBlobOutputTypeDef = TypedDict(
+    "_OptionalGetBlobOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
+)
+
+
+class GetBlobOutputTypeDef(_RequiredGetBlobOutputTypeDef, _OptionalGetBlobOutputTypeDef):
+    pass
+
 
 GetBranchOutputTypeDef = TypedDict(
-    "GetBranchOutputTypeDef", {"branch": "BranchInfoTypeDef"}, total=False
+    "GetBranchOutputTypeDef",
+    {"branch": "BranchInfoTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 GetCommentOutputTypeDef = TypedDict(
-    "GetCommentOutputTypeDef", {"comment": "CommentTypeDef"}, total=False
+    "GetCommentOutputTypeDef",
+    {"comment": "CommentTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 _RequiredGetCommentReactionsOutputTypeDef = TypedDict(
@@ -813,7 +981,9 @@ _RequiredGetCommentReactionsOutputTypeDef = TypedDict(
     {"reactionsForComment": List["ReactionForCommentTypeDef"]},
 )
 _OptionalGetCommentReactionsOutputTypeDef = TypedDict(
-    "_OptionalGetCommentReactionsOutputTypeDef", {"nextToken": str}, total=False
+    "_OptionalGetCommentReactionsOutputTypeDef",
+    {"nextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 
@@ -825,35 +995,65 @@ class GetCommentReactionsOutputTypeDef(
 
 GetCommentsForComparedCommitOutputTypeDef = TypedDict(
     "GetCommentsForComparedCommitOutputTypeDef",
-    {"commentsForComparedCommitData": List["CommentsForComparedCommitTypeDef"], "nextToken": str},
+    {
+        "commentsForComparedCommitData": List["CommentsForComparedCommitTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 GetCommentsForPullRequestOutputTypeDef = TypedDict(
     "GetCommentsForPullRequestOutputTypeDef",
-    {"commentsForPullRequestData": List["CommentsForPullRequestTypeDef"], "nextToken": str},
+    {
+        "commentsForPullRequestData": List["CommentsForPullRequestTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
-GetCommitOutputTypeDef = TypedDict("GetCommitOutputTypeDef", {"commit": "CommitTypeDef"})
+_RequiredGetCommitOutputTypeDef = TypedDict(
+    "_RequiredGetCommitOutputTypeDef", {"commit": "CommitTypeDef"}
+)
+_OptionalGetCommitOutputTypeDef = TypedDict(
+    "_OptionalGetCommitOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
+)
+
+
+class GetCommitOutputTypeDef(_RequiredGetCommitOutputTypeDef, _OptionalGetCommitOutputTypeDef):
+    pass
+
 
 GetDifferencesOutputTypeDef = TypedDict(
     "GetDifferencesOutputTypeDef",
-    {"differences": List["DifferenceTypeDef"], "NextToken": str},
+    {
+        "differences": List["DifferenceTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
-GetFileOutputTypeDef = TypedDict(
-    "GetFileOutputTypeDef",
+_RequiredGetFileOutputTypeDef = TypedDict(
+    "_RequiredGetFileOutputTypeDef",
     {
         "commitId": str,
         "blobId": str,
         "filePath": str,
         "fileMode": Literal["EXECUTABLE", "NORMAL", "SYMLINK"],
         "fileSize": int,
-        "fileContent": bytes,
+        "fileContent": Union[bytes, IO[bytes]],
     },
 )
+_OptionalGetFileOutputTypeDef = TypedDict(
+    "_OptionalGetFileOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
+)
+
+
+class GetFileOutputTypeDef(_RequiredGetFileOutputTypeDef, _OptionalGetFileOutputTypeDef):
+    pass
+
 
 _RequiredGetFolderOutputTypeDef = TypedDict(
     "_RequiredGetFolderOutputTypeDef", {"commitId": str, "folderPath": str}
@@ -866,6 +1066,7 @@ _OptionalGetFolderOutputTypeDef = TypedDict(
         "files": List["FileTypeDef"],
         "symbolicLinks": List["SymbolicLinkTypeDef"],
         "subModules": List["SubModuleTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -877,7 +1078,13 @@ class GetFolderOutputTypeDef(_RequiredGetFolderOutputTypeDef, _OptionalGetFolder
 
 GetMergeCommitOutputTypeDef = TypedDict(
     "GetMergeCommitOutputTypeDef",
-    {"sourceCommitId": str, "destinationCommitId": str, "baseCommitId": str, "mergedCommitId": str},
+    {
+        "sourceCommitId": str,
+        "destinationCommitId": str,
+        "baseCommitId": str,
+        "mergedCommitId": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -891,7 +1098,9 @@ _RequiredGetMergeConflictsOutputTypeDef = TypedDict(
     },
 )
 _OptionalGetMergeConflictsOutputTypeDef = TypedDict(
-    "_OptionalGetMergeConflictsOutputTypeDef", {"baseCommitId": str, "nextToken": str}, total=False
+    "_OptionalGetMergeConflictsOutputTypeDef",
+    {"baseCommitId": str, "nextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 
@@ -901,8 +1110,8 @@ class GetMergeConflictsOutputTypeDef(
     pass
 
 
-GetMergeOptionsOutputTypeDef = TypedDict(
-    "GetMergeOptionsOutputTypeDef",
+_RequiredGetMergeOptionsOutputTypeDef = TypedDict(
+    "_RequiredGetMergeOptionsOutputTypeDef",
     {
         "mergeOptions": List[Literal["FAST_FORWARD_MERGE", "SQUASH_MERGE", "THREE_WAY_MERGE"]],
         "sourceCommitId": str,
@@ -910,50 +1119,92 @@ GetMergeOptionsOutputTypeDef = TypedDict(
         "baseCommitId": str,
     },
 )
+_OptionalGetMergeOptionsOutputTypeDef = TypedDict(
+    "_OptionalGetMergeOptionsOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
+)
+
+
+class GetMergeOptionsOutputTypeDef(
+    _RequiredGetMergeOptionsOutputTypeDef, _OptionalGetMergeOptionsOutputTypeDef
+):
+    pass
+
 
 GetPullRequestApprovalStatesOutputTypeDef = TypedDict(
-    "GetPullRequestApprovalStatesOutputTypeDef", {"approvals": List["ApprovalTypeDef"]}, total=False
+    "GetPullRequestApprovalStatesOutputTypeDef",
+    {"approvals": List["ApprovalTypeDef"], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
-GetPullRequestOutputTypeDef = TypedDict(
-    "GetPullRequestOutputTypeDef", {"pullRequest": "PullRequestTypeDef"}
+_RequiredGetPullRequestOutputTypeDef = TypedDict(
+    "_RequiredGetPullRequestOutputTypeDef", {"pullRequest": "PullRequestTypeDef"}
 )
+_OptionalGetPullRequestOutputTypeDef = TypedDict(
+    "_OptionalGetPullRequestOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
+)
+
+
+class GetPullRequestOutputTypeDef(
+    _RequiredGetPullRequestOutputTypeDef, _OptionalGetPullRequestOutputTypeDef
+):
+    pass
+
 
 GetPullRequestOverrideStateOutputTypeDef = TypedDict(
-    "GetPullRequestOverrideStateOutputTypeDef", {"overridden": bool, "overrider": str}, total=False
+    "GetPullRequestOverrideStateOutputTypeDef",
+    {"overridden": bool, "overrider": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 GetRepositoryOutputTypeDef = TypedDict(
-    "GetRepositoryOutputTypeDef", {"repositoryMetadata": "RepositoryMetadataTypeDef"}, total=False
+    "GetRepositoryOutputTypeDef",
+    {"repositoryMetadata": "RepositoryMetadataTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 GetRepositoryTriggersOutputTypeDef = TypedDict(
     "GetRepositoryTriggersOutputTypeDef",
-    {"configurationId": str, "triggers": List["RepositoryTriggerTypeDef"]},
+    {
+        "configurationId": str,
+        "triggers": List["RepositoryTriggerTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListApprovalRuleTemplatesOutputTypeDef = TypedDict(
     "ListApprovalRuleTemplatesOutputTypeDef",
-    {"approvalRuleTemplateNames": List[str], "nextToken": str},
+    {
+        "approvalRuleTemplateNames": List[str],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListAssociatedApprovalRuleTemplatesForRepositoryOutputTypeDef = TypedDict(
     "ListAssociatedApprovalRuleTemplatesForRepositoryOutputTypeDef",
-    {"approvalRuleTemplateNames": List[str], "nextToken": str},
+    {
+        "approvalRuleTemplateNames": List[str],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListBranchesOutputTypeDef = TypedDict(
-    "ListBranchesOutputTypeDef", {"branches": List[str], "nextToken": str}, total=False
+    "ListBranchesOutputTypeDef",
+    {"branches": List[str], "nextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 _RequiredListPullRequestsOutputTypeDef = TypedDict(
     "_RequiredListPullRequestsOutputTypeDef", {"pullRequestIds": List[str]}
 )
 _OptionalListPullRequestsOutputTypeDef = TypedDict(
-    "_OptionalListPullRequestsOutputTypeDef", {"nextToken": str}, total=False
+    "_OptionalListPullRequestsOutputTypeDef",
+    {"nextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 
@@ -965,42 +1216,60 @@ class ListPullRequestsOutputTypeDef(
 
 ListRepositoriesForApprovalRuleTemplateOutputTypeDef = TypedDict(
     "ListRepositoriesForApprovalRuleTemplateOutputTypeDef",
-    {"repositoryNames": List[str], "nextToken": str},
+    {"repositoryNames": List[str], "nextToken": str, "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 ListRepositoriesOutputTypeDef = TypedDict(
     "ListRepositoriesOutputTypeDef",
-    {"repositories": List["RepositoryNameIdPairTypeDef"], "nextToken": str},
+    {
+        "repositories": List["RepositoryNameIdPairTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListTagsForResourceOutputTypeDef = TypedDict(
-    "ListTagsForResourceOutputTypeDef", {"tags": Dict[str, str], "nextToken": str}, total=False
+    "ListTagsForResourceOutputTypeDef",
+    {"tags": Dict[str, str], "nextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 MergeBranchesByFastForwardOutputTypeDef = TypedDict(
-    "MergeBranchesByFastForwardOutputTypeDef", {"commitId": str, "treeId": str}, total=False
+    "MergeBranchesByFastForwardOutputTypeDef",
+    {"commitId": str, "treeId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 MergeBranchesBySquashOutputTypeDef = TypedDict(
-    "MergeBranchesBySquashOutputTypeDef", {"commitId": str, "treeId": str}, total=False
+    "MergeBranchesBySquashOutputTypeDef",
+    {"commitId": str, "treeId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 MergeBranchesByThreeWayOutputTypeDef = TypedDict(
-    "MergeBranchesByThreeWayOutputTypeDef", {"commitId": str, "treeId": str}, total=False
+    "MergeBranchesByThreeWayOutputTypeDef",
+    {"commitId": str, "treeId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 MergePullRequestByFastForwardOutputTypeDef = TypedDict(
-    "MergePullRequestByFastForwardOutputTypeDef", {"pullRequest": "PullRequestTypeDef"}, total=False
+    "MergePullRequestByFastForwardOutputTypeDef",
+    {"pullRequest": "PullRequestTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 MergePullRequestBySquashOutputTypeDef = TypedDict(
-    "MergePullRequestBySquashOutputTypeDef", {"pullRequest": "PullRequestTypeDef"}, total=False
+    "MergePullRequestBySquashOutputTypeDef",
+    {"pullRequest": "PullRequestTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 MergePullRequestByThreeWayOutputTypeDef = TypedDict(
-    "MergePullRequestByThreeWayOutputTypeDef", {"pullRequest": "PullRequestTypeDef"}, total=False
+    "MergePullRequestByThreeWayOutputTypeDef",
+    {"pullRequest": "PullRequestTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 PaginatorConfigTypeDef = TypedDict(
@@ -1017,6 +1286,7 @@ PostCommentForComparedCommitOutputTypeDef = TypedDict(
         "afterBlobId": str,
         "location": "LocationTypeDef",
         "comment": "CommentTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -1032,12 +1302,15 @@ PostCommentForPullRequestOutputTypeDef = TypedDict(
         "afterBlobId": str,
         "location": "LocationTypeDef",
         "comment": "CommentTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
 PostCommentReplyOutputTypeDef = TypedDict(
-    "PostCommentReplyOutputTypeDef", {"comment": "CommentTypeDef"}, total=False
+    "PostCommentReplyOutputTypeDef",
+    {"comment": "CommentTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 _RequiredPutFileEntryTypeDef = TypedDict("_RequiredPutFileEntryTypeDef", {"filePath": str})
@@ -1045,7 +1318,7 @@ _OptionalPutFileEntryTypeDef = TypedDict(
     "_OptionalPutFileEntryTypeDef",
     {
         "fileMode": Literal["EXECUTABLE", "NORMAL", "SYMLINK"],
-        "fileContent": bytes,
+        "fileContent": Union[bytes, IO[bytes]],
         "sourceFile": "SourceFileSpecifierTypeDef",
     },
     total=False,
@@ -1056,12 +1329,22 @@ class PutFileEntryTypeDef(_RequiredPutFileEntryTypeDef, _OptionalPutFileEntryTyp
     pass
 
 
-PutFileOutputTypeDef = TypedDict(
-    "PutFileOutputTypeDef", {"commitId": str, "blobId": str, "treeId": str}
+_RequiredPutFileOutputTypeDef = TypedDict(
+    "_RequiredPutFileOutputTypeDef", {"commitId": str, "blobId": str, "treeId": str}
+)
+_OptionalPutFileOutputTypeDef = TypedDict(
+    "_OptionalPutFileOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
 )
 
+
+class PutFileOutputTypeDef(_RequiredPutFileOutputTypeDef, _OptionalPutFileOutputTypeDef):
+    pass
+
+
 PutRepositoryTriggersOutputTypeDef = TypedDict(
-    "PutRepositoryTriggersOutputTypeDef", {"configurationId": str}, total=False
+    "PutRepositoryTriggersOutputTypeDef",
+    {"configurationId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 _RequiredTargetTypeDef = TypedDict(
@@ -1081,41 +1364,133 @@ TestRepositoryTriggersOutputTypeDef = TypedDict(
     {
         "successfulExecutions": List[str],
         "failedExecutions": List["RepositoryTriggerExecutionFailureTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
-UpdateApprovalRuleTemplateContentOutputTypeDef = TypedDict(
-    "UpdateApprovalRuleTemplateContentOutputTypeDef",
+_RequiredUpdateApprovalRuleTemplateContentOutputTypeDef = TypedDict(
+    "_RequiredUpdateApprovalRuleTemplateContentOutputTypeDef",
     {"approvalRuleTemplate": "ApprovalRuleTemplateTypeDef"},
+)
+_OptionalUpdateApprovalRuleTemplateContentOutputTypeDef = TypedDict(
+    "_OptionalUpdateApprovalRuleTemplateContentOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
-UpdateApprovalRuleTemplateDescriptionOutputTypeDef = TypedDict(
-    "UpdateApprovalRuleTemplateDescriptionOutputTypeDef",
+
+class UpdateApprovalRuleTemplateContentOutputTypeDef(
+    _RequiredUpdateApprovalRuleTemplateContentOutputTypeDef,
+    _OptionalUpdateApprovalRuleTemplateContentOutputTypeDef,
+):
+    pass
+
+
+_RequiredUpdateApprovalRuleTemplateDescriptionOutputTypeDef = TypedDict(
+    "_RequiredUpdateApprovalRuleTemplateDescriptionOutputTypeDef",
     {"approvalRuleTemplate": "ApprovalRuleTemplateTypeDef"},
+)
+_OptionalUpdateApprovalRuleTemplateDescriptionOutputTypeDef = TypedDict(
+    "_OptionalUpdateApprovalRuleTemplateDescriptionOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
-UpdateApprovalRuleTemplateNameOutputTypeDef = TypedDict(
-    "UpdateApprovalRuleTemplateNameOutputTypeDef",
+
+class UpdateApprovalRuleTemplateDescriptionOutputTypeDef(
+    _RequiredUpdateApprovalRuleTemplateDescriptionOutputTypeDef,
+    _OptionalUpdateApprovalRuleTemplateDescriptionOutputTypeDef,
+):
+    pass
+
+
+_RequiredUpdateApprovalRuleTemplateNameOutputTypeDef = TypedDict(
+    "_RequiredUpdateApprovalRuleTemplateNameOutputTypeDef",
     {"approvalRuleTemplate": "ApprovalRuleTemplateTypeDef"},
 )
+_OptionalUpdateApprovalRuleTemplateNameOutputTypeDef = TypedDict(
+    "_OptionalUpdateApprovalRuleTemplateNameOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+
+class UpdateApprovalRuleTemplateNameOutputTypeDef(
+    _RequiredUpdateApprovalRuleTemplateNameOutputTypeDef,
+    _OptionalUpdateApprovalRuleTemplateNameOutputTypeDef,
+):
+    pass
+
 
 UpdateCommentOutputTypeDef = TypedDict(
-    "UpdateCommentOutputTypeDef", {"comment": "CommentTypeDef"}, total=False
+    "UpdateCommentOutputTypeDef",
+    {"comment": "CommentTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
-UpdatePullRequestApprovalRuleContentOutputTypeDef = TypedDict(
-    "UpdatePullRequestApprovalRuleContentOutputTypeDef", {"approvalRule": "ApprovalRuleTypeDef"}
+_RequiredUpdatePullRequestApprovalRuleContentOutputTypeDef = TypedDict(
+    "_RequiredUpdatePullRequestApprovalRuleContentOutputTypeDef",
+    {"approvalRule": "ApprovalRuleTypeDef"},
+)
+_OptionalUpdatePullRequestApprovalRuleContentOutputTypeDef = TypedDict(
+    "_OptionalUpdatePullRequestApprovalRuleContentOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
-UpdatePullRequestDescriptionOutputTypeDef = TypedDict(
-    "UpdatePullRequestDescriptionOutputTypeDef", {"pullRequest": "PullRequestTypeDef"}
+
+class UpdatePullRequestApprovalRuleContentOutputTypeDef(
+    _RequiredUpdatePullRequestApprovalRuleContentOutputTypeDef,
+    _OptionalUpdatePullRequestApprovalRuleContentOutputTypeDef,
+):
+    pass
+
+
+_RequiredUpdatePullRequestDescriptionOutputTypeDef = TypedDict(
+    "_RequiredUpdatePullRequestDescriptionOutputTypeDef", {"pullRequest": "PullRequestTypeDef"}
+)
+_OptionalUpdatePullRequestDescriptionOutputTypeDef = TypedDict(
+    "_OptionalUpdatePullRequestDescriptionOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
-UpdatePullRequestStatusOutputTypeDef = TypedDict(
-    "UpdatePullRequestStatusOutputTypeDef", {"pullRequest": "PullRequestTypeDef"}
+
+class UpdatePullRequestDescriptionOutputTypeDef(
+    _RequiredUpdatePullRequestDescriptionOutputTypeDef,
+    _OptionalUpdatePullRequestDescriptionOutputTypeDef,
+):
+    pass
+
+
+_RequiredUpdatePullRequestStatusOutputTypeDef = TypedDict(
+    "_RequiredUpdatePullRequestStatusOutputTypeDef", {"pullRequest": "PullRequestTypeDef"}
+)
+_OptionalUpdatePullRequestStatusOutputTypeDef = TypedDict(
+    "_OptionalUpdatePullRequestStatusOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
-UpdatePullRequestTitleOutputTypeDef = TypedDict(
-    "UpdatePullRequestTitleOutputTypeDef", {"pullRequest": "PullRequestTypeDef"}
+
+class UpdatePullRequestStatusOutputTypeDef(
+    _RequiredUpdatePullRequestStatusOutputTypeDef, _OptionalUpdatePullRequestStatusOutputTypeDef
+):
+    pass
+
+
+_RequiredUpdatePullRequestTitleOutputTypeDef = TypedDict(
+    "_RequiredUpdatePullRequestTitleOutputTypeDef", {"pullRequest": "PullRequestTypeDef"}
 )
+_OptionalUpdatePullRequestTitleOutputTypeDef = TypedDict(
+    "_OptionalUpdatePullRequestTitleOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+
+class UpdatePullRequestTitleOutputTypeDef(
+    _RequiredUpdatePullRequestTitleOutputTypeDef, _OptionalUpdatePullRequestTitleOutputTypeDef
+):
+    pass

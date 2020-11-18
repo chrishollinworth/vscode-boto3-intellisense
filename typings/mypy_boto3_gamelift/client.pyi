@@ -1,4 +1,4 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import
+# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for gamelift service client
 
@@ -15,14 +15,14 @@ import sys
 from datetime import datetime
 from typing import IO, Any, Dict, List, Type, Union, overload
 
-from botocore.exceptions import ClientError as Boto3ClientError
-from botocore.paginate import Paginator as Boto3Paginator
+from botocore.client import ClientMeta
 
 from mypy_boto3_gamelift.paginator import (
     DescribeFleetAttributesPaginator,
     DescribeFleetCapacityPaginator,
     DescribeFleetEventsPaginator,
     DescribeFleetUtilizationPaginator,
+    DescribeGameServerInstancesPaginator,
     DescribeGameSessionDetailsPaginator,
     DescribeGameSessionQueuesPaginator,
     DescribeGameSessionsPaginator,
@@ -34,6 +34,9 @@ from mypy_boto3_gamelift.paginator import (
     ListAliasesPaginator,
     ListBuildsPaginator,
     ListFleetsPaginator,
+    ListGameServerGroupsPaginator,
+    ListGameServersPaginator,
+    ListScriptsPaginator,
     SearchGameSessionsPaginator,
 )
 from mypy_boto3_gamelift.type_defs import (
@@ -61,6 +64,7 @@ from mypy_boto3_gamelift.type_defs import (
     DescribeFleetPortSettingsOutputTypeDef,
     DescribeFleetUtilizationOutputTypeDef,
     DescribeGameServerGroupOutputTypeDef,
+    DescribeGameServerInstancesOutputTypeDef,
     DescribeGameServerOutputTypeDef,
     DescribeGameSessionDetailsOutputTypeDef,
     DescribeGameSessionPlacementOutputTypeDef,
@@ -136,49 +140,58 @@ else:
 __all__ = ("GameLiftClient",)
 
 
+class BotocoreClientError(BaseException):
+    MSG_TEMPLATE: str
+
+    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
+        self.response: Dict[str, Any]
+        self.operation_name: str
+
+
 class Exceptions:
-    ClientError: Type[Boto3ClientError]
-    ConflictException: Type[Boto3ClientError]
-    FleetCapacityExceededException: Type[Boto3ClientError]
-    GameSessionFullException: Type[Boto3ClientError]
-    IdempotentParameterMismatchException: Type[Boto3ClientError]
-    InternalServiceException: Type[Boto3ClientError]
-    InvalidFleetStatusException: Type[Boto3ClientError]
-    InvalidGameSessionStatusException: Type[Boto3ClientError]
-    InvalidRequestException: Type[Boto3ClientError]
-    LimitExceededException: Type[Boto3ClientError]
-    NotFoundException: Type[Boto3ClientError]
-    OutOfCapacityException: Type[Boto3ClientError]
-    TaggingFailedException: Type[Boto3ClientError]
-    TerminalRoutingStrategyException: Type[Boto3ClientError]
-    UnauthorizedException: Type[Boto3ClientError]
-    UnsupportedRegionException: Type[Boto3ClientError]
+    ClientError: Type[BotocoreClientError]
+    ConflictException: Type[BotocoreClientError]
+    FleetCapacityExceededException: Type[BotocoreClientError]
+    GameSessionFullException: Type[BotocoreClientError]
+    IdempotentParameterMismatchException: Type[BotocoreClientError]
+    InternalServiceException: Type[BotocoreClientError]
+    InvalidFleetStatusException: Type[BotocoreClientError]
+    InvalidGameSessionStatusException: Type[BotocoreClientError]
+    InvalidRequestException: Type[BotocoreClientError]
+    LimitExceededException: Type[BotocoreClientError]
+    NotFoundException: Type[BotocoreClientError]
+    OutOfCapacityException: Type[BotocoreClientError]
+    TaggingFailedException: Type[BotocoreClientError]
+    TerminalRoutingStrategyException: Type[BotocoreClientError]
+    UnauthorizedException: Type[BotocoreClientError]
+    UnsupportedRegionException: Type[BotocoreClientError]
 
 
 class GameLiftClient:
     """
-    [GameLift.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client)
+    [GameLift.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client)
     """
 
+    meta: ClientMeta
     exceptions: Exceptions
 
     def accept_match(
         self, TicketId: str, PlayerIds: List[str], AcceptanceType: Literal["ACCEPT", "REJECT"]
     ) -> Dict[str, Any]:
         """
-        [Client.accept_match documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.accept_match)
+        [Client.accept_match documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.accept_match)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.can_paginate)
         """
 
     def claim_game_server(
         self, GameServerGroupName: str, GameServerId: str = None, GameServerData: str = None
     ) -> ClaimGameServerOutputTypeDef:
         """
-        [Client.claim_game_server documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.claim_game_server)
+        [Client.claim_game_server documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.claim_game_server)
         """
 
     def create_alias(
@@ -189,7 +202,7 @@ class GameLiftClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateAliasOutputTypeDef:
         """
-        [Client.create_alias documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.create_alias)
+        [Client.create_alias documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.create_alias)
         """
 
     def create_build(
@@ -201,7 +214,7 @@ class GameLiftClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateBuildOutputTypeDef:
         """
-        [Client.create_build documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.create_build)
+        [Client.create_build documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.create_build)
         """
 
     def create_fleet(
@@ -286,7 +299,7 @@ class GameLiftClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateFleetOutputTypeDef:
         """
-        [Client.create_fleet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.create_fleet)
+        [Client.create_fleet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.create_fleet)
         """
 
     def create_game_server_group(
@@ -298,13 +311,13 @@ class GameLiftClient:
         LaunchTemplate: LaunchTemplateSpecificationTypeDef,
         InstanceDefinitions: List["InstanceDefinitionTypeDef"],
         AutoScalingPolicy: GameServerGroupAutoScalingPolicyTypeDef = None,
-        BalancingStrategy: Literal["SPOT_ONLY", "SPOT_PREFERRED"] = None,
+        BalancingStrategy: Literal["SPOT_ONLY", "SPOT_PREFERRED", "ON_DEMAND_ONLY"] = None,
         GameServerProtectionPolicy: Literal["NO_PROTECTION", "FULL_PROTECTION"] = None,
         VpcSubnets: List[str] = None,
         Tags: List["TagTypeDef"] = None,
     ) -> CreateGameServerGroupOutputTypeDef:
         """
-        [Client.create_game_server_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.create_game_server_group)
+        [Client.create_game_server_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.create_game_server_group)
         """
 
     def create_game_session(
@@ -320,7 +333,7 @@ class GameLiftClient:
         GameSessionData: str = None,
     ) -> CreateGameSessionOutputTypeDef:
         """
-        [Client.create_game_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.create_game_session)
+        [Client.create_game_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.create_game_session)
         """
 
     def create_game_session_queue(
@@ -332,7 +345,7 @@ class GameLiftClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateGameSessionQueueOutputTypeDef:
         """
-        [Client.create_game_session_queue documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.create_game_session_queue)
+        [Client.create_game_session_queue documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.create_game_session_queue)
         """
 
     def create_matchmaking_configuration(
@@ -353,28 +366,28 @@ class GameLiftClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateMatchmakingConfigurationOutputTypeDef:
         """
-        [Client.create_matchmaking_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.create_matchmaking_configuration)
+        [Client.create_matchmaking_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.create_matchmaking_configuration)
         """
 
     def create_matchmaking_rule_set(
         self, Name: str, RuleSetBody: str, Tags: List["TagTypeDef"] = None
     ) -> CreateMatchmakingRuleSetOutputTypeDef:
         """
-        [Client.create_matchmaking_rule_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.create_matchmaking_rule_set)
+        [Client.create_matchmaking_rule_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.create_matchmaking_rule_set)
         """
 
     def create_player_session(
         self, GameSessionId: str, PlayerId: str, PlayerData: str = None
     ) -> CreatePlayerSessionOutputTypeDef:
         """
-        [Client.create_player_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.create_player_session)
+        [Client.create_player_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.create_player_session)
         """
 
     def create_player_sessions(
         self, GameSessionId: str, PlayerIds: List[str], PlayerDataMap: Dict[str, str] = None
     ) -> CreatePlayerSessionsOutputTypeDef:
         """
-        [Client.create_player_sessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.create_player_sessions)
+        [Client.create_player_sessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.create_player_sessions)
         """
 
     def create_script(
@@ -386,36 +399,36 @@ class GameLiftClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateScriptOutputTypeDef:
         """
-        [Client.create_script documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.create_script)
+        [Client.create_script documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.create_script)
         """
 
     def create_vpc_peering_authorization(
         self, GameLiftAwsAccountId: str, PeerVpcId: str
     ) -> CreateVpcPeeringAuthorizationOutputTypeDef:
         """
-        [Client.create_vpc_peering_authorization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.create_vpc_peering_authorization)
+        [Client.create_vpc_peering_authorization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.create_vpc_peering_authorization)
         """
 
     def create_vpc_peering_connection(
         self, FleetId: str, PeerVpcAwsAccountId: str, PeerVpcId: str
     ) -> Dict[str, Any]:
         """
-        [Client.create_vpc_peering_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.create_vpc_peering_connection)
+        [Client.create_vpc_peering_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.create_vpc_peering_connection)
         """
 
     def delete_alias(self, AliasId: str) -> None:
         """
-        [Client.delete_alias documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.delete_alias)
+        [Client.delete_alias documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.delete_alias)
         """
 
     def delete_build(self, BuildId: str) -> None:
         """
-        [Client.delete_build documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.delete_build)
+        [Client.delete_build documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.delete_build)
         """
 
     def delete_fleet(self, FleetId: str) -> None:
         """
-        [Client.delete_fleet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.delete_fleet)
+        [Client.delete_fleet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.delete_fleet)
         """
 
     def delete_game_server_group(
@@ -424,61 +437,61 @@ class GameLiftClient:
         DeleteOption: Literal["SAFE_DELETE", "FORCE_DELETE", "RETAIN"] = None,
     ) -> DeleteGameServerGroupOutputTypeDef:
         """
-        [Client.delete_game_server_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.delete_game_server_group)
+        [Client.delete_game_server_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.delete_game_server_group)
         """
 
     def delete_game_session_queue(self, Name: str) -> Dict[str, Any]:
         """
-        [Client.delete_game_session_queue documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.delete_game_session_queue)
+        [Client.delete_game_session_queue documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.delete_game_session_queue)
         """
 
     def delete_matchmaking_configuration(self, Name: str) -> Dict[str, Any]:
         """
-        [Client.delete_matchmaking_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.delete_matchmaking_configuration)
+        [Client.delete_matchmaking_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.delete_matchmaking_configuration)
         """
 
     def delete_matchmaking_rule_set(self, Name: str) -> Dict[str, Any]:
         """
-        [Client.delete_matchmaking_rule_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.delete_matchmaking_rule_set)
+        [Client.delete_matchmaking_rule_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.delete_matchmaking_rule_set)
         """
 
     def delete_scaling_policy(self, Name: str, FleetId: str) -> None:
         """
-        [Client.delete_scaling_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.delete_scaling_policy)
+        [Client.delete_scaling_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.delete_scaling_policy)
         """
 
     def delete_script(self, ScriptId: str) -> None:
         """
-        [Client.delete_script documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.delete_script)
+        [Client.delete_script documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.delete_script)
         """
 
     def delete_vpc_peering_authorization(
         self, GameLiftAwsAccountId: str, PeerVpcId: str
     ) -> Dict[str, Any]:
         """
-        [Client.delete_vpc_peering_authorization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.delete_vpc_peering_authorization)
+        [Client.delete_vpc_peering_authorization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.delete_vpc_peering_authorization)
         """
 
     def delete_vpc_peering_connection(
         self, FleetId: str, VpcPeeringConnectionId: str
     ) -> Dict[str, Any]:
         """
-        [Client.delete_vpc_peering_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.delete_vpc_peering_connection)
+        [Client.delete_vpc_peering_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.delete_vpc_peering_connection)
         """
 
     def deregister_game_server(self, GameServerGroupName: str, GameServerId: str) -> None:
         """
-        [Client.deregister_game_server documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.deregister_game_server)
+        [Client.deregister_game_server documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.deregister_game_server)
         """
 
     def describe_alias(self, AliasId: str) -> DescribeAliasOutputTypeDef:
         """
-        [Client.describe_alias documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.describe_alias)
+        [Client.describe_alias documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.describe_alias)
         """
 
     def describe_build(self, BuildId: str) -> DescribeBuildOutputTypeDef:
         """
-        [Client.describe_build documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.describe_build)
+        [Client.describe_build documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.describe_build)
         """
 
     def describe_ec2_instance_limits(
@@ -545,21 +558,21 @@ class GameLiftClient:
         ] = None,
     ) -> DescribeEC2InstanceLimitsOutputTypeDef:
         """
-        [Client.describe_ec2_instance_limits documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.describe_ec2_instance_limits)
+        [Client.describe_ec2_instance_limits documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.describe_ec2_instance_limits)
         """
 
     def describe_fleet_attributes(
         self, FleetIds: List[str] = None, Limit: int = None, NextToken: str = None
     ) -> DescribeFleetAttributesOutputTypeDef:
         """
-        [Client.describe_fleet_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.describe_fleet_attributes)
+        [Client.describe_fleet_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.describe_fleet_attributes)
         """
 
     def describe_fleet_capacity(
         self, FleetIds: List[str] = None, Limit: int = None, NextToken: str = None
     ) -> DescribeFleetCapacityOutputTypeDef:
         """
-        [Client.describe_fleet_capacity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.describe_fleet_capacity)
+        [Client.describe_fleet_capacity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.describe_fleet_capacity)
         """
 
     def describe_fleet_events(
@@ -571,33 +584,44 @@ class GameLiftClient:
         NextToken: str = None,
     ) -> DescribeFleetEventsOutputTypeDef:
         """
-        [Client.describe_fleet_events documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.describe_fleet_events)
+        [Client.describe_fleet_events documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.describe_fleet_events)
         """
 
     def describe_fleet_port_settings(self, FleetId: str) -> DescribeFleetPortSettingsOutputTypeDef:
         """
-        [Client.describe_fleet_port_settings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.describe_fleet_port_settings)
+        [Client.describe_fleet_port_settings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.describe_fleet_port_settings)
         """
 
     def describe_fleet_utilization(
         self, FleetIds: List[str] = None, Limit: int = None, NextToken: str = None
     ) -> DescribeFleetUtilizationOutputTypeDef:
         """
-        [Client.describe_fleet_utilization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.describe_fleet_utilization)
+        [Client.describe_fleet_utilization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.describe_fleet_utilization)
         """
 
     def describe_game_server(
         self, GameServerGroupName: str, GameServerId: str
     ) -> DescribeGameServerOutputTypeDef:
         """
-        [Client.describe_game_server documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.describe_game_server)
+        [Client.describe_game_server documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.describe_game_server)
         """
 
     def describe_game_server_group(
         self, GameServerGroupName: str
     ) -> DescribeGameServerGroupOutputTypeDef:
         """
-        [Client.describe_game_server_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.describe_game_server_group)
+        [Client.describe_game_server_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.describe_game_server_group)
+        """
+
+    def describe_game_server_instances(
+        self,
+        GameServerGroupName: str,
+        InstanceIds: List[str] = None,
+        Limit: int = None,
+        NextToken: str = None,
+    ) -> DescribeGameServerInstancesOutputTypeDef:
+        """
+        [Client.describe_game_server_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.describe_game_server_instances)
         """
 
     def describe_game_session_details(
@@ -610,21 +634,21 @@ class GameLiftClient:
         NextToken: str = None,
     ) -> DescribeGameSessionDetailsOutputTypeDef:
         """
-        [Client.describe_game_session_details documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.describe_game_session_details)
+        [Client.describe_game_session_details documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.describe_game_session_details)
         """
 
     def describe_game_session_placement(
         self, PlacementId: str
     ) -> DescribeGameSessionPlacementOutputTypeDef:
         """
-        [Client.describe_game_session_placement documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.describe_game_session_placement)
+        [Client.describe_game_session_placement documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.describe_game_session_placement)
         """
 
     def describe_game_session_queues(
         self, Names: List[str] = None, Limit: int = None, NextToken: str = None
     ) -> DescribeGameSessionQueuesOutputTypeDef:
         """
-        [Client.describe_game_session_queues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.describe_game_session_queues)
+        [Client.describe_game_session_queues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.describe_game_session_queues)
         """
 
     def describe_game_sessions(
@@ -637,19 +661,19 @@ class GameLiftClient:
         NextToken: str = None,
     ) -> DescribeGameSessionsOutputTypeDef:
         """
-        [Client.describe_game_sessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.describe_game_sessions)
+        [Client.describe_game_sessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.describe_game_sessions)
         """
 
     def describe_instances(
         self, FleetId: str, InstanceId: str = None, Limit: int = None, NextToken: str = None
     ) -> DescribeInstancesOutputTypeDef:
         """
-        [Client.describe_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.describe_instances)
+        [Client.describe_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.describe_instances)
         """
 
     def describe_matchmaking(self, TicketIds: List[str]) -> DescribeMatchmakingOutputTypeDef:
         """
-        [Client.describe_matchmaking documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.describe_matchmaking)
+        [Client.describe_matchmaking documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.describe_matchmaking)
         """
 
     def describe_matchmaking_configurations(
@@ -660,14 +684,14 @@ class GameLiftClient:
         NextToken: str = None,
     ) -> DescribeMatchmakingConfigurationsOutputTypeDef:
         """
-        [Client.describe_matchmaking_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.describe_matchmaking_configurations)
+        [Client.describe_matchmaking_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.describe_matchmaking_configurations)
         """
 
     def describe_matchmaking_rule_sets(
         self, Names: List[str] = None, Limit: int = None, NextToken: str = None
     ) -> DescribeMatchmakingRuleSetsOutputTypeDef:
         """
-        [Client.describe_matchmaking_rule_sets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.describe_matchmaking_rule_sets)
+        [Client.describe_matchmaking_rule_sets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.describe_matchmaking_rule_sets)
         """
 
     def describe_player_sessions(
@@ -680,14 +704,14 @@ class GameLiftClient:
         NextToken: str = None,
     ) -> DescribePlayerSessionsOutputTypeDef:
         """
-        [Client.describe_player_sessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.describe_player_sessions)
+        [Client.describe_player_sessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.describe_player_sessions)
         """
 
     def describe_runtime_configuration(
         self, FleetId: str
     ) -> DescribeRuntimeConfigurationOutputTypeDef:
         """
-        [Client.describe_runtime_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.describe_runtime_configuration)
+        [Client.describe_runtime_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.describe_runtime_configuration)
         """
 
     def describe_scaling_policies(
@@ -706,24 +730,24 @@ class GameLiftClient:
         NextToken: str = None,
     ) -> DescribeScalingPoliciesOutputTypeDef:
         """
-        [Client.describe_scaling_policies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.describe_scaling_policies)
+        [Client.describe_scaling_policies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.describe_scaling_policies)
         """
 
     def describe_script(self, ScriptId: str) -> DescribeScriptOutputTypeDef:
         """
-        [Client.describe_script documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.describe_script)
+        [Client.describe_script documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.describe_script)
         """
 
     def describe_vpc_peering_authorizations(self) -> DescribeVpcPeeringAuthorizationsOutputTypeDef:
         """
-        [Client.describe_vpc_peering_authorizations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.describe_vpc_peering_authorizations)
+        [Client.describe_vpc_peering_authorizations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.describe_vpc_peering_authorizations)
         """
 
     def describe_vpc_peering_connections(
         self, FleetId: str = None
     ) -> DescribeVpcPeeringConnectionsOutputTypeDef:
         """
-        [Client.describe_vpc_peering_connections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.describe_vpc_peering_connections)
+        [Client.describe_vpc_peering_connections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.describe_vpc_peering_connections)
         """
 
     def generate_presigned_url(
@@ -734,17 +758,17 @@ class GameLiftClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.generate_presigned_url)
         """
 
     def get_game_session_log_url(self, GameSessionId: str) -> GetGameSessionLogUrlOutputTypeDef:
         """
-        [Client.get_game_session_log_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.get_game_session_log_url)
+        [Client.get_game_session_log_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.get_game_session_log_url)
         """
 
     def get_instance_access(self, FleetId: str, InstanceId: str) -> GetInstanceAccessOutputTypeDef:
         """
-        [Client.get_instance_access documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.get_instance_access)
+        [Client.get_instance_access documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.get_instance_access)
         """
 
     def list_aliases(
@@ -755,7 +779,7 @@ class GameLiftClient:
         NextToken: str = None,
     ) -> ListAliasesOutputTypeDef:
         """
-        [Client.list_aliases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.list_aliases)
+        [Client.list_aliases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.list_aliases)
         """
 
     def list_builds(
@@ -765,21 +789,21 @@ class GameLiftClient:
         NextToken: str = None,
     ) -> ListBuildsOutputTypeDef:
         """
-        [Client.list_builds documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.list_builds)
+        [Client.list_builds documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.list_builds)
         """
 
     def list_fleets(
         self, BuildId: str = None, ScriptId: str = None, Limit: int = None, NextToken: str = None
     ) -> ListFleetsOutputTypeDef:
         """
-        [Client.list_fleets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.list_fleets)
+        [Client.list_fleets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.list_fleets)
         """
 
     def list_game_server_groups(
         self, Limit: int = None, NextToken: str = None
     ) -> ListGameServerGroupsOutputTypeDef:
         """
-        [Client.list_game_server_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.list_game_server_groups)
+        [Client.list_game_server_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.list_game_server_groups)
         """
 
     def list_game_servers(
@@ -790,17 +814,17 @@ class GameLiftClient:
         NextToken: str = None,
     ) -> ListGameServersOutputTypeDef:
         """
-        [Client.list_game_servers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.list_game_servers)
+        [Client.list_game_servers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.list_game_servers)
         """
 
     def list_scripts(self, Limit: int = None, NextToken: str = None) -> ListScriptsOutputTypeDef:
         """
-        [Client.list_scripts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.list_scripts)
+        [Client.list_scripts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.list_scripts)
         """
 
     def list_tags_for_resource(self, ResourceARN: str) -> ListTagsForResourceResponseTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.list_tags_for_resource)
         """
 
     def put_scaling_policy(
@@ -836,7 +860,7 @@ class GameLiftClient:
         TargetConfiguration: "TargetConfigurationTypeDef" = None,
     ) -> PutScalingPolicyOutputTypeDef:
         """
-        [Client.put_scaling_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.put_scaling_policy)
+        [Client.put_scaling_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.put_scaling_policy)
         """
 
     def register_game_server(
@@ -846,28 +870,26 @@ class GameLiftClient:
         InstanceId: str,
         ConnectionInfo: str = None,
         GameServerData: str = None,
-        CustomSortKey: str = None,
-        Tags: List["TagTypeDef"] = None,
     ) -> RegisterGameServerOutputTypeDef:
         """
-        [Client.register_game_server documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.register_game_server)
+        [Client.register_game_server documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.register_game_server)
         """
 
     def request_upload_credentials(self, BuildId: str) -> RequestUploadCredentialsOutputTypeDef:
         """
-        [Client.request_upload_credentials documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.request_upload_credentials)
+        [Client.request_upload_credentials documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.request_upload_credentials)
         """
 
     def resolve_alias(self, AliasId: str) -> ResolveAliasOutputTypeDef:
         """
-        [Client.resolve_alias documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.resolve_alias)
+        [Client.resolve_alias documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.resolve_alias)
         """
 
     def resume_game_server_group(
         self, GameServerGroupName: str, ResumeActions: List[Literal["REPLACE_INSTANCE_TYPES"]]
     ) -> ResumeGameServerGroupOutputTypeDef:
         """
-        [Client.resume_game_server_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.resume_game_server_group)
+        [Client.resume_game_server_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.resume_game_server_group)
         """
 
     def search_game_sessions(
@@ -880,14 +902,14 @@ class GameLiftClient:
         NextToken: str = None,
     ) -> SearchGameSessionsOutputTypeDef:
         """
-        [Client.search_game_sessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.search_game_sessions)
+        [Client.search_game_sessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.search_game_sessions)
         """
 
     def start_fleet_actions(
         self, FleetId: str, Actions: List[Literal["AUTO_SCALING"]]
     ) -> Dict[str, Any]:
         """
-        [Client.start_fleet_actions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.start_fleet_actions)
+        [Client.start_fleet_actions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.start_fleet_actions)
         """
 
     def start_game_session_placement(
@@ -902,7 +924,7 @@ class GameLiftClient:
         GameSessionData: str = None,
     ) -> StartGameSessionPlacementOutputTypeDef:
         """
-        [Client.start_game_session_placement documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.start_game_session_placement)
+        [Client.start_game_session_placement documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.start_game_session_placement)
         """
 
     def start_match_backfill(
@@ -913,50 +935,50 @@ class GameLiftClient:
         TicketId: str = None,
     ) -> StartMatchBackfillOutputTypeDef:
         """
-        [Client.start_match_backfill documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.start_match_backfill)
+        [Client.start_match_backfill documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.start_match_backfill)
         """
 
     def start_matchmaking(
         self, ConfigurationName: str, Players: List["PlayerTypeDef"], TicketId: str = None
     ) -> StartMatchmakingOutputTypeDef:
         """
-        [Client.start_matchmaking documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.start_matchmaking)
+        [Client.start_matchmaking documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.start_matchmaking)
         """
 
     def stop_fleet_actions(
         self, FleetId: str, Actions: List[Literal["AUTO_SCALING"]]
     ) -> Dict[str, Any]:
         """
-        [Client.stop_fleet_actions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.stop_fleet_actions)
+        [Client.stop_fleet_actions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.stop_fleet_actions)
         """
 
     def stop_game_session_placement(
         self, PlacementId: str
     ) -> StopGameSessionPlacementOutputTypeDef:
         """
-        [Client.stop_game_session_placement documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.stop_game_session_placement)
+        [Client.stop_game_session_placement documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.stop_game_session_placement)
         """
 
     def stop_matchmaking(self, TicketId: str) -> Dict[str, Any]:
         """
-        [Client.stop_matchmaking documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.stop_matchmaking)
+        [Client.stop_matchmaking documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.stop_matchmaking)
         """
 
     def suspend_game_server_group(
         self, GameServerGroupName: str, SuspendActions: List[Literal["REPLACE_INSTANCE_TYPES"]]
     ) -> SuspendGameServerGroupOutputTypeDef:
         """
-        [Client.suspend_game_server_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.suspend_game_server_group)
+        [Client.suspend_game_server_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.suspend_game_server_group)
         """
 
     def tag_resource(self, ResourceARN: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.tag_resource)
         """
 
     def untag_resource(self, ResourceARN: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.untag_resource)
         """
 
     def update_alias(
@@ -967,14 +989,14 @@ class GameLiftClient:
         RoutingStrategy: "RoutingStrategyTypeDef" = None,
     ) -> UpdateAliasOutputTypeDef:
         """
-        [Client.update_alias documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.update_alias)
+        [Client.update_alias documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.update_alias)
         """
 
     def update_build(
         self, BuildId: str, Name: str = None, Version: str = None
     ) -> UpdateBuildOutputTypeDef:
         """
-        [Client.update_build documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.update_build)
+        [Client.update_build documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.update_build)
         """
 
     def update_fleet_attributes(
@@ -987,14 +1009,14 @@ class GameLiftClient:
         MetricGroups: List[str] = None,
     ) -> UpdateFleetAttributesOutputTypeDef:
         """
-        [Client.update_fleet_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.update_fleet_attributes)
+        [Client.update_fleet_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.update_fleet_attributes)
         """
 
     def update_fleet_capacity(
         self, FleetId: str, DesiredInstances: int = None, MinSize: int = None, MaxSize: int = None
     ) -> UpdateFleetCapacityOutputTypeDef:
         """
-        [Client.update_fleet_capacity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.update_fleet_capacity)
+        [Client.update_fleet_capacity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.update_fleet_capacity)
         """
 
     def update_fleet_port_settings(
@@ -1004,7 +1026,7 @@ class GameLiftClient:
         InboundPermissionRevocations: List["IpPermissionTypeDef"] = None,
     ) -> UpdateFleetPortSettingsOutputTypeDef:
         """
-        [Client.update_fleet_port_settings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.update_fleet_port_settings)
+        [Client.update_fleet_port_settings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.update_fleet_port_settings)
         """
 
     def update_game_server(
@@ -1012,12 +1034,11 @@ class GameLiftClient:
         GameServerGroupName: str,
         GameServerId: str,
         GameServerData: str = None,
-        CustomSortKey: str = None,
         UtilizationStatus: Literal["AVAILABLE", "UTILIZED"] = None,
         HealthCheck: Literal["HEALTHY"] = None,
     ) -> UpdateGameServerOutputTypeDef:
         """
-        [Client.update_game_server documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.update_game_server)
+        [Client.update_game_server documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.update_game_server)
         """
 
     def update_game_server_group(
@@ -1026,10 +1047,10 @@ class GameLiftClient:
         RoleArn: str = None,
         InstanceDefinitions: List["InstanceDefinitionTypeDef"] = None,
         GameServerProtectionPolicy: Literal["NO_PROTECTION", "FULL_PROTECTION"] = None,
-        BalancingStrategy: Literal["SPOT_ONLY", "SPOT_PREFERRED"] = None,
+        BalancingStrategy: Literal["SPOT_ONLY", "SPOT_PREFERRED", "ON_DEMAND_ONLY"] = None,
     ) -> UpdateGameServerGroupOutputTypeDef:
         """
-        [Client.update_game_server_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.update_game_server_group)
+        [Client.update_game_server_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.update_game_server_group)
         """
 
     def update_game_session(
@@ -1041,7 +1062,7 @@ class GameLiftClient:
         ProtectionPolicy: Literal["NoProtection", "FullProtection"] = None,
     ) -> UpdateGameSessionOutputTypeDef:
         """
-        [Client.update_game_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.update_game_session)
+        [Client.update_game_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.update_game_session)
         """
 
     def update_game_session_queue(
@@ -1052,7 +1073,7 @@ class GameLiftClient:
         Destinations: List["GameSessionQueueDestinationTypeDef"] = None,
     ) -> UpdateGameSessionQueueOutputTypeDef:
         """
-        [Client.update_game_session_queue documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.update_game_session_queue)
+        [Client.update_game_session_queue documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.update_game_session_queue)
         """
 
     def update_matchmaking_configuration(
@@ -1072,14 +1093,14 @@ class GameLiftClient:
         BackfillMode: Literal["AUTOMATIC", "MANUAL"] = None,
     ) -> UpdateMatchmakingConfigurationOutputTypeDef:
         """
-        [Client.update_matchmaking_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.update_matchmaking_configuration)
+        [Client.update_matchmaking_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.update_matchmaking_configuration)
         """
 
     def update_runtime_configuration(
         self, FleetId: str, RuntimeConfiguration: "RuntimeConfigurationTypeDef"
     ) -> UpdateRuntimeConfigurationOutputTypeDef:
         """
-        [Client.update_runtime_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.update_runtime_configuration)
+        [Client.update_runtime_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.update_runtime_configuration)
         """
 
     def update_script(
@@ -1091,14 +1112,14 @@ class GameLiftClient:
         ZipFile: Union[bytes, IO[bytes]] = None,
     ) -> UpdateScriptOutputTypeDef:
         """
-        [Client.update_script documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.update_script)
+        [Client.update_script documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.update_script)
         """
 
     def validate_matchmaking_rule_set(
         self, RuleSetBody: str
     ) -> ValidateMatchmakingRuleSetOutputTypeDef:
         """
-        [Client.validate_matchmaking_rule_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Client.validate_matchmaking_rule_set)
+        [Client.validate_matchmaking_rule_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Client.validate_matchmaking_rule_set)
         """
 
     @overload
@@ -1106,7 +1127,7 @@ class GameLiftClient:
         self, operation_name: Literal["describe_fleet_attributes"]
     ) -> DescribeFleetAttributesPaginator:
         """
-        [Paginator.DescribeFleetAttributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.DescribeFleetAttributes)
+        [Paginator.DescribeFleetAttributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.DescribeFleetAttributes)
         """
 
     @overload
@@ -1114,7 +1135,7 @@ class GameLiftClient:
         self, operation_name: Literal["describe_fleet_capacity"]
     ) -> DescribeFleetCapacityPaginator:
         """
-        [Paginator.DescribeFleetCapacity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.DescribeFleetCapacity)
+        [Paginator.DescribeFleetCapacity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.DescribeFleetCapacity)
         """
 
     @overload
@@ -1122,7 +1143,7 @@ class GameLiftClient:
         self, operation_name: Literal["describe_fleet_events"]
     ) -> DescribeFleetEventsPaginator:
         """
-        [Paginator.DescribeFleetEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.DescribeFleetEvents)
+        [Paginator.DescribeFleetEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.DescribeFleetEvents)
         """
 
     @overload
@@ -1130,7 +1151,15 @@ class GameLiftClient:
         self, operation_name: Literal["describe_fleet_utilization"]
     ) -> DescribeFleetUtilizationPaginator:
         """
-        [Paginator.DescribeFleetUtilization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.DescribeFleetUtilization)
+        [Paginator.DescribeFleetUtilization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.DescribeFleetUtilization)
+        """
+
+    @overload
+    def get_paginator(
+        self, operation_name: Literal["describe_game_server_instances"]
+    ) -> DescribeGameServerInstancesPaginator:
+        """
+        [Paginator.DescribeGameServerInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.DescribeGameServerInstances)
         """
 
     @overload
@@ -1138,7 +1167,7 @@ class GameLiftClient:
         self, operation_name: Literal["describe_game_session_details"]
     ) -> DescribeGameSessionDetailsPaginator:
         """
-        [Paginator.DescribeGameSessionDetails documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.DescribeGameSessionDetails)
+        [Paginator.DescribeGameSessionDetails documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.DescribeGameSessionDetails)
         """
 
     @overload
@@ -1146,7 +1175,7 @@ class GameLiftClient:
         self, operation_name: Literal["describe_game_session_queues"]
     ) -> DescribeGameSessionQueuesPaginator:
         """
-        [Paginator.DescribeGameSessionQueues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.DescribeGameSessionQueues)
+        [Paginator.DescribeGameSessionQueues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.DescribeGameSessionQueues)
         """
 
     @overload
@@ -1154,7 +1183,7 @@ class GameLiftClient:
         self, operation_name: Literal["describe_game_sessions"]
     ) -> DescribeGameSessionsPaginator:
         """
-        [Paginator.DescribeGameSessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.DescribeGameSessions)
+        [Paginator.DescribeGameSessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.DescribeGameSessions)
         """
 
     @overload
@@ -1162,7 +1191,7 @@ class GameLiftClient:
         self, operation_name: Literal["describe_instances"]
     ) -> DescribeInstancesPaginator:
         """
-        [Paginator.DescribeInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.DescribeInstances)
+        [Paginator.DescribeInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.DescribeInstances)
         """
 
     @overload
@@ -1170,7 +1199,7 @@ class GameLiftClient:
         self, operation_name: Literal["describe_matchmaking_configurations"]
     ) -> DescribeMatchmakingConfigurationsPaginator:
         """
-        [Paginator.DescribeMatchmakingConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.DescribeMatchmakingConfigurations)
+        [Paginator.DescribeMatchmakingConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.DescribeMatchmakingConfigurations)
         """
 
     @overload
@@ -1178,7 +1207,7 @@ class GameLiftClient:
         self, operation_name: Literal["describe_matchmaking_rule_sets"]
     ) -> DescribeMatchmakingRuleSetsPaginator:
         """
-        [Paginator.DescribeMatchmakingRuleSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.DescribeMatchmakingRuleSets)
+        [Paginator.DescribeMatchmakingRuleSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.DescribeMatchmakingRuleSets)
         """
 
     @overload
@@ -1186,7 +1215,7 @@ class GameLiftClient:
         self, operation_name: Literal["describe_player_sessions"]
     ) -> DescribePlayerSessionsPaginator:
         """
-        [Paginator.DescribePlayerSessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.DescribePlayerSessions)
+        [Paginator.DescribePlayerSessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.DescribePlayerSessions)
         """
 
     @overload
@@ -1194,25 +1223,47 @@ class GameLiftClient:
         self, operation_name: Literal["describe_scaling_policies"]
     ) -> DescribeScalingPoliciesPaginator:
         """
-        [Paginator.DescribeScalingPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.DescribeScalingPolicies)
+        [Paginator.DescribeScalingPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.DescribeScalingPolicies)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_aliases"]) -> ListAliasesPaginator:
         """
-        [Paginator.ListAliases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.ListAliases)
+        [Paginator.ListAliases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.ListAliases)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_builds"]) -> ListBuildsPaginator:
         """
-        [Paginator.ListBuilds documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.ListBuilds)
+        [Paginator.ListBuilds documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.ListBuilds)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_fleets"]) -> ListFleetsPaginator:
         """
-        [Paginator.ListFleets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.ListFleets)
+        [Paginator.ListFleets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.ListFleets)
+        """
+
+    @overload
+    def get_paginator(
+        self, operation_name: Literal["list_game_server_groups"]
+    ) -> ListGameServerGroupsPaginator:
+        """
+        [Paginator.ListGameServerGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.ListGameServerGroups)
+        """
+
+    @overload
+    def get_paginator(
+        self, operation_name: Literal["list_game_servers"]
+    ) -> ListGameServersPaginator:
+        """
+        [Paginator.ListGameServers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.ListGameServers)
+        """
+
+    @overload
+    def get_paginator(self, operation_name: Literal["list_scripts"]) -> ListScriptsPaginator:
+        """
+        [Paginator.ListScripts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.ListScripts)
         """
 
     @overload
@@ -1220,8 +1271,5 @@ class GameLiftClient:
         self, operation_name: Literal["search_game_sessions"]
     ) -> SearchGameSessionsPaginator:
         """
-        [Paginator.SearchGameSessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.SearchGameSessions)
+        [Paginator.SearchGameSessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.SearchGameSessions)
         """
-
-    def get_paginator(self, operation_name: str) -> Boto3Paginator:
-        pass

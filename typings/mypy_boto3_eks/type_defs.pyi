@@ -17,7 +17,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -34,6 +33,7 @@ __all__ = (
     "FargateProfileTypeDef",
     "IdentityTypeDef",
     "IssueTypeDef",
+    "KubernetesNetworkConfigResponseTypeDef",
     "LaunchTemplateSpecificationTypeDef",
     "LogSetupTypeDef",
     "LoggingTypeDef",
@@ -57,6 +57,7 @@ __all__ = (
     "DescribeFargateProfileResponseTypeDef",
     "DescribeNodegroupResponseTypeDef",
     "DescribeUpdateResponseTypeDef",
+    "KubernetesNetworkConfigRequestTypeDef",
     "ListClustersResponseTypeDef",
     "ListFargateProfilesResponseTypeDef",
     "ListNodegroupsResponseTypeDef",
@@ -86,6 +87,7 @@ ClusterTypeDef = TypedDict(
         "endpoint": str,
         "roleArn": str,
         "resourcesVpcConfig": "VpcConfigResponseTypeDef",
+        "kubernetesNetworkConfig": "KubernetesNetworkConfigResponseTypeDef",
         "logging": "LoggingTypeDef",
         "identity": "IdentityTypeDef",
         "status": Literal["CREATING", "ACTIVE", "DELETING", "FAILED", "UPDATING"],
@@ -117,6 +119,7 @@ ErrorDetailTypeDef = TypedDict(
             "NodeCreationFailure",
             "PodEvictionFailure",
             "InsufficientFreeAddresses",
+            "ClusterUnreachable",
         ],
         "errorMessage": str,
         "resourceIds": List[str],
@@ -167,11 +170,16 @@ IssueTypeDef = TypedDict(
             "InsufficientFreeAddresses",
             "AccessDenied",
             "InternalFailure",
+            "ClusterUnreachable",
         ],
         "message": str,
         "resourceIds": List[str],
     },
     total=False,
+)
+
+KubernetesNetworkConfigResponseTypeDef = TypedDict(
+    "KubernetesNetworkConfigResponseTypeDef", {"serviceIpv4Cidr": str}, total=False
 )
 
 LaunchTemplateSpecificationTypeDef = TypedDict(
@@ -339,6 +347,10 @@ DescribeNodegroupResponseTypeDef = TypedDict(
 
 DescribeUpdateResponseTypeDef = TypedDict(
     "DescribeUpdateResponseTypeDef", {"update": "UpdateTypeDef"}, total=False
+)
+
+KubernetesNetworkConfigRequestTypeDef = TypedDict(
+    "KubernetesNetworkConfigRequestTypeDef", {"serviceIpv4Cidr": str}, total=False
 )
 
 ListClustersResponseTypeDef = TypedDict(

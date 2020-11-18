@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import IO, Any, Dict, List, Union
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -862,7 +861,7 @@ TypedAttributeValueTypeDef = TypedDict(
     "TypedAttributeValueTypeDef",
     {
         "StringValue": str,
-        "BinaryValue": bytes,
+        "BinaryValue": Union[bytes, IO[bytes]],
         "BooleanValue": bool,
         "NumberValue": str,
         "DatetimeValue": datetime,

@@ -1,4 +1,4 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import
+# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for pi service client
 
@@ -15,7 +15,7 @@ import sys
 from datetime import datetime
 from typing import Any, Dict, List, Type
 
-from botocore.exceptions import ClientError as Boto3ClientError
+from botocore.client import ClientMeta
 
 from mypy_boto3_pi.type_defs import (
     DescribeDimensionKeysResponseTypeDef,
@@ -33,23 +33,32 @@ else:
 __all__ = ("PIClient",)
 
 
+class BotocoreClientError(BaseException):
+    MSG_TEMPLATE: str
+
+    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
+        self.response: Dict[str, Any]
+        self.operation_name: str
+
+
 class Exceptions:
-    ClientError: Type[Boto3ClientError]
-    InternalServiceError: Type[Boto3ClientError]
-    InvalidArgumentException: Type[Boto3ClientError]
-    NotAuthorizedException: Type[Boto3ClientError]
+    ClientError: Type[BotocoreClientError]
+    InternalServiceError: Type[BotocoreClientError]
+    InvalidArgumentException: Type[BotocoreClientError]
+    NotAuthorizedException: Type[BotocoreClientError]
 
 
 class PIClient:
     """
-    [PI.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/pi.html#PI.Client)
+    [PI.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/pi.html#PI.Client)
     """
 
+    meta: ClientMeta
     exceptions: Exceptions
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/pi.html#PI.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/pi.html#PI.Client.can_paginate)
         """
 
     def describe_dimension_keys(
@@ -67,7 +76,7 @@ class PIClient:
         NextToken: str = None,
     ) -> DescribeDimensionKeysResponseTypeDef:
         """
-        [Client.describe_dimension_keys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/pi.html#PI.Client.describe_dimension_keys)
+        [Client.describe_dimension_keys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/pi.html#PI.Client.describe_dimension_keys)
         """
 
     def generate_presigned_url(
@@ -78,7 +87,7 @@ class PIClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/pi.html#PI.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/pi.html#PI.Client.generate_presigned_url)
         """
 
     def get_resource_metrics(
@@ -93,5 +102,5 @@ class PIClient:
         NextToken: str = None,
     ) -> GetResourceMetricsResponseTypeDef:
         """
-        [Client.get_resource_metrics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/pi.html#PI.Client.get_resource_metrics)
+        [Client.get_resource_metrics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/pi.html#PI.Client.get_resource_metrics)
         """

@@ -10,13 +10,12 @@ Usage::
     ```
 """
 import sys
-from typing import Dict, List
+from typing import IO, Dict, List, Union
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -125,7 +124,7 @@ ApiCacheTypeDef = TypedDict(
 )
 
 ApiKeyTypeDef = TypedDict(
-    "ApiKeyTypeDef", {"id": str, "description": str, "expires": int}, total=False
+    "ApiKeyTypeDef", {"id": str, "description": str, "expires": int, "deletes": int}, total=False
 )
 
 _RequiredAuthorizationConfigTypeDef = TypedDict(
@@ -245,6 +244,7 @@ GraphqlApiTypeDef = TypedDict(
         "tags": Dict[str, str],
         "additionalAuthenticationProviders": List["AdditionalAuthenticationProviderTypeDef"],
         "xrayEnabled": bool,
+        "wafWebAclArn": str,
     },
     total=False,
 )
@@ -416,7 +416,7 @@ GetGraphqlApiResponseTypeDef = TypedDict(
 )
 
 GetIntrospectionSchemaResponseTypeDef = TypedDict(
-    "GetIntrospectionSchemaResponseTypeDef", {"schema": bytes}, total=False
+    "GetIntrospectionSchemaResponseTypeDef", {"schema": Union[bytes, IO[bytes]]}, total=False
 )
 
 GetResolverResponseTypeDef = TypedDict(

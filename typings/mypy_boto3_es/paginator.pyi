@@ -49,7 +49,7 @@ __all__ = (
 
 class DescribeReservedElasticsearchInstanceOfferingsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeReservedElasticsearchInstanceOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Paginator.DescribeReservedElasticsearchInstanceOfferings)
+    [Paginator.DescribeReservedElasticsearchInstanceOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Paginator.DescribeReservedElasticsearchInstanceOfferings)
     """
 
     def paginate(
@@ -58,13 +58,13 @@ class DescribeReservedElasticsearchInstanceOfferingsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeReservedElasticsearchInstanceOfferingsResponseTypeDef]:
         """
-        [DescribeReservedElasticsearchInstanceOfferings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Paginator.DescribeReservedElasticsearchInstanceOfferings.paginate)
+        [DescribeReservedElasticsearchInstanceOfferings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Paginator.DescribeReservedElasticsearchInstanceOfferings.paginate)
         """
 
 
 class DescribeReservedElasticsearchInstancesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeReservedElasticsearchInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Paginator.DescribeReservedElasticsearchInstances)
+    [Paginator.DescribeReservedElasticsearchInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Paginator.DescribeReservedElasticsearchInstances)
     """
 
     def paginate(
@@ -73,26 +73,26 @@ class DescribeReservedElasticsearchInstancesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeReservedElasticsearchInstancesResponseTypeDef]:
         """
-        [DescribeReservedElasticsearchInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Paginator.DescribeReservedElasticsearchInstances.paginate)
+        [DescribeReservedElasticsearchInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Paginator.DescribeReservedElasticsearchInstances.paginate)
         """
 
 
 class GetUpgradeHistoryPaginator(Boto3Paginator):
     """
-    [Paginator.GetUpgradeHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Paginator.GetUpgradeHistory)
+    [Paginator.GetUpgradeHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Paginator.GetUpgradeHistory)
     """
 
     def paginate(
         self, DomainName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetUpgradeHistoryResponseTypeDef]:
         """
-        [GetUpgradeHistory.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Paginator.GetUpgradeHistory.paginate)
+        [GetUpgradeHistory.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Paginator.GetUpgradeHistory.paginate)
         """
 
 
 class ListElasticsearchInstanceTypesPaginator(Boto3Paginator):
     """
-    [Paginator.ListElasticsearchInstanceTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Paginator.ListElasticsearchInstanceTypes)
+    [Paginator.ListElasticsearchInstanceTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Paginator.ListElasticsearchInstanceTypes)
     """
 
     def paginate(
@@ -102,18 +102,18 @@ class ListElasticsearchInstanceTypesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListElasticsearchInstanceTypesResponseTypeDef]:
         """
-        [ListElasticsearchInstanceTypes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Paginator.ListElasticsearchInstanceTypes.paginate)
+        [ListElasticsearchInstanceTypes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Paginator.ListElasticsearchInstanceTypes.paginate)
         """
 
 
 class ListElasticsearchVersionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListElasticsearchVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Paginator.ListElasticsearchVersions)
+    [Paginator.ListElasticsearchVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Paginator.ListElasticsearchVersions)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListElasticsearchVersionsResponseTypeDef]:
         """
-        [ListElasticsearchVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Paginator.ListElasticsearchVersions.paginate)
+        [ListElasticsearchVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Paginator.ListElasticsearchVersions.paginate)
         """

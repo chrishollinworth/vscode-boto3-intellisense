@@ -15,6 +15,7 @@ Usage::
         ListInstanceFleetsPaginator,
         ListInstanceGroupsPaginator,
         ListInstancesPaginator,
+        ListNotebookExecutionsPaginator,
         ListSecurityConfigurationsPaginator,
         ListStepsPaginator,
         StepCompleteWaiter,
@@ -34,6 +35,7 @@ Usage::
     list_instance_fleets_paginator: ListInstanceFleetsPaginator = client.get_paginator("list_instance_fleets")
     list_instance_groups_paginator: ListInstanceGroupsPaginator = client.get_paginator("list_instance_groups")
     list_instances_paginator: ListInstancesPaginator = client.get_paginator("list_instances")
+    list_notebook_executions_paginator: ListNotebookExecutionsPaginator = client.get_paginator("list_notebook_executions")
     list_security_configurations_paginator: ListSecurityConfigurationsPaginator = client.get_paginator("list_security_configurations")
     list_steps_paginator: ListStepsPaginator = client.get_paginator("list_steps")
     ```
@@ -45,6 +47,7 @@ from mypy_boto3_emr.paginator import (
     ListInstanceFleetsPaginator,
     ListInstanceGroupsPaginator,
     ListInstancesPaginator,
+    ListNotebookExecutionsPaginator,
     ListSecurityConfigurationsPaginator,
     ListStepsPaginator,
 )
@@ -63,6 +66,7 @@ __all__ = (
     "ListInstanceFleetsPaginator",
     "ListInstanceGroupsPaginator",
     "ListInstancesPaginator",
+    "ListNotebookExecutionsPaginator",
     "ListSecurityConfigurationsPaginator",
     "ListStepsPaginator",
     "StepCompleteWaiter",

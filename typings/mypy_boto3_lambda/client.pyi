@@ -1,4 +1,4 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import
+# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for lambda service client
 
@@ -15,9 +15,7 @@ import sys
 from datetime import datetime
 from typing import IO, Any, Dict, List, Type, Union, overload
 
-from botocore.exceptions import ClientError as Boto3ClientError
-from botocore.paginate import Paginator as Boto3Paginator
-from botocore.waiter import Waiter as Boto3Waiter
+from botocore.client import ClientMeta
 
 from mypy_boto3_lambda.paginator import (
     ListAliasesPaginator,
@@ -64,6 +62,7 @@ from mypy_boto3_lambda.type_defs import (
     ListVersionsByFunctionResponseTypeDef,
     PublishLayerVersionResponseTypeDef,
     PutProvisionedConcurrencyConfigResponseTypeDef,
+    SourceAccessConfigurationTypeDef,
     TracingConfigTypeDef,
     VpcConfigTypeDef,
 )
@@ -82,46 +81,55 @@ else:
 __all__ = ("LambdaClient",)
 
 
+class BotocoreClientError(BaseException):
+    MSG_TEMPLATE: str
+
+    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
+        self.response: Dict[str, Any]
+        self.operation_name: str
+
+
 class Exceptions:
-    ClientError: Type[Boto3ClientError]
-    CodeStorageExceededException: Type[Boto3ClientError]
-    EC2AccessDeniedException: Type[Boto3ClientError]
-    EC2ThrottledException: Type[Boto3ClientError]
-    EC2UnexpectedException: Type[Boto3ClientError]
-    EFSIOException: Type[Boto3ClientError]
-    EFSMountConnectivityException: Type[Boto3ClientError]
-    EFSMountFailureException: Type[Boto3ClientError]
-    EFSMountTimeoutException: Type[Boto3ClientError]
-    ENILimitReachedException: Type[Boto3ClientError]
-    InvalidParameterValueException: Type[Boto3ClientError]
-    InvalidRequestContentException: Type[Boto3ClientError]
-    InvalidRuntimeException: Type[Boto3ClientError]
-    InvalidSecurityGroupIDException: Type[Boto3ClientError]
-    InvalidSubnetIDException: Type[Boto3ClientError]
-    InvalidZipFileException: Type[Boto3ClientError]
-    KMSAccessDeniedException: Type[Boto3ClientError]
-    KMSDisabledException: Type[Boto3ClientError]
-    KMSInvalidStateException: Type[Boto3ClientError]
-    KMSNotFoundException: Type[Boto3ClientError]
-    PolicyLengthExceededException: Type[Boto3ClientError]
-    PreconditionFailedException: Type[Boto3ClientError]
-    ProvisionedConcurrencyConfigNotFoundException: Type[Boto3ClientError]
-    RequestTooLargeException: Type[Boto3ClientError]
-    ResourceConflictException: Type[Boto3ClientError]
-    ResourceInUseException: Type[Boto3ClientError]
-    ResourceNotFoundException: Type[Boto3ClientError]
-    ResourceNotReadyException: Type[Boto3ClientError]
-    ServiceException: Type[Boto3ClientError]
-    SubnetIPAddressLimitReachedException: Type[Boto3ClientError]
-    TooManyRequestsException: Type[Boto3ClientError]
-    UnsupportedMediaTypeException: Type[Boto3ClientError]
+    ClientError: Type[BotocoreClientError]
+    CodeStorageExceededException: Type[BotocoreClientError]
+    EC2AccessDeniedException: Type[BotocoreClientError]
+    EC2ThrottledException: Type[BotocoreClientError]
+    EC2UnexpectedException: Type[BotocoreClientError]
+    EFSIOException: Type[BotocoreClientError]
+    EFSMountConnectivityException: Type[BotocoreClientError]
+    EFSMountFailureException: Type[BotocoreClientError]
+    EFSMountTimeoutException: Type[BotocoreClientError]
+    ENILimitReachedException: Type[BotocoreClientError]
+    InvalidParameterValueException: Type[BotocoreClientError]
+    InvalidRequestContentException: Type[BotocoreClientError]
+    InvalidRuntimeException: Type[BotocoreClientError]
+    InvalidSecurityGroupIDException: Type[BotocoreClientError]
+    InvalidSubnetIDException: Type[BotocoreClientError]
+    InvalidZipFileException: Type[BotocoreClientError]
+    KMSAccessDeniedException: Type[BotocoreClientError]
+    KMSDisabledException: Type[BotocoreClientError]
+    KMSInvalidStateException: Type[BotocoreClientError]
+    KMSNotFoundException: Type[BotocoreClientError]
+    PolicyLengthExceededException: Type[BotocoreClientError]
+    PreconditionFailedException: Type[BotocoreClientError]
+    ProvisionedConcurrencyConfigNotFoundException: Type[BotocoreClientError]
+    RequestTooLargeException: Type[BotocoreClientError]
+    ResourceConflictException: Type[BotocoreClientError]
+    ResourceInUseException: Type[BotocoreClientError]
+    ResourceNotFoundException: Type[BotocoreClientError]
+    ResourceNotReadyException: Type[BotocoreClientError]
+    ServiceException: Type[BotocoreClientError]
+    SubnetIPAddressLimitReachedException: Type[BotocoreClientError]
+    TooManyRequestsException: Type[BotocoreClientError]
+    UnsupportedMediaTypeException: Type[BotocoreClientError]
 
 
 class LambdaClient:
     """
-    [Lambda.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client)
+    [Lambda.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client)
     """
 
+    meta: ClientMeta
     exceptions: Exceptions
 
     def add_layer_version_permission(
@@ -135,7 +143,7 @@ class LambdaClient:
         RevisionId: str = None,
     ) -> AddLayerVersionPermissionResponseTypeDef:
         """
-        [Client.add_layer_version_permission documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.add_layer_version_permission)
+        [Client.add_layer_version_permission documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.add_layer_version_permission)
         """
 
     def add_permission(
@@ -151,12 +159,12 @@ class LambdaClient:
         RevisionId: str = None,
     ) -> AddPermissionResponseTypeDef:
         """
-        [Client.add_permission documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.add_permission)
+        [Client.add_permission documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.add_permission)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.can_paginate)
         """
 
     def create_alias(
@@ -168,7 +176,7 @@ class LambdaClient:
         RoutingConfig: "AliasRoutingConfigurationTypeDef" = None,
     ) -> "AliasConfigurationTypeDef":
         """
-        [Client.create_alias documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.create_alias)
+        [Client.create_alias documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.create_alias)
         """
 
     def create_event_source_mapping(
@@ -186,9 +194,11 @@ class LambdaClient:
         BisectBatchOnFunctionError: bool = None,
         MaximumRetryAttempts: int = None,
         Topics: List[str] = None,
+        Queues: List[str] = None,
+        SourceAccessConfigurations: List["SourceAccessConfigurationTypeDef"] = None,
     ) -> "EventSourceMappingConfigurationTypeDef":
         """
-        [Client.create_event_source_mapping documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.create_event_source_mapping)
+        [Client.create_event_source_mapping documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.create_event_source_mapping)
         """
 
     def create_function(
@@ -236,42 +246,42 @@ class LambdaClient:
         FileSystemConfigs: List["FileSystemConfigTypeDef"] = None,
     ) -> "FunctionConfigurationTypeDef":
         """
-        [Client.create_function documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.create_function)
+        [Client.create_function documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.create_function)
         """
 
     def delete_alias(self, FunctionName: str, Name: str) -> None:
         """
-        [Client.delete_alias documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.delete_alias)
+        [Client.delete_alias documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.delete_alias)
         """
 
     def delete_event_source_mapping(self, UUID: str) -> "EventSourceMappingConfigurationTypeDef":
         """
-        [Client.delete_event_source_mapping documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.delete_event_source_mapping)
+        [Client.delete_event_source_mapping documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.delete_event_source_mapping)
         """
 
     def delete_function(self, FunctionName: str, Qualifier: str = None) -> None:
         """
-        [Client.delete_function documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.delete_function)
+        [Client.delete_function documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.delete_function)
         """
 
     def delete_function_concurrency(self, FunctionName: str) -> None:
         """
-        [Client.delete_function_concurrency documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.delete_function_concurrency)
+        [Client.delete_function_concurrency documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.delete_function_concurrency)
         """
 
     def delete_function_event_invoke_config(self, FunctionName: str, Qualifier: str = None) -> None:
         """
-        [Client.delete_function_event_invoke_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.delete_function_event_invoke_config)
+        [Client.delete_function_event_invoke_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.delete_function_event_invoke_config)
         """
 
     def delete_layer_version(self, LayerName: str, VersionNumber: int) -> None:
         """
-        [Client.delete_layer_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.delete_layer_version)
+        [Client.delete_layer_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.delete_layer_version)
         """
 
     def delete_provisioned_concurrency_config(self, FunctionName: str, Qualifier: str) -> None:
         """
-        [Client.delete_provisioned_concurrency_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.delete_provisioned_concurrency_config)
+        [Client.delete_provisioned_concurrency_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.delete_provisioned_concurrency_config)
         """
 
     def generate_presigned_url(
@@ -282,77 +292,77 @@ class LambdaClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.generate_presigned_url)
         """
 
     def get_account_settings(self) -> GetAccountSettingsResponseTypeDef:
         """
-        [Client.get_account_settings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.get_account_settings)
+        [Client.get_account_settings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.get_account_settings)
         """
 
     def get_alias(self, FunctionName: str, Name: str) -> "AliasConfigurationTypeDef":
         """
-        [Client.get_alias documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.get_alias)
+        [Client.get_alias documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.get_alias)
         """
 
     def get_event_source_mapping(self, UUID: str) -> "EventSourceMappingConfigurationTypeDef":
         """
-        [Client.get_event_source_mapping documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.get_event_source_mapping)
+        [Client.get_event_source_mapping documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.get_event_source_mapping)
         """
 
     def get_function(self, FunctionName: str, Qualifier: str = None) -> GetFunctionResponseTypeDef:
         """
-        [Client.get_function documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.get_function)
+        [Client.get_function documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.get_function)
         """
 
     def get_function_concurrency(self, FunctionName: str) -> GetFunctionConcurrencyResponseTypeDef:
         """
-        [Client.get_function_concurrency documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.get_function_concurrency)
+        [Client.get_function_concurrency documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.get_function_concurrency)
         """
 
     def get_function_configuration(
         self, FunctionName: str, Qualifier: str = None
     ) -> "FunctionConfigurationTypeDef":
         """
-        [Client.get_function_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.get_function_configuration)
+        [Client.get_function_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.get_function_configuration)
         """
 
     def get_function_event_invoke_config(
         self, FunctionName: str, Qualifier: str = None
     ) -> "FunctionEventInvokeConfigTypeDef":
         """
-        [Client.get_function_event_invoke_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.get_function_event_invoke_config)
+        [Client.get_function_event_invoke_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.get_function_event_invoke_config)
         """
 
     def get_layer_version(
         self, LayerName: str, VersionNumber: int
     ) -> GetLayerVersionResponseTypeDef:
         """
-        [Client.get_layer_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.get_layer_version)
+        [Client.get_layer_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.get_layer_version)
         """
 
     def get_layer_version_by_arn(self, Arn: str) -> GetLayerVersionResponseTypeDef:
         """
-        [Client.get_layer_version_by_arn documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.get_layer_version_by_arn)
+        [Client.get_layer_version_by_arn documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.get_layer_version_by_arn)
         """
 
     def get_layer_version_policy(
         self, LayerName: str, VersionNumber: int
     ) -> GetLayerVersionPolicyResponseTypeDef:
         """
-        [Client.get_layer_version_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.get_layer_version_policy)
+        [Client.get_layer_version_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.get_layer_version_policy)
         """
 
     def get_policy(self, FunctionName: str, Qualifier: str = None) -> GetPolicyResponseTypeDef:
         """
-        [Client.get_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.get_policy)
+        [Client.get_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.get_policy)
         """
 
     def get_provisioned_concurrency_config(
         self, FunctionName: str, Qualifier: str
     ) -> GetProvisionedConcurrencyConfigResponseTypeDef:
         """
-        [Client.get_provisioned_concurrency_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.get_provisioned_concurrency_config)
+        [Client.get_provisioned_concurrency_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.get_provisioned_concurrency_config)
         """
 
     def invoke(
@@ -365,14 +375,14 @@ class LambdaClient:
         Qualifier: str = None,
     ) -> InvocationResponseTypeDef:
         """
-        [Client.invoke documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.invoke)
+        [Client.invoke documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.invoke)
         """
 
     def invoke_async(
         self, FunctionName: str, InvokeArgs: Union[bytes, IO[bytes]]
     ) -> InvokeAsyncResponseTypeDef:
         """
-        [Client.invoke_async documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.invoke_async)
+        [Client.invoke_async documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.invoke_async)
         """
 
     def list_aliases(
@@ -383,7 +393,7 @@ class LambdaClient:
         MaxItems: int = None,
     ) -> ListAliasesResponseTypeDef:
         """
-        [Client.list_aliases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.list_aliases)
+        [Client.list_aliases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.list_aliases)
         """
 
     def list_event_source_mappings(
@@ -394,14 +404,14 @@ class LambdaClient:
         MaxItems: int = None,
     ) -> ListEventSourceMappingsResponseTypeDef:
         """
-        [Client.list_event_source_mappings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.list_event_source_mappings)
+        [Client.list_event_source_mappings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.list_event_source_mappings)
         """
 
     def list_function_event_invoke_configs(
         self, FunctionName: str, Marker: str = None, MaxItems: int = None
     ) -> ListFunctionEventInvokeConfigsResponseTypeDef:
         """
-        [Client.list_function_event_invoke_configs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.list_function_event_invoke_configs)
+        [Client.list_function_event_invoke_configs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.list_function_event_invoke_configs)
         """
 
     def list_functions(
@@ -412,7 +422,7 @@ class LambdaClient:
         MaxItems: int = None,
     ) -> ListFunctionsResponseTypeDef:
         """
-        [Client.list_functions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.list_functions)
+        [Client.list_functions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.list_functions)
         """
 
     def list_layer_versions(
@@ -447,7 +457,7 @@ class LambdaClient:
         MaxItems: int = None,
     ) -> ListLayerVersionsResponseTypeDef:
         """
-        [Client.list_layer_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.list_layer_versions)
+        [Client.list_layer_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.list_layer_versions)
         """
 
     def list_layers(
@@ -481,26 +491,26 @@ class LambdaClient:
         MaxItems: int = None,
     ) -> ListLayersResponseTypeDef:
         """
-        [Client.list_layers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.list_layers)
+        [Client.list_layers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.list_layers)
         """
 
     def list_provisioned_concurrency_configs(
         self, FunctionName: str, Marker: str = None, MaxItems: int = None
     ) -> ListProvisionedConcurrencyConfigsResponseTypeDef:
         """
-        [Client.list_provisioned_concurrency_configs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.list_provisioned_concurrency_configs)
+        [Client.list_provisioned_concurrency_configs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.list_provisioned_concurrency_configs)
         """
 
     def list_tags(self, Resource: str) -> ListTagsResponseTypeDef:
         """
-        [Client.list_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.list_tags)
+        [Client.list_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.list_tags)
         """
 
     def list_versions_by_function(
         self, FunctionName: str, Marker: str = None, MaxItems: int = None
     ) -> ListVersionsByFunctionResponseTypeDef:
         """
-        [Client.list_versions_by_function documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.list_versions_by_function)
+        [Client.list_versions_by_function documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.list_versions_by_function)
         """
 
     def publish_layer_version(
@@ -538,7 +548,7 @@ class LambdaClient:
         LicenseInfo: str = None,
     ) -> PublishLayerVersionResponseTypeDef:
         """
-        [Client.publish_layer_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.publish_layer_version)
+        [Client.publish_layer_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.publish_layer_version)
         """
 
     def publish_version(
@@ -549,14 +559,14 @@ class LambdaClient:
         RevisionId: str = None,
     ) -> "FunctionConfigurationTypeDef":
         """
-        [Client.publish_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.publish_version)
+        [Client.publish_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.publish_version)
         """
 
     def put_function_concurrency(
         self, FunctionName: str, ReservedConcurrentExecutions: int
     ) -> "ConcurrencyTypeDef":
         """
-        [Client.put_function_concurrency documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.put_function_concurrency)
+        [Client.put_function_concurrency documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.put_function_concurrency)
         """
 
     def put_function_event_invoke_config(
@@ -568,38 +578,38 @@ class LambdaClient:
         DestinationConfig: "DestinationConfigTypeDef" = None,
     ) -> "FunctionEventInvokeConfigTypeDef":
         """
-        [Client.put_function_event_invoke_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.put_function_event_invoke_config)
+        [Client.put_function_event_invoke_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.put_function_event_invoke_config)
         """
 
     def put_provisioned_concurrency_config(
         self, FunctionName: str, Qualifier: str, ProvisionedConcurrentExecutions: int
     ) -> PutProvisionedConcurrencyConfigResponseTypeDef:
         """
-        [Client.put_provisioned_concurrency_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.put_provisioned_concurrency_config)
+        [Client.put_provisioned_concurrency_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.put_provisioned_concurrency_config)
         """
 
     def remove_layer_version_permission(
         self, LayerName: str, VersionNumber: int, StatementId: str, RevisionId: str = None
     ) -> None:
         """
-        [Client.remove_layer_version_permission documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.remove_layer_version_permission)
+        [Client.remove_layer_version_permission documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.remove_layer_version_permission)
         """
 
     def remove_permission(
         self, FunctionName: str, StatementId: str, Qualifier: str = None, RevisionId: str = None
     ) -> None:
         """
-        [Client.remove_permission documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.remove_permission)
+        [Client.remove_permission documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.remove_permission)
         """
 
     def tag_resource(self, Resource: str, Tags: Dict[str, str]) -> None:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.tag_resource)
         """
 
     def untag_resource(self, Resource: str, TagKeys: List[str]) -> None:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.untag_resource)
         """
 
     def update_alias(
@@ -612,7 +622,7 @@ class LambdaClient:
         RevisionId: str = None,
     ) -> "AliasConfigurationTypeDef":
         """
-        [Client.update_alias documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.update_alias)
+        [Client.update_alias documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.update_alias)
         """
 
     def update_event_source_mapping(
@@ -627,9 +637,10 @@ class LambdaClient:
         BisectBatchOnFunctionError: bool = None,
         MaximumRetryAttempts: int = None,
         ParallelizationFactor: int = None,
+        SourceAccessConfigurations: List["SourceAccessConfigurationTypeDef"] = None,
     ) -> "EventSourceMappingConfigurationTypeDef":
         """
-        [Client.update_event_source_mapping documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.update_event_source_mapping)
+        [Client.update_event_source_mapping documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.update_event_source_mapping)
         """
 
     def update_function_code(
@@ -644,7 +655,7 @@ class LambdaClient:
         RevisionId: str = None,
     ) -> "FunctionConfigurationTypeDef":
         """
-        [Client.update_function_code documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.update_function_code)
+        [Client.update_function_code documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.update_function_code)
         """
 
     def update_function_configuration(
@@ -690,7 +701,7 @@ class LambdaClient:
         FileSystemConfigs: List["FileSystemConfigTypeDef"] = None,
     ) -> "FunctionConfigurationTypeDef":
         """
-        [Client.update_function_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.update_function_configuration)
+        [Client.update_function_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.update_function_configuration)
         """
 
     def update_function_event_invoke_config(
@@ -702,13 +713,13 @@ class LambdaClient:
         DestinationConfig: "DestinationConfigTypeDef" = None,
     ) -> "FunctionEventInvokeConfigTypeDef":
         """
-        [Client.update_function_event_invoke_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Client.update_function_event_invoke_config)
+        [Client.update_function_event_invoke_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Client.update_function_event_invoke_config)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_aliases"]) -> ListAliasesPaginator:
         """
-        [Paginator.ListAliases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Paginator.ListAliases)
+        [Paginator.ListAliases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Paginator.ListAliases)
         """
 
     @overload
@@ -716,7 +727,7 @@ class LambdaClient:
         self, operation_name: Literal["list_event_source_mappings"]
     ) -> ListEventSourceMappingsPaginator:
         """
-        [Paginator.ListEventSourceMappings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Paginator.ListEventSourceMappings)
+        [Paginator.ListEventSourceMappings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Paginator.ListEventSourceMappings)
         """
 
     @overload
@@ -724,13 +735,13 @@ class LambdaClient:
         self, operation_name: Literal["list_function_event_invoke_configs"]
     ) -> ListFunctionEventInvokeConfigsPaginator:
         """
-        [Paginator.ListFunctionEventInvokeConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Paginator.ListFunctionEventInvokeConfigs)
+        [Paginator.ListFunctionEventInvokeConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Paginator.ListFunctionEventInvokeConfigs)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_functions"]) -> ListFunctionsPaginator:
         """
-        [Paginator.ListFunctions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Paginator.ListFunctions)
+        [Paginator.ListFunctions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Paginator.ListFunctions)
         """
 
     @overload
@@ -738,13 +749,13 @@ class LambdaClient:
         self, operation_name: Literal["list_layer_versions"]
     ) -> ListLayerVersionsPaginator:
         """
-        [Paginator.ListLayerVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Paginator.ListLayerVersions)
+        [Paginator.ListLayerVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Paginator.ListLayerVersions)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_layers"]) -> ListLayersPaginator:
         """
-        [Paginator.ListLayers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Paginator.ListLayers)
+        [Paginator.ListLayers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Paginator.ListLayers)
         """
 
     @overload
@@ -752,7 +763,7 @@ class LambdaClient:
         self, operation_name: Literal["list_provisioned_concurrency_configs"]
     ) -> ListProvisionedConcurrencyConfigsPaginator:
         """
-        [Paginator.ListProvisionedConcurrencyConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Paginator.ListProvisionedConcurrencyConfigs)
+        [Paginator.ListProvisionedConcurrencyConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Paginator.ListProvisionedConcurrencyConfigs)
         """
 
     @overload
@@ -760,29 +771,23 @@ class LambdaClient:
         self, operation_name: Literal["list_versions_by_function"]
     ) -> ListVersionsByFunctionPaginator:
         """
-        [Paginator.ListVersionsByFunction documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Paginator.ListVersionsByFunction)
+        [Paginator.ListVersionsByFunction documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Paginator.ListVersionsByFunction)
         """
-
-    def get_paginator(self, operation_name: str) -> Boto3Paginator:
-        pass
 
     @overload
     def get_waiter(self, waiter_name: Literal["function_active"]) -> FunctionActiveWaiter:
         """
-        [Waiter.FunctionActive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Waiter.FunctionActive)
+        [Waiter.FunctionActive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Waiter.FunctionActive)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["function_exists"]) -> FunctionExistsWaiter:
         """
-        [Waiter.FunctionExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Waiter.FunctionExists)
+        [Waiter.FunctionExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Waiter.FunctionExists)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["function_updated"]) -> FunctionUpdatedWaiter:
         """
-        [Waiter.FunctionUpdated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Waiter.FunctionUpdated)
+        [Waiter.FunctionUpdated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Waiter.FunctionUpdated)
         """
-
-    def get_waiter(self, waiter_name: str) -> Boto3Waiter:
-        pass

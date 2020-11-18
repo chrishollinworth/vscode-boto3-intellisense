@@ -4,9 +4,9 @@ Main interface for elasticache service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_elasticache.type_defs import AvailabilityZoneTypeDef
+    from mypy_boto3_elasticache.type_defs import AuthenticationTypeDef
 
-    data: AvailabilityZoneTypeDef = {...}
+    data: AuthenticationTypeDef = {...}
     ```
 """
 import sys
@@ -17,7 +17,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -25,6 +24,7 @@ else:
 
 
 __all__ = (
+    "AuthenticationTypeDef",
     "AvailabilityZoneTypeDef",
     "CacheClusterTypeDef",
     "CacheEngineVersionTypeDef",
@@ -66,10 +66,15 @@ __all__ = (
     "ServiceUpdateTypeDef",
     "SlotMigrationTypeDef",
     "SnapshotTypeDef",
+    "SubnetOutpostTypeDef",
     "SubnetTypeDef",
     "TagTypeDef",
     "UnprocessedUpdateActionTypeDef",
     "UpdateActionTypeDef",
+    "UserGroupPendingChangesTypeDef",
+    "UserGroupTypeDef",
+    "UserGroupsUpdateStatusTypeDef",
+    "UserTypeDef",
     "AllowedNodeTypeModificationsMessageTypeDef",
     "AuthorizeCacheSecurityGroupIngressResultTypeDef",
     "CacheClusterMessageTypeDef",
@@ -99,9 +104,12 @@ __all__ = (
     "DescribeEngineDefaultParametersResultTypeDef",
     "DescribeGlobalReplicationGroupsResultTypeDef",
     "DescribeSnapshotsListMessageTypeDef",
+    "DescribeUserGroupsResultTypeDef",
+    "DescribeUsersResultTypeDef",
     "DisassociateGlobalReplicationGroupResultTypeDef",
     "EventsMessageTypeDef",
     "FailoverGlobalReplicationGroupResultTypeDef",
+    "FilterTypeDef",
     "IncreaseNodeGroupsInGlobalReplicationGroupResultTypeDef",
     "IncreaseReplicaCountResultTypeDef",
     "ModifyCacheClusterResultTypeDef",
@@ -129,6 +137,12 @@ __all__ = (
     "WaiterConfigTypeDef",
 )
 
+AuthenticationTypeDef = TypedDict(
+    "AuthenticationTypeDef",
+    {"Type": Literal["password", "no-password"], "PasswordCount": int},
+    total=False,
+)
+
 AvailabilityZoneTypeDef = TypedDict("AvailabilityZoneTypeDef", {"Name": str}, total=False)
 
 CacheClusterTypeDef = TypedDict(
@@ -143,6 +157,7 @@ CacheClusterTypeDef = TypedDict(
         "CacheClusterStatus": str,
         "NumCacheNodes": int,
         "PreferredAvailabilityZone": str,
+        "PreferredOutpostArn": str,
         "CacheClusterCreateTime": datetime,
         "PreferredMaintenanceWindow": str,
         "PendingModifiedValues": "PendingModifiedValuesTypeDef",
@@ -187,6 +202,7 @@ CacheNodeTypeDef = TypedDict(
         "ParameterGroupStatus": str,
         "SourceCacheNodeId": str,
         "CustomerAvailabilityZone": str,
+        "CustomerOutpostArn": str,
     },
     total=False,
 )
@@ -309,6 +325,8 @@ EventTypeDef = TypedDict(
             "cache-security-group",
             "cache-subnet-group",
             "replication-group",
+            "user",
+            "user-group",
         ],
         "Message": str,
         "Date": datetime,
@@ -366,6 +384,8 @@ NodeGroupConfigurationTypeDef = TypedDict(
         "ReplicaCount": int,
         "PrimaryAvailabilityZone": str,
         "ReplicaAvailabilityZones": List[str],
+        "PrimaryOutpostArn": str,
+        "ReplicaOutpostArns": List[str],
     },
     total=False,
 )
@@ -377,6 +397,7 @@ NodeGroupMemberTypeDef = TypedDict(
         "CacheNodeId": str,
         "ReadEndpoint": "EndpointTypeDef",
         "PreferredAvailabilityZone": str,
+        "PreferredOutpostArn": str,
         "CurrentRole": str,
     },
     total=False,
@@ -499,6 +520,7 @@ ReplicationGroupPendingModifiedValuesTypeDef = TypedDict(
         "AutomaticFailoverStatus": Literal["enabled", "disabled"],
         "Resharding": "ReshardingStatusTypeDef",
         "AuthTokenStatus": Literal["SETTING", "ROTATING"],
+        "UserGroups": "UserGroupsUpdateStatusTypeDef",
     },
     total=False,
 )
@@ -525,8 +547,10 @@ ReplicationGroupTypeDef = TypedDict(
         "AuthTokenLastModifiedDate": datetime,
         "TransitEncryptionEnabled": bool,
         "AtRestEncryptionEnabled": bool,
+        "MemberClustersOutpostArns": List[str],
         "KmsKeyId": str,
         "ARN": str,
+        "UserGroupIds": List[str],
     },
     total=False,
 )
@@ -615,6 +639,7 @@ SnapshotTypeDef = TypedDict(
         "EngineVersion": str,
         "NumCacheNodes": int,
         "PreferredAvailabilityZone": str,
+        "PreferredOutpostArn": str,
         "CacheClusterCreateTime": datetime,
         "PreferredMaintenanceWindow": str,
         "TopicArn": str,
@@ -634,9 +659,15 @@ SnapshotTypeDef = TypedDict(
     total=False,
 )
 
+SubnetOutpostTypeDef = TypedDict("SubnetOutpostTypeDef", {"SubnetOutpostArn": str}, total=False)
+
 SubnetTypeDef = TypedDict(
     "SubnetTypeDef",
-    {"SubnetIdentifier": str, "SubnetAvailabilityZone": "AvailabilityZoneTypeDef"},
+    {
+        "SubnetIdentifier": str,
+        "SubnetAvailabilityZone": "AvailabilityZoneTypeDef",
+        "SubnetOutpost": "SubnetOutpostTypeDef",
+    },
     total=False,
 )
 
@@ -684,6 +715,47 @@ UpdateActionTypeDef = TypedDict(
         "CacheNodeUpdateStatus": List["CacheNodeUpdateStatusTypeDef"],
         "EstimatedUpdateTime": str,
         "Engine": str,
+    },
+    total=False,
+)
+
+UserGroupPendingChangesTypeDef = TypedDict(
+    "UserGroupPendingChangesTypeDef",
+    {"UserIdsToRemove": List[str], "UserIdsToAdd": List[str]},
+    total=False,
+)
+
+UserGroupTypeDef = TypedDict(
+    "UserGroupTypeDef",
+    {
+        "UserGroupId": str,
+        "Status": str,
+        "Engine": str,
+        "UserIds": List[str],
+        "PendingChanges": "UserGroupPendingChangesTypeDef",
+        "ReplicationGroups": List[str],
+        "ARN": str,
+    },
+    total=False,
+)
+
+UserGroupsUpdateStatusTypeDef = TypedDict(
+    "UserGroupsUpdateStatusTypeDef",
+    {"UserGroupIdsToAdd": List[str], "UserGroupIdsToRemove": List[str]},
+    total=False,
+)
+
+UserTypeDef = TypedDict(
+    "UserTypeDef",
+    {
+        "UserId": str,
+        "UserName": str,
+        "Status": str,
+        "Engine": str,
+        "AccessString": str,
+        "UserGroupIds": List[str],
+        "Authentication": "AuthenticationTypeDef",
+        "ARN": str,
     },
     total=False,
 )
@@ -752,7 +824,9 @@ _RequiredConfigureShardTypeDef = TypedDict(
     "_RequiredConfigureShardTypeDef", {"NodeGroupId": str, "NewReplicaCount": int}
 )
 _OptionalConfigureShardTypeDef = TypedDict(
-    "_OptionalConfigureShardTypeDef", {"PreferredAvailabilityZones": List[str]}, total=False
+    "_OptionalConfigureShardTypeDef",
+    {"PreferredAvailabilityZones": List[str], "PreferredOutpostArns": List[str]},
+    total=False,
 )
 
 
@@ -856,6 +930,16 @@ DescribeSnapshotsListMessageTypeDef = TypedDict(
     total=False,
 )
 
+DescribeUserGroupsResultTypeDef = TypedDict(
+    "DescribeUserGroupsResultTypeDef",
+    {"UserGroups": List["UserGroupTypeDef"], "Marker": str},
+    total=False,
+)
+
+DescribeUsersResultTypeDef = TypedDict(
+    "DescribeUsersResultTypeDef", {"Users": List["UserTypeDef"], "Marker": str}, total=False
+)
+
 DisassociateGlobalReplicationGroupResultTypeDef = TypedDict(
     "DisassociateGlobalReplicationGroupResultTypeDef",
     {"GlobalReplicationGroup": "GlobalReplicationGroupTypeDef"},
@@ -871,6 +955,8 @@ FailoverGlobalReplicationGroupResultTypeDef = TypedDict(
     {"GlobalReplicationGroup": "GlobalReplicationGroupTypeDef"},
     total=False,
 )
+
+FilterTypeDef = TypedDict("FilterTypeDef", {"Name": str, "Values": List[str]})
 
 IncreaseNodeGroupsInGlobalReplicationGroupResultTypeDef = TypedDict(
     "IncreaseNodeGroupsInGlobalReplicationGroupResultTypeDef",

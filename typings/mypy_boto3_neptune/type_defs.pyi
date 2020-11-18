@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import List
+from typing import Any, Dict, List
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -27,6 +26,7 @@ else:
 __all__ = (
     "AvailabilityZoneTypeDef",
     "CharacterSetTypeDef",
+    "DBClusterEndpointTypeDef",
     "DBClusterMemberTypeDef",
     "DBClusterOptionGroupStatusTypeDef",
     "DBClusterParameterGroupTypeDef",
@@ -57,6 +57,7 @@ __all__ = (
     "PendingModifiedValuesTypeDef",
     "RangeTypeDef",
     "ResourcePendingMaintenanceActionsTypeDef",
+    "ResponseMetadata",
     "SubnetTypeDef",
     "TagTypeDef",
     "TimezoneTypeDef",
@@ -70,6 +71,7 @@ __all__ = (
     "CopyDBClusterParameterGroupResultTypeDef",
     "CopyDBClusterSnapshotResultTypeDef",
     "CopyDBParameterGroupResultTypeDef",
+    "CreateDBClusterEndpointOutputTypeDef",
     "CreateDBClusterParameterGroupResultTypeDef",
     "CreateDBClusterResultTypeDef",
     "CreateDBClusterSnapshotResultTypeDef",
@@ -77,6 +79,7 @@ __all__ = (
     "CreateDBParameterGroupResultTypeDef",
     "CreateDBSubnetGroupResultTypeDef",
     "CreateEventSubscriptionResultTypeDef",
+    "DBClusterEndpointMessageTypeDef",
     "DBClusterMessageTypeDef",
     "DBClusterParameterGroupDetailsTypeDef",
     "DBClusterParameterGroupNameMessageTypeDef",
@@ -88,6 +91,7 @@ __all__ = (
     "DBParameterGroupNameMessageTypeDef",
     "DBParameterGroupsMessageTypeDef",
     "DBSubnetGroupMessageTypeDef",
+    "DeleteDBClusterEndpointOutputTypeDef",
     "DeleteDBClusterResultTypeDef",
     "DeleteDBClusterSnapshotResultTypeDef",
     "DeleteDBInstanceResultTypeDef",
@@ -101,6 +105,7 @@ __all__ = (
     "EventsMessageTypeDef",
     "FailoverDBClusterResultTypeDef",
     "FilterTypeDef",
+    "ModifyDBClusterEndpointOutputTypeDef",
     "ModifyDBClusterResultTypeDef",
     "ModifyDBClusterSnapshotAttributeResultTypeDef",
     "ModifyDBInstanceResultTypeDef",
@@ -124,6 +129,23 @@ AvailabilityZoneTypeDef = TypedDict("AvailabilityZoneTypeDef", {"Name": str}, to
 
 CharacterSetTypeDef = TypedDict(
     "CharacterSetTypeDef", {"CharacterSetName": str, "CharacterSetDescription": str}, total=False
+)
+
+DBClusterEndpointTypeDef = TypedDict(
+    "DBClusterEndpointTypeDef",
+    {
+        "DBClusterEndpointIdentifier": str,
+        "DBClusterIdentifier": str,
+        "DBClusterEndpointResourceIdentifier": str,
+        "Endpoint": str,
+        "Status": str,
+        "EndpointType": str,
+        "CustomEndpointType": str,
+        "StaticMembers": List[str],
+        "ExcludedMembers": List[str],
+        "DBClusterEndpointArn": str,
+    },
+    total=False,
 )
 
 DBClusterMemberTypeDef = TypedDict(
@@ -155,7 +177,7 @@ DBClusterParameterGroupTypeDef = TypedDict(
 )
 
 DBClusterRoleTypeDef = TypedDict(
-    "DBClusterRoleTypeDef", {"RoleArn": str, "Status": str}, total=False
+    "DBClusterRoleTypeDef", {"RoleArn": str, "Status": str, "FeatureName": str}, total=False
 )
 
 DBClusterSnapshotAttributeTypeDef = TypedDict(
@@ -521,6 +543,17 @@ ResourcePendingMaintenanceActionsTypeDef = TypedDict(
     total=False,
 )
 
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
+
 SubnetTypeDef = TypedDict(
     "SubnetTypeDef",
     {
@@ -604,6 +637,24 @@ CopyDBParameterGroupResultTypeDef = TypedDict(
     total=False,
 )
 
+CreateDBClusterEndpointOutputTypeDef = TypedDict(
+    "CreateDBClusterEndpointOutputTypeDef",
+    {
+        "DBClusterEndpointIdentifier": str,
+        "DBClusterIdentifier": str,
+        "DBClusterEndpointResourceIdentifier": str,
+        "Endpoint": str,
+        "Status": str,
+        "EndpointType": str,
+        "CustomEndpointType": str,
+        "StaticMembers": List[str],
+        "ExcludedMembers": List[str],
+        "DBClusterEndpointArn": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
+    total=False,
+)
+
 CreateDBClusterParameterGroupResultTypeDef = TypedDict(
     "CreateDBClusterParameterGroupResultTypeDef",
     {"DBClusterParameterGroup": "DBClusterParameterGroupTypeDef"},
@@ -637,6 +688,12 @@ CreateDBSubnetGroupResultTypeDef = TypedDict(
 CreateEventSubscriptionResultTypeDef = TypedDict(
     "CreateEventSubscriptionResultTypeDef",
     {"EventSubscription": "EventSubscriptionTypeDef"},
+    total=False,
+)
+
+DBClusterEndpointMessageTypeDef = TypedDict(
+    "DBClusterEndpointMessageTypeDef",
+    {"Marker": str, "DBClusterEndpoints": List["DBClusterEndpointTypeDef"]},
     total=False,
 )
 
@@ -697,6 +754,24 @@ DBParameterGroupsMessageTypeDef = TypedDict(
 DBSubnetGroupMessageTypeDef = TypedDict(
     "DBSubnetGroupMessageTypeDef",
     {"Marker": str, "DBSubnetGroups": List["DBSubnetGroupTypeDef"]},
+    total=False,
+)
+
+DeleteDBClusterEndpointOutputTypeDef = TypedDict(
+    "DeleteDBClusterEndpointOutputTypeDef",
+    {
+        "DBClusterEndpointIdentifier": str,
+        "DBClusterIdentifier": str,
+        "DBClusterEndpointResourceIdentifier": str,
+        "Endpoint": str,
+        "Status": str,
+        "EndpointType": str,
+        "CustomEndpointType": str,
+        "StaticMembers": List[str],
+        "ExcludedMembers": List[str],
+        "DBClusterEndpointArn": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -765,6 +840,24 @@ FailoverDBClusterResultTypeDef = TypedDict(
 )
 
 FilterTypeDef = TypedDict("FilterTypeDef", {"Name": str, "Values": List[str]})
+
+ModifyDBClusterEndpointOutputTypeDef = TypedDict(
+    "ModifyDBClusterEndpointOutputTypeDef",
+    {
+        "DBClusterEndpointIdentifier": str,
+        "DBClusterIdentifier": str,
+        "DBClusterEndpointResourceIdentifier": str,
+        "Endpoint": str,
+        "Status": str,
+        "EndpointType": str,
+        "CustomEndpointType": str,
+        "StaticMembers": List[str],
+        "ExcludedMembers": List[str],
+        "DBClusterEndpointArn": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
+    total=False,
+)
 
 ModifyDBClusterResultTypeDef = TypedDict(
     "ModifyDBClusterResultTypeDef", {"DBCluster": "DBClusterTypeDef"}, total=False

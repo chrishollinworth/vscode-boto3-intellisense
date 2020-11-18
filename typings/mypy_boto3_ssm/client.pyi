@@ -1,4 +1,4 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import
+# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for ssm service client
 
@@ -15,8 +15,7 @@ import sys
 from datetime import datetime
 from typing import Any, Dict, List, Type, overload
 
-from botocore.exceptions import ClientError as Boto3ClientError
-from botocore.paginate import Paginator as Boto3Paginator
+from botocore.client import ClientMeta
 
 from mypy_boto3_ssm.paginator import (
     DescribeActivationsPaginator,
@@ -226,128 +225,137 @@ else:
 __all__ = ("SSMClient",)
 
 
+class BotocoreClientError(BaseException):
+    MSG_TEMPLATE: str
+
+    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
+        self.response: Dict[str, Any]
+        self.operation_name: str
+
+
 class Exceptions:
-    AlreadyExistsException: Type[Boto3ClientError]
-    AssociatedInstances: Type[Boto3ClientError]
-    AssociationAlreadyExists: Type[Boto3ClientError]
-    AssociationDoesNotExist: Type[Boto3ClientError]
-    AssociationExecutionDoesNotExist: Type[Boto3ClientError]
-    AssociationLimitExceeded: Type[Boto3ClientError]
-    AssociationVersionLimitExceeded: Type[Boto3ClientError]
-    AutomationDefinitionNotFoundException: Type[Boto3ClientError]
-    AutomationDefinitionVersionNotFoundException: Type[Boto3ClientError]
-    AutomationExecutionLimitExceededException: Type[Boto3ClientError]
-    AutomationExecutionNotFoundException: Type[Boto3ClientError]
-    AutomationStepNotFoundException: Type[Boto3ClientError]
-    ClientError: Type[Boto3ClientError]
-    ComplianceTypeCountLimitExceededException: Type[Boto3ClientError]
-    CustomSchemaCountLimitExceededException: Type[Boto3ClientError]
-    DocumentAlreadyExists: Type[Boto3ClientError]
-    DocumentLimitExceeded: Type[Boto3ClientError]
-    DocumentPermissionLimit: Type[Boto3ClientError]
-    DocumentVersionLimitExceeded: Type[Boto3ClientError]
-    DoesNotExistException: Type[Boto3ClientError]
-    DuplicateDocumentContent: Type[Boto3ClientError]
-    DuplicateDocumentVersionName: Type[Boto3ClientError]
-    DuplicateInstanceId: Type[Boto3ClientError]
-    FeatureNotAvailableException: Type[Boto3ClientError]
-    HierarchyLevelLimitExceededException: Type[Boto3ClientError]
-    HierarchyTypeMismatchException: Type[Boto3ClientError]
-    IdempotentParameterMismatch: Type[Boto3ClientError]
-    IncompatiblePolicyException: Type[Boto3ClientError]
-    InternalServerError: Type[Boto3ClientError]
-    InvalidActivation: Type[Boto3ClientError]
-    InvalidActivationId: Type[Boto3ClientError]
-    InvalidAggregatorException: Type[Boto3ClientError]
-    InvalidAllowedPatternException: Type[Boto3ClientError]
-    InvalidAssociation: Type[Boto3ClientError]
-    InvalidAssociationVersion: Type[Boto3ClientError]
-    InvalidAutomationExecutionParametersException: Type[Boto3ClientError]
-    InvalidAutomationSignalException: Type[Boto3ClientError]
-    InvalidAutomationStatusUpdateException: Type[Boto3ClientError]
-    InvalidCommandId: Type[Boto3ClientError]
-    InvalidDeleteInventoryParametersException: Type[Boto3ClientError]
-    InvalidDeletionIdException: Type[Boto3ClientError]
-    InvalidDocument: Type[Boto3ClientError]
-    InvalidDocumentContent: Type[Boto3ClientError]
-    InvalidDocumentOperation: Type[Boto3ClientError]
-    InvalidDocumentSchemaVersion: Type[Boto3ClientError]
-    InvalidDocumentType: Type[Boto3ClientError]
-    InvalidDocumentVersion: Type[Boto3ClientError]
-    InvalidFilter: Type[Boto3ClientError]
-    InvalidFilterKey: Type[Boto3ClientError]
-    InvalidFilterOption: Type[Boto3ClientError]
-    InvalidFilterValue: Type[Boto3ClientError]
-    InvalidInstanceId: Type[Boto3ClientError]
-    InvalidInstanceInformationFilterValue: Type[Boto3ClientError]
-    InvalidInventoryGroupException: Type[Boto3ClientError]
-    InvalidInventoryItemContextException: Type[Boto3ClientError]
-    InvalidInventoryRequestException: Type[Boto3ClientError]
-    InvalidItemContentException: Type[Boto3ClientError]
-    InvalidKeyId: Type[Boto3ClientError]
-    InvalidNextToken: Type[Boto3ClientError]
-    InvalidNotificationConfig: Type[Boto3ClientError]
-    InvalidOptionException: Type[Boto3ClientError]
-    InvalidOutputFolder: Type[Boto3ClientError]
-    InvalidOutputLocation: Type[Boto3ClientError]
-    InvalidParameters: Type[Boto3ClientError]
-    InvalidPermissionType: Type[Boto3ClientError]
-    InvalidPluginName: Type[Boto3ClientError]
-    InvalidPolicyAttributeException: Type[Boto3ClientError]
-    InvalidPolicyTypeException: Type[Boto3ClientError]
-    InvalidResourceId: Type[Boto3ClientError]
-    InvalidResourceType: Type[Boto3ClientError]
-    InvalidResultAttributeException: Type[Boto3ClientError]
-    InvalidRole: Type[Boto3ClientError]
-    InvalidSchedule: Type[Boto3ClientError]
-    InvalidTarget: Type[Boto3ClientError]
-    InvalidTypeNameException: Type[Boto3ClientError]
-    InvalidUpdate: Type[Boto3ClientError]
-    InvocationDoesNotExist: Type[Boto3ClientError]
-    ItemContentMismatchException: Type[Boto3ClientError]
-    ItemSizeLimitExceededException: Type[Boto3ClientError]
-    MaxDocumentSizeExceeded: Type[Boto3ClientError]
-    OpsItemAlreadyExistsException: Type[Boto3ClientError]
-    OpsItemInvalidParameterException: Type[Boto3ClientError]
-    OpsItemLimitExceededException: Type[Boto3ClientError]
-    OpsItemNotFoundException: Type[Boto3ClientError]
-    ParameterAlreadyExists: Type[Boto3ClientError]
-    ParameterLimitExceeded: Type[Boto3ClientError]
-    ParameterMaxVersionLimitExceeded: Type[Boto3ClientError]
-    ParameterNotFound: Type[Boto3ClientError]
-    ParameterPatternMismatchException: Type[Boto3ClientError]
-    ParameterVersionLabelLimitExceeded: Type[Boto3ClientError]
-    ParameterVersionNotFound: Type[Boto3ClientError]
-    PoliciesLimitExceededException: Type[Boto3ClientError]
-    ResourceDataSyncAlreadyExistsException: Type[Boto3ClientError]
-    ResourceDataSyncConflictException: Type[Boto3ClientError]
-    ResourceDataSyncCountExceededException: Type[Boto3ClientError]
-    ResourceDataSyncInvalidConfigurationException: Type[Boto3ClientError]
-    ResourceDataSyncNotFoundException: Type[Boto3ClientError]
-    ResourceInUseException: Type[Boto3ClientError]
-    ResourceLimitExceededException: Type[Boto3ClientError]
-    ServiceSettingNotFound: Type[Boto3ClientError]
-    StatusUnchanged: Type[Boto3ClientError]
-    SubTypeCountLimitExceededException: Type[Boto3ClientError]
-    TargetInUseException: Type[Boto3ClientError]
-    TargetNotConnected: Type[Boto3ClientError]
-    TooManyTagsError: Type[Boto3ClientError]
-    TooManyUpdates: Type[Boto3ClientError]
-    TotalSizeLimitExceededException: Type[Boto3ClientError]
-    UnsupportedCalendarException: Type[Boto3ClientError]
-    UnsupportedFeatureRequiredException: Type[Boto3ClientError]
-    UnsupportedInventoryItemContextException: Type[Boto3ClientError]
-    UnsupportedInventorySchemaVersionException: Type[Boto3ClientError]
-    UnsupportedOperatingSystem: Type[Boto3ClientError]
-    UnsupportedParameterType: Type[Boto3ClientError]
-    UnsupportedPlatformType: Type[Boto3ClientError]
+    AlreadyExistsException: Type[BotocoreClientError]
+    AssociatedInstances: Type[BotocoreClientError]
+    AssociationAlreadyExists: Type[BotocoreClientError]
+    AssociationDoesNotExist: Type[BotocoreClientError]
+    AssociationExecutionDoesNotExist: Type[BotocoreClientError]
+    AssociationLimitExceeded: Type[BotocoreClientError]
+    AssociationVersionLimitExceeded: Type[BotocoreClientError]
+    AutomationDefinitionNotFoundException: Type[BotocoreClientError]
+    AutomationDefinitionVersionNotFoundException: Type[BotocoreClientError]
+    AutomationExecutionLimitExceededException: Type[BotocoreClientError]
+    AutomationExecutionNotFoundException: Type[BotocoreClientError]
+    AutomationStepNotFoundException: Type[BotocoreClientError]
+    ClientError: Type[BotocoreClientError]
+    ComplianceTypeCountLimitExceededException: Type[BotocoreClientError]
+    CustomSchemaCountLimitExceededException: Type[BotocoreClientError]
+    DocumentAlreadyExists: Type[BotocoreClientError]
+    DocumentLimitExceeded: Type[BotocoreClientError]
+    DocumentPermissionLimit: Type[BotocoreClientError]
+    DocumentVersionLimitExceeded: Type[BotocoreClientError]
+    DoesNotExistException: Type[BotocoreClientError]
+    DuplicateDocumentContent: Type[BotocoreClientError]
+    DuplicateDocumentVersionName: Type[BotocoreClientError]
+    DuplicateInstanceId: Type[BotocoreClientError]
+    FeatureNotAvailableException: Type[BotocoreClientError]
+    HierarchyLevelLimitExceededException: Type[BotocoreClientError]
+    HierarchyTypeMismatchException: Type[BotocoreClientError]
+    IdempotentParameterMismatch: Type[BotocoreClientError]
+    IncompatiblePolicyException: Type[BotocoreClientError]
+    InternalServerError: Type[BotocoreClientError]
+    InvalidActivation: Type[BotocoreClientError]
+    InvalidActivationId: Type[BotocoreClientError]
+    InvalidAggregatorException: Type[BotocoreClientError]
+    InvalidAllowedPatternException: Type[BotocoreClientError]
+    InvalidAssociation: Type[BotocoreClientError]
+    InvalidAssociationVersion: Type[BotocoreClientError]
+    InvalidAutomationExecutionParametersException: Type[BotocoreClientError]
+    InvalidAutomationSignalException: Type[BotocoreClientError]
+    InvalidAutomationStatusUpdateException: Type[BotocoreClientError]
+    InvalidCommandId: Type[BotocoreClientError]
+    InvalidDeleteInventoryParametersException: Type[BotocoreClientError]
+    InvalidDeletionIdException: Type[BotocoreClientError]
+    InvalidDocument: Type[BotocoreClientError]
+    InvalidDocumentContent: Type[BotocoreClientError]
+    InvalidDocumentOperation: Type[BotocoreClientError]
+    InvalidDocumentSchemaVersion: Type[BotocoreClientError]
+    InvalidDocumentType: Type[BotocoreClientError]
+    InvalidDocumentVersion: Type[BotocoreClientError]
+    InvalidFilter: Type[BotocoreClientError]
+    InvalidFilterKey: Type[BotocoreClientError]
+    InvalidFilterOption: Type[BotocoreClientError]
+    InvalidFilterValue: Type[BotocoreClientError]
+    InvalidInstanceId: Type[BotocoreClientError]
+    InvalidInstanceInformationFilterValue: Type[BotocoreClientError]
+    InvalidInventoryGroupException: Type[BotocoreClientError]
+    InvalidInventoryItemContextException: Type[BotocoreClientError]
+    InvalidInventoryRequestException: Type[BotocoreClientError]
+    InvalidItemContentException: Type[BotocoreClientError]
+    InvalidKeyId: Type[BotocoreClientError]
+    InvalidNextToken: Type[BotocoreClientError]
+    InvalidNotificationConfig: Type[BotocoreClientError]
+    InvalidOptionException: Type[BotocoreClientError]
+    InvalidOutputFolder: Type[BotocoreClientError]
+    InvalidOutputLocation: Type[BotocoreClientError]
+    InvalidParameters: Type[BotocoreClientError]
+    InvalidPermissionType: Type[BotocoreClientError]
+    InvalidPluginName: Type[BotocoreClientError]
+    InvalidPolicyAttributeException: Type[BotocoreClientError]
+    InvalidPolicyTypeException: Type[BotocoreClientError]
+    InvalidResourceId: Type[BotocoreClientError]
+    InvalidResourceType: Type[BotocoreClientError]
+    InvalidResultAttributeException: Type[BotocoreClientError]
+    InvalidRole: Type[BotocoreClientError]
+    InvalidSchedule: Type[BotocoreClientError]
+    InvalidTarget: Type[BotocoreClientError]
+    InvalidTypeNameException: Type[BotocoreClientError]
+    InvalidUpdate: Type[BotocoreClientError]
+    InvocationDoesNotExist: Type[BotocoreClientError]
+    ItemContentMismatchException: Type[BotocoreClientError]
+    ItemSizeLimitExceededException: Type[BotocoreClientError]
+    MaxDocumentSizeExceeded: Type[BotocoreClientError]
+    OpsItemAlreadyExistsException: Type[BotocoreClientError]
+    OpsItemInvalidParameterException: Type[BotocoreClientError]
+    OpsItemLimitExceededException: Type[BotocoreClientError]
+    OpsItemNotFoundException: Type[BotocoreClientError]
+    ParameterAlreadyExists: Type[BotocoreClientError]
+    ParameterLimitExceeded: Type[BotocoreClientError]
+    ParameterMaxVersionLimitExceeded: Type[BotocoreClientError]
+    ParameterNotFound: Type[BotocoreClientError]
+    ParameterPatternMismatchException: Type[BotocoreClientError]
+    ParameterVersionLabelLimitExceeded: Type[BotocoreClientError]
+    ParameterVersionNotFound: Type[BotocoreClientError]
+    PoliciesLimitExceededException: Type[BotocoreClientError]
+    ResourceDataSyncAlreadyExistsException: Type[BotocoreClientError]
+    ResourceDataSyncConflictException: Type[BotocoreClientError]
+    ResourceDataSyncCountExceededException: Type[BotocoreClientError]
+    ResourceDataSyncInvalidConfigurationException: Type[BotocoreClientError]
+    ResourceDataSyncNotFoundException: Type[BotocoreClientError]
+    ResourceInUseException: Type[BotocoreClientError]
+    ResourceLimitExceededException: Type[BotocoreClientError]
+    ServiceSettingNotFound: Type[BotocoreClientError]
+    StatusUnchanged: Type[BotocoreClientError]
+    SubTypeCountLimitExceededException: Type[BotocoreClientError]
+    TargetInUseException: Type[BotocoreClientError]
+    TargetNotConnected: Type[BotocoreClientError]
+    TooManyTagsError: Type[BotocoreClientError]
+    TooManyUpdates: Type[BotocoreClientError]
+    TotalSizeLimitExceededException: Type[BotocoreClientError]
+    UnsupportedCalendarException: Type[BotocoreClientError]
+    UnsupportedFeatureRequiredException: Type[BotocoreClientError]
+    UnsupportedInventoryItemContextException: Type[BotocoreClientError]
+    UnsupportedInventorySchemaVersionException: Type[BotocoreClientError]
+    UnsupportedOperatingSystem: Type[BotocoreClientError]
+    UnsupportedParameterType: Type[BotocoreClientError]
+    UnsupportedPlatformType: Type[BotocoreClientError]
 
 
 class SSMClient:
     """
-    [SSM.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client)
+    [SSM.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client)
     """
 
+    meta: ClientMeta
     exceptions: Exceptions
 
     def add_tags_to_resource(
@@ -364,24 +372,24 @@ class SSMClient:
         Tags: List["TagTypeDef"],
     ) -> Dict[str, Any]:
         """
-        [Client.add_tags_to_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.add_tags_to_resource)
+        [Client.add_tags_to_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.add_tags_to_resource)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.can_paginate)
         """
 
     def cancel_command(self, CommandId: str, InstanceIds: List[str] = None) -> Dict[str, Any]:
         """
-        [Client.cancel_command documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.cancel_command)
+        [Client.cancel_command documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.cancel_command)
         """
 
     def cancel_maintenance_window_execution(
         self, WindowExecutionId: str
     ) -> CancelMaintenanceWindowExecutionResultTypeDef:
         """
-        [Client.cancel_maintenance_window_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.cancel_maintenance_window_execution)
+        [Client.cancel_maintenance_window_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.cancel_maintenance_window_execution)
         """
 
     def create_activation(
@@ -394,7 +402,7 @@ class SSMClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateActivationResultTypeDef:
         """
-        [Client.create_activation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.create_activation)
+        [Client.create_activation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.create_activation)
         """
 
     def create_association(
@@ -415,14 +423,14 @@ class SSMClient:
         ApplyOnlyAtCronInterval: bool = None,
     ) -> CreateAssociationResultTypeDef:
         """
-        [Client.create_association documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.create_association)
+        [Client.create_association documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.create_association)
         """
 
     def create_association_batch(
         self, Entries: List["CreateAssociationBatchRequestEntryTypeDef"]
     ) -> CreateAssociationBatchResultTypeDef:
         """
-        [Client.create_association_batch documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.create_association_batch)
+        [Client.create_association_batch documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.create_association_batch)
         """
 
     def create_document(
@@ -448,7 +456,7 @@ class SSMClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateDocumentResultTypeDef:
         """
-        [Client.create_document documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.create_document)
+        [Client.create_document documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.create_document)
         """
 
     def create_maintenance_window(
@@ -467,7 +475,7 @@ class SSMClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateMaintenanceWindowResultTypeDef:
         """
-        [Client.create_maintenance_window documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.create_maintenance_window)
+        [Client.create_maintenance_window documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.create_maintenance_window)
         """
 
     def create_ops_item(
@@ -484,7 +492,7 @@ class SSMClient:
         Severity: str = None,
     ) -> CreateOpsItemResponseTypeDef:
         """
-        [Client.create_ops_item documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.create_ops_item)
+        [Client.create_ops_item documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.create_ops_item)
         """
 
     def create_patch_baseline(
@@ -516,7 +524,7 @@ class SSMClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreatePatchBaselineResultTypeDef:
         """
-        [Client.create_patch_baseline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.create_patch_baseline)
+        [Client.create_patch_baseline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.create_patch_baseline)
         """
 
     def create_resource_data_sync(
@@ -527,26 +535,26 @@ class SSMClient:
         SyncSource: ResourceDataSyncSourceTypeDef = None,
     ) -> Dict[str, Any]:
         """
-        [Client.create_resource_data_sync documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.create_resource_data_sync)
+        [Client.create_resource_data_sync documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.create_resource_data_sync)
         """
 
     def delete_activation(self, ActivationId: str) -> Dict[str, Any]:
         """
-        [Client.delete_activation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.delete_activation)
+        [Client.delete_activation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.delete_activation)
         """
 
     def delete_association(
         self, Name: str = None, InstanceId: str = None, AssociationId: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.delete_association documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.delete_association)
+        [Client.delete_association documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.delete_association)
         """
 
     def delete_document(
         self, Name: str, DocumentVersion: str = None, VersionName: str = None, Force: bool = None
     ) -> Dict[str, Any]:
         """
-        [Client.delete_document documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.delete_document)
+        [Client.delete_document documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.delete_document)
         """
 
     def delete_inventory(
@@ -557,58 +565,58 @@ class SSMClient:
         ClientToken: str = None,
     ) -> DeleteInventoryResultTypeDef:
         """
-        [Client.delete_inventory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.delete_inventory)
+        [Client.delete_inventory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.delete_inventory)
         """
 
     def delete_maintenance_window(self, WindowId: str) -> DeleteMaintenanceWindowResultTypeDef:
         """
-        [Client.delete_maintenance_window documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.delete_maintenance_window)
+        [Client.delete_maintenance_window documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.delete_maintenance_window)
         """
 
     def delete_parameter(self, Name: str) -> Dict[str, Any]:
         """
-        [Client.delete_parameter documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.delete_parameter)
+        [Client.delete_parameter documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.delete_parameter)
         """
 
     def delete_parameters(self, Names: List[str]) -> DeleteParametersResultTypeDef:
         """
-        [Client.delete_parameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.delete_parameters)
+        [Client.delete_parameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.delete_parameters)
         """
 
     def delete_patch_baseline(self, BaselineId: str) -> DeletePatchBaselineResultTypeDef:
         """
-        [Client.delete_patch_baseline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.delete_patch_baseline)
+        [Client.delete_patch_baseline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.delete_patch_baseline)
         """
 
     def delete_resource_data_sync(self, SyncName: str, SyncType: str = None) -> Dict[str, Any]:
         """
-        [Client.delete_resource_data_sync documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.delete_resource_data_sync)
+        [Client.delete_resource_data_sync documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.delete_resource_data_sync)
         """
 
     def deregister_managed_instance(self, InstanceId: str) -> Dict[str, Any]:
         """
-        [Client.deregister_managed_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.deregister_managed_instance)
+        [Client.deregister_managed_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.deregister_managed_instance)
         """
 
     def deregister_patch_baseline_for_patch_group(
         self, BaselineId: str, PatchGroup: str
     ) -> DeregisterPatchBaselineForPatchGroupResultTypeDef:
         """
-        [Client.deregister_patch_baseline_for_patch_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.deregister_patch_baseline_for_patch_group)
+        [Client.deregister_patch_baseline_for_patch_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.deregister_patch_baseline_for_patch_group)
         """
 
     def deregister_target_from_maintenance_window(
         self, WindowId: str, WindowTargetId: str, Safe: bool = None
     ) -> DeregisterTargetFromMaintenanceWindowResultTypeDef:
         """
-        [Client.deregister_target_from_maintenance_window documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.deregister_target_from_maintenance_window)
+        [Client.deregister_target_from_maintenance_window documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.deregister_target_from_maintenance_window)
         """
 
     def deregister_task_from_maintenance_window(
         self, WindowId: str, WindowTaskId: str
     ) -> DeregisterTaskFromMaintenanceWindowResultTypeDef:
         """
-        [Client.deregister_task_from_maintenance_window documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.deregister_task_from_maintenance_window)
+        [Client.deregister_task_from_maintenance_window documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.deregister_task_from_maintenance_window)
         """
 
     def describe_activations(
@@ -618,7 +626,7 @@ class SSMClient:
         NextToken: str = None,
     ) -> DescribeActivationsResultTypeDef:
         """
-        [Client.describe_activations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.describe_activations)
+        [Client.describe_activations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.describe_activations)
         """
 
     def describe_association(
@@ -629,7 +637,7 @@ class SSMClient:
         AssociationVersion: str = None,
     ) -> DescribeAssociationResultTypeDef:
         """
-        [Client.describe_association documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.describe_association)
+        [Client.describe_association documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.describe_association)
         """
 
     def describe_association_execution_targets(
@@ -641,7 +649,7 @@ class SSMClient:
         NextToken: str = None,
     ) -> DescribeAssociationExecutionTargetsResultTypeDef:
         """
-        [Client.describe_association_execution_targets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.describe_association_execution_targets)
+        [Client.describe_association_execution_targets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.describe_association_execution_targets)
         """
 
     def describe_association_executions(
@@ -652,7 +660,7 @@ class SSMClient:
         NextToken: str = None,
     ) -> DescribeAssociationExecutionsResultTypeDef:
         """
-        [Client.describe_association_executions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.describe_association_executions)
+        [Client.describe_association_executions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.describe_association_executions)
         """
 
     def describe_automation_executions(
@@ -662,7 +670,7 @@ class SSMClient:
         NextToken: str = None,
     ) -> DescribeAutomationExecutionsResultTypeDef:
         """
-        [Client.describe_automation_executions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.describe_automation_executions)
+        [Client.describe_automation_executions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.describe_automation_executions)
         """
 
     def describe_automation_step_executions(
@@ -674,7 +682,7 @@ class SSMClient:
         ReverseOrder: bool = None,
     ) -> DescribeAutomationStepExecutionsResultTypeDef:
         """
-        [Client.describe_automation_step_executions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.describe_automation_step_executions)
+        [Client.describe_automation_step_executions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.describe_automation_step_executions)
         """
 
     def describe_available_patches(
@@ -684,42 +692,42 @@ class SSMClient:
         NextToken: str = None,
     ) -> DescribeAvailablePatchesResultTypeDef:
         """
-        [Client.describe_available_patches documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.describe_available_patches)
+        [Client.describe_available_patches documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.describe_available_patches)
         """
 
     def describe_document(
         self, Name: str, DocumentVersion: str = None, VersionName: str = None
     ) -> DescribeDocumentResultTypeDef:
         """
-        [Client.describe_document documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.describe_document)
+        [Client.describe_document documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.describe_document)
         """
 
     def describe_document_permission(
         self, Name: str, PermissionType: Literal["Share"]
     ) -> DescribeDocumentPermissionResponseTypeDef:
         """
-        [Client.describe_document_permission documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.describe_document_permission)
+        [Client.describe_document_permission documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.describe_document_permission)
         """
 
     def describe_effective_instance_associations(
         self, InstanceId: str, MaxResults: int = None, NextToken: str = None
     ) -> DescribeEffectiveInstanceAssociationsResultTypeDef:
         """
-        [Client.describe_effective_instance_associations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.describe_effective_instance_associations)
+        [Client.describe_effective_instance_associations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.describe_effective_instance_associations)
         """
 
     def describe_effective_patches_for_patch_baseline(
         self, BaselineId: str, MaxResults: int = None, NextToken: str = None
     ) -> DescribeEffectivePatchesForPatchBaselineResultTypeDef:
         """
-        [Client.describe_effective_patches_for_patch_baseline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.describe_effective_patches_for_patch_baseline)
+        [Client.describe_effective_patches_for_patch_baseline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.describe_effective_patches_for_patch_baseline)
         """
 
     def describe_instance_associations_status(
         self, InstanceId: str, MaxResults: int = None, NextToken: str = None
     ) -> DescribeInstanceAssociationsStatusResultTypeDef:
         """
-        [Client.describe_instance_associations_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.describe_instance_associations_status)
+        [Client.describe_instance_associations_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.describe_instance_associations_status)
         """
 
     def describe_instance_information(
@@ -730,14 +738,14 @@ class SSMClient:
         NextToken: str = None,
     ) -> DescribeInstanceInformationResultTypeDef:
         """
-        [Client.describe_instance_information documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.describe_instance_information)
+        [Client.describe_instance_information documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.describe_instance_information)
         """
 
     def describe_instance_patch_states(
         self, InstanceIds: List[str], NextToken: str = None, MaxResults: int = None
     ) -> DescribeInstancePatchStatesResultTypeDef:
         """
-        [Client.describe_instance_patch_states documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.describe_instance_patch_states)
+        [Client.describe_instance_patch_states documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.describe_instance_patch_states)
         """
 
     def describe_instance_patch_states_for_patch_group(
@@ -748,7 +756,7 @@ class SSMClient:
         MaxResults: int = None,
     ) -> DescribeInstancePatchStatesForPatchGroupResultTypeDef:
         """
-        [Client.describe_instance_patch_states_for_patch_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.describe_instance_patch_states_for_patch_group)
+        [Client.describe_instance_patch_states_for_patch_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.describe_instance_patch_states_for_patch_group)
         """
 
     def describe_instance_patches(
@@ -759,14 +767,14 @@ class SSMClient:
         MaxResults: int = None,
     ) -> DescribeInstancePatchesResultTypeDef:
         """
-        [Client.describe_instance_patches documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.describe_instance_patches)
+        [Client.describe_instance_patches documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.describe_instance_patches)
         """
 
     def describe_inventory_deletions(
         self, DeletionId: str = None, NextToken: str = None, MaxResults: int = None
     ) -> DescribeInventoryDeletionsResultTypeDef:
         """
-        [Client.describe_inventory_deletions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.describe_inventory_deletions)
+        [Client.describe_inventory_deletions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.describe_inventory_deletions)
         """
 
     def describe_maintenance_window_execution_task_invocations(
@@ -778,7 +786,7 @@ class SSMClient:
         NextToken: str = None,
     ) -> DescribeMaintenanceWindowExecutionTaskInvocationsResultTypeDef:
         """
-        [Client.describe_maintenance_window_execution_task_invocations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.describe_maintenance_window_execution_task_invocations)
+        [Client.describe_maintenance_window_execution_task_invocations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.describe_maintenance_window_execution_task_invocations)
         """
 
     def describe_maintenance_window_execution_tasks(
@@ -789,7 +797,7 @@ class SSMClient:
         NextToken: str = None,
     ) -> DescribeMaintenanceWindowExecutionTasksResultTypeDef:
         """
-        [Client.describe_maintenance_window_execution_tasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.describe_maintenance_window_execution_tasks)
+        [Client.describe_maintenance_window_execution_tasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.describe_maintenance_window_execution_tasks)
         """
 
     def describe_maintenance_window_executions(
@@ -800,7 +808,7 @@ class SSMClient:
         NextToken: str = None,
     ) -> DescribeMaintenanceWindowExecutionsResultTypeDef:
         """
-        [Client.describe_maintenance_window_executions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.describe_maintenance_window_executions)
+        [Client.describe_maintenance_window_executions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.describe_maintenance_window_executions)
         """
 
     def describe_maintenance_window_schedule(
@@ -813,7 +821,7 @@ class SSMClient:
         NextToken: str = None,
     ) -> DescribeMaintenanceWindowScheduleResultTypeDef:
         """
-        [Client.describe_maintenance_window_schedule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.describe_maintenance_window_schedule)
+        [Client.describe_maintenance_window_schedule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.describe_maintenance_window_schedule)
         """
 
     def describe_maintenance_window_targets(
@@ -824,7 +832,7 @@ class SSMClient:
         NextToken: str = None,
     ) -> DescribeMaintenanceWindowTargetsResultTypeDef:
         """
-        [Client.describe_maintenance_window_targets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.describe_maintenance_window_targets)
+        [Client.describe_maintenance_window_targets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.describe_maintenance_window_targets)
         """
 
     def describe_maintenance_window_tasks(
@@ -835,7 +843,7 @@ class SSMClient:
         NextToken: str = None,
     ) -> DescribeMaintenanceWindowTasksResultTypeDef:
         """
-        [Client.describe_maintenance_window_tasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.describe_maintenance_window_tasks)
+        [Client.describe_maintenance_window_tasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.describe_maintenance_window_tasks)
         """
 
     def describe_maintenance_windows(
@@ -845,7 +853,7 @@ class SSMClient:
         NextToken: str = None,
     ) -> DescribeMaintenanceWindowsResultTypeDef:
         """
-        [Client.describe_maintenance_windows documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.describe_maintenance_windows)
+        [Client.describe_maintenance_windows documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.describe_maintenance_windows)
         """
 
     def describe_maintenance_windows_for_target(
@@ -856,7 +864,7 @@ class SSMClient:
         NextToken: str = None,
     ) -> DescribeMaintenanceWindowsForTargetResultTypeDef:
         """
-        [Client.describe_maintenance_windows_for_target documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.describe_maintenance_windows_for_target)
+        [Client.describe_maintenance_windows_for_target documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.describe_maintenance_windows_for_target)
         """
 
     def describe_ops_items(
@@ -866,7 +874,7 @@ class SSMClient:
         NextToken: str = None,
     ) -> DescribeOpsItemsResponseTypeDef:
         """
-        [Client.describe_ops_items documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.describe_ops_items)
+        [Client.describe_ops_items documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.describe_ops_items)
         """
 
     def describe_parameters(
@@ -877,7 +885,7 @@ class SSMClient:
         NextToken: str = None,
     ) -> DescribeParametersResultTypeDef:
         """
-        [Client.describe_parameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.describe_parameters)
+        [Client.describe_parameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.describe_parameters)
         """
 
     def describe_patch_baselines(
@@ -887,12 +895,12 @@ class SSMClient:
         NextToken: str = None,
     ) -> DescribePatchBaselinesResultTypeDef:
         """
-        [Client.describe_patch_baselines documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.describe_patch_baselines)
+        [Client.describe_patch_baselines documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.describe_patch_baselines)
         """
 
     def describe_patch_group_state(self, PatchGroup: str) -> DescribePatchGroupStateResultTypeDef:
         """
-        [Client.describe_patch_group_state documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.describe_patch_group_state)
+        [Client.describe_patch_group_state documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.describe_patch_group_state)
         """
 
     def describe_patch_groups(
@@ -902,7 +910,7 @@ class SSMClient:
         NextToken: str = None,
     ) -> DescribePatchGroupsResultTypeDef:
         """
-        [Client.describe_patch_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.describe_patch_groups)
+        [Client.describe_patch_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.describe_patch_groups)
         """
 
     def describe_patch_properties(
@@ -926,7 +934,7 @@ class SSMClient:
         NextToken: str = None,
     ) -> DescribePatchPropertiesResultTypeDef:
         """
-        [Client.describe_patch_properties documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.describe_patch_properties)
+        [Client.describe_patch_properties documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.describe_patch_properties)
         """
 
     def describe_sessions(
@@ -937,7 +945,7 @@ class SSMClient:
         Filters: List[SessionFilterTypeDef] = None,
     ) -> DescribeSessionsResponseTypeDef:
         """
-        [Client.describe_sessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.describe_sessions)
+        [Client.describe_sessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.describe_sessions)
         """
 
     def generate_presigned_url(
@@ -948,33 +956,33 @@ class SSMClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.generate_presigned_url)
         """
 
     def get_automation_execution(
         self, AutomationExecutionId: str
     ) -> GetAutomationExecutionResultTypeDef:
         """
-        [Client.get_automation_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.get_automation_execution)
+        [Client.get_automation_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.get_automation_execution)
         """
 
     def get_calendar_state(
         self, CalendarNames: List[str], AtTime: str = None
     ) -> GetCalendarStateResponseTypeDef:
         """
-        [Client.get_calendar_state documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.get_calendar_state)
+        [Client.get_calendar_state documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.get_calendar_state)
         """
 
     def get_command_invocation(
         self, CommandId: str, InstanceId: str, PluginName: str = None
     ) -> GetCommandInvocationResultTypeDef:
         """
-        [Client.get_command_invocation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.get_command_invocation)
+        [Client.get_command_invocation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.get_command_invocation)
         """
 
     def get_connection_status(self, Target: str) -> GetConnectionStatusResponseTypeDef:
         """
-        [Client.get_connection_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.get_connection_status)
+        [Client.get_connection_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.get_connection_status)
         """
 
     def get_default_patch_baseline(
@@ -992,14 +1000,14 @@ class SSMClient:
         ] = None,
     ) -> GetDefaultPatchBaselineResultTypeDef:
         """
-        [Client.get_default_patch_baseline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.get_default_patch_baseline)
+        [Client.get_default_patch_baseline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.get_default_patch_baseline)
         """
 
     def get_deployable_patch_snapshot_for_instance(
         self, InstanceId: str, SnapshotId: str
     ) -> GetDeployablePatchSnapshotForInstanceResultTypeDef:
         """
-        [Client.get_deployable_patch_snapshot_for_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.get_deployable_patch_snapshot_for_instance)
+        [Client.get_deployable_patch_snapshot_for_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.get_deployable_patch_snapshot_for_instance)
         """
 
     def get_document(
@@ -1010,7 +1018,7 @@ class SSMClient:
         DocumentFormat: Literal["YAML", "JSON", "TEXT"] = None,
     ) -> GetDocumentResultTypeDef:
         """
-        [Client.get_document documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.get_document)
+        [Client.get_document documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.get_document)
         """
 
     def get_inventory(
@@ -1022,7 +1030,7 @@ class SSMClient:
         MaxResults: int = None,
     ) -> GetInventoryResultTypeDef:
         """
-        [Client.get_inventory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.get_inventory)
+        [Client.get_inventory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.get_inventory)
         """
 
     def get_inventory_schema(
@@ -1034,45 +1042,45 @@ class SSMClient:
         SubType: bool = None,
     ) -> GetInventorySchemaResultTypeDef:
         """
-        [Client.get_inventory_schema documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.get_inventory_schema)
+        [Client.get_inventory_schema documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.get_inventory_schema)
         """
 
     def get_maintenance_window(self, WindowId: str) -> GetMaintenanceWindowResultTypeDef:
         """
-        [Client.get_maintenance_window documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.get_maintenance_window)
+        [Client.get_maintenance_window documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.get_maintenance_window)
         """
 
     def get_maintenance_window_execution(
         self, WindowExecutionId: str
     ) -> GetMaintenanceWindowExecutionResultTypeDef:
         """
-        [Client.get_maintenance_window_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.get_maintenance_window_execution)
+        [Client.get_maintenance_window_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.get_maintenance_window_execution)
         """
 
     def get_maintenance_window_execution_task(
         self, WindowExecutionId: str, TaskId: str
     ) -> GetMaintenanceWindowExecutionTaskResultTypeDef:
         """
-        [Client.get_maintenance_window_execution_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.get_maintenance_window_execution_task)
+        [Client.get_maintenance_window_execution_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.get_maintenance_window_execution_task)
         """
 
     def get_maintenance_window_execution_task_invocation(
         self, WindowExecutionId: str, TaskId: str, InvocationId: str
     ) -> GetMaintenanceWindowExecutionTaskInvocationResultTypeDef:
         """
-        [Client.get_maintenance_window_execution_task_invocation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.get_maintenance_window_execution_task_invocation)
+        [Client.get_maintenance_window_execution_task_invocation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.get_maintenance_window_execution_task_invocation)
         """
 
     def get_maintenance_window_task(
         self, WindowId: str, WindowTaskId: str
     ) -> GetMaintenanceWindowTaskResultTypeDef:
         """
-        [Client.get_maintenance_window_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.get_maintenance_window_task)
+        [Client.get_maintenance_window_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.get_maintenance_window_task)
         """
 
     def get_ops_item(self, OpsItemId: str) -> GetOpsItemResponseTypeDef:
         """
-        [Client.get_ops_item documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.get_ops_item)
+        [Client.get_ops_item documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.get_ops_item)
         """
 
     def get_ops_summary(
@@ -1085,26 +1093,26 @@ class SSMClient:
         MaxResults: int = None,
     ) -> GetOpsSummaryResultTypeDef:
         """
-        [Client.get_ops_summary documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.get_ops_summary)
+        [Client.get_ops_summary documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.get_ops_summary)
         """
 
     def get_parameter(self, Name: str, WithDecryption: bool = None) -> GetParameterResultTypeDef:
         """
-        [Client.get_parameter documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.get_parameter)
+        [Client.get_parameter documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.get_parameter)
         """
 
     def get_parameter_history(
         self, Name: str, WithDecryption: bool = None, MaxResults: int = None, NextToken: str = None
     ) -> GetParameterHistoryResultTypeDef:
         """
-        [Client.get_parameter_history documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.get_parameter_history)
+        [Client.get_parameter_history documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.get_parameter_history)
         """
 
     def get_parameters(
         self, Names: List[str], WithDecryption: bool = None
     ) -> GetParametersResultTypeDef:
         """
-        [Client.get_parameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.get_parameters)
+        [Client.get_parameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.get_parameters)
         """
 
     def get_parameters_by_path(
@@ -1117,12 +1125,12 @@ class SSMClient:
         NextToken: str = None,
     ) -> GetParametersByPathResultTypeDef:
         """
-        [Client.get_parameters_by_path documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.get_parameters_by_path)
+        [Client.get_parameters_by_path documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.get_parameters_by_path)
         """
 
     def get_patch_baseline(self, BaselineId: str) -> GetPatchBaselineResultTypeDef:
         """
-        [Client.get_patch_baseline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.get_patch_baseline)
+        [Client.get_patch_baseline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.get_patch_baseline)
         """
 
     def get_patch_baseline_for_patch_group(
@@ -1141,26 +1149,26 @@ class SSMClient:
         ] = None,
     ) -> GetPatchBaselineForPatchGroupResultTypeDef:
         """
-        [Client.get_patch_baseline_for_patch_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.get_patch_baseline_for_patch_group)
+        [Client.get_patch_baseline_for_patch_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.get_patch_baseline_for_patch_group)
         """
 
     def get_service_setting(self, SettingId: str) -> GetServiceSettingResultTypeDef:
         """
-        [Client.get_service_setting documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.get_service_setting)
+        [Client.get_service_setting documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.get_service_setting)
         """
 
     def label_parameter_version(
         self, Name: str, Labels: List[str], ParameterVersion: int = None
     ) -> LabelParameterVersionResultTypeDef:
         """
-        [Client.label_parameter_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.label_parameter_version)
+        [Client.label_parameter_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.label_parameter_version)
         """
 
     def list_association_versions(
         self, AssociationId: str, MaxResults: int = None, NextToken: str = None
     ) -> ListAssociationVersionsResultTypeDef:
         """
-        [Client.list_association_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.list_association_versions)
+        [Client.list_association_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.list_association_versions)
         """
 
     def list_associations(
@@ -1170,7 +1178,7 @@ class SSMClient:
         NextToken: str = None,
     ) -> ListAssociationsResultTypeDef:
         """
-        [Client.list_associations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.list_associations)
+        [Client.list_associations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.list_associations)
         """
 
     def list_command_invocations(
@@ -1183,7 +1191,7 @@ class SSMClient:
         Details: bool = None,
     ) -> ListCommandInvocationsResultTypeDef:
         """
-        [Client.list_command_invocations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.list_command_invocations)
+        [Client.list_command_invocations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.list_command_invocations)
         """
 
     def list_commands(
@@ -1195,7 +1203,7 @@ class SSMClient:
         Filters: List[CommandFilterTypeDef] = None,
     ) -> ListCommandsResultTypeDef:
         """
-        [Client.list_commands documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.list_commands)
+        [Client.list_commands documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.list_commands)
         """
 
     def list_compliance_items(
@@ -1207,7 +1215,7 @@ class SSMClient:
         MaxResults: int = None,
     ) -> ListComplianceItemsResultTypeDef:
         """
-        [Client.list_compliance_items documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.list_compliance_items)
+        [Client.list_compliance_items documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.list_compliance_items)
         """
 
     def list_compliance_summaries(
@@ -1217,14 +1225,14 @@ class SSMClient:
         MaxResults: int = None,
     ) -> ListComplianceSummariesResultTypeDef:
         """
-        [Client.list_compliance_summaries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.list_compliance_summaries)
+        [Client.list_compliance_summaries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.list_compliance_summaries)
         """
 
     def list_document_versions(
         self, Name: str, MaxResults: int = None, NextToken: str = None
     ) -> ListDocumentVersionsResultTypeDef:
         """
-        [Client.list_document_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.list_document_versions)
+        [Client.list_document_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.list_document_versions)
         """
 
     def list_documents(
@@ -1235,7 +1243,7 @@ class SSMClient:
         NextToken: str = None,
     ) -> ListDocumentsResultTypeDef:
         """
-        [Client.list_documents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.list_documents)
+        [Client.list_documents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.list_documents)
         """
 
     def list_inventory_entries(
@@ -1247,7 +1255,7 @@ class SSMClient:
         MaxResults: int = None,
     ) -> ListInventoryEntriesResultTypeDef:
         """
-        [Client.list_inventory_entries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.list_inventory_entries)
+        [Client.list_inventory_entries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.list_inventory_entries)
         """
 
     def list_resource_compliance_summaries(
@@ -1257,14 +1265,14 @@ class SSMClient:
         MaxResults: int = None,
     ) -> ListResourceComplianceSummariesResultTypeDef:
         """
-        [Client.list_resource_compliance_summaries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.list_resource_compliance_summaries)
+        [Client.list_resource_compliance_summaries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.list_resource_compliance_summaries)
         """
 
     def list_resource_data_sync(
         self, SyncType: str = None, NextToken: str = None, MaxResults: int = None
     ) -> ListResourceDataSyncResultTypeDef:
         """
-        [Client.list_resource_data_sync documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.list_resource_data_sync)
+        [Client.list_resource_data_sync documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.list_resource_data_sync)
         """
 
     def list_tags_for_resource(
@@ -1280,7 +1288,7 @@ class SSMClient:
         ResourceId: str,
     ) -> ListTagsForResourceResultTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.list_tags_for_resource)
         """
 
     def modify_document_permission(
@@ -1292,7 +1300,7 @@ class SSMClient:
         SharedDocumentVersion: str = None,
     ) -> Dict[str, Any]:
         """
-        [Client.modify_document_permission documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.modify_document_permission)
+        [Client.modify_document_permission documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.modify_document_permission)
         """
 
     def put_compliance_items(
@@ -1306,14 +1314,14 @@ class SSMClient:
         UploadType: Literal["COMPLETE", "PARTIAL"] = None,
     ) -> Dict[str, Any]:
         """
-        [Client.put_compliance_items documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.put_compliance_items)
+        [Client.put_compliance_items documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.put_compliance_items)
         """
 
     def put_inventory(
         self, InstanceId: str, Items: List[InventoryItemTypeDef]
     ) -> PutInventoryResultTypeDef:
         """
-        [Client.put_inventory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.put_inventory)
+        [Client.put_inventory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.put_inventory)
         """
 
     def put_parameter(
@@ -1331,21 +1339,21 @@ class SSMClient:
         DataType: str = None,
     ) -> PutParameterResultTypeDef:
         """
-        [Client.put_parameter documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.put_parameter)
+        [Client.put_parameter documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.put_parameter)
         """
 
     def register_default_patch_baseline(
         self, BaselineId: str
     ) -> RegisterDefaultPatchBaselineResultTypeDef:
         """
-        [Client.register_default_patch_baseline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.register_default_patch_baseline)
+        [Client.register_default_patch_baseline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.register_default_patch_baseline)
         """
 
     def register_patch_baseline_for_patch_group(
         self, BaselineId: str, PatchGroup: str
     ) -> RegisterPatchBaselineForPatchGroupResultTypeDef:
         """
-        [Client.register_patch_baseline_for_patch_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.register_patch_baseline_for_patch_group)
+        [Client.register_patch_baseline_for_patch_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.register_patch_baseline_for_patch_group)
         """
 
     def register_target_with_maintenance_window(
@@ -1359,7 +1367,7 @@ class SSMClient:
         ClientToken: str = None,
     ) -> RegisterTargetWithMaintenanceWindowResultTypeDef:
         """
-        [Client.register_target_with_maintenance_window documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.register_target_with_maintenance_window)
+        [Client.register_target_with_maintenance_window documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.register_target_with_maintenance_window)
         """
 
     def register_task_with_maintenance_window(
@@ -1380,7 +1388,7 @@ class SSMClient:
         ClientToken: str = None,
     ) -> RegisterTaskWithMaintenanceWindowResultTypeDef:
         """
-        [Client.register_task_with_maintenance_window documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.register_task_with_maintenance_window)
+        [Client.register_task_with_maintenance_window documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.register_task_with_maintenance_window)
         """
 
     def remove_tags_from_resource(
@@ -1397,17 +1405,17 @@ class SSMClient:
         TagKeys: List[str],
     ) -> Dict[str, Any]:
         """
-        [Client.remove_tags_from_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.remove_tags_from_resource)
+        [Client.remove_tags_from_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.remove_tags_from_resource)
         """
 
     def reset_service_setting(self, SettingId: str) -> ResetServiceSettingResultTypeDef:
         """
-        [Client.reset_service_setting documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.reset_service_setting)
+        [Client.reset_service_setting documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.reset_service_setting)
         """
 
     def resume_session(self, SessionId: str) -> ResumeSessionResponseTypeDef:
         """
-        [Client.resume_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.resume_session)
+        [Client.resume_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.resume_session)
         """
 
     def send_automation_signal(
@@ -1417,7 +1425,7 @@ class SSMClient:
         Payload: Dict[str, List[str]] = None,
     ) -> Dict[str, Any]:
         """
-        [Client.send_automation_signal documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.send_automation_signal)
+        [Client.send_automation_signal documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.send_automation_signal)
         """
 
     def send_command(
@@ -1441,12 +1449,12 @@ class SSMClient:
         CloudWatchOutputConfig: "CloudWatchOutputConfigTypeDef" = None,
     ) -> SendCommandResultTypeDef:
         """
-        [Client.send_command documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.send_command)
+        [Client.send_command documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.send_command)
         """
 
     def start_associations_once(self, AssociationIds: List[str]) -> Dict[str, Any]:
         """
-        [Client.start_associations_once documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.start_associations_once)
+        [Client.start_associations_once documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.start_associations_once)
         """
 
     def start_automation_execution(
@@ -1465,26 +1473,26 @@ class SSMClient:
         Tags: List["TagTypeDef"] = None,
     ) -> StartAutomationExecutionResultTypeDef:
         """
-        [Client.start_automation_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.start_automation_execution)
+        [Client.start_automation_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.start_automation_execution)
         """
 
     def start_session(
         self, Target: str, DocumentName: str = None, Parameters: Dict[str, List[str]] = None
     ) -> StartSessionResponseTypeDef:
         """
-        [Client.start_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.start_session)
+        [Client.start_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.start_session)
         """
 
     def stop_automation_execution(
         self, AutomationExecutionId: str, Type: Literal["Complete", "Cancel"] = None
     ) -> Dict[str, Any]:
         """
-        [Client.stop_automation_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.stop_automation_execution)
+        [Client.stop_automation_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.stop_automation_execution)
         """
 
     def terminate_session(self, SessionId: str) -> TerminateSessionResponseTypeDef:
         """
-        [Client.terminate_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.terminate_session)
+        [Client.terminate_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.terminate_session)
         """
 
     def update_association(
@@ -1506,14 +1514,14 @@ class SSMClient:
         ApplyOnlyAtCronInterval: bool = None,
     ) -> UpdateAssociationResultTypeDef:
         """
-        [Client.update_association documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.update_association)
+        [Client.update_association documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.update_association)
         """
 
     def update_association_status(
         self, Name: str, InstanceId: str, AssociationStatus: "AssociationStatusTypeDef"
     ) -> UpdateAssociationStatusResultTypeDef:
         """
-        [Client.update_association_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.update_association_status)
+        [Client.update_association_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.update_association_status)
         """
 
     def update_document(
@@ -1527,14 +1535,14 @@ class SSMClient:
         TargetType: str = None,
     ) -> UpdateDocumentResultTypeDef:
         """
-        [Client.update_document documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.update_document)
+        [Client.update_document documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.update_document)
         """
 
     def update_document_default_version(
         self, Name: str, DocumentVersion: str
     ) -> UpdateDocumentDefaultVersionResultTypeDef:
         """
-        [Client.update_document_default_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.update_document_default_version)
+        [Client.update_document_default_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.update_document_default_version)
         """
 
     def update_maintenance_window(
@@ -1554,7 +1562,7 @@ class SSMClient:
         Replace: bool = None,
     ) -> UpdateMaintenanceWindowResultTypeDef:
         """
-        [Client.update_maintenance_window documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.update_maintenance_window)
+        [Client.update_maintenance_window documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.update_maintenance_window)
         """
 
     def update_maintenance_window_target(
@@ -1568,7 +1576,7 @@ class SSMClient:
         Replace: bool = None,
     ) -> UpdateMaintenanceWindowTargetResultTypeDef:
         """
-        [Client.update_maintenance_window_target documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.update_maintenance_window_target)
+        [Client.update_maintenance_window_target documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.update_maintenance_window_target)
         """
 
     def update_maintenance_window_task(
@@ -1589,12 +1597,12 @@ class SSMClient:
         Replace: bool = None,
     ) -> UpdateMaintenanceWindowTaskResultTypeDef:
         """
-        [Client.update_maintenance_window_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.update_maintenance_window_task)
+        [Client.update_maintenance_window_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.update_maintenance_window_task)
         """
 
     def update_managed_instance_role(self, InstanceId: str, IamRole: str) -> Dict[str, Any]:
         """
-        [Client.update_managed_instance_role documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.update_managed_instance_role)
+        [Client.update_managed_instance_role documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.update_managed_instance_role)
         """
 
     def update_ops_item(
@@ -1612,7 +1620,7 @@ class SSMClient:
         Severity: str = None,
     ) -> Dict[str, Any]:
         """
-        [Client.update_ops_item documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.update_ops_item)
+        [Client.update_ops_item documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.update_ops_item)
         """
 
     def update_patch_baseline(
@@ -1633,19 +1641,19 @@ class SSMClient:
         Replace: bool = None,
     ) -> UpdatePatchBaselineResultTypeDef:
         """
-        [Client.update_patch_baseline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.update_patch_baseline)
+        [Client.update_patch_baseline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.update_patch_baseline)
         """
 
     def update_resource_data_sync(
         self, SyncName: str, SyncType: str, SyncSource: ResourceDataSyncSourceTypeDef
     ) -> Dict[str, Any]:
         """
-        [Client.update_resource_data_sync documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.update_resource_data_sync)
+        [Client.update_resource_data_sync documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.update_resource_data_sync)
         """
 
     def update_service_setting(self, SettingId: str, SettingValue: str) -> Dict[str, Any]:
         """
-        [Client.update_service_setting documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Client.update_service_setting)
+        [Client.update_service_setting documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Client.update_service_setting)
         """
 
     @overload
@@ -1653,7 +1661,7 @@ class SSMClient:
         self, operation_name: Literal["describe_activations"]
     ) -> DescribeActivationsPaginator:
         """
-        [Paginator.DescribeActivations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Paginator.DescribeActivations)
+        [Paginator.DescribeActivations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeActivations)
         """
 
     @overload
@@ -1661,7 +1669,7 @@ class SSMClient:
         self, operation_name: Literal["describe_association_execution_targets"]
     ) -> DescribeAssociationExecutionTargetsPaginator:
         """
-        [Paginator.DescribeAssociationExecutionTargets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Paginator.DescribeAssociationExecutionTargets)
+        [Paginator.DescribeAssociationExecutionTargets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeAssociationExecutionTargets)
         """
 
     @overload
@@ -1669,7 +1677,7 @@ class SSMClient:
         self, operation_name: Literal["describe_association_executions"]
     ) -> DescribeAssociationExecutionsPaginator:
         """
-        [Paginator.DescribeAssociationExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Paginator.DescribeAssociationExecutions)
+        [Paginator.DescribeAssociationExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeAssociationExecutions)
         """
 
     @overload
@@ -1677,7 +1685,7 @@ class SSMClient:
         self, operation_name: Literal["describe_automation_executions"]
     ) -> DescribeAutomationExecutionsPaginator:
         """
-        [Paginator.DescribeAutomationExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Paginator.DescribeAutomationExecutions)
+        [Paginator.DescribeAutomationExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeAutomationExecutions)
         """
 
     @overload
@@ -1685,7 +1693,7 @@ class SSMClient:
         self, operation_name: Literal["describe_automation_step_executions"]
     ) -> DescribeAutomationStepExecutionsPaginator:
         """
-        [Paginator.DescribeAutomationStepExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Paginator.DescribeAutomationStepExecutions)
+        [Paginator.DescribeAutomationStepExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeAutomationStepExecutions)
         """
 
     @overload
@@ -1693,7 +1701,7 @@ class SSMClient:
         self, operation_name: Literal["describe_available_patches"]
     ) -> DescribeAvailablePatchesPaginator:
         """
-        [Paginator.DescribeAvailablePatches documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Paginator.DescribeAvailablePatches)
+        [Paginator.DescribeAvailablePatches documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeAvailablePatches)
         """
 
     @overload
@@ -1701,7 +1709,7 @@ class SSMClient:
         self, operation_name: Literal["describe_effective_instance_associations"]
     ) -> DescribeEffectiveInstanceAssociationsPaginator:
         """
-        [Paginator.DescribeEffectiveInstanceAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Paginator.DescribeEffectiveInstanceAssociations)
+        [Paginator.DescribeEffectiveInstanceAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeEffectiveInstanceAssociations)
         """
 
     @overload
@@ -1709,7 +1717,7 @@ class SSMClient:
         self, operation_name: Literal["describe_effective_patches_for_patch_baseline"]
     ) -> DescribeEffectivePatchesForPatchBaselinePaginator:
         """
-        [Paginator.DescribeEffectivePatchesForPatchBaseline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Paginator.DescribeEffectivePatchesForPatchBaseline)
+        [Paginator.DescribeEffectivePatchesForPatchBaseline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeEffectivePatchesForPatchBaseline)
         """
 
     @overload
@@ -1717,7 +1725,7 @@ class SSMClient:
         self, operation_name: Literal["describe_instance_associations_status"]
     ) -> DescribeInstanceAssociationsStatusPaginator:
         """
-        [Paginator.DescribeInstanceAssociationsStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Paginator.DescribeInstanceAssociationsStatus)
+        [Paginator.DescribeInstanceAssociationsStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeInstanceAssociationsStatus)
         """
 
     @overload
@@ -1725,7 +1733,7 @@ class SSMClient:
         self, operation_name: Literal["describe_instance_information"]
     ) -> DescribeInstanceInformationPaginator:
         """
-        [Paginator.DescribeInstanceInformation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Paginator.DescribeInstanceInformation)
+        [Paginator.DescribeInstanceInformation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeInstanceInformation)
         """
 
     @overload
@@ -1733,7 +1741,7 @@ class SSMClient:
         self, operation_name: Literal["describe_instance_patch_states"]
     ) -> DescribeInstancePatchStatesPaginator:
         """
-        [Paginator.DescribeInstancePatchStates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Paginator.DescribeInstancePatchStates)
+        [Paginator.DescribeInstancePatchStates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeInstancePatchStates)
         """
 
     @overload
@@ -1741,7 +1749,7 @@ class SSMClient:
         self, operation_name: Literal["describe_instance_patch_states_for_patch_group"]
     ) -> DescribeInstancePatchStatesForPatchGroupPaginator:
         """
-        [Paginator.DescribeInstancePatchStatesForPatchGroup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Paginator.DescribeInstancePatchStatesForPatchGroup)
+        [Paginator.DescribeInstancePatchStatesForPatchGroup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeInstancePatchStatesForPatchGroup)
         """
 
     @overload
@@ -1749,7 +1757,7 @@ class SSMClient:
         self, operation_name: Literal["describe_instance_patches"]
     ) -> DescribeInstancePatchesPaginator:
         """
-        [Paginator.DescribeInstancePatches documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Paginator.DescribeInstancePatches)
+        [Paginator.DescribeInstancePatches documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeInstancePatches)
         """
 
     @overload
@@ -1757,7 +1765,7 @@ class SSMClient:
         self, operation_name: Literal["describe_inventory_deletions"]
     ) -> DescribeInventoryDeletionsPaginator:
         """
-        [Paginator.DescribeInventoryDeletions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Paginator.DescribeInventoryDeletions)
+        [Paginator.DescribeInventoryDeletions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeInventoryDeletions)
         """
 
     @overload
@@ -1765,7 +1773,7 @@ class SSMClient:
         self, operation_name: Literal["describe_maintenance_window_execution_task_invocations"]
     ) -> DescribeMaintenanceWindowExecutionTaskInvocationsPaginator:
         """
-        [Paginator.DescribeMaintenanceWindowExecutionTaskInvocations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowExecutionTaskInvocations)
+        [Paginator.DescribeMaintenanceWindowExecutionTaskInvocations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowExecutionTaskInvocations)
         """
 
     @overload
@@ -1773,7 +1781,7 @@ class SSMClient:
         self, operation_name: Literal["describe_maintenance_window_execution_tasks"]
     ) -> DescribeMaintenanceWindowExecutionTasksPaginator:
         """
-        [Paginator.DescribeMaintenanceWindowExecutionTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowExecutionTasks)
+        [Paginator.DescribeMaintenanceWindowExecutionTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowExecutionTasks)
         """
 
     @overload
@@ -1781,7 +1789,7 @@ class SSMClient:
         self, operation_name: Literal["describe_maintenance_window_executions"]
     ) -> DescribeMaintenanceWindowExecutionsPaginator:
         """
-        [Paginator.DescribeMaintenanceWindowExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowExecutions)
+        [Paginator.DescribeMaintenanceWindowExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowExecutions)
         """
 
     @overload
@@ -1789,7 +1797,7 @@ class SSMClient:
         self, operation_name: Literal["describe_maintenance_window_schedule"]
     ) -> DescribeMaintenanceWindowSchedulePaginator:
         """
-        [Paginator.DescribeMaintenanceWindowSchedule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowSchedule)
+        [Paginator.DescribeMaintenanceWindowSchedule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowSchedule)
         """
 
     @overload
@@ -1797,7 +1805,7 @@ class SSMClient:
         self, operation_name: Literal["describe_maintenance_window_targets"]
     ) -> DescribeMaintenanceWindowTargetsPaginator:
         """
-        [Paginator.DescribeMaintenanceWindowTargets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowTargets)
+        [Paginator.DescribeMaintenanceWindowTargets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowTargets)
         """
 
     @overload
@@ -1805,7 +1813,7 @@ class SSMClient:
         self, operation_name: Literal["describe_maintenance_window_tasks"]
     ) -> DescribeMaintenanceWindowTasksPaginator:
         """
-        [Paginator.DescribeMaintenanceWindowTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowTasks)
+        [Paginator.DescribeMaintenanceWindowTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowTasks)
         """
 
     @overload
@@ -1813,7 +1821,7 @@ class SSMClient:
         self, operation_name: Literal["describe_maintenance_windows"]
     ) -> DescribeMaintenanceWindowsPaginator:
         """
-        [Paginator.DescribeMaintenanceWindows documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindows)
+        [Paginator.DescribeMaintenanceWindows documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindows)
         """
 
     @overload
@@ -1821,7 +1829,7 @@ class SSMClient:
         self, operation_name: Literal["describe_maintenance_windows_for_target"]
     ) -> DescribeMaintenanceWindowsForTargetPaginator:
         """
-        [Paginator.DescribeMaintenanceWindowsForTarget documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowsForTarget)
+        [Paginator.DescribeMaintenanceWindowsForTarget documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowsForTarget)
         """
 
     @overload
@@ -1829,7 +1837,7 @@ class SSMClient:
         self, operation_name: Literal["describe_ops_items"]
     ) -> DescribeOpsItemsPaginator:
         """
-        [Paginator.DescribeOpsItems documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Paginator.DescribeOpsItems)
+        [Paginator.DescribeOpsItems documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeOpsItems)
         """
 
     @overload
@@ -1837,7 +1845,7 @@ class SSMClient:
         self, operation_name: Literal["describe_parameters"]
     ) -> DescribeParametersPaginator:
         """
-        [Paginator.DescribeParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Paginator.DescribeParameters)
+        [Paginator.DescribeParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeParameters)
         """
 
     @overload
@@ -1845,7 +1853,7 @@ class SSMClient:
         self, operation_name: Literal["describe_patch_baselines"]
     ) -> DescribePatchBaselinesPaginator:
         """
-        [Paginator.DescribePatchBaselines documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Paginator.DescribePatchBaselines)
+        [Paginator.DescribePatchBaselines documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribePatchBaselines)
         """
 
     @overload
@@ -1853,7 +1861,7 @@ class SSMClient:
         self, operation_name: Literal["describe_patch_groups"]
     ) -> DescribePatchGroupsPaginator:
         """
-        [Paginator.DescribePatchGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Paginator.DescribePatchGroups)
+        [Paginator.DescribePatchGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribePatchGroups)
         """
 
     @overload
@@ -1861,7 +1869,7 @@ class SSMClient:
         self, operation_name: Literal["describe_patch_properties"]
     ) -> DescribePatchPropertiesPaginator:
         """
-        [Paginator.DescribePatchProperties documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Paginator.DescribePatchProperties)
+        [Paginator.DescribePatchProperties documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribePatchProperties)
         """
 
     @overload
@@ -1869,13 +1877,13 @@ class SSMClient:
         self, operation_name: Literal["describe_sessions"]
     ) -> DescribeSessionsPaginator:
         """
-        [Paginator.DescribeSessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Paginator.DescribeSessions)
+        [Paginator.DescribeSessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeSessions)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_inventory"]) -> GetInventoryPaginator:
         """
-        [Paginator.GetInventory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Paginator.GetInventory)
+        [Paginator.GetInventory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.GetInventory)
         """
 
     @overload
@@ -1883,13 +1891,13 @@ class SSMClient:
         self, operation_name: Literal["get_inventory_schema"]
     ) -> GetInventorySchemaPaginator:
         """
-        [Paginator.GetInventorySchema documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Paginator.GetInventorySchema)
+        [Paginator.GetInventorySchema documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.GetInventorySchema)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_ops_summary"]) -> GetOpsSummaryPaginator:
         """
-        [Paginator.GetOpsSummary documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Paginator.GetOpsSummary)
+        [Paginator.GetOpsSummary documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.GetOpsSummary)
         """
 
     @overload
@@ -1897,7 +1905,7 @@ class SSMClient:
         self, operation_name: Literal["get_parameter_history"]
     ) -> GetParameterHistoryPaginator:
         """
-        [Paginator.GetParameterHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Paginator.GetParameterHistory)
+        [Paginator.GetParameterHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.GetParameterHistory)
         """
 
     @overload
@@ -1905,7 +1913,7 @@ class SSMClient:
         self, operation_name: Literal["get_parameters_by_path"]
     ) -> GetParametersByPathPaginator:
         """
-        [Paginator.GetParametersByPath documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Paginator.GetParametersByPath)
+        [Paginator.GetParametersByPath documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.GetParametersByPath)
         """
 
     @overload
@@ -1913,7 +1921,7 @@ class SSMClient:
         self, operation_name: Literal["list_association_versions"]
     ) -> ListAssociationVersionsPaginator:
         """
-        [Paginator.ListAssociationVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Paginator.ListAssociationVersions)
+        [Paginator.ListAssociationVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.ListAssociationVersions)
         """
 
     @overload
@@ -1921,7 +1929,7 @@ class SSMClient:
         self, operation_name: Literal["list_associations"]
     ) -> ListAssociationsPaginator:
         """
-        [Paginator.ListAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Paginator.ListAssociations)
+        [Paginator.ListAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.ListAssociations)
         """
 
     @overload
@@ -1929,13 +1937,13 @@ class SSMClient:
         self, operation_name: Literal["list_command_invocations"]
     ) -> ListCommandInvocationsPaginator:
         """
-        [Paginator.ListCommandInvocations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Paginator.ListCommandInvocations)
+        [Paginator.ListCommandInvocations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.ListCommandInvocations)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_commands"]) -> ListCommandsPaginator:
         """
-        [Paginator.ListCommands documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Paginator.ListCommands)
+        [Paginator.ListCommands documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.ListCommands)
         """
 
     @overload
@@ -1943,7 +1951,7 @@ class SSMClient:
         self, operation_name: Literal["list_compliance_items"]
     ) -> ListComplianceItemsPaginator:
         """
-        [Paginator.ListComplianceItems documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Paginator.ListComplianceItems)
+        [Paginator.ListComplianceItems documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.ListComplianceItems)
         """
 
     @overload
@@ -1951,7 +1959,7 @@ class SSMClient:
         self, operation_name: Literal["list_compliance_summaries"]
     ) -> ListComplianceSummariesPaginator:
         """
-        [Paginator.ListComplianceSummaries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Paginator.ListComplianceSummaries)
+        [Paginator.ListComplianceSummaries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.ListComplianceSummaries)
         """
 
     @overload
@@ -1959,13 +1967,13 @@ class SSMClient:
         self, operation_name: Literal["list_document_versions"]
     ) -> ListDocumentVersionsPaginator:
         """
-        [Paginator.ListDocumentVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Paginator.ListDocumentVersions)
+        [Paginator.ListDocumentVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.ListDocumentVersions)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_documents"]) -> ListDocumentsPaginator:
         """
-        [Paginator.ListDocuments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Paginator.ListDocuments)
+        [Paginator.ListDocuments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.ListDocuments)
         """
 
     @overload
@@ -1973,7 +1981,7 @@ class SSMClient:
         self, operation_name: Literal["list_resource_compliance_summaries"]
     ) -> ListResourceComplianceSummariesPaginator:
         """
-        [Paginator.ListResourceComplianceSummaries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Paginator.ListResourceComplianceSummaries)
+        [Paginator.ListResourceComplianceSummaries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.ListResourceComplianceSummaries)
         """
 
     @overload
@@ -1981,13 +1989,10 @@ class SSMClient:
         self, operation_name: Literal["list_resource_data_sync"]
     ) -> ListResourceDataSyncPaginator:
         """
-        [Paginator.ListResourceDataSync documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Paginator.ListResourceDataSync)
+        [Paginator.ListResourceDataSync documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.ListResourceDataSync)
         """
-
-    def get_paginator(self, operation_name: str) -> Boto3Paginator:
-        pass
 
     def get_waiter(self, waiter_name: Literal["command_executed"]) -> CommandExecutedWaiter:
         """
-        [Waiter.CommandExecuted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Waiter.CommandExecuted)
+        [Waiter.CommandExecuted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Waiter.CommandExecuted)
         """

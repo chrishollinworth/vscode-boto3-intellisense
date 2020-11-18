@@ -1,4 +1,4 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import
+# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for rds-data service client
 
@@ -13,7 +13,7 @@ Usage::
 """
 from typing import Any, Dict, List, Type
 
-from botocore.exceptions import ClientError as Boto3ClientError
+from botocore.client import ClientMeta
 
 from mypy_boto3_rds_data.type_defs import (
     BatchExecuteStatementResponseTypeDef,
@@ -29,21 +29,30 @@ from mypy_boto3_rds_data.type_defs import (
 __all__ = ("RDSDataServiceClient",)
 
 
+class BotocoreClientError(BaseException):
+    MSG_TEMPLATE: str
+
+    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
+        self.response: Dict[str, Any]
+        self.operation_name: str
+
+
 class Exceptions:
-    BadRequestException: Type[Boto3ClientError]
-    ClientError: Type[Boto3ClientError]
-    ForbiddenException: Type[Boto3ClientError]
-    InternalServerErrorException: Type[Boto3ClientError]
-    NotFoundException: Type[Boto3ClientError]
-    ServiceUnavailableError: Type[Boto3ClientError]
-    StatementTimeoutException: Type[Boto3ClientError]
+    BadRequestException: Type[BotocoreClientError]
+    ClientError: Type[BotocoreClientError]
+    ForbiddenException: Type[BotocoreClientError]
+    InternalServerErrorException: Type[BotocoreClientError]
+    NotFoundException: Type[BotocoreClientError]
+    ServiceUnavailableError: Type[BotocoreClientError]
+    StatementTimeoutException: Type[BotocoreClientError]
 
 
 class RDSDataServiceClient:
     """
-    [RDSDataService.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/rds-data.html#RDSDataService.Client)
+    [RDSDataService.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds-data.html#RDSDataService.Client)
     """
 
+    meta: ClientMeta
     exceptions: Exceptions
 
     def batch_execute_statement(
@@ -57,26 +66,26 @@ class RDSDataServiceClient:
         transactionId: str = None,
     ) -> BatchExecuteStatementResponseTypeDef:
         """
-        [Client.batch_execute_statement documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/rds-data.html#RDSDataService.Client.batch_execute_statement)
+        [Client.batch_execute_statement documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds-data.html#RDSDataService.Client.batch_execute_statement)
         """
 
     def begin_transaction(
         self, resourceArn: str, secretArn: str, database: str = None, schema: str = None
     ) -> BeginTransactionResponseTypeDef:
         """
-        [Client.begin_transaction documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/rds-data.html#RDSDataService.Client.begin_transaction)
+        [Client.begin_transaction documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds-data.html#RDSDataService.Client.begin_transaction)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/rds-data.html#RDSDataService.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds-data.html#RDSDataService.Client.can_paginate)
         """
 
     def commit_transaction(
         self, resourceArn: str, secretArn: str, transactionId: str
     ) -> CommitTransactionResponseTypeDef:
         """
-        [Client.commit_transaction documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/rds-data.html#RDSDataService.Client.commit_transaction)
+        [Client.commit_transaction documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds-data.html#RDSDataService.Client.commit_transaction)
         """
 
     def execute_sql(
@@ -88,7 +97,7 @@ class RDSDataServiceClient:
         schema: str = None,
     ) -> ExecuteSqlResponseTypeDef:
         """
-        [Client.execute_sql documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/rds-data.html#RDSDataService.Client.execute_sql)
+        [Client.execute_sql documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds-data.html#RDSDataService.Client.execute_sql)
         """
 
     def execute_statement(
@@ -105,7 +114,7 @@ class RDSDataServiceClient:
         transactionId: str = None,
     ) -> ExecuteStatementResponseTypeDef:
         """
-        [Client.execute_statement documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/rds-data.html#RDSDataService.Client.execute_statement)
+        [Client.execute_statement documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds-data.html#RDSDataService.Client.execute_statement)
         """
 
     def generate_presigned_url(
@@ -116,12 +125,12 @@ class RDSDataServiceClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/rds-data.html#RDSDataService.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds-data.html#RDSDataService.Client.generate_presigned_url)
         """
 
     def rollback_transaction(
         self, resourceArn: str, secretArn: str, transactionId: str
     ) -> RollbackTransactionResponseTypeDef:
         """
-        [Client.rollback_transaction documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/rds-data.html#RDSDataService.Client.rollback_transaction)
+        [Client.rollback_transaction documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds-data.html#RDSDataService.Client.rollback_transaction)
         """

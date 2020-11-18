@@ -51,20 +51,20 @@ __all__ = (
 
 class ListAssociationsForLicenseConfigurationPaginator(Boto3Paginator):
     """
-    [Paginator.ListAssociationsForLicenseConfiguration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/license-manager.html#LicenseManager.Paginator.ListAssociationsForLicenseConfiguration)
+    [Paginator.ListAssociationsForLicenseConfiguration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/license-manager.html#LicenseManager.Paginator.ListAssociationsForLicenseConfiguration)
     """
 
     def paginate(
         self, LicenseConfigurationArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAssociationsForLicenseConfigurationResponseTypeDef]:
         """
-        [ListAssociationsForLicenseConfiguration.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/license-manager.html#LicenseManager.Paginator.ListAssociationsForLicenseConfiguration.paginate)
+        [ListAssociationsForLicenseConfiguration.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/license-manager.html#LicenseManager.Paginator.ListAssociationsForLicenseConfiguration.paginate)
         """
 
 
 class ListLicenseConfigurationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListLicenseConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/license-manager.html#LicenseManager.Paginator.ListLicenseConfigurations)
+    [Paginator.ListLicenseConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/license-manager.html#LicenseManager.Paginator.ListLicenseConfigurations)
     """
 
     def paginate(
@@ -74,26 +74,26 @@ class ListLicenseConfigurationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListLicenseConfigurationsResponseTypeDef]:
         """
-        [ListLicenseConfigurations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/license-manager.html#LicenseManager.Paginator.ListLicenseConfigurations.paginate)
+        [ListLicenseConfigurations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/license-manager.html#LicenseManager.Paginator.ListLicenseConfigurations.paginate)
         """
 
 
 class ListLicenseSpecificationsForResourcePaginator(Boto3Paginator):
     """
-    [Paginator.ListLicenseSpecificationsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/license-manager.html#LicenseManager.Paginator.ListLicenseSpecificationsForResource)
+    [Paginator.ListLicenseSpecificationsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/license-manager.html#LicenseManager.Paginator.ListLicenseSpecificationsForResource)
     """
 
     def paginate(
         self, ResourceArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListLicenseSpecificationsForResourceResponseTypeDef]:
         """
-        [ListLicenseSpecificationsForResource.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/license-manager.html#LicenseManager.Paginator.ListLicenseSpecificationsForResource.paginate)
+        [ListLicenseSpecificationsForResource.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/license-manager.html#LicenseManager.Paginator.ListLicenseSpecificationsForResource.paginate)
         """
 
 
 class ListResourceInventoryPaginator(Boto3Paginator):
     """
-    [Paginator.ListResourceInventory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/license-manager.html#LicenseManager.Paginator.ListResourceInventory)
+    [Paginator.ListResourceInventory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/license-manager.html#LicenseManager.Paginator.ListResourceInventory)
     """
 
     def paginate(
@@ -102,13 +102,13 @@ class ListResourceInventoryPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListResourceInventoryResponseTypeDef]:
         """
-        [ListResourceInventory.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/license-manager.html#LicenseManager.Paginator.ListResourceInventory.paginate)
+        [ListResourceInventory.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/license-manager.html#LicenseManager.Paginator.ListResourceInventory.paginate)
         """
 
 
 class ListUsageForLicenseConfigurationPaginator(Boto3Paginator):
     """
-    [Paginator.ListUsageForLicenseConfiguration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/license-manager.html#LicenseManager.Paginator.ListUsageForLicenseConfiguration)
+    [Paginator.ListUsageForLicenseConfiguration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/license-manager.html#LicenseManager.Paginator.ListUsageForLicenseConfiguration)
     """
 
     def paginate(
@@ -118,5 +118,5 @@ class ListUsageForLicenseConfigurationPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListUsageForLicenseConfigurationResponseTypeDef]:
         """
-        [ListUsageForLicenseConfiguration.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/license-manager.html#LicenseManager.Paginator.ListUsageForLicenseConfiguration.paginate)
+        [ListUsageForLicenseConfiguration.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/license-manager.html#LicenseManager.Paginator.ListUsageForLicenseConfiguration.paginate)
         """

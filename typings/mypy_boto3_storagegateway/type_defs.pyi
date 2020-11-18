@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import List
+from typing import Any, Dict, List
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -27,6 +26,7 @@ else:
 __all__ = (
     "AutomaticTapeCreationPolicyInfoTypeDef",
     "AutomaticTapeCreationRuleTypeDef",
+    "BandwidthRateLimitIntervalTypeDef",
     "CacheAttributesTypeDef",
     "CachediSCSIVolumeTypeDef",
     "ChapInfoTypeDef",
@@ -38,6 +38,7 @@ __all__ = (
     "NFSFileShareInfoTypeDef",
     "NetworkInterfaceTypeDef",
     "PoolInfoTypeDef",
+    "ResponseMetadata",
     "SMBFileShareInfoTypeDef",
     "StorediSCSIVolumeTypeDef",
     "TagTypeDef",
@@ -79,6 +80,7 @@ __all__ = (
     "DeleteVolumeOutputTypeDef",
     "DescribeAvailabilityMonitorTestOutputTypeDef",
     "DescribeBandwidthRateLimitOutputTypeDef",
+    "DescribeBandwidthRateLimitScheduleOutputTypeDef",
     "DescribeCacheOutputTypeDef",
     "DescribeCachediSCSIVolumesOutputTypeDef",
     "DescribeChapCredentialsOutputTypeDef",
@@ -122,12 +124,14 @@ __all__ = (
     "StartGatewayOutputTypeDef",
     "UpdateAutomaticTapeCreationPolicyOutputTypeDef",
     "UpdateBandwidthRateLimitOutputTypeDef",
+    "UpdateBandwidthRateLimitScheduleOutputTypeDef",
     "UpdateChapCredentialsOutputTypeDef",
     "UpdateGatewayInformationOutputTypeDef",
     "UpdateGatewaySoftwareNowOutputTypeDef",
     "UpdateMaintenanceStartTimeOutputTypeDef",
     "UpdateNFSFileShareOutputTypeDef",
     "UpdateSMBFileShareOutputTypeDef",
+    "UpdateSMBFileShareVisibilityOutputTypeDef",
     "UpdateSMBSecurityStrategyOutputTypeDef",
     "UpdateSnapshotScheduleOutputTypeDef",
     "UpdateVTLDeviceTypeOutputTypeDef",
@@ -150,6 +154,29 @@ _OptionalAutomaticTapeCreationRuleTypeDef = TypedDict(
 
 class AutomaticTapeCreationRuleTypeDef(
     _RequiredAutomaticTapeCreationRuleTypeDef, _OptionalAutomaticTapeCreationRuleTypeDef
+):
+    pass
+
+
+_RequiredBandwidthRateLimitIntervalTypeDef = TypedDict(
+    "_RequiredBandwidthRateLimitIntervalTypeDef",
+    {
+        "StartHourOfDay": int,
+        "StartMinuteOfHour": int,
+        "EndHourOfDay": int,
+        "EndMinuteOfHour": int,
+        "DaysOfWeek": List[int],
+    },
+)
+_OptionalBandwidthRateLimitIntervalTypeDef = TypedDict(
+    "_OptionalBandwidthRateLimitIntervalTypeDef",
+    {"AverageUploadRateLimitInBitsPerSec": int, "AverageDownloadRateLimitInBitsPerSec": int},
+    total=False,
+)
+
+
+class BandwidthRateLimitIntervalTypeDef(
+    _RequiredBandwidthRateLimitIntervalTypeDef, _OptionalBandwidthRateLimitIntervalTypeDef
 ):
     pass
 
@@ -273,6 +300,7 @@ NFSFileShareInfoTypeDef = TypedDict(
         "Tags": List["TagTypeDef"],
         "FileShareName": str,
         "CacheAttributes": "CacheAttributesTypeDef",
+        "NotificationPolicy": str,
     },
     total=False,
 )
@@ -294,6 +322,17 @@ PoolInfoTypeDef = TypedDict(
         "PoolStatus": Literal["ACTIVE", "DELETED"],
     },
     total=False,
+)
+
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
 )
 
 SMBFileShareInfoTypeDef = TypedDict(
@@ -322,6 +361,7 @@ SMBFileShareInfoTypeDef = TypedDict(
         "GuessMIMETypeEnabled": bool,
         "RequesterPays": bool,
         "SMBACLEnabled": bool,
+        "AccessBasedEnumeration": bool,
         "AdminUserList": List[str],
         "ValidUserList": List[str],
         "InvalidUserList": List[str],
@@ -331,6 +371,7 @@ SMBFileShareInfoTypeDef = TypedDict(
         "Tags": List["TagTypeDef"],
         "FileShareName": str,
         "CacheAttributes": "CacheAttributesTypeDef",
+        "NotificationPolicy": str,
     },
     total=False,
 )
@@ -470,118 +511,189 @@ VolumeiSCSIAttributesTypeDef = TypedDict(
 )
 
 ActivateGatewayOutputTypeDef = TypedDict(
-    "ActivateGatewayOutputTypeDef", {"GatewayARN": str}, total=False
+    "ActivateGatewayOutputTypeDef",
+    {"GatewayARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
-AddCacheOutputTypeDef = TypedDict("AddCacheOutputTypeDef", {"GatewayARN": str}, total=False)
+AddCacheOutputTypeDef = TypedDict(
+    "AddCacheOutputTypeDef",
+    {"GatewayARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
 
 AddTagsToResourceOutputTypeDef = TypedDict(
-    "AddTagsToResourceOutputTypeDef", {"ResourceARN": str}, total=False
+    "AddTagsToResourceOutputTypeDef",
+    {"ResourceARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 AddUploadBufferOutputTypeDef = TypedDict(
-    "AddUploadBufferOutputTypeDef", {"GatewayARN": str}, total=False
+    "AddUploadBufferOutputTypeDef",
+    {"GatewayARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 AddWorkingStorageOutputTypeDef = TypedDict(
-    "AddWorkingStorageOutputTypeDef", {"GatewayARN": str}, total=False
+    "AddWorkingStorageOutputTypeDef",
+    {"GatewayARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 AssignTapePoolOutputTypeDef = TypedDict(
-    "AssignTapePoolOutputTypeDef", {"TapeARN": str}, total=False
+    "AssignTapePoolOutputTypeDef",
+    {"TapeARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 AttachVolumeOutputTypeDef = TypedDict(
-    "AttachVolumeOutputTypeDef", {"VolumeARN": str, "TargetARN": str}, total=False
+    "AttachVolumeOutputTypeDef",
+    {"VolumeARN": str, "TargetARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 CancelArchivalOutputTypeDef = TypedDict(
-    "CancelArchivalOutputTypeDef", {"TapeARN": str}, total=False
+    "CancelArchivalOutputTypeDef",
+    {"TapeARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 CancelRetrievalOutputTypeDef = TypedDict(
-    "CancelRetrievalOutputTypeDef", {"TapeARN": str}, total=False
+    "CancelRetrievalOutputTypeDef",
+    {"TapeARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 CreateCachediSCSIVolumeOutputTypeDef = TypedDict(
-    "CreateCachediSCSIVolumeOutputTypeDef", {"VolumeARN": str, "TargetARN": str}, total=False
+    "CreateCachediSCSIVolumeOutputTypeDef",
+    {"VolumeARN": str, "TargetARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 CreateNFSFileShareOutputTypeDef = TypedDict(
-    "CreateNFSFileShareOutputTypeDef", {"FileShareARN": str}, total=False
+    "CreateNFSFileShareOutputTypeDef",
+    {"FileShareARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 CreateSMBFileShareOutputTypeDef = TypedDict(
-    "CreateSMBFileShareOutputTypeDef", {"FileShareARN": str}, total=False
+    "CreateSMBFileShareOutputTypeDef",
+    {"FileShareARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 CreateSnapshotFromVolumeRecoveryPointOutputTypeDef = TypedDict(
     "CreateSnapshotFromVolumeRecoveryPointOutputTypeDef",
-    {"SnapshotId": str, "VolumeARN": str, "VolumeRecoveryPointTime": str},
+    {
+        "SnapshotId": str,
+        "VolumeARN": str,
+        "VolumeRecoveryPointTime": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 CreateSnapshotOutputTypeDef = TypedDict(
-    "CreateSnapshotOutputTypeDef", {"VolumeARN": str, "SnapshotId": str}, total=False
+    "CreateSnapshotOutputTypeDef",
+    {"VolumeARN": str, "SnapshotId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 CreateStorediSCSIVolumeOutputTypeDef = TypedDict(
     "CreateStorediSCSIVolumeOutputTypeDef",
-    {"VolumeARN": str, "VolumeSizeInBytes": int, "TargetARN": str},
+    {
+        "VolumeARN": str,
+        "VolumeSizeInBytes": int,
+        "TargetARN": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 CreateTapePoolOutputTypeDef = TypedDict(
-    "CreateTapePoolOutputTypeDef", {"PoolARN": str}, total=False
+    "CreateTapePoolOutputTypeDef",
+    {"PoolARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 CreateTapeWithBarcodeOutputTypeDef = TypedDict(
-    "CreateTapeWithBarcodeOutputTypeDef", {"TapeARN": str}, total=False
+    "CreateTapeWithBarcodeOutputTypeDef",
+    {"TapeARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 CreateTapesOutputTypeDef = TypedDict(
-    "CreateTapesOutputTypeDef", {"TapeARNs": List[str]}, total=False
+    "CreateTapesOutputTypeDef",
+    {"TapeARNs": List[str], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 DeleteAutomaticTapeCreationPolicyOutputTypeDef = TypedDict(
-    "DeleteAutomaticTapeCreationPolicyOutputTypeDef", {"GatewayARN": str}, total=False
+    "DeleteAutomaticTapeCreationPolicyOutputTypeDef",
+    {"GatewayARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 DeleteBandwidthRateLimitOutputTypeDef = TypedDict(
-    "DeleteBandwidthRateLimitOutputTypeDef", {"GatewayARN": str}, total=False
+    "DeleteBandwidthRateLimitOutputTypeDef",
+    {"GatewayARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 DeleteChapCredentialsOutputTypeDef = TypedDict(
-    "DeleteChapCredentialsOutputTypeDef", {"TargetARN": str, "InitiatorName": str}, total=False
+    "DeleteChapCredentialsOutputTypeDef",
+    {"TargetARN": str, "InitiatorName": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 DeleteFileShareOutputTypeDef = TypedDict(
-    "DeleteFileShareOutputTypeDef", {"FileShareARN": str}, total=False
+    "DeleteFileShareOutputTypeDef",
+    {"FileShareARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 DeleteGatewayOutputTypeDef = TypedDict(
-    "DeleteGatewayOutputTypeDef", {"GatewayARN": str}, total=False
+    "DeleteGatewayOutputTypeDef",
+    {"GatewayARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 DeleteSnapshotScheduleOutputTypeDef = TypedDict(
-    "DeleteSnapshotScheduleOutputTypeDef", {"VolumeARN": str}, total=False
+    "DeleteSnapshotScheduleOutputTypeDef",
+    {"VolumeARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 DeleteTapeArchiveOutputTypeDef = TypedDict(
-    "DeleteTapeArchiveOutputTypeDef", {"TapeARN": str}, total=False
+    "DeleteTapeArchiveOutputTypeDef",
+    {"TapeARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
-DeleteTapeOutputTypeDef = TypedDict("DeleteTapeOutputTypeDef", {"TapeARN": str}, total=False)
+DeleteTapeOutputTypeDef = TypedDict(
+    "DeleteTapeOutputTypeDef", {"TapeARN": str, "ResponseMetadata": "ResponseMetadata"}, total=False
+)
 
 DeleteTapePoolOutputTypeDef = TypedDict(
-    "DeleteTapePoolOutputTypeDef", {"PoolARN": str}, total=False
+    "DeleteTapePoolOutputTypeDef",
+    {"PoolARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
-DeleteVolumeOutputTypeDef = TypedDict("DeleteVolumeOutputTypeDef", {"VolumeARN": str}, total=False)
+DeleteVolumeOutputTypeDef = TypedDict(
+    "DeleteVolumeOutputTypeDef",
+    {"VolumeARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
 
 DescribeAvailabilityMonitorTestOutputTypeDef = TypedDict(
     "DescribeAvailabilityMonitorTestOutputTypeDef",
-    {"GatewayARN": str, "Status": Literal["COMPLETE", "FAILED", "PENDING"], "StartTime": datetime},
+    {
+        "GatewayARN": str,
+        "Status": Literal["COMPLETE", "FAILED", "PENDING"],
+        "StartTime": datetime,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -591,6 +703,17 @@ DescribeBandwidthRateLimitOutputTypeDef = TypedDict(
         "GatewayARN": str,
         "AverageUploadRateLimitInBitsPerSec": int,
         "AverageDownloadRateLimitInBitsPerSec": int,
+        "ResponseMetadata": "ResponseMetadata",
+    },
+    total=False,
+)
+
+DescribeBandwidthRateLimitScheduleOutputTypeDef = TypedDict(
+    "DescribeBandwidthRateLimitScheduleOutputTypeDef",
+    {
+        "GatewayARN": str,
+        "BandwidthRateLimitIntervals": List["BandwidthRateLimitIntervalTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -605,19 +728,23 @@ DescribeCacheOutputTypeDef = TypedDict(
         "CacheDirtyPercentage": float,
         "CacheHitPercentage": float,
         "CacheMissPercentage": float,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
 DescribeCachediSCSIVolumesOutputTypeDef = TypedDict(
     "DescribeCachediSCSIVolumesOutputTypeDef",
-    {"CachediSCSIVolumes": List["CachediSCSIVolumeTypeDef"]},
+    {
+        "CachediSCSIVolumes": List["CachediSCSIVolumeTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 DescribeChapCredentialsOutputTypeDef = TypedDict(
     "DescribeChapCredentialsOutputTypeDef",
-    {"ChapCredentials": List["ChapInfoTypeDef"]},
+    {"ChapCredentials": List["ChapInfoTypeDef"], "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
@@ -642,6 +769,7 @@ DescribeGatewayInformationOutputTypeDef = TypedDict(
         "EndpointType": str,
         "SoftwareUpdatesEndDate": str,
         "DeprecationDate": str,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -655,19 +783,26 @@ DescribeMaintenanceStartTimeOutputTypeDef = TypedDict(
         "DayOfWeek": int,
         "DayOfMonth": int,
         "Timezone": str,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
 DescribeNFSFileSharesOutputTypeDef = TypedDict(
     "DescribeNFSFileSharesOutputTypeDef",
-    {"NFSFileShareInfoList": List["NFSFileShareInfoTypeDef"]},
+    {
+        "NFSFileShareInfoList": List["NFSFileShareInfoTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 DescribeSMBFileSharesOutputTypeDef = TypedDict(
     "DescribeSMBFileSharesOutputTypeDef",
-    {"SMBFileShareInfoList": List["SMBFileShareInfoTypeDef"]},
+    {
+        "SMBFileShareInfoList": List["SMBFileShareInfoTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -689,6 +824,8 @@ DescribeSMBSettingsOutputTypeDef = TypedDict(
         "SMBSecurityStrategy": Literal[
             "ClientSpecified", "MandatorySigning", "MandatoryEncryption"
         ],
+        "FileSharesVisible": bool,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -702,19 +839,27 @@ DescribeSnapshotScheduleOutputTypeDef = TypedDict(
         "Description": str,
         "Timezone": str,
         "Tags": List["TagTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
 DescribeStorediSCSIVolumesOutputTypeDef = TypedDict(
     "DescribeStorediSCSIVolumesOutputTypeDef",
-    {"StorediSCSIVolumes": List["StorediSCSIVolumeTypeDef"]},
+    {
+        "StorediSCSIVolumes": List["StorediSCSIVolumeTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 DescribeTapeArchivesOutputTypeDef = TypedDict(
     "DescribeTapeArchivesOutputTypeDef",
-    {"TapeArchives": List["TapeArchiveTypeDef"], "Marker": str},
+    {
+        "TapeArchives": List["TapeArchiveTypeDef"],
+        "Marker": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -724,12 +869,15 @@ DescribeTapeRecoveryPointsOutputTypeDef = TypedDict(
         "GatewayARN": str,
         "TapeRecoveryPointInfos": List["TapeRecoveryPointInfoTypeDef"],
         "Marker": str,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
 DescribeTapesOutputTypeDef = TypedDict(
-    "DescribeTapesOutputTypeDef", {"Tapes": List["TapeTypeDef"], "Marker": str}, total=False
+    "DescribeTapesOutputTypeDef",
+    {"Tapes": List["TapeTypeDef"], "Marker": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 DescribeUploadBufferOutputTypeDef = TypedDict(
@@ -739,13 +887,19 @@ DescribeUploadBufferOutputTypeDef = TypedDict(
         "DiskIds": List[str],
         "UploadBufferUsedInBytes": int,
         "UploadBufferAllocatedInBytes": int,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
 DescribeVTLDevicesOutputTypeDef = TypedDict(
     "DescribeVTLDevicesOutputTypeDef",
-    {"GatewayARN": str, "VTLDevices": List["VTLDeviceTypeDef"], "Marker": str},
+    {
+        "GatewayARN": str,
+        "VTLDevices": List["VTLDeviceTypeDef"],
+        "Marker": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -756,14 +910,21 @@ DescribeWorkingStorageOutputTypeDef = TypedDict(
         "DiskIds": List[str],
         "WorkingStorageUsedInBytes": int,
         "WorkingStorageAllocatedInBytes": int,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
-DetachVolumeOutputTypeDef = TypedDict("DetachVolumeOutputTypeDef", {"VolumeARN": str}, total=False)
+DetachVolumeOutputTypeDef = TypedDict(
+    "DetachVolumeOutputTypeDef",
+    {"VolumeARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
 
 DisableGatewayOutputTypeDef = TypedDict(
-    "DisableGatewayOutputTypeDef", {"GatewayARN": str}, total=False
+    "DisableGatewayOutputTypeDef",
+    {"GatewayARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 JoinDomainOutputTypeDef = TypedDict(
@@ -779,64 +940,97 @@ JoinDomainOutputTypeDef = TypedDict(
             "TIMEOUT",
             "UNKNOWN_ERROR",
         ],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
 ListAutomaticTapeCreationPoliciesOutputTypeDef = TypedDict(
     "ListAutomaticTapeCreationPoliciesOutputTypeDef",
-    {"AutomaticTapeCreationPolicyInfos": List["AutomaticTapeCreationPolicyInfoTypeDef"]},
+    {
+        "AutomaticTapeCreationPolicyInfos": List["AutomaticTapeCreationPolicyInfoTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListFileSharesOutputTypeDef = TypedDict(
     "ListFileSharesOutputTypeDef",
-    {"Marker": str, "NextMarker": str, "FileShareInfoList": List["FileShareInfoTypeDef"]},
+    {
+        "Marker": str,
+        "NextMarker": str,
+        "FileShareInfoList": List["FileShareInfoTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListGatewaysOutputTypeDef = TypedDict(
     "ListGatewaysOutputTypeDef",
-    {"Gateways": List["GatewayInfoTypeDef"], "Marker": str},
+    {"Gateways": List["GatewayInfoTypeDef"], "Marker": str, "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 ListLocalDisksOutputTypeDef = TypedDict(
-    "ListLocalDisksOutputTypeDef", {"GatewayARN": str, "Disks": List["DiskTypeDef"]}, total=False
+    "ListLocalDisksOutputTypeDef",
+    {"GatewayARN": str, "Disks": List["DiskTypeDef"], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ListTagsForResourceOutputTypeDef = TypedDict(
     "ListTagsForResourceOutputTypeDef",
-    {"ResourceARN": str, "Marker": str, "Tags": List["TagTypeDef"]},
+    {
+        "ResourceARN": str,
+        "Marker": str,
+        "Tags": List["TagTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListTapePoolsOutputTypeDef = TypedDict(
-    "ListTapePoolsOutputTypeDef", {"PoolInfos": List["PoolInfoTypeDef"], "Marker": str}, total=False
+    "ListTapePoolsOutputTypeDef",
+    {"PoolInfos": List["PoolInfoTypeDef"], "Marker": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ListTapesOutputTypeDef = TypedDict(
-    "ListTapesOutputTypeDef", {"TapeInfos": List["TapeInfoTypeDef"], "Marker": str}, total=False
+    "ListTapesOutputTypeDef",
+    {"TapeInfos": List["TapeInfoTypeDef"], "Marker": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ListVolumeInitiatorsOutputTypeDef = TypedDict(
-    "ListVolumeInitiatorsOutputTypeDef", {"Initiators": List[str]}, total=False
+    "ListVolumeInitiatorsOutputTypeDef",
+    {"Initiators": List[str], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ListVolumeRecoveryPointsOutputTypeDef = TypedDict(
     "ListVolumeRecoveryPointsOutputTypeDef",
-    {"GatewayARN": str, "VolumeRecoveryPointInfos": List["VolumeRecoveryPointInfoTypeDef"]},
+    {
+        "GatewayARN": str,
+        "VolumeRecoveryPointInfos": List["VolumeRecoveryPointInfoTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListVolumesOutputTypeDef = TypedDict(
     "ListVolumesOutputTypeDef",
-    {"GatewayARN": str, "Marker": str, "VolumeInfos": List["VolumeInfoTypeDef"]},
+    {
+        "GatewayARN": str,
+        "Marker": str,
+        "VolumeInfos": List["VolumeInfoTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 NotifyWhenUploadedOutputTypeDef = TypedDict(
-    "NotifyWhenUploadedOutputTypeDef", {"FileShareARN": str, "NotificationId": str}, total=False
+    "NotifyWhenUploadedOutputTypeDef",
+    {"FileShareARN": str, "NotificationId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 PaginatorConfigTypeDef = TypedDict(
@@ -844,81 +1038,139 @@ PaginatorConfigTypeDef = TypedDict(
 )
 
 RefreshCacheOutputTypeDef = TypedDict(
-    "RefreshCacheOutputTypeDef", {"FileShareARN": str, "NotificationId": str}, total=False
+    "RefreshCacheOutputTypeDef",
+    {"FileShareARN": str, "NotificationId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 RemoveTagsFromResourceOutputTypeDef = TypedDict(
-    "RemoveTagsFromResourceOutputTypeDef", {"ResourceARN": str}, total=False
+    "RemoveTagsFromResourceOutputTypeDef",
+    {"ResourceARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
-ResetCacheOutputTypeDef = TypedDict("ResetCacheOutputTypeDef", {"GatewayARN": str}, total=False)
+ResetCacheOutputTypeDef = TypedDict(
+    "ResetCacheOutputTypeDef",
+    {"GatewayARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
 
 RetrieveTapeArchiveOutputTypeDef = TypedDict(
-    "RetrieveTapeArchiveOutputTypeDef", {"TapeARN": str}, total=False
+    "RetrieveTapeArchiveOutputTypeDef",
+    {"TapeARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 RetrieveTapeRecoveryPointOutputTypeDef = TypedDict(
-    "RetrieveTapeRecoveryPointOutputTypeDef", {"TapeARN": str}, total=False
+    "RetrieveTapeRecoveryPointOutputTypeDef",
+    {"TapeARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 SetLocalConsolePasswordOutputTypeDef = TypedDict(
-    "SetLocalConsolePasswordOutputTypeDef", {"GatewayARN": str}, total=False
+    "SetLocalConsolePasswordOutputTypeDef",
+    {"GatewayARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 SetSMBGuestPasswordOutputTypeDef = TypedDict(
-    "SetSMBGuestPasswordOutputTypeDef", {"GatewayARN": str}, total=False
+    "SetSMBGuestPasswordOutputTypeDef",
+    {"GatewayARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ShutdownGatewayOutputTypeDef = TypedDict(
-    "ShutdownGatewayOutputTypeDef", {"GatewayARN": str}, total=False
+    "ShutdownGatewayOutputTypeDef",
+    {"GatewayARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 StartAvailabilityMonitorTestOutputTypeDef = TypedDict(
-    "StartAvailabilityMonitorTestOutputTypeDef", {"GatewayARN": str}, total=False
+    "StartAvailabilityMonitorTestOutputTypeDef",
+    {"GatewayARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
-StartGatewayOutputTypeDef = TypedDict("StartGatewayOutputTypeDef", {"GatewayARN": str}, total=False)
+StartGatewayOutputTypeDef = TypedDict(
+    "StartGatewayOutputTypeDef",
+    {"GatewayARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
 
 UpdateAutomaticTapeCreationPolicyOutputTypeDef = TypedDict(
-    "UpdateAutomaticTapeCreationPolicyOutputTypeDef", {"GatewayARN": str}, total=False
+    "UpdateAutomaticTapeCreationPolicyOutputTypeDef",
+    {"GatewayARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 UpdateBandwidthRateLimitOutputTypeDef = TypedDict(
-    "UpdateBandwidthRateLimitOutputTypeDef", {"GatewayARN": str}, total=False
+    "UpdateBandwidthRateLimitOutputTypeDef",
+    {"GatewayARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+UpdateBandwidthRateLimitScheduleOutputTypeDef = TypedDict(
+    "UpdateBandwidthRateLimitScheduleOutputTypeDef",
+    {"GatewayARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 UpdateChapCredentialsOutputTypeDef = TypedDict(
-    "UpdateChapCredentialsOutputTypeDef", {"TargetARN": str, "InitiatorName": str}, total=False
+    "UpdateChapCredentialsOutputTypeDef",
+    {"TargetARN": str, "InitiatorName": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 UpdateGatewayInformationOutputTypeDef = TypedDict(
-    "UpdateGatewayInformationOutputTypeDef", {"GatewayARN": str, "GatewayName": str}, total=False
+    "UpdateGatewayInformationOutputTypeDef",
+    {"GatewayARN": str, "GatewayName": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 UpdateGatewaySoftwareNowOutputTypeDef = TypedDict(
-    "UpdateGatewaySoftwareNowOutputTypeDef", {"GatewayARN": str}, total=False
+    "UpdateGatewaySoftwareNowOutputTypeDef",
+    {"GatewayARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 UpdateMaintenanceStartTimeOutputTypeDef = TypedDict(
-    "UpdateMaintenanceStartTimeOutputTypeDef", {"GatewayARN": str}, total=False
+    "UpdateMaintenanceStartTimeOutputTypeDef",
+    {"GatewayARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 UpdateNFSFileShareOutputTypeDef = TypedDict(
-    "UpdateNFSFileShareOutputTypeDef", {"FileShareARN": str}, total=False
+    "UpdateNFSFileShareOutputTypeDef",
+    {"FileShareARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 UpdateSMBFileShareOutputTypeDef = TypedDict(
-    "UpdateSMBFileShareOutputTypeDef", {"FileShareARN": str}, total=False
+    "UpdateSMBFileShareOutputTypeDef",
+    {"FileShareARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+UpdateSMBFileShareVisibilityOutputTypeDef = TypedDict(
+    "UpdateSMBFileShareVisibilityOutputTypeDef",
+    {"GatewayARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 UpdateSMBSecurityStrategyOutputTypeDef = TypedDict(
-    "UpdateSMBSecurityStrategyOutputTypeDef", {"GatewayARN": str}, total=False
+    "UpdateSMBSecurityStrategyOutputTypeDef",
+    {"GatewayARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 UpdateSnapshotScheduleOutputTypeDef = TypedDict(
-    "UpdateSnapshotScheduleOutputTypeDef", {"VolumeARN": str}, total=False
+    "UpdateSnapshotScheduleOutputTypeDef",
+    {"VolumeARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 UpdateVTLDeviceTypeOutputTypeDef = TypedDict(
-    "UpdateVTLDeviceTypeOutputTypeDef", {"VTLDeviceARN": str}, total=False
+    "UpdateVTLDeviceTypeOutputTypeDef",
+    {"VTLDeviceARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )

@@ -17,7 +17,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -33,6 +32,7 @@ __all__ = (
     "EndpointGroupTypeDef",
     "IpSetTypeDef",
     "ListenerTypeDef",
+    "PortOverrideTypeDef",
     "PortRangeTypeDef",
     "TagTypeDef",
     "AdvertiseByoipCidrResponseTypeDef",
@@ -132,6 +132,7 @@ EndpointGroupTypeDef = TypedDict(
         "HealthCheckPath": str,
         "HealthCheckIntervalSeconds": int,
         "ThresholdCount": int,
+        "PortOverrides": List["PortOverrideTypeDef"],
     },
     total=False,
 )
@@ -147,6 +148,10 @@ ListenerTypeDef = TypedDict(
         "ClientAffinity": Literal["NONE", "SOURCE_IP"],
     },
     total=False,
+)
+
+PortOverrideTypeDef = TypedDict(
+    "PortOverrideTypeDef", {"ListenerPort": int, "EndpointPort": int}, total=False
 )
 
 PortRangeTypeDef = TypedDict("PortRangeTypeDef", {"FromPort": int, "ToPort": int}, total=False)

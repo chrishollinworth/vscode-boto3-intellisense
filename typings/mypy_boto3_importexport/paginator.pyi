@@ -28,12 +28,12 @@ __all__ = ("ListJobsPaginator",)
 
 class ListJobsPaginator(Boto3Paginator):
     """
-    [Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/importexport.html#ImportExport.Paginator.ListJobs)
+    [Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/importexport.html#ImportExport.Paginator.ListJobs)
     """
 
     def paginate(
         self, APIVersion: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListJobsOutputTypeDef]:
         """
-        [ListJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/importexport.html#ImportExport.Paginator.ListJobs.paginate)
+        [ListJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/importexport.html#ImportExport.Paginator.ListJobs.paginate)
         """

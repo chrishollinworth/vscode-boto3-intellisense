@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Dict, List
+from typing import Any, Dict, List
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -62,9 +61,14 @@ __all__ = (
     "OutboundCrossClusterSearchConnectionStatusTypeDef",
     "OutboundCrossClusterSearchConnectionTypeDef",
     "PackageDetailsTypeDef",
+    "PackageVersionHistoryTypeDef",
     "RecurringChargeTypeDef",
     "ReservedElasticsearchInstanceOfferingTypeDef",
     "ReservedElasticsearchInstanceTypeDef",
+    "ResponseMetadata",
+    "SAMLIdpTypeDef",
+    "SAMLOptionsInputTypeDef",
+    "SAMLOptionsOutputTypeDef",
     "ServiceSoftwareOptionsTypeDef",
     "SnapshotOptionsStatusTypeDef",
     "SnapshotOptionsTypeDef",
@@ -100,6 +104,7 @@ __all__ = (
     "DissociatePackageResponseTypeDef",
     "FilterTypeDef",
     "GetCompatibleElasticsearchVersionsResponseTypeDef",
+    "GetPackageVersionHistoryResponseTypeDef",
     "GetUpgradeHistoryResponseTypeDef",
     "GetUpgradeStatusResponseTypeDef",
     "ListDomainNamesResponseTypeDef",
@@ -114,6 +119,7 @@ __all__ = (
     "RejectInboundCrossClusterSearchConnectionResponseTypeDef",
     "StartElasticsearchServiceSoftwareUpdateResponseTypeDef",
     "UpdateElasticsearchDomainConfigResponseTypeDef",
+    "UpdatePackageResponseTypeDef",
     "UpgradeElasticsearchDomainResponseTypeDef",
     "VPCOptionsTypeDef",
 )
@@ -137,7 +143,11 @@ AdvancedSecurityOptionsStatusTypeDef = TypedDict(
 
 AdvancedSecurityOptionsTypeDef = TypedDict(
     "AdvancedSecurityOptionsTypeDef",
-    {"Enabled": bool, "InternalUserDatabaseEnabled": bool},
+    {
+        "Enabled": bool,
+        "InternalUserDatabaseEnabled": bool,
+        "SAMLOptions": "SAMLOptionsOutputTypeDef",
+    },
     total=False,
 )
 
@@ -166,6 +176,9 @@ DomainEndpointOptionsTypeDef = TypedDict(
     {
         "EnforceHTTPS": bool,
         "TLSSecurityPolicy": Literal["Policy-Min-TLS-1-0-2019-07", "Policy-Min-TLS-1-2-2019-07"],
+        "CustomEndpointEnabled": bool,
+        "CustomEndpoint": str,
+        "CustomEndpointCertificateArn": str,
     },
     total=False,
 )
@@ -197,6 +210,7 @@ DomainPackageDetailsTypeDef = TypedDict(
         "DomainPackageStatus": Literal[
             "ASSOCIATING", "ASSOCIATION_FAILED", "ACTIVE", "DISSOCIATING", "DISSOCIATION_FAILED"
         ],
+        "PackageVersion": str,
         "ReferencePath": str,
         "ErrorDetails": "ErrorDetailsTypeDef",
     },
@@ -406,7 +420,7 @@ _OptionalElasticsearchDomainStatusTypeDef = TypedDict(
         "NodeToNodeEncryptionOptions": "NodeToNodeEncryptionOptionsTypeDef",
         "AdvancedOptions": Dict[str, str],
         "LogPublishingOptions": Dict[
-            Literal["INDEX_SLOW_LOGS", "SEARCH_SLOW_LOGS", "ES_APPLICATION_LOGS"],
+            Literal["INDEX_SLOW_LOGS", "SEARCH_SLOW_LOGS", "ES_APPLICATION_LOGS", "AUDIT_LOGS"],
             "LogPublishingOptionTypeDef",
         ],
         "ServiceSoftwareOptions": "ServiceSoftwareOptionsTypeDef",
@@ -490,7 +504,7 @@ LogPublishingOptionsStatusTypeDef = TypedDict(
     "LogPublishingOptionsStatusTypeDef",
     {
         "Options": Dict[
-            Literal["INDEX_SLOW_LOGS", "SEARCH_SLOW_LOGS", "ES_APPLICATION_LOGS"],
+            Literal["INDEX_SLOW_LOGS", "SEARCH_SLOW_LOGS", "ES_APPLICATION_LOGS", "AUDIT_LOGS"],
             "LogPublishingOptionTypeDef",
         ],
         "Status": "OptionStatusTypeDef",
@@ -578,8 +592,16 @@ PackageDetailsTypeDef = TypedDict(
             "DELETE_FAILED",
         ],
         "CreatedAt": datetime,
+        "LastUpdatedAt": datetime,
+        "AvailablePackageVersion": str,
         "ErrorDetails": "ErrorDetailsTypeDef",
     },
+    total=False,
+)
+
+PackageVersionHistoryTypeDef = TypedDict(
+    "PackageVersionHistoryTypeDef",
+    {"PackageVersion": str, "CommitMessage": str, "CreatedAt": datetime},
     total=False,
 )
 
@@ -742,6 +764,46 @@ ReservedElasticsearchInstanceTypeDef = TypedDict(
     total=False,
 )
 
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
+
+SAMLIdpTypeDef = TypedDict("SAMLIdpTypeDef", {"MetadataContent": str, "EntityId": str})
+
+SAMLOptionsInputTypeDef = TypedDict(
+    "SAMLOptionsInputTypeDef",
+    {
+        "Enabled": bool,
+        "Idp": "SAMLIdpTypeDef",
+        "MasterUserName": str,
+        "MasterBackendRole": str,
+        "SubjectKey": str,
+        "RolesKey": str,
+        "SessionTimeoutMinutes": int,
+    },
+    total=False,
+)
+
+SAMLOptionsOutputTypeDef = TypedDict(
+    "SAMLOptionsOutputTypeDef",
+    {
+        "Enabled": bool,
+        "Idp": "SAMLIdpTypeDef",
+        "SubjectKey": str,
+        "RolesKey": str,
+        "SessionTimeoutMinutes": int,
+        "ResponseMetadata": "ResponseMetadata",
+    },
+    total=False,
+)
+
 ServiceSoftwareOptionsTypeDef = TypedDict(
     "ServiceSoftwareOptionsTypeDef",
     {
@@ -838,6 +900,7 @@ AdvancedSecurityOptionsInputTypeDef = TypedDict(
         "Enabled": bool,
         "InternalUserDatabaseEnabled": bool,
         "MasterUserOptions": "MasterUserOptionsTypeDef",
+        "SAMLOptions": "SAMLOptionsInputTypeDef",
     },
     total=False,
 )
@@ -983,6 +1046,16 @@ GetCompatibleElasticsearchVersionsResponseTypeDef = TypedDict(
     total=False,
 )
 
+GetPackageVersionHistoryResponseTypeDef = TypedDict(
+    "GetPackageVersionHistoryResponseTypeDef",
+    {
+        "PackageID": str,
+        "PackageVersionHistoryList": List["PackageVersionHistoryTypeDef"],
+        "NextToken": str,
+    },
+    total=False,
+)
+
 GetUpgradeHistoryResponseTypeDef = TypedDict(
     "GetUpgradeHistoryResponseTypeDef",
     {"UpgradeHistories": List["UpgradeHistoryTypeDef"], "NextToken": str},
@@ -1124,6 +1197,10 @@ StartElasticsearchServiceSoftwareUpdateResponseTypeDef = TypedDict(
 UpdateElasticsearchDomainConfigResponseTypeDef = TypedDict(
     "UpdateElasticsearchDomainConfigResponseTypeDef",
     {"DomainConfig": "ElasticsearchDomainConfigTypeDef"},
+)
+
+UpdatePackageResponseTypeDef = TypedDict(
+    "UpdatePackageResponseTypeDef", {"PackageDetails": "PackageDetailsTypeDef"}, total=False
 )
 
 UpgradeElasticsearchDomainResponseTypeDef = TypedDict(

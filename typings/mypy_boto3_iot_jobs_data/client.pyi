@@ -1,4 +1,4 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import
+# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for iot-jobs-data service client
 
@@ -14,7 +14,7 @@ Usage::
 import sys
 from typing import Any, Dict, Type
 
-from botocore.exceptions import ClientError as Boto3ClientError
+from botocore.client import ClientMeta
 
 from mypy_boto3_iot_jobs_data.type_defs import (
     DescribeJobExecutionResponseTypeDef,
@@ -32,27 +32,36 @@ else:
 __all__ = ("IoTJobsDataPlaneClient",)
 
 
+class BotocoreClientError(BaseException):
+    MSG_TEMPLATE: str
+
+    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
+        self.response: Dict[str, Any]
+        self.operation_name: str
+
+
 class Exceptions:
-    CertificateValidationException: Type[Boto3ClientError]
-    ClientError: Type[Boto3ClientError]
-    InvalidRequestException: Type[Boto3ClientError]
-    InvalidStateTransitionException: Type[Boto3ClientError]
-    ResourceNotFoundException: Type[Boto3ClientError]
-    ServiceUnavailableException: Type[Boto3ClientError]
-    TerminalStateException: Type[Boto3ClientError]
-    ThrottlingException: Type[Boto3ClientError]
+    CertificateValidationException: Type[BotocoreClientError]
+    ClientError: Type[BotocoreClientError]
+    InvalidRequestException: Type[BotocoreClientError]
+    InvalidStateTransitionException: Type[BotocoreClientError]
+    ResourceNotFoundException: Type[BotocoreClientError]
+    ServiceUnavailableException: Type[BotocoreClientError]
+    TerminalStateException: Type[BotocoreClientError]
+    ThrottlingException: Type[BotocoreClientError]
 
 
 class IoTJobsDataPlaneClient:
     """
-    [IoTJobsDataPlane.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iot-jobs-data.html#IoTJobsDataPlane.Client)
+    [IoTJobsDataPlane.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot-jobs-data.html#IoTJobsDataPlane.Client)
     """
 
+    meta: ClientMeta
     exceptions: Exceptions
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iot-jobs-data.html#IoTJobsDataPlane.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot-jobs-data.html#IoTJobsDataPlane.Client.can_paginate)
         """
 
     def describe_job_execution(
@@ -63,7 +72,7 @@ class IoTJobsDataPlaneClient:
         executionNumber: int = None,
     ) -> DescribeJobExecutionResponseTypeDef:
         """
-        [Client.describe_job_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iot-jobs-data.html#IoTJobsDataPlane.Client.describe_job_execution)
+        [Client.describe_job_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot-jobs-data.html#IoTJobsDataPlane.Client.describe_job_execution)
         """
 
     def generate_presigned_url(
@@ -74,19 +83,19 @@ class IoTJobsDataPlaneClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iot-jobs-data.html#IoTJobsDataPlane.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot-jobs-data.html#IoTJobsDataPlane.Client.generate_presigned_url)
         """
 
     def get_pending_job_executions(self, thingName: str) -> GetPendingJobExecutionsResponseTypeDef:
         """
-        [Client.get_pending_job_executions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iot-jobs-data.html#IoTJobsDataPlane.Client.get_pending_job_executions)
+        [Client.get_pending_job_executions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot-jobs-data.html#IoTJobsDataPlane.Client.get_pending_job_executions)
         """
 
     def start_next_pending_job_execution(
         self, thingName: str, statusDetails: Dict[str, str] = None, stepTimeoutInMinutes: int = None
     ) -> StartNextPendingJobExecutionResponseTypeDef:
         """
-        [Client.start_next_pending_job_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iot-jobs-data.html#IoTJobsDataPlane.Client.start_next_pending_job_execution)
+        [Client.start_next_pending_job_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot-jobs-data.html#IoTJobsDataPlane.Client.start_next_pending_job_execution)
         """
 
     def update_job_execution(
@@ -111,5 +120,5 @@ class IoTJobsDataPlaneClient:
         executionNumber: int = None,
     ) -> UpdateJobExecutionResponseTypeDef:
         """
-        [Client.update_job_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iot-jobs-data.html#IoTJobsDataPlane.Client.update_job_execution)
+        [Client.update_job_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot-jobs-data.html#IoTJobsDataPlane.Client.update_job_execution)
         """

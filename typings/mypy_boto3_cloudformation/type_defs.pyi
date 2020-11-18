@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Dict, List
+from typing import Any, Dict, List
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -43,6 +42,7 @@ __all__ = (
     "ResourceChangeTypeDef",
     "ResourceIdentifierSummaryTypeDef",
     "ResourceTargetDefinitionTypeDef",
+    "ResponseMetadata",
     "RollbackConfigurationTypeDef",
     "RollbackTriggerTypeDef",
     "StackDriftInformationSummaryTypeDef",
@@ -176,7 +176,13 @@ LoggingConfigTypeDef = TypedDict("LoggingConfigTypeDef", {"LogRoleArn": str, "Lo
 
 OutputTypeDef = TypedDict(
     "OutputTypeDef",
-    {"OutputKey": str, "OutputValue": str, "Description": str, "ExportName": str},
+    {
+        "OutputKey": str,
+        "OutputValue": str,
+        "Description": str,
+        "ExportName": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -268,6 +274,17 @@ ResourceTargetDefinitionTypeDef = TypedDict(
         "RequiresRecreation": Literal["Never", "Conditionally", "Always"],
     },
     total=False,
+)
+
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
 )
 
 RollbackConfigurationTypeDef = TypedDict(
@@ -852,26 +869,42 @@ TypeVersionSummaryTypeDef = TypedDict(
 )
 
 CreateChangeSetOutputTypeDef = TypedDict(
-    "CreateChangeSetOutputTypeDef", {"Id": str, "StackId": str}, total=False
+    "CreateChangeSetOutputTypeDef",
+    {"Id": str, "StackId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 CreateStackInstancesOutputTypeDef = TypedDict(
-    "CreateStackInstancesOutputTypeDef", {"OperationId": str}, total=False
+    "CreateStackInstancesOutputTypeDef",
+    {"OperationId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
-CreateStackOutputTypeDef = TypedDict("CreateStackOutputTypeDef", {"StackId": str}, total=False)
+CreateStackOutputTypeDef = TypedDict(
+    "CreateStackOutputTypeDef",
+    {"StackId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
 
 CreateStackSetOutputTypeDef = TypedDict(
-    "CreateStackSetOutputTypeDef", {"StackSetId": str}, total=False
+    "CreateStackSetOutputTypeDef",
+    {"StackSetId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 DeleteStackInstancesOutputTypeDef = TypedDict(
-    "DeleteStackInstancesOutputTypeDef", {"OperationId": str}, total=False
+    "DeleteStackInstancesOutputTypeDef",
+    {"OperationId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 DescribeAccountLimitsOutputTypeDef = TypedDict(
     "DescribeAccountLimitsOutputTypeDef",
-    {"AccountLimits": List["AccountLimitTypeDef"], "NextToken": str},
+    {
+        "AccountLimits": List["AccountLimitTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -905,6 +938,7 @@ DescribeChangeSetOutputTypeDef = TypedDict(
         "Tags": List["TagTypeDef"],
         "Changes": List["ChangeTypeDef"],
         "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -926,6 +960,7 @@ _OptionalDescribeStackDriftDetectionStatusOutputTypeDef = TypedDict(
         "StackDriftStatus": Literal["DRIFTED", "IN_SYNC", "UNKNOWN", "NOT_CHECKED"],
         "DetectionStatusReason": str,
         "DriftedStackResourceCount": int,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -940,12 +975,18 @@ class DescribeStackDriftDetectionStatusOutputTypeDef(
 
 DescribeStackEventsOutputTypeDef = TypedDict(
     "DescribeStackEventsOutputTypeDef",
-    {"StackEvents": List["StackEventTypeDef"], "NextToken": str},
+    {
+        "StackEvents": List["StackEventTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 DescribeStackInstanceOutputTypeDef = TypedDict(
-    "DescribeStackInstanceOutputTypeDef", {"StackInstance": "StackInstanceTypeDef"}, total=False
+    "DescribeStackInstanceOutputTypeDef",
+    {"StackInstance": "StackInstanceTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 _RequiredDescribeStackResourceDriftsOutputTypeDef = TypedDict(
@@ -953,7 +994,9 @@ _RequiredDescribeStackResourceDriftsOutputTypeDef = TypedDict(
     {"StackResourceDrifts": List["StackResourceDriftTypeDef"]},
 )
 _OptionalDescribeStackResourceDriftsOutputTypeDef = TypedDict(
-    "_OptionalDescribeStackResourceDriftsOutputTypeDef", {"NextToken": str}, total=False
+    "_OptionalDescribeStackResourceDriftsOutputTypeDef",
+    {"NextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 
@@ -966,28 +1009,32 @@ class DescribeStackResourceDriftsOutputTypeDef(
 
 DescribeStackResourceOutputTypeDef = TypedDict(
     "DescribeStackResourceOutputTypeDef",
-    {"StackResourceDetail": "StackResourceDetailTypeDef"},
+    {"StackResourceDetail": "StackResourceDetailTypeDef", "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 DescribeStackResourcesOutputTypeDef = TypedDict(
     "DescribeStackResourcesOutputTypeDef",
-    {"StackResources": List["StackResourceTypeDef"]},
+    {"StackResources": List["StackResourceTypeDef"], "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 DescribeStackSetOperationOutputTypeDef = TypedDict(
     "DescribeStackSetOperationOutputTypeDef",
-    {"StackSetOperation": "StackSetOperationTypeDef"},
+    {"StackSetOperation": "StackSetOperationTypeDef", "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 DescribeStackSetOutputTypeDef = TypedDict(
-    "DescribeStackSetOutputTypeDef", {"StackSet": "StackSetTypeDef"}, total=False
+    "DescribeStackSetOutputTypeDef",
+    {"StackSet": "StackSetTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 DescribeStacksOutputTypeDef = TypedDict(
-    "DescribeStacksOutputTypeDef", {"Stacks": List["StackTypeDef"], "NextToken": str}, total=False
+    "DescribeStacksOutputTypeDef",
+    {"Stacks": List["StackTypeDef"], "NextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 DescribeTypeOutputTypeDef = TypedDict(
@@ -1009,6 +1056,7 @@ DescribeTypeOutputTypeDef = TypedDict(
         "DocumentationUrl": str,
         "LastUpdated": datetime,
         "TimeCreated": datetime,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -1020,33 +1068,67 @@ DescribeTypeRegistrationOutputTypeDef = TypedDict(
         "Description": str,
         "TypeArn": str,
         "TypeVersionArn": str,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
-DetectStackDriftOutputTypeDef = TypedDict(
-    "DetectStackDriftOutputTypeDef", {"StackDriftDetectionId": str}
+_RequiredDetectStackDriftOutputTypeDef = TypedDict(
+    "_RequiredDetectStackDriftOutputTypeDef", {"StackDriftDetectionId": str}
+)
+_OptionalDetectStackDriftOutputTypeDef = TypedDict(
+    "_OptionalDetectStackDriftOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
 )
 
-DetectStackResourceDriftOutputTypeDef = TypedDict(
-    "DetectStackResourceDriftOutputTypeDef", {"StackResourceDrift": "StackResourceDriftTypeDef"}
+
+class DetectStackDriftOutputTypeDef(
+    _RequiredDetectStackDriftOutputTypeDef, _OptionalDetectStackDriftOutputTypeDef
+):
+    pass
+
+
+_RequiredDetectStackResourceDriftOutputTypeDef = TypedDict(
+    "_RequiredDetectStackResourceDriftOutputTypeDef",
+    {"StackResourceDrift": "StackResourceDriftTypeDef"},
 )
+_OptionalDetectStackResourceDriftOutputTypeDef = TypedDict(
+    "_OptionalDetectStackResourceDriftOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+
+class DetectStackResourceDriftOutputTypeDef(
+    _RequiredDetectStackResourceDriftOutputTypeDef, _OptionalDetectStackResourceDriftOutputTypeDef
+):
+    pass
+
 
 DetectStackSetDriftOutputTypeDef = TypedDict(
-    "DetectStackSetDriftOutputTypeDef", {"OperationId": str}, total=False
+    "DetectStackSetDriftOutputTypeDef",
+    {"OperationId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 EstimateTemplateCostOutputTypeDef = TypedDict(
-    "EstimateTemplateCostOutputTypeDef", {"Url": str}, total=False
+    "EstimateTemplateCostOutputTypeDef",
+    {"Url": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 GetStackPolicyOutputTypeDef = TypedDict(
-    "GetStackPolicyOutputTypeDef", {"StackPolicyBody": str}, total=False
+    "GetStackPolicyOutputTypeDef",
+    {"StackPolicyBody": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 GetTemplateOutputTypeDef = TypedDict(
     "GetTemplateOutputTypeDef",
-    {"TemplateBody": str, "StagesAvailable": List[Literal["Original", "Processed"]]},
+    {
+        "TemplateBody": str,
+        "StagesAvailable": List[Literal["Original", "Processed"]],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -1064,75 +1146,116 @@ GetTemplateSummaryOutputTypeDef = TypedDict(
         "Metadata": str,
         "DeclaredTransforms": List[str],
         "ResourceIdentifierSummaries": List["ResourceIdentifierSummaryTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
 ListChangeSetsOutputTypeDef = TypedDict(
     "ListChangeSetsOutputTypeDef",
-    {"Summaries": List["ChangeSetSummaryTypeDef"], "NextToken": str},
+    {
+        "Summaries": List["ChangeSetSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListExportsOutputTypeDef = TypedDict(
-    "ListExportsOutputTypeDef", {"Exports": List["ExportTypeDef"], "NextToken": str}, total=False
+    "ListExportsOutputTypeDef",
+    {"Exports": List["ExportTypeDef"], "NextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ListImportsOutputTypeDef = TypedDict(
-    "ListImportsOutputTypeDef", {"Imports": List[str], "NextToken": str}, total=False
+    "ListImportsOutputTypeDef",
+    {"Imports": List[str], "NextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ListStackInstancesOutputTypeDef = TypedDict(
     "ListStackInstancesOutputTypeDef",
-    {"Summaries": List["StackInstanceSummaryTypeDef"], "NextToken": str},
+    {
+        "Summaries": List["StackInstanceSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListStackResourcesOutputTypeDef = TypedDict(
     "ListStackResourcesOutputTypeDef",
-    {"StackResourceSummaries": List["StackResourceSummaryTypeDef"], "NextToken": str},
+    {
+        "StackResourceSummaries": List["StackResourceSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListStackSetOperationResultsOutputTypeDef = TypedDict(
     "ListStackSetOperationResultsOutputTypeDef",
-    {"Summaries": List["StackSetOperationResultSummaryTypeDef"], "NextToken": str},
+    {
+        "Summaries": List["StackSetOperationResultSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListStackSetOperationsOutputTypeDef = TypedDict(
     "ListStackSetOperationsOutputTypeDef",
-    {"Summaries": List["StackSetOperationSummaryTypeDef"], "NextToken": str},
+    {
+        "Summaries": List["StackSetOperationSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListStackSetsOutputTypeDef = TypedDict(
     "ListStackSetsOutputTypeDef",
-    {"Summaries": List["StackSetSummaryTypeDef"], "NextToken": str},
+    {
+        "Summaries": List["StackSetSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListStacksOutputTypeDef = TypedDict(
     "ListStacksOutputTypeDef",
-    {"StackSummaries": List["StackSummaryTypeDef"], "NextToken": str},
+    {
+        "StackSummaries": List["StackSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListTypeRegistrationsOutputTypeDef = TypedDict(
     "ListTypeRegistrationsOutputTypeDef",
-    {"RegistrationTokenList": List[str], "NextToken": str},
+    {"RegistrationTokenList": List[str], "NextToken": str, "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 ListTypeVersionsOutputTypeDef = TypedDict(
     "ListTypeVersionsOutputTypeDef",
-    {"TypeVersionSummaries": List["TypeVersionSummaryTypeDef"], "NextToken": str},
+    {
+        "TypeVersionSummaries": List["TypeVersionSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListTypesOutputTypeDef = TypedDict(
     "ListTypesOutputTypeDef",
-    {"TypeSummaries": List["TypeSummaryTypeDef"], "NextToken": str},
+    {
+        "TypeSummaries": List["TypeSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -1141,7 +1264,9 @@ PaginatorConfigTypeDef = TypedDict(
 )
 
 RegisterTypeOutputTypeDef = TypedDict(
-    "RegisterTypeOutputTypeDef", {"RegistrationToken": str}, total=False
+    "RegisterTypeOutputTypeDef",
+    {"RegistrationToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ResourceToImportTypeDef = TypedDict(
@@ -1154,17 +1279,27 @@ StackInstanceFilterTypeDef = TypedDict(
 )
 
 UpdateStackInstancesOutputTypeDef = TypedDict(
-    "UpdateStackInstancesOutputTypeDef", {"OperationId": str}, total=False
+    "UpdateStackInstancesOutputTypeDef",
+    {"OperationId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
-UpdateStackOutputTypeDef = TypedDict("UpdateStackOutputTypeDef", {"StackId": str}, total=False)
+UpdateStackOutputTypeDef = TypedDict(
+    "UpdateStackOutputTypeDef",
+    {"StackId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
 
 UpdateStackSetOutputTypeDef = TypedDict(
-    "UpdateStackSetOutputTypeDef", {"OperationId": str}, total=False
+    "UpdateStackSetOutputTypeDef",
+    {"OperationId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 UpdateTerminationProtectionOutputTypeDef = TypedDict(
-    "UpdateTerminationProtectionOutputTypeDef", {"StackId": str}, total=False
+    "UpdateTerminationProtectionOutputTypeDef",
+    {"StackId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ValidateTemplateOutputTypeDef = TypedDict(
@@ -1177,6 +1312,7 @@ ValidateTemplateOutputTypeDef = TypedDict(
         ],
         "CapabilitiesReason": str,
         "DeclaredTransforms": List[str],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )

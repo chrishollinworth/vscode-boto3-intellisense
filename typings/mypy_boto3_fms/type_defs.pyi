@@ -17,7 +17,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -33,6 +32,11 @@ __all__ = (
     "AwsVPCSecurityGroupViolationTypeDef",
     "ComplianceViolatorTypeDef",
     "EvaluationResultTypeDef",
+    "NetworkFirewallMissingExpectedRTViolationTypeDef",
+    "NetworkFirewallMissingFirewallViolationTypeDef",
+    "NetworkFirewallMissingSubnetViolationTypeDef",
+    "NetworkFirewallPolicyDescriptionTypeDef",
+    "NetworkFirewallPolicyModifiedViolationTypeDef",
     "PartialMatchTypeDef",
     "PolicyComplianceDetailTypeDef",
     "PolicyComplianceStatusTypeDef",
@@ -45,6 +49,8 @@ __all__ = (
     "SecurityGroupRemediationActionTypeDef",
     "SecurityGroupRuleDescriptionTypeDef",
     "SecurityServicePolicyDataTypeDef",
+    "StatefulRuleGroupTypeDef",
+    "StatelessRuleGroupTypeDef",
     "TagTypeDef",
     "ViolationDetailTypeDef",
     "GetAdminAccountResponseTypeDef",
@@ -135,6 +141,10 @@ ComplianceViolatorTypeDef = TypedDict(
             "RESOURCE_VIOLATES_AUDIT_SECURITY_GROUP",
             "SECURITY_GROUP_UNUSED",
             "SECURITY_GROUP_REDUNDANT",
+            "MISSING_FIREWALL",
+            "MISSING_FIREWALL_SUBNET_IN_AZ",
+            "MISSING_EXPECTED_ROUTE_TABLE",
+            "NETWORK_FIREWALL_POLICY_MODIFIED",
         ],
         "ResourceType": str,
     },
@@ -147,6 +157,52 @@ EvaluationResultTypeDef = TypedDict(
         "ComplianceStatus": Literal["COMPLIANT", "NON_COMPLIANT"],
         "ViolatorCount": int,
         "EvaluationLimitExceeded": bool,
+    },
+    total=False,
+)
+
+NetworkFirewallMissingExpectedRTViolationTypeDef = TypedDict(
+    "NetworkFirewallMissingExpectedRTViolationTypeDef",
+    {
+        "ViolationTarget": str,
+        "VPC": str,
+        "AvailabilityZone": str,
+        "CurrentRouteTable": str,
+        "ExpectedRouteTable": str,
+    },
+    total=False,
+)
+
+NetworkFirewallMissingFirewallViolationTypeDef = TypedDict(
+    "NetworkFirewallMissingFirewallViolationTypeDef",
+    {"ViolationTarget": str, "VPC": str, "AvailabilityZone": str, "TargetViolationReason": str},
+    total=False,
+)
+
+NetworkFirewallMissingSubnetViolationTypeDef = TypedDict(
+    "NetworkFirewallMissingSubnetViolationTypeDef",
+    {"ViolationTarget": str, "VPC": str, "AvailabilityZone": str, "TargetViolationReason": str},
+    total=False,
+)
+
+NetworkFirewallPolicyDescriptionTypeDef = TypedDict(
+    "NetworkFirewallPolicyDescriptionTypeDef",
+    {
+        "StatelessRuleGroups": List["StatelessRuleGroupTypeDef"],
+        "StatelessDefaultActions": List[str],
+        "StatelessFragmentDefaultActions": List[str],
+        "StatelessCustomActions": List[str],
+        "StatefulRuleGroups": List["StatefulRuleGroupTypeDef"],
+    },
+    total=False,
+)
+
+NetworkFirewallPolicyModifiedViolationTypeDef = TypedDict(
+    "NetworkFirewallPolicyModifiedViolationTypeDef",
+    {
+        "ViolationTarget": str,
+        "CurrentPolicyDescription": "NetworkFirewallPolicyDescriptionTypeDef",
+        "ExpectedPolicyDescription": "NetworkFirewallPolicyDescriptionTypeDef",
     },
     total=False,
 )
@@ -197,6 +253,7 @@ PolicySummaryTypeDef = TypedDict(
             "SECURITY_GROUPS_COMMON",
             "SECURITY_GROUPS_CONTENT_AUDIT",
             "SECURITY_GROUPS_USAGE_AUDIT",
+            "NETWORK_FIREWALL",
         ],
         "RemediationEnabled": bool,
     },
@@ -273,6 +330,10 @@ ResourceViolationTypeDef = TypedDict(
         "AwsVPCSecurityGroupViolation": "AwsVPCSecurityGroupViolationTypeDef",
         "AwsEc2NetworkInterfaceViolation": "AwsEc2NetworkInterfaceViolationTypeDef",
         "AwsEc2InstanceViolation": "AwsEc2InstanceViolationTypeDef",
+        "NetworkFirewallMissingFirewallViolation": "NetworkFirewallMissingFirewallViolationTypeDef",
+        "NetworkFirewallMissingSubnetViolation": "NetworkFirewallMissingSubnetViolationTypeDef",
+        "NetworkFirewallMissingExpectedRTViolation": "NetworkFirewallMissingExpectedRTViolationTypeDef",
+        "NetworkFirewallPolicyModifiedViolation": "NetworkFirewallPolicyModifiedViolationTypeDef",
     },
     total=False,
 )
@@ -311,6 +372,7 @@ _RequiredSecurityServicePolicyDataTypeDef = TypedDict(
             "SECURITY_GROUPS_COMMON",
             "SECURITY_GROUPS_CONTENT_AUDIT",
             "SECURITY_GROUPS_USAGE_AUDIT",
+            "NETWORK_FIREWALL",
         ]
     },
 )
@@ -324,6 +386,16 @@ class SecurityServicePolicyDataTypeDef(
 ):
     pass
 
+
+StatefulRuleGroupTypeDef = TypedDict(
+    "StatefulRuleGroupTypeDef", {"RuleGroupName": str, "ResourceId": str}, total=False
+)
+
+StatelessRuleGroupTypeDef = TypedDict(
+    "StatelessRuleGroupTypeDef",
+    {"RuleGroupName": str, "ResourceId": str, "Priority": int},
+    total=False,
+)
 
 TagTypeDef = TypedDict("TagTypeDef", {"Key": str, "Value": str})
 
@@ -388,6 +460,7 @@ GetProtectionStatusResponseTypeDef = TypedDict(
             "SECURITY_GROUPS_COMMON",
             "SECURITY_GROUPS_CONTENT_AUDIT",
             "SECURITY_GROUPS_USAGE_AUDIT",
+            "NETWORK_FIREWALL",
         ],
         "Data": str,
         "NextToken": str,

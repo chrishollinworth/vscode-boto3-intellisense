@@ -35,7 +35,7 @@ __all__ = ("ListDeviceEventsPaginator", "ListDevicesPaginator")
 
 class ListDeviceEventsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDeviceEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Paginator.ListDeviceEvents)
+    [Paginator.ListDeviceEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Paginator.ListDeviceEvents)
     """
 
     def paginate(
@@ -46,18 +46,18 @@ class ListDeviceEventsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListDeviceEventsResponseTypeDef]:
         """
-        [ListDeviceEvents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Paginator.ListDeviceEvents.paginate)
+        [ListDeviceEvents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Paginator.ListDeviceEvents.paginate)
         """
 
 
 class ListDevicesPaginator(Boto3Paginator):
     """
-    [Paginator.ListDevices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Paginator.ListDevices)
+    [Paginator.ListDevices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Paginator.ListDevices)
     """
 
     def paginate(
         self, DeviceType: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDevicesResponseTypeDef]:
         """
-        [ListDevices.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Paginator.ListDevices.paginate)
+        [ListDevices.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot1click-devices.html#IoT1ClickDevicesService.Paginator.ListDevices.paginate)
         """

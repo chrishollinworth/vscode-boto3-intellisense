@@ -1,10 +1,12 @@
 from mypy_boto3_mediatailor.type_defs import (
+    AdMarkerPassthroughTypeDef,
     AvailSuppressionTypeDef,
     BumperTypeDef,
     CdnConfigurationTypeDef,
     DashConfigurationTypeDef,
     HlsConfigurationTypeDef,
     LivePreRollConfigurationTypeDef,
+    ManifestProcessingRulesTypeDef,
     PlaybackConfigurationTypeDef,
     DashConfigurationForPutTypeDef,
     GetPlaybackConfigurationResponseTypeDef,
@@ -15,12 +17,14 @@ from mypy_boto3_mediatailor.type_defs import (
 )
 
 __all__ = (
+    "AdMarkerPassthroughTypeDef",
     "AvailSuppressionTypeDef",
     "BumperTypeDef",
     "CdnConfigurationTypeDef",
     "DashConfigurationTypeDef",
     "HlsConfigurationTypeDef",
     "LivePreRollConfigurationTypeDef",
+    "ManifestProcessingRulesTypeDef",
     "PlaybackConfigurationTypeDef",
     "DashConfigurationForPutTypeDef",
     "GetPlaybackConfigurationResponseTypeDef",

@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import IO, Any, Dict, List, Union
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -187,8 +186,8 @@ __all__ = (
     "DescribePatchGroupsResultTypeDef",
     "DescribePatchPropertiesResultTypeDef",
     "DescribeSessionsResponseTypeDef",
-    "InventoryAggregatorTypeDef",
     "OpsAggregatorTypeDef",
+    "InventoryAggregatorTypeDef",
     "DocumentFilterTypeDef",
     "DocumentKeyValuesFilterTypeDef",
     "GetAutomationExecutionResultTypeDef",
@@ -1098,7 +1097,7 @@ MaintenanceWindowIdentityTypeDef = TypedDict(
 
 MaintenanceWindowLambdaParametersTypeDef = TypedDict(
     "MaintenanceWindowLambdaParametersTypeDef",
-    {"ClientContext": str, "Qualifier": str, "Payload": bytes},
+    {"ClientContext": str, "Qualifier": str, "Payload": Union[bytes, IO[bytes]]},
     total=False,
 )
 
@@ -1349,8 +1348,8 @@ PatchBaselineIdentityTypeDef = TypedDict(
     total=False,
 )
 
-PatchComplianceDataTypeDef = TypedDict(
-    "PatchComplianceDataTypeDef",
+_RequiredPatchComplianceDataTypeDef = TypedDict(
+    "_RequiredPatchComplianceDataTypeDef",
     {
         "Title": str,
         "KBId": str,
@@ -1368,6 +1367,16 @@ PatchComplianceDataTypeDef = TypedDict(
         "InstalledTime": datetime,
     },
 )
+_OptionalPatchComplianceDataTypeDef = TypedDict(
+    "_OptionalPatchComplianceDataTypeDef", {"CVEIds": str}, total=False
+)
+
+
+class PatchComplianceDataTypeDef(
+    _RequiredPatchComplianceDataTypeDef, _OptionalPatchComplianceDataTypeDef
+):
+    pass
+
 
 PatchFilterGroupTypeDef = TypedDict(
     "PatchFilterGroupTypeDef", {"PatchFilters": List["PatchFilterTypeDef"]}
@@ -1377,15 +1386,25 @@ PatchFilterTypeDef = TypedDict(
     "PatchFilterTypeDef",
     {
         "Key": Literal[
+            "ARCH",
+            "ADVISORY_ID",
+            "BUGZILLA_ID",
             "PATCH_SET",
             "PRODUCT",
             "PRODUCT_FAMILY",
             "CLASSIFICATION",
+            "CVE_ID",
+            "EPOCH",
             "MSRC_SEVERITY",
+            "NAME",
             "PATCH_ID",
             "SECTION",
             "PRIORITY",
+            "REPOSITORY",
+            "RELEASE",
             "SEVERITY",
+            "SECURITY",
+            "VERSION",
         ],
         "Values": List[str],
     },
@@ -1454,6 +1473,16 @@ PatchTypeDef = TypedDict(
         "KbNumber": str,
         "MsrcNumber": str,
         "Language": str,
+        "AdvisoryIds": List[str],
+        "BugzillaIds": List[str],
+        "CVEIds": List[str],
+        "Name": str,
+        "Epoch": int,
+        "Version": str,
+        "Release": str,
+        "Arch": str,
+        "Severity": str,
+        "Repository": str,
     },
     total=False,
 )
@@ -1740,6 +1769,7 @@ AutomationExecutionFilterTypeDef = TypedDict(
             "StartTimeAfter",
             "AutomationType",
             "TagKey",
+            "TargetResourceGroup",
         ],
         "Values": List[str],
     },
@@ -2085,16 +2115,6 @@ DescribeSessionsResponseTypeDef = TypedDict(
     total=False,
 )
 
-InventoryAggregatorTypeDef = TypedDict(
-    "InventoryAggregatorTypeDef",
-    {
-        "Expression": str,
-        "Aggregators": List[Dict[str, Any]],
-        "Groups": List["InventoryGroupTypeDef"],
-    },
-    total=False,
-)
-
 OpsAggregatorTypeDef = TypedDict(
     "OpsAggregatorTypeDef",
     {
@@ -2104,6 +2124,16 @@ OpsAggregatorTypeDef = TypedDict(
         "Values": Dict[str, str],
         "Filters": List["OpsFilterTypeDef"],
         "Aggregators": List[Dict[str, Any]],
+    },
+    total=False,
+)
+
+InventoryAggregatorTypeDef = TypedDict(
+    "InventoryAggregatorTypeDef",
+    {
+        "Expression": str,
+        "Aggregators": List[Dict[str, Any]],
+        "Groups": List["InventoryGroupTypeDef"],
     },
     total=False,
 )
@@ -2692,7 +2722,10 @@ SendCommandResultTypeDef = TypedDict(
 
 SessionFilterTypeDef = TypedDict(
     "SessionFilterTypeDef",
-    {"key": Literal["InvokedAfter", "InvokedBefore", "Target", "Owner", "Status"], "value": str},
+    {
+        "key": Literal["InvokedAfter", "InvokedBefore", "Target", "Owner", "Status", "SessionId"],
+        "value": str,
+    },
 )
 
 StartAutomationExecutionResultTypeDef = TypedDict(

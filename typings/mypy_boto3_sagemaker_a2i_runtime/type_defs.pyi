@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import List
+from typing import Any, Dict, List
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -27,6 +26,7 @@ else:
 __all__ = (
     "HumanLoopOutputTypeDef",
     "HumanLoopSummaryTypeDef",
+    "ResponseMetadata",
     "DescribeHumanLoopResponseTypeDef",
     "HumanLoopDataAttributesTypeDef",
     "HumanLoopInputTypeDef",
@@ -35,7 +35,15 @@ __all__ = (
     "StartHumanLoopResponseTypeDef",
 )
 
-HumanLoopOutputTypeDef = TypedDict("HumanLoopOutputTypeDef", {"OutputS3Uri": str})
+_RequiredHumanLoopOutputTypeDef = TypedDict("_RequiredHumanLoopOutputTypeDef", {"OutputS3Uri": str})
+_OptionalHumanLoopOutputTypeDef = TypedDict(
+    "_OptionalHumanLoopOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
+)
+
+
+class HumanLoopOutputTypeDef(_RequiredHumanLoopOutputTypeDef, _OptionalHumanLoopOutputTypeDef):
+    pass
+
 
 HumanLoopSummaryTypeDef = TypedDict(
     "HumanLoopSummaryTypeDef",
@@ -47,6 +55,17 @@ HumanLoopSummaryTypeDef = TypedDict(
         "FlowDefinitionArn": str,
     },
     total=False,
+)
+
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
 )
 
 _RequiredDescribeHumanLoopResponseTypeDef = TypedDict(

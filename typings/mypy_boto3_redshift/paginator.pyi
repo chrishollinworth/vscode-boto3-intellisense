@@ -140,20 +140,20 @@ __all__ = (
 
 class DescribeClusterDbRevisionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeClusterDbRevisions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeClusterDbRevisions)
+    [Paginator.DescribeClusterDbRevisions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeClusterDbRevisions)
     """
 
     def paginate(
         self, ClusterIdentifier: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ClusterDbRevisionsMessageTypeDef]:
         """
-        [DescribeClusterDbRevisions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeClusterDbRevisions.paginate)
+        [DescribeClusterDbRevisions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeClusterDbRevisions.paginate)
         """
 
 
 class DescribeClusterParameterGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeClusterParameterGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeClusterParameterGroups)
+    [Paginator.DescribeClusterParameterGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeClusterParameterGroups)
     """
 
     def paginate(
@@ -164,13 +164,13 @@ class DescribeClusterParameterGroupsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ClusterParameterGroupsMessageTypeDef]:
         """
-        [DescribeClusterParameterGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeClusterParameterGroups.paginate)
+        [DescribeClusterParameterGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeClusterParameterGroups.paginate)
         """
 
 
 class DescribeClusterParametersPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeClusterParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeClusterParameters)
+    [Paginator.DescribeClusterParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeClusterParameters)
     """
 
     def paginate(
@@ -180,13 +180,13 @@ class DescribeClusterParametersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ClusterParameterGroupDetailsTypeDef]:
         """
-        [DescribeClusterParameters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeClusterParameters.paginate)
+        [DescribeClusterParameters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeClusterParameters.paginate)
         """
 
 
 class DescribeClusterSecurityGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeClusterSecurityGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeClusterSecurityGroups)
+    [Paginator.DescribeClusterSecurityGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeClusterSecurityGroups)
     """
 
     def paginate(
@@ -197,13 +197,13 @@ class DescribeClusterSecurityGroupsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ClusterSecurityGroupMessageTypeDef]:
         """
-        [DescribeClusterSecurityGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeClusterSecurityGroups.paginate)
+        [DescribeClusterSecurityGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeClusterSecurityGroups.paginate)
         """
 
 
 class DescribeClusterSnapshotsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeClusterSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeClusterSnapshots)
+    [Paginator.DescribeClusterSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeClusterSnapshots)
     """
 
     def paginate(
@@ -221,13 +221,13 @@ class DescribeClusterSnapshotsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[SnapshotMessageTypeDef]:
         """
-        [DescribeClusterSnapshots.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeClusterSnapshots.paginate)
+        [DescribeClusterSnapshots.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeClusterSnapshots.paginate)
         """
 
 
 class DescribeClusterSubnetGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeClusterSubnetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeClusterSubnetGroups)
+    [Paginator.DescribeClusterSubnetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeClusterSubnetGroups)
     """
 
     def paginate(
@@ -238,26 +238,26 @@ class DescribeClusterSubnetGroupsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ClusterSubnetGroupMessageTypeDef]:
         """
-        [DescribeClusterSubnetGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeClusterSubnetGroups.paginate)
+        [DescribeClusterSubnetGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeClusterSubnetGroups.paginate)
         """
 
 
 class DescribeClusterTracksPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeClusterTracks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeClusterTracks)
+    [Paginator.DescribeClusterTracks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeClusterTracks)
     """
 
     def paginate(
         self, MaintenanceTrackName: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[TrackListMessageTypeDef]:
         """
-        [DescribeClusterTracks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeClusterTracks.paginate)
+        [DescribeClusterTracks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeClusterTracks.paginate)
         """
 
 
 class DescribeClusterVersionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeClusterVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeClusterVersions)
+    [Paginator.DescribeClusterVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeClusterVersions)
     """
 
     def paginate(
@@ -267,13 +267,13 @@ class DescribeClusterVersionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ClusterVersionsMessageTypeDef]:
         """
-        [DescribeClusterVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeClusterVersions.paginate)
+        [DescribeClusterVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeClusterVersions.paginate)
         """
 
 
 class DescribeClustersPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeClusters)
+    [Paginator.DescribeClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeClusters)
     """
 
     def paginate(
@@ -284,26 +284,26 @@ class DescribeClustersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ClustersMessageTypeDef]:
         """
-        [DescribeClusters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeClusters.paginate)
+        [DescribeClusters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeClusters.paginate)
         """
 
 
 class DescribeDefaultClusterParametersPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeDefaultClusterParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeDefaultClusterParameters)
+    [Paginator.DescribeDefaultClusterParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeDefaultClusterParameters)
     """
 
     def paginate(
         self, ParameterGroupFamily: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeDefaultClusterParametersResultTypeDef]:
         """
-        [DescribeDefaultClusterParameters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeDefaultClusterParameters.paginate)
+        [DescribeDefaultClusterParameters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeDefaultClusterParameters.paginate)
         """
 
 
 class DescribeEventSubscriptionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeEventSubscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeEventSubscriptions)
+    [Paginator.DescribeEventSubscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeEventSubscriptions)
     """
 
     def paginate(
@@ -314,13 +314,13 @@ class DescribeEventSubscriptionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[EventSubscriptionsMessageTypeDef]:
         """
-        [DescribeEventSubscriptions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeEventSubscriptions.paginate)
+        [DescribeEventSubscriptions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeEventSubscriptions.paginate)
         """
 
 
 class DescribeEventsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeEvents)
+    [Paginator.DescribeEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeEvents)
     """
 
     def paginate(
@@ -339,13 +339,13 @@ class DescribeEventsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[EventsMessageTypeDef]:
         """
-        [DescribeEvents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeEvents.paginate)
+        [DescribeEvents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeEvents.paginate)
         """
 
 
 class DescribeHsmClientCertificatesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeHsmClientCertificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeHsmClientCertificates)
+    [Paginator.DescribeHsmClientCertificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeHsmClientCertificates)
     """
 
     def paginate(
@@ -356,13 +356,13 @@ class DescribeHsmClientCertificatesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[HsmClientCertificateMessageTypeDef]:
         """
-        [DescribeHsmClientCertificates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeHsmClientCertificates.paginate)
+        [DescribeHsmClientCertificates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeHsmClientCertificates.paginate)
         """
 
 
 class DescribeHsmConfigurationsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeHsmConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeHsmConfigurations)
+    [Paginator.DescribeHsmConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeHsmConfigurations)
     """
 
     def paginate(
@@ -373,13 +373,13 @@ class DescribeHsmConfigurationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[HsmConfigurationMessageTypeDef]:
         """
-        [DescribeHsmConfigurations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeHsmConfigurations.paginate)
+        [DescribeHsmConfigurations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeHsmConfigurations.paginate)
         """
 
 
 class DescribeNodeConfigurationOptionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeNodeConfigurationOptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeNodeConfigurationOptions)
+    [Paginator.DescribeNodeConfigurationOptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeNodeConfigurationOptions)
     """
 
     def paginate(
@@ -392,13 +392,13 @@ class DescribeNodeConfigurationOptionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[NodeConfigurationOptionsMessageTypeDef]:
         """
-        [DescribeNodeConfigurationOptions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeNodeConfigurationOptions.paginate)
+        [DescribeNodeConfigurationOptions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeNodeConfigurationOptions.paginate)
         """
 
 
 class DescribeOrderableClusterOptionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeOrderableClusterOptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeOrderableClusterOptions)
+    [Paginator.DescribeOrderableClusterOptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeOrderableClusterOptions)
     """
 
     def paginate(
@@ -408,39 +408,39 @@ class DescribeOrderableClusterOptionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[OrderableClusterOptionsMessageTypeDef]:
         """
-        [DescribeOrderableClusterOptions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeOrderableClusterOptions.paginate)
+        [DescribeOrderableClusterOptions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeOrderableClusterOptions.paginate)
         """
 
 
 class DescribeReservedNodeOfferingsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeReservedNodeOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeReservedNodeOfferings)
+    [Paginator.DescribeReservedNodeOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeReservedNodeOfferings)
     """
 
     def paginate(
         self, ReservedNodeOfferingId: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ReservedNodeOfferingsMessageTypeDef]:
         """
-        [DescribeReservedNodeOfferings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeReservedNodeOfferings.paginate)
+        [DescribeReservedNodeOfferings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeReservedNodeOfferings.paginate)
         """
 
 
 class DescribeReservedNodesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeReservedNodes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeReservedNodes)
+    [Paginator.DescribeReservedNodes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeReservedNodes)
     """
 
     def paginate(
         self, ReservedNodeId: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ReservedNodesMessageTypeDef]:
         """
-        [DescribeReservedNodes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeReservedNodes.paginate)
+        [DescribeReservedNodes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeReservedNodes.paginate)
         """
 
 
 class DescribeScheduledActionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeScheduledActions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeScheduledActions)
+    [Paginator.DescribeScheduledActions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeScheduledActions)
     """
 
     def paginate(
@@ -454,13 +454,13 @@ class DescribeScheduledActionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ScheduledActionsMessageTypeDef]:
         """
-        [DescribeScheduledActions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeScheduledActions.paginate)
+        [DescribeScheduledActions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeScheduledActions.paginate)
         """
 
 
 class DescribeSnapshotCopyGrantsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeSnapshotCopyGrants documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeSnapshotCopyGrants)
+    [Paginator.DescribeSnapshotCopyGrants documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeSnapshotCopyGrants)
     """
 
     def paginate(
@@ -471,13 +471,13 @@ class DescribeSnapshotCopyGrantsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[SnapshotCopyGrantMessageTypeDef]:
         """
-        [DescribeSnapshotCopyGrants.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeSnapshotCopyGrants.paginate)
+        [DescribeSnapshotCopyGrants.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeSnapshotCopyGrants.paginate)
         """
 
 
 class DescribeSnapshotSchedulesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeSnapshotSchedules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeSnapshotSchedules)
+    [Paginator.DescribeSnapshotSchedules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeSnapshotSchedules)
     """
 
     def paginate(
@@ -489,13 +489,13 @@ class DescribeSnapshotSchedulesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeSnapshotSchedulesOutputMessageTypeDef]:
         """
-        [DescribeSnapshotSchedules.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeSnapshotSchedules.paginate)
+        [DescribeSnapshotSchedules.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeSnapshotSchedules.paginate)
         """
 
 
 class DescribeTableRestoreStatusPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeTableRestoreStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeTableRestoreStatus)
+    [Paginator.DescribeTableRestoreStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeTableRestoreStatus)
     """
 
     def paginate(
@@ -505,13 +505,13 @@ class DescribeTableRestoreStatusPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[TableRestoreStatusMessageTypeDef]:
         """
-        [DescribeTableRestoreStatus.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeTableRestoreStatus.paginate)
+        [DescribeTableRestoreStatus.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeTableRestoreStatus.paginate)
         """
 
 
 class DescribeTagsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeTags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeTags)
+    [Paginator.DescribeTags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeTags)
     """
 
     def paginate(
@@ -523,13 +523,13 @@ class DescribeTagsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[TaggedResourceListMessageTypeDef]:
         """
-        [DescribeTags.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeTags.paginate)
+        [DescribeTags.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeTags.paginate)
         """
 
 
 class DescribeUsageLimitsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeUsageLimits documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeUsageLimits)
+    [Paginator.DescribeUsageLimits documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeUsageLimits)
     """
 
     def paginate(
@@ -542,18 +542,18 @@ class DescribeUsageLimitsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[UsageLimitListTypeDef]:
         """
-        [DescribeUsageLimits.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.DescribeUsageLimits.paginate)
+        [DescribeUsageLimits.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.DescribeUsageLimits.paginate)
         """
 
 
 class GetReservedNodeExchangeOfferingsPaginator(Boto3Paginator):
     """
-    [Paginator.GetReservedNodeExchangeOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.GetReservedNodeExchangeOfferings)
+    [Paginator.GetReservedNodeExchangeOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.GetReservedNodeExchangeOfferings)
     """
 
     def paginate(
         self, ReservedNodeId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetReservedNodeExchangeOfferingsOutputMessageTypeDef]:
         """
-        [GetReservedNodeExchangeOfferings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/redshift.html#Redshift.Paginator.GetReservedNodeExchangeOfferings.paginate)
+        [GetReservedNodeExchangeOfferings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Paginator.GetReservedNodeExchangeOfferings.paginate)
         """

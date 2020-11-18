@@ -4,9 +4,9 @@ Main interface for cloudfront service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_cloudfront.type_defs import ActiveTrustedSignersTypeDef
+    from mypy_boto3_cloudfront.type_defs import ActiveTrustedKeyGroupsTypeDef
 
-    data: ActiveTrustedSignersTypeDef = {...}
+    data: ActiveTrustedKeyGroupsTypeDef = {...}
     ```
 """
 import sys
@@ -17,7 +17,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -25,6 +24,7 @@ else:
 
 
 __all__ = (
+    "ActiveTrustedKeyGroupsTypeDef",
     "ActiveTrustedSignersTypeDef",
     "AliasICPRecordalTypeDef",
     "AliasesTypeDef",
@@ -60,6 +60,7 @@ __all__ = (
     "DistributionTypeDef",
     "EncryptionEntitiesTypeDef",
     "EncryptionEntityTypeDef",
+    "EndPointTypeDef",
     "FieldLevelEncryptionConfigTypeDef",
     "FieldLevelEncryptionListTypeDef",
     "FieldLevelEncryptionProfileConfigTypeDef",
@@ -76,10 +77,17 @@ __all__ = (
     "InvalidationListTypeDef",
     "InvalidationSummaryTypeDef",
     "InvalidationTypeDef",
+    "KGKeyPairIdsTypeDef",
+    "KeyGroupConfigTypeDef",
+    "KeyGroupListTypeDef",
+    "KeyGroupSummaryTypeDef",
+    "KeyGroupTypeDef",
     "KeyPairIdsTypeDef",
+    "KinesisStreamConfigTypeDef",
     "LambdaFunctionAssociationTypeDef",
     "LambdaFunctionAssociationsTypeDef",
     "LoggingConfigTypeDef",
+    "MonitoringSubscriptionTypeDef",
     "OriginCustomHeaderTypeDef",
     "OriginGroupFailoverCriteriaTypeDef",
     "OriginGroupMemberTypeDef",
@@ -93,6 +101,7 @@ __all__ = (
     "OriginRequestPolicyQueryStringsConfigTypeDef",
     "OriginRequestPolicySummaryTypeDef",
     "OriginRequestPolicyTypeDef",
+    "OriginShieldTypeDef",
     "OriginSslProtocolsTypeDef",
     "OriginTypeDef",
     "OriginsTypeDef",
@@ -107,6 +116,9 @@ __all__ = (
     "QueryArgProfilesTypeDef",
     "QueryStringCacheKeysTypeDef",
     "QueryStringNamesTypeDef",
+    "RealtimeLogConfigTypeDef",
+    "RealtimeLogConfigsTypeDef",
+    "RealtimeMetricsSubscriptionConfigTypeDef",
     "RestrictionsTypeDef",
     "S3OriginConfigTypeDef",
     "S3OriginTypeDef",
@@ -119,6 +131,7 @@ __all__ = (
     "StreamingLoggingConfigTypeDef",
     "TagTypeDef",
     "TagsTypeDef",
+    "TrustedKeyGroupsTypeDef",
     "TrustedSignersTypeDef",
     "ViewerCertificateTypeDef",
     "CreateCachePolicyResultTypeDef",
@@ -128,8 +141,11 @@ __all__ = (
     "CreateFieldLevelEncryptionConfigResultTypeDef",
     "CreateFieldLevelEncryptionProfileResultTypeDef",
     "CreateInvalidationResultTypeDef",
+    "CreateKeyGroupResultTypeDef",
+    "CreateMonitoringSubscriptionResultTypeDef",
     "CreateOriginRequestPolicyResultTypeDef",
     "CreatePublicKeyResultTypeDef",
+    "CreateRealtimeLogConfigResultTypeDef",
     "CreateStreamingDistributionResultTypeDef",
     "CreateStreamingDistributionWithTagsResultTypeDef",
     "DistributionConfigWithTagsTypeDef",
@@ -144,23 +160,31 @@ __all__ = (
     "GetFieldLevelEncryptionProfileResultTypeDef",
     "GetFieldLevelEncryptionResultTypeDef",
     "GetInvalidationResultTypeDef",
+    "GetKeyGroupConfigResultTypeDef",
+    "GetKeyGroupResultTypeDef",
+    "GetMonitoringSubscriptionResultTypeDef",
     "GetOriginRequestPolicyConfigResultTypeDef",
     "GetOriginRequestPolicyResultTypeDef",
     "GetPublicKeyConfigResultTypeDef",
     "GetPublicKeyResultTypeDef",
+    "GetRealtimeLogConfigResultTypeDef",
     "GetStreamingDistributionConfigResultTypeDef",
     "GetStreamingDistributionResultTypeDef",
     "ListCachePoliciesResultTypeDef",
     "ListCloudFrontOriginAccessIdentitiesResultTypeDef",
     "ListDistributionsByCachePolicyIdResultTypeDef",
+    "ListDistributionsByKeyGroupResultTypeDef",
     "ListDistributionsByOriginRequestPolicyIdResultTypeDef",
+    "ListDistributionsByRealtimeLogConfigResultTypeDef",
     "ListDistributionsByWebACLIdResultTypeDef",
     "ListDistributionsResultTypeDef",
     "ListFieldLevelEncryptionConfigsResultTypeDef",
     "ListFieldLevelEncryptionProfilesResultTypeDef",
     "ListInvalidationsResultTypeDef",
+    "ListKeyGroupsResultTypeDef",
     "ListOriginRequestPoliciesResultTypeDef",
     "ListPublicKeysResultTypeDef",
+    "ListRealtimeLogConfigsResultTypeDef",
     "ListStreamingDistributionsResultTypeDef",
     "ListTagsForResourceResultTypeDef",
     "PaginatorConfigTypeDef",
@@ -171,11 +195,27 @@ __all__ = (
     "UpdateDistributionResultTypeDef",
     "UpdateFieldLevelEncryptionConfigResultTypeDef",
     "UpdateFieldLevelEncryptionProfileResultTypeDef",
+    "UpdateKeyGroupResultTypeDef",
     "UpdateOriginRequestPolicyResultTypeDef",
     "UpdatePublicKeyResultTypeDef",
+    "UpdateRealtimeLogConfigResultTypeDef",
     "UpdateStreamingDistributionResultTypeDef",
     "WaiterConfigTypeDef",
 )
+
+_RequiredActiveTrustedKeyGroupsTypeDef = TypedDict(
+    "_RequiredActiveTrustedKeyGroupsTypeDef", {"Enabled": bool, "Quantity": int}
+)
+_OptionalActiveTrustedKeyGroupsTypeDef = TypedDict(
+    "_OptionalActiveTrustedKeyGroupsTypeDef", {"Items": List["KGKeyPairIdsTypeDef"]}, total=False
+)
+
+
+class ActiveTrustedKeyGroupsTypeDef(
+    _RequiredActiveTrustedKeyGroupsTypeDef, _OptionalActiveTrustedKeyGroupsTypeDef
+):
+    pass
+
 
 _RequiredActiveTrustedSignersTypeDef = TypedDict(
     "_RequiredActiveTrustedSignersTypeDef", {"Enabled": bool, "Quantity": int}
@@ -226,18 +266,20 @@ _RequiredCacheBehaviorTypeDef = TypedDict(
     {
         "PathPattern": str,
         "TargetOriginId": str,
-        "TrustedSigners": "TrustedSignersTypeDef",
         "ViewerProtocolPolicy": Literal["allow-all", "https-only", "redirect-to-https"],
     },
 )
 _OptionalCacheBehaviorTypeDef = TypedDict(
     "_OptionalCacheBehaviorTypeDef",
     {
+        "TrustedSigners": "TrustedSignersTypeDef",
+        "TrustedKeyGroups": "TrustedKeyGroupsTypeDef",
         "AllowedMethods": "AllowedMethodsTypeDef",
         "SmoothStreaming": bool,
         "Compress": bool,
         "LambdaFunctionAssociations": "LambdaFunctionAssociationsTypeDef",
         "FieldLevelEncryptionId": str,
+        "RealtimeLogConfigArn": str,
         "CachePolicyId": str,
         "OriginRequestPolicyId": str,
         "ForwardedValues": "ForwardedValuesTypeDef",
@@ -542,18 +584,20 @@ _RequiredDefaultCacheBehaviorTypeDef = TypedDict(
     "_RequiredDefaultCacheBehaviorTypeDef",
     {
         "TargetOriginId": str,
-        "TrustedSigners": "TrustedSignersTypeDef",
         "ViewerProtocolPolicy": Literal["allow-all", "https-only", "redirect-to-https"],
     },
 )
 _OptionalDefaultCacheBehaviorTypeDef = TypedDict(
     "_OptionalDefaultCacheBehaviorTypeDef",
     {
+        "TrustedSigners": "TrustedSignersTypeDef",
+        "TrustedKeyGroups": "TrustedKeyGroupsTypeDef",
         "AllowedMethods": "AllowedMethodsTypeDef",
         "SmoothStreaming": bool,
         "Compress": bool,
         "LambdaFunctionAssociations": "LambdaFunctionAssociationsTypeDef",
         "FieldLevelEncryptionId": str,
+        "RealtimeLogConfigArn": str,
         "CachePolicyId": str,
         "OriginRequestPolicyId": str,
         "ForwardedValues": "ForwardedValuesTypeDef",
@@ -682,13 +726,16 @@ _RequiredDistributionTypeDef = TypedDict(
         "LastModifiedTime": datetime,
         "InProgressInvalidationBatches": int,
         "DomainName": str,
-        "ActiveTrustedSigners": "ActiveTrustedSignersTypeDef",
         "DistributionConfig": "DistributionConfigTypeDef",
     },
 )
 _OptionalDistributionTypeDef = TypedDict(
     "_OptionalDistributionTypeDef",
-    {"AliasICPRecordals": List["AliasICPRecordalTypeDef"]},
+    {
+        "ActiveTrustedSigners": "ActiveTrustedSignersTypeDef",
+        "ActiveTrustedKeyGroups": "ActiveTrustedKeyGroupsTypeDef",
+        "AliasICPRecordals": List["AliasICPRecordalTypeDef"],
+    },
     total=False,
 )
 
@@ -715,6 +762,16 @@ EncryptionEntityTypeDef = TypedDict(
     "EncryptionEntityTypeDef",
     {"PublicKeyId": str, "ProviderId": str, "FieldPatterns": "FieldPatternsTypeDef"},
 )
+
+_RequiredEndPointTypeDef = TypedDict("_RequiredEndPointTypeDef", {"StreamType": str})
+_OptionalEndPointTypeDef = TypedDict(
+    "_OptionalEndPointTypeDef", {"KinesisStreamConfig": "KinesisStreamConfigTypeDef"}, total=False
+)
+
+
+class EndPointTypeDef(_RequiredEndPointTypeDef, _OptionalEndPointTypeDef):
+    pass
+
 
 _RequiredFieldLevelEncryptionConfigTypeDef = TypedDict(
     "_RequiredFieldLevelEncryptionConfigTypeDef", {"CallerReference": str}
@@ -921,6 +978,43 @@ InvalidationTypeDef = TypedDict(
     },
 )
 
+KGKeyPairIdsTypeDef = TypedDict(
+    "KGKeyPairIdsTypeDef", {"KeyGroupId": str, "KeyPairIds": "KeyPairIdsTypeDef"}, total=False
+)
+
+_RequiredKeyGroupConfigTypeDef = TypedDict(
+    "_RequiredKeyGroupConfigTypeDef", {"Name": str, "Items": List[str]}
+)
+_OptionalKeyGroupConfigTypeDef = TypedDict(
+    "_OptionalKeyGroupConfigTypeDef", {"Comment": str}, total=False
+)
+
+
+class KeyGroupConfigTypeDef(_RequiredKeyGroupConfigTypeDef, _OptionalKeyGroupConfigTypeDef):
+    pass
+
+
+_RequiredKeyGroupListTypeDef = TypedDict(
+    "_RequiredKeyGroupListTypeDef", {"MaxItems": int, "Quantity": int}
+)
+_OptionalKeyGroupListTypeDef = TypedDict(
+    "_OptionalKeyGroupListTypeDef",
+    {"NextMarker": str, "Items": List["KeyGroupSummaryTypeDef"]},
+    total=False,
+)
+
+
+class KeyGroupListTypeDef(_RequiredKeyGroupListTypeDef, _OptionalKeyGroupListTypeDef):
+    pass
+
+
+KeyGroupSummaryTypeDef = TypedDict("KeyGroupSummaryTypeDef", {"KeyGroup": "KeyGroupTypeDef"})
+
+KeyGroupTypeDef = TypedDict(
+    "KeyGroupTypeDef",
+    {"Id": str, "LastModifiedTime": datetime, "KeyGroupConfig": "KeyGroupConfigTypeDef"},
+)
+
 _RequiredKeyPairIdsTypeDef = TypedDict("_RequiredKeyPairIdsTypeDef", {"Quantity": int})
 _OptionalKeyPairIdsTypeDef = TypedDict(
     "_OptionalKeyPairIdsTypeDef", {"Items": List[str]}, total=False
@@ -930,6 +1024,10 @@ _OptionalKeyPairIdsTypeDef = TypedDict(
 class KeyPairIdsTypeDef(_RequiredKeyPairIdsTypeDef, _OptionalKeyPairIdsTypeDef):
     pass
 
+
+KinesisStreamConfigTypeDef = TypedDict(
+    "KinesisStreamConfigTypeDef", {"RoleARN": str, "StreamARN": str}
+)
 
 _RequiredLambdaFunctionAssociationTypeDef = TypedDict(
     "_RequiredLambdaFunctionAssociationTypeDef",
@@ -969,6 +1067,12 @@ class LambdaFunctionAssociationsTypeDef(
 
 LoggingConfigTypeDef = TypedDict(
     "LoggingConfigTypeDef", {"Enabled": bool, "IncludeCookies": bool, "Bucket": str, "Prefix": str}
+)
+
+MonitoringSubscriptionTypeDef = TypedDict(
+    "MonitoringSubscriptionTypeDef",
+    {"RealtimeMetricsSubscriptionConfig": "RealtimeMetricsSubscriptionConfigTypeDef"},
+    total=False,
 )
 
 OriginCustomHeaderTypeDef = TypedDict(
@@ -1110,6 +1214,16 @@ OriginRequestPolicyTypeDef = TypedDict(
     },
 )
 
+_RequiredOriginShieldTypeDef = TypedDict("_RequiredOriginShieldTypeDef", {"Enabled": bool})
+_OptionalOriginShieldTypeDef = TypedDict(
+    "_OptionalOriginShieldTypeDef", {"OriginShieldRegion": str}, total=False
+)
+
+
+class OriginShieldTypeDef(_RequiredOriginShieldTypeDef, _OptionalOriginShieldTypeDef):
+    pass
+
+
 OriginSslProtocolsTypeDef = TypedDict(
     "OriginSslProtocolsTypeDef",
     {"Quantity": int, "Items": List[Literal["SSLv3", "TLSv1", "TLSv1.1", "TLSv1.2"]]},
@@ -1125,6 +1239,7 @@ _OptionalOriginTypeDef = TypedDict(
         "CustomOriginConfig": "CustomOriginConfigTypeDef",
         "ConnectionAttempts": int,
         "ConnectionTimeout": int,
+        "OriginShield": "OriginShieldTypeDef",
     },
     total=False,
 )
@@ -1136,8 +1251,8 @@ class OriginTypeDef(_RequiredOriginTypeDef, _OptionalOriginTypeDef):
 
 OriginsTypeDef = TypedDict("OriginsTypeDef", {"Quantity": int, "Items": List["OriginTypeDef"]})
 
-ParametersInCacheKeyAndForwardedToOriginTypeDef = TypedDict(
-    "ParametersInCacheKeyAndForwardedToOriginTypeDef",
+_RequiredParametersInCacheKeyAndForwardedToOriginTypeDef = TypedDict(
+    "_RequiredParametersInCacheKeyAndForwardedToOriginTypeDef",
     {
         "EnableAcceptEncodingGzip": bool,
         "HeadersConfig": "CachePolicyHeadersConfigTypeDef",
@@ -1145,6 +1260,19 @@ ParametersInCacheKeyAndForwardedToOriginTypeDef = TypedDict(
         "QueryStringsConfig": "CachePolicyQueryStringsConfigTypeDef",
     },
 )
+_OptionalParametersInCacheKeyAndForwardedToOriginTypeDef = TypedDict(
+    "_OptionalParametersInCacheKeyAndForwardedToOriginTypeDef",
+    {"EnableAcceptEncodingBrotli": bool},
+    total=False,
+)
+
+
+class ParametersInCacheKeyAndForwardedToOriginTypeDef(
+    _RequiredParametersInCacheKeyAndForwardedToOriginTypeDef,
+    _OptionalParametersInCacheKeyAndForwardedToOriginTypeDef,
+):
+    pass
+
 
 _RequiredPathsTypeDef = TypedDict("_RequiredPathsTypeDef", {"Quantity": int})
 _OptionalPathsTypeDef = TypedDict("_OptionalPathsTypeDef", {"Items": List[str]}, total=False)
@@ -1249,6 +1377,38 @@ _OptionalQueryStringNamesTypeDef = TypedDict(
 class QueryStringNamesTypeDef(_RequiredQueryStringNamesTypeDef, _OptionalQueryStringNamesTypeDef):
     pass
 
+
+RealtimeLogConfigTypeDef = TypedDict(
+    "RealtimeLogConfigTypeDef",
+    {
+        "ARN": str,
+        "Name": str,
+        "SamplingRate": int,
+        "EndPoints": List["EndPointTypeDef"],
+        "Fields": List[str],
+    },
+)
+
+_RequiredRealtimeLogConfigsTypeDef = TypedDict(
+    "_RequiredRealtimeLogConfigsTypeDef", {"MaxItems": int, "IsTruncated": bool, "Marker": str}
+)
+_OptionalRealtimeLogConfigsTypeDef = TypedDict(
+    "_OptionalRealtimeLogConfigsTypeDef",
+    {"Items": List["RealtimeLogConfigTypeDef"], "NextMarker": str},
+    total=False,
+)
+
+
+class RealtimeLogConfigsTypeDef(
+    _RequiredRealtimeLogConfigsTypeDef, _OptionalRealtimeLogConfigsTypeDef
+):
+    pass
+
+
+RealtimeMetricsSubscriptionConfigTypeDef = TypedDict(
+    "RealtimeMetricsSubscriptionConfigTypeDef",
+    {"RealtimeMetricsSubscriptionStatus": Literal["Enabled", "Disabled"]},
+)
 
 RestrictionsTypeDef = TypedDict("RestrictionsTypeDef", {"GeoRestriction": "GeoRestrictionTypeDef"})
 
@@ -1359,6 +1519,18 @@ class TagTypeDef(_RequiredTagTypeDef, _OptionalTagTypeDef):
 
 TagsTypeDef = TypedDict("TagsTypeDef", {"Items": List["TagTypeDef"]}, total=False)
 
+_RequiredTrustedKeyGroupsTypeDef = TypedDict(
+    "_RequiredTrustedKeyGroupsTypeDef", {"Enabled": bool, "Quantity": int}
+)
+_OptionalTrustedKeyGroupsTypeDef = TypedDict(
+    "_OptionalTrustedKeyGroupsTypeDef", {"Items": List[str]}, total=False
+)
+
+
+class TrustedKeyGroupsTypeDef(_RequiredTrustedKeyGroupsTypeDef, _OptionalTrustedKeyGroupsTypeDef):
+    pass
+
+
 _RequiredTrustedSignersTypeDef = TypedDict(
     "_RequiredTrustedSignersTypeDef", {"Enabled": bool, "Quantity": int}
 )
@@ -1377,7 +1549,7 @@ ViewerCertificateTypeDef = TypedDict(
         "CloudFrontDefaultCertificate": bool,
         "IAMCertificateId": str,
         "ACMCertificateArn": str,
-        "SSLSupportMethod": Literal["sni-only", "vip"],
+        "SSLSupportMethod": Literal["sni-only", "vip", "static-ip"],
         "MinimumProtocolVersion": Literal[
             "SSLv3", "TLSv1", "TLSv1_2016", "TLSv1.1_2016", "TLSv1.2_2018", "TLSv1.2_2019"
         ],
@@ -1437,6 +1609,18 @@ CreateInvalidationResultTypeDef = TypedDict(
     total=False,
 )
 
+CreateKeyGroupResultTypeDef = TypedDict(
+    "CreateKeyGroupResultTypeDef",
+    {"KeyGroup": "KeyGroupTypeDef", "Location": str, "ETag": str},
+    total=False,
+)
+
+CreateMonitoringSubscriptionResultTypeDef = TypedDict(
+    "CreateMonitoringSubscriptionResultTypeDef",
+    {"MonitoringSubscription": "MonitoringSubscriptionTypeDef"},
+    total=False,
+)
+
 CreateOriginRequestPolicyResultTypeDef = TypedDict(
     "CreateOriginRequestPolicyResultTypeDef",
     {"OriginRequestPolicy": "OriginRequestPolicyTypeDef", "Location": str, "ETag": str},
@@ -1446,6 +1630,12 @@ CreateOriginRequestPolicyResultTypeDef = TypedDict(
 CreatePublicKeyResultTypeDef = TypedDict(
     "CreatePublicKeyResultTypeDef",
     {"PublicKey": "PublicKeyTypeDef", "Location": str, "ETag": str},
+    total=False,
+)
+
+CreateRealtimeLogConfigResultTypeDef = TypedDict(
+    "CreateRealtimeLogConfigResultTypeDef",
+    {"RealtimeLogConfig": "RealtimeLogConfigTypeDef"},
     total=False,
 )
 
@@ -1531,6 +1721,22 @@ GetInvalidationResultTypeDef = TypedDict(
     "GetInvalidationResultTypeDef", {"Invalidation": "InvalidationTypeDef"}, total=False
 )
 
+GetKeyGroupConfigResultTypeDef = TypedDict(
+    "GetKeyGroupConfigResultTypeDef",
+    {"KeyGroupConfig": "KeyGroupConfigTypeDef", "ETag": str},
+    total=False,
+)
+
+GetKeyGroupResultTypeDef = TypedDict(
+    "GetKeyGroupResultTypeDef", {"KeyGroup": "KeyGroupTypeDef", "ETag": str}, total=False
+)
+
+GetMonitoringSubscriptionResultTypeDef = TypedDict(
+    "GetMonitoringSubscriptionResultTypeDef",
+    {"MonitoringSubscription": "MonitoringSubscriptionTypeDef"},
+    total=False,
+)
+
 GetOriginRequestPolicyConfigResultTypeDef = TypedDict(
     "GetOriginRequestPolicyConfigResultTypeDef",
     {"OriginRequestPolicyConfig": "OriginRequestPolicyConfigTypeDef", "ETag": str},
@@ -1551,6 +1757,12 @@ GetPublicKeyConfigResultTypeDef = TypedDict(
 
 GetPublicKeyResultTypeDef = TypedDict(
     "GetPublicKeyResultTypeDef", {"PublicKey": "PublicKeyTypeDef", "ETag": str}, total=False
+)
+
+GetRealtimeLogConfigResultTypeDef = TypedDict(
+    "GetRealtimeLogConfigResultTypeDef",
+    {"RealtimeLogConfig": "RealtimeLogConfigTypeDef"},
+    total=False,
 )
 
 GetStreamingDistributionConfigResultTypeDef = TypedDict(
@@ -1581,9 +1793,21 @@ ListDistributionsByCachePolicyIdResultTypeDef = TypedDict(
     total=False,
 )
 
+ListDistributionsByKeyGroupResultTypeDef = TypedDict(
+    "ListDistributionsByKeyGroupResultTypeDef",
+    {"DistributionIdList": "DistributionIdListTypeDef"},
+    total=False,
+)
+
 ListDistributionsByOriginRequestPolicyIdResultTypeDef = TypedDict(
     "ListDistributionsByOriginRequestPolicyIdResultTypeDef",
     {"DistributionIdList": "DistributionIdListTypeDef"},
+    total=False,
+)
+
+ListDistributionsByRealtimeLogConfigResultTypeDef = TypedDict(
+    "ListDistributionsByRealtimeLogConfigResultTypeDef",
+    {"DistributionList": "DistributionListTypeDef"},
     total=False,
 )
 
@@ -1613,6 +1837,10 @@ ListInvalidationsResultTypeDef = TypedDict(
     "ListInvalidationsResultTypeDef", {"InvalidationList": "InvalidationListTypeDef"}, total=False
 )
 
+ListKeyGroupsResultTypeDef = TypedDict(
+    "ListKeyGroupsResultTypeDef", {"KeyGroupList": "KeyGroupListTypeDef"}, total=False
+)
+
 ListOriginRequestPoliciesResultTypeDef = TypedDict(
     "ListOriginRequestPoliciesResultTypeDef",
     {"OriginRequestPolicyList": "OriginRequestPolicyListTypeDef"},
@@ -1621,6 +1849,12 @@ ListOriginRequestPoliciesResultTypeDef = TypedDict(
 
 ListPublicKeysResultTypeDef = TypedDict(
     "ListPublicKeysResultTypeDef", {"PublicKeyList": "PublicKeyListTypeDef"}, total=False
+)
+
+ListRealtimeLogConfigsResultTypeDef = TypedDict(
+    "ListRealtimeLogConfigsResultTypeDef",
+    {"RealtimeLogConfigs": "RealtimeLogConfigsTypeDef"},
+    total=False,
 )
 
 ListStreamingDistributionsResultTypeDef = TypedDict(
@@ -1674,6 +1908,10 @@ UpdateFieldLevelEncryptionProfileResultTypeDef = TypedDict(
     total=False,
 )
 
+UpdateKeyGroupResultTypeDef = TypedDict(
+    "UpdateKeyGroupResultTypeDef", {"KeyGroup": "KeyGroupTypeDef", "ETag": str}, total=False
+)
+
 UpdateOriginRequestPolicyResultTypeDef = TypedDict(
     "UpdateOriginRequestPolicyResultTypeDef",
     {"OriginRequestPolicy": "OriginRequestPolicyTypeDef", "ETag": str},
@@ -1682,6 +1920,12 @@ UpdateOriginRequestPolicyResultTypeDef = TypedDict(
 
 UpdatePublicKeyResultTypeDef = TypedDict(
     "UpdatePublicKeyResultTypeDef", {"PublicKey": "PublicKeyTypeDef", "ETag": str}, total=False
+)
+
+UpdateRealtimeLogConfigResultTypeDef = TypedDict(
+    "UpdateRealtimeLogConfigResultTypeDef",
+    {"RealtimeLogConfig": "RealtimeLogConfigTypeDef"},
+    total=False,
 )
 
 UpdateStreamingDistributionResultTypeDef = TypedDict(

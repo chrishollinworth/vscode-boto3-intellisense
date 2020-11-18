@@ -17,6 +17,7 @@ Usage::
         GetDevEndpointsPaginator,
         GetJobRunsPaginator,
         GetJobsPaginator,
+        GetPartitionIndexesPaginator,
         GetPartitionsPaginator,
         GetSecurityConfigurationsPaginator,
         GetTableVersionsPaginator,
@@ -35,6 +36,7 @@ Usage::
     get_dev_endpoints_paginator: GetDevEndpointsPaginator = client.get_paginator("get_dev_endpoints")
     get_job_runs_paginator: GetJobRunsPaginator = client.get_paginator("get_job_runs")
     get_jobs_paginator: GetJobsPaginator = client.get_paginator("get_jobs")
+    get_partition_indexes_paginator: GetPartitionIndexesPaginator = client.get_paginator("get_partition_indexes")
     get_partitions_paginator: GetPartitionsPaginator = client.get_paginator("get_partitions")
     get_security_configurations_paginator: GetSecurityConfigurationsPaginator = client.get_paginator("get_security_configurations")
     get_table_versions_paginator: GetTableVersionsPaginator = client.get_paginator("get_table_versions")
@@ -58,6 +60,7 @@ from mypy_boto3_glue.type_defs import (
     GetDevEndpointsResponseTypeDef,
     GetJobRunsResponseTypeDef,
     GetJobsResponseTypeDef,
+    GetPartitionIndexesResponseTypeDef,
     GetPartitionsResponseTypeDef,
     GetSecurityConfigurationsResponseTypeDef,
     GetTablesResponseTypeDef,
@@ -83,6 +86,7 @@ __all__ = (
     "GetDevEndpointsPaginator",
     "GetJobRunsPaginator",
     "GetJobsPaginator",
+    "GetPartitionIndexesPaginator",
     "GetPartitionsPaginator",
     "GetSecurityConfigurationsPaginator",
     "GetTableVersionsPaginator",
@@ -94,20 +98,20 @@ __all__ = (
 
 class GetClassifiersPaginator(Boto3Paginator):
     """
-    [Paginator.GetClassifiers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/glue.html#Glue.Paginator.GetClassifiers)
+    [Paginator.GetClassifiers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Paginator.GetClassifiers)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetClassifiersResponseTypeDef]:
         """
-        [GetClassifiers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/glue.html#Glue.Paginator.GetClassifiers.paginate)
+        [GetClassifiers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Paginator.GetClassifiers.paginate)
         """
 
 
 class GetConnectionsPaginator(Boto3Paginator):
     """
-    [Paginator.GetConnections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/glue.html#Glue.Paginator.GetConnections)
+    [Paginator.GetConnections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Paginator.GetConnections)
     """
 
     def paginate(
@@ -118,39 +122,39 @@ class GetConnectionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetConnectionsResponseTypeDef]:
         """
-        [GetConnections.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/glue.html#Glue.Paginator.GetConnections.paginate)
+        [GetConnections.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Paginator.GetConnections.paginate)
         """
 
 
 class GetCrawlerMetricsPaginator(Boto3Paginator):
     """
-    [Paginator.GetCrawlerMetrics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/glue.html#Glue.Paginator.GetCrawlerMetrics)
+    [Paginator.GetCrawlerMetrics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Paginator.GetCrawlerMetrics)
     """
 
     def paginate(
         self, CrawlerNameList: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetCrawlerMetricsResponseTypeDef]:
         """
-        [GetCrawlerMetrics.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/glue.html#Glue.Paginator.GetCrawlerMetrics.paginate)
+        [GetCrawlerMetrics.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Paginator.GetCrawlerMetrics.paginate)
         """
 
 
 class GetCrawlersPaginator(Boto3Paginator):
     """
-    [Paginator.GetCrawlers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/glue.html#Glue.Paginator.GetCrawlers)
+    [Paginator.GetCrawlers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Paginator.GetCrawlers)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetCrawlersResponseTypeDef]:
         """
-        [GetCrawlers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/glue.html#Glue.Paginator.GetCrawlers.paginate)
+        [GetCrawlers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Paginator.GetCrawlers.paginate)
         """
 
 
 class GetDatabasesPaginator(Boto3Paginator):
     """
-    [Paginator.GetDatabases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/glue.html#Glue.Paginator.GetDatabases)
+    [Paginator.GetDatabases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Paginator.GetDatabases)
     """
 
     def paginate(
@@ -160,52 +164,69 @@ class GetDatabasesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetDatabasesResponseTypeDef]:
         """
-        [GetDatabases.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/glue.html#Glue.Paginator.GetDatabases.paginate)
+        [GetDatabases.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Paginator.GetDatabases.paginate)
         """
 
 
 class GetDevEndpointsPaginator(Boto3Paginator):
     """
-    [Paginator.GetDevEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/glue.html#Glue.Paginator.GetDevEndpoints)
+    [Paginator.GetDevEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Paginator.GetDevEndpoints)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetDevEndpointsResponseTypeDef]:
         """
-        [GetDevEndpoints.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/glue.html#Glue.Paginator.GetDevEndpoints.paginate)
+        [GetDevEndpoints.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Paginator.GetDevEndpoints.paginate)
         """
 
 
 class GetJobRunsPaginator(Boto3Paginator):
     """
-    [Paginator.GetJobRuns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/glue.html#Glue.Paginator.GetJobRuns)
+    [Paginator.GetJobRuns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Paginator.GetJobRuns)
     """
 
     def paginate(
         self, JobName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetJobRunsResponseTypeDef]:
         """
-        [GetJobRuns.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/glue.html#Glue.Paginator.GetJobRuns.paginate)
+        [GetJobRuns.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Paginator.GetJobRuns.paginate)
         """
 
 
 class GetJobsPaginator(Boto3Paginator):
     """
-    [Paginator.GetJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/glue.html#Glue.Paginator.GetJobs)
+    [Paginator.GetJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Paginator.GetJobs)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetJobsResponseTypeDef]:
         """
-        [GetJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/glue.html#Glue.Paginator.GetJobs.paginate)
+        [GetJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Paginator.GetJobs.paginate)
+        """
+
+
+class GetPartitionIndexesPaginator(Boto3Paginator):
+    """
+    [Paginator.GetPartitionIndexes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Paginator.GetPartitionIndexes)
+    """
+
+    def paginate(
+        self,
+        DatabaseName: str,
+        TableName: str,
+        CatalogId: str = None,
+        PaginationConfig: PaginatorConfigTypeDef = None,
+    ) -> Iterator[GetPartitionIndexesResponseTypeDef]:
+        """
+        [GetPartitionIndexes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Paginator.GetPartitionIndexes.paginate)
         """
 
 
 class GetPartitionsPaginator(Boto3Paginator):
     """
-    [Paginator.GetPartitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/glue.html#Glue.Paginator.GetPartitions)
+    [Paginator.GetPartitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Paginator.GetPartitions)
     """
 
     def paginate(
@@ -218,26 +239,26 @@ class GetPartitionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetPartitionsResponseTypeDef]:
         """
-        [GetPartitions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/glue.html#Glue.Paginator.GetPartitions.paginate)
+        [GetPartitions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Paginator.GetPartitions.paginate)
         """
 
 
 class GetSecurityConfigurationsPaginator(Boto3Paginator):
     """
-    [Paginator.GetSecurityConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/glue.html#Glue.Paginator.GetSecurityConfigurations)
+    [Paginator.GetSecurityConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Paginator.GetSecurityConfigurations)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetSecurityConfigurationsResponseTypeDef]:
         """
-        [GetSecurityConfigurations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/glue.html#Glue.Paginator.GetSecurityConfigurations.paginate)
+        [GetSecurityConfigurations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Paginator.GetSecurityConfigurations.paginate)
         """
 
 
 class GetTableVersionsPaginator(Boto3Paginator):
     """
-    [Paginator.GetTableVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/glue.html#Glue.Paginator.GetTableVersions)
+    [Paginator.GetTableVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Paginator.GetTableVersions)
     """
 
     def paginate(
@@ -248,13 +269,13 @@ class GetTableVersionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetTableVersionsResponseTypeDef]:
         """
-        [GetTableVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/glue.html#Glue.Paginator.GetTableVersions.paginate)
+        [GetTableVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Paginator.GetTableVersions.paginate)
         """
 
 
 class GetTablesPaginator(Boto3Paginator):
     """
-    [Paginator.GetTables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/glue.html#Glue.Paginator.GetTables)
+    [Paginator.GetTables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Paginator.GetTables)
     """
 
     def paginate(
@@ -265,26 +286,26 @@ class GetTablesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetTablesResponseTypeDef]:
         """
-        [GetTables.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/glue.html#Glue.Paginator.GetTables.paginate)
+        [GetTables.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Paginator.GetTables.paginate)
         """
 
 
 class GetTriggersPaginator(Boto3Paginator):
     """
-    [Paginator.GetTriggers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/glue.html#Glue.Paginator.GetTriggers)
+    [Paginator.GetTriggers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Paginator.GetTriggers)
     """
 
     def paginate(
         self, DependentJobName: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetTriggersResponseTypeDef]:
         """
-        [GetTriggers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/glue.html#Glue.Paginator.GetTriggers.paginate)
+        [GetTriggers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Paginator.GetTriggers.paginate)
         """
 
 
 class GetUserDefinedFunctionsPaginator(Boto3Paginator):
     """
-    [Paginator.GetUserDefinedFunctions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/glue.html#Glue.Paginator.GetUserDefinedFunctions)
+    [Paginator.GetUserDefinedFunctions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Paginator.GetUserDefinedFunctions)
     """
 
     def paginate(
@@ -295,5 +316,5 @@ class GetUserDefinedFunctionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetUserDefinedFunctionsResponseTypeDef]:
         """
-        [GetUserDefinedFunctions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/glue.html#Glue.Paginator.GetUserDefinedFunctions.paginate)
+        [GetUserDefinedFunctions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Paginator.GetUserDefinedFunctions.paginate)
         """

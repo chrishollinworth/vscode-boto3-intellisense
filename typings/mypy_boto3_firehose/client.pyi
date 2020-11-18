@@ -1,4 +1,4 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import
+# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for firehose service client
 
@@ -14,7 +14,7 @@ Usage::
 import sys
 from typing import Any, Dict, List, Type
 
-from botocore.exceptions import ClientError as Boto3ClientError
+from botocore.client import ClientMeta
 
 from mypy_boto3_firehose.type_defs import (
     CreateDeliveryStreamOutputTypeDef,
@@ -50,27 +50,36 @@ else:
 __all__ = ("FirehoseClient",)
 
 
+class BotocoreClientError(BaseException):
+    MSG_TEMPLATE: str
+
+    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
+        self.response: Dict[str, Any]
+        self.operation_name: str
+
+
 class Exceptions:
-    ClientError: Type[Boto3ClientError]
-    ConcurrentModificationException: Type[Boto3ClientError]
-    InvalidArgumentException: Type[Boto3ClientError]
-    InvalidKMSResourceException: Type[Boto3ClientError]
-    LimitExceededException: Type[Boto3ClientError]
-    ResourceInUseException: Type[Boto3ClientError]
-    ResourceNotFoundException: Type[Boto3ClientError]
-    ServiceUnavailableException: Type[Boto3ClientError]
+    ClientError: Type[BotocoreClientError]
+    ConcurrentModificationException: Type[BotocoreClientError]
+    InvalidArgumentException: Type[BotocoreClientError]
+    InvalidKMSResourceException: Type[BotocoreClientError]
+    LimitExceededException: Type[BotocoreClientError]
+    ResourceInUseException: Type[BotocoreClientError]
+    ResourceNotFoundException: Type[BotocoreClientError]
+    ServiceUnavailableException: Type[BotocoreClientError]
 
 
 class FirehoseClient:
     """
-    [Firehose.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/firehose.html#Firehose.Client)
+    [Firehose.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/firehose.html#Firehose.Client)
     """
 
+    meta: ClientMeta
     exceptions: Exceptions
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/firehose.html#Firehose.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/firehose.html#Firehose.Client.can_paginate)
         """
 
     def create_delivery_stream(
@@ -88,21 +97,21 @@ class FirehoseClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateDeliveryStreamOutputTypeDef:
         """
-        [Client.create_delivery_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/firehose.html#Firehose.Client.create_delivery_stream)
+        [Client.create_delivery_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/firehose.html#Firehose.Client.create_delivery_stream)
         """
 
     def delete_delivery_stream(
         self, DeliveryStreamName: str, AllowForceDelete: bool = None
     ) -> Dict[str, Any]:
         """
-        [Client.delete_delivery_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/firehose.html#Firehose.Client.delete_delivery_stream)
+        [Client.delete_delivery_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/firehose.html#Firehose.Client.delete_delivery_stream)
         """
 
     def describe_delivery_stream(
         self, DeliveryStreamName: str, Limit: int = None, ExclusiveStartDestinationId: str = None
     ) -> DescribeDeliveryStreamOutputTypeDef:
         """
-        [Client.describe_delivery_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/firehose.html#Firehose.Client.describe_delivery_stream)
+        [Client.describe_delivery_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/firehose.html#Firehose.Client.describe_delivery_stream)
         """
 
     def generate_presigned_url(
@@ -113,7 +122,7 @@ class FirehoseClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/firehose.html#Firehose.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/firehose.html#Firehose.Client.generate_presigned_url)
         """
 
     def list_delivery_streams(
@@ -123,26 +132,26 @@ class FirehoseClient:
         ExclusiveStartDeliveryStreamName: str = None,
     ) -> ListDeliveryStreamsOutputTypeDef:
         """
-        [Client.list_delivery_streams documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/firehose.html#Firehose.Client.list_delivery_streams)
+        [Client.list_delivery_streams documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/firehose.html#Firehose.Client.list_delivery_streams)
         """
 
     def list_tags_for_delivery_stream(
         self, DeliveryStreamName: str, ExclusiveStartTagKey: str = None, Limit: int = None
     ) -> ListTagsForDeliveryStreamOutputTypeDef:
         """
-        [Client.list_tags_for_delivery_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/firehose.html#Firehose.Client.list_tags_for_delivery_stream)
+        [Client.list_tags_for_delivery_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/firehose.html#Firehose.Client.list_tags_for_delivery_stream)
         """
 
     def put_record(self, DeliveryStreamName: str, Record: RecordTypeDef) -> PutRecordOutputTypeDef:
         """
-        [Client.put_record documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/firehose.html#Firehose.Client.put_record)
+        [Client.put_record documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/firehose.html#Firehose.Client.put_record)
         """
 
     def put_record_batch(
         self, DeliveryStreamName: str, Records: List[RecordTypeDef]
     ) -> PutRecordBatchOutputTypeDef:
         """
-        [Client.put_record_batch documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/firehose.html#Firehose.Client.put_record_batch)
+        [Client.put_record_batch documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/firehose.html#Firehose.Client.put_record_batch)
         """
 
     def start_delivery_stream_encryption(
@@ -151,24 +160,24 @@ class FirehoseClient:
         DeliveryStreamEncryptionConfigurationInput: DeliveryStreamEncryptionConfigurationInputTypeDef = None,
     ) -> Dict[str, Any]:
         """
-        [Client.start_delivery_stream_encryption documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/firehose.html#Firehose.Client.start_delivery_stream_encryption)
+        [Client.start_delivery_stream_encryption documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/firehose.html#Firehose.Client.start_delivery_stream_encryption)
         """
 
     def stop_delivery_stream_encryption(self, DeliveryStreamName: str) -> Dict[str, Any]:
         """
-        [Client.stop_delivery_stream_encryption documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/firehose.html#Firehose.Client.stop_delivery_stream_encryption)
+        [Client.stop_delivery_stream_encryption documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/firehose.html#Firehose.Client.stop_delivery_stream_encryption)
         """
 
     def tag_delivery_stream(
         self, DeliveryStreamName: str, Tags: List["TagTypeDef"]
     ) -> Dict[str, Any]:
         """
-        [Client.tag_delivery_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/firehose.html#Firehose.Client.tag_delivery_stream)
+        [Client.tag_delivery_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/firehose.html#Firehose.Client.tag_delivery_stream)
         """
 
     def untag_delivery_stream(self, DeliveryStreamName: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
-        [Client.untag_delivery_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/firehose.html#Firehose.Client.untag_delivery_stream)
+        [Client.untag_delivery_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/firehose.html#Firehose.Client.untag_delivery_stream)
         """
 
     def update_destination(
@@ -184,5 +193,5 @@ class FirehoseClient:
         HttpEndpointDestinationUpdate: HttpEndpointDestinationUpdateTypeDef = None,
     ) -> Dict[str, Any]:
         """
-        [Client.update_destination documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/firehose.html#Firehose.Client.update_destination)
+        [Client.update_destination documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/firehose.html#Firehose.Client.update_destination)
         """

@@ -1,4 +1,4 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import
+# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for cloudwatch service client
 
@@ -15,9 +15,7 @@ import sys
 from datetime import datetime
 from typing import Any, Dict, List, Type, overload
 
-from botocore.exceptions import ClientError as Boto3ClientError
-from botocore.paginate import Paginator as Boto3Paginator
-from botocore.waiter import Waiter as Boto3Waiter
+from botocore.client import ClientMeta
 
 from mypy_boto3_cloudwatch.paginator import (
     DescribeAlarmHistoryPaginator,
@@ -62,38 +60,47 @@ else:
 __all__ = ("CloudWatchClient",)
 
 
+class BotocoreClientError(BaseException):
+    MSG_TEMPLATE: str
+
+    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
+        self.response: Dict[str, Any]
+        self.operation_name: str
+
+
 class Exceptions:
-    ClientError: Type[Boto3ClientError]
-    ConcurrentModificationException: Type[Boto3ClientError]
-    DashboardInvalidInputError: Type[Boto3ClientError]
-    DashboardNotFoundError: Type[Boto3ClientError]
-    InternalServiceFault: Type[Boto3ClientError]
-    InvalidFormatFault: Type[Boto3ClientError]
-    InvalidNextToken: Type[Boto3ClientError]
-    InvalidParameterCombinationException: Type[Boto3ClientError]
-    InvalidParameterValueException: Type[Boto3ClientError]
-    LimitExceededException: Type[Boto3ClientError]
-    LimitExceededFault: Type[Boto3ClientError]
-    MissingRequiredParameterException: Type[Boto3ClientError]
-    ResourceNotFound: Type[Boto3ClientError]
-    ResourceNotFoundException: Type[Boto3ClientError]
+    ClientError: Type[BotocoreClientError]
+    ConcurrentModificationException: Type[BotocoreClientError]
+    DashboardInvalidInputError: Type[BotocoreClientError]
+    DashboardNotFoundError: Type[BotocoreClientError]
+    InternalServiceFault: Type[BotocoreClientError]
+    InvalidFormatFault: Type[BotocoreClientError]
+    InvalidNextToken: Type[BotocoreClientError]
+    InvalidParameterCombinationException: Type[BotocoreClientError]
+    InvalidParameterValueException: Type[BotocoreClientError]
+    LimitExceededException: Type[BotocoreClientError]
+    LimitExceededFault: Type[BotocoreClientError]
+    MissingRequiredParameterException: Type[BotocoreClientError]
+    ResourceNotFound: Type[BotocoreClientError]
+    ResourceNotFoundException: Type[BotocoreClientError]
 
 
 class CloudWatchClient:
     """
-    [CloudWatch.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudwatch.html#CloudWatch.Client)
+    [CloudWatch.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Client)
     """
 
+    meta: ClientMeta
     exceptions: Exceptions
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudwatch.html#CloudWatch.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Client.can_paginate)
         """
 
     def delete_alarms(self, AlarmNames: List[str]) -> None:
         """
-        [Client.delete_alarms documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudwatch.html#CloudWatch.Client.delete_alarms)
+        [Client.delete_alarms documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Client.delete_alarms)
         """
 
     def delete_anomaly_detector(
@@ -104,17 +111,17 @@ class CloudWatchClient:
         Dimensions: List["DimensionTypeDef"] = None,
     ) -> Dict[str, Any]:
         """
-        [Client.delete_anomaly_detector documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudwatch.html#CloudWatch.Client.delete_anomaly_detector)
+        [Client.delete_anomaly_detector documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Client.delete_anomaly_detector)
         """
 
     def delete_dashboards(self, DashboardNames: List[str]) -> Dict[str, Any]:
         """
-        [Client.delete_dashboards documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudwatch.html#CloudWatch.Client.delete_dashboards)
+        [Client.delete_dashboards documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Client.delete_dashboards)
         """
 
     def delete_insight_rules(self, RuleNames: List[str]) -> DeleteInsightRulesOutputTypeDef:
         """
-        [Client.delete_insight_rules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudwatch.html#CloudWatch.Client.delete_insight_rules)
+        [Client.delete_insight_rules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Client.delete_insight_rules)
         """
 
     def describe_alarm_history(
@@ -129,7 +136,7 @@ class CloudWatchClient:
         ScanBy: Literal["TimestampDescending", "TimestampAscending"] = None,
     ) -> DescribeAlarmHistoryOutputTypeDef:
         """
-        [Client.describe_alarm_history documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudwatch.html#CloudWatch.Client.describe_alarm_history)
+        [Client.describe_alarm_history documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Client.describe_alarm_history)
         """
 
     def describe_alarms(
@@ -145,7 +152,7 @@ class CloudWatchClient:
         NextToken: str = None,
     ) -> DescribeAlarmsOutputTypeDef:
         """
-        [Client.describe_alarms documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudwatch.html#CloudWatch.Client.describe_alarms)
+        [Client.describe_alarms documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Client.describe_alarms)
         """
 
     def describe_alarms_for_metric(
@@ -187,7 +194,7 @@ class CloudWatchClient:
         ] = None,
     ) -> DescribeAlarmsForMetricOutputTypeDef:
         """
-        [Client.describe_alarms_for_metric documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudwatch.html#CloudWatch.Client.describe_alarms_for_metric)
+        [Client.describe_alarms_for_metric documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Client.describe_alarms_for_metric)
         """
 
     def describe_anomaly_detectors(
@@ -199,34 +206,34 @@ class CloudWatchClient:
         Dimensions: List["DimensionTypeDef"] = None,
     ) -> DescribeAnomalyDetectorsOutputTypeDef:
         """
-        [Client.describe_anomaly_detectors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudwatch.html#CloudWatch.Client.describe_anomaly_detectors)
+        [Client.describe_anomaly_detectors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Client.describe_anomaly_detectors)
         """
 
     def describe_insight_rules(
         self, NextToken: str = None, MaxResults: int = None
     ) -> DescribeInsightRulesOutputTypeDef:
         """
-        [Client.describe_insight_rules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudwatch.html#CloudWatch.Client.describe_insight_rules)
+        [Client.describe_insight_rules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Client.describe_insight_rules)
         """
 
     def disable_alarm_actions(self, AlarmNames: List[str]) -> None:
         """
-        [Client.disable_alarm_actions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudwatch.html#CloudWatch.Client.disable_alarm_actions)
+        [Client.disable_alarm_actions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Client.disable_alarm_actions)
         """
 
     def disable_insight_rules(self, RuleNames: List[str]) -> DisableInsightRulesOutputTypeDef:
         """
-        [Client.disable_insight_rules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudwatch.html#CloudWatch.Client.disable_insight_rules)
+        [Client.disable_insight_rules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Client.disable_insight_rules)
         """
 
     def enable_alarm_actions(self, AlarmNames: List[str]) -> None:
         """
-        [Client.enable_alarm_actions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudwatch.html#CloudWatch.Client.enable_alarm_actions)
+        [Client.enable_alarm_actions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Client.enable_alarm_actions)
         """
 
     def enable_insight_rules(self, RuleNames: List[str]) -> EnableInsightRulesOutputTypeDef:
         """
-        [Client.enable_insight_rules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudwatch.html#CloudWatch.Client.enable_insight_rules)
+        [Client.enable_insight_rules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Client.enable_insight_rules)
         """
 
     def generate_presigned_url(
@@ -237,12 +244,12 @@ class CloudWatchClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudwatch.html#CloudWatch.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Client.generate_presigned_url)
         """
 
     def get_dashboard(self, DashboardName: str) -> GetDashboardOutputTypeDef:
         """
-        [Client.get_dashboard documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudwatch.html#CloudWatch.Client.get_dashboard)
+        [Client.get_dashboard documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Client.get_dashboard)
         """
 
     def get_insight_rule_report(
@@ -256,7 +263,7 @@ class CloudWatchClient:
         OrderBy: str = None,
     ) -> GetInsightRuleReportOutputTypeDef:
         """
-        [Client.get_insight_rule_report documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudwatch.html#CloudWatch.Client.get_insight_rule_report)
+        [Client.get_insight_rule_report documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Client.get_insight_rule_report)
         """
 
     def get_metric_data(
@@ -269,7 +276,7 @@ class CloudWatchClient:
         MaxDatapoints: int = None,
     ) -> GetMetricDataOutputTypeDef:
         """
-        [Client.get_metric_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudwatch.html#CloudWatch.Client.get_metric_data)
+        [Client.get_metric_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Client.get_metric_data)
         """
 
     def get_metric_statistics(
@@ -313,21 +320,21 @@ class CloudWatchClient:
         ] = None,
     ) -> GetMetricStatisticsOutputTypeDef:
         """
-        [Client.get_metric_statistics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudwatch.html#CloudWatch.Client.get_metric_statistics)
+        [Client.get_metric_statistics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Client.get_metric_statistics)
         """
 
     def get_metric_widget_image(
         self, MetricWidget: str, OutputFormat: str = None
     ) -> GetMetricWidgetImageOutputTypeDef:
         """
-        [Client.get_metric_widget_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudwatch.html#CloudWatch.Client.get_metric_widget_image)
+        [Client.get_metric_widget_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Client.get_metric_widget_image)
         """
 
     def list_dashboards(
         self, DashboardNamePrefix: str = None, NextToken: str = None
     ) -> ListDashboardsOutputTypeDef:
         """
-        [Client.list_dashboards documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudwatch.html#CloudWatch.Client.list_dashboards)
+        [Client.list_dashboards documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Client.list_dashboards)
         """
 
     def list_metrics(
@@ -339,12 +346,12 @@ class CloudWatchClient:
         RecentlyActive: Literal["PT3H"] = None,
     ) -> ListMetricsOutputTypeDef:
         """
-        [Client.list_metrics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudwatch.html#CloudWatch.Client.list_metrics)
+        [Client.list_metrics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Client.list_metrics)
         """
 
     def list_tags_for_resource(self, ResourceARN: str) -> ListTagsForResourceOutputTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudwatch.html#CloudWatch.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Client.list_tags_for_resource)
         """
 
     def put_anomaly_detector(
@@ -356,7 +363,7 @@ class CloudWatchClient:
         Configuration: "AnomalyDetectorConfigurationTypeDef" = None,
     ) -> Dict[str, Any]:
         """
-        [Client.put_anomaly_detector documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudwatch.html#CloudWatch.Client.put_anomaly_detector)
+        [Client.put_anomaly_detector documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Client.put_anomaly_detector)
         """
 
     def put_composite_alarm(
@@ -371,12 +378,12 @@ class CloudWatchClient:
         Tags: List["TagTypeDef"] = None,
     ) -> None:
         """
-        [Client.put_composite_alarm documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudwatch.html#CloudWatch.Client.put_composite_alarm)
+        [Client.put_composite_alarm documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Client.put_composite_alarm)
         """
 
     def put_dashboard(self, DashboardName: str, DashboardBody: str) -> PutDashboardOutputTypeDef:
         """
-        [Client.put_dashboard documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudwatch.html#CloudWatch.Client.put_dashboard)
+        [Client.put_dashboard documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Client.put_dashboard)
         """
 
     def put_insight_rule(
@@ -387,7 +394,7 @@ class CloudWatchClient:
         Tags: List["TagTypeDef"] = None,
     ) -> Dict[str, Any]:
         """
-        [Client.put_insight_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudwatch.html#CloudWatch.Client.put_insight_rule)
+        [Client.put_insight_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Client.put_insight_rule)
         """
 
     def put_metric_alarm(
@@ -452,12 +459,12 @@ class CloudWatchClient:
         ThresholdMetricId: str = None,
     ) -> None:
         """
-        [Client.put_metric_alarm documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudwatch.html#CloudWatch.Client.put_metric_alarm)
+        [Client.put_metric_alarm documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Client.put_metric_alarm)
         """
 
     def put_metric_data(self, Namespace: str, MetricData: List[MetricDatumTypeDef]) -> None:
         """
-        [Client.put_metric_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudwatch.html#CloudWatch.Client.put_metric_data)
+        [Client.put_metric_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Client.put_metric_data)
         """
 
     def set_alarm_state(
@@ -468,17 +475,17 @@ class CloudWatchClient:
         StateReasonData: str = None,
     ) -> None:
         """
-        [Client.set_alarm_state documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudwatch.html#CloudWatch.Client.set_alarm_state)
+        [Client.set_alarm_state documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Client.set_alarm_state)
         """
 
     def tag_resource(self, ResourceARN: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudwatch.html#CloudWatch.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Client.tag_resource)
         """
 
     def untag_resource(self, ResourceARN: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudwatch.html#CloudWatch.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Client.untag_resource)
         """
 
     @overload
@@ -486,40 +493,37 @@ class CloudWatchClient:
         self, operation_name: Literal["describe_alarm_history"]
     ) -> DescribeAlarmHistoryPaginator:
         """
-        [Paginator.DescribeAlarmHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudwatch.html#CloudWatch.Paginator.DescribeAlarmHistory)
+        [Paginator.DescribeAlarmHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Paginator.DescribeAlarmHistory)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["describe_alarms"]) -> DescribeAlarmsPaginator:
         """
-        [Paginator.DescribeAlarms documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudwatch.html#CloudWatch.Paginator.DescribeAlarms)
+        [Paginator.DescribeAlarms documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Paginator.DescribeAlarms)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_metric_data"]) -> GetMetricDataPaginator:
         """
-        [Paginator.GetMetricData documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudwatch.html#CloudWatch.Paginator.GetMetricData)
+        [Paginator.GetMetricData documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Paginator.GetMetricData)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_dashboards"]) -> ListDashboardsPaginator:
         """
-        [Paginator.ListDashboards documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudwatch.html#CloudWatch.Paginator.ListDashboards)
+        [Paginator.ListDashboards documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Paginator.ListDashboards)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_metrics"]) -> ListMetricsPaginator:
         """
-        [Paginator.ListMetrics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudwatch.html#CloudWatch.Paginator.ListMetrics)
+        [Paginator.ListMetrics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Paginator.ListMetrics)
         """
-
-    def get_paginator(self, operation_name: str) -> Boto3Paginator:
-        pass
 
     @overload
     def get_waiter(self, waiter_name: Literal["alarm_exists"]) -> AlarmExistsWaiter:
         """
-        [Waiter.AlarmExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudwatch.html#CloudWatch.Waiter.AlarmExists)
+        [Waiter.AlarmExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Waiter.AlarmExists)
         """
 
     @overload
@@ -527,8 +531,5 @@ class CloudWatchClient:
         self, waiter_name: Literal["composite_alarm_exists"]
     ) -> CompositeAlarmExistsWaiter:
         """
-        [Waiter.CompositeAlarmExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudwatch.html#CloudWatch.Waiter.CompositeAlarmExists)
+        [Waiter.CompositeAlarmExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Waiter.CompositeAlarmExists)
         """
-
-    def get_waiter(self, waiter_name: str) -> Boto3Waiter:
-        pass

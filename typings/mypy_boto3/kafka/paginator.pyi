@@ -5,6 +5,7 @@ from mypy_boto3_kafka.paginator import (
     ListConfigurationsPaginator,
     ListKafkaVersionsPaginator,
     ListNodesPaginator,
+    ListScramSecretsPaginator,
 )
 
 __all__ = (
@@ -14,4 +15,5 @@ __all__ = (
     "ListConfigurationsPaginator",
     "ListKafkaVersionsPaginator",
     "ListNodesPaginator",
+    "ListScramSecretsPaginator",
 )

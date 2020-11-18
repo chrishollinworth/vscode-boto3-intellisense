@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Dict, List
+from typing import IO, Any, Dict, List, Union
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -45,6 +44,7 @@ __all__ = (
     "MetricTypeDef",
     "PartialFailureTypeDef",
     "RangeTypeDef",
+    "ResponseMetadata",
     "StatisticSetTypeDef",
     "TagTypeDef",
     "DeleteInsightRulesOutputTypeDef",
@@ -379,6 +379,17 @@ PartialFailureTypeDef = TypedDict(
 
 RangeTypeDef = TypedDict("RangeTypeDef", {"StartTime": datetime, "EndTime": datetime})
 
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
+
 StatisticSetTypeDef = TypedDict(
     "StatisticSetTypeDef", {"SampleCount": float, "Sum": float, "Minimum": float, "Maximum": float}
 )
@@ -386,18 +397,24 @@ StatisticSetTypeDef = TypedDict(
 TagTypeDef = TypedDict("TagTypeDef", {"Key": str, "Value": str})
 
 DeleteInsightRulesOutputTypeDef = TypedDict(
-    "DeleteInsightRulesOutputTypeDef", {"Failures": List["PartialFailureTypeDef"]}, total=False
+    "DeleteInsightRulesOutputTypeDef",
+    {"Failures": List["PartialFailureTypeDef"], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 DescribeAlarmHistoryOutputTypeDef = TypedDict(
     "DescribeAlarmHistoryOutputTypeDef",
-    {"AlarmHistoryItems": List["AlarmHistoryItemTypeDef"], "NextToken": str},
+    {
+        "AlarmHistoryItems": List["AlarmHistoryItemTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 DescribeAlarmsForMetricOutputTypeDef = TypedDict(
     "DescribeAlarmsForMetricOutputTypeDef",
-    {"MetricAlarms": List["MetricAlarmTypeDef"]},
+    {"MetricAlarms": List["MetricAlarmTypeDef"], "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
@@ -407,19 +424,28 @@ DescribeAlarmsOutputTypeDef = TypedDict(
         "CompositeAlarms": List["CompositeAlarmTypeDef"],
         "MetricAlarms": List["MetricAlarmTypeDef"],
         "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
 DescribeAnomalyDetectorsOutputTypeDef = TypedDict(
     "DescribeAnomalyDetectorsOutputTypeDef",
-    {"AnomalyDetectors": List["AnomalyDetectorTypeDef"], "NextToken": str},
+    {
+        "AnomalyDetectors": List["AnomalyDetectorTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 DescribeInsightRulesOutputTypeDef = TypedDict(
     "DescribeInsightRulesOutputTypeDef",
-    {"NextToken": str, "InsightRules": List["InsightRuleTypeDef"]},
+    {
+        "NextToken": str,
+        "InsightRules": List["InsightRuleTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -434,16 +460,25 @@ class DimensionFilterTypeDef(_RequiredDimensionFilterTypeDef, _OptionalDimension
 
 
 DisableInsightRulesOutputTypeDef = TypedDict(
-    "DisableInsightRulesOutputTypeDef", {"Failures": List["PartialFailureTypeDef"]}, total=False
+    "DisableInsightRulesOutputTypeDef",
+    {"Failures": List["PartialFailureTypeDef"], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 EnableInsightRulesOutputTypeDef = TypedDict(
-    "EnableInsightRulesOutputTypeDef", {"Failures": List["PartialFailureTypeDef"]}, total=False
+    "EnableInsightRulesOutputTypeDef",
+    {"Failures": List["PartialFailureTypeDef"], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 GetDashboardOutputTypeDef = TypedDict(
     "GetDashboardOutputTypeDef",
-    {"DashboardArn": str, "DashboardBody": str, "DashboardName": str},
+    {
+        "DashboardArn": str,
+        "DashboardBody": str,
+        "DashboardName": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -456,6 +491,7 @@ GetInsightRuleReportOutputTypeDef = TypedDict(
         "ApproximateUniqueCount": int,
         "Contributors": List["InsightRuleContributorTypeDef"],
         "MetricDatapoints": List["InsightRuleMetricDatapointTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -466,32 +502,43 @@ GetMetricDataOutputTypeDef = TypedDict(
         "MetricDataResults": List["MetricDataResultTypeDef"],
         "NextToken": str,
         "Messages": List["MessageDataTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
 GetMetricStatisticsOutputTypeDef = TypedDict(
     "GetMetricStatisticsOutputTypeDef",
-    {"Label": str, "Datapoints": List["DatapointTypeDef"]},
+    {"Label": str, "Datapoints": List["DatapointTypeDef"], "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 GetMetricWidgetImageOutputTypeDef = TypedDict(
-    "GetMetricWidgetImageOutputTypeDef", {"MetricWidgetImage": bytes}, total=False
+    "GetMetricWidgetImageOutputTypeDef",
+    {"MetricWidgetImage": Union[bytes, IO[bytes]], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ListDashboardsOutputTypeDef = TypedDict(
     "ListDashboardsOutputTypeDef",
-    {"DashboardEntries": List["DashboardEntryTypeDef"], "NextToken": str},
+    {
+        "DashboardEntries": List["DashboardEntryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListMetricsOutputTypeDef = TypedDict(
-    "ListMetricsOutputTypeDef", {"Metrics": List["MetricTypeDef"], "NextToken": str}, total=False
+    "ListMetricsOutputTypeDef",
+    {"Metrics": List["MetricTypeDef"], "NextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ListTagsForResourceOutputTypeDef = TypedDict(
-    "ListTagsForResourceOutputTypeDef", {"Tags": List["TagTypeDef"]}, total=False
+    "ListTagsForResourceOutputTypeDef",
+    {"Tags": List["TagTypeDef"], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 _RequiredMetricDatumTypeDef = TypedDict("_RequiredMetricDatumTypeDef", {"MetricName": str})
@@ -549,7 +596,10 @@ PaginatorConfigTypeDef = TypedDict(
 
 PutDashboardOutputTypeDef = TypedDict(
     "PutDashboardOutputTypeDef",
-    {"DashboardValidationMessages": List["DashboardValidationMessageTypeDef"]},
+    {
+        "DashboardValidationMessages": List["DashboardValidationMessageTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 

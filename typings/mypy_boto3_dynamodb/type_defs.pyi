@@ -18,7 +18,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -52,6 +51,8 @@ __all__ = (
     "DeleteRequestTypeDef",
     "DeleteTypeDef",
     "EndpointTypeDef",
+    "ExportDescriptionTypeDef",
+    "ExportSummaryTypeDef",
     "FailureExceptionTypeDef",
     "GetTypeDef",
     "GlobalSecondaryIndexDescriptionTypeDef",
@@ -81,6 +82,7 @@ __all__ = (
     "ReplicaGlobalSecondaryIndexTypeDef",
     "ReplicaSettingsDescriptionTypeDef",
     "ReplicaTypeDef",
+    "ResponseMetadata",
     "RestoreSummaryTypeDef",
     "SSEDescriptionTypeDef",
     "SourceTableDetailsTypeDef",
@@ -109,6 +111,7 @@ __all__ = (
     "DescribeContinuousBackupsOutputTypeDef",
     "DescribeContributorInsightsOutputTypeDef",
     "DescribeEndpointsResponseTypeDef",
+    "DescribeExportOutputTypeDef",
     "DescribeGlobalTableOutputTypeDef",
     "DescribeGlobalTableSettingsOutputTypeDef",
     "DescribeLimitsOutputTypeDef",
@@ -116,6 +119,7 @@ __all__ = (
     "DescribeTableReplicaAutoScalingOutputTypeDef",
     "DescribeTimeToLiveOutputTypeDef",
     "ExpectedAttributeValueTypeDef",
+    "ExportTableToPointInTimeOutputTypeDef",
     "GetItemOutputTypeDef",
     "GlobalSecondaryIndexAutoScalingUpdateTypeDef",
     "GlobalSecondaryIndexTypeDef",
@@ -123,6 +127,7 @@ __all__ = (
     "GlobalTableGlobalSecondaryIndexSettingsUpdateTypeDef",
     "ListBackupsOutputTypeDef",
     "ListContributorInsightsOutputTypeDef",
+    "ListExportsOutputTypeDef",
     "ListGlobalTablesOutputTypeDef",
     "ListTablesOutputTypeDef",
     "ListTagsOfResourceOutputTypeDef",
@@ -556,6 +561,38 @@ class DeleteTypeDef(_RequiredDeleteTypeDef, _OptionalDeleteTypeDef):
 
 EndpointTypeDef = TypedDict("EndpointTypeDef", {"Address": str, "CachePeriodInMinutes": int})
 
+ExportDescriptionTypeDef = TypedDict(
+    "ExportDescriptionTypeDef",
+    {
+        "ExportArn": str,
+        "ExportStatus": Literal["IN_PROGRESS", "COMPLETED", "FAILED"],
+        "StartTime": datetime,
+        "EndTime": datetime,
+        "ExportManifest": str,
+        "TableArn": str,
+        "TableId": str,
+        "ExportTime": datetime,
+        "ClientToken": str,
+        "S3Bucket": str,
+        "S3BucketOwner": str,
+        "S3Prefix": str,
+        "S3SseAlgorithm": Literal["AES256", "KMS"],
+        "S3SseKmsKeyId": str,
+        "FailureCode": str,
+        "FailureMessage": str,
+        "ExportFormat": Literal["DYNAMODB_JSON", "ION"],
+        "BilledSizeBytes": int,
+        "ItemCount": int,
+    },
+    total=False,
+)
+
+ExportSummaryTypeDef = TypedDict(
+    "ExportSummaryTypeDef",
+    {"ExportArn": str, "ExportStatus": Literal["IN_PROGRESS", "COMPLETED", "FAILED"]},
+    total=False,
+)
+
 FailureExceptionTypeDef = TypedDict(
     "FailureExceptionTypeDef", {"ExceptionName": str, "ExceptionDescription": str}, total=False
 )
@@ -892,7 +929,15 @@ ReplicaAutoScalingDescriptionTypeDef = TypedDict(
         "GlobalSecondaryIndexes": List["ReplicaGlobalSecondaryIndexAutoScalingDescriptionTypeDef"],
         "ReplicaProvisionedReadCapacityAutoScalingSettings": "AutoScalingSettingsDescriptionTypeDef",
         "ReplicaProvisionedWriteCapacityAutoScalingSettings": "AutoScalingSettingsDescriptionTypeDef",
-        "ReplicaStatus": Literal["CREATING", "CREATION_FAILED", "UPDATING", "DELETING", "ACTIVE"],
+        "ReplicaStatus": Literal[
+            "CREATING",
+            "CREATION_FAILED",
+            "UPDATING",
+            "DELETING",
+            "ACTIVE",
+            "REGION_DISABLED",
+            "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
+        ],
     },
     total=False,
 )
@@ -901,12 +946,21 @@ ReplicaDescriptionTypeDef = TypedDict(
     "ReplicaDescriptionTypeDef",
     {
         "RegionName": str,
-        "ReplicaStatus": Literal["CREATING", "CREATION_FAILED", "UPDATING", "DELETING", "ACTIVE"],
+        "ReplicaStatus": Literal[
+            "CREATING",
+            "CREATION_FAILED",
+            "UPDATING",
+            "DELETING",
+            "ACTIVE",
+            "REGION_DISABLED",
+            "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
+        ],
         "ReplicaStatusDescription": str,
         "ReplicaStatusPercentProgress": str,
         "KMSMasterKeyId": str,
         "ProvisionedThroughputOverride": "ProvisionedThroughputOverrideTypeDef",
         "GlobalSecondaryIndexes": List["ReplicaGlobalSecondaryIndexDescriptionTypeDef"],
+        "ReplicaInaccessibleDateTime": datetime,
     },
     total=False,
 )
@@ -1002,7 +1056,15 @@ _RequiredReplicaSettingsDescriptionTypeDef = TypedDict(
 _OptionalReplicaSettingsDescriptionTypeDef = TypedDict(
     "_OptionalReplicaSettingsDescriptionTypeDef",
     {
-        "ReplicaStatus": Literal["CREATING", "CREATION_FAILED", "UPDATING", "DELETING", "ACTIVE"],
+        "ReplicaStatus": Literal[
+            "CREATING",
+            "CREATION_FAILED",
+            "UPDATING",
+            "DELETING",
+            "ACTIVE",
+            "REGION_DISABLED",
+            "INACCESSIBLE_ENCRYPTION_CREDENTIALS",
+        ],
         "ReplicaBillingModeSummary": "BillingModeSummaryTypeDef",
         "ReplicaProvisionedReadCapacityUnits": int,
         "ReplicaProvisionedReadCapacityAutoScalingSettings": "AutoScalingSettingsDescriptionTypeDef",
@@ -1023,6 +1085,17 @@ class ReplicaSettingsDescriptionTypeDef(
 
 
 ReplicaTypeDef = TypedDict("ReplicaTypeDef", {"RegionName": str}, total=False)
+
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
 
 _RequiredRestoreSummaryTypeDef = TypedDict(
     "_RequiredRestoreSummaryTypeDef", {"RestoreDateTime": datetime, "RestoreInProgress": bool}
@@ -1317,6 +1390,7 @@ BatchGetItemOutputTypeDef = TypedDict(
         ],
         "UnprocessedKeys": Dict[str, "KeysAndAttributesTypeDef"],
         "ConsumedCapacity": List["ConsumedCapacityTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -1327,6 +1401,7 @@ BatchWriteItemOutputTypeDef = TypedDict(
         "UnprocessedItems": Dict[str, List["WriteRequestTypeDef"]],
         "ItemCollectionMetrics": Dict[str, List["ItemCollectionMetricsTypeDef"]],
         "ConsumedCapacity": List["ConsumedCapacityTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -1382,21 +1457,30 @@ class ConditionTypeDef(_RequiredConditionTypeDef, _OptionalConditionTypeDef):
 
 
 CreateBackupOutputTypeDef = TypedDict(
-    "CreateBackupOutputTypeDef", {"BackupDetails": "BackupDetailsTypeDef"}, total=False
+    "CreateBackupOutputTypeDef",
+    {"BackupDetails": "BackupDetailsTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 CreateGlobalTableOutputTypeDef = TypedDict(
     "CreateGlobalTableOutputTypeDef",
-    {"GlobalTableDescription": "GlobalTableDescriptionTypeDef"},
+    {
+        "GlobalTableDescription": "GlobalTableDescriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 CreateTableOutputTypeDef = TypedDict(
-    "CreateTableOutputTypeDef", {"TableDescription": "TableDescriptionTypeDef"}, total=False
+    "CreateTableOutputTypeDef",
+    {"TableDescription": "TableDescriptionTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 DeleteBackupOutputTypeDef = TypedDict(
-    "DeleteBackupOutputTypeDef", {"BackupDescription": "BackupDescriptionTypeDef"}, total=False
+    "DeleteBackupOutputTypeDef",
+    {"BackupDescription": "BackupDescriptionTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 DeleteItemOutputTypeDef = TypedDict(
@@ -1423,21 +1507,29 @@ DeleteItemOutputTypeDef = TypedDict(
         ],
         "ConsumedCapacity": "ConsumedCapacityTypeDef",
         "ItemCollectionMetrics": "ItemCollectionMetricsTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
 DeleteTableOutputTypeDef = TypedDict(
-    "DeleteTableOutputTypeDef", {"TableDescription": "TableDescriptionTypeDef"}, total=False
+    "DeleteTableOutputTypeDef",
+    {"TableDescription": "TableDescriptionTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 DescribeBackupOutputTypeDef = TypedDict(
-    "DescribeBackupOutputTypeDef", {"BackupDescription": "BackupDescriptionTypeDef"}, total=False
+    "DescribeBackupOutputTypeDef",
+    {"BackupDescription": "BackupDescriptionTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 DescribeContinuousBackupsOutputTypeDef = TypedDict(
     "DescribeContinuousBackupsOutputTypeDef",
-    {"ContinuousBackupsDescription": "ContinuousBackupsDescriptionTypeDef"},
+    {
+        "ContinuousBackupsDescription": "ContinuousBackupsDescriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -1452,6 +1544,7 @@ DescribeContributorInsightsOutputTypeDef = TypedDict(
         ],
         "LastUpdateDateTime": datetime,
         "FailureException": "FailureExceptionTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -1460,15 +1553,28 @@ DescribeEndpointsResponseTypeDef = TypedDict(
     "DescribeEndpointsResponseTypeDef", {"Endpoints": List["EndpointTypeDef"]}
 )
 
+DescribeExportOutputTypeDef = TypedDict(
+    "DescribeExportOutputTypeDef",
+    {"ExportDescription": "ExportDescriptionTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
 DescribeGlobalTableOutputTypeDef = TypedDict(
     "DescribeGlobalTableOutputTypeDef",
-    {"GlobalTableDescription": "GlobalTableDescriptionTypeDef"},
+    {
+        "GlobalTableDescription": "GlobalTableDescriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 DescribeGlobalTableSettingsOutputTypeDef = TypedDict(
     "DescribeGlobalTableSettingsOutputTypeDef",
-    {"GlobalTableName": str, "ReplicaSettings": List["ReplicaSettingsDescriptionTypeDef"]},
+    {
+        "GlobalTableName": str,
+        "ReplicaSettings": List["ReplicaSettingsDescriptionTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -1479,23 +1585,32 @@ DescribeLimitsOutputTypeDef = TypedDict(
         "AccountMaxWriteCapacityUnits": int,
         "TableMaxReadCapacityUnits": int,
         "TableMaxWriteCapacityUnits": int,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
 DescribeTableOutputTypeDef = TypedDict(
-    "DescribeTableOutputTypeDef", {"Table": "TableDescriptionTypeDef"}, total=False
+    "DescribeTableOutputTypeDef",
+    {"Table": "TableDescriptionTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 DescribeTableReplicaAutoScalingOutputTypeDef = TypedDict(
     "DescribeTableReplicaAutoScalingOutputTypeDef",
-    {"TableAutoScalingDescription": "TableAutoScalingDescriptionTypeDef"},
+    {
+        "TableAutoScalingDescription": "TableAutoScalingDescriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 DescribeTimeToLiveOutputTypeDef = TypedDict(
     "DescribeTimeToLiveOutputTypeDef",
-    {"TimeToLiveDescription": "TimeToLiveDescriptionTypeDef"},
+    {
+        "TimeToLiveDescription": "TimeToLiveDescriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -1556,6 +1671,12 @@ ExpectedAttributeValueTypeDef = TypedDict(
     total=False,
 )
 
+ExportTableToPointInTimeOutputTypeDef = TypedDict(
+    "ExportTableToPointInTimeOutputTypeDef",
+    {"ExportDescription": "ExportDescriptionTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
 GetItemOutputTypeDef = TypedDict(
     "GetItemOutputTypeDef",
     {
@@ -1579,6 +1700,7 @@ GetItemOutputTypeDef = TypedDict(
             ],
         ],
         "ConsumedCapacity": "ConsumedCapacityTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -1645,28 +1767,58 @@ class GlobalTableGlobalSecondaryIndexSettingsUpdateTypeDef(
 
 ListBackupsOutputTypeDef = TypedDict(
     "ListBackupsOutputTypeDef",
-    {"BackupSummaries": List["BackupSummaryTypeDef"], "LastEvaluatedBackupArn": str},
+    {
+        "BackupSummaries": List["BackupSummaryTypeDef"],
+        "LastEvaluatedBackupArn": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListContributorInsightsOutputTypeDef = TypedDict(
     "ListContributorInsightsOutputTypeDef",
-    {"ContributorInsightsSummaries": List["ContributorInsightsSummaryTypeDef"], "NextToken": str},
+    {
+        "ContributorInsightsSummaries": List["ContributorInsightsSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
+    total=False,
+)
+
+ListExportsOutputTypeDef = TypedDict(
+    "ListExportsOutputTypeDef",
+    {
+        "ExportSummaries": List["ExportSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListGlobalTablesOutputTypeDef = TypedDict(
     "ListGlobalTablesOutputTypeDef",
-    {"GlobalTables": List["GlobalTableTypeDef"], "LastEvaluatedGlobalTableName": str},
+    {
+        "GlobalTables": List["GlobalTableTypeDef"],
+        "LastEvaluatedGlobalTableName": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListTablesOutputTypeDef = TypedDict(
-    "ListTablesOutputTypeDef", {"TableNames": List[str], "LastEvaluatedTableName": str}, total=False
+    "ListTablesOutputTypeDef",
+    {
+        "TableNames": List[str],
+        "LastEvaluatedTableName": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
+    total=False,
 )
 
 ListTagsOfResourceOutputTypeDef = TypedDict(
-    "ListTagsOfResourceOutputTypeDef", {"Tags": List["TagTypeDef"], "NextToken": str}, total=False
+    "ListTagsOfResourceOutputTypeDef",
+    {"Tags": List["TagTypeDef"], "NextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 LocalSecondaryIndexTypeDef = TypedDict(
@@ -1710,6 +1862,7 @@ PutItemOutputTypeDef = TypedDict(
         ],
         "ConsumedCapacity": "ConsumedCapacityTypeDef",
         "ItemCollectionMetrics": "ItemCollectionMetricsTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -1760,6 +1913,7 @@ QueryOutputTypeDef = TypedDict(
             ],
         ],
         "ConsumedCapacity": "ConsumedCapacityTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -1825,13 +1979,13 @@ ReplicationGroupUpdateTypeDef = TypedDict(
 
 RestoreTableFromBackupOutputTypeDef = TypedDict(
     "RestoreTableFromBackupOutputTypeDef",
-    {"TableDescription": "TableDescriptionTypeDef"},
+    {"TableDescription": "TableDescriptionTypeDef", "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 RestoreTableToPointInTimeOutputTypeDef = TypedDict(
     "RestoreTableToPointInTimeOutputTypeDef",
-    {"TableDescription": "TableDescriptionTypeDef"},
+    {"TableDescription": "TableDescriptionTypeDef", "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
@@ -1887,6 +2041,7 @@ ScanOutputTypeDef = TypedDict(
             ],
         ],
         "ConsumedCapacity": "ConsumedCapacityTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -1895,7 +2050,11 @@ TransactGetItemTypeDef = TypedDict("TransactGetItemTypeDef", {"Get": "GetTypeDef
 
 TransactGetItemsOutputTypeDef = TypedDict(
     "TransactGetItemsOutputTypeDef",
-    {"ConsumedCapacity": List["ConsumedCapacityTypeDef"], "Responses": List["ItemResponseTypeDef"]},
+    {
+        "ConsumedCapacity": List["ConsumedCapacityTypeDef"],
+        "Responses": List["ItemResponseTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -1915,13 +2074,17 @@ TransactWriteItemsOutputTypeDef = TypedDict(
     {
         "ConsumedCapacity": List["ConsumedCapacityTypeDef"],
         "ItemCollectionMetrics": Dict[str, List["ItemCollectionMetricsTypeDef"]],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
 UpdateContinuousBackupsOutputTypeDef = TypedDict(
     "UpdateContinuousBackupsOutputTypeDef",
-    {"ContinuousBackupsDescription": "ContinuousBackupsDescriptionTypeDef"},
+    {
+        "ContinuousBackupsDescription": "ContinuousBackupsDescriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -1933,19 +2096,27 @@ UpdateContributorInsightsOutputTypeDef = TypedDict(
         "ContributorInsightsStatus": Literal[
             "ENABLING", "ENABLED", "DISABLING", "DISABLED", "FAILED"
         ],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
 UpdateGlobalTableOutputTypeDef = TypedDict(
     "UpdateGlobalTableOutputTypeDef",
-    {"GlobalTableDescription": "GlobalTableDescriptionTypeDef"},
+    {
+        "GlobalTableDescription": "GlobalTableDescriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 UpdateGlobalTableSettingsOutputTypeDef = TypedDict(
     "UpdateGlobalTableSettingsOutputTypeDef",
-    {"GlobalTableName": str, "ReplicaSettings": List["ReplicaSettingsDescriptionTypeDef"]},
+    {
+        "GlobalTableName": str,
+        "ReplicaSettings": List["ReplicaSettingsDescriptionTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -1973,23 +2144,32 @@ UpdateItemOutputTypeDef = TypedDict(
         ],
         "ConsumedCapacity": "ConsumedCapacityTypeDef",
         "ItemCollectionMetrics": "ItemCollectionMetricsTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
 UpdateTableOutputTypeDef = TypedDict(
-    "UpdateTableOutputTypeDef", {"TableDescription": "TableDescriptionTypeDef"}, total=False
+    "UpdateTableOutputTypeDef",
+    {"TableDescription": "TableDescriptionTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 UpdateTableReplicaAutoScalingOutputTypeDef = TypedDict(
     "UpdateTableReplicaAutoScalingOutputTypeDef",
-    {"TableAutoScalingDescription": "TableAutoScalingDescriptionTypeDef"},
+    {
+        "TableAutoScalingDescription": "TableAutoScalingDescriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 UpdateTimeToLiveOutputTypeDef = TypedDict(
     "UpdateTimeToLiveOutputTypeDef",
-    {"TimeToLiveSpecification": "TimeToLiveSpecificationTypeDef"},
+    {
+        "TimeToLiveSpecification": "TimeToLiveSpecificationTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 

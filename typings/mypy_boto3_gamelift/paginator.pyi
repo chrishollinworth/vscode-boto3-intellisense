@@ -13,6 +13,7 @@ Usage::
         DescribeFleetCapacityPaginator,
         DescribeFleetEventsPaginator,
         DescribeFleetUtilizationPaginator,
+        DescribeGameServerInstancesPaginator,
         DescribeGameSessionDetailsPaginator,
         DescribeGameSessionQueuesPaginator,
         DescribeGameSessionsPaginator,
@@ -24,6 +25,9 @@ Usage::
         ListAliasesPaginator,
         ListBuildsPaginator,
         ListFleetsPaginator,
+        ListGameServerGroupsPaginator,
+        ListGameServersPaginator,
+        ListScriptsPaginator,
         SearchGameSessionsPaginator,
     )
 
@@ -33,6 +37,7 @@ Usage::
     describe_fleet_capacity_paginator: DescribeFleetCapacityPaginator = client.get_paginator("describe_fleet_capacity")
     describe_fleet_events_paginator: DescribeFleetEventsPaginator = client.get_paginator("describe_fleet_events")
     describe_fleet_utilization_paginator: DescribeFleetUtilizationPaginator = client.get_paginator("describe_fleet_utilization")
+    describe_game_server_instances_paginator: DescribeGameServerInstancesPaginator = client.get_paginator("describe_game_server_instances")
     describe_game_session_details_paginator: DescribeGameSessionDetailsPaginator = client.get_paginator("describe_game_session_details")
     describe_game_session_queues_paginator: DescribeGameSessionQueuesPaginator = client.get_paginator("describe_game_session_queues")
     describe_game_sessions_paginator: DescribeGameSessionsPaginator = client.get_paginator("describe_game_sessions")
@@ -44,6 +49,9 @@ Usage::
     list_aliases_paginator: ListAliasesPaginator = client.get_paginator("list_aliases")
     list_builds_paginator: ListBuildsPaginator = client.get_paginator("list_builds")
     list_fleets_paginator: ListFleetsPaginator = client.get_paginator("list_fleets")
+    list_game_server_groups_paginator: ListGameServerGroupsPaginator = client.get_paginator("list_game_server_groups")
+    list_game_servers_paginator: ListGameServersPaginator = client.get_paginator("list_game_servers")
+    list_scripts_paginator: ListScriptsPaginator = client.get_paginator("list_scripts")
     search_game_sessions_paginator: SearchGameSessionsPaginator = client.get_paginator("search_game_sessions")
     ```
 """
@@ -58,6 +66,7 @@ from mypy_boto3_gamelift.type_defs import (
     DescribeFleetCapacityOutputTypeDef,
     DescribeFleetEventsOutputTypeDef,
     DescribeFleetUtilizationOutputTypeDef,
+    DescribeGameServerInstancesOutputTypeDef,
     DescribeGameSessionDetailsOutputTypeDef,
     DescribeGameSessionQueuesOutputTypeDef,
     DescribeGameSessionsOutputTypeDef,
@@ -69,6 +78,9 @@ from mypy_boto3_gamelift.type_defs import (
     ListAliasesOutputTypeDef,
     ListBuildsOutputTypeDef,
     ListFleetsOutputTypeDef,
+    ListGameServerGroupsOutputTypeDef,
+    ListGameServersOutputTypeDef,
+    ListScriptsOutputTypeDef,
     PaginatorConfigTypeDef,
     SearchGameSessionsOutputTypeDef,
 )
@@ -84,6 +96,7 @@ __all__ = (
     "DescribeFleetCapacityPaginator",
     "DescribeFleetEventsPaginator",
     "DescribeFleetUtilizationPaginator",
+    "DescribeGameServerInstancesPaginator",
     "DescribeGameSessionDetailsPaginator",
     "DescribeGameSessionQueuesPaginator",
     "DescribeGameSessionsPaginator",
@@ -95,39 +108,42 @@ __all__ = (
     "ListAliasesPaginator",
     "ListBuildsPaginator",
     "ListFleetsPaginator",
+    "ListGameServerGroupsPaginator",
+    "ListGameServersPaginator",
+    "ListScriptsPaginator",
     "SearchGameSessionsPaginator",
 )
 
 
 class DescribeFleetAttributesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeFleetAttributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.DescribeFleetAttributes)
+    [Paginator.DescribeFleetAttributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.DescribeFleetAttributes)
     """
 
     def paginate(
         self, FleetIds: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeFleetAttributesOutputTypeDef]:
         """
-        [DescribeFleetAttributes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.DescribeFleetAttributes.paginate)
+        [DescribeFleetAttributes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.DescribeFleetAttributes.paginate)
         """
 
 
 class DescribeFleetCapacityPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeFleetCapacity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.DescribeFleetCapacity)
+    [Paginator.DescribeFleetCapacity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.DescribeFleetCapacity)
     """
 
     def paginate(
         self, FleetIds: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeFleetCapacityOutputTypeDef]:
         """
-        [DescribeFleetCapacity.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.DescribeFleetCapacity.paginate)
+        [DescribeFleetCapacity.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.DescribeFleetCapacity.paginate)
         """
 
 
 class DescribeFleetEventsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeFleetEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.DescribeFleetEvents)
+    [Paginator.DescribeFleetEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.DescribeFleetEvents)
     """
 
     def paginate(
@@ -138,26 +154,42 @@ class DescribeFleetEventsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeFleetEventsOutputTypeDef]:
         """
-        [DescribeFleetEvents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.DescribeFleetEvents.paginate)
+        [DescribeFleetEvents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.DescribeFleetEvents.paginate)
         """
 
 
 class DescribeFleetUtilizationPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeFleetUtilization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.DescribeFleetUtilization)
+    [Paginator.DescribeFleetUtilization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.DescribeFleetUtilization)
     """
 
     def paginate(
         self, FleetIds: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeFleetUtilizationOutputTypeDef]:
         """
-        [DescribeFleetUtilization.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.DescribeFleetUtilization.paginate)
+        [DescribeFleetUtilization.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.DescribeFleetUtilization.paginate)
+        """
+
+
+class DescribeGameServerInstancesPaginator(Boto3Paginator):
+    """
+    [Paginator.DescribeGameServerInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.DescribeGameServerInstances)
+    """
+
+    def paginate(
+        self,
+        GameServerGroupName: str,
+        InstanceIds: List[str] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None,
+    ) -> Iterator[DescribeGameServerInstancesOutputTypeDef]:
+        """
+        [DescribeGameServerInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.DescribeGameServerInstances.paginate)
         """
 
 
 class DescribeGameSessionDetailsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeGameSessionDetails documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.DescribeGameSessionDetails)
+    [Paginator.DescribeGameSessionDetails documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.DescribeGameSessionDetails)
     """
 
     def paginate(
@@ -169,26 +201,26 @@ class DescribeGameSessionDetailsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeGameSessionDetailsOutputTypeDef]:
         """
-        [DescribeGameSessionDetails.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.DescribeGameSessionDetails.paginate)
+        [DescribeGameSessionDetails.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.DescribeGameSessionDetails.paginate)
         """
 
 
 class DescribeGameSessionQueuesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeGameSessionQueues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.DescribeGameSessionQueues)
+    [Paginator.DescribeGameSessionQueues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.DescribeGameSessionQueues)
     """
 
     def paginate(
         self, Names: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeGameSessionQueuesOutputTypeDef]:
         """
-        [DescribeGameSessionQueues.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.DescribeGameSessionQueues.paginate)
+        [DescribeGameSessionQueues.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.DescribeGameSessionQueues.paginate)
         """
 
 
 class DescribeGameSessionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeGameSessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.DescribeGameSessions)
+    [Paginator.DescribeGameSessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.DescribeGameSessions)
     """
 
     def paginate(
@@ -200,26 +232,26 @@ class DescribeGameSessionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeGameSessionsOutputTypeDef]:
         """
-        [DescribeGameSessions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.DescribeGameSessions.paginate)
+        [DescribeGameSessions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.DescribeGameSessions.paginate)
         """
 
 
 class DescribeInstancesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.DescribeInstances)
+    [Paginator.DescribeInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.DescribeInstances)
     """
 
     def paginate(
         self, FleetId: str, InstanceId: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeInstancesOutputTypeDef]:
         """
-        [DescribeInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.DescribeInstances.paginate)
+        [DescribeInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.DescribeInstances.paginate)
         """
 
 
 class DescribeMatchmakingConfigurationsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeMatchmakingConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.DescribeMatchmakingConfigurations)
+    [Paginator.DescribeMatchmakingConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.DescribeMatchmakingConfigurations)
     """
 
     def paginate(
@@ -229,26 +261,26 @@ class DescribeMatchmakingConfigurationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeMatchmakingConfigurationsOutputTypeDef]:
         """
-        [DescribeMatchmakingConfigurations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.DescribeMatchmakingConfigurations.paginate)
+        [DescribeMatchmakingConfigurations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.DescribeMatchmakingConfigurations.paginate)
         """
 
 
 class DescribeMatchmakingRuleSetsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeMatchmakingRuleSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.DescribeMatchmakingRuleSets)
+    [Paginator.DescribeMatchmakingRuleSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.DescribeMatchmakingRuleSets)
     """
 
     def paginate(
         self, Names: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeMatchmakingRuleSetsOutputTypeDef]:
         """
-        [DescribeMatchmakingRuleSets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.DescribeMatchmakingRuleSets.paginate)
+        [DescribeMatchmakingRuleSets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.DescribeMatchmakingRuleSets.paginate)
         """
 
 
 class DescribePlayerSessionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribePlayerSessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.DescribePlayerSessions)
+    [Paginator.DescribePlayerSessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.DescribePlayerSessions)
     """
 
     def paginate(
@@ -260,13 +292,13 @@ class DescribePlayerSessionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribePlayerSessionsOutputTypeDef]:
         """
-        [DescribePlayerSessions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.DescribePlayerSessions.paginate)
+        [DescribePlayerSessions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.DescribePlayerSessions.paginate)
         """
 
 
 class DescribeScalingPoliciesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeScalingPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.DescribeScalingPolicies)
+    [Paginator.DescribeScalingPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.DescribeScalingPolicies)
     """
 
     def paginate(
@@ -284,13 +316,13 @@ class DescribeScalingPoliciesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeScalingPoliciesOutputTypeDef]:
         """
-        [DescribeScalingPolicies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.DescribeScalingPolicies.paginate)
+        [DescribeScalingPolicies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.DescribeScalingPolicies.paginate)
         """
 
 
 class ListAliasesPaginator(Boto3Paginator):
     """
-    [Paginator.ListAliases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.ListAliases)
+    [Paginator.ListAliases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.ListAliases)
     """
 
     def paginate(
@@ -300,13 +332,13 @@ class ListAliasesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListAliasesOutputTypeDef]:
         """
-        [ListAliases.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.ListAliases.paginate)
+        [ListAliases.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.ListAliases.paginate)
         """
 
 
 class ListBuildsPaginator(Boto3Paginator):
     """
-    [Paginator.ListBuilds documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.ListBuilds)
+    [Paginator.ListBuilds documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.ListBuilds)
     """
 
     def paginate(
@@ -315,13 +347,13 @@ class ListBuildsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListBuildsOutputTypeDef]:
         """
-        [ListBuilds.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.ListBuilds.paginate)
+        [ListBuilds.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.ListBuilds.paginate)
         """
 
 
 class ListFleetsPaginator(Boto3Paginator):
     """
-    [Paginator.ListFleets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.ListFleets)
+    [Paginator.ListFleets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.ListFleets)
     """
 
     def paginate(
@@ -331,13 +363,55 @@ class ListFleetsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListFleetsOutputTypeDef]:
         """
-        [ListFleets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.ListFleets.paginate)
+        [ListFleets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.ListFleets.paginate)
+        """
+
+
+class ListGameServerGroupsPaginator(Boto3Paginator):
+    """
+    [Paginator.ListGameServerGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.ListGameServerGroups)
+    """
+
+    def paginate(
+        self, PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[ListGameServerGroupsOutputTypeDef]:
+        """
+        [ListGameServerGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.ListGameServerGroups.paginate)
+        """
+
+
+class ListGameServersPaginator(Boto3Paginator):
+    """
+    [Paginator.ListGameServers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.ListGameServers)
+    """
+
+    def paginate(
+        self,
+        GameServerGroupName: str,
+        SortOrder: Literal["ASCENDING", "DESCENDING"] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None,
+    ) -> Iterator[ListGameServersOutputTypeDef]:
+        """
+        [ListGameServers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.ListGameServers.paginate)
+        """
+
+
+class ListScriptsPaginator(Boto3Paginator):
+    """
+    [Paginator.ListScripts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.ListScripts)
+    """
+
+    def paginate(
+        self, PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[ListScriptsOutputTypeDef]:
+        """
+        [ListScripts.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.ListScripts.paginate)
         """
 
 
 class SearchGameSessionsPaginator(Boto3Paginator):
     """
-    [Paginator.SearchGameSessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.SearchGameSessions)
+    [Paginator.SearchGameSessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.SearchGameSessions)
     """
 
     def paginate(
@@ -349,5 +423,5 @@ class SearchGameSessionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[SearchGameSessionsOutputTypeDef]:
         """
-        [SearchGameSessions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/gamelift.html#GameLift.Paginator.SearchGameSessions.paginate)
+        [SearchGameSessions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/gamelift.html#GameLift.Paginator.SearchGameSessions.paginate)
         """

@@ -17,7 +17,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -29,6 +28,9 @@ __all__ = (
     "ClientPropertiesResultTypeDef",
     "ClientPropertiesTypeDef",
     "ComputeTypeTypeDef",
+    "ConnectionAliasAssociationTypeDef",
+    "ConnectionAliasPermissionTypeDef",
+    "ConnectionAliasTypeDef",
     "DefaultWorkspaceCreationPropertiesTypeDef",
     "FailedCreateWorkspaceRequestTypeDef",
     "FailedWorkspaceChangeRequestTypeDef",
@@ -50,12 +52,16 @@ __all__ = (
     "WorkspaceRequestTypeDef",
     "WorkspaceTypeDef",
     "WorkspacesIpGroupTypeDef",
+    "AssociateConnectionAliasResultTypeDef",
     "CopyWorkspaceImageResultTypeDef",
+    "CreateConnectionAliasResultTypeDef",
     "CreateIpGroupResultTypeDef",
     "CreateWorkspacesResultTypeDef",
     "DescribeAccountModificationsResultTypeDef",
     "DescribeAccountResultTypeDef",
     "DescribeClientPropertiesResultTypeDef",
+    "DescribeConnectionAliasPermissionsResultTypeDef",
+    "DescribeConnectionAliasesResultTypeDef",
     "DescribeIpGroupsResultTypeDef",
     "DescribeTagsResultTypeDef",
     "DescribeWorkspaceBundlesResultTypeDef",
@@ -111,6 +117,39 @@ ComputeTypeTypeDef = TypedDict(
         "Name": Literal[
             "VALUE", "STANDARD", "PERFORMANCE", "POWER", "GRAPHICS", "POWERPRO", "GRAPHICSPRO"
         ]
+    },
+    total=False,
+)
+
+ConnectionAliasAssociationTypeDef = TypedDict(
+    "ConnectionAliasAssociationTypeDef",
+    {
+        "AssociationStatus": Literal[
+            "NOT_ASSOCIATED",
+            "ASSOCIATED_WITH_OWNER_ACCOUNT",
+            "ASSOCIATED_WITH_SHARED_ACCOUNT",
+            "PENDING_ASSOCIATION",
+            "PENDING_DISASSOCIATION",
+        ],
+        "AssociatedAccountId": str,
+        "ResourceId": str,
+        "ConnectionIdentifier": str,
+    },
+    total=False,
+)
+
+ConnectionAliasPermissionTypeDef = TypedDict(
+    "ConnectionAliasPermissionTypeDef", {"SharedAccountId": str, "AllowAssociation": bool}
+)
+
+ConnectionAliasTypeDef = TypedDict(
+    "ConnectionAliasTypeDef",
+    {
+        "ConnectionString": str,
+        "AliasId": str,
+        "State": Literal["CREATING", "CREATED", "DELETING"],
+        "OwnerAccountId": str,
+        "Associations": List["ConnectionAliasAssociationTypeDef"],
     },
     total=False,
 )
@@ -344,8 +383,16 @@ WorkspacesIpGroupTypeDef = TypedDict(
     total=False,
 )
 
+AssociateConnectionAliasResultTypeDef = TypedDict(
+    "AssociateConnectionAliasResultTypeDef", {"ConnectionIdentifier": str}, total=False
+)
+
 CopyWorkspaceImageResultTypeDef = TypedDict(
     "CopyWorkspaceImageResultTypeDef", {"ImageId": str}, total=False
+)
+
+CreateConnectionAliasResultTypeDef = TypedDict(
+    "CreateConnectionAliasResultTypeDef", {"AliasId": str}, total=False
 )
 
 CreateIpGroupResultTypeDef = TypedDict("CreateIpGroupResultTypeDef", {"GroupId": str}, total=False)
@@ -377,6 +424,22 @@ DescribeAccountResultTypeDef = TypedDict(
 DescribeClientPropertiesResultTypeDef = TypedDict(
     "DescribeClientPropertiesResultTypeDef",
     {"ClientPropertiesList": List["ClientPropertiesResultTypeDef"]},
+    total=False,
+)
+
+DescribeConnectionAliasPermissionsResultTypeDef = TypedDict(
+    "DescribeConnectionAliasPermissionsResultTypeDef",
+    {
+        "AliasId": str,
+        "ConnectionAliasPermissions": List["ConnectionAliasPermissionTypeDef"],
+        "NextToken": str,
+    },
+    total=False,
+)
+
+DescribeConnectionAliasesResultTypeDef = TypedDict(
+    "DescribeConnectionAliasesResultTypeDef",
+    {"ConnectionAliases": List["ConnectionAliasTypeDef"], "NextToken": str},
     total=False,
 )
 

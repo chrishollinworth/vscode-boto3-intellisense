@@ -16,7 +16,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -58,11 +57,13 @@ __all__ = (
     "ResourceDefinitionVersionTypeDef",
     "ResourceDownloadOwnerSettingTypeDef",
     "ResourceTypeDef",
+    "RuntimeConfigurationTypeDef",
     "S3MachineLearningModelResourceDataTypeDef",
     "SageMakerMachineLearningModelResourceDataTypeDef",
     "SecretsManagerSecretResourceDataTypeDef",
     "SubscriptionDefinitionVersionTypeDef",
     "SubscriptionTypeDef",
+    "TelemetryConfigurationTypeDef",
     "VersionInformationTypeDef",
     "AssociateRoleToGroupResponseTypeDef",
     "AssociateServiceRoleToAccountResponseTypeDef",
@@ -110,6 +111,7 @@ __all__ = (
     "GetServiceRoleForAccountResponseTypeDef",
     "GetSubscriptionDefinitionResponseTypeDef",
     "GetSubscriptionDefinitionVersionResponseTypeDef",
+    "GetThingRuntimeConfigurationResponseTypeDef",
     "ListBulkDeploymentDetailedReportsResponseTypeDef",
     "ListBulkDeploymentsResponseTypeDef",
     "ListConnectorDefinitionVersionsResponseTypeDef",
@@ -134,6 +136,7 @@ __all__ = (
     "PaginatorConfigTypeDef",
     "ResetDeploymentsResponseTypeDef",
     "StartBulkDeploymentResponseTypeDef",
+    "TelemetryConfigurationUpdateTypeDef",
     "UpdateConnectivityInfoResponseTypeDef",
     "UpdateGroupCertificateConfigurationResponseTypeDef",
 )
@@ -429,6 +432,12 @@ ResourceTypeDef = TypedDict(
     {"Id": str, "Name": str, "ResourceDataContainer": "ResourceDataContainerTypeDef"},
 )
 
+RuntimeConfigurationTypeDef = TypedDict(
+    "RuntimeConfigurationTypeDef",
+    {"TelemetryConfiguration": "TelemetryConfigurationTypeDef"},
+    total=False,
+)
+
 S3MachineLearningModelResourceDataTypeDef = TypedDict(
     "S3MachineLearningModelResourceDataTypeDef",
     {"DestinationPath": str, "OwnerSetting": "ResourceDownloadOwnerSettingTypeDef", "S3Uri": str},
@@ -460,6 +469,22 @@ SubscriptionDefinitionVersionTypeDef = TypedDict(
 SubscriptionTypeDef = TypedDict(
     "SubscriptionTypeDef", {"Id": str, "Source": str, "Subject": str, "Target": str}
 )
+
+_RequiredTelemetryConfigurationTypeDef = TypedDict(
+    "_RequiredTelemetryConfigurationTypeDef", {"Telemetry": Literal["On", "Off"]}
+)
+_OptionalTelemetryConfigurationTypeDef = TypedDict(
+    "_OptionalTelemetryConfigurationTypeDef",
+    {"ConfigurationSyncStatus": Literal["InSync", "OutOfSync"]},
+    total=False,
+)
+
+
+class TelemetryConfigurationTypeDef(
+    _RequiredTelemetryConfigurationTypeDef, _OptionalTelemetryConfigurationTypeDef
+):
+    pass
+
 
 VersionInformationTypeDef = TypedDict(
     "VersionInformationTypeDef",
@@ -943,6 +968,12 @@ GetSubscriptionDefinitionVersionResponseTypeDef = TypedDict(
     total=False,
 )
 
+GetThingRuntimeConfigurationResponseTypeDef = TypedDict(
+    "GetThingRuntimeConfigurationResponseTypeDef",
+    {"RuntimeConfiguration": "RuntimeConfigurationTypeDef"},
+    total=False,
+)
+
 ListBulkDeploymentDetailedReportsResponseTypeDef = TypedDict(
     "ListBulkDeploymentDetailedReportsResponseTypeDef",
     {"Deployments": List["BulkDeploymentResultTypeDef"], "NextToken": str},
@@ -1079,6 +1110,10 @@ StartBulkDeploymentResponseTypeDef = TypedDict(
     "StartBulkDeploymentResponseTypeDef",
     {"BulkDeploymentArn": str, "BulkDeploymentId": str},
     total=False,
+)
+
+TelemetryConfigurationUpdateTypeDef = TypedDict(
+    "TelemetryConfigurationUpdateTypeDef", {"Telemetry": Literal["On", "Off"]}
 )
 
 UpdateConnectivityInfoResponseTypeDef = TypedDict(

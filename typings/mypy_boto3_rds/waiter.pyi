@@ -48,7 +48,7 @@ __all__ = (
 
 class DBClusterSnapshotAvailableWaiter(Boto3Waiter):
     """
-    [Waiter.DBClusterSnapshotAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/rds.html#RDS.Waiter.DBClusterSnapshotAvailable)
+    [Waiter.DBClusterSnapshotAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Waiter.DBClusterSnapshotAvailable)
     """
 
     def wait(
@@ -64,13 +64,13 @@ class DBClusterSnapshotAvailableWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [DBClusterSnapshotAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/rds.html#RDS.Waiter.DBClusterSnapshotAvailable.wait)
+        [DBClusterSnapshotAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Waiter.DBClusterSnapshotAvailable.wait)
         """
 
 
 class DBClusterSnapshotDeletedWaiter(Boto3Waiter):
     """
-    [Waiter.DBClusterSnapshotDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/rds.html#RDS.Waiter.DBClusterSnapshotDeleted)
+    [Waiter.DBClusterSnapshotDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Waiter.DBClusterSnapshotDeleted)
     """
 
     def wait(
@@ -86,13 +86,13 @@ class DBClusterSnapshotDeletedWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [DBClusterSnapshotDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/rds.html#RDS.Waiter.DBClusterSnapshotDeleted.wait)
+        [DBClusterSnapshotDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Waiter.DBClusterSnapshotDeleted.wait)
         """
 
 
 class DBInstanceAvailableWaiter(Boto3Waiter):
     """
-    [Waiter.DBInstanceAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/rds.html#RDS.Waiter.DBInstanceAvailable)
+    [Waiter.DBInstanceAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Waiter.DBInstanceAvailable)
     """
 
     def wait(
@@ -104,13 +104,13 @@ class DBInstanceAvailableWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [DBInstanceAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/rds.html#RDS.Waiter.DBInstanceAvailable.wait)
+        [DBInstanceAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Waiter.DBInstanceAvailable.wait)
         """
 
 
 class DBInstanceDeletedWaiter(Boto3Waiter):
     """
-    [Waiter.DBInstanceDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/rds.html#RDS.Waiter.DBInstanceDeleted)
+    [Waiter.DBInstanceDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Waiter.DBInstanceDeleted)
     """
 
     def wait(
@@ -122,13 +122,13 @@ class DBInstanceDeletedWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [DBInstanceDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/rds.html#RDS.Waiter.DBInstanceDeleted.wait)
+        [DBInstanceDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Waiter.DBInstanceDeleted.wait)
         """
 
 
 class DBSnapshotAvailableWaiter(Boto3Waiter):
     """
-    [Waiter.DBSnapshotAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/rds.html#RDS.Waiter.DBSnapshotAvailable)
+    [Waiter.DBSnapshotAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Waiter.DBSnapshotAvailable)
     """
 
     def wait(
@@ -145,13 +145,13 @@ class DBSnapshotAvailableWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [DBSnapshotAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/rds.html#RDS.Waiter.DBSnapshotAvailable.wait)
+        [DBSnapshotAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Waiter.DBSnapshotAvailable.wait)
         """
 
 
 class DBSnapshotCompletedWaiter(Boto3Waiter):
     """
-    [Waiter.DBSnapshotCompleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/rds.html#RDS.Waiter.DBSnapshotCompleted)
+    [Waiter.DBSnapshotCompleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Waiter.DBSnapshotCompleted)
     """
 
     def wait(
@@ -168,13 +168,13 @@ class DBSnapshotCompletedWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [DBSnapshotCompleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/rds.html#RDS.Waiter.DBSnapshotCompleted.wait)
+        [DBSnapshotCompleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Waiter.DBSnapshotCompleted.wait)
         """
 
 
 class DBSnapshotDeletedWaiter(Boto3Waiter):
     """
-    [Waiter.DBSnapshotDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/rds.html#RDS.Waiter.DBSnapshotDeleted)
+    [Waiter.DBSnapshotDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Waiter.DBSnapshotDeleted)
     """
 
     def wait(
@@ -191,5 +191,5 @@ class DBSnapshotDeletedWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [DBSnapshotDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/rds.html#RDS.Waiter.DBSnapshotDeleted.wait)
+        [DBSnapshotDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Waiter.DBSnapshotDeleted.wait)
         """

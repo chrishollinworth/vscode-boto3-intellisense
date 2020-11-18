@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import List
+from typing import Any, Dict, List
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -66,6 +65,7 @@ __all__ = (
     "RecordFormatTypeDef",
     "ReferenceDataSourceDescriptionTypeDef",
     "ReferenceDataSourceUpdateTypeDef",
+    "ResponseMetadata",
     "S3ReferenceDataSourceDescriptionTypeDef",
     "S3ReferenceDataSourceTypeDef",
     "S3ReferenceDataSourceUpdateTypeDef",
@@ -276,9 +276,19 @@ KinesisFirehoseOutputDescriptionTypeDef = TypedDict(
     "KinesisFirehoseOutputDescriptionTypeDef", {"ResourceARN": str, "RoleARN": str}, total=False
 )
 
-KinesisFirehoseOutputTypeDef = TypedDict(
-    "KinesisFirehoseOutputTypeDef", {"ResourceARN": str, "RoleARN": str}
+_RequiredKinesisFirehoseOutputTypeDef = TypedDict(
+    "_RequiredKinesisFirehoseOutputTypeDef", {"ResourceARN": str, "RoleARN": str}
 )
+_OptionalKinesisFirehoseOutputTypeDef = TypedDict(
+    "_OptionalKinesisFirehoseOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
+)
+
+
+class KinesisFirehoseOutputTypeDef(
+    _RequiredKinesisFirehoseOutputTypeDef, _OptionalKinesisFirehoseOutputTypeDef
+):
+    pass
+
 
 KinesisFirehoseOutputUpdateTypeDef = TypedDict(
     "KinesisFirehoseOutputUpdateTypeDef",
@@ -304,9 +314,19 @@ KinesisStreamsOutputDescriptionTypeDef = TypedDict(
     "KinesisStreamsOutputDescriptionTypeDef", {"ResourceARN": str, "RoleARN": str}, total=False
 )
 
-KinesisStreamsOutputTypeDef = TypedDict(
-    "KinesisStreamsOutputTypeDef", {"ResourceARN": str, "RoleARN": str}
+_RequiredKinesisStreamsOutputTypeDef = TypedDict(
+    "_RequiredKinesisStreamsOutputTypeDef", {"ResourceARN": str, "RoleARN": str}
 )
+_OptionalKinesisStreamsOutputTypeDef = TypedDict(
+    "_OptionalKinesisStreamsOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
+)
+
+
+class KinesisStreamsOutputTypeDef(
+    _RequiredKinesisStreamsOutputTypeDef, _OptionalKinesisStreamsOutputTypeDef
+):
+    pass
+
 
 KinesisStreamsOutputUpdateTypeDef = TypedDict(
     "KinesisStreamsOutputUpdateTypeDef",
@@ -318,7 +338,17 @@ LambdaOutputDescriptionTypeDef = TypedDict(
     "LambdaOutputDescriptionTypeDef", {"ResourceARN": str, "RoleARN": str}, total=False
 )
 
-LambdaOutputTypeDef = TypedDict("LambdaOutputTypeDef", {"ResourceARN": str, "RoleARN": str})
+_RequiredLambdaOutputTypeDef = TypedDict(
+    "_RequiredLambdaOutputTypeDef", {"ResourceARN": str, "RoleARN": str}
+)
+_OptionalLambdaOutputTypeDef = TypedDict(
+    "_OptionalLambdaOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
+)
+
+
+class LambdaOutputTypeDef(_RequiredLambdaOutputTypeDef, _OptionalLambdaOutputTypeDef):
+    pass
+
 
 LambdaOutputUpdateTypeDef = TypedDict(
     "LambdaOutputUpdateTypeDef", {"ResourceARNUpdate": str, "RoleARNUpdate": str}, total=False
@@ -428,6 +458,17 @@ class ReferenceDataSourceUpdateTypeDef(
 ):
     pass
 
+
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
 
 S3ReferenceDataSourceDescriptionTypeDef = TypedDict(
     "S3ReferenceDataSourceDescriptionTypeDef",
@@ -542,6 +583,7 @@ _OptionalOutputTypeDef = TypedDict(
         "KinesisStreamsOutput": "KinesisStreamsOutputTypeDef",
         "KinesisFirehoseOutput": "KinesisFirehoseOutputTypeDef",
         "LambdaOutput": "LambdaOutputTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )

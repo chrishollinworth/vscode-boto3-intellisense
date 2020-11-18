@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import IO, Any, Dict, List, Union
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -50,6 +49,7 @@ __all__ = (
     "GatewaySummaryTypeDef",
     "GreengrassTypeDef",
     "GroupIdentityTypeDef",
+    "IAMUserIdentityTypeDef",
     "IdentityTypeDef",
     "ImageFileTypeDef",
     "ImageLocationTypeDef",
@@ -83,6 +83,7 @@ __all__ = (
     "CreateDashboardResponseTypeDef",
     "CreateGatewayResponseTypeDef",
     "CreatePortalResponseTypeDef",
+    "CreatePresignedPortalUrlResponseTypeDef",
     "CreateProjectResponseTypeDef",
     "DeleteAssetModelResponseTypeDef",
     "DeleteAssetResponseTypeDef",
@@ -391,11 +392,21 @@ GreengrassTypeDef = TypedDict("GreengrassTypeDef", {"groupArn": str})
 
 GroupIdentityTypeDef = TypedDict("GroupIdentityTypeDef", {"id": str})
 
+IAMUserIdentityTypeDef = TypedDict("IAMUserIdentityTypeDef", {"arn": str})
+
 IdentityTypeDef = TypedDict(
-    "IdentityTypeDef", {"user": "UserIdentityTypeDef", "group": "GroupIdentityTypeDef"}, total=False
+    "IdentityTypeDef",
+    {
+        "user": "UserIdentityTypeDef",
+        "group": "GroupIdentityTypeDef",
+        "iamUser": "IAMUserIdentityTypeDef",
+    },
+    total=False,
 )
 
-ImageFileTypeDef = TypedDict("ImageFileTypeDef", {"data": bytes, "type": Literal["PNG"]})
+ImageFileTypeDef = TypedDict(
+    "ImageFileTypeDef", {"data": Union[bytes, IO[bytes]], "type": Literal["PNG"]}
+)
 
 ImageLocationTypeDef = TypedDict("ImageLocationTypeDef", {"id": str, "url": str})
 
@@ -417,7 +428,9 @@ MetricWindowTypeDef = TypedDict(
 )
 
 MonitorErrorDetailsTypeDef = TypedDict(
-    "MonitorErrorDetailsTypeDef", {"code": Literal["INTERNAL_FAILURE"], "message": str}, total=False
+    "MonitorErrorDetailsTypeDef",
+    {"code": Literal["INTERNAL_FAILURE", "VALIDATION_ERROR", "LIMIT_EXCEEDED"], "message": str},
+    total=False,
 )
 
 PortalResourceTypeDef = TypedDict("PortalResourceTypeDef", {"id": str})
@@ -436,7 +449,8 @@ class PortalStatusTypeDef(_RequiredPortalStatusTypeDef, _OptionalPortalStatusTyp
 
 
 _RequiredPortalSummaryTypeDef = TypedDict(
-    "_RequiredPortalSummaryTypeDef", {"id": str, "name": str, "startUrl": str}
+    "_RequiredPortalSummaryTypeDef",
+    {"id": str, "name": str, "startUrl": str, "status": "PortalStatusTypeDef"},
 )
 _OptionalPortalSummaryTypeDef = TypedDict(
     "_OptionalPortalSummaryTypeDef",
@@ -613,6 +627,10 @@ CreatePortalResponseTypeDef = TypedDict(
     },
 )
 
+CreatePresignedPortalUrlResponseTypeDef = TypedDict(
+    "CreatePresignedPortalUrlResponseTypeDef", {"presignedPortalUrl": str}
+)
+
 CreateProjectResponseTypeDef = TypedDict(
     "CreateProjectResponseTypeDef", {"projectId": str, "projectArn": str}
 )
@@ -754,7 +772,12 @@ _RequiredDescribePortalResponseTypeDef = TypedDict(
 )
 _OptionalDescribePortalResponseTypeDef = TypedDict(
     "_OptionalDescribePortalResponseTypeDef",
-    {"portalDescription": str, "portalLogoImageLocation": "ImageLocationTypeDef", "roleArn": str},
+    {
+        "portalDescription": str,
+        "portalLogoImageLocation": "ImageLocationTypeDef",
+        "roleArn": str,
+        "portalAuthMode": Literal["IAM", "SSO"],
+    },
     total=False,
 )
 

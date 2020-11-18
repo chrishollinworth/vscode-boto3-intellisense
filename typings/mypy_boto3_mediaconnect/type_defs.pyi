@@ -10,13 +10,12 @@ Usage::
     ```
 """
 import sys
-from typing import Dict, List
+from typing import Any, Dict, List
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -31,7 +30,11 @@ __all__ = (
     "ListedEntitlementTypeDef",
     "ListedFlowTypeDef",
     "MessagesTypeDef",
+    "OfferingTypeDef",
     "OutputTypeDef",
+    "ReservationTypeDef",
+    "ResourceSpecificationTypeDef",
+    "ResponseMetadata",
     "SourceTypeDef",
     "TransportTypeDef",
     "VpcInterfaceAttachmentTypeDef",
@@ -43,12 +46,17 @@ __all__ = (
     "CreateFlowResponseTypeDef",
     "DeleteFlowResponseTypeDef",
     "DescribeFlowResponseTypeDef",
+    "DescribeOfferingResponseTypeDef",
+    "DescribeReservationResponseTypeDef",
     "GrantEntitlementRequestTypeDef",
     "GrantFlowEntitlementsResponseTypeDef",
     "ListEntitlementsResponseTypeDef",
     "ListFlowsResponseTypeDef",
+    "ListOfferingsResponseTypeDef",
+    "ListReservationsResponseTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "PaginatorConfigTypeDef",
+    "PurchaseOfferingResponseTypeDef",
     "RemoveFlowOutputResponseTypeDef",
     "RemoveFlowSourceResponseTypeDef",
     "RemoveFlowVpcInterfaceResponseTypeDef",
@@ -174,6 +182,20 @@ ListedFlowTypeDef = TypedDict(
 
 MessagesTypeDef = TypedDict("MessagesTypeDef", {"Errors": List[str]})
 
+OfferingTypeDef = TypedDict(
+    "OfferingTypeDef",
+    {
+        "CurrencyCode": str,
+        "Duration": int,
+        "DurationUnits": Literal["MONTHS"],
+        "OfferingArn": str,
+        "OfferingDescription": str,
+        "PricePerUnit": str,
+        "PriceUnits": Literal["HOURLY"],
+        "ResourceSpecification": "ResourceSpecificationTypeDef",
+    },
+)
+
 _RequiredOutputTypeDef = TypedDict("_RequiredOutputTypeDef", {"Name": str, "OutputArn": str})
 _OptionalOutputTypeDef = TypedDict(
     "_OptionalOutputTypeDef",
@@ -187,6 +209,7 @@ _OptionalOutputTypeDef = TypedDict(
         "Port": int,
         "Transport": "TransportTypeDef",
         "VpcInterfaceAttachment": "VpcInterfaceAttachmentTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -195,6 +218,50 @@ _OptionalOutputTypeDef = TypedDict(
 class OutputTypeDef(_RequiredOutputTypeDef, _OptionalOutputTypeDef):
     pass
 
+
+ReservationTypeDef = TypedDict(
+    "ReservationTypeDef",
+    {
+        "CurrencyCode": str,
+        "Duration": int,
+        "DurationUnits": Literal["MONTHS"],
+        "End": str,
+        "OfferingArn": str,
+        "OfferingDescription": str,
+        "PricePerUnit": str,
+        "PriceUnits": Literal["HOURLY"],
+        "ReservationArn": str,
+        "ReservationName": str,
+        "ReservationState": Literal["ACTIVE", "EXPIRED", "PROCESSING", "CANCELED"],
+        "ResourceSpecification": "ResourceSpecificationTypeDef",
+        "Start": str,
+    },
+)
+
+_RequiredResourceSpecificationTypeDef = TypedDict(
+    "_RequiredResourceSpecificationTypeDef", {"ResourceType": Literal["Mbps_Outbound_Bandwidth"]}
+)
+_OptionalResourceSpecificationTypeDef = TypedDict(
+    "_OptionalResourceSpecificationTypeDef", {"ReservedBitrate": int}, total=False
+)
+
+
+class ResourceSpecificationTypeDef(
+    _RequiredResourceSpecificationTypeDef, _OptionalResourceSpecificationTypeDef
+):
+    pass
+
+
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
 
 _RequiredSourceTypeDef = TypedDict("_RequiredSourceTypeDef", {"Name": str, "SourceArn": str})
 _OptionalSourceTypeDef = TypedDict(
@@ -317,6 +384,14 @@ DescribeFlowResponseTypeDef = TypedDict(
     total=False,
 )
 
+DescribeOfferingResponseTypeDef = TypedDict(
+    "DescribeOfferingResponseTypeDef", {"Offering": "OfferingTypeDef"}, total=False
+)
+
+DescribeReservationResponseTypeDef = TypedDict(
+    "DescribeReservationResponseTypeDef", {"Reservation": "ReservationTypeDef"}, total=False
+)
+
 _RequiredGrantEntitlementRequestTypeDef = TypedDict(
     "_RequiredGrantEntitlementRequestTypeDef", {"Subscribers": List[str]}
 )
@@ -355,12 +430,28 @@ ListFlowsResponseTypeDef = TypedDict(
     "ListFlowsResponseTypeDef", {"Flows": List["ListedFlowTypeDef"], "NextToken": str}, total=False
 )
 
+ListOfferingsResponseTypeDef = TypedDict(
+    "ListOfferingsResponseTypeDef",
+    {"NextToken": str, "Offerings": List["OfferingTypeDef"]},
+    total=False,
+)
+
+ListReservationsResponseTypeDef = TypedDict(
+    "ListReservationsResponseTypeDef",
+    {"NextToken": str, "Reservations": List["ReservationTypeDef"]},
+    total=False,
+)
+
 ListTagsForResourceResponseTypeDef = TypedDict(
     "ListTagsForResourceResponseTypeDef", {"Tags": Dict[str, str]}, total=False
 )
 
 PaginatorConfigTypeDef = TypedDict(
     "PaginatorConfigTypeDef", {"MaxItems": int, "PageSize": int, "StartingToken": str}, total=False
+)
+
+PurchaseOfferingResponseTypeDef = TypedDict(
+    "PurchaseOfferingResponseTypeDef", {"Reservation": "ReservationTypeDef"}, total=False
 )
 
 RemoveFlowOutputResponseTypeDef = TypedDict(

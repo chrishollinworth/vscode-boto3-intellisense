@@ -14,6 +14,7 @@ Usage::
         ListInstanceFleetsPaginator,
         ListInstanceGroupsPaginator,
         ListInstancesPaginator,
+        ListNotebookExecutionsPaginator,
         ListSecurityConfigurationsPaginator,
         ListStepsPaginator,
     )
@@ -25,6 +26,7 @@ Usage::
     list_instance_fleets_paginator: ListInstanceFleetsPaginator = client.get_paginator("list_instance_fleets")
     list_instance_groups_paginator: ListInstanceGroupsPaginator = client.get_paginator("list_instance_groups")
     list_instances_paginator: ListInstancesPaginator = client.get_paginator("list_instances")
+    list_notebook_executions_paginator: ListNotebookExecutionsPaginator = client.get_paginator("list_notebook_executions")
     list_security_configurations_paginator: ListSecurityConfigurationsPaginator = client.get_paginator("list_security_configurations")
     list_steps_paginator: ListStepsPaginator = client.get_paginator("list_steps")
     ```
@@ -41,6 +43,7 @@ from mypy_boto3_emr.type_defs import (
     ListInstanceFleetsOutputTypeDef,
     ListInstanceGroupsOutputTypeDef,
     ListInstancesOutputTypeDef,
+    ListNotebookExecutionsOutputTypeDef,
     ListSecurityConfigurationsOutputTypeDef,
     ListStepsOutputTypeDef,
     PaginatorConfigTypeDef,
@@ -58,6 +61,7 @@ __all__ = (
     "ListInstanceFleetsPaginator",
     "ListInstanceGroupsPaginator",
     "ListInstancesPaginator",
+    "ListNotebookExecutionsPaginator",
     "ListSecurityConfigurationsPaginator",
     "ListStepsPaginator",
 )
@@ -65,20 +69,20 @@ __all__ = (
 
 class ListBootstrapActionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListBootstrapActions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/emr.html#EMR.Paginator.ListBootstrapActions)
+    [Paginator.ListBootstrapActions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/emr.html#EMR.Paginator.ListBootstrapActions)
     """
 
     def paginate(
         self, ClusterId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListBootstrapActionsOutputTypeDef]:
         """
-        [ListBootstrapActions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/emr.html#EMR.Paginator.ListBootstrapActions.paginate)
+        [ListBootstrapActions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/emr.html#EMR.Paginator.ListBootstrapActions.paginate)
         """
 
 
 class ListClustersPaginator(Boto3Paginator):
     """
-    [Paginator.ListClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/emr.html#EMR.Paginator.ListClusters)
+    [Paginator.ListClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/emr.html#EMR.Paginator.ListClusters)
     """
 
     def paginate(
@@ -99,39 +103,39 @@ class ListClustersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListClustersOutputTypeDef]:
         """
-        [ListClusters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/emr.html#EMR.Paginator.ListClusters.paginate)
+        [ListClusters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/emr.html#EMR.Paginator.ListClusters.paginate)
         """
 
 
 class ListInstanceFleetsPaginator(Boto3Paginator):
     """
-    [Paginator.ListInstanceFleets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/emr.html#EMR.Paginator.ListInstanceFleets)
+    [Paginator.ListInstanceFleets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/emr.html#EMR.Paginator.ListInstanceFleets)
     """
 
     def paginate(
         self, ClusterId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListInstanceFleetsOutputTypeDef]:
         """
-        [ListInstanceFleets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/emr.html#EMR.Paginator.ListInstanceFleets.paginate)
+        [ListInstanceFleets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/emr.html#EMR.Paginator.ListInstanceFleets.paginate)
         """
 
 
 class ListInstanceGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.ListInstanceGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/emr.html#EMR.Paginator.ListInstanceGroups)
+    [Paginator.ListInstanceGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/emr.html#EMR.Paginator.ListInstanceGroups)
     """
 
     def paginate(
         self, ClusterId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListInstanceGroupsOutputTypeDef]:
         """
-        [ListInstanceGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/emr.html#EMR.Paginator.ListInstanceGroups.paginate)
+        [ListInstanceGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/emr.html#EMR.Paginator.ListInstanceGroups.paginate)
         """
 
 
 class ListInstancesPaginator(Boto3Paginator):
     """
-    [Paginator.ListInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/emr.html#EMR.Paginator.ListInstances)
+    [Paginator.ListInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/emr.html#EMR.Paginator.ListInstances)
     """
 
     def paginate(
@@ -149,26 +153,55 @@ class ListInstancesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListInstancesOutputTypeDef]:
         """
-        [ListInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/emr.html#EMR.Paginator.ListInstances.paginate)
+        [ListInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/emr.html#EMR.Paginator.ListInstances.paginate)
+        """
+
+
+class ListNotebookExecutionsPaginator(Boto3Paginator):
+    """
+    [Paginator.ListNotebookExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/emr.html#EMR.Paginator.ListNotebookExecutions)
+    """
+
+    def paginate(
+        self,
+        EditorId: str = None,
+        Status: Literal[
+            "START_PENDING",
+            "STARTING",
+            "RUNNING",
+            "FINISHING",
+            "FINISHED",
+            "FAILING",
+            "FAILED",
+            "STOP_PENDING",
+            "STOPPING",
+            "STOPPED",
+        ] = None,
+        From: datetime = None,
+        To: datetime = None,
+        PaginationConfig: PaginatorConfigTypeDef = None,
+    ) -> Iterator[ListNotebookExecutionsOutputTypeDef]:
+        """
+        [ListNotebookExecutions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/emr.html#EMR.Paginator.ListNotebookExecutions.paginate)
         """
 
 
 class ListSecurityConfigurationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListSecurityConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/emr.html#EMR.Paginator.ListSecurityConfigurations)
+    [Paginator.ListSecurityConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/emr.html#EMR.Paginator.ListSecurityConfigurations)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSecurityConfigurationsOutputTypeDef]:
         """
-        [ListSecurityConfigurations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/emr.html#EMR.Paginator.ListSecurityConfigurations.paginate)
+        [ListSecurityConfigurations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/emr.html#EMR.Paginator.ListSecurityConfigurations.paginate)
         """
 
 
 class ListStepsPaginator(Boto3Paginator):
     """
-    [Paginator.ListSteps documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/emr.html#EMR.Paginator.ListSteps)
+    [Paginator.ListSteps documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/emr.html#EMR.Paginator.ListSteps)
     """
 
     def paginate(
@@ -189,5 +222,5 @@ class ListStepsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListStepsOutputTypeDef]:
         """
-        [ListSteps.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/emr.html#EMR.Paginator.ListSteps.paginate)
+        [ListSteps.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/emr.html#EMR.Paginator.ListSteps.paginate)
         """

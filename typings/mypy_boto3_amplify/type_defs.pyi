@@ -17,7 +17,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -104,6 +103,7 @@ _OptionalAppTypeDef = TypedDict(
         "customRules": List["CustomRuleTypeDef"],
         "productionBranch": "ProductionBranchTypeDef",
         "buildSpec": str,
+        "customHeaders": str,
         "enableAutoBranchCreation": bool,
         "autoBranchCreationPatterns": List[str],
         "autoBranchCreationConfig": "AutoBranchCreationConfigTypeDef",
@@ -127,6 +127,7 @@ AutoBranchCreationConfigTypeDef = TypedDict(
         "environmentVariables": Dict[str, str],
         "basicAuthCredentials": str,
         "enableBasicAuth": bool,
+        "enablePerformanceMode": bool,
         "buildSpec": str,
         "enablePullRequestPreview": bool,
         "pullRequestEnvironmentName": str,
@@ -182,6 +183,7 @@ _OptionalBranchTypeDef = TypedDict(
     "_OptionalBranchTypeDef",
     {
         "tags": Dict[str, str],
+        "enablePerformanceMode": bool,
         "thumbnailUrl": str,
         "basicAuthCredentials": str,
         "buildSpec": str,

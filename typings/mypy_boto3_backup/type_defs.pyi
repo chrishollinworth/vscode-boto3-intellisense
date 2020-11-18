@@ -4,20 +4,19 @@ Main interface for backup service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_backup.type_defs import BackupJobTypeDef
+    from mypy_boto3_backup.type_defs import AdvancedBackupSettingTypeDef
 
-    data: BackupJobTypeDef = {...}
+    data: AdvancedBackupSettingTypeDef = {...}
     ```
 """
 import sys
 from datetime import datetime
-from typing import Dict, List
+from typing import Any, Dict, List
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -25,6 +24,7 @@ else:
 
 
 __all__ = (
+    "AdvancedBackupSettingTypeDef",
     "BackupJobTypeDef",
     "BackupPlanTemplatesListMemberTypeDef",
     "BackupPlanTypeDef",
@@ -43,6 +43,7 @@ __all__ = (
     "RecoveryPointByBackupVaultTypeDef",
     "RecoveryPointByResourceTypeDef",
     "RecoveryPointCreatorTypeDef",
+    "ResponseMetadata",
     "RestoreJobsListMemberTypeDef",
     "BackupPlanInputTypeDef",
     "CreateBackupPlanOutputTypeDef",
@@ -84,6 +85,12 @@ __all__ = (
     "UpdateRecoveryPointLifecycleOutputTypeDef",
 )
 
+AdvancedBackupSettingTypeDef = TypedDict(
+    "AdvancedBackupSettingTypeDef",
+    {"ResourceType": str, "BackupOptions": Dict[str, str]},
+    total=False,
+)
+
 BackupJobTypeDef = TypedDict(
     "BackupJobTypeDef",
     {
@@ -107,6 +114,8 @@ BackupJobTypeDef = TypedDict(
         "StartBy": datetime,
         "ResourceType": str,
         "BytesTransferred": int,
+        "BackupOptions": Dict[str, str],
+        "BackupType": str,
     },
     total=False,
 )
@@ -117,9 +126,19 @@ BackupPlanTemplatesListMemberTypeDef = TypedDict(
     total=False,
 )
 
-BackupPlanTypeDef = TypedDict(
-    "BackupPlanTypeDef", {"BackupPlanName": str, "Rules": List["BackupRuleTypeDef"]}
+_RequiredBackupPlanTypeDef = TypedDict(
+    "_RequiredBackupPlanTypeDef", {"BackupPlanName": str, "Rules": List["BackupRuleTypeDef"]}
 )
+_OptionalBackupPlanTypeDef = TypedDict(
+    "_OptionalBackupPlanTypeDef",
+    {"AdvancedBackupSettings": List["AdvancedBackupSettingTypeDef"]},
+    total=False,
+)
+
+
+class BackupPlanTypeDef(_RequiredBackupPlanTypeDef, _OptionalBackupPlanTypeDef):
+    pass
+
 
 BackupPlansListMemberTypeDef = TypedDict(
     "BackupPlansListMemberTypeDef",
@@ -132,6 +151,7 @@ BackupPlansListMemberTypeDef = TypedDict(
         "BackupPlanName": str,
         "CreatorRequestId": str,
         "LastExecutionDate": datetime,
+        "AdvancedBackupSettings": List["AdvancedBackupSettingTypeDef"],
     },
     total=False,
 )
@@ -316,6 +336,17 @@ RecoveryPointCreatorTypeDef = TypedDict(
     total=False,
 )
 
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
+
 RestoreJobsListMemberTypeDef = TypedDict(
     "RestoreJobsListMemberTypeDef",
     {
@@ -336,31 +367,65 @@ RestoreJobsListMemberTypeDef = TypedDict(
     total=False,
 )
 
-BackupPlanInputTypeDef = TypedDict(
-    "BackupPlanInputTypeDef", {"BackupPlanName": str, "Rules": List["BackupRuleInputTypeDef"]}
+_RequiredBackupPlanInputTypeDef = TypedDict(
+    "_RequiredBackupPlanInputTypeDef",
+    {"BackupPlanName": str, "Rules": List["BackupRuleInputTypeDef"]},
 )
+_OptionalBackupPlanInputTypeDef = TypedDict(
+    "_OptionalBackupPlanInputTypeDef",
+    {"AdvancedBackupSettings": List["AdvancedBackupSettingTypeDef"]},
+    total=False,
+)
+
+
+class BackupPlanInputTypeDef(_RequiredBackupPlanInputTypeDef, _OptionalBackupPlanInputTypeDef):
+    pass
+
 
 CreateBackupPlanOutputTypeDef = TypedDict(
     "CreateBackupPlanOutputTypeDef",
-    {"BackupPlanId": str, "BackupPlanArn": str, "CreationDate": datetime, "VersionId": str},
+    {
+        "BackupPlanId": str,
+        "BackupPlanArn": str,
+        "CreationDate": datetime,
+        "VersionId": str,
+        "AdvancedBackupSettings": List["AdvancedBackupSettingTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 CreateBackupSelectionOutputTypeDef = TypedDict(
     "CreateBackupSelectionOutputTypeDef",
-    {"SelectionId": str, "BackupPlanId": str, "CreationDate": datetime},
+    {
+        "SelectionId": str,
+        "BackupPlanId": str,
+        "CreationDate": datetime,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 CreateBackupVaultOutputTypeDef = TypedDict(
     "CreateBackupVaultOutputTypeDef",
-    {"BackupVaultName": str, "BackupVaultArn": str, "CreationDate": datetime},
+    {
+        "BackupVaultName": str,
+        "BackupVaultArn": str,
+        "CreationDate": datetime,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 DeleteBackupPlanOutputTypeDef = TypedDict(
     "DeleteBackupPlanOutputTypeDef",
-    {"BackupPlanId": str, "BackupPlanArn": str, "DeletionDate": datetime, "VersionId": str},
+    {
+        "BackupPlanId": str,
+        "BackupPlanArn": str,
+        "DeletionDate": datetime,
+        "VersionId": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -387,6 +452,9 @@ DescribeBackupJobOutputTypeDef = TypedDict(
         "BytesTransferred": int,
         "ExpectedCompletionDate": datetime,
         "StartBy": datetime,
+        "BackupOptions": Dict[str, str],
+        "BackupType": str,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -400,17 +468,25 @@ DescribeBackupVaultOutputTypeDef = TypedDict(
         "CreationDate": datetime,
         "CreatorRequestId": str,
         "NumberOfRecoveryPoints": int,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
 DescribeCopyJobOutputTypeDef = TypedDict(
-    "DescribeCopyJobOutputTypeDef", {"CopyJob": "CopyJobTypeDef"}, total=False
+    "DescribeCopyJobOutputTypeDef",
+    {"CopyJob": "CopyJobTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 DescribeProtectedResourceOutputTypeDef = TypedDict(
     "DescribeProtectedResourceOutputTypeDef",
-    {"ResourceArn": str, "ResourceType": str, "LastBackupTime": datetime},
+    {
+        "ResourceArn": str,
+        "ResourceType": str,
+        "LastBackupTime": datetime,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -434,13 +510,14 @@ DescribeRecoveryPointOutputTypeDef = TypedDict(
         "IsEncrypted": bool,
         "StorageClass": Literal["WARM", "COLD", "DELETED"],
         "LastRestoreTime": datetime,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
 DescribeRegionSettingsOutputTypeDef = TypedDict(
     "DescribeRegionSettingsOutputTypeDef",
-    {"ResourceTypeOptInPreference": Dict[str, bool]},
+    {"ResourceTypeOptInPreference": Dict[str, bool], "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
@@ -460,21 +537,26 @@ DescribeRestoreJobOutputTypeDef = TypedDict(
         "ExpectedCompletionTimeMinutes": int,
         "CreatedResourceArn": str,
         "ResourceType": str,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
 ExportBackupPlanTemplateOutputTypeDef = TypedDict(
-    "ExportBackupPlanTemplateOutputTypeDef", {"BackupPlanTemplateJson": str}, total=False
+    "ExportBackupPlanTemplateOutputTypeDef",
+    {"BackupPlanTemplateJson": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 GetBackupPlanFromJSONOutputTypeDef = TypedDict(
-    "GetBackupPlanFromJSONOutputTypeDef", {"BackupPlan": "BackupPlanTypeDef"}, total=False
+    "GetBackupPlanFromJSONOutputTypeDef",
+    {"BackupPlan": "BackupPlanTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 GetBackupPlanFromTemplateOutputTypeDef = TypedDict(
     "GetBackupPlanFromTemplateOutputTypeDef",
-    {"BackupPlanDocument": "BackupPlanTypeDef"},
+    {"BackupPlanDocument": "BackupPlanTypeDef", "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
@@ -489,6 +571,8 @@ GetBackupPlanOutputTypeDef = TypedDict(
         "CreationDate": datetime,
         "DeletionDate": datetime,
         "LastExecutionDate": datetime,
+        "AdvancedBackupSettings": List["AdvancedBackupSettingTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -501,13 +585,19 @@ GetBackupSelectionOutputTypeDef = TypedDict(
         "BackupPlanId": str,
         "CreationDate": datetime,
         "CreatorRequestId": str,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
 GetBackupVaultAccessPolicyOutputTypeDef = TypedDict(
     "GetBackupVaultAccessPolicyOutputTypeDef",
-    {"BackupVaultName": str, "BackupVaultArn": str, "Policy": str},
+    {
+        "BackupVaultName": str,
+        "BackupVaultArn": str,
+        "Policy": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -536,105 +626,173 @@ GetBackupVaultNotificationsOutputTypeDef = TypedDict(
                 "BACKUP_PLAN_MODIFIED",
             ]
         ],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
 GetRecoveryPointRestoreMetadataOutputTypeDef = TypedDict(
     "GetRecoveryPointRestoreMetadataOutputTypeDef",
-    {"BackupVaultArn": str, "RecoveryPointArn": str, "RestoreMetadata": Dict[str, str]},
+    {
+        "BackupVaultArn": str,
+        "RecoveryPointArn": str,
+        "RestoreMetadata": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 GetSupportedResourceTypesOutputTypeDef = TypedDict(
-    "GetSupportedResourceTypesOutputTypeDef", {"ResourceTypes": List[str]}, total=False
+    "GetSupportedResourceTypesOutputTypeDef",
+    {"ResourceTypes": List[str], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ListBackupJobsOutputTypeDef = TypedDict(
     "ListBackupJobsOutputTypeDef",
-    {"BackupJobs": List["BackupJobTypeDef"], "NextToken": str},
+    {
+        "BackupJobs": List["BackupJobTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListBackupPlanTemplatesOutputTypeDef = TypedDict(
     "ListBackupPlanTemplatesOutputTypeDef",
-    {"NextToken": str, "BackupPlanTemplatesList": List["BackupPlanTemplatesListMemberTypeDef"]},
+    {
+        "NextToken": str,
+        "BackupPlanTemplatesList": List["BackupPlanTemplatesListMemberTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListBackupPlanVersionsOutputTypeDef = TypedDict(
     "ListBackupPlanVersionsOutputTypeDef",
-    {"NextToken": str, "BackupPlanVersionsList": List["BackupPlansListMemberTypeDef"]},
+    {
+        "NextToken": str,
+        "BackupPlanVersionsList": List["BackupPlansListMemberTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListBackupPlansOutputTypeDef = TypedDict(
     "ListBackupPlansOutputTypeDef",
-    {"NextToken": str, "BackupPlansList": List["BackupPlansListMemberTypeDef"]},
+    {
+        "NextToken": str,
+        "BackupPlansList": List["BackupPlansListMemberTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListBackupSelectionsOutputTypeDef = TypedDict(
     "ListBackupSelectionsOutputTypeDef",
-    {"NextToken": str, "BackupSelectionsList": List["BackupSelectionsListMemberTypeDef"]},
+    {
+        "NextToken": str,
+        "BackupSelectionsList": List["BackupSelectionsListMemberTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListBackupVaultsOutputTypeDef = TypedDict(
     "ListBackupVaultsOutputTypeDef",
-    {"BackupVaultList": List["BackupVaultListMemberTypeDef"], "NextToken": str},
+    {
+        "BackupVaultList": List["BackupVaultListMemberTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListCopyJobsOutputTypeDef = TypedDict(
-    "ListCopyJobsOutputTypeDef", {"CopyJobs": List["CopyJobTypeDef"], "NextToken": str}, total=False
+    "ListCopyJobsOutputTypeDef",
+    {"CopyJobs": List["CopyJobTypeDef"], "NextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ListProtectedResourcesOutputTypeDef = TypedDict(
     "ListProtectedResourcesOutputTypeDef",
-    {"Results": List["ProtectedResourceTypeDef"], "NextToken": str},
+    {
+        "Results": List["ProtectedResourceTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListRecoveryPointsByBackupVaultOutputTypeDef = TypedDict(
     "ListRecoveryPointsByBackupVaultOutputTypeDef",
-    {"NextToken": str, "RecoveryPoints": List["RecoveryPointByBackupVaultTypeDef"]},
+    {
+        "NextToken": str,
+        "RecoveryPoints": List["RecoveryPointByBackupVaultTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListRecoveryPointsByResourceOutputTypeDef = TypedDict(
     "ListRecoveryPointsByResourceOutputTypeDef",
-    {"NextToken": str, "RecoveryPoints": List["RecoveryPointByResourceTypeDef"]},
+    {
+        "NextToken": str,
+        "RecoveryPoints": List["RecoveryPointByResourceTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListRestoreJobsOutputTypeDef = TypedDict(
     "ListRestoreJobsOutputTypeDef",
-    {"RestoreJobs": List["RestoreJobsListMemberTypeDef"], "NextToken": str},
+    {
+        "RestoreJobs": List["RestoreJobsListMemberTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListTagsOutputTypeDef = TypedDict(
-    "ListTagsOutputTypeDef", {"NextToken": str, "Tags": Dict[str, str]}, total=False
+    "ListTagsOutputTypeDef",
+    {"NextToken": str, "Tags": Dict[str, str], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 StartBackupJobOutputTypeDef = TypedDict(
     "StartBackupJobOutputTypeDef",
-    {"BackupJobId": str, "RecoveryPointArn": str, "CreationDate": datetime},
+    {
+        "BackupJobId": str,
+        "RecoveryPointArn": str,
+        "CreationDate": datetime,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 StartCopyJobOutputTypeDef = TypedDict(
-    "StartCopyJobOutputTypeDef", {"CopyJobId": str, "CreationDate": datetime}, total=False
+    "StartCopyJobOutputTypeDef",
+    {"CopyJobId": str, "CreationDate": datetime, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 StartRestoreJobOutputTypeDef = TypedDict(
-    "StartRestoreJobOutputTypeDef", {"RestoreJobId": str}, total=False
+    "StartRestoreJobOutputTypeDef",
+    {"RestoreJobId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 UpdateBackupPlanOutputTypeDef = TypedDict(
     "UpdateBackupPlanOutputTypeDef",
-    {"BackupPlanId": str, "BackupPlanArn": str, "CreationDate": datetime, "VersionId": str},
+    {
+        "BackupPlanId": str,
+        "BackupPlanArn": str,
+        "CreationDate": datetime,
+        "VersionId": str,
+        "AdvancedBackupSettings": List["AdvancedBackupSettingTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -645,6 +803,7 @@ UpdateRecoveryPointLifecycleOutputTypeDef = TypedDict(
         "RecoveryPointArn": str,
         "Lifecycle": "LifecycleTypeDef",
         "CalculatedLifecycle": "CalculatedLifecycleTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )

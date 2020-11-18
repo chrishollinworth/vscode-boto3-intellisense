@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Dict, List
+from typing import Any, Dict, List
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -46,6 +45,7 @@ __all__ = (
     "PortMappingTypeDef",
     "ProgressDetailTypeDef",
     "RenderingEngineTypeDef",
+    "ResponseMetadata",
     "RobotApplicationConfigTypeDef",
     "RobotApplicationSummaryTypeDef",
     "RobotDeploymentTypeDef",
@@ -347,6 +347,17 @@ RenderingEngineTypeDef = TypedDict(
     "RenderingEngineTypeDef", {"name": Literal["OGRE"], "version": str}, total=False
 )
 
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
+
 _RequiredRobotApplicationConfigTypeDef = TypedDict(
     "_RequiredRobotApplicationConfigTypeDef",
     {"application": str, "launchConfig": "LaunchConfigTypeDef"},
@@ -447,7 +458,11 @@ RobotTypeDef = TypedDict(
     total=False,
 )
 
-S3KeyOutputTypeDef = TypedDict("S3KeyOutputTypeDef", {"s3Key": str, "etag": str}, total=False)
+S3KeyOutputTypeDef = TypedDict(
+    "S3KeyOutputTypeDef",
+    {"s3Key": str, "etag": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
 
 _RequiredS3ObjectTypeDef = TypedDict("_RequiredS3ObjectTypeDef", {"bucket": str, "key": str})
 _OptionalS3ObjectTypeDef = TypedDict("_OptionalS3ObjectTypeDef", {"etag": str}, total=False)
@@ -960,6 +975,7 @@ CreateWorldGenerationJobResponseTypeDef = TypedDict(
         "template": str,
         "worldCount": "WorldCountTypeDef",
         "tags": Dict[str, str],
+        "worldTags": Dict[str, str],
     },
     total=False,
 )
@@ -1234,6 +1250,7 @@ DescribeWorldGenerationJobResponseTypeDef = TypedDict(
         "worldCount": "WorldCountTypeDef",
         "finishedWorldsSummary": "FinishedWorldsSummaryTypeDef",
         "tags": Dict[str, str],
+        "worldTags": Dict[str, str],
     },
     total=False,
 )

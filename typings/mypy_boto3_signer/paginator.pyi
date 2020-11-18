@@ -48,7 +48,7 @@ __all__ = (
 
 class ListSigningJobsPaginator(Boto3Paginator):
     """
-    [Paginator.ListSigningJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/signer.html#Signer.Paginator.ListSigningJobs)
+    [Paginator.ListSigningJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/signer.html#Signer.Paginator.ListSigningJobs)
     """
 
     def paginate(
@@ -59,13 +59,13 @@ class ListSigningJobsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListSigningJobsResponseTypeDef]:
         """
-        [ListSigningJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/signer.html#Signer.Paginator.ListSigningJobs.paginate)
+        [ListSigningJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/signer.html#Signer.Paginator.ListSigningJobs.paginate)
         """
 
 
 class ListSigningPlatformsPaginator(Boto3Paginator):
     """
-    [Paginator.ListSigningPlatforms documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/signer.html#Signer.Paginator.ListSigningPlatforms)
+    [Paginator.ListSigningPlatforms documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/signer.html#Signer.Paginator.ListSigningPlatforms)
     """
 
     def paginate(
@@ -76,18 +76,18 @@ class ListSigningPlatformsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListSigningPlatformsResponseTypeDef]:
         """
-        [ListSigningPlatforms.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/signer.html#Signer.Paginator.ListSigningPlatforms.paginate)
+        [ListSigningPlatforms.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/signer.html#Signer.Paginator.ListSigningPlatforms.paginate)
         """
 
 
 class ListSigningProfilesPaginator(Boto3Paginator):
     """
-    [Paginator.ListSigningProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/signer.html#Signer.Paginator.ListSigningProfiles)
+    [Paginator.ListSigningProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/signer.html#Signer.Paginator.ListSigningProfiles)
     """
 
     def paginate(
         self, includeCanceled: bool = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSigningProfilesResponseTypeDef]:
         """
-        [ListSigningProfiles.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/signer.html#Signer.Paginator.ListSigningProfiles.paginate)
+        [ListSigningProfiles.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/signer.html#Signer.Paginator.ListSigningProfiles.paginate)
         """

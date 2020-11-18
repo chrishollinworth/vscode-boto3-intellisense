@@ -17,7 +17,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -124,7 +123,13 @@ class DescribedUserTypeDef(_RequiredDescribedUserTypeDef, _OptionalDescribedUser
 
 EndpointDetailsTypeDef = TypedDict(
     "EndpointDetailsTypeDef",
-    {"AddressAllocationIds": List[str], "SubnetIds": List[str], "VpcEndpointId": str, "VpcId": str},
+    {
+        "AddressAllocationIds": List[str],
+        "SubnetIds": List[str],
+        "VpcEndpointId": str,
+        "VpcId": str,
+        "SecurityGroupIds": List[str],
+    },
     total=False,
 )
 

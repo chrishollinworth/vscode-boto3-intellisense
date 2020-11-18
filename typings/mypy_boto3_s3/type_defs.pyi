@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import IO, Any, Dict, List
+from typing import IO, Any, Dict, List, Union
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -59,6 +58,9 @@ __all__ = (
     "IndexDocumentTypeDef",
     "InitiatorTypeDef",
     "InputSerializationTypeDef",
+    "IntelligentTieringAndOperatorTypeDef",
+    "IntelligentTieringConfigurationTypeDef",
+    "IntelligentTieringFilterTypeDef",
     "InventoryConfigurationTypeDef",
     "InventoryDestinationTypeDef",
     "InventoryEncryptionTypeDef",
@@ -92,6 +94,8 @@ __all__ = (
     "OutputLocationTypeDef",
     "OutputSerializationTypeDef",
     "OwnerTypeDef",
+    "OwnershipControlsRuleTypeDef",
+    "OwnershipControlsTypeDef",
     "PartTypeDef",
     "PolicyStatusTypeDef",
     "ProgressEventTypeDef",
@@ -108,6 +112,7 @@ __all__ = (
     "ReplicationRuleTypeDef",
     "ReplicationTimeTypeDef",
     "ReplicationTimeValueTypeDef",
+    "ResponseMetadata",
     "RoutingRuleTypeDef",
     "RuleTypeDef",
     "S3KeyFilterTypeDef",
@@ -127,6 +132,7 @@ __all__ = (
     "TagTypeDef",
     "TaggingTypeDef",
     "TargetGrantTypeDef",
+    "TieringTypeDef",
     "TopicConfigurationDeprecatedTypeDef",
     "TopicConfigurationTypeDef",
     "TransitionTypeDef",
@@ -152,12 +158,14 @@ __all__ = (
     "GetBucketAnalyticsConfigurationOutputTypeDef",
     "GetBucketCorsOutputTypeDef",
     "GetBucketEncryptionOutputTypeDef",
+    "GetBucketIntelligentTieringConfigurationOutputTypeDef",
     "GetBucketInventoryConfigurationOutputTypeDef",
     "GetBucketLifecycleConfigurationOutputTypeDef",
     "GetBucketLifecycleOutputTypeDef",
     "GetBucketLocationOutputTypeDef",
     "GetBucketLoggingOutputTypeDef",
     "GetBucketMetricsConfigurationOutputTypeDef",
+    "GetBucketOwnershipControlsOutputTypeDef",
     "GetBucketPolicyOutputTypeDef",
     "GetBucketPolicyStatusOutputTypeDef",
     "GetBucketReplicationOutputTypeDef",
@@ -176,6 +184,7 @@ __all__ = (
     "HeadObjectOutputTypeDef",
     "LifecycleConfigurationTypeDef",
     "ListBucketAnalyticsConfigurationsOutputTypeDef",
+    "ListBucketIntelligentTieringConfigurationsOutputTypeDef",
     "ListBucketInventoryConfigurationsOutputTypeDef",
     "ListBucketMetricsConfigurationsOutputTypeDef",
     "ListBucketsOutputTypeDef",
@@ -298,6 +307,7 @@ CSVOutputTypeDef = TypedDict(
         "RecordDelimiter": str,
         "FieldDelimiter": str,
         "QuoteCharacter": str,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -411,6 +421,7 @@ _OptionalDestinationTypeDef = TypedDict(
             "INTELLIGENT_TIERING",
             "GLACIER",
             "DEEP_ARCHIVE",
+            "OUTPOSTS",
         ],
         "AccessControlTranslation": "AccessControlTranslationTypeDef",
         "EncryptionConfiguration": "EncryptionConfigurationTypeDef",
@@ -497,6 +508,33 @@ InputSerializationTypeDef = TypedDict(
     total=False,
 )
 
+IntelligentTieringAndOperatorTypeDef = TypedDict(
+    "IntelligentTieringAndOperatorTypeDef", {"Prefix": str, "Tags": List["TagTypeDef"]}, total=False
+)
+
+_RequiredIntelligentTieringConfigurationTypeDef = TypedDict(
+    "_RequiredIntelligentTieringConfigurationTypeDef",
+    {"Id": str, "Status": Literal["Enabled", "Disabled"], "Tierings": List["TieringTypeDef"]},
+)
+_OptionalIntelligentTieringConfigurationTypeDef = TypedDict(
+    "_OptionalIntelligentTieringConfigurationTypeDef",
+    {"Filter": "IntelligentTieringFilterTypeDef"},
+    total=False,
+)
+
+
+class IntelligentTieringConfigurationTypeDef(
+    _RequiredIntelligentTieringConfigurationTypeDef, _OptionalIntelligentTieringConfigurationTypeDef
+):
+    pass
+
+
+IntelligentTieringFilterTypeDef = TypedDict(
+    "IntelligentTieringFilterTypeDef",
+    {"Prefix": str, "Tag": "TagTypeDef", "And": "IntelligentTieringAndOperatorTypeDef"},
+    total=False,
+)
+
 _RequiredInventoryConfigurationTypeDef = TypedDict(
     "_RequiredInventoryConfigurationTypeDef",
     {
@@ -572,7 +610,11 @@ JSONInputTypeDef = TypedDict(
     "JSONInputTypeDef", {"Type": Literal["DOCUMENT", "LINES"]}, total=False
 )
 
-JSONOutputTypeDef = TypedDict("JSONOutputTypeDef", {"RecordDelimiter": str}, total=False)
+JSONOutputTypeDef = TypedDict(
+    "JSONOutputTypeDef",
+    {"RecordDelimiter": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
 
 _RequiredLambdaFunctionConfigurationTypeDef = TypedDict(
     "_RequiredLambdaFunctionConfigurationTypeDef",
@@ -691,10 +733,17 @@ MetricsFilterTypeDef = TypedDict(
     total=False,
 )
 
-MetricsTypeDef = TypedDict(
-    "MetricsTypeDef",
-    {"Status": Literal["Enabled", "Disabled"], "EventThreshold": "ReplicationTimeValueTypeDef"},
+_RequiredMetricsTypeDef = TypedDict(
+    "_RequiredMetricsTypeDef", {"Status": Literal["Enabled", "Disabled"]}
 )
+_OptionalMetricsTypeDef = TypedDict(
+    "_OptionalMetricsTypeDef", {"EventThreshold": "ReplicationTimeValueTypeDef"}, total=False
+)
+
+
+class MetricsTypeDef(_RequiredMetricsTypeDef, _OptionalMetricsTypeDef):
+    pass
+
 
 MultipartUploadTypeDef = TypedDict(
     "MultipartUploadTypeDef",
@@ -710,6 +759,7 @@ MultipartUploadTypeDef = TypedDict(
             "INTELLIGENT_TIERING",
             "GLACIER",
             "DEEP_ARCHIVE",
+            "OUTPOSTS",
         ],
         "Owner": "OwnerTypeDef",
         "Initiator": "InitiatorTypeDef",
@@ -781,6 +831,7 @@ ObjectTypeDef = TypedDict(
             "ONEZONE_IA",
             "INTELLIGENT_TIERING",
             "DEEP_ARCHIVE",
+            "OUTPOSTS",
         ],
         "Owner": "OwnerTypeDef",
     },
@@ -811,6 +862,15 @@ OutputSerializationTypeDef = TypedDict(
 )
 
 OwnerTypeDef = TypedDict("OwnerTypeDef", {"DisplayName": str, "ID": str}, total=False)
+
+OwnershipControlsRuleTypeDef = TypedDict(
+    "OwnershipControlsRuleTypeDef",
+    {"ObjectOwnership": Literal["BucketOwnerPreferred", "ObjectWriter"]},
+)
+
+OwnershipControlsTypeDef = TypedDict(
+    "OwnershipControlsTypeDef", {"Rules": List["OwnershipControlsRuleTypeDef"]}
+)
 
 PartTypeDef = TypedDict(
     "PartTypeDef",
@@ -930,7 +990,9 @@ class QueueConfigurationTypeDef(
     pass
 
 
-RecordsEventTypeDef = TypedDict("RecordsEventTypeDef", {"Payload": bytes}, total=False)
+RecordsEventTypeDef = TypedDict(
+    "RecordsEventTypeDef", {"Payload": Union[bytes, IO[bytes]]}, total=False
+)
 
 _RequiredRedirectAllRequestsToTypeDef = TypedDict(
     "_RequiredRedirectAllRequestsToTypeDef", {"HostName": str}
@@ -1004,6 +1066,17 @@ ReplicationTimeValueTypeDef = TypedDict(
     "ReplicationTimeValueTypeDef", {"Minutes": int}, total=False
 )
 
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
+
 _RequiredRoutingRuleTypeDef = TypedDict(
     "_RequiredRoutingRuleTypeDef", {"Redirect": "RedirectTypeDef"}
 )
@@ -1068,6 +1141,7 @@ _OptionalS3LocationTypeDef = TypedDict(
             "INTELLIGENT_TIERING",
             "GLACIER",
             "DEEP_ARCHIVE",
+            "OUTPOSTS",
         ],
     },
     total=False,
@@ -1161,6 +1235,10 @@ TargetGrantTypeDef = TypedDict(
     "TargetGrantTypeDef",
     {"Grantee": "GranteeTypeDef", "Permission": Literal["FULL_CONTROL", "READ", "WRITE"]},
     total=False,
+)
+
+TieringTypeDef = TypedDict(
+    "TieringTypeDef", {"Days": int, "AccessTier": Literal["ARCHIVE_ACCESS", "DEEP_ARCHIVE_ACCESS"]}
 )
 
 TopicConfigurationDeprecatedTypeDef = TypedDict(
@@ -1265,7 +1343,9 @@ TransitionTypeDef = TypedDict(
 )
 
 AbortMultipartUploadOutputTypeDef = TypedDict(
-    "AbortMultipartUploadOutputTypeDef", {"RequestCharged": Literal["requester"]}, total=False
+    "AbortMultipartUploadOutputTypeDef",
+    {"RequestCharged": Literal["requester"], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 AccelerateConfigurationTypeDef = TypedDict(
@@ -1302,6 +1382,7 @@ CompleteMultipartUploadOutputTypeDef = TypedDict(
         "VersionId": str,
         "SSEKMSKeyId": str,
         "RequestCharged": Literal["requester"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -1323,6 +1404,7 @@ CopyObjectOutputTypeDef = TypedDict(
         "SSEKMSKeyId": str,
         "SSEKMSEncryptionContext": str,
         "RequestCharged": Literal["requester"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -1371,7 +1453,11 @@ CreateBucketConfigurationTypeDef = TypedDict(
     total=False,
 )
 
-CreateBucketOutputTypeDef = TypedDict("CreateBucketOutputTypeDef", {"Location": str}, total=False)
+CreateBucketOutputTypeDef = TypedDict(
+    "CreateBucketOutputTypeDef",
+    {"Location": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
 
 CreateMultipartUploadOutputTypeDef = TypedDict(
     "CreateMultipartUploadOutputTypeDef",
@@ -1387,18 +1473,26 @@ CreateMultipartUploadOutputTypeDef = TypedDict(
         "SSEKMSKeyId": str,
         "SSEKMSEncryptionContext": str,
         "RequestCharged": Literal["requester"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
 DeleteObjectOutputTypeDef = TypedDict(
     "DeleteObjectOutputTypeDef",
-    {"DeleteMarker": bool, "VersionId": str, "RequestCharged": Literal["requester"]},
+    {
+        "DeleteMarker": bool,
+        "VersionId": str,
+        "RequestCharged": Literal["requester"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 DeleteObjectTaggingOutputTypeDef = TypedDict(
-    "DeleteObjectTaggingOutputTypeDef", {"VersionId": str}, total=False
+    "DeleteObjectTaggingOutputTypeDef",
+    {"VersionId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 DeleteObjectsOutputTypeDef = TypedDict(
@@ -1407,6 +1501,7 @@ DeleteObjectsOutputTypeDef = TypedDict(
         "Deleted": List["DeletedObjectTypeDef"],
         "RequestCharged": Literal["requester"],
         "Errors": List["ErrorTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -1423,46 +1518,72 @@ class DeleteTypeDef(_RequiredDeleteTypeDef, _OptionalDeleteTypeDef):
 
 GetBucketAccelerateConfigurationOutputTypeDef = TypedDict(
     "GetBucketAccelerateConfigurationOutputTypeDef",
-    {"Status": Literal["Enabled", "Suspended"]},
+    {"Status": Literal["Enabled", "Suspended"], "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 GetBucketAclOutputTypeDef = TypedDict(
     "GetBucketAclOutputTypeDef",
-    {"Owner": "OwnerTypeDef", "Grants": List["GrantTypeDef"]},
+    {
+        "Owner": "OwnerTypeDef",
+        "Grants": List["GrantTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 GetBucketAnalyticsConfigurationOutputTypeDef = TypedDict(
     "GetBucketAnalyticsConfigurationOutputTypeDef",
-    {"AnalyticsConfiguration": "AnalyticsConfigurationTypeDef"},
+    {
+        "AnalyticsConfiguration": "AnalyticsConfigurationTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 GetBucketCorsOutputTypeDef = TypedDict(
-    "GetBucketCorsOutputTypeDef", {"CORSRules": List["CORSRuleTypeDef"]}, total=False
+    "GetBucketCorsOutputTypeDef",
+    {"CORSRules": List["CORSRuleTypeDef"], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 GetBucketEncryptionOutputTypeDef = TypedDict(
     "GetBucketEncryptionOutputTypeDef",
-    {"ServerSideEncryptionConfiguration": "ServerSideEncryptionConfigurationTypeDef"},
+    {
+        "ServerSideEncryptionConfiguration": "ServerSideEncryptionConfigurationTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
+    },
+    total=False,
+)
+
+GetBucketIntelligentTieringConfigurationOutputTypeDef = TypedDict(
+    "GetBucketIntelligentTieringConfigurationOutputTypeDef",
+    {
+        "IntelligentTieringConfiguration": "IntelligentTieringConfigurationTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 GetBucketInventoryConfigurationOutputTypeDef = TypedDict(
     "GetBucketInventoryConfigurationOutputTypeDef",
-    {"InventoryConfiguration": "InventoryConfigurationTypeDef"},
+    {
+        "InventoryConfiguration": "InventoryConfigurationTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 GetBucketLifecycleConfigurationOutputTypeDef = TypedDict(
     "GetBucketLifecycleConfigurationOutputTypeDef",
-    {"Rules": List["LifecycleRuleTypeDef"]},
+    {"Rules": List["LifecycleRuleTypeDef"], "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 GetBucketLifecycleOutputTypeDef = TypedDict(
-    "GetBucketLifecycleOutputTypeDef", {"Rules": List["RuleTypeDef"]}, total=False
+    "GetBucketLifecycleOutputTypeDef",
+    {"Rules": List["RuleTypeDef"], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 GetBucketLocationOutputTypeDef = TypedDict(
@@ -1494,48 +1615,78 @@ GetBucketLocationOutputTypeDef = TypedDict(
             "us-gov-west-1",
             "us-west-1",
             "us-west-2",
-        ]
+        ],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
 GetBucketLoggingOutputTypeDef = TypedDict(
-    "GetBucketLoggingOutputTypeDef", {"LoggingEnabled": "LoggingEnabledTypeDef"}, total=False
+    "GetBucketLoggingOutputTypeDef",
+    {"LoggingEnabled": "LoggingEnabledTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 GetBucketMetricsConfigurationOutputTypeDef = TypedDict(
     "GetBucketMetricsConfigurationOutputTypeDef",
-    {"MetricsConfiguration": "MetricsConfigurationTypeDef"},
+    {"MetricsConfiguration": "MetricsConfigurationTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+GetBucketOwnershipControlsOutputTypeDef = TypedDict(
+    "GetBucketOwnershipControlsOutputTypeDef",
+    {"OwnershipControls": "OwnershipControlsTypeDef", "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 GetBucketPolicyOutputTypeDef = TypedDict(
-    "GetBucketPolicyOutputTypeDef", {"Policy": str}, total=False
+    "GetBucketPolicyOutputTypeDef",
+    {"Policy": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 GetBucketPolicyStatusOutputTypeDef = TypedDict(
-    "GetBucketPolicyStatusOutputTypeDef", {"PolicyStatus": "PolicyStatusTypeDef"}, total=False
+    "GetBucketPolicyStatusOutputTypeDef",
+    {"PolicyStatus": "PolicyStatusTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 GetBucketReplicationOutputTypeDef = TypedDict(
     "GetBucketReplicationOutputTypeDef",
-    {"ReplicationConfiguration": "ReplicationConfigurationTypeDef"},
+    {
+        "ReplicationConfiguration": "ReplicationConfigurationTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 GetBucketRequestPaymentOutputTypeDef = TypedDict(
     "GetBucketRequestPaymentOutputTypeDef",
-    {"Payer": Literal["Requester", "BucketOwner"]},
+    {"Payer": Literal["Requester", "BucketOwner"], "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
-GetBucketTaggingOutputTypeDef = TypedDict(
-    "GetBucketTaggingOutputTypeDef", {"TagSet": List["TagTypeDef"]}
+_RequiredGetBucketTaggingOutputTypeDef = TypedDict(
+    "_RequiredGetBucketTaggingOutputTypeDef", {"TagSet": List["TagTypeDef"]}
 )
+_OptionalGetBucketTaggingOutputTypeDef = TypedDict(
+    "_OptionalGetBucketTaggingOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
+)
+
+
+class GetBucketTaggingOutputTypeDef(
+    _RequiredGetBucketTaggingOutputTypeDef, _OptionalGetBucketTaggingOutputTypeDef
+):
+    pass
+
 
 GetBucketVersioningOutputTypeDef = TypedDict(
     "GetBucketVersioningOutputTypeDef",
-    {"Status": Literal["Enabled", "Suspended"], "MFADelete": Literal["Enabled", "Disabled"]},
+    {
+        "Status": Literal["Enabled", "Suspended"],
+        "MFADelete": Literal["Enabled", "Disabled"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -1546,6 +1697,7 @@ GetBucketWebsiteOutputTypeDef = TypedDict(
         "IndexDocument": "IndexDocumentTypeDef",
         "ErrorDocument": "ErrorDocumentTypeDef",
         "RoutingRules": List["RoutingRuleTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -1556,17 +1708,23 @@ GetObjectAclOutputTypeDef = TypedDict(
         "Owner": "OwnerTypeDef",
         "Grants": List["GrantTypeDef"],
         "RequestCharged": Literal["requester"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
 GetObjectLegalHoldOutputTypeDef = TypedDict(
-    "GetObjectLegalHoldOutputTypeDef", {"LegalHold": "ObjectLockLegalHoldTypeDef"}, total=False
+    "GetObjectLegalHoldOutputTypeDef",
+    {"LegalHold": "ObjectLockLegalHoldTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 GetObjectLockConfigurationOutputTypeDef = TypedDict(
     "GetObjectLockConfigurationOutputTypeDef",
-    {"ObjectLockConfiguration": "ObjectLockConfigurationTypeDef"},
+    {
+        "ObjectLockConfiguration": "ObjectLockConfigurationTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -1604,6 +1762,7 @@ GetObjectOutputTypeDef = TypedDict(
             "INTELLIGENT_TIERING",
             "GLACIER",
             "DEEP_ARCHIVE",
+            "OUTPOSTS",
         ],
         "RequestCharged": Literal["requester"],
         "ReplicationStatus": Literal["COMPLETE", "PENDING", "FAILED", "REPLICA"],
@@ -1612,19 +1771,24 @@ GetObjectOutputTypeDef = TypedDict(
         "ObjectLockMode": Literal["GOVERNANCE", "COMPLIANCE"],
         "ObjectLockRetainUntilDate": datetime,
         "ObjectLockLegalHoldStatus": Literal["ON", "OFF"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
 GetObjectRetentionOutputTypeDef = TypedDict(
-    "GetObjectRetentionOutputTypeDef", {"Retention": "ObjectLockRetentionTypeDef"}, total=False
+    "GetObjectRetentionOutputTypeDef",
+    {"Retention": "ObjectLockRetentionTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 _RequiredGetObjectTaggingOutputTypeDef = TypedDict(
     "_RequiredGetObjectTaggingOutputTypeDef", {"TagSet": List["TagTypeDef"]}
 )
 _OptionalGetObjectTaggingOutputTypeDef = TypedDict(
-    "_OptionalGetObjectTaggingOutputTypeDef", {"VersionId": str}, total=False
+    "_OptionalGetObjectTaggingOutputTypeDef",
+    {"VersionId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 
@@ -1636,13 +1800,20 @@ class GetObjectTaggingOutputTypeDef(
 
 GetObjectTorrentOutputTypeDef = TypedDict(
     "GetObjectTorrentOutputTypeDef",
-    {"Body": IO[bytes], "RequestCharged": Literal["requester"]},
+    {
+        "Body": IO[bytes],
+        "RequestCharged": Literal["requester"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 GetPublicAccessBlockOutputTypeDef = TypedDict(
     "GetPublicAccessBlockOutputTypeDef",
-    {"PublicAccessBlockConfiguration": "PublicAccessBlockConfigurationTypeDef"},
+    {
+        "PublicAccessBlockConfiguration": "PublicAccessBlockConfigurationTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -1653,6 +1824,7 @@ HeadObjectOutputTypeDef = TypedDict(
         "AcceptRanges": str,
         "Expiration": str,
         "Restore": str,
+        "ArchiveStatus": Literal["ARCHIVE_ACCESS", "DEEP_ARCHIVE_ACCESS"],
         "LastModified": datetime,
         "ContentLength": int,
         "ETag": str,
@@ -1678,6 +1850,7 @@ HeadObjectOutputTypeDef = TypedDict(
             "INTELLIGENT_TIERING",
             "GLACIER",
             "DEEP_ARCHIVE",
+            "OUTPOSTS",
         ],
         "RequestCharged": Literal["requester"],
         "ReplicationStatus": Literal["COMPLETE", "PENDING", "FAILED", "REPLICA"],
@@ -1685,6 +1858,7 @@ HeadObjectOutputTypeDef = TypedDict(
         "ObjectLockMode": Literal["GOVERNANCE", "COMPLIANCE"],
         "ObjectLockRetainUntilDate": datetime,
         "ObjectLockLegalHoldStatus": Literal["ON", "OFF"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -1700,6 +1874,19 @@ ListBucketAnalyticsConfigurationsOutputTypeDef = TypedDict(
         "ContinuationToken": str,
         "NextContinuationToken": str,
         "AnalyticsConfigurationList": List["AnalyticsConfigurationTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
+    total=False,
+)
+
+ListBucketIntelligentTieringConfigurationsOutputTypeDef = TypedDict(
+    "ListBucketIntelligentTieringConfigurationsOutputTypeDef",
+    {
+        "IsTruncated": bool,
+        "ContinuationToken": str,
+        "NextContinuationToken": str,
+        "IntelligentTieringConfigurationList": List["IntelligentTieringConfigurationTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -1711,6 +1898,7 @@ ListBucketInventoryConfigurationsOutputTypeDef = TypedDict(
         "InventoryConfigurationList": List["InventoryConfigurationTypeDef"],
         "IsTruncated": bool,
         "NextContinuationToken": str,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -1722,13 +1910,18 @@ ListBucketMetricsConfigurationsOutputTypeDef = TypedDict(
         "ContinuationToken": str,
         "NextContinuationToken": str,
         "MetricsConfigurationList": List["MetricsConfigurationTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
 ListBucketsOutputTypeDef = TypedDict(
     "ListBucketsOutputTypeDef",
-    {"Buckets": List["BucketTypeDef"], "Owner": "OwnerTypeDef"},
+    {
+        "Buckets": List["BucketTypeDef"],
+        "Owner": "OwnerTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -1747,6 +1940,7 @@ ListMultipartUploadsOutputTypeDef = TypedDict(
         "Uploads": List["MultipartUploadTypeDef"],
         "CommonPrefixes": List["CommonPrefixTypeDef"],
         "EncodingType": Literal["url"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -1767,6 +1961,7 @@ ListObjectVersionsOutputTypeDef = TypedDict(
         "MaxKeys": int,
         "CommonPrefixes": List["CommonPrefixTypeDef"],
         "EncodingType": Literal["url"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -1784,6 +1979,7 @@ ListObjectsOutputTypeDef = TypedDict(
         "MaxKeys": int,
         "CommonPrefixes": List["CommonPrefixTypeDef"],
         "EncodingType": Literal["url"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -1803,6 +1999,7 @@ ListObjectsV2OutputTypeDef = TypedDict(
         "ContinuationToken": str,
         "NextContinuationToken": str,
         "StartAfter": str,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -1830,8 +2027,10 @@ ListPartsOutputTypeDef = TypedDict(
             "INTELLIGENT_TIERING",
             "GLACIER",
             "DEEP_ARCHIVE",
+            "OUTPOSTS",
         ],
         "RequestCharged": Literal["requester"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -1861,15 +2060,21 @@ PaginatorConfigTypeDef = TypedDict(
 )
 
 PutObjectAclOutputTypeDef = TypedDict(
-    "PutObjectAclOutputTypeDef", {"RequestCharged": Literal["requester"]}, total=False
+    "PutObjectAclOutputTypeDef",
+    {"RequestCharged": Literal["requester"], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 PutObjectLegalHoldOutputTypeDef = TypedDict(
-    "PutObjectLegalHoldOutputTypeDef", {"RequestCharged": Literal["requester"]}, total=False
+    "PutObjectLegalHoldOutputTypeDef",
+    {"RequestCharged": Literal["requester"], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 PutObjectLockConfigurationOutputTypeDef = TypedDict(
-    "PutObjectLockConfigurationOutputTypeDef", {"RequestCharged": Literal["requester"]}, total=False
+    "PutObjectLockConfigurationOutputTypeDef",
+    {"RequestCharged": Literal["requester"], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 PutObjectOutputTypeDef = TypedDict(
@@ -1884,16 +2089,21 @@ PutObjectOutputTypeDef = TypedDict(
         "SSEKMSKeyId": str,
         "SSEKMSEncryptionContext": str,
         "RequestCharged": Literal["requester"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
 PutObjectRetentionOutputTypeDef = TypedDict(
-    "PutObjectRetentionOutputTypeDef", {"RequestCharged": Literal["requester"]}, total=False
+    "PutObjectRetentionOutputTypeDef",
+    {"RequestCharged": Literal["requester"], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 PutObjectTaggingOutputTypeDef = TypedDict(
-    "PutObjectTaggingOutputTypeDef", {"VersionId": str}, total=False
+    "PutObjectTaggingOutputTypeDef",
+    {"VersionId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 RequestPaymentConfigurationTypeDef = TypedDict(
@@ -1904,7 +2114,11 @@ RequestProgressTypeDef = TypedDict("RequestProgressTypeDef", {"Enabled": bool}, 
 
 RestoreObjectOutputTypeDef = TypedDict(
     "RestoreObjectOutputTypeDef",
-    {"RequestCharged": Literal["requester"], "RestoreOutputPath": str},
+    {
+        "RequestCharged": Literal["requester"],
+        "RestoreOutputPath": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -1926,7 +2140,7 @@ ScanRangeTypeDef = TypedDict("ScanRangeTypeDef", {"Start": int, "End": int}, tot
 
 SelectObjectContentOutputTypeDef = TypedDict(
     "SelectObjectContentOutputTypeDef",
-    {"Payload": "SelectObjectContentEventStreamTypeDef"},
+    {"Payload": "SelectObjectContentEventStreamTypeDef", "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
@@ -1940,6 +2154,7 @@ UploadPartCopyOutputTypeDef = TypedDict(
         "SSECustomerKeyMD5": str,
         "SSEKMSKeyId": str,
         "RequestCharged": Literal["requester"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -1953,6 +2168,7 @@ UploadPartOutputTypeDef = TypedDict(
         "SSECustomerKeyMD5": str,
         "SSEKMSKeyId": str,
         "RequestCharged": Literal["requester"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )

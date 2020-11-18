@@ -15,6 +15,7 @@ Usage::
         GetDevEndpointsPaginator,
         GetJobRunsPaginator,
         GetJobsPaginator,
+        GetPartitionIndexesPaginator,
         GetPartitionsPaginator,
         GetSecurityConfigurationsPaginator,
         GetTableVersionsPaginator,
@@ -37,6 +38,7 @@ Usage::
     get_dev_endpoints_paginator: GetDevEndpointsPaginator = client.get_paginator("get_dev_endpoints")
     get_job_runs_paginator: GetJobRunsPaginator = client.get_paginator("get_job_runs")
     get_jobs_paginator: GetJobsPaginator = client.get_paginator("get_jobs")
+    get_partition_indexes_paginator: GetPartitionIndexesPaginator = client.get_paginator("get_partition_indexes")
     get_partitions_paginator: GetPartitionsPaginator = client.get_paginator("get_partitions")
     get_security_configurations_paginator: GetSecurityConfigurationsPaginator = client.get_paginator("get_security_configurations")
     get_table_versions_paginator: GetTableVersionsPaginator = client.get_paginator("get_table_versions")
@@ -55,6 +57,7 @@ from mypy_boto3_glue.paginator import (
     GetDevEndpointsPaginator,
     GetJobRunsPaginator,
     GetJobsPaginator,
+    GetPartitionIndexesPaginator,
     GetPartitionsPaginator,
     GetSecurityConfigurationsPaginator,
     GetTablesPaginator,
@@ -76,6 +79,7 @@ __all__ = (
     "GetDevEndpointsPaginator",
     "GetJobRunsPaginator",
     "GetJobsPaginator",
+    "GetPartitionIndexesPaginator",
     "GetPartitionsPaginator",
     "GetSecurityConfigurationsPaginator",
     "GetTableVersionsPaginator",

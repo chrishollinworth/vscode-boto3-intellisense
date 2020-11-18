@@ -14,6 +14,7 @@ Usage::
         ListFileSharesPaginator,
         ListGatewaysPaginator,
         ListTagsForResourcePaginator,
+        ListTapePoolsPaginator,
         ListTapesPaginator,
         ListVolumesPaginator,
         StorageGatewayClient,
@@ -31,6 +32,7 @@ Usage::
     list_file_shares_paginator: ListFileSharesPaginator = client.get_paginator("list_file_shares")
     list_gateways_paginator: ListGatewaysPaginator = client.get_paginator("list_gateways")
     list_tags_for_resource_paginator: ListTagsForResourcePaginator = client.get_paginator("list_tags_for_resource")
+    list_tape_pools_paginator: ListTapePoolsPaginator = client.get_paginator("list_tape_pools")
     list_tapes_paginator: ListTapesPaginator = client.get_paginator("list_tapes")
     list_volumes_paginator: ListVolumesPaginator = client.get_paginator("list_volumes")
     ```
@@ -44,6 +46,7 @@ from mypy_boto3_storagegateway.paginator import (
     ListFileSharesPaginator,
     ListGatewaysPaginator,
     ListTagsForResourcePaginator,
+    ListTapePoolsPaginator,
     ListTapesPaginator,
     ListVolumesPaginator,
 )
@@ -60,6 +63,7 @@ __all__ = (
     "ListFileSharesPaginator",
     "ListGatewaysPaginator",
     "ListTagsForResourcePaginator",
+    "ListTapePoolsPaginator",
     "ListTapesPaginator",
     "ListVolumesPaginator",
     "StorageGatewayClient",

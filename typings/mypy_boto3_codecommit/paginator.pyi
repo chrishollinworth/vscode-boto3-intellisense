@@ -64,7 +64,7 @@ __all__ = (
 
 class DescribePullRequestEventsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribePullRequestEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Paginator.DescribePullRequestEvents)
+    [Paginator.DescribePullRequestEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Paginator.DescribePullRequestEvents)
     """
 
     def paginate(
@@ -85,13 +85,13 @@ class DescribePullRequestEventsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribePullRequestEventsOutputTypeDef]:
         """
-        [DescribePullRequestEvents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Paginator.DescribePullRequestEvents.paginate)
+        [DescribePullRequestEvents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Paginator.DescribePullRequestEvents.paginate)
         """
 
 
 class GetCommentsForComparedCommitPaginator(Boto3Paginator):
     """
-    [Paginator.GetCommentsForComparedCommit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Paginator.GetCommentsForComparedCommit)
+    [Paginator.GetCommentsForComparedCommit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Paginator.GetCommentsForComparedCommit)
     """
 
     def paginate(
@@ -102,13 +102,13 @@ class GetCommentsForComparedCommitPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetCommentsForComparedCommitOutputTypeDef]:
         """
-        [GetCommentsForComparedCommit.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Paginator.GetCommentsForComparedCommit.paginate)
+        [GetCommentsForComparedCommit.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Paginator.GetCommentsForComparedCommit.paginate)
         """
 
 
 class GetCommentsForPullRequestPaginator(Boto3Paginator):
     """
-    [Paginator.GetCommentsForPullRequest documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Paginator.GetCommentsForPullRequest)
+    [Paginator.GetCommentsForPullRequest documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Paginator.GetCommentsForPullRequest)
     """
 
     def paginate(
@@ -120,13 +120,13 @@ class GetCommentsForPullRequestPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetCommentsForPullRequestOutputTypeDef]:
         """
-        [GetCommentsForPullRequest.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Paginator.GetCommentsForPullRequest.paginate)
+        [GetCommentsForPullRequest.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Paginator.GetCommentsForPullRequest.paginate)
         """
 
 
 class GetDifferencesPaginator(Boto3Paginator):
     """
-    [Paginator.GetDifferences documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Paginator.GetDifferences)
+    [Paginator.GetDifferences documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Paginator.GetDifferences)
     """
 
     def paginate(
@@ -139,26 +139,26 @@ class GetDifferencesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetDifferencesOutputTypeDef]:
         """
-        [GetDifferences.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Paginator.GetDifferences.paginate)
+        [GetDifferences.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Paginator.GetDifferences.paginate)
         """
 
 
 class ListBranchesPaginator(Boto3Paginator):
     """
-    [Paginator.ListBranches documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Paginator.ListBranches)
+    [Paginator.ListBranches documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Paginator.ListBranches)
     """
 
     def paginate(
         self, repositoryName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListBranchesOutputTypeDef]:
         """
-        [ListBranches.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Paginator.ListBranches.paginate)
+        [ListBranches.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Paginator.ListBranches.paginate)
         """
 
 
 class ListPullRequestsPaginator(Boto3Paginator):
     """
-    [Paginator.ListPullRequests documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Paginator.ListPullRequests)
+    [Paginator.ListPullRequests documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Paginator.ListPullRequests)
     """
 
     def paginate(
@@ -169,13 +169,13 @@ class ListPullRequestsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListPullRequestsOutputTypeDef]:
         """
-        [ListPullRequests.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Paginator.ListPullRequests.paginate)
+        [ListPullRequests.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Paginator.ListPullRequests.paginate)
         """
 
 
 class ListRepositoriesPaginator(Boto3Paginator):
     """
-    [Paginator.ListRepositories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Paginator.ListRepositories)
+    [Paginator.ListRepositories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Paginator.ListRepositories)
     """
 
     def paginate(
@@ -185,5 +185,5 @@ class ListRepositoriesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListRepositoriesOutputTypeDef]:
         """
-        [ListRepositories.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Paginator.ListRepositories.paginate)
+        [ListRepositories.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Paginator.ListRepositories.paginate)
         """

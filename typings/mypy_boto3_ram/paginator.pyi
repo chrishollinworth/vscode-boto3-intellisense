@@ -61,7 +61,7 @@ __all__ = (
 
 class GetResourcePoliciesPaginator(Boto3Paginator):
     """
-    [Paginator.GetResourcePolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ram.html#RAM.Paginator.GetResourcePolicies)
+    [Paginator.GetResourcePolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ram.html#RAM.Paginator.GetResourcePolicies)
     """
 
     def paginate(
@@ -71,13 +71,13 @@ class GetResourcePoliciesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetResourcePoliciesResponseTypeDef]:
         """
-        [GetResourcePolicies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ram.html#RAM.Paginator.GetResourcePolicies.paginate)
+        [GetResourcePolicies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ram.html#RAM.Paginator.GetResourcePolicies.paginate)
         """
 
 
 class GetResourceShareAssociationsPaginator(Boto3Paginator):
     """
-    [Paginator.GetResourceShareAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ram.html#RAM.Paginator.GetResourceShareAssociations)
+    [Paginator.GetResourceShareAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ram.html#RAM.Paginator.GetResourceShareAssociations)
     """
 
     def paginate(
@@ -92,13 +92,13 @@ class GetResourceShareAssociationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetResourceShareAssociationsResponseTypeDef]:
         """
-        [GetResourceShareAssociations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ram.html#RAM.Paginator.GetResourceShareAssociations.paginate)
+        [GetResourceShareAssociations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ram.html#RAM.Paginator.GetResourceShareAssociations.paginate)
         """
 
 
 class GetResourceShareInvitationsPaginator(Boto3Paginator):
     """
-    [Paginator.GetResourceShareInvitations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ram.html#RAM.Paginator.GetResourceShareInvitations)
+    [Paginator.GetResourceShareInvitations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ram.html#RAM.Paginator.GetResourceShareInvitations)
     """
 
     def paginate(
@@ -108,13 +108,13 @@ class GetResourceShareInvitationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetResourceShareInvitationsResponseTypeDef]:
         """
-        [GetResourceShareInvitations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ram.html#RAM.Paginator.GetResourceShareInvitations.paginate)
+        [GetResourceShareInvitations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ram.html#RAM.Paginator.GetResourceShareInvitations.paginate)
         """
 
 
 class GetResourceSharesPaginator(Boto3Paginator):
     """
-    [Paginator.GetResourceShares documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ram.html#RAM.Paginator.GetResourceShares)
+    [Paginator.GetResourceShares documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ram.html#RAM.Paginator.GetResourceShares)
     """
 
     def paginate(
@@ -127,13 +127,13 @@ class GetResourceSharesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetResourceSharesResponseTypeDef]:
         """
-        [GetResourceShares.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ram.html#RAM.Paginator.GetResourceShares.paginate)
+        [GetResourceShares.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ram.html#RAM.Paginator.GetResourceShares.paginate)
         """
 
 
 class ListPrincipalsPaginator(Boto3Paginator):
     """
-    [Paginator.ListPrincipals documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ram.html#RAM.Paginator.ListPrincipals)
+    [Paginator.ListPrincipals documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ram.html#RAM.Paginator.ListPrincipals)
     """
 
     def paginate(
@@ -146,13 +146,13 @@ class ListPrincipalsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListPrincipalsResponseTypeDef]:
         """
-        [ListPrincipals.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ram.html#RAM.Paginator.ListPrincipals.paginate)
+        [ListPrincipals.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ram.html#RAM.Paginator.ListPrincipals.paginate)
         """
 
 
 class ListResourcesPaginator(Boto3Paginator):
     """
-    [Paginator.ListResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ram.html#RAM.Paginator.ListResources)
+    [Paginator.ListResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ram.html#RAM.Paginator.ListResources)
     """
 
     def paginate(
@@ -165,5 +165,5 @@ class ListResourcesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListResourcesResponseTypeDef]:
         """
-        [ListResources.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ram.html#RAM.Paginator.ListResources.paginate)
+        [ListResources.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ram.html#RAM.Paginator.ListResources.paginate)
         """

@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Dict, List
+from typing import Any, Dict, List
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -37,6 +36,7 @@ __all__ = (
     "QueryExecutionStatisticsTypeDef",
     "QueryExecutionStatusTypeDef",
     "QueryExecutionTypeDef",
+    "ResponseMetadata",
     "ResultConfigurationTypeDef",
     "ResultConfigurationUpdatesTypeDef",
     "ResultSetMetadataTypeDef",
@@ -205,6 +205,17 @@ QueryExecutionTypeDef = TypedDict(
     total=False,
 )
 
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
+
 ResultConfigurationTypeDef = TypedDict(
     "ResultConfigurationTypeDef",
     {"OutputLocation": str, "EncryptionConfiguration": "EncryptionConfigurationTypeDef"},
@@ -312,6 +323,7 @@ BatchGetNamedQueryOutputTypeDef = TypedDict(
     {
         "NamedQueries": List["NamedQueryTypeDef"],
         "UnprocessedNamedQueryIds": List["UnprocessedNamedQueryIdTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -321,79 +333,119 @@ BatchGetQueryExecutionOutputTypeDef = TypedDict(
     {
         "QueryExecutions": List["QueryExecutionTypeDef"],
         "UnprocessedQueryExecutionIds": List["UnprocessedQueryExecutionIdTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
 CreateNamedQueryOutputTypeDef = TypedDict(
-    "CreateNamedQueryOutputTypeDef", {"NamedQueryId": str}, total=False
+    "CreateNamedQueryOutputTypeDef",
+    {"NamedQueryId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 GetDataCatalogOutputTypeDef = TypedDict(
-    "GetDataCatalogOutputTypeDef", {"DataCatalog": "DataCatalogTypeDef"}, total=False
+    "GetDataCatalogOutputTypeDef",
+    {"DataCatalog": "DataCatalogTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 GetDatabaseOutputTypeDef = TypedDict(
-    "GetDatabaseOutputTypeDef", {"Database": "DatabaseTypeDef"}, total=False
+    "GetDatabaseOutputTypeDef",
+    {"Database": "DatabaseTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 GetNamedQueryOutputTypeDef = TypedDict(
-    "GetNamedQueryOutputTypeDef", {"NamedQuery": "NamedQueryTypeDef"}, total=False
+    "GetNamedQueryOutputTypeDef",
+    {"NamedQuery": "NamedQueryTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 GetQueryExecutionOutputTypeDef = TypedDict(
-    "GetQueryExecutionOutputTypeDef", {"QueryExecution": "QueryExecutionTypeDef"}, total=False
+    "GetQueryExecutionOutputTypeDef",
+    {"QueryExecution": "QueryExecutionTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 GetQueryResultsOutputTypeDef = TypedDict(
     "GetQueryResultsOutputTypeDef",
-    {"UpdateCount": int, "ResultSet": "ResultSetTypeDef", "NextToken": str},
+    {
+        "UpdateCount": int,
+        "ResultSet": "ResultSetTypeDef",
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 GetTableMetadataOutputTypeDef = TypedDict(
-    "GetTableMetadataOutputTypeDef", {"TableMetadata": "TableMetadataTypeDef"}, total=False
+    "GetTableMetadataOutputTypeDef",
+    {"TableMetadata": "TableMetadataTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 GetWorkGroupOutputTypeDef = TypedDict(
-    "GetWorkGroupOutputTypeDef", {"WorkGroup": "WorkGroupTypeDef"}, total=False
+    "GetWorkGroupOutputTypeDef",
+    {"WorkGroup": "WorkGroupTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ListDataCatalogsOutputTypeDef = TypedDict(
     "ListDataCatalogsOutputTypeDef",
-    {"DataCatalogsSummary": List["DataCatalogSummaryTypeDef"], "NextToken": str},
+    {
+        "DataCatalogsSummary": List["DataCatalogSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListDatabasesOutputTypeDef = TypedDict(
     "ListDatabasesOutputTypeDef",
-    {"DatabaseList": List["DatabaseTypeDef"], "NextToken": str},
+    {
+        "DatabaseList": List["DatabaseTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListNamedQueriesOutputTypeDef = TypedDict(
-    "ListNamedQueriesOutputTypeDef", {"NamedQueryIds": List[str], "NextToken": str}, total=False
+    "ListNamedQueriesOutputTypeDef",
+    {"NamedQueryIds": List[str], "NextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ListQueryExecutionsOutputTypeDef = TypedDict(
     "ListQueryExecutionsOutputTypeDef",
-    {"QueryExecutionIds": List[str], "NextToken": str},
+    {"QueryExecutionIds": List[str], "NextToken": str, "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 ListTableMetadataOutputTypeDef = TypedDict(
     "ListTableMetadataOutputTypeDef",
-    {"TableMetadataList": List["TableMetadataTypeDef"], "NextToken": str},
+    {
+        "TableMetadataList": List["TableMetadataTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListTagsForResourceOutputTypeDef = TypedDict(
-    "ListTagsForResourceOutputTypeDef", {"Tags": List["TagTypeDef"], "NextToken": str}, total=False
+    "ListTagsForResourceOutputTypeDef",
+    {"Tags": List["TagTypeDef"], "NextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ListWorkGroupsOutputTypeDef = TypedDict(
     "ListWorkGroupsOutputTypeDef",
-    {"WorkGroups": List["WorkGroupSummaryTypeDef"], "NextToken": str},
+    {
+        "WorkGroups": List["WorkGroupSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -402,7 +454,9 @@ PaginatorConfigTypeDef = TypedDict(
 )
 
 StartQueryExecutionOutputTypeDef = TypedDict(
-    "StartQueryExecutionOutputTypeDef", {"QueryExecutionId": str}, total=False
+    "StartQueryExecutionOutputTypeDef",
+    {"QueryExecutionId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 WorkGroupConfigurationUpdatesTypeDef = TypedDict(

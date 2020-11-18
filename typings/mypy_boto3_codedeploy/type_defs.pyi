@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import List
+from typing import Any, Dict, List
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -63,6 +62,7 @@ __all__ = (
     "MinimumHealthyHostsTypeDef",
     "OnPremisesTagSetTypeDef",
     "RawStringTypeDef",
+    "ResponseMetadata",
     "RevisionInfoTypeDef",
     "RevisionLocationTypeDef",
     "RollbackInfoTypeDef",
@@ -569,6 +569,17 @@ OnPremisesTagSetTypeDef = TypedDict(
 
 RawStringTypeDef = TypedDict("RawStringTypeDef", {"content": str, "sha256": str}, total=False)
 
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
+
 RevisionInfoTypeDef = TypedDict(
     "RevisionInfoTypeDef",
     {
@@ -683,74 +694,99 @@ TriggerConfigTypeDef = TypedDict(
 
 BatchGetApplicationRevisionsOutputTypeDef = TypedDict(
     "BatchGetApplicationRevisionsOutputTypeDef",
-    {"applicationName": str, "errorMessage": str, "revisions": List["RevisionInfoTypeDef"]},
+    {
+        "applicationName": str,
+        "errorMessage": str,
+        "revisions": List["RevisionInfoTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 BatchGetApplicationsOutputTypeDef = TypedDict(
     "BatchGetApplicationsOutputTypeDef",
-    {"applicationsInfo": List["ApplicationInfoTypeDef"]},
+    {"applicationsInfo": List["ApplicationInfoTypeDef"], "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 BatchGetDeploymentGroupsOutputTypeDef = TypedDict(
     "BatchGetDeploymentGroupsOutputTypeDef",
-    {"deploymentGroupsInfo": List["DeploymentGroupInfoTypeDef"], "errorMessage": str},
+    {
+        "deploymentGroupsInfo": List["DeploymentGroupInfoTypeDef"],
+        "errorMessage": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 BatchGetDeploymentInstancesOutputTypeDef = TypedDict(
     "BatchGetDeploymentInstancesOutputTypeDef",
-    {"instancesSummary": List["InstanceSummaryTypeDef"], "errorMessage": str},
+    {
+        "instancesSummary": List["InstanceSummaryTypeDef"],
+        "errorMessage": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 BatchGetDeploymentTargetsOutputTypeDef = TypedDict(
     "BatchGetDeploymentTargetsOutputTypeDef",
-    {"deploymentTargets": List["DeploymentTargetTypeDef"]},
+    {"deploymentTargets": List["DeploymentTargetTypeDef"], "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 BatchGetDeploymentsOutputTypeDef = TypedDict(
     "BatchGetDeploymentsOutputTypeDef",
-    {"deploymentsInfo": List["DeploymentInfoTypeDef"]},
+    {"deploymentsInfo": List["DeploymentInfoTypeDef"], "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 BatchGetOnPremisesInstancesOutputTypeDef = TypedDict(
     "BatchGetOnPremisesInstancesOutputTypeDef",
-    {"instanceInfos": List["InstanceInfoTypeDef"]},
+    {"instanceInfos": List["InstanceInfoTypeDef"], "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 CreateApplicationOutputTypeDef = TypedDict(
-    "CreateApplicationOutputTypeDef", {"applicationId": str}, total=False
+    "CreateApplicationOutputTypeDef",
+    {"applicationId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 CreateDeploymentConfigOutputTypeDef = TypedDict(
-    "CreateDeploymentConfigOutputTypeDef", {"deploymentConfigId": str}, total=False
+    "CreateDeploymentConfigOutputTypeDef",
+    {"deploymentConfigId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 CreateDeploymentGroupOutputTypeDef = TypedDict(
-    "CreateDeploymentGroupOutputTypeDef", {"deploymentGroupId": str}, total=False
+    "CreateDeploymentGroupOutputTypeDef",
+    {"deploymentGroupId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 CreateDeploymentOutputTypeDef = TypedDict(
-    "CreateDeploymentOutputTypeDef", {"deploymentId": str}, total=False
+    "CreateDeploymentOutputTypeDef",
+    {"deploymentId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 DeleteDeploymentGroupOutputTypeDef = TypedDict(
     "DeleteDeploymentGroupOutputTypeDef",
-    {"hooksNotCleanedUp": List["AutoScalingGroupTypeDef"]},
+    {"hooksNotCleanedUp": List["AutoScalingGroupTypeDef"], "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 DeleteGitHubAccountTokenOutputTypeDef = TypedDict(
-    "DeleteGitHubAccountTokenOutputTypeDef", {"tokenName": str}, total=False
+    "DeleteGitHubAccountTokenOutputTypeDef",
+    {"tokenName": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 GetApplicationOutputTypeDef = TypedDict(
-    "GetApplicationOutputTypeDef", {"application": "ApplicationInfoTypeDef"}, total=False
+    "GetApplicationOutputTypeDef",
+    {"application": "ApplicationInfoTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 GetApplicationRevisionOutputTypeDef = TypedDict(
@@ -759,88 +795,114 @@ GetApplicationRevisionOutputTypeDef = TypedDict(
         "applicationName": str,
         "revision": "RevisionLocationTypeDef",
         "revisionInfo": "GenericRevisionInfoTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
 GetDeploymentConfigOutputTypeDef = TypedDict(
     "GetDeploymentConfigOutputTypeDef",
-    {"deploymentConfigInfo": "DeploymentConfigInfoTypeDef"},
+    {"deploymentConfigInfo": "DeploymentConfigInfoTypeDef", "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 GetDeploymentGroupOutputTypeDef = TypedDict(
     "GetDeploymentGroupOutputTypeDef",
-    {"deploymentGroupInfo": "DeploymentGroupInfoTypeDef"},
+    {"deploymentGroupInfo": "DeploymentGroupInfoTypeDef", "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 GetDeploymentInstanceOutputTypeDef = TypedDict(
-    "GetDeploymentInstanceOutputTypeDef", {"instanceSummary": "InstanceSummaryTypeDef"}, total=False
+    "GetDeploymentInstanceOutputTypeDef",
+    {"instanceSummary": "InstanceSummaryTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 GetDeploymentOutputTypeDef = TypedDict(
-    "GetDeploymentOutputTypeDef", {"deploymentInfo": "DeploymentInfoTypeDef"}, total=False
+    "GetDeploymentOutputTypeDef",
+    {"deploymentInfo": "DeploymentInfoTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 GetDeploymentTargetOutputTypeDef = TypedDict(
-    "GetDeploymentTargetOutputTypeDef", {"deploymentTarget": "DeploymentTargetTypeDef"}, total=False
+    "GetDeploymentTargetOutputTypeDef",
+    {"deploymentTarget": "DeploymentTargetTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 GetOnPremisesInstanceOutputTypeDef = TypedDict(
-    "GetOnPremisesInstanceOutputTypeDef", {"instanceInfo": "InstanceInfoTypeDef"}, total=False
+    "GetOnPremisesInstanceOutputTypeDef",
+    {"instanceInfo": "InstanceInfoTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ListApplicationRevisionsOutputTypeDef = TypedDict(
     "ListApplicationRevisionsOutputTypeDef",
-    {"revisions": List["RevisionLocationTypeDef"], "nextToken": str},
+    {
+        "revisions": List["RevisionLocationTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListApplicationsOutputTypeDef = TypedDict(
-    "ListApplicationsOutputTypeDef", {"applications": List[str], "nextToken": str}, total=False
+    "ListApplicationsOutputTypeDef",
+    {"applications": List[str], "nextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ListDeploymentConfigsOutputTypeDef = TypedDict(
     "ListDeploymentConfigsOutputTypeDef",
-    {"deploymentConfigsList": List[str], "nextToken": str},
+    {"deploymentConfigsList": List[str], "nextToken": str, "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 ListDeploymentGroupsOutputTypeDef = TypedDict(
     "ListDeploymentGroupsOutputTypeDef",
-    {"applicationName": str, "deploymentGroups": List[str], "nextToken": str},
+    {
+        "applicationName": str,
+        "deploymentGroups": List[str],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListDeploymentInstancesOutputTypeDef = TypedDict(
     "ListDeploymentInstancesOutputTypeDef",
-    {"instancesList": List[str], "nextToken": str},
+    {"instancesList": List[str], "nextToken": str, "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 ListDeploymentTargetsOutputTypeDef = TypedDict(
-    "ListDeploymentTargetsOutputTypeDef", {"targetIds": List[str], "nextToken": str}, total=False
+    "ListDeploymentTargetsOutputTypeDef",
+    {"targetIds": List[str], "nextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ListDeploymentsOutputTypeDef = TypedDict(
-    "ListDeploymentsOutputTypeDef", {"deployments": List[str], "nextToken": str}, total=False
+    "ListDeploymentsOutputTypeDef",
+    {"deployments": List[str], "nextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ListGitHubAccountTokenNamesOutputTypeDef = TypedDict(
     "ListGitHubAccountTokenNamesOutputTypeDef",
-    {"tokenNameList": List[str], "nextToken": str},
+    {"tokenNameList": List[str], "nextToken": str, "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 ListOnPremisesInstancesOutputTypeDef = TypedDict(
     "ListOnPremisesInstancesOutputTypeDef",
-    {"instanceNames": List[str], "nextToken": str},
+    {"instanceNames": List[str], "nextToken": str, "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 ListTagsForResourceOutputTypeDef = TypedDict(
-    "ListTagsForResourceOutputTypeDef", {"Tags": List["TagTypeDef"], "NextToken": str}, total=False
+    "ListTagsForResourceOutputTypeDef",
+    {"Tags": List["TagTypeDef"], "NextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 PaginatorConfigTypeDef = TypedDict(
@@ -849,13 +911,17 @@ PaginatorConfigTypeDef = TypedDict(
 
 PutLifecycleEventHookExecutionStatusOutputTypeDef = TypedDict(
     "PutLifecycleEventHookExecutionStatusOutputTypeDef",
-    {"lifecycleEventHookExecutionId": str},
+    {"lifecycleEventHookExecutionId": str, "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 StopDeploymentOutputTypeDef = TypedDict(
     "StopDeploymentOutputTypeDef",
-    {"status": Literal["Pending", "Succeeded"], "statusMessage": str},
+    {
+        "status": Literal["Pending", "Succeeded"],
+        "statusMessage": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -863,7 +929,7 @@ TimeRangeTypeDef = TypedDict("TimeRangeTypeDef", {"start": datetime, "end": date
 
 UpdateDeploymentGroupOutputTypeDef = TypedDict(
     "UpdateDeploymentGroupOutputTypeDef",
-    {"hooksNotCleanedUp": List["AutoScalingGroupTypeDef"]},
+    {"hooksNotCleanedUp": List["AutoScalingGroupTypeDef"], "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 

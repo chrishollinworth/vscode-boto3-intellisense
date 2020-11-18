@@ -17,7 +17,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -91,6 +90,7 @@ LifecyclePolicySummaryTypeDef = TypedDict(
         "Description": str,
         "State": Literal["ENABLED", "DISABLED", "ERROR"],
         "Tags": Dict[str, str],
+        "PolicyType": Literal["EBS_SNAPSHOT_MANAGEMENT", "IMAGE_MANAGEMENT"],
     },
     total=False,
 )
@@ -112,12 +112,14 @@ LifecyclePolicyTypeDef = TypedDict(
     total=False,
 )
 
-ParametersTypeDef = TypedDict("ParametersTypeDef", {"ExcludeBootVolume": bool}, total=False)
+ParametersTypeDef = TypedDict(
+    "ParametersTypeDef", {"ExcludeBootVolume": bool, "NoReboot": bool}, total=False
+)
 
 PolicyDetailsTypeDef = TypedDict(
     "PolicyDetailsTypeDef",
     {
-        "PolicyType": Literal["EBS_SNAPSHOT_MANAGEMENT"],
+        "PolicyType": Literal["EBS_SNAPSHOT_MANAGEMENT", "IMAGE_MANAGEMENT"],
         "ResourceTypes": List[Literal["VOLUME", "INSTANCE"]],
         "TargetTags": List["TagTypeDef"],
         "Schedules": List["ScheduleTypeDef"],

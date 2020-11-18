@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Dict, List
+from typing import IO, Dict, List, Union
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -194,7 +193,8 @@ class GetBlockResponseTypeDef(_RequiredGetBlockResponseTypeDef, _OptionalGetBloc
 
 
 GetDigestResponseTypeDef = TypedDict(
-    "GetDigestResponseTypeDef", {"Digest": bytes, "DigestTipAddress": "ValueHolderTypeDef"}
+    "GetDigestResponseTypeDef",
+    {"Digest": Union[bytes, IO[bytes]], "DigestTipAddress": "ValueHolderTypeDef"},
 )
 
 _RequiredGetRevisionResponseTypeDef = TypedDict(

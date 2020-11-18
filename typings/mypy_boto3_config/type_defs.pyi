@@ -17,7 +17,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -758,16 +757,12 @@ ConformancePackComplianceSummaryTypeDef = TypedDict(
 
 _RequiredConformancePackDetailTypeDef = TypedDict(
     "_RequiredConformancePackDetailTypeDef",
-    {
-        "ConformancePackName": str,
-        "ConformancePackArn": str,
-        "ConformancePackId": str,
-        "DeliveryS3Bucket": str,
-    },
+    {"ConformancePackName": str, "ConformancePackArn": str, "ConformancePackId": str},
 )
 _OptionalConformancePackDetailTypeDef = TypedDict(
     "_OptionalConformancePackDetailTypeDef",
     {
+        "DeliveryS3Bucket": str,
         "DeliveryS3KeyPrefix": str,
         "ConformancePackInputParameters": List["ConformancePackInputParameterTypeDef"],
         "LastUpdateRequestedTime": datetime,
@@ -1111,13 +1106,13 @@ _RequiredOrganizationConformancePackTypeDef = TypedDict(
     {
         "OrganizationConformancePackName": str,
         "OrganizationConformancePackArn": str,
-        "DeliveryS3Bucket": str,
         "LastUpdateTime": datetime,
     },
 )
 _OptionalOrganizationConformancePackTypeDef = TypedDict(
     "_OptionalOrganizationConformancePackTypeDef",
     {
+        "DeliveryS3Bucket": str,
         "DeliveryS3KeyPrefix": str,
         "ConformancePackInputParameters": List["ConformancePackInputParameterTypeDef"],
         "ExcludedAccounts": List[str],

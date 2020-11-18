@@ -17,7 +17,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -174,6 +173,7 @@ AwsApiCallActionTypeDef = TypedDict(
         "Api": str,
         "CallerType": str,
         "DomainDetails": "DomainDetailsTypeDef",
+        "ErrorCode": str,
         "RemoteIpDetails": "RemoteIpDetailsTypeDef",
         "ServiceName": str,
     },

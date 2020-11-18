@@ -11,6 +11,7 @@ Usage::
         DescribeFleetCapacityPaginator,
         DescribeFleetEventsPaginator,
         DescribeFleetUtilizationPaginator,
+        DescribeGameServerInstancesPaginator,
         DescribeGameSessionDetailsPaginator,
         DescribeGameSessionQueuesPaginator,
         DescribeGameSessionsPaginator,
@@ -23,6 +24,9 @@ Usage::
         ListAliasesPaginator,
         ListBuildsPaginator,
         ListFleetsPaginator,
+        ListGameServerGroupsPaginator,
+        ListGameServersPaginator,
+        ListScriptsPaginator,
         SearchGameSessionsPaginator,
     )
 
@@ -35,6 +39,7 @@ Usage::
     describe_fleet_capacity_paginator: DescribeFleetCapacityPaginator = client.get_paginator("describe_fleet_capacity")
     describe_fleet_events_paginator: DescribeFleetEventsPaginator = client.get_paginator("describe_fleet_events")
     describe_fleet_utilization_paginator: DescribeFleetUtilizationPaginator = client.get_paginator("describe_fleet_utilization")
+    describe_game_server_instances_paginator: DescribeGameServerInstancesPaginator = client.get_paginator("describe_game_server_instances")
     describe_game_session_details_paginator: DescribeGameSessionDetailsPaginator = client.get_paginator("describe_game_session_details")
     describe_game_session_queues_paginator: DescribeGameSessionQueuesPaginator = client.get_paginator("describe_game_session_queues")
     describe_game_sessions_paginator: DescribeGameSessionsPaginator = client.get_paginator("describe_game_sessions")
@@ -46,6 +51,9 @@ Usage::
     list_aliases_paginator: ListAliasesPaginator = client.get_paginator("list_aliases")
     list_builds_paginator: ListBuildsPaginator = client.get_paginator("list_builds")
     list_fleets_paginator: ListFleetsPaginator = client.get_paginator("list_fleets")
+    list_game_server_groups_paginator: ListGameServerGroupsPaginator = client.get_paginator("list_game_server_groups")
+    list_game_servers_paginator: ListGameServersPaginator = client.get_paginator("list_game_servers")
+    list_scripts_paginator: ListScriptsPaginator = client.get_paginator("list_scripts")
     search_game_sessions_paginator: SearchGameSessionsPaginator = client.get_paginator("search_game_sessions")
     ```
 """
@@ -55,6 +63,7 @@ from mypy_boto3_gamelift.paginator import (
     DescribeFleetCapacityPaginator,
     DescribeFleetEventsPaginator,
     DescribeFleetUtilizationPaginator,
+    DescribeGameServerInstancesPaginator,
     DescribeGameSessionDetailsPaginator,
     DescribeGameSessionQueuesPaginator,
     DescribeGameSessionsPaginator,
@@ -66,6 +75,9 @@ from mypy_boto3_gamelift.paginator import (
     ListAliasesPaginator,
     ListBuildsPaginator,
     ListFleetsPaginator,
+    ListGameServerGroupsPaginator,
+    ListGameServersPaginator,
+    ListScriptsPaginator,
     SearchGameSessionsPaginator,
 )
 
@@ -78,6 +90,7 @@ __all__ = (
     "DescribeFleetCapacityPaginator",
     "DescribeFleetEventsPaginator",
     "DescribeFleetUtilizationPaginator",
+    "DescribeGameServerInstancesPaginator",
     "DescribeGameSessionDetailsPaginator",
     "DescribeGameSessionQueuesPaginator",
     "DescribeGameSessionsPaginator",
@@ -90,5 +103,8 @@ __all__ = (
     "ListAliasesPaginator",
     "ListBuildsPaginator",
     "ListFleetsPaginator",
+    "ListGameServerGroupsPaginator",
+    "ListGameServersPaginator",
+    "ListScriptsPaginator",
     "SearchGameSessionsPaginator",
 )

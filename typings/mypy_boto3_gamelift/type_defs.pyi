@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Dict, List
+from typing import Any, Dict, List
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -38,6 +37,7 @@ __all__ = (
     "FleetUtilizationTypeDef",
     "GamePropertyTypeDef",
     "GameServerGroupTypeDef",
+    "GameServerInstanceTypeDef",
     "GameServerTypeDef",
     "GameSessionConnectionInfoTypeDef",
     "GameSessionDetailTypeDef",
@@ -60,6 +60,7 @@ __all__ = (
     "PlayerSessionTypeDef",
     "PlayerTypeDef",
     "ResourceCreationLimitPolicyTypeDef",
+    "ResponseMetadata",
     "RoutingStrategyTypeDef",
     "RuntimeConfigurationTypeDef",
     "S3LocationTypeDef",
@@ -95,6 +96,7 @@ __all__ = (
     "DescribeFleetPortSettingsOutputTypeDef",
     "DescribeFleetUtilizationOutputTypeDef",
     "DescribeGameServerGroupOutputTypeDef",
+    "DescribeGameServerInstancesOutputTypeDef",
     "DescribeGameServerOutputTypeDef",
     "DescribeGameSessionDetailsOutputTypeDef",
     "DescribeGameSessionPlacementOutputTypeDef",
@@ -513,7 +515,7 @@ GameServerGroupTypeDef = TypedDict(
         "GameServerGroupArn": str,
         "RoleArn": str,
         "InstanceDefinitions": List["InstanceDefinitionTypeDef"],
-        "BalancingStrategy": Literal["SPOT_ONLY", "SPOT_PREFERRED"],
+        "BalancingStrategy": Literal["SPOT_ONLY", "SPOT_PREFERRED", "ON_DEMAND_ONLY"],
         "GameServerProtectionPolicy": Literal["NO_PROTECTION", "FULL_PROTECTION"],
         "AutoScalingGroupArn": str,
         "Status": Literal[
@@ -527,6 +529,17 @@ GameServerGroupTypeDef = TypedDict(
     total=False,
 )
 
+GameServerInstanceTypeDef = TypedDict(
+    "GameServerInstanceTypeDef",
+    {
+        "GameServerGroupName": str,
+        "GameServerGroupArn": str,
+        "InstanceId": str,
+        "InstanceStatus": Literal["ACTIVE", "DRAINING", "SPOT_TERMINATING"],
+    },
+    total=False,
+)
+
 GameServerTypeDef = TypedDict(
     "GameServerTypeDef",
     {
@@ -536,7 +549,6 @@ GameServerTypeDef = TypedDict(
         "InstanceId": str,
         "ConnectionInfo": str,
         "GameServerData": str,
-        "CustomSortKey": str,
         "ClaimStatus": Literal["CLAIMED"],
         "UtilizationStatus": Literal["AVAILABLE", "UTILIZED"],
         "RegistrationTime": datetime,
@@ -908,6 +920,17 @@ ResourceCreationLimitPolicyTypeDef = TypedDict(
     total=False,
 )
 
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
+
 RoutingStrategyTypeDef = TypedDict(
     "RoutingStrategyTypeDef",
     {"Type": Literal["SIMPLE", "TERMINAL"], "FleetId": str, "Message": str},
@@ -1040,11 +1063,15 @@ VpcPeeringConnectionTypeDef = TypedDict(
 )
 
 ClaimGameServerOutputTypeDef = TypedDict(
-    "ClaimGameServerOutputTypeDef", {"GameServer": "GameServerTypeDef"}, total=False
+    "ClaimGameServerOutputTypeDef",
+    {"GameServer": "GameServerTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 CreateAliasOutputTypeDef = TypedDict(
-    "CreateAliasOutputTypeDef", {"Alias": "AliasTypeDef"}, total=False
+    "CreateAliasOutputTypeDef",
+    {"Alias": "AliasTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 CreateBuildOutputTypeDef = TypedDict(
@@ -1053,155 +1080,231 @@ CreateBuildOutputTypeDef = TypedDict(
         "Build": "BuildTypeDef",
         "UploadCredentials": "AwsCredentialsTypeDef",
         "StorageLocation": "S3LocationTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
 CreateFleetOutputTypeDef = TypedDict(
-    "CreateFleetOutputTypeDef", {"FleetAttributes": "FleetAttributesTypeDef"}, total=False
+    "CreateFleetOutputTypeDef",
+    {"FleetAttributes": "FleetAttributesTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 CreateGameServerGroupOutputTypeDef = TypedDict(
-    "CreateGameServerGroupOutputTypeDef", {"GameServerGroup": "GameServerGroupTypeDef"}, total=False
+    "CreateGameServerGroupOutputTypeDef",
+    {"GameServerGroup": "GameServerGroupTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 CreateGameSessionOutputTypeDef = TypedDict(
-    "CreateGameSessionOutputTypeDef", {"GameSession": "GameSessionTypeDef"}, total=False
+    "CreateGameSessionOutputTypeDef",
+    {"GameSession": "GameSessionTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 CreateGameSessionQueueOutputTypeDef = TypedDict(
     "CreateGameSessionQueueOutputTypeDef",
-    {"GameSessionQueue": "GameSessionQueueTypeDef"},
+    {"GameSessionQueue": "GameSessionQueueTypeDef", "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 CreateMatchmakingConfigurationOutputTypeDef = TypedDict(
     "CreateMatchmakingConfigurationOutputTypeDef",
-    {"Configuration": "MatchmakingConfigurationTypeDef"},
+    {"Configuration": "MatchmakingConfigurationTypeDef", "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
-CreateMatchmakingRuleSetOutputTypeDef = TypedDict(
-    "CreateMatchmakingRuleSetOutputTypeDef", {"RuleSet": "MatchmakingRuleSetTypeDef"}
+_RequiredCreateMatchmakingRuleSetOutputTypeDef = TypedDict(
+    "_RequiredCreateMatchmakingRuleSetOutputTypeDef", {"RuleSet": "MatchmakingRuleSetTypeDef"}
+)
+_OptionalCreateMatchmakingRuleSetOutputTypeDef = TypedDict(
+    "_OptionalCreateMatchmakingRuleSetOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
+
+class CreateMatchmakingRuleSetOutputTypeDef(
+    _RequiredCreateMatchmakingRuleSetOutputTypeDef, _OptionalCreateMatchmakingRuleSetOutputTypeDef
+):
+    pass
+
+
 CreatePlayerSessionOutputTypeDef = TypedDict(
-    "CreatePlayerSessionOutputTypeDef", {"PlayerSession": "PlayerSessionTypeDef"}, total=False
+    "CreatePlayerSessionOutputTypeDef",
+    {"PlayerSession": "PlayerSessionTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 CreatePlayerSessionsOutputTypeDef = TypedDict(
     "CreatePlayerSessionsOutputTypeDef",
-    {"PlayerSessions": List["PlayerSessionTypeDef"]},
+    {"PlayerSessions": List["PlayerSessionTypeDef"], "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 CreateScriptOutputTypeDef = TypedDict(
-    "CreateScriptOutputTypeDef", {"Script": "ScriptTypeDef"}, total=False
+    "CreateScriptOutputTypeDef",
+    {"Script": "ScriptTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 CreateVpcPeeringAuthorizationOutputTypeDef = TypedDict(
     "CreateVpcPeeringAuthorizationOutputTypeDef",
-    {"VpcPeeringAuthorization": "VpcPeeringAuthorizationTypeDef"},
+    {
+        "VpcPeeringAuthorization": "VpcPeeringAuthorizationTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 DeleteGameServerGroupOutputTypeDef = TypedDict(
-    "DeleteGameServerGroupOutputTypeDef", {"GameServerGroup": "GameServerGroupTypeDef"}, total=False
+    "DeleteGameServerGroupOutputTypeDef",
+    {"GameServerGroup": "GameServerGroupTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 DescribeAliasOutputTypeDef = TypedDict(
-    "DescribeAliasOutputTypeDef", {"Alias": "AliasTypeDef"}, total=False
+    "DescribeAliasOutputTypeDef",
+    {"Alias": "AliasTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 DescribeBuildOutputTypeDef = TypedDict(
-    "DescribeBuildOutputTypeDef", {"Build": "BuildTypeDef"}, total=False
+    "DescribeBuildOutputTypeDef",
+    {"Build": "BuildTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 DescribeEC2InstanceLimitsOutputTypeDef = TypedDict(
     "DescribeEC2InstanceLimitsOutputTypeDef",
-    {"EC2InstanceLimits": List["EC2InstanceLimitTypeDef"]},
+    {"EC2InstanceLimits": List["EC2InstanceLimitTypeDef"], "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 DescribeFleetAttributesOutputTypeDef = TypedDict(
     "DescribeFleetAttributesOutputTypeDef",
-    {"FleetAttributes": List["FleetAttributesTypeDef"], "NextToken": str},
+    {
+        "FleetAttributes": List["FleetAttributesTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 DescribeFleetCapacityOutputTypeDef = TypedDict(
     "DescribeFleetCapacityOutputTypeDef",
-    {"FleetCapacity": List["FleetCapacityTypeDef"], "NextToken": str},
+    {
+        "FleetCapacity": List["FleetCapacityTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 DescribeFleetEventsOutputTypeDef = TypedDict(
     "DescribeFleetEventsOutputTypeDef",
-    {"Events": List["EventTypeDef"], "NextToken": str},
+    {"Events": List["EventTypeDef"], "NextToken": str, "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 DescribeFleetPortSettingsOutputTypeDef = TypedDict(
     "DescribeFleetPortSettingsOutputTypeDef",
-    {"InboundPermissions": List["IpPermissionTypeDef"]},
+    {"InboundPermissions": List["IpPermissionTypeDef"], "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 DescribeFleetUtilizationOutputTypeDef = TypedDict(
     "DescribeFleetUtilizationOutputTypeDef",
-    {"FleetUtilization": List["FleetUtilizationTypeDef"], "NextToken": str},
+    {
+        "FleetUtilization": List["FleetUtilizationTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 DescribeGameServerGroupOutputTypeDef = TypedDict(
     "DescribeGameServerGroupOutputTypeDef",
-    {"GameServerGroup": "GameServerGroupTypeDef"},
+    {"GameServerGroup": "GameServerGroupTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+DescribeGameServerInstancesOutputTypeDef = TypedDict(
+    "DescribeGameServerInstancesOutputTypeDef",
+    {
+        "GameServerInstances": List["GameServerInstanceTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 DescribeGameServerOutputTypeDef = TypedDict(
-    "DescribeGameServerOutputTypeDef", {"GameServer": "GameServerTypeDef"}, total=False
+    "DescribeGameServerOutputTypeDef",
+    {"GameServer": "GameServerTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 DescribeGameSessionDetailsOutputTypeDef = TypedDict(
     "DescribeGameSessionDetailsOutputTypeDef",
-    {"GameSessionDetails": List["GameSessionDetailTypeDef"], "NextToken": str},
+    {
+        "GameSessionDetails": List["GameSessionDetailTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 DescribeGameSessionPlacementOutputTypeDef = TypedDict(
     "DescribeGameSessionPlacementOutputTypeDef",
-    {"GameSessionPlacement": "GameSessionPlacementTypeDef"},
+    {"GameSessionPlacement": "GameSessionPlacementTypeDef", "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 DescribeGameSessionQueuesOutputTypeDef = TypedDict(
     "DescribeGameSessionQueuesOutputTypeDef",
-    {"GameSessionQueues": List["GameSessionQueueTypeDef"], "NextToken": str},
+    {
+        "GameSessionQueues": List["GameSessionQueueTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 DescribeGameSessionsOutputTypeDef = TypedDict(
     "DescribeGameSessionsOutputTypeDef",
-    {"GameSessions": List["GameSessionTypeDef"], "NextToken": str},
+    {
+        "GameSessions": List["GameSessionTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 DescribeInstancesOutputTypeDef = TypedDict(
     "DescribeInstancesOutputTypeDef",
-    {"Instances": List["InstanceTypeDef"], "NextToken": str},
+    {
+        "Instances": List["InstanceTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 DescribeMatchmakingConfigurationsOutputTypeDef = TypedDict(
     "DescribeMatchmakingConfigurationsOutputTypeDef",
-    {"Configurations": List["MatchmakingConfigurationTypeDef"], "NextToken": str},
+    {
+        "Configurations": List["MatchmakingConfigurationTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 DescribeMatchmakingOutputTypeDef = TypedDict(
     "DescribeMatchmakingOutputTypeDef",
-    {"TicketList": List["MatchmakingTicketTypeDef"]},
+    {"TicketList": List["MatchmakingTicketTypeDef"], "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
@@ -1210,7 +1313,9 @@ _RequiredDescribeMatchmakingRuleSetsOutputTypeDef = TypedDict(
     {"RuleSets": List["MatchmakingRuleSetTypeDef"]},
 )
 _OptionalDescribeMatchmakingRuleSetsOutputTypeDef = TypedDict(
-    "_OptionalDescribeMatchmakingRuleSetsOutputTypeDef", {"NextToken": str}, total=False
+    "_OptionalDescribeMatchmakingRuleSetsOutputTypeDef",
+    {"NextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 
@@ -1223,35 +1328,51 @@ class DescribeMatchmakingRuleSetsOutputTypeDef(
 
 DescribePlayerSessionsOutputTypeDef = TypedDict(
     "DescribePlayerSessionsOutputTypeDef",
-    {"PlayerSessions": List["PlayerSessionTypeDef"], "NextToken": str},
+    {
+        "PlayerSessions": List["PlayerSessionTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 DescribeRuntimeConfigurationOutputTypeDef = TypedDict(
     "DescribeRuntimeConfigurationOutputTypeDef",
-    {"RuntimeConfiguration": "RuntimeConfigurationTypeDef"},
+    {"RuntimeConfiguration": "RuntimeConfigurationTypeDef", "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 DescribeScalingPoliciesOutputTypeDef = TypedDict(
     "DescribeScalingPoliciesOutputTypeDef",
-    {"ScalingPolicies": List["ScalingPolicyTypeDef"], "NextToken": str},
+    {
+        "ScalingPolicies": List["ScalingPolicyTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 DescribeScriptOutputTypeDef = TypedDict(
-    "DescribeScriptOutputTypeDef", {"Script": "ScriptTypeDef"}, total=False
+    "DescribeScriptOutputTypeDef",
+    {"Script": "ScriptTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 DescribeVpcPeeringAuthorizationsOutputTypeDef = TypedDict(
     "DescribeVpcPeeringAuthorizationsOutputTypeDef",
-    {"VpcPeeringAuthorizations": List["VpcPeeringAuthorizationTypeDef"]},
+    {
+        "VpcPeeringAuthorizations": List["VpcPeeringAuthorizationTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 DescribeVpcPeeringConnectionsOutputTypeDef = TypedDict(
     "DescribeVpcPeeringConnectionsOutputTypeDef",
-    {"VpcPeeringConnections": List["VpcPeeringConnectionTypeDef"]},
+    {
+        "VpcPeeringConnections": List["VpcPeeringConnectionTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -1278,11 +1399,15 @@ class GameServerGroupAutoScalingPolicyTypeDef(
 
 
 GetGameSessionLogUrlOutputTypeDef = TypedDict(
-    "GetGameSessionLogUrlOutputTypeDef", {"PreSignedUrl": str}, total=False
+    "GetGameSessionLogUrlOutputTypeDef",
+    {"PreSignedUrl": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 GetInstanceAccessOutputTypeDef = TypedDict(
-    "GetInstanceAccessOutputTypeDef", {"InstanceAccess": "InstanceAccessTypeDef"}, total=False
+    "GetInstanceAccessOutputTypeDef",
+    {"InstanceAccess": "InstanceAccessTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 LaunchTemplateSpecificationTypeDef = TypedDict(
@@ -1292,31 +1417,47 @@ LaunchTemplateSpecificationTypeDef = TypedDict(
 )
 
 ListAliasesOutputTypeDef = TypedDict(
-    "ListAliasesOutputTypeDef", {"Aliases": List["AliasTypeDef"], "NextToken": str}, total=False
+    "ListAliasesOutputTypeDef",
+    {"Aliases": List["AliasTypeDef"], "NextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ListBuildsOutputTypeDef = TypedDict(
-    "ListBuildsOutputTypeDef", {"Builds": List["BuildTypeDef"], "NextToken": str}, total=False
+    "ListBuildsOutputTypeDef",
+    {"Builds": List["BuildTypeDef"], "NextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ListFleetsOutputTypeDef = TypedDict(
-    "ListFleetsOutputTypeDef", {"FleetIds": List[str], "NextToken": str}, total=False
+    "ListFleetsOutputTypeDef",
+    {"FleetIds": List[str], "NextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ListGameServerGroupsOutputTypeDef = TypedDict(
     "ListGameServerGroupsOutputTypeDef",
-    {"GameServerGroups": List["GameServerGroupTypeDef"], "NextToken": str},
+    {
+        "GameServerGroups": List["GameServerGroupTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListGameServersOutputTypeDef = TypedDict(
     "ListGameServersOutputTypeDef",
-    {"GameServers": List["GameServerTypeDef"], "NextToken": str},
+    {
+        "GameServers": List["GameServerTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListScriptsOutputTypeDef = TypedDict(
-    "ListScriptsOutputTypeDef", {"Scripts": List["ScriptTypeDef"], "NextToken": str}, total=False
+    "ListScriptsOutputTypeDef",
+    {"Scripts": List["ScriptTypeDef"], "NextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ListTagsForResourceResponseTypeDef = TypedDict(
@@ -1328,115 +1469,153 @@ PaginatorConfigTypeDef = TypedDict(
 )
 
 PutScalingPolicyOutputTypeDef = TypedDict(
-    "PutScalingPolicyOutputTypeDef", {"Name": str}, total=False
+    "PutScalingPolicyOutputTypeDef",
+    {"Name": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 RegisterGameServerOutputTypeDef = TypedDict(
-    "RegisterGameServerOutputTypeDef", {"GameServer": "GameServerTypeDef"}, total=False
+    "RegisterGameServerOutputTypeDef",
+    {"GameServer": "GameServerTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 RequestUploadCredentialsOutputTypeDef = TypedDict(
     "RequestUploadCredentialsOutputTypeDef",
-    {"UploadCredentials": "AwsCredentialsTypeDef", "StorageLocation": "S3LocationTypeDef"},
+    {
+        "UploadCredentials": "AwsCredentialsTypeDef",
+        "StorageLocation": "S3LocationTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ResolveAliasOutputTypeDef = TypedDict(
-    "ResolveAliasOutputTypeDef", {"FleetId": str, "FleetArn": str}, total=False
+    "ResolveAliasOutputTypeDef",
+    {"FleetId": str, "FleetArn": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ResumeGameServerGroupOutputTypeDef = TypedDict(
-    "ResumeGameServerGroupOutputTypeDef", {"GameServerGroup": "GameServerGroupTypeDef"}, total=False
+    "ResumeGameServerGroupOutputTypeDef",
+    {"GameServerGroup": "GameServerGroupTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 SearchGameSessionsOutputTypeDef = TypedDict(
     "SearchGameSessionsOutputTypeDef",
-    {"GameSessions": List["GameSessionTypeDef"], "NextToken": str},
+    {
+        "GameSessions": List["GameSessionTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 StartGameSessionPlacementOutputTypeDef = TypedDict(
     "StartGameSessionPlacementOutputTypeDef",
-    {"GameSessionPlacement": "GameSessionPlacementTypeDef"},
+    {"GameSessionPlacement": "GameSessionPlacementTypeDef", "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 StartMatchBackfillOutputTypeDef = TypedDict(
     "StartMatchBackfillOutputTypeDef",
-    {"MatchmakingTicket": "MatchmakingTicketTypeDef"},
+    {"MatchmakingTicket": "MatchmakingTicketTypeDef", "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 StartMatchmakingOutputTypeDef = TypedDict(
-    "StartMatchmakingOutputTypeDef", {"MatchmakingTicket": "MatchmakingTicketTypeDef"}, total=False
+    "StartMatchmakingOutputTypeDef",
+    {"MatchmakingTicket": "MatchmakingTicketTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 StopGameSessionPlacementOutputTypeDef = TypedDict(
     "StopGameSessionPlacementOutputTypeDef",
-    {"GameSessionPlacement": "GameSessionPlacementTypeDef"},
+    {"GameSessionPlacement": "GameSessionPlacementTypeDef", "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 SuspendGameServerGroupOutputTypeDef = TypedDict(
     "SuspendGameServerGroupOutputTypeDef",
-    {"GameServerGroup": "GameServerGroupTypeDef"},
+    {"GameServerGroup": "GameServerGroupTypeDef", "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 UpdateAliasOutputTypeDef = TypedDict(
-    "UpdateAliasOutputTypeDef", {"Alias": "AliasTypeDef"}, total=False
+    "UpdateAliasOutputTypeDef",
+    {"Alias": "AliasTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 UpdateBuildOutputTypeDef = TypedDict(
-    "UpdateBuildOutputTypeDef", {"Build": "BuildTypeDef"}, total=False
+    "UpdateBuildOutputTypeDef",
+    {"Build": "BuildTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 UpdateFleetAttributesOutputTypeDef = TypedDict(
-    "UpdateFleetAttributesOutputTypeDef", {"FleetId": str}, total=False
+    "UpdateFleetAttributesOutputTypeDef",
+    {"FleetId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 UpdateFleetCapacityOutputTypeDef = TypedDict(
-    "UpdateFleetCapacityOutputTypeDef", {"FleetId": str}, total=False
+    "UpdateFleetCapacityOutputTypeDef",
+    {"FleetId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 UpdateFleetPortSettingsOutputTypeDef = TypedDict(
-    "UpdateFleetPortSettingsOutputTypeDef", {"FleetId": str}, total=False
+    "UpdateFleetPortSettingsOutputTypeDef",
+    {"FleetId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 UpdateGameServerGroupOutputTypeDef = TypedDict(
-    "UpdateGameServerGroupOutputTypeDef", {"GameServerGroup": "GameServerGroupTypeDef"}, total=False
+    "UpdateGameServerGroupOutputTypeDef",
+    {"GameServerGroup": "GameServerGroupTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 UpdateGameServerOutputTypeDef = TypedDict(
-    "UpdateGameServerOutputTypeDef", {"GameServer": "GameServerTypeDef"}, total=False
+    "UpdateGameServerOutputTypeDef",
+    {"GameServer": "GameServerTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 UpdateGameSessionOutputTypeDef = TypedDict(
-    "UpdateGameSessionOutputTypeDef", {"GameSession": "GameSessionTypeDef"}, total=False
+    "UpdateGameSessionOutputTypeDef",
+    {"GameSession": "GameSessionTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 UpdateGameSessionQueueOutputTypeDef = TypedDict(
     "UpdateGameSessionQueueOutputTypeDef",
-    {"GameSessionQueue": "GameSessionQueueTypeDef"},
+    {"GameSessionQueue": "GameSessionQueueTypeDef", "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 UpdateMatchmakingConfigurationOutputTypeDef = TypedDict(
     "UpdateMatchmakingConfigurationOutputTypeDef",
-    {"Configuration": "MatchmakingConfigurationTypeDef"},
+    {"Configuration": "MatchmakingConfigurationTypeDef", "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 UpdateRuntimeConfigurationOutputTypeDef = TypedDict(
     "UpdateRuntimeConfigurationOutputTypeDef",
-    {"RuntimeConfiguration": "RuntimeConfigurationTypeDef"},
+    {"RuntimeConfiguration": "RuntimeConfigurationTypeDef", "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 UpdateScriptOutputTypeDef = TypedDict(
-    "UpdateScriptOutputTypeDef", {"Script": "ScriptTypeDef"}, total=False
+    "UpdateScriptOutputTypeDef",
+    {"Script": "ScriptTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ValidateMatchmakingRuleSetOutputTypeDef = TypedDict(
-    "ValidateMatchmakingRuleSetOutputTypeDef", {"Valid": bool}, total=False
+    "ValidateMatchmakingRuleSetOutputTypeDef",
+    {"Valid": bool, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )

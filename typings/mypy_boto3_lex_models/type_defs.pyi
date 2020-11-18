@@ -17,7 +17,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -129,7 +128,12 @@ BotMetadataTypeDef = TypedDict(
 
 BuiltinIntentMetadataTypeDef = TypedDict(
     "BuiltinIntentMetadataTypeDef",
-    {"signature": str, "supportedLocales": List[Literal["en-US", "en-GB", "de-DE"]]},
+    {
+        "signature": str,
+        "supportedLocales": List[
+            Literal["de-DE", "en-AU", "en-GB", "en-US", "es-ES", "es-US", "fr-FR", "fr-CA", "it-IT"]
+        ],
+    },
     total=False,
 )
 
@@ -137,7 +141,12 @@ BuiltinIntentSlotTypeDef = TypedDict("BuiltinIntentSlotTypeDef", {"name": str}, 
 
 BuiltinSlotTypeMetadataTypeDef = TypedDict(
     "BuiltinSlotTypeMetadataTypeDef",
-    {"signature": str, "supportedLocales": List[Literal["en-US", "en-GB", "de-DE"]]},
+    {
+        "signature": str,
+        "supportedLocales": List[
+            Literal["de-DE", "en-AU", "en-GB", "en-US", "es-ES", "es-US", "fr-FR", "fr-CA", "it-IT"]
+        ],
+    },
     total=False,
 )
 
@@ -353,7 +362,9 @@ CreateBotVersionResponseTypeDef = TypedDict(
         "voiceId": str,
         "checksum": str,
         "version": str,
-        "locale": Literal["en-US", "en-GB", "de-DE"],
+        "locale": Literal[
+            "de-DE", "en-AU", "en-GB", "en-US", "es-ES", "es-US", "fr-FR", "fr-CA", "it-IT"
+        ],
         "childDirected": bool,
         "enableModelImprovements": bool,
         "detectSentiment": bool,
@@ -462,7 +473,9 @@ GetBotResponseTypeDef = TypedDict(
         "voiceId": str,
         "checksum": str,
         "version": str,
-        "locale": Literal["en-US", "en-GB", "de-DE"],
+        "locale": Literal[
+            "de-DE", "en-AU", "en-GB", "en-US", "es-ES", "es-US", "fr-FR", "fr-CA", "it-IT"
+        ],
         "childDirected": bool,
         "detectSentiment": bool,
     },
@@ -483,7 +496,9 @@ GetBuiltinIntentResponseTypeDef = TypedDict(
     "GetBuiltinIntentResponseTypeDef",
     {
         "signature": str,
-        "supportedLocales": List[Literal["en-US", "en-GB", "de-DE"]],
+        "supportedLocales": List[
+            Literal["de-DE", "en-AU", "en-GB", "en-US", "es-ES", "es-US", "fr-FR", "fr-CA", "it-IT"]
+        ],
         "slots": List["BuiltinIntentSlotTypeDef"],
     },
     total=False,
@@ -641,7 +656,9 @@ PutBotResponseTypeDef = TypedDict(
         "voiceId": str,
         "checksum": str,
         "version": str,
-        "locale": Literal["en-US", "en-GB", "de-DE"],
+        "locale": Literal[
+            "de-DE", "en-AU", "en-GB", "en-US", "es-ES", "es-US", "fr-FR", "fr-CA", "it-IT"
+        ],
         "childDirected": bool,
         "createVersion": bool,
         "detectSentiment": bool,

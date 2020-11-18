@@ -16,7 +16,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -74,7 +73,7 @@ SavingsPlanOfferingRateTypeDef = TypedDict(
         "rate": str,
         "unit": Literal["Hrs", "Lambda-GB-Second", "Request"],
         "productType": Literal["EC2", "Fargate", "Lambda"],
-        "serviceCode": Literal["AmazonEC2", "AmazonECS", "AmazonEKS", "AWSLambda"],
+        "serviceCode": Literal["AmazonEC2", "AmazonECS", "AWSLambda"],
         "usageType": str,
         "operation": str,
         "properties": List["SavingsPlanOfferingRatePropertyTypeDef"],
@@ -118,7 +117,7 @@ SavingsPlanRateTypeDef = TypedDict(
         "currency": Literal["CNY", "USD"],
         "unit": Literal["Hrs", "Lambda-GB-Second", "Request"],
         "productType": Literal["EC2", "Fargate", "Lambda"],
-        "serviceCode": Literal["AmazonEC2", "AmazonECS", "AmazonEKS", "AWSLambda"],
+        "serviceCode": Literal["AmazonEC2", "AmazonECS", "AWSLambda"],
         "usageType": str,
         "operation": str,
         "properties": List["SavingsPlanRatePropertyTypeDef"],
@@ -135,7 +134,9 @@ SavingsPlanTypeDef = TypedDict(
         "description": str,
         "start": str,
         "end": str,
-        "state": Literal["payment-pending", "payment-failed", "active", "retired"],
+        "state": Literal[
+            "payment-pending", "payment-failed", "active", "retired", "queued", "queued-deleted"
+        ],
         "region": str,
         "ec2InstanceFamily": str,
         "savingsPlanType": Literal["Compute", "EC2Instance"],

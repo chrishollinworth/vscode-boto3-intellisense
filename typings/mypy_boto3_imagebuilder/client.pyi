@@ -1,4 +1,4 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import
+# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for imagebuilder service client
 
@@ -14,7 +14,7 @@ Usage::
 import sys
 from typing import Any, Dict, List, Type
 
-from botocore.exceptions import ClientError as Boto3ClientError
+from botocore.client import ClientMeta
 
 from mypy_boto3_imagebuilder.type_defs import (
     CancelImageCreationResponseTypeDef,
@@ -75,44 +75,53 @@ else:
 __all__ = ("ImagebuilderClient",)
 
 
+class BotocoreClientError(BaseException):
+    MSG_TEMPLATE: str
+
+    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
+        self.response: Dict[str, Any]
+        self.operation_name: str
+
+
 class Exceptions:
-    CallRateLimitExceededException: Type[Boto3ClientError]
-    ClientError: Type[Boto3ClientError]
-    ClientException: Type[Boto3ClientError]
-    ForbiddenException: Type[Boto3ClientError]
-    IdempotentParameterMismatchException: Type[Boto3ClientError]
-    InvalidPaginationTokenException: Type[Boto3ClientError]
-    InvalidParameterCombinationException: Type[Boto3ClientError]
-    InvalidParameterException: Type[Boto3ClientError]
-    InvalidParameterValueException: Type[Boto3ClientError]
-    InvalidRequestException: Type[Boto3ClientError]
-    InvalidVersionNumberException: Type[Boto3ClientError]
-    ResourceAlreadyExistsException: Type[Boto3ClientError]
-    ResourceDependencyException: Type[Boto3ClientError]
-    ResourceInUseException: Type[Boto3ClientError]
-    ResourceNotFoundException: Type[Boto3ClientError]
-    ServiceException: Type[Boto3ClientError]
-    ServiceQuotaExceededException: Type[Boto3ClientError]
-    ServiceUnavailableException: Type[Boto3ClientError]
+    CallRateLimitExceededException: Type[BotocoreClientError]
+    ClientError: Type[BotocoreClientError]
+    ClientException: Type[BotocoreClientError]
+    ForbiddenException: Type[BotocoreClientError]
+    IdempotentParameterMismatchException: Type[BotocoreClientError]
+    InvalidPaginationTokenException: Type[BotocoreClientError]
+    InvalidParameterCombinationException: Type[BotocoreClientError]
+    InvalidParameterException: Type[BotocoreClientError]
+    InvalidParameterValueException: Type[BotocoreClientError]
+    InvalidRequestException: Type[BotocoreClientError]
+    InvalidVersionNumberException: Type[BotocoreClientError]
+    ResourceAlreadyExistsException: Type[BotocoreClientError]
+    ResourceDependencyException: Type[BotocoreClientError]
+    ResourceInUseException: Type[BotocoreClientError]
+    ResourceNotFoundException: Type[BotocoreClientError]
+    ServiceException: Type[BotocoreClientError]
+    ServiceQuotaExceededException: Type[BotocoreClientError]
+    ServiceUnavailableException: Type[BotocoreClientError]
 
 
 class ImagebuilderClient:
     """
-    [Imagebuilder.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/imagebuilder.html#Imagebuilder.Client)
+    [Imagebuilder.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/imagebuilder.html#Imagebuilder.Client)
     """
 
+    meta: ClientMeta
     exceptions: Exceptions
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/imagebuilder.html#Imagebuilder.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/imagebuilder.html#Imagebuilder.Client.can_paginate)
         """
 
     def cancel_image_creation(
         self, imageBuildVersionArn: str, clientToken: str
     ) -> CancelImageCreationResponseTypeDef:
         """
-        [Client.cancel_image_creation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/imagebuilder.html#Imagebuilder.Client.cancel_image_creation)
+        [Client.cancel_image_creation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/imagebuilder.html#Imagebuilder.Client.cancel_image_creation)
         """
 
     def create_component(
@@ -130,7 +139,7 @@ class ImagebuilderClient:
         tags: Dict[str, str] = None,
     ) -> CreateComponentResponseTypeDef:
         """
-        [Client.create_component documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/imagebuilder.html#Imagebuilder.Client.create_component)
+        [Client.create_component documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/imagebuilder.html#Imagebuilder.Client.create_component)
         """
 
     def create_distribution_configuration(
@@ -142,7 +151,7 @@ class ImagebuilderClient:
         tags: Dict[str, str] = None,
     ) -> CreateDistributionConfigurationResponseTypeDef:
         """
-        [Client.create_distribution_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/imagebuilder.html#Imagebuilder.Client.create_distribution_configuration)
+        [Client.create_distribution_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/imagebuilder.html#Imagebuilder.Client.create_distribution_configuration)
         """
 
     def create_image(
@@ -156,7 +165,7 @@ class ImagebuilderClient:
         tags: Dict[str, str] = None,
     ) -> CreateImageResponseTypeDef:
         """
-        [Client.create_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/imagebuilder.html#Imagebuilder.Client.create_image)
+        [Client.create_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/imagebuilder.html#Imagebuilder.Client.create_image)
         """
 
     def create_image_pipeline(
@@ -174,7 +183,7 @@ class ImagebuilderClient:
         tags: Dict[str, str] = None,
     ) -> CreateImagePipelineResponseTypeDef:
         """
-        [Client.create_image_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/imagebuilder.html#Imagebuilder.Client.create_image_pipeline)
+        [Client.create_image_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/imagebuilder.html#Imagebuilder.Client.create_image_pipeline)
         """
 
     def create_image_recipe(
@@ -190,7 +199,7 @@ class ImagebuilderClient:
         workingDirectory: str = None,
     ) -> CreateImageRecipeResponseTypeDef:
         """
-        [Client.create_image_recipe documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/imagebuilder.html#Imagebuilder.Client.create_image_recipe)
+        [Client.create_image_recipe documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/imagebuilder.html#Imagebuilder.Client.create_image_recipe)
         """
 
     def create_infrastructure_configuration(
@@ -210,41 +219,41 @@ class ImagebuilderClient:
         tags: Dict[str, str] = None,
     ) -> CreateInfrastructureConfigurationResponseTypeDef:
         """
-        [Client.create_infrastructure_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/imagebuilder.html#Imagebuilder.Client.create_infrastructure_configuration)
+        [Client.create_infrastructure_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/imagebuilder.html#Imagebuilder.Client.create_infrastructure_configuration)
         """
 
     def delete_component(self, componentBuildVersionArn: str) -> DeleteComponentResponseTypeDef:
         """
-        [Client.delete_component documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/imagebuilder.html#Imagebuilder.Client.delete_component)
+        [Client.delete_component documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/imagebuilder.html#Imagebuilder.Client.delete_component)
         """
 
     def delete_distribution_configuration(
         self, distributionConfigurationArn: str
     ) -> DeleteDistributionConfigurationResponseTypeDef:
         """
-        [Client.delete_distribution_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/imagebuilder.html#Imagebuilder.Client.delete_distribution_configuration)
+        [Client.delete_distribution_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/imagebuilder.html#Imagebuilder.Client.delete_distribution_configuration)
         """
 
     def delete_image(self, imageBuildVersionArn: str) -> DeleteImageResponseTypeDef:
         """
-        [Client.delete_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/imagebuilder.html#Imagebuilder.Client.delete_image)
+        [Client.delete_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/imagebuilder.html#Imagebuilder.Client.delete_image)
         """
 
     def delete_image_pipeline(self, imagePipelineArn: str) -> DeleteImagePipelineResponseTypeDef:
         """
-        [Client.delete_image_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/imagebuilder.html#Imagebuilder.Client.delete_image_pipeline)
+        [Client.delete_image_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/imagebuilder.html#Imagebuilder.Client.delete_image_pipeline)
         """
 
     def delete_image_recipe(self, imageRecipeArn: str) -> DeleteImageRecipeResponseTypeDef:
         """
-        [Client.delete_image_recipe documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/imagebuilder.html#Imagebuilder.Client.delete_image_recipe)
+        [Client.delete_image_recipe documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/imagebuilder.html#Imagebuilder.Client.delete_image_recipe)
         """
 
     def delete_infrastructure_configuration(
         self, infrastructureConfigurationArn: str
     ) -> DeleteInfrastructureConfigurationResponseTypeDef:
         """
-        [Client.delete_infrastructure_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/imagebuilder.html#Imagebuilder.Client.delete_infrastructure_configuration)
+        [Client.delete_infrastructure_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/imagebuilder.html#Imagebuilder.Client.delete_infrastructure_configuration)
         """
 
     def generate_presigned_url(
@@ -255,56 +264,56 @@ class ImagebuilderClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/imagebuilder.html#Imagebuilder.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/imagebuilder.html#Imagebuilder.Client.generate_presigned_url)
         """
 
     def get_component(self, componentBuildVersionArn: str) -> GetComponentResponseTypeDef:
         """
-        [Client.get_component documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/imagebuilder.html#Imagebuilder.Client.get_component)
+        [Client.get_component documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/imagebuilder.html#Imagebuilder.Client.get_component)
         """
 
     def get_component_policy(self, componentArn: str) -> GetComponentPolicyResponseTypeDef:
         """
-        [Client.get_component_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/imagebuilder.html#Imagebuilder.Client.get_component_policy)
+        [Client.get_component_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/imagebuilder.html#Imagebuilder.Client.get_component_policy)
         """
 
     def get_distribution_configuration(
         self, distributionConfigurationArn: str
     ) -> GetDistributionConfigurationResponseTypeDef:
         """
-        [Client.get_distribution_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/imagebuilder.html#Imagebuilder.Client.get_distribution_configuration)
+        [Client.get_distribution_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/imagebuilder.html#Imagebuilder.Client.get_distribution_configuration)
         """
 
     def get_image(self, imageBuildVersionArn: str) -> GetImageResponseTypeDef:
         """
-        [Client.get_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/imagebuilder.html#Imagebuilder.Client.get_image)
+        [Client.get_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/imagebuilder.html#Imagebuilder.Client.get_image)
         """
 
     def get_image_pipeline(self, imagePipelineArn: str) -> GetImagePipelineResponseTypeDef:
         """
-        [Client.get_image_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/imagebuilder.html#Imagebuilder.Client.get_image_pipeline)
+        [Client.get_image_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/imagebuilder.html#Imagebuilder.Client.get_image_pipeline)
         """
 
     def get_image_policy(self, imageArn: str) -> GetImagePolicyResponseTypeDef:
         """
-        [Client.get_image_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/imagebuilder.html#Imagebuilder.Client.get_image_policy)
+        [Client.get_image_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/imagebuilder.html#Imagebuilder.Client.get_image_policy)
         """
 
     def get_image_recipe(self, imageRecipeArn: str) -> GetImageRecipeResponseTypeDef:
         """
-        [Client.get_image_recipe documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/imagebuilder.html#Imagebuilder.Client.get_image_recipe)
+        [Client.get_image_recipe documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/imagebuilder.html#Imagebuilder.Client.get_image_recipe)
         """
 
     def get_image_recipe_policy(self, imageRecipeArn: str) -> GetImageRecipePolicyResponseTypeDef:
         """
-        [Client.get_image_recipe_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/imagebuilder.html#Imagebuilder.Client.get_image_recipe_policy)
+        [Client.get_image_recipe_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/imagebuilder.html#Imagebuilder.Client.get_image_recipe_policy)
         """
 
     def get_infrastructure_configuration(
         self, infrastructureConfigurationArn: str
     ) -> GetInfrastructureConfigurationResponseTypeDef:
         """
-        [Client.get_infrastructure_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/imagebuilder.html#Imagebuilder.Client.get_infrastructure_configuration)
+        [Client.get_infrastructure_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/imagebuilder.html#Imagebuilder.Client.get_infrastructure_configuration)
         """
 
     def import_component(
@@ -323,14 +332,14 @@ class ImagebuilderClient:
         tags: Dict[str, str] = None,
     ) -> ImportComponentResponseTypeDef:
         """
-        [Client.import_component documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/imagebuilder.html#Imagebuilder.Client.import_component)
+        [Client.import_component documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/imagebuilder.html#Imagebuilder.Client.import_component)
         """
 
     def list_component_build_versions(
         self, componentVersionArn: str, maxResults: int = None, nextToken: str = None
     ) -> ListComponentBuildVersionsResponseTypeDef:
         """
-        [Client.list_component_build_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/imagebuilder.html#Imagebuilder.Client.list_component_build_versions)
+        [Client.list_component_build_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/imagebuilder.html#Imagebuilder.Client.list_component_build_versions)
         """
 
     def list_components(
@@ -341,14 +350,14 @@ class ImagebuilderClient:
         nextToken: str = None,
     ) -> ListComponentsResponseTypeDef:
         """
-        [Client.list_components documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/imagebuilder.html#Imagebuilder.Client.list_components)
+        [Client.list_components documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/imagebuilder.html#Imagebuilder.Client.list_components)
         """
 
     def list_distribution_configurations(
         self, filters: List[FilterTypeDef] = None, maxResults: int = None, nextToken: str = None
     ) -> ListDistributionConfigurationsResponseTypeDef:
         """
-        [Client.list_distribution_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/imagebuilder.html#Imagebuilder.Client.list_distribution_configurations)
+        [Client.list_distribution_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/imagebuilder.html#Imagebuilder.Client.list_distribution_configurations)
         """
 
     def list_image_build_versions(
@@ -359,7 +368,7 @@ class ImagebuilderClient:
         nextToken: str = None,
     ) -> ListImageBuildVersionsResponseTypeDef:
         """
-        [Client.list_image_build_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/imagebuilder.html#Imagebuilder.Client.list_image_build_versions)
+        [Client.list_image_build_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/imagebuilder.html#Imagebuilder.Client.list_image_build_versions)
         """
 
     def list_image_pipeline_images(
@@ -370,14 +379,14 @@ class ImagebuilderClient:
         nextToken: str = None,
     ) -> ListImagePipelineImagesResponseTypeDef:
         """
-        [Client.list_image_pipeline_images documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/imagebuilder.html#Imagebuilder.Client.list_image_pipeline_images)
+        [Client.list_image_pipeline_images documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/imagebuilder.html#Imagebuilder.Client.list_image_pipeline_images)
         """
 
     def list_image_pipelines(
         self, filters: List[FilterTypeDef] = None, maxResults: int = None, nextToken: str = None
     ) -> ListImagePipelinesResponseTypeDef:
         """
-        [Client.list_image_pipelines documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/imagebuilder.html#Imagebuilder.Client.list_image_pipelines)
+        [Client.list_image_pipelines documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/imagebuilder.html#Imagebuilder.Client.list_image_pipelines)
         """
 
     def list_image_recipes(
@@ -388,7 +397,7 @@ class ImagebuilderClient:
         nextToken: str = None,
     ) -> ListImageRecipesResponseTypeDef:
         """
-        [Client.list_image_recipes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/imagebuilder.html#Imagebuilder.Client.list_image_recipes)
+        [Client.list_image_recipes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/imagebuilder.html#Imagebuilder.Client.list_image_recipes)
         """
 
     def list_images(
@@ -399,55 +408,55 @@ class ImagebuilderClient:
         nextToken: str = None,
     ) -> ListImagesResponseTypeDef:
         """
-        [Client.list_images documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/imagebuilder.html#Imagebuilder.Client.list_images)
+        [Client.list_images documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/imagebuilder.html#Imagebuilder.Client.list_images)
         """
 
     def list_infrastructure_configurations(
         self, filters: List[FilterTypeDef] = None, maxResults: int = None, nextToken: str = None
     ) -> ListInfrastructureConfigurationsResponseTypeDef:
         """
-        [Client.list_infrastructure_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/imagebuilder.html#Imagebuilder.Client.list_infrastructure_configurations)
+        [Client.list_infrastructure_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/imagebuilder.html#Imagebuilder.Client.list_infrastructure_configurations)
         """
 
     def list_tags_for_resource(self, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/imagebuilder.html#Imagebuilder.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/imagebuilder.html#Imagebuilder.Client.list_tags_for_resource)
         """
 
     def put_component_policy(
         self, componentArn: str, policy: str
     ) -> PutComponentPolicyResponseTypeDef:
         """
-        [Client.put_component_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/imagebuilder.html#Imagebuilder.Client.put_component_policy)
+        [Client.put_component_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/imagebuilder.html#Imagebuilder.Client.put_component_policy)
         """
 
     def put_image_policy(self, imageArn: str, policy: str) -> PutImagePolicyResponseTypeDef:
         """
-        [Client.put_image_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/imagebuilder.html#Imagebuilder.Client.put_image_policy)
+        [Client.put_image_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/imagebuilder.html#Imagebuilder.Client.put_image_policy)
         """
 
     def put_image_recipe_policy(
         self, imageRecipeArn: str, policy: str
     ) -> PutImageRecipePolicyResponseTypeDef:
         """
-        [Client.put_image_recipe_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/imagebuilder.html#Imagebuilder.Client.put_image_recipe_policy)
+        [Client.put_image_recipe_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/imagebuilder.html#Imagebuilder.Client.put_image_recipe_policy)
         """
 
     def start_image_pipeline_execution(
         self, imagePipelineArn: str, clientToken: str
     ) -> StartImagePipelineExecutionResponseTypeDef:
         """
-        [Client.start_image_pipeline_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/imagebuilder.html#Imagebuilder.Client.start_image_pipeline_execution)
+        [Client.start_image_pipeline_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/imagebuilder.html#Imagebuilder.Client.start_image_pipeline_execution)
         """
 
     def tag_resource(self, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/imagebuilder.html#Imagebuilder.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/imagebuilder.html#Imagebuilder.Client.tag_resource)
         """
 
     def untag_resource(self, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/imagebuilder.html#Imagebuilder.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/imagebuilder.html#Imagebuilder.Client.untag_resource)
         """
 
     def update_distribution_configuration(
@@ -458,7 +467,7 @@ class ImagebuilderClient:
         description: str = None,
     ) -> UpdateDistributionConfigurationResponseTypeDef:
         """
-        [Client.update_distribution_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/imagebuilder.html#Imagebuilder.Client.update_distribution_configuration)
+        [Client.update_distribution_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/imagebuilder.html#Imagebuilder.Client.update_distribution_configuration)
         """
 
     def update_image_pipeline(
@@ -475,7 +484,7 @@ class ImagebuilderClient:
         status: Literal["DISABLED", "ENABLED"] = None,
     ) -> UpdateImagePipelineResponseTypeDef:
         """
-        [Client.update_image_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/imagebuilder.html#Imagebuilder.Client.update_image_pipeline)
+        [Client.update_image_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/imagebuilder.html#Imagebuilder.Client.update_image_pipeline)
         """
 
     def update_infrastructure_configuration(
@@ -494,5 +503,5 @@ class ImagebuilderClient:
         resourceTags: Dict[str, str] = None,
     ) -> UpdateInfrastructureConfigurationResponseTypeDef:
         """
-        [Client.update_infrastructure_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/imagebuilder.html#Imagebuilder.Client.update_infrastructure_configuration)
+        [Client.update_infrastructure_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/imagebuilder.html#Imagebuilder.Client.update_infrastructure_configuration)
         """

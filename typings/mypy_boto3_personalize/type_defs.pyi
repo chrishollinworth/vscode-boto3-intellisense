@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Dict, List
+from typing import Any, Dict, List
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -65,6 +64,7 @@ __all__ = (
     "IntegerHyperParameterRangeTypeDef",
     "RecipeSummaryTypeDef",
     "RecipeTypeDef",
+    "ResponseMetadata",
     "S3DataConfigTypeDef",
     "SolutionConfigTypeDef",
     "SolutionSummaryTypeDef",
@@ -152,9 +152,19 @@ BatchInferenceJobInputTypeDef = TypedDict(
     "BatchInferenceJobInputTypeDef", {"s3DataSource": "S3DataConfigTypeDef"}
 )
 
-BatchInferenceJobOutputTypeDef = TypedDict(
-    "BatchInferenceJobOutputTypeDef", {"s3DataDestination": "S3DataConfigTypeDef"}
+_RequiredBatchInferenceJobOutputTypeDef = TypedDict(
+    "_RequiredBatchInferenceJobOutputTypeDef", {"s3DataDestination": "S3DataConfigTypeDef"}
 )
+_OptionalBatchInferenceJobOutputTypeDef = TypedDict(
+    "_OptionalBatchInferenceJobOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
+)
+
+
+class BatchInferenceJobOutputTypeDef(
+    _RequiredBatchInferenceJobOutputTypeDef, _OptionalBatchInferenceJobOutputTypeDef
+):
+    pass
+
 
 BatchInferenceJobSummaryTypeDef = TypedDict(
     "BatchInferenceJobSummaryTypeDef",
@@ -512,6 +522,17 @@ RecipeTypeDef = TypedDict(
         "lastUpdatedDateTime": datetime,
     },
     total=False,
+)
+
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
 )
 
 _RequiredS3DataConfigTypeDef = TypedDict("_RequiredS3DataConfigTypeDef", {"path": str})

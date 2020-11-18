@@ -10,13 +10,12 @@ Usage::
     ```
 """
 import sys
-from typing import Dict, List
+from typing import Any, Dict, List
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -34,6 +33,7 @@ __all__ = (
     "QueryErrorTypeDef",
     "ResourceIdentifierTypeDef",
     "ResourceQueryTypeDef",
+    "ResponseMetadata",
     "CreateGroupOutputTypeDef",
     "DeleteGroupOutputTypeDef",
     "GetGroupConfigurationOutputTypeDef",
@@ -135,6 +135,17 @@ ResourceQueryTypeDef = TypedDict(
     {"Type": Literal["TAG_FILTERS_1_0", "CLOUDFORMATION_STACK_1_0"], "Query": str},
 )
 
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
+
 CreateGroupOutputTypeDef = TypedDict(
     "CreateGroupOutputTypeDef",
     {
@@ -142,28 +153,39 @@ CreateGroupOutputTypeDef = TypedDict(
         "ResourceQuery": "ResourceQueryTypeDef",
         "Tags": Dict[str, str],
         "GroupConfiguration": "GroupConfigurationTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
 DeleteGroupOutputTypeDef = TypedDict(
-    "DeleteGroupOutputTypeDef", {"Group": "GroupTypeDef"}, total=False
+    "DeleteGroupOutputTypeDef",
+    {"Group": "GroupTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 GetGroupConfigurationOutputTypeDef = TypedDict(
     "GetGroupConfigurationOutputTypeDef",
-    {"GroupConfiguration": "GroupConfigurationTypeDef"},
+    {"GroupConfiguration": "GroupConfigurationTypeDef", "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
-GetGroupOutputTypeDef = TypedDict("GetGroupOutputTypeDef", {"Group": "GroupTypeDef"}, total=False)
+GetGroupOutputTypeDef = TypedDict(
+    "GetGroupOutputTypeDef",
+    {"Group": "GroupTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
 
 GetGroupQueryOutputTypeDef = TypedDict(
-    "GetGroupQueryOutputTypeDef", {"GroupQuery": "GroupQueryTypeDef"}, total=False
+    "GetGroupQueryOutputTypeDef",
+    {"GroupQuery": "GroupQueryTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 GetTagsOutputTypeDef = TypedDict(
-    "GetTagsOutputTypeDef", {"Arn": str, "Tags": Dict[str, str]}, total=False
+    "GetTagsOutputTypeDef",
+    {"Arn": str, "Tags": Dict[str, str], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 GroupFilterTypeDef = TypedDict(
@@ -173,7 +195,11 @@ GroupFilterTypeDef = TypedDict(
 
 GroupResourcesOutputTypeDef = TypedDict(
     "GroupResourcesOutputTypeDef",
-    {"Succeeded": List[str], "Failed": List["FailedResourceTypeDef"]},
+    {
+        "Succeeded": List[str],
+        "Failed": List["FailedResourceTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -183,6 +209,7 @@ ListGroupResourcesOutputTypeDef = TypedDict(
         "ResourceIdentifiers": List["ResourceIdentifierTypeDef"],
         "NextToken": str,
         "QueryErrors": List["QueryErrorTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -193,6 +220,7 @@ ListGroupsOutputTypeDef = TypedDict(
         "GroupIdentifiers": List["GroupIdentifierTypeDef"],
         "Groups": List["GroupTypeDef"],
         "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -211,24 +239,41 @@ SearchResourcesOutputTypeDef = TypedDict(
         "ResourceIdentifiers": List["ResourceIdentifierTypeDef"],
         "NextToken": str,
         "QueryErrors": List["QueryErrorTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
-TagOutputTypeDef = TypedDict("TagOutputTypeDef", {"Arn": str, "Tags": Dict[str, str]}, total=False)
-
-UngroupResourcesOutputTypeDef = TypedDict(
-    "UngroupResourcesOutputTypeDef",
-    {"Succeeded": List[str], "Failed": List["FailedResourceTypeDef"]},
+TagOutputTypeDef = TypedDict(
+    "TagOutputTypeDef",
+    {"Arn": str, "Tags": Dict[str, str], "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
-UntagOutputTypeDef = TypedDict("UntagOutputTypeDef", {"Arn": str, "Keys": List[str]}, total=False)
+UngroupResourcesOutputTypeDef = TypedDict(
+    "UngroupResourcesOutputTypeDef",
+    {
+        "Succeeded": List[str],
+        "Failed": List["FailedResourceTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
+    total=False,
+)
+
+UntagOutputTypeDef = TypedDict(
+    "UntagOutputTypeDef",
+    {"Arn": str, "Keys": List[str], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
 
 UpdateGroupOutputTypeDef = TypedDict(
-    "UpdateGroupOutputTypeDef", {"Group": "GroupTypeDef"}, total=False
+    "UpdateGroupOutputTypeDef",
+    {"Group": "GroupTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 UpdateGroupQueryOutputTypeDef = TypedDict(
-    "UpdateGroupQueryOutputTypeDef", {"GroupQuery": "GroupQueryTypeDef"}, total=False
+    "UpdateGroupQueryOutputTypeDef",
+    {"GroupQuery": "GroupQueryTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )

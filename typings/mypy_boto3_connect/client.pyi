@@ -1,4 +1,4 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import
+# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for connect service client
 
@@ -15,15 +15,16 @@ import sys
 from datetime import datetime
 from typing import Any, Dict, List, Type, overload
 
-from botocore.exceptions import ClientError as Boto3ClientError
-from botocore.paginate import Paginator as Boto3Paginator
+from botocore.client import ClientMeta
 
 from mypy_boto3_connect.paginator import (
     GetMetricDataPaginator,
     ListContactFlowsPaginator,
     ListHoursOfOperationsPaginator,
     ListPhoneNumbersPaginator,
+    ListPromptsPaginator,
     ListQueuesPaginator,
+    ListRoutingProfileQueuesPaginator,
     ListRoutingProfilesPaginator,
     ListSecurityProfilesPaginator,
     ListUserHierarchyGroupsPaginator,
@@ -31,8 +32,13 @@ from mypy_boto3_connect.paginator import (
 )
 from mypy_boto3_connect.type_defs import (
     ChatMessageTypeDef,
+    CreateContactFlowResponseTypeDef,
+    CreateRoutingProfileResponseTypeDef,
+    CreateUserHierarchyGroupResponseTypeDef,
     CreateUserResponseTypeDef,
     CurrentMetricTypeDef,
+    DescribeContactFlowResponseTypeDef,
+    DescribeRoutingProfileResponseTypeDef,
     DescribeUserHierarchyGroupResponseTypeDef,
     DescribeUserHierarchyStructureResponseTypeDef,
     DescribeUserResponseTypeDef,
@@ -41,17 +47,23 @@ from mypy_boto3_connect.type_defs import (
     GetCurrentMetricDataResponseTypeDef,
     GetFederationTokenResponseTypeDef,
     GetMetricDataResponseTypeDef,
+    HierarchyStructureUpdateTypeDef,
     HistoricalMetricTypeDef,
     ListContactFlowsResponseTypeDef,
     ListHoursOfOperationsResponseTypeDef,
     ListPhoneNumbersResponseTypeDef,
+    ListPromptsResponseTypeDef,
     ListQueuesResponseTypeDef,
+    ListRoutingProfileQueuesResponseTypeDef,
     ListRoutingProfilesResponseTypeDef,
     ListSecurityProfilesResponseTypeDef,
     ListTagsForResourceResponseTypeDef,
     ListUserHierarchyGroupsResponseTypeDef,
     ListUsersResponseTypeDef,
+    MediaConcurrencyTypeDef,
     ParticipantDetailsTypeDef,
+    RoutingProfileQueueConfigTypeDef,
+    RoutingProfileQueueReferenceTypeDef,
     StartChatContactResponseTypeDef,
     StartOutboundVoiceContactResponseTypeDef,
     UserIdentityInfoTypeDef,
@@ -68,31 +80,90 @@ else:
 __all__ = ("ConnectClient",)
 
 
+class BotocoreClientError(BaseException):
+    MSG_TEMPLATE: str
+
+    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
+        self.response: Dict[str, Any]
+        self.operation_name: str
+
+
 class Exceptions:
-    ClientError: Type[Boto3ClientError]
-    ContactNotFoundException: Type[Boto3ClientError]
-    DestinationNotAllowedException: Type[Boto3ClientError]
-    DuplicateResourceException: Type[Boto3ClientError]
-    InternalServiceException: Type[Boto3ClientError]
-    InvalidParameterException: Type[Boto3ClientError]
-    InvalidRequestException: Type[Boto3ClientError]
-    LimitExceededException: Type[Boto3ClientError]
-    OutboundContactNotPermittedException: Type[Boto3ClientError]
-    ResourceNotFoundException: Type[Boto3ClientError]
-    ThrottlingException: Type[Boto3ClientError]
-    UserNotFoundException: Type[Boto3ClientError]
+    ClientError: Type[BotocoreClientError]
+    ContactFlowNotPublishedException: Type[BotocoreClientError]
+    ContactNotFoundException: Type[BotocoreClientError]
+    DestinationNotAllowedException: Type[BotocoreClientError]
+    DuplicateResourceException: Type[BotocoreClientError]
+    InternalServiceException: Type[BotocoreClientError]
+    InvalidContactFlowException: Type[BotocoreClientError]
+    InvalidParameterException: Type[BotocoreClientError]
+    InvalidRequestException: Type[BotocoreClientError]
+    LimitExceededException: Type[BotocoreClientError]
+    OutboundContactNotPermittedException: Type[BotocoreClientError]
+    ResourceInUseException: Type[BotocoreClientError]
+    ResourceNotFoundException: Type[BotocoreClientError]
+    ThrottlingException: Type[BotocoreClientError]
+    UserNotFoundException: Type[BotocoreClientError]
 
 
 class ConnectClient:
     """
-    [Connect.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/connect.html#Connect.Client)
+    [Connect.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client)
     """
 
+    meta: ClientMeta
     exceptions: Exceptions
+
+    def associate_routing_profile_queues(
+        self,
+        InstanceId: str,
+        RoutingProfileId: str,
+        QueueConfigs: List[RoutingProfileQueueConfigTypeDef],
+    ) -> None:
+        """
+        [Client.associate_routing_profile_queues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.associate_routing_profile_queues)
+        """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/connect.html#Connect.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.can_paginate)
+        """
+
+    def create_contact_flow(
+        self,
+        InstanceId: str,
+        Name: str,
+        Type: Literal[
+            "CONTACT_FLOW",
+            "CUSTOMER_QUEUE",
+            "CUSTOMER_HOLD",
+            "CUSTOMER_WHISPER",
+            "AGENT_HOLD",
+            "AGENT_WHISPER",
+            "OUTBOUND_WHISPER",
+            "AGENT_TRANSFER",
+            "QUEUE_TRANSFER",
+        ],
+        Content: str,
+        Description: str = None,
+        Tags: Dict[str, str] = None,
+    ) -> CreateContactFlowResponseTypeDef:
+        """
+        [Client.create_contact_flow documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.create_contact_flow)
+        """
+
+    def create_routing_profile(
+        self,
+        InstanceId: str,
+        Name: str,
+        Description: str,
+        DefaultOutboundQueueId: str,
+        MediaConcurrencies: List["MediaConcurrencyTypeDef"],
+        QueueConfigs: List[RoutingProfileQueueConfigTypeDef] = None,
+        Tags: Dict[str, str] = None,
+    ) -> CreateRoutingProfileResponseTypeDef:
+        """
+        [Client.create_routing_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.create_routing_profile)
         """
 
     def create_user(
@@ -109,31 +180,67 @@ class ConnectClient:
         Tags: Dict[str, str] = None,
     ) -> CreateUserResponseTypeDef:
         """
-        [Client.create_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/connect.html#Connect.Client.create_user)
+        [Client.create_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.create_user)
+        """
+
+    def create_user_hierarchy_group(
+        self, Name: str, InstanceId: str, ParentGroupId: str = None
+    ) -> CreateUserHierarchyGroupResponseTypeDef:
+        """
+        [Client.create_user_hierarchy_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.create_user_hierarchy_group)
         """
 
     def delete_user(self, InstanceId: str, UserId: str) -> None:
         """
-        [Client.delete_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/connect.html#Connect.Client.delete_user)
+        [Client.delete_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.delete_user)
+        """
+
+    def delete_user_hierarchy_group(self, HierarchyGroupId: str, InstanceId: str) -> None:
+        """
+        [Client.delete_user_hierarchy_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.delete_user_hierarchy_group)
+        """
+
+    def describe_contact_flow(
+        self, InstanceId: str, ContactFlowId: str
+    ) -> DescribeContactFlowResponseTypeDef:
+        """
+        [Client.describe_contact_flow documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.describe_contact_flow)
+        """
+
+    def describe_routing_profile(
+        self, InstanceId: str, RoutingProfileId: str
+    ) -> DescribeRoutingProfileResponseTypeDef:
+        """
+        [Client.describe_routing_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.describe_routing_profile)
         """
 
     def describe_user(self, UserId: str, InstanceId: str) -> DescribeUserResponseTypeDef:
         """
-        [Client.describe_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/connect.html#Connect.Client.describe_user)
+        [Client.describe_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.describe_user)
         """
 
     def describe_user_hierarchy_group(
         self, HierarchyGroupId: str, InstanceId: str
     ) -> DescribeUserHierarchyGroupResponseTypeDef:
         """
-        [Client.describe_user_hierarchy_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/connect.html#Connect.Client.describe_user_hierarchy_group)
+        [Client.describe_user_hierarchy_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.describe_user_hierarchy_group)
         """
 
     def describe_user_hierarchy_structure(
         self, InstanceId: str
     ) -> DescribeUserHierarchyStructureResponseTypeDef:
         """
-        [Client.describe_user_hierarchy_structure documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/connect.html#Connect.Client.describe_user_hierarchy_structure)
+        [Client.describe_user_hierarchy_structure documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.describe_user_hierarchy_structure)
+        """
+
+    def disassociate_routing_profile_queues(
+        self,
+        InstanceId: str,
+        RoutingProfileId: str,
+        QueueReferences: List["RoutingProfileQueueReferenceTypeDef"],
+    ) -> None:
+        """
+        [Client.disassociate_routing_profile_queues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.disassociate_routing_profile_queues)
         """
 
     def generate_presigned_url(
@@ -144,14 +251,14 @@ class ConnectClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/connect.html#Connect.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.generate_presigned_url)
         """
 
     def get_contact_attributes(
         self, InstanceId: str, InitialContactId: str
     ) -> GetContactAttributesResponseTypeDef:
         """
-        [Client.get_contact_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/connect.html#Connect.Client.get_contact_attributes)
+        [Client.get_contact_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.get_contact_attributes)
         """
 
     def get_current_metric_data(
@@ -164,12 +271,12 @@ class ConnectClient:
         MaxResults: int = None,
     ) -> GetCurrentMetricDataResponseTypeDef:
         """
-        [Client.get_current_metric_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/connect.html#Connect.Client.get_current_metric_data)
+        [Client.get_current_metric_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.get_current_metric_data)
         """
 
     def get_federation_token(self, InstanceId: str) -> GetFederationTokenResponseTypeDef:
         """
-        [Client.get_federation_token documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/connect.html#Connect.Client.get_federation_token)
+        [Client.get_federation_token documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.get_federation_token)
         """
 
     def get_metric_data(
@@ -184,7 +291,7 @@ class ConnectClient:
         MaxResults: int = None,
     ) -> GetMetricDataResponseTypeDef:
         """
-        [Client.get_metric_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/connect.html#Connect.Client.get_metric_data)
+        [Client.get_metric_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.get_metric_data)
         """
 
     def list_contact_flows(
@@ -207,14 +314,14 @@ class ConnectClient:
         MaxResults: int = None,
     ) -> ListContactFlowsResponseTypeDef:
         """
-        [Client.list_contact_flows documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/connect.html#Connect.Client.list_contact_flows)
+        [Client.list_contact_flows documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.list_contact_flows)
         """
 
     def list_hours_of_operations(
         self, InstanceId: str, NextToken: str = None, MaxResults: int = None
     ) -> ListHoursOfOperationsResponseTypeDef:
         """
-        [Client.list_hours_of_operations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/connect.html#Connect.Client.list_hours_of_operations)
+        [Client.list_hours_of_operations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.list_hours_of_operations)
         """
 
     def list_phone_numbers(
@@ -466,7 +573,14 @@ class ConnectClient:
         MaxResults: int = None,
     ) -> ListPhoneNumbersResponseTypeDef:
         """
-        [Client.list_phone_numbers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/connect.html#Connect.Client.list_phone_numbers)
+        [Client.list_phone_numbers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.list_phone_numbers)
+        """
+
+    def list_prompts(
+        self, InstanceId: str, NextToken: str = None, MaxResults: int = None
+    ) -> ListPromptsResponseTypeDef:
+        """
+        [Client.list_prompts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.list_prompts)
         """
 
     def list_queues(
@@ -477,47 +591,54 @@ class ConnectClient:
         MaxResults: int = None,
     ) -> ListQueuesResponseTypeDef:
         """
-        [Client.list_queues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/connect.html#Connect.Client.list_queues)
+        [Client.list_queues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.list_queues)
+        """
+
+    def list_routing_profile_queues(
+        self, InstanceId: str, RoutingProfileId: str, NextToken: str = None, MaxResults: int = None
+    ) -> ListRoutingProfileQueuesResponseTypeDef:
+        """
+        [Client.list_routing_profile_queues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.list_routing_profile_queues)
         """
 
     def list_routing_profiles(
         self, InstanceId: str, NextToken: str = None, MaxResults: int = None
     ) -> ListRoutingProfilesResponseTypeDef:
         """
-        [Client.list_routing_profiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/connect.html#Connect.Client.list_routing_profiles)
+        [Client.list_routing_profiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.list_routing_profiles)
         """
 
     def list_security_profiles(
         self, InstanceId: str, NextToken: str = None, MaxResults: int = None
     ) -> ListSecurityProfilesResponseTypeDef:
         """
-        [Client.list_security_profiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/connect.html#Connect.Client.list_security_profiles)
+        [Client.list_security_profiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.list_security_profiles)
         """
 
     def list_tags_for_resource(self, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/connect.html#Connect.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.list_tags_for_resource)
         """
 
     def list_user_hierarchy_groups(
         self, InstanceId: str, NextToken: str = None, MaxResults: int = None
     ) -> ListUserHierarchyGroupsResponseTypeDef:
         """
-        [Client.list_user_hierarchy_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/connect.html#Connect.Client.list_user_hierarchy_groups)
+        [Client.list_user_hierarchy_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.list_user_hierarchy_groups)
         """
 
     def list_users(
         self, InstanceId: str, NextToken: str = None, MaxResults: int = None
     ) -> ListUsersResponseTypeDef:
         """
-        [Client.list_users documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/connect.html#Connect.Client.list_users)
+        [Client.list_users documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.list_users)
         """
 
     def resume_contact_recording(
         self, InstanceId: str, ContactId: str, InitialContactId: str
     ) -> Dict[str, Any]:
         """
-        [Client.resume_contact_recording documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/connect.html#Connect.Client.resume_contact_recording)
+        [Client.resume_contact_recording documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.resume_contact_recording)
         """
 
     def start_chat_contact(
@@ -530,7 +651,7 @@ class ConnectClient:
         ClientToken: str = None,
     ) -> StartChatContactResponseTypeDef:
         """
-        [Client.start_chat_contact documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/connect.html#Connect.Client.start_chat_contact)
+        [Client.start_chat_contact documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.start_chat_contact)
         """
 
     def start_contact_recording(
@@ -541,7 +662,7 @@ class ConnectClient:
         VoiceRecordingConfiguration: VoiceRecordingConfigurationTypeDef,
     ) -> Dict[str, Any]:
         """
-        [Client.start_contact_recording documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/connect.html#Connect.Client.start_contact_recording)
+        [Client.start_contact_recording documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.start_contact_recording)
         """
 
     def start_outbound_voice_contact(
@@ -555,84 +676,146 @@ class ConnectClient:
         Attributes: Dict[str, str] = None,
     ) -> StartOutboundVoiceContactResponseTypeDef:
         """
-        [Client.start_outbound_voice_contact documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/connect.html#Connect.Client.start_outbound_voice_contact)
+        [Client.start_outbound_voice_contact documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.start_outbound_voice_contact)
         """
 
     def stop_contact(self, ContactId: str, InstanceId: str) -> Dict[str, Any]:
         """
-        [Client.stop_contact documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/connect.html#Connect.Client.stop_contact)
+        [Client.stop_contact documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.stop_contact)
         """
 
     def stop_contact_recording(
         self, InstanceId: str, ContactId: str, InitialContactId: str
     ) -> Dict[str, Any]:
         """
-        [Client.stop_contact_recording documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/connect.html#Connect.Client.stop_contact_recording)
+        [Client.stop_contact_recording documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.stop_contact_recording)
         """
 
     def suspend_contact_recording(
         self, InstanceId: str, ContactId: str, InitialContactId: str
     ) -> Dict[str, Any]:
         """
-        [Client.suspend_contact_recording documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/connect.html#Connect.Client.suspend_contact_recording)
+        [Client.suspend_contact_recording documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.suspend_contact_recording)
         """
 
     def tag_resource(self, resourceArn: str, tags: Dict[str, str]) -> None:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/connect.html#Connect.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.tag_resource)
         """
 
     def untag_resource(self, resourceArn: str, tagKeys: List[str]) -> None:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/connect.html#Connect.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.untag_resource)
         """
 
     def update_contact_attributes(
         self, InitialContactId: str, InstanceId: str, Attributes: Dict[str, str]
     ) -> Dict[str, Any]:
         """
-        [Client.update_contact_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/connect.html#Connect.Client.update_contact_attributes)
+        [Client.update_contact_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.update_contact_attributes)
+        """
+
+    def update_contact_flow_content(
+        self, InstanceId: str, ContactFlowId: str, Content: str
+    ) -> None:
+        """
+        [Client.update_contact_flow_content documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.update_contact_flow_content)
+        """
+
+    def update_contact_flow_name(
+        self, InstanceId: str, ContactFlowId: str, Name: str = None, Description: str = None
+    ) -> None:
+        """
+        [Client.update_contact_flow_name documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.update_contact_flow_name)
+        """
+
+    def update_routing_profile_concurrency(
+        self,
+        InstanceId: str,
+        RoutingProfileId: str,
+        MediaConcurrencies: List["MediaConcurrencyTypeDef"],
+    ) -> None:
+        """
+        [Client.update_routing_profile_concurrency documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.update_routing_profile_concurrency)
+        """
+
+    def update_routing_profile_default_outbound_queue(
+        self, InstanceId: str, RoutingProfileId: str, DefaultOutboundQueueId: str
+    ) -> None:
+        """
+        [Client.update_routing_profile_default_outbound_queue documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.update_routing_profile_default_outbound_queue)
+        """
+
+    def update_routing_profile_name(
+        self, InstanceId: str, RoutingProfileId: str, Name: str = None, Description: str = None
+    ) -> None:
+        """
+        [Client.update_routing_profile_name documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.update_routing_profile_name)
+        """
+
+    def update_routing_profile_queues(
+        self,
+        InstanceId: str,
+        RoutingProfileId: str,
+        QueueConfigs: List[RoutingProfileQueueConfigTypeDef],
+    ) -> None:
+        """
+        [Client.update_routing_profile_queues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.update_routing_profile_queues)
         """
 
     def update_user_hierarchy(
         self, UserId: str, InstanceId: str, HierarchyGroupId: str = None
     ) -> None:
         """
-        [Client.update_user_hierarchy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/connect.html#Connect.Client.update_user_hierarchy)
+        [Client.update_user_hierarchy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.update_user_hierarchy)
+        """
+
+    def update_user_hierarchy_group_name(
+        self, Name: str, HierarchyGroupId: str, InstanceId: str
+    ) -> None:
+        """
+        [Client.update_user_hierarchy_group_name documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.update_user_hierarchy_group_name)
+        """
+
+    def update_user_hierarchy_structure(
+        self, HierarchyStructure: HierarchyStructureUpdateTypeDef, InstanceId: str
+    ) -> None:
+        """
+        [Client.update_user_hierarchy_structure documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.update_user_hierarchy_structure)
         """
 
     def update_user_identity_info(
         self, IdentityInfo: "UserIdentityInfoTypeDef", UserId: str, InstanceId: str
     ) -> None:
         """
-        [Client.update_user_identity_info documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/connect.html#Connect.Client.update_user_identity_info)
+        [Client.update_user_identity_info documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.update_user_identity_info)
         """
 
     def update_user_phone_config(
         self, PhoneConfig: "UserPhoneConfigTypeDef", UserId: str, InstanceId: str
     ) -> None:
         """
-        [Client.update_user_phone_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/connect.html#Connect.Client.update_user_phone_config)
+        [Client.update_user_phone_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.update_user_phone_config)
         """
 
     def update_user_routing_profile(
         self, RoutingProfileId: str, UserId: str, InstanceId: str
     ) -> None:
         """
-        [Client.update_user_routing_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/connect.html#Connect.Client.update_user_routing_profile)
+        [Client.update_user_routing_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.update_user_routing_profile)
         """
 
     def update_user_security_profiles(
         self, SecurityProfileIds: List[str], UserId: str, InstanceId: str
     ) -> None:
         """
-        [Client.update_user_security_profiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/connect.html#Connect.Client.update_user_security_profiles)
+        [Client.update_user_security_profiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Client.update_user_security_profiles)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_metric_data"]) -> GetMetricDataPaginator:
         """
-        [Paginator.GetMetricData documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/connect.html#Connect.Paginator.GetMetricData)
+        [Paginator.GetMetricData documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Paginator.GetMetricData)
         """
 
     @overload
@@ -640,7 +823,7 @@ class ConnectClient:
         self, operation_name: Literal["list_contact_flows"]
     ) -> ListContactFlowsPaginator:
         """
-        [Paginator.ListContactFlows documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/connect.html#Connect.Paginator.ListContactFlows)
+        [Paginator.ListContactFlows documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Paginator.ListContactFlows)
         """
 
     @overload
@@ -648,7 +831,7 @@ class ConnectClient:
         self, operation_name: Literal["list_hours_of_operations"]
     ) -> ListHoursOfOperationsPaginator:
         """
-        [Paginator.ListHoursOfOperations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/connect.html#Connect.Paginator.ListHoursOfOperations)
+        [Paginator.ListHoursOfOperations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Paginator.ListHoursOfOperations)
         """
 
     @overload
@@ -656,13 +839,27 @@ class ConnectClient:
         self, operation_name: Literal["list_phone_numbers"]
     ) -> ListPhoneNumbersPaginator:
         """
-        [Paginator.ListPhoneNumbers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/connect.html#Connect.Paginator.ListPhoneNumbers)
+        [Paginator.ListPhoneNumbers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Paginator.ListPhoneNumbers)
+        """
+
+    @overload
+    def get_paginator(self, operation_name: Literal["list_prompts"]) -> ListPromptsPaginator:
+        """
+        [Paginator.ListPrompts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Paginator.ListPrompts)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_queues"]) -> ListQueuesPaginator:
         """
-        [Paginator.ListQueues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/connect.html#Connect.Paginator.ListQueues)
+        [Paginator.ListQueues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Paginator.ListQueues)
+        """
+
+    @overload
+    def get_paginator(
+        self, operation_name: Literal["list_routing_profile_queues"]
+    ) -> ListRoutingProfileQueuesPaginator:
+        """
+        [Paginator.ListRoutingProfileQueues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Paginator.ListRoutingProfileQueues)
         """
 
     @overload
@@ -670,7 +867,7 @@ class ConnectClient:
         self, operation_name: Literal["list_routing_profiles"]
     ) -> ListRoutingProfilesPaginator:
         """
-        [Paginator.ListRoutingProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/connect.html#Connect.Paginator.ListRoutingProfiles)
+        [Paginator.ListRoutingProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Paginator.ListRoutingProfiles)
         """
 
     @overload
@@ -678,7 +875,7 @@ class ConnectClient:
         self, operation_name: Literal["list_security_profiles"]
     ) -> ListSecurityProfilesPaginator:
         """
-        [Paginator.ListSecurityProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/connect.html#Connect.Paginator.ListSecurityProfiles)
+        [Paginator.ListSecurityProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Paginator.ListSecurityProfiles)
         """
 
     @overload
@@ -686,14 +883,11 @@ class ConnectClient:
         self, operation_name: Literal["list_user_hierarchy_groups"]
     ) -> ListUserHierarchyGroupsPaginator:
         """
-        [Paginator.ListUserHierarchyGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/connect.html#Connect.Paginator.ListUserHierarchyGroups)
+        [Paginator.ListUserHierarchyGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Paginator.ListUserHierarchyGroups)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_users"]) -> ListUsersPaginator:
         """
-        [Paginator.ListUsers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/connect.html#Connect.Paginator.ListUsers)
+        [Paginator.ListUsers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Paginator.ListUsers)
         """
-
-    def get_paginator(self, operation_name: str) -> Boto3Paginator:
-        pass

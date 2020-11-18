@@ -1,4 +1,4 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import
+# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for elbv2 service client
 
@@ -14,9 +14,7 @@ Usage::
 import sys
 from typing import Any, Dict, List, Type, overload
 
-from botocore.exceptions import ClientError as Boto3ClientError
-from botocore.paginate import Paginator as Boto3Paginator
-from botocore.waiter import Waiter as Boto3Waiter
+from botocore.client import ClientMeta
 
 from mypy_boto3_elbv2.paginator import (
     DescribeAccountLimitsPaginator,
@@ -81,83 +79,93 @@ else:
 __all__ = ("ElasticLoadBalancingv2Client",)
 
 
+class BotocoreClientError(BaseException):
+    MSG_TEMPLATE: str
+
+    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
+        self.response: Dict[str, Any]
+        self.operation_name: str
+
+
 class Exceptions:
-    ALPNPolicyNotSupportedException: Type[Boto3ClientError]
-    AllocationIdNotFoundException: Type[Boto3ClientError]
-    AvailabilityZoneNotSupportedException: Type[Boto3ClientError]
-    CertificateNotFoundException: Type[Boto3ClientError]
-    ClientError: Type[Boto3ClientError]
-    DuplicateListenerException: Type[Boto3ClientError]
-    DuplicateLoadBalancerNameException: Type[Boto3ClientError]
-    DuplicateTagKeysException: Type[Boto3ClientError]
-    DuplicateTargetGroupNameException: Type[Boto3ClientError]
-    HealthUnavailableException: Type[Boto3ClientError]
-    IncompatibleProtocolsException: Type[Boto3ClientError]
-    InvalidConfigurationRequestException: Type[Boto3ClientError]
-    InvalidLoadBalancerActionException: Type[Boto3ClientError]
-    InvalidSchemeException: Type[Boto3ClientError]
-    InvalidSecurityGroupException: Type[Boto3ClientError]
-    InvalidSubnetException: Type[Boto3ClientError]
-    InvalidTargetException: Type[Boto3ClientError]
-    ListenerNotFoundException: Type[Boto3ClientError]
-    LoadBalancerNotFoundException: Type[Boto3ClientError]
-    OperationNotPermittedException: Type[Boto3ClientError]
-    PriorityInUseException: Type[Boto3ClientError]
-    ResourceInUseException: Type[Boto3ClientError]
-    RuleNotFoundException: Type[Boto3ClientError]
-    SSLPolicyNotFoundException: Type[Boto3ClientError]
-    SubnetNotFoundException: Type[Boto3ClientError]
-    TargetGroupAssociationLimitException: Type[Boto3ClientError]
-    TargetGroupNotFoundException: Type[Boto3ClientError]
-    TooManyActionsException: Type[Boto3ClientError]
-    TooManyCertificatesException: Type[Boto3ClientError]
-    TooManyListenersException: Type[Boto3ClientError]
-    TooManyLoadBalancersException: Type[Boto3ClientError]
-    TooManyRegistrationsForTargetIdException: Type[Boto3ClientError]
-    TooManyRulesException: Type[Boto3ClientError]
-    TooManyTagsException: Type[Boto3ClientError]
-    TooManyTargetGroupsException: Type[Boto3ClientError]
-    TooManyTargetsException: Type[Boto3ClientError]
-    TooManyUniqueTargetGroupsPerLoadBalancerException: Type[Boto3ClientError]
-    UnsupportedProtocolException: Type[Boto3ClientError]
+    ALPNPolicyNotSupportedException: Type[BotocoreClientError]
+    AllocationIdNotFoundException: Type[BotocoreClientError]
+    AvailabilityZoneNotSupportedException: Type[BotocoreClientError]
+    CertificateNotFoundException: Type[BotocoreClientError]
+    ClientError: Type[BotocoreClientError]
+    DuplicateListenerException: Type[BotocoreClientError]
+    DuplicateLoadBalancerNameException: Type[BotocoreClientError]
+    DuplicateTagKeysException: Type[BotocoreClientError]
+    DuplicateTargetGroupNameException: Type[BotocoreClientError]
+    HealthUnavailableException: Type[BotocoreClientError]
+    IncompatibleProtocolsException: Type[BotocoreClientError]
+    InvalidConfigurationRequestException: Type[BotocoreClientError]
+    InvalidLoadBalancerActionException: Type[BotocoreClientError]
+    InvalidSchemeException: Type[BotocoreClientError]
+    InvalidSecurityGroupException: Type[BotocoreClientError]
+    InvalidSubnetException: Type[BotocoreClientError]
+    InvalidTargetException: Type[BotocoreClientError]
+    ListenerNotFoundException: Type[BotocoreClientError]
+    LoadBalancerNotFoundException: Type[BotocoreClientError]
+    OperationNotPermittedException: Type[BotocoreClientError]
+    PriorityInUseException: Type[BotocoreClientError]
+    ResourceInUseException: Type[BotocoreClientError]
+    RuleNotFoundException: Type[BotocoreClientError]
+    SSLPolicyNotFoundException: Type[BotocoreClientError]
+    SubnetNotFoundException: Type[BotocoreClientError]
+    TargetGroupAssociationLimitException: Type[BotocoreClientError]
+    TargetGroupNotFoundException: Type[BotocoreClientError]
+    TooManyActionsException: Type[BotocoreClientError]
+    TooManyCertificatesException: Type[BotocoreClientError]
+    TooManyListenersException: Type[BotocoreClientError]
+    TooManyLoadBalancersException: Type[BotocoreClientError]
+    TooManyRegistrationsForTargetIdException: Type[BotocoreClientError]
+    TooManyRulesException: Type[BotocoreClientError]
+    TooManyTagsException: Type[BotocoreClientError]
+    TooManyTargetGroupsException: Type[BotocoreClientError]
+    TooManyTargetsException: Type[BotocoreClientError]
+    TooManyUniqueTargetGroupsPerLoadBalancerException: Type[BotocoreClientError]
+    UnsupportedProtocolException: Type[BotocoreClientError]
 
 
 class ElasticLoadBalancingv2Client:
     """
-    [ElasticLoadBalancingv2.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Client)
+    [ElasticLoadBalancingv2.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Client)
     """
 
+    meta: ClientMeta
     exceptions: Exceptions
 
     def add_listener_certificates(
         self, ListenerArn: str, Certificates: List["CertificateTypeDef"]
     ) -> AddListenerCertificatesOutputTypeDef:
         """
-        [Client.add_listener_certificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.add_listener_certificates)
+        [Client.add_listener_certificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.add_listener_certificates)
         """
 
     def add_tags(self, ResourceArns: List[str], Tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
-        [Client.add_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.add_tags)
+        [Client.add_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.add_tags)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.can_paginate)
         """
 
     def create_listener(
         self,
         LoadBalancerArn: str,
-        Protocol: Literal["HTTP", "HTTPS", "TCP", "TLS", "UDP", "TCP_UDP"],
-        Port: int,
         DefaultActions: List["ActionTypeDef"],
+        Protocol: Literal["HTTP", "HTTPS", "TCP", "TLS", "UDP", "TCP_UDP", "GENEVE"] = None,
+        Port: int = None,
         SslPolicy: str = None,
         Certificates: List["CertificateTypeDef"] = None,
         AlpnPolicy: List[str] = None,
+        Tags: List["TagTypeDef"] = None,
     ) -> CreateListenerOutputTypeDef:
         """
-        [Client.create_listener documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.create_listener)
+        [Client.create_listener documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.create_listener)
         """
 
     def create_load_balancer(
@@ -168,11 +176,12 @@ class ElasticLoadBalancingv2Client:
         SecurityGroups: List[str] = None,
         Scheme: Literal["internet-facing", "internal"] = None,
         Tags: List["TagTypeDef"] = None,
-        Type: Literal["application", "network"] = None,
+        Type: Literal["application", "network", "gateway"] = None,
         IpAddressType: Literal["ipv4", "dualstack"] = None,
+        CustomerOwnedIpv4Pool: str = None,
     ) -> CreateLoadBalancerOutputTypeDef:
         """
-        [Client.create_load_balancer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.create_load_balancer)
+        [Client.create_load_balancer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.create_load_balancer)
         """
 
     def create_rule(
@@ -181,18 +190,22 @@ class ElasticLoadBalancingv2Client:
         Conditions: List["RuleConditionTypeDef"],
         Priority: int,
         Actions: List["ActionTypeDef"],
+        Tags: List["TagTypeDef"] = None,
     ) -> CreateRuleOutputTypeDef:
         """
-        [Client.create_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.create_rule)
+        [Client.create_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.create_rule)
         """
 
     def create_target_group(
         self,
         Name: str,
-        Protocol: Literal["HTTP", "HTTPS", "TCP", "TLS", "UDP", "TCP_UDP"] = None,
+        Protocol: Literal["HTTP", "HTTPS", "TCP", "TLS", "UDP", "TCP_UDP", "GENEVE"] = None,
+        ProtocolVersion: str = None,
         Port: int = None,
         VpcId: str = None,
-        HealthCheckProtocol: Literal["HTTP", "HTTPS", "TCP", "TLS", "UDP", "TCP_UDP"] = None,
+        HealthCheckProtocol: Literal[
+            "HTTP", "HTTPS", "TCP", "TLS", "UDP", "TCP_UDP", "GENEVE"
+        ] = None,
         HealthCheckPort: str = None,
         HealthCheckEnabled: bool = None,
         HealthCheckPath: str = None,
@@ -202,50 +215,51 @@ class ElasticLoadBalancingv2Client:
         UnhealthyThresholdCount: int = None,
         Matcher: "MatcherTypeDef" = None,
         TargetType: Literal["instance", "ip", "lambda"] = None,
+        Tags: List["TagTypeDef"] = None,
     ) -> CreateTargetGroupOutputTypeDef:
         """
-        [Client.create_target_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.create_target_group)
+        [Client.create_target_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.create_target_group)
         """
 
     def delete_listener(self, ListenerArn: str) -> Dict[str, Any]:
         """
-        [Client.delete_listener documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.delete_listener)
+        [Client.delete_listener documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.delete_listener)
         """
 
     def delete_load_balancer(self, LoadBalancerArn: str) -> Dict[str, Any]:
         """
-        [Client.delete_load_balancer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.delete_load_balancer)
+        [Client.delete_load_balancer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.delete_load_balancer)
         """
 
     def delete_rule(self, RuleArn: str) -> Dict[str, Any]:
         """
-        [Client.delete_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.delete_rule)
+        [Client.delete_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.delete_rule)
         """
 
     def delete_target_group(self, TargetGroupArn: str) -> Dict[str, Any]:
         """
-        [Client.delete_target_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.delete_target_group)
+        [Client.delete_target_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.delete_target_group)
         """
 
     def deregister_targets(
         self, TargetGroupArn: str, Targets: List["TargetDescriptionTypeDef"]
     ) -> Dict[str, Any]:
         """
-        [Client.deregister_targets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.deregister_targets)
+        [Client.deregister_targets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.deregister_targets)
         """
 
     def describe_account_limits(
         self, Marker: str = None, PageSize: int = None
     ) -> DescribeAccountLimitsOutputTypeDef:
         """
-        [Client.describe_account_limits documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_account_limits)
+        [Client.describe_account_limits documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_account_limits)
         """
 
     def describe_listener_certificates(
         self, ListenerArn: str, Marker: str = None, PageSize: int = None
     ) -> DescribeListenerCertificatesOutputTypeDef:
         """
-        [Client.describe_listener_certificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_listener_certificates)
+        [Client.describe_listener_certificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_listener_certificates)
         """
 
     def describe_listeners(
@@ -256,14 +270,14 @@ class ElasticLoadBalancingv2Client:
         PageSize: int = None,
     ) -> DescribeListenersOutputTypeDef:
         """
-        [Client.describe_listeners documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_listeners)
+        [Client.describe_listeners documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_listeners)
         """
 
     def describe_load_balancer_attributes(
         self, LoadBalancerArn: str
     ) -> DescribeLoadBalancerAttributesOutputTypeDef:
         """
-        [Client.describe_load_balancer_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_load_balancer_attributes)
+        [Client.describe_load_balancer_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_load_balancer_attributes)
         """
 
     def describe_load_balancers(
@@ -274,7 +288,7 @@ class ElasticLoadBalancingv2Client:
         PageSize: int = None,
     ) -> DescribeLoadBalancersOutputTypeDef:
         """
-        [Client.describe_load_balancers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_load_balancers)
+        [Client.describe_load_balancers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_load_balancers)
         """
 
     def describe_rules(
@@ -285,26 +299,26 @@ class ElasticLoadBalancingv2Client:
         PageSize: int = None,
     ) -> DescribeRulesOutputTypeDef:
         """
-        [Client.describe_rules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_rules)
+        [Client.describe_rules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_rules)
         """
 
     def describe_ssl_policies(
         self, Names: List[str] = None, Marker: str = None, PageSize: int = None
     ) -> DescribeSSLPoliciesOutputTypeDef:
         """
-        [Client.describe_ssl_policies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_ssl_policies)
+        [Client.describe_ssl_policies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_ssl_policies)
         """
 
     def describe_tags(self, ResourceArns: List[str]) -> DescribeTagsOutputTypeDef:
         """
-        [Client.describe_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_tags)
+        [Client.describe_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_tags)
         """
 
     def describe_target_group_attributes(
         self, TargetGroupArn: str
     ) -> DescribeTargetGroupAttributesOutputTypeDef:
         """
-        [Client.describe_target_group_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_target_group_attributes)
+        [Client.describe_target_group_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_target_group_attributes)
         """
 
     def describe_target_groups(
@@ -316,14 +330,14 @@ class ElasticLoadBalancingv2Client:
         PageSize: int = None,
     ) -> DescribeTargetGroupsOutputTypeDef:
         """
-        [Client.describe_target_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_target_groups)
+        [Client.describe_target_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_target_groups)
         """
 
     def describe_target_health(
         self, TargetGroupArn: str, Targets: List["TargetDescriptionTypeDef"] = None
     ) -> DescribeTargetHealthOutputTypeDef:
         """
-        [Client.describe_target_health documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_target_health)
+        [Client.describe_target_health documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.describe_target_health)
         """
 
     def generate_presigned_url(
@@ -334,28 +348,28 @@ class ElasticLoadBalancingv2Client:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.generate_presigned_url)
         """
 
     def modify_listener(
         self,
         ListenerArn: str,
         Port: int = None,
-        Protocol: Literal["HTTP", "HTTPS", "TCP", "TLS", "UDP", "TCP_UDP"] = None,
+        Protocol: Literal["HTTP", "HTTPS", "TCP", "TLS", "UDP", "TCP_UDP", "GENEVE"] = None,
         SslPolicy: str = None,
         Certificates: List["CertificateTypeDef"] = None,
         DefaultActions: List["ActionTypeDef"] = None,
         AlpnPolicy: List[str] = None,
     ) -> ModifyListenerOutputTypeDef:
         """
-        [Client.modify_listener documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.modify_listener)
+        [Client.modify_listener documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.modify_listener)
         """
 
     def modify_load_balancer_attributes(
         self, LoadBalancerArn: str, Attributes: List["LoadBalancerAttributeTypeDef"]
     ) -> ModifyLoadBalancerAttributesOutputTypeDef:
         """
-        [Client.modify_load_balancer_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.modify_load_balancer_attributes)
+        [Client.modify_load_balancer_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.modify_load_balancer_attributes)
         """
 
     def modify_rule(
@@ -365,13 +379,15 @@ class ElasticLoadBalancingv2Client:
         Actions: List["ActionTypeDef"] = None,
     ) -> ModifyRuleOutputTypeDef:
         """
-        [Client.modify_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.modify_rule)
+        [Client.modify_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.modify_rule)
         """
 
     def modify_target_group(
         self,
         TargetGroupArn: str,
-        HealthCheckProtocol: Literal["HTTP", "HTTPS", "TCP", "TLS", "UDP", "TCP_UDP"] = None,
+        HealthCheckProtocol: Literal[
+            "HTTP", "HTTPS", "TCP", "TLS", "UDP", "TCP_UDP", "GENEVE"
+        ] = None,
         HealthCheckPort: str = None,
         HealthCheckPath: str = None,
         HealthCheckEnabled: bool = None,
@@ -382,54 +398,54 @@ class ElasticLoadBalancingv2Client:
         Matcher: "MatcherTypeDef" = None,
     ) -> ModifyTargetGroupOutputTypeDef:
         """
-        [Client.modify_target_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.modify_target_group)
+        [Client.modify_target_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.modify_target_group)
         """
 
     def modify_target_group_attributes(
         self, TargetGroupArn: str, Attributes: List["TargetGroupAttributeTypeDef"]
     ) -> ModifyTargetGroupAttributesOutputTypeDef:
         """
-        [Client.modify_target_group_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.modify_target_group_attributes)
+        [Client.modify_target_group_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.modify_target_group_attributes)
         """
 
     def register_targets(
         self, TargetGroupArn: str, Targets: List["TargetDescriptionTypeDef"]
     ) -> Dict[str, Any]:
         """
-        [Client.register_targets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.register_targets)
+        [Client.register_targets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.register_targets)
         """
 
     def remove_listener_certificates(
         self, ListenerArn: str, Certificates: List["CertificateTypeDef"]
     ) -> Dict[str, Any]:
         """
-        [Client.remove_listener_certificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.remove_listener_certificates)
+        [Client.remove_listener_certificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.remove_listener_certificates)
         """
 
     def remove_tags(self, ResourceArns: List[str], TagKeys: List[str]) -> Dict[str, Any]:
         """
-        [Client.remove_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.remove_tags)
+        [Client.remove_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.remove_tags)
         """
 
     def set_ip_address_type(
         self, LoadBalancerArn: str, IpAddressType: Literal["ipv4", "dualstack"]
     ) -> SetIpAddressTypeOutputTypeDef:
         """
-        [Client.set_ip_address_type documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.set_ip_address_type)
+        [Client.set_ip_address_type documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.set_ip_address_type)
         """
 
     def set_rule_priorities(
         self, RulePriorities: List[RulePriorityPairTypeDef]
     ) -> SetRulePrioritiesOutputTypeDef:
         """
-        [Client.set_rule_priorities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.set_rule_priorities)
+        [Client.set_rule_priorities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.set_rule_priorities)
         """
 
     def set_security_groups(
         self, LoadBalancerArn: str, SecurityGroups: List[str]
     ) -> SetSecurityGroupsOutputTypeDef:
         """
-        [Client.set_security_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.set_security_groups)
+        [Client.set_security_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.set_security_groups)
         """
 
     def set_subnets(
@@ -437,9 +453,10 @@ class ElasticLoadBalancingv2Client:
         LoadBalancerArn: str,
         Subnets: List[str] = None,
         SubnetMappings: List[SubnetMappingTypeDef] = None,
+        IpAddressType: Literal["ipv4", "dualstack"] = None,
     ) -> SetSubnetsOutputTypeDef:
         """
-        [Client.set_subnets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.set_subnets)
+        [Client.set_subnets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Client.set_subnets)
         """
 
     @overload
@@ -447,7 +464,7 @@ class ElasticLoadBalancingv2Client:
         self, operation_name: Literal["describe_account_limits"]
     ) -> DescribeAccountLimitsPaginator:
         """
-        [Paginator.DescribeAccountLimits documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeAccountLimits)
+        [Paginator.DescribeAccountLimits documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeAccountLimits)
         """
 
     @overload
@@ -455,7 +472,7 @@ class ElasticLoadBalancingv2Client:
         self, operation_name: Literal["describe_listener_certificates"]
     ) -> DescribeListenerCertificatesPaginator:
         """
-        [Paginator.DescribeListenerCertificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeListenerCertificates)
+        [Paginator.DescribeListenerCertificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeListenerCertificates)
         """
 
     @overload
@@ -463,7 +480,7 @@ class ElasticLoadBalancingv2Client:
         self, operation_name: Literal["describe_listeners"]
     ) -> DescribeListenersPaginator:
         """
-        [Paginator.DescribeListeners documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeListeners)
+        [Paginator.DescribeListeners documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeListeners)
         """
 
     @overload
@@ -471,13 +488,13 @@ class ElasticLoadBalancingv2Client:
         self, operation_name: Literal["describe_load_balancers"]
     ) -> DescribeLoadBalancersPaginator:
         """
-        [Paginator.DescribeLoadBalancers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeLoadBalancers)
+        [Paginator.DescribeLoadBalancers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeLoadBalancers)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["describe_rules"]) -> DescribeRulesPaginator:
         """
-        [Paginator.DescribeRules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeRules)
+        [Paginator.DescribeRules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeRules)
         """
 
     @overload
@@ -485,7 +502,7 @@ class ElasticLoadBalancingv2Client:
         self, operation_name: Literal["describe_ssl_policies"]
     ) -> DescribeSSLPoliciesPaginator:
         """
-        [Paginator.DescribeSSLPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeSSLPolicies)
+        [Paginator.DescribeSSLPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeSSLPolicies)
         """
 
     @overload
@@ -493,24 +510,21 @@ class ElasticLoadBalancingv2Client:
         self, operation_name: Literal["describe_target_groups"]
     ) -> DescribeTargetGroupsPaginator:
         """
-        [Paginator.DescribeTargetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeTargetGroups)
+        [Paginator.DescribeTargetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeTargetGroups)
         """
-
-    def get_paginator(self, operation_name: str) -> Boto3Paginator:
-        pass
 
     @overload
     def get_waiter(
         self, waiter_name: Literal["load_balancer_available"]
     ) -> LoadBalancerAvailableWaiter:
         """
-        [Waiter.LoadBalancerAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.LoadBalancerAvailable)
+        [Waiter.LoadBalancerAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.LoadBalancerAvailable)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["load_balancer_exists"]) -> LoadBalancerExistsWaiter:
         """
-        [Waiter.LoadBalancerExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.LoadBalancerExists)
+        [Waiter.LoadBalancerExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.LoadBalancerExists)
         """
 
     @overload
@@ -518,20 +532,17 @@ class ElasticLoadBalancingv2Client:
         self, waiter_name: Literal["load_balancers_deleted"]
     ) -> LoadBalancersDeletedWaiter:
         """
-        [Waiter.LoadBalancersDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.LoadBalancersDeleted)
+        [Waiter.LoadBalancersDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.LoadBalancersDeleted)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["target_deregistered"]) -> TargetDeregisteredWaiter:
         """
-        [Waiter.TargetDeregistered documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.TargetDeregistered)
+        [Waiter.TargetDeregistered documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.TargetDeregistered)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["target_in_service"]) -> TargetInServiceWaiter:
         """
-        [Waiter.TargetInService documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.TargetInService)
+        [Waiter.TargetInService documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.TargetInService)
         """
-
-    def get_waiter(self, waiter_name: str) -> Boto3Waiter:
-        pass

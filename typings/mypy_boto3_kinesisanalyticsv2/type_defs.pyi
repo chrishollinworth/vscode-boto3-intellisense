@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Dict, List
+from typing import IO, Any, Dict, List, Union
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -96,6 +95,7 @@ __all__ = (
     "ReferenceDataSourceDescriptionTypeDef",
     "ReferenceDataSourceTypeDef",
     "ReferenceDataSourceUpdateTypeDef",
+    "ResponseMetadata",
     "RunConfigurationDescriptionTypeDef",
     "S3ApplicationCodeLocationDescriptionTypeDef",
     "S3ContentLocationTypeDef",
@@ -207,7 +207,14 @@ _RequiredApplicationDetailTypeDef = TypedDict(
         "ApplicationName": str,
         "RuntimeEnvironment": Literal["SQL-1_0", "FLINK-1_6", "FLINK-1_8"],
         "ApplicationStatus": Literal[
-            "DELETING", "STARTING", "STOPPING", "READY", "RUNNING", "UPDATING"
+            "DELETING",
+            "STARTING",
+            "STOPPING",
+            "READY",
+            "RUNNING",
+            "UPDATING",
+            "AUTOSCALING",
+            "FORCE_STOPPING",
         ],
         "ApplicationVersionId": int,
     },
@@ -271,7 +278,14 @@ ApplicationSummaryTypeDef = TypedDict(
         "ApplicationName": str,
         "ApplicationARN": str,
         "ApplicationStatus": Literal[
-            "DELETING", "STARTING", "STOPPING", "READY", "RUNNING", "UPDATING"
+            "DELETING",
+            "STARTING",
+            "STOPPING",
+            "READY",
+            "RUNNING",
+            "UPDATING",
+            "AUTOSCALING",
+            "FORCE_STOPPING",
         ],
         "ApplicationVersionId": int,
         "RuntimeEnvironment": Literal["SQL-1_0", "FLINK-1_6", "FLINK-1_8"],
@@ -350,7 +364,11 @@ CodeContentDescriptionTypeDef = TypedDict(
 
 CodeContentTypeDef = TypedDict(
     "CodeContentTypeDef",
-    {"TextContent": str, "ZipFileContent": bytes, "S3ContentLocation": "S3ContentLocationTypeDef"},
+    {
+        "TextContent": str,
+        "ZipFileContent": Union[bytes, IO[bytes]],
+        "S3ContentLocation": "S3ContentLocationTypeDef",
+    },
     total=False,
 )
 
@@ -358,7 +376,7 @@ CodeContentUpdateTypeDef = TypedDict(
     "CodeContentUpdateTypeDef",
     {
         "TextContentUpdate": str,
-        "ZipFileContentUpdate": bytes,
+        "ZipFileContentUpdate": Union[bytes, IO[bytes]],
         "S3ContentLocationUpdate": "S3ContentLocationUpdateTypeDef",
     },
     total=False,
@@ -563,7 +581,19 @@ class KinesisFirehoseOutputDescriptionTypeDef(
     pass
 
 
-KinesisFirehoseOutputTypeDef = TypedDict("KinesisFirehoseOutputTypeDef", {"ResourceARN": str})
+_RequiredKinesisFirehoseOutputTypeDef = TypedDict(
+    "_RequiredKinesisFirehoseOutputTypeDef", {"ResourceARN": str}
+)
+_OptionalKinesisFirehoseOutputTypeDef = TypedDict(
+    "_OptionalKinesisFirehoseOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
+)
+
+
+class KinesisFirehoseOutputTypeDef(
+    _RequiredKinesisFirehoseOutputTypeDef, _OptionalKinesisFirehoseOutputTypeDef
+):
+    pass
+
 
 KinesisFirehoseOutputUpdateTypeDef = TypedDict(
     "KinesisFirehoseOutputUpdateTypeDef", {"ResourceARNUpdate": str}
@@ -603,7 +633,19 @@ class KinesisStreamsOutputDescriptionTypeDef(
     pass
 
 
-KinesisStreamsOutputTypeDef = TypedDict("KinesisStreamsOutputTypeDef", {"ResourceARN": str})
+_RequiredKinesisStreamsOutputTypeDef = TypedDict(
+    "_RequiredKinesisStreamsOutputTypeDef", {"ResourceARN": str}
+)
+_OptionalKinesisStreamsOutputTypeDef = TypedDict(
+    "_OptionalKinesisStreamsOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
+)
+
+
+class KinesisStreamsOutputTypeDef(
+    _RequiredKinesisStreamsOutputTypeDef, _OptionalKinesisStreamsOutputTypeDef
+):
+    pass
+
 
 KinesisStreamsOutputUpdateTypeDef = TypedDict(
     "KinesisStreamsOutputUpdateTypeDef", {"ResourceARNUpdate": str}
@@ -623,7 +665,15 @@ class LambdaOutputDescriptionTypeDef(
     pass
 
 
-LambdaOutputTypeDef = TypedDict("LambdaOutputTypeDef", {"ResourceARN": str})
+_RequiredLambdaOutputTypeDef = TypedDict("_RequiredLambdaOutputTypeDef", {"ResourceARN": str})
+_OptionalLambdaOutputTypeDef = TypedDict(
+    "_OptionalLambdaOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
+)
+
+
+class LambdaOutputTypeDef(_RequiredLambdaOutputTypeDef, _OptionalLambdaOutputTypeDef):
+    pass
+
 
 LambdaOutputUpdateTypeDef = TypedDict("LambdaOutputUpdateTypeDef", {"ResourceARNUpdate": str})
 
@@ -697,6 +747,7 @@ _OptionalOutputTypeDef = TypedDict(
         "KinesisStreamsOutput": "KinesisStreamsOutputTypeDef",
         "KinesisFirehoseOutput": "KinesisFirehoseOutputTypeDef",
         "LambdaOutput": "LambdaOutputTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -849,9 +900,23 @@ class ReferenceDataSourceUpdateTypeDef(
     pass
 
 
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
+
 RunConfigurationDescriptionTypeDef = TypedDict(
     "RunConfigurationDescriptionTypeDef",
-    {"ApplicationRestoreConfigurationDescription": "ApplicationRestoreConfigurationTypeDef"},
+    {
+        "ApplicationRestoreConfigurationDescription": "ApplicationRestoreConfigurationTypeDef",
+        "FlinkRunConfigurationDescription": "FlinkRunConfigurationTypeDef",
+    },
     total=False,
 )
 

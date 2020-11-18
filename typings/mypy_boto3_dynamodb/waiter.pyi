@@ -28,21 +28,21 @@ __all__ = ("TableExistsWaiter", "TableNotExistsWaiter")
 
 class TableExistsWaiter(Boto3Waiter):
     """
-    [Waiter.TableExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/dynamodb.html#DynamoDB.Waiter.TableExists)
+    [Waiter.TableExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Waiter.TableExists)
     """
 
     def wait(self, TableName: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [TableExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/dynamodb.html#DynamoDB.Waiter.TableExists.wait)
+        [TableExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Waiter.TableExists.wait)
         """
 
 
 class TableNotExistsWaiter(Boto3Waiter):
     """
-    [Waiter.TableNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/dynamodb.html#DynamoDB.Waiter.TableNotExists)
+    [Waiter.TableNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Waiter.TableNotExists)
     """
 
     def wait(self, TableName: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [TableNotExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/dynamodb.html#DynamoDB.Waiter.TableNotExists.wait)
+        [TableNotExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Waiter.TableNotExists.wait)
         """

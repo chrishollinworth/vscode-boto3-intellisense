@@ -38,7 +38,7 @@ __all__ = ("DescribeObjectsPaginator", "ListPipelinesPaginator", "QueryObjectsPa
 
 class DescribeObjectsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeObjects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datapipeline.html#DataPipeline.Paginator.DescribeObjects)
+    [Paginator.DescribeObjects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datapipeline.html#DataPipeline.Paginator.DescribeObjects)
     """
 
     def paginate(
@@ -49,26 +49,26 @@ class DescribeObjectsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeObjectsOutputTypeDef]:
         """
-        [DescribeObjects.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datapipeline.html#DataPipeline.Paginator.DescribeObjects.paginate)
+        [DescribeObjects.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datapipeline.html#DataPipeline.Paginator.DescribeObjects.paginate)
         """
 
 
 class ListPipelinesPaginator(Boto3Paginator):
     """
-    [Paginator.ListPipelines documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datapipeline.html#DataPipeline.Paginator.ListPipelines)
+    [Paginator.ListPipelines documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datapipeline.html#DataPipeline.Paginator.ListPipelines)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPipelinesOutputTypeDef]:
         """
-        [ListPipelines.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datapipeline.html#DataPipeline.Paginator.ListPipelines.paginate)
+        [ListPipelines.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datapipeline.html#DataPipeline.Paginator.ListPipelines.paginate)
         """
 
 
 class QueryObjectsPaginator(Boto3Paginator):
     """
-    [Paginator.QueryObjects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datapipeline.html#DataPipeline.Paginator.QueryObjects)
+    [Paginator.QueryObjects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datapipeline.html#DataPipeline.Paginator.QueryObjects)
     """
 
     def paginate(
@@ -79,5 +79,5 @@ class QueryObjectsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[QueryObjectsOutputTypeDef]:
         """
-        [QueryObjects.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datapipeline.html#DataPipeline.Paginator.QueryObjects.paginate)
+        [QueryObjects.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datapipeline.html#DataPipeline.Paginator.QueryObjects.paginate)
         """

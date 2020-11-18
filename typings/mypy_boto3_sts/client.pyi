@@ -1,4 +1,4 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import
+# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for sts service client
 
@@ -13,7 +13,7 @@ Usage::
 """
 from typing import Any, Dict, List, Type
 
-from botocore.exceptions import ClientError as Boto3ClientError
+from botocore.client import ClientMeta
 
 from mypy_boto3_sts.type_defs import (
     AssumeRoleResponseTypeDef,
@@ -31,23 +31,32 @@ from mypy_boto3_sts.type_defs import (
 __all__ = ("STSClient",)
 
 
+class BotocoreClientError(BaseException):
+    MSG_TEMPLATE: str
+
+    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
+        self.response: Dict[str, Any]
+        self.operation_name: str
+
+
 class Exceptions:
-    ClientError: Type[Boto3ClientError]
-    ExpiredTokenException: Type[Boto3ClientError]
-    IDPCommunicationErrorException: Type[Boto3ClientError]
-    IDPRejectedClaimException: Type[Boto3ClientError]
-    InvalidAuthorizationMessageException: Type[Boto3ClientError]
-    InvalidIdentityTokenException: Type[Boto3ClientError]
-    MalformedPolicyDocumentException: Type[Boto3ClientError]
-    PackedPolicyTooLargeException: Type[Boto3ClientError]
-    RegionDisabledException: Type[Boto3ClientError]
+    ClientError: Type[BotocoreClientError]
+    ExpiredTokenException: Type[BotocoreClientError]
+    IDPCommunicationErrorException: Type[BotocoreClientError]
+    IDPRejectedClaimException: Type[BotocoreClientError]
+    InvalidAuthorizationMessageException: Type[BotocoreClientError]
+    InvalidIdentityTokenException: Type[BotocoreClientError]
+    MalformedPolicyDocumentException: Type[BotocoreClientError]
+    PackedPolicyTooLargeException: Type[BotocoreClientError]
+    RegionDisabledException: Type[BotocoreClientError]
 
 
 class STSClient:
     """
-    [STS.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sts.html#STS.Client)
+    [STS.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sts.html#STS.Client)
     """
 
+    meta: ClientMeta
     exceptions: Exceptions
 
     def assume_role(
@@ -64,7 +73,7 @@ class STSClient:
         TokenCode: str = None,
     ) -> AssumeRoleResponseTypeDef:
         """
-        [Client.assume_role documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sts.html#STS.Client.assume_role)
+        [Client.assume_role documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sts.html#STS.Client.assume_role)
         """
 
     def assume_role_with_saml(
@@ -77,7 +86,7 @@ class STSClient:
         DurationSeconds: int = None,
     ) -> AssumeRoleWithSAMLResponseTypeDef:
         """
-        [Client.assume_role_with_saml documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sts.html#STS.Client.assume_role_with_saml)
+        [Client.assume_role_with_saml documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sts.html#STS.Client.assume_role_with_saml)
         """
 
     def assume_role_with_web_identity(
@@ -91,19 +100,19 @@ class STSClient:
         DurationSeconds: int = None,
     ) -> AssumeRoleWithWebIdentityResponseTypeDef:
         """
-        [Client.assume_role_with_web_identity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sts.html#STS.Client.assume_role_with_web_identity)
+        [Client.assume_role_with_web_identity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sts.html#STS.Client.assume_role_with_web_identity)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sts.html#STS.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sts.html#STS.Client.can_paginate)
         """
 
     def decode_authorization_message(
         self, EncodedMessage: str
     ) -> DecodeAuthorizationMessageResponseTypeDef:
         """
-        [Client.decode_authorization_message documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sts.html#STS.Client.decode_authorization_message)
+        [Client.decode_authorization_message documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sts.html#STS.Client.decode_authorization_message)
         """
 
     def generate_presigned_url(
@@ -114,17 +123,17 @@ class STSClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sts.html#STS.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sts.html#STS.Client.generate_presigned_url)
         """
 
     def get_access_key_info(self, AccessKeyId: str) -> GetAccessKeyInfoResponseTypeDef:
         """
-        [Client.get_access_key_info documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sts.html#STS.Client.get_access_key_info)
+        [Client.get_access_key_info documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sts.html#STS.Client.get_access_key_info)
         """
 
     def get_caller_identity(self) -> GetCallerIdentityResponseTypeDef:
         """
-        [Client.get_caller_identity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sts.html#STS.Client.get_caller_identity)
+        [Client.get_caller_identity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sts.html#STS.Client.get_caller_identity)
         """
 
     def get_federation_token(
@@ -136,12 +145,12 @@ class STSClient:
         Tags: List[TagTypeDef] = None,
     ) -> GetFederationTokenResponseTypeDef:
         """
-        [Client.get_federation_token documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sts.html#STS.Client.get_federation_token)
+        [Client.get_federation_token documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sts.html#STS.Client.get_federation_token)
         """
 
     def get_session_token(
         self, DurationSeconds: int = None, SerialNumber: str = None, TokenCode: str = None
     ) -> GetSessionTokenResponseTypeDef:
         """
-        [Client.get_session_token documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sts.html#STS.Client.get_session_token)
+        [Client.get_session_token documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sts.html#STS.Client.get_session_token)
         """

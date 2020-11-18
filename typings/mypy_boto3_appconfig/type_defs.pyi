@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Dict, List
+from typing import IO, Dict, List, Union
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -173,7 +172,7 @@ ConfigurationProfilesTypeDef = TypedDict(
 
 ConfigurationTypeDef = TypedDict(
     "ConfigurationTypeDef",
-    {"Content": bytes, "ConfigurationVersion": str, "ContentType": str},
+    {"Content": Union[bytes, IO[bytes]], "ConfigurationVersion": str, "ContentType": str},
     total=False,
 )
 
@@ -225,7 +224,7 @@ HostedConfigurationVersionTypeDef = TypedDict(
         "ConfigurationProfileId": str,
         "VersionNumber": int,
         "Description": str,
-        "Content": bytes,
+        "Content": Union[bytes, IO[bytes]],
         "ContentType": str,
     },
     total=False,

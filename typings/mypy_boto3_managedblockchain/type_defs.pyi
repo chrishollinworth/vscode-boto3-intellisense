@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import List
+from typing import Any, Dict, List
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -53,6 +52,7 @@ __all__ = (
     "ProposalSummaryTypeDef",
     "ProposalTypeDef",
     "RemoveActionTypeDef",
+    "ResponseMetadata",
     "VoteSummaryTypeDef",
     "VotingPolicyTypeDef",
     "CreateMemberOutputTypeDef",
@@ -255,6 +255,7 @@ NodeTypeDef = TypedDict(
         "AvailabilityZone": str,
         "FrameworkAttributes": "NodeFrameworkAttributesTypeDef",
         "LogPublishingConfiguration": "NodeLogPublishingConfigurationTypeDef",
+        "StateDB": Literal["LevelDB", "CouchDB"],
         "Status": Literal[
             "CREATING", "AVAILABLE", "CREATE_FAILED", "UPDATING", "DELETING", "DELETED", "FAILED"
         ],
@@ -304,6 +305,17 @@ ProposalTypeDef = TypedDict(
 
 RemoveActionTypeDef = TypedDict("RemoveActionTypeDef", {"MemberId": str})
 
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
+
 VoteSummaryTypeDef = TypedDict(
     "VoteSummaryTypeDef",
     {"Vote": Literal["YES", "NO"], "MemberName": str, "MemberId": str},
@@ -316,63 +328,105 @@ VotingPolicyTypeDef = TypedDict(
     total=False,
 )
 
-CreateMemberOutputTypeDef = TypedDict("CreateMemberOutputTypeDef", {"MemberId": str}, total=False)
-
-CreateNetworkOutputTypeDef = TypedDict(
-    "CreateNetworkOutputTypeDef", {"NetworkId": str, "MemberId": str}, total=False
+CreateMemberOutputTypeDef = TypedDict(
+    "CreateMemberOutputTypeDef",
+    {"MemberId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
-CreateNodeOutputTypeDef = TypedDict("CreateNodeOutputTypeDef", {"NodeId": str}, total=False)
+CreateNetworkOutputTypeDef = TypedDict(
+    "CreateNetworkOutputTypeDef",
+    {"NetworkId": str, "MemberId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+CreateNodeOutputTypeDef = TypedDict(
+    "CreateNodeOutputTypeDef", {"NodeId": str, "ResponseMetadata": "ResponseMetadata"}, total=False
+)
 
 CreateProposalOutputTypeDef = TypedDict(
-    "CreateProposalOutputTypeDef", {"ProposalId": str}, total=False
+    "CreateProposalOutputTypeDef",
+    {"ProposalId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 GetMemberOutputTypeDef = TypedDict(
-    "GetMemberOutputTypeDef", {"Member": "MemberTypeDef"}, total=False
+    "GetMemberOutputTypeDef",
+    {"Member": "MemberTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 GetNetworkOutputTypeDef = TypedDict(
-    "GetNetworkOutputTypeDef", {"Network": "NetworkTypeDef"}, total=False
+    "GetNetworkOutputTypeDef",
+    {"Network": "NetworkTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
-GetNodeOutputTypeDef = TypedDict("GetNodeOutputTypeDef", {"Node": "NodeTypeDef"}, total=False)
+GetNodeOutputTypeDef = TypedDict(
+    "GetNodeOutputTypeDef",
+    {"Node": "NodeTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
 
 GetProposalOutputTypeDef = TypedDict(
-    "GetProposalOutputTypeDef", {"Proposal": "ProposalTypeDef"}, total=False
+    "GetProposalOutputTypeDef",
+    {"Proposal": "ProposalTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ListInvitationsOutputTypeDef = TypedDict(
     "ListInvitationsOutputTypeDef",
-    {"Invitations": List["InvitationTypeDef"], "NextToken": str},
+    {
+        "Invitations": List["InvitationTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListMembersOutputTypeDef = TypedDict(
     "ListMembersOutputTypeDef",
-    {"Members": List["MemberSummaryTypeDef"], "NextToken": str},
+    {
+        "Members": List["MemberSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListNetworksOutputTypeDef = TypedDict(
     "ListNetworksOutputTypeDef",
-    {"Networks": List["NetworkSummaryTypeDef"], "NextToken": str},
+    {
+        "Networks": List["NetworkSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListNodesOutputTypeDef = TypedDict(
-    "ListNodesOutputTypeDef", {"Nodes": List["NodeSummaryTypeDef"], "NextToken": str}, total=False
+    "ListNodesOutputTypeDef",
+    {"Nodes": List["NodeSummaryTypeDef"], "NextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ListProposalVotesOutputTypeDef = TypedDict(
     "ListProposalVotesOutputTypeDef",
-    {"ProposalVotes": List["VoteSummaryTypeDef"], "NextToken": str},
+    {
+        "ProposalVotes": List["VoteSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListProposalsOutputTypeDef = TypedDict(
     "ListProposalsOutputTypeDef",
-    {"Proposals": List["ProposalSummaryTypeDef"], "NextToken": str},
+    {
+        "Proposals": List["ProposalSummaryTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -404,7 +458,10 @@ _RequiredNodeConfigurationTypeDef = TypedDict(
 )
 _OptionalNodeConfigurationTypeDef = TypedDict(
     "_OptionalNodeConfigurationTypeDef",
-    {"LogPublishingConfiguration": "NodeLogPublishingConfigurationTypeDef"},
+    {
+        "LogPublishingConfiguration": "NodeLogPublishingConfigurationTypeDef",
+        "StateDB": Literal["LevelDB", "CouchDB"],
+    },
     total=False,
 )
 

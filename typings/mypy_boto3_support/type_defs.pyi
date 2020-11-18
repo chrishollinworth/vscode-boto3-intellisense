@@ -10,7 +10,7 @@ Usage::
     ```
 """
 import sys
-from typing import List
+from typing import IO, List, Union
 
 if sys.version_info >= (3, 8):
     from typing import TypedDict
@@ -56,7 +56,9 @@ AttachmentDetailsTypeDef = TypedDict(
     "AttachmentDetailsTypeDef", {"attachmentId": str, "fileName": str}, total=False
 )
 
-AttachmentTypeDef = TypedDict("AttachmentTypeDef", {"fileName": str, "data": bytes}, total=False)
+AttachmentTypeDef = TypedDict(
+    "AttachmentTypeDef", {"fileName": str, "data": Union[bytes, IO[bytes]]}, total=False
+)
 
 CaseDetailsTypeDef = TypedDict(
     "CaseDetailsTypeDef",

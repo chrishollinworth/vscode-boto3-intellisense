@@ -1,4 +1,5 @@
 from mypy_boto3_neptune.paginator import (
+    DescribeDBClusterEndpointsPaginator,
     DescribeDBClusterParameterGroupsPaginator,
     DescribeDBClusterParametersPaginator,
     DescribeDBClusterSnapshotsPaginator,
@@ -16,6 +17,7 @@ from mypy_boto3_neptune.paginator import (
 )
 
 __all__ = (
+    "DescribeDBClusterEndpointsPaginator",
     "DescribeDBClusterParameterGroupsPaginator",
     "DescribeDBClusterParametersPaginator",
     "DescribeDBClusterSnapshotsPaginator",

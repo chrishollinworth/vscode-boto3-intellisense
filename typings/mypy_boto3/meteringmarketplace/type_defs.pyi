@@ -1,4 +1,6 @@
 from mypy_boto3_meteringmarketplace.type_defs import (
+    TagTypeDef,
+    UsageAllocationTypeDef,
     UsageRecordResultTypeDef,
     UsageRecordTypeDef,
     BatchMeterUsageResultTypeDef,
@@ -8,6 +10,8 @@ from mypy_boto3_meteringmarketplace.type_defs import (
 )
 
 __all__ = (
+    "TagTypeDef",
+    "UsageAllocationTypeDef",
     "UsageRecordResultTypeDef",
     "UsageRecordTypeDef",
     "BatchMeterUsageResultTypeDef",

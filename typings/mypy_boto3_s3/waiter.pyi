@@ -46,29 +46,33 @@ __all__ = (
 
 class BucketExistsWaiter(Boto3Waiter):
     """
-    [Waiter.BucketExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Waiter.BucketExists)
+    [Waiter.BucketExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Waiter.BucketExists)
     """
 
-    def wait(self, Bucket: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
+    def wait(
+        self, Bucket: str, ExpectedBucketOwner: str = None, WaiterConfig: WaiterConfigTypeDef = None
+    ) -> None:
         """
-        [BucketExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Waiter.BucketExists.wait)
+        [BucketExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Waiter.BucketExists.wait)
         """
 
 
 class BucketNotExistsWaiter(Boto3Waiter):
     """
-    [Waiter.BucketNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Waiter.BucketNotExists)
+    [Waiter.BucketNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Waiter.BucketNotExists)
     """
 
-    def wait(self, Bucket: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
+    def wait(
+        self, Bucket: str, ExpectedBucketOwner: str = None, WaiterConfig: WaiterConfigTypeDef = None
+    ) -> None:
         """
-        [BucketNotExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Waiter.BucketNotExists.wait)
+        [BucketNotExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Waiter.BucketNotExists.wait)
         """
 
 
 class ObjectExistsWaiter(Boto3Waiter):
     """
-    [Waiter.ObjectExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Waiter.ObjectExists)
+    [Waiter.ObjectExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Waiter.ObjectExists)
     """
 
     def wait(
@@ -86,16 +90,17 @@ class ObjectExistsWaiter(Boto3Waiter):
         SSECustomerKeyMD5: str = None,
         RequestPayer: Literal["requester"] = None,
         PartNumber: int = None,
+        ExpectedBucketOwner: str = None,
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [ObjectExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Waiter.ObjectExists.wait)
+        [ObjectExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Waiter.ObjectExists.wait)
         """
 
 
 class ObjectNotExistsWaiter(Boto3Waiter):
     """
-    [Waiter.ObjectNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Waiter.ObjectNotExists)
+    [Waiter.ObjectNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Waiter.ObjectNotExists)
     """
 
     def wait(
@@ -113,8 +118,9 @@ class ObjectNotExistsWaiter(Boto3Waiter):
         SSECustomerKeyMD5: str = None,
         RequestPayer: Literal["requester"] = None,
         PartNumber: int = None,
+        ExpectedBucketOwner: str = None,
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [ObjectNotExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Waiter.ObjectNotExists.wait)
+        [ObjectNotExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Waiter.ObjectNotExists.wait)
         """

@@ -17,7 +17,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -251,7 +250,16 @@ EnvironmentDescriptionTypeDef = TypedDict(
         "CNAME": str,
         "DateCreated": datetime,
         "DateUpdated": datetime,
-        "Status": Literal["Launching", "Updating", "Ready", "Terminating", "Terminated"],
+        "Status": Literal[
+            "Aborting",
+            "Launching",
+            "Updating",
+            "LinkingFrom",
+            "LinkingTo",
+            "Ready",
+            "Terminating",
+            "Terminated",
+        ],
         "AbortableOperationInProgress": bool,
         "Health": Literal["Green", "Yellow", "Red", "Grey"],
         "HealthStatus": Literal[

@@ -1,4 +1,4 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import
+# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for es service client
 
@@ -14,8 +14,7 @@ Usage::
 import sys
 from typing import Any, Dict, List, Type, overload
 
-from botocore.exceptions import ClientError as Boto3ClientError
-from botocore.paginate import Paginator as Boto3Paginator
+from botocore.client import ClientMeta
 
 from mypy_boto3_es.paginator import (
     DescribeReservedElasticsearchInstanceOfferingsPaginator,
@@ -55,6 +54,7 @@ from mypy_boto3_es.type_defs import (
     EncryptionAtRestOptionsTypeDef,
     FilterTypeDef,
     GetCompatibleElasticsearchVersionsResponseTypeDef,
+    GetPackageVersionHistoryResponseTypeDef,
     GetUpgradeHistoryResponseTypeDef,
     GetUpgradeStatusResponseTypeDef,
     ListDomainNamesResponseTypeDef,
@@ -72,6 +72,7 @@ from mypy_boto3_es.type_defs import (
     StartElasticsearchServiceSoftwareUpdateResponseTypeDef,
     TagTypeDef,
     UpdateElasticsearchDomainConfigResponseTypeDef,
+    UpdatePackageResponseTypeDef,
     UpgradeElasticsearchDomainResponseTypeDef,
     VPCOptionsTypeDef,
 )
@@ -85,55 +86,64 @@ else:
 __all__ = ("ElasticsearchServiceClient",)
 
 
+class BotocoreClientError(BaseException):
+    MSG_TEMPLATE: str
+
+    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
+        self.response: Dict[str, Any]
+        self.operation_name: str
+
+
 class Exceptions:
-    AccessDeniedException: Type[Boto3ClientError]
-    BaseException: Type[Boto3ClientError]
-    ClientError: Type[Boto3ClientError]
-    ConflictException: Type[Boto3ClientError]
-    DisabledOperationException: Type[Boto3ClientError]
-    InternalException: Type[Boto3ClientError]
-    InvalidPaginationTokenException: Type[Boto3ClientError]
-    InvalidTypeException: Type[Boto3ClientError]
-    LimitExceededException: Type[Boto3ClientError]
-    ResourceAlreadyExistsException: Type[Boto3ClientError]
-    ResourceNotFoundException: Type[Boto3ClientError]
-    ValidationException: Type[Boto3ClientError]
+    AccessDeniedException: Type[BotocoreClientError]
+    BaseException: Type[BotocoreClientError]
+    ClientError: Type[BotocoreClientError]
+    ConflictException: Type[BotocoreClientError]
+    DisabledOperationException: Type[BotocoreClientError]
+    InternalException: Type[BotocoreClientError]
+    InvalidPaginationTokenException: Type[BotocoreClientError]
+    InvalidTypeException: Type[BotocoreClientError]
+    LimitExceededException: Type[BotocoreClientError]
+    ResourceAlreadyExistsException: Type[BotocoreClientError]
+    ResourceNotFoundException: Type[BotocoreClientError]
+    ValidationException: Type[BotocoreClientError]
 
 
 class ElasticsearchServiceClient:
     """
-    [ElasticsearchService.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Client)
+    [ElasticsearchService.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Client)
     """
 
+    meta: ClientMeta
     exceptions: Exceptions
 
     def accept_inbound_cross_cluster_search_connection(
         self, CrossClusterSearchConnectionId: str
     ) -> AcceptInboundCrossClusterSearchConnectionResponseTypeDef:
         """
-        [Client.accept_inbound_cross_cluster_search_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Client.accept_inbound_cross_cluster_search_connection)
+        [Client.accept_inbound_cross_cluster_search_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Client.accept_inbound_cross_cluster_search_connection)
         """
 
     def add_tags(self, ARN: str, TagList: List["TagTypeDef"]) -> None:
         """
-        [Client.add_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Client.add_tags)
+        [Client.add_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Client.add_tags)
         """
 
     def associate_package(self, PackageID: str, DomainName: str) -> AssociatePackageResponseTypeDef:
         """
-        [Client.associate_package documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Client.associate_package)
+        [Client.associate_package documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Client.associate_package)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Client.can_paginate)
         """
 
     def cancel_elasticsearch_service_software_update(
         self, DomainName: str
     ) -> CancelElasticsearchServiceSoftwareUpdateResponseTypeDef:
         """
-        [Client.cancel_elasticsearch_service_software_update documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Client.cancel_elasticsearch_service_software_update)
+        [Client.cancel_elasticsearch_service_software_update documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Client.cancel_elasticsearch_service_software_update)
         """
 
     def create_elasticsearch_domain(
@@ -150,14 +160,14 @@ class ElasticsearchServiceClient:
         NodeToNodeEncryptionOptions: "NodeToNodeEncryptionOptionsTypeDef" = None,
         AdvancedOptions: Dict[str, str] = None,
         LogPublishingOptions: Dict[
-            Literal["INDEX_SLOW_LOGS", "SEARCH_SLOW_LOGS", "ES_APPLICATION_LOGS"],
+            Literal["INDEX_SLOW_LOGS", "SEARCH_SLOW_LOGS", "ES_APPLICATION_LOGS", "AUDIT_LOGS"],
             "LogPublishingOptionTypeDef",
         ] = None,
         DomainEndpointOptions: "DomainEndpointOptionsTypeDef" = None,
         AdvancedSecurityOptions: AdvancedSecurityOptionsInputTypeDef = None,
     ) -> CreateElasticsearchDomainResponseTypeDef:
         """
-        [Client.create_elasticsearch_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Client.create_elasticsearch_domain)
+        [Client.create_elasticsearch_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Client.create_elasticsearch_domain)
         """
 
     def create_outbound_cross_cluster_search_connection(
@@ -167,7 +177,7 @@ class ElasticsearchServiceClient:
         ConnectionAlias: str,
     ) -> CreateOutboundCrossClusterSearchConnectionResponseTypeDef:
         """
-        [Client.create_outbound_cross_cluster_search_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Client.create_outbound_cross_cluster_search_connection)
+        [Client.create_outbound_cross_cluster_search_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Client.create_outbound_cross_cluster_search_connection)
         """
 
     def create_package(
@@ -178,59 +188,59 @@ class ElasticsearchServiceClient:
         PackageDescription: str = None,
     ) -> CreatePackageResponseTypeDef:
         """
-        [Client.create_package documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Client.create_package)
+        [Client.create_package documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Client.create_package)
         """
 
     def delete_elasticsearch_domain(
         self, DomainName: str
     ) -> DeleteElasticsearchDomainResponseTypeDef:
         """
-        [Client.delete_elasticsearch_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Client.delete_elasticsearch_domain)
+        [Client.delete_elasticsearch_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Client.delete_elasticsearch_domain)
         """
 
     def delete_elasticsearch_service_role(self) -> None:
         """
-        [Client.delete_elasticsearch_service_role documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Client.delete_elasticsearch_service_role)
+        [Client.delete_elasticsearch_service_role documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Client.delete_elasticsearch_service_role)
         """
 
     def delete_inbound_cross_cluster_search_connection(
         self, CrossClusterSearchConnectionId: str
     ) -> DeleteInboundCrossClusterSearchConnectionResponseTypeDef:
         """
-        [Client.delete_inbound_cross_cluster_search_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Client.delete_inbound_cross_cluster_search_connection)
+        [Client.delete_inbound_cross_cluster_search_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Client.delete_inbound_cross_cluster_search_connection)
         """
 
     def delete_outbound_cross_cluster_search_connection(
         self, CrossClusterSearchConnectionId: str
     ) -> DeleteOutboundCrossClusterSearchConnectionResponseTypeDef:
         """
-        [Client.delete_outbound_cross_cluster_search_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Client.delete_outbound_cross_cluster_search_connection)
+        [Client.delete_outbound_cross_cluster_search_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Client.delete_outbound_cross_cluster_search_connection)
         """
 
     def delete_package(self, PackageID: str) -> DeletePackageResponseTypeDef:
         """
-        [Client.delete_package documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Client.delete_package)
+        [Client.delete_package documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Client.delete_package)
         """
 
     def describe_elasticsearch_domain(
         self, DomainName: str
     ) -> DescribeElasticsearchDomainResponseTypeDef:
         """
-        [Client.describe_elasticsearch_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Client.describe_elasticsearch_domain)
+        [Client.describe_elasticsearch_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Client.describe_elasticsearch_domain)
         """
 
     def describe_elasticsearch_domain_config(
         self, DomainName: str
     ) -> DescribeElasticsearchDomainConfigResponseTypeDef:
         """
-        [Client.describe_elasticsearch_domain_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Client.describe_elasticsearch_domain_config)
+        [Client.describe_elasticsearch_domain_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Client.describe_elasticsearch_domain_config)
         """
 
     def describe_elasticsearch_domains(
         self, DomainNames: List[str]
     ) -> DescribeElasticsearchDomainsResponseTypeDef:
         """
-        [Client.describe_elasticsearch_domains documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Client.describe_elasticsearch_domains)
+        [Client.describe_elasticsearch_domains documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Client.describe_elasticsearch_domains)
         """
 
     def describe_elasticsearch_instance_type_limits(
@@ -299,21 +309,21 @@ class ElasticsearchServiceClient:
         DomainName: str = None,
     ) -> DescribeElasticsearchInstanceTypeLimitsResponseTypeDef:
         """
-        [Client.describe_elasticsearch_instance_type_limits documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Client.describe_elasticsearch_instance_type_limits)
+        [Client.describe_elasticsearch_instance_type_limits documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Client.describe_elasticsearch_instance_type_limits)
         """
 
     def describe_inbound_cross_cluster_search_connections(
         self, Filters: List[FilterTypeDef] = None, MaxResults: int = None, NextToken: str = None
     ) -> DescribeInboundCrossClusterSearchConnectionsResponseTypeDef:
         """
-        [Client.describe_inbound_cross_cluster_search_connections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Client.describe_inbound_cross_cluster_search_connections)
+        [Client.describe_inbound_cross_cluster_search_connections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Client.describe_inbound_cross_cluster_search_connections)
         """
 
     def describe_outbound_cross_cluster_search_connections(
         self, Filters: List[FilterTypeDef] = None, MaxResults: int = None, NextToken: str = None
     ) -> DescribeOutboundCrossClusterSearchConnectionsResponseTypeDef:
         """
-        [Client.describe_outbound_cross_cluster_search_connections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Client.describe_outbound_cross_cluster_search_connections)
+        [Client.describe_outbound_cross_cluster_search_connections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Client.describe_outbound_cross_cluster_search_connections)
         """
 
     def describe_packages(
@@ -323,7 +333,7 @@ class ElasticsearchServiceClient:
         NextToken: str = None,
     ) -> DescribePackagesResponseTypeDef:
         """
-        [Client.describe_packages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Client.describe_packages)
+        [Client.describe_packages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Client.describe_packages)
         """
 
     def describe_reserved_elasticsearch_instance_offerings(
@@ -333,7 +343,7 @@ class ElasticsearchServiceClient:
         NextToken: str = None,
     ) -> DescribeReservedElasticsearchInstanceOfferingsResponseTypeDef:
         """
-        [Client.describe_reserved_elasticsearch_instance_offerings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Client.describe_reserved_elasticsearch_instance_offerings)
+        [Client.describe_reserved_elasticsearch_instance_offerings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Client.describe_reserved_elasticsearch_instance_offerings)
         """
 
     def describe_reserved_elasticsearch_instances(
@@ -343,14 +353,14 @@ class ElasticsearchServiceClient:
         NextToken: str = None,
     ) -> DescribeReservedElasticsearchInstancesResponseTypeDef:
         """
-        [Client.describe_reserved_elasticsearch_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Client.describe_reserved_elasticsearch_instances)
+        [Client.describe_reserved_elasticsearch_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Client.describe_reserved_elasticsearch_instances)
         """
 
     def dissociate_package(
         self, PackageID: str, DomainName: str
     ) -> DissociatePackageResponseTypeDef:
         """
-        [Client.dissociate_package documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Client.dissociate_package)
+        [Client.dissociate_package documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Client.dissociate_package)
         """
 
     def generate_presigned_url(
@@ -361,38 +371,45 @@ class ElasticsearchServiceClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Client.generate_presigned_url)
         """
 
     def get_compatible_elasticsearch_versions(
         self, DomainName: str = None
     ) -> GetCompatibleElasticsearchVersionsResponseTypeDef:
         """
-        [Client.get_compatible_elasticsearch_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Client.get_compatible_elasticsearch_versions)
+        [Client.get_compatible_elasticsearch_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Client.get_compatible_elasticsearch_versions)
+        """
+
+    def get_package_version_history(
+        self, PackageID: str, MaxResults: int = None, NextToken: str = None
+    ) -> GetPackageVersionHistoryResponseTypeDef:
+        """
+        [Client.get_package_version_history documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Client.get_package_version_history)
         """
 
     def get_upgrade_history(
         self, DomainName: str, MaxResults: int = None, NextToken: str = None
     ) -> GetUpgradeHistoryResponseTypeDef:
         """
-        [Client.get_upgrade_history documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Client.get_upgrade_history)
+        [Client.get_upgrade_history documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Client.get_upgrade_history)
         """
 
     def get_upgrade_status(self, DomainName: str) -> GetUpgradeStatusResponseTypeDef:
         """
-        [Client.get_upgrade_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Client.get_upgrade_status)
+        [Client.get_upgrade_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Client.get_upgrade_status)
         """
 
     def list_domain_names(self) -> ListDomainNamesResponseTypeDef:
         """
-        [Client.list_domain_names documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Client.list_domain_names)
+        [Client.list_domain_names documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Client.list_domain_names)
         """
 
     def list_domains_for_package(
         self, PackageID: str, MaxResults: int = None, NextToken: str = None
     ) -> ListDomainsForPackageResponseTypeDef:
         """
-        [Client.list_domains_for_package documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Client.list_domains_for_package)
+        [Client.list_domains_for_package documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Client.list_domains_for_package)
         """
 
     def list_elasticsearch_instance_types(
@@ -403,26 +420,26 @@ class ElasticsearchServiceClient:
         NextToken: str = None,
     ) -> ListElasticsearchInstanceTypesResponseTypeDef:
         """
-        [Client.list_elasticsearch_instance_types documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Client.list_elasticsearch_instance_types)
+        [Client.list_elasticsearch_instance_types documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Client.list_elasticsearch_instance_types)
         """
 
     def list_elasticsearch_versions(
         self, MaxResults: int = None, NextToken: str = None
     ) -> ListElasticsearchVersionsResponseTypeDef:
         """
-        [Client.list_elasticsearch_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Client.list_elasticsearch_versions)
+        [Client.list_elasticsearch_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Client.list_elasticsearch_versions)
         """
 
     def list_packages_for_domain(
         self, DomainName: str, MaxResults: int = None, NextToken: str = None
     ) -> ListPackagesForDomainResponseTypeDef:
         """
-        [Client.list_packages_for_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Client.list_packages_for_domain)
+        [Client.list_packages_for_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Client.list_packages_for_domain)
         """
 
     def list_tags(self, ARN: str) -> ListTagsResponseTypeDef:
         """
-        [Client.list_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Client.list_tags)
+        [Client.list_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Client.list_tags)
         """
 
     def purchase_reserved_elasticsearch_instance_offering(
@@ -432,26 +449,26 @@ class ElasticsearchServiceClient:
         InstanceCount: int = None,
     ) -> PurchaseReservedElasticsearchInstanceOfferingResponseTypeDef:
         """
-        [Client.purchase_reserved_elasticsearch_instance_offering documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Client.purchase_reserved_elasticsearch_instance_offering)
+        [Client.purchase_reserved_elasticsearch_instance_offering documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Client.purchase_reserved_elasticsearch_instance_offering)
         """
 
     def reject_inbound_cross_cluster_search_connection(
         self, CrossClusterSearchConnectionId: str
     ) -> RejectInboundCrossClusterSearchConnectionResponseTypeDef:
         """
-        [Client.reject_inbound_cross_cluster_search_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Client.reject_inbound_cross_cluster_search_connection)
+        [Client.reject_inbound_cross_cluster_search_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Client.reject_inbound_cross_cluster_search_connection)
         """
 
     def remove_tags(self, ARN: str, TagKeys: List[str]) -> None:
         """
-        [Client.remove_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Client.remove_tags)
+        [Client.remove_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Client.remove_tags)
         """
 
     def start_elasticsearch_service_software_update(
         self, DomainName: str
     ) -> StartElasticsearchServiceSoftwareUpdateResponseTypeDef:
         """
-        [Client.start_elasticsearch_service_software_update documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Client.start_elasticsearch_service_software_update)
+        [Client.start_elasticsearch_service_software_update documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Client.start_elasticsearch_service_software_update)
         """
 
     def update_elasticsearch_domain_config(
@@ -465,21 +482,32 @@ class ElasticsearchServiceClient:
         AdvancedOptions: Dict[str, str] = None,
         AccessPolicies: str = None,
         LogPublishingOptions: Dict[
-            Literal["INDEX_SLOW_LOGS", "SEARCH_SLOW_LOGS", "ES_APPLICATION_LOGS"],
+            Literal["INDEX_SLOW_LOGS", "SEARCH_SLOW_LOGS", "ES_APPLICATION_LOGS", "AUDIT_LOGS"],
             "LogPublishingOptionTypeDef",
         ] = None,
         DomainEndpointOptions: "DomainEndpointOptionsTypeDef" = None,
         AdvancedSecurityOptions: AdvancedSecurityOptionsInputTypeDef = None,
     ) -> UpdateElasticsearchDomainConfigResponseTypeDef:
         """
-        [Client.update_elasticsearch_domain_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Client.update_elasticsearch_domain_config)
+        [Client.update_elasticsearch_domain_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Client.update_elasticsearch_domain_config)
+        """
+
+    def update_package(
+        self,
+        PackageID: str,
+        PackageSource: PackageSourceTypeDef,
+        PackageDescription: str = None,
+        CommitMessage: str = None,
+    ) -> UpdatePackageResponseTypeDef:
+        """
+        [Client.update_package documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Client.update_package)
         """
 
     def upgrade_elasticsearch_domain(
         self, DomainName: str, TargetVersion: str, PerformCheckOnly: bool = None
     ) -> UpgradeElasticsearchDomainResponseTypeDef:
         """
-        [Client.upgrade_elasticsearch_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Client.upgrade_elasticsearch_domain)
+        [Client.upgrade_elasticsearch_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Client.upgrade_elasticsearch_domain)
         """
 
     @overload
@@ -487,7 +515,7 @@ class ElasticsearchServiceClient:
         self, operation_name: Literal["describe_reserved_elasticsearch_instance_offerings"]
     ) -> DescribeReservedElasticsearchInstanceOfferingsPaginator:
         """
-        [Paginator.DescribeReservedElasticsearchInstanceOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Paginator.DescribeReservedElasticsearchInstanceOfferings)
+        [Paginator.DescribeReservedElasticsearchInstanceOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Paginator.DescribeReservedElasticsearchInstanceOfferings)
         """
 
     @overload
@@ -495,7 +523,7 @@ class ElasticsearchServiceClient:
         self, operation_name: Literal["describe_reserved_elasticsearch_instances"]
     ) -> DescribeReservedElasticsearchInstancesPaginator:
         """
-        [Paginator.DescribeReservedElasticsearchInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Paginator.DescribeReservedElasticsearchInstances)
+        [Paginator.DescribeReservedElasticsearchInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Paginator.DescribeReservedElasticsearchInstances)
         """
 
     @overload
@@ -503,7 +531,7 @@ class ElasticsearchServiceClient:
         self, operation_name: Literal["get_upgrade_history"]
     ) -> GetUpgradeHistoryPaginator:
         """
-        [Paginator.GetUpgradeHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Paginator.GetUpgradeHistory)
+        [Paginator.GetUpgradeHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Paginator.GetUpgradeHistory)
         """
 
     @overload
@@ -511,7 +539,7 @@ class ElasticsearchServiceClient:
         self, operation_name: Literal["list_elasticsearch_instance_types"]
     ) -> ListElasticsearchInstanceTypesPaginator:
         """
-        [Paginator.ListElasticsearchInstanceTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Paginator.ListElasticsearchInstanceTypes)
+        [Paginator.ListElasticsearchInstanceTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Paginator.ListElasticsearchInstanceTypes)
         """
 
     @overload
@@ -519,8 +547,5 @@ class ElasticsearchServiceClient:
         self, operation_name: Literal["list_elasticsearch_versions"]
     ) -> ListElasticsearchVersionsPaginator:
         """
-        [Paginator.ListElasticsearchVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/es.html#ElasticsearchService.Paginator.ListElasticsearchVersions)
+        [Paginator.ListElasticsearchVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/es.html#ElasticsearchService.Paginator.ListElasticsearchVersions)
         """
-
-    def get_paginator(self, operation_name: str) -> Boto3Paginator:
-        pass

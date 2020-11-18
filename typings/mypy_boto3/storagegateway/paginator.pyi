@@ -6,6 +6,7 @@ from mypy_boto3_storagegateway.paginator import (
     ListFileSharesPaginator,
     ListGatewaysPaginator,
     ListTagsForResourcePaginator,
+    ListTapePoolsPaginator,
     ListTapesPaginator,
     ListVolumesPaginator,
 )
@@ -18,6 +19,7 @@ __all__ = (
     "ListFileSharesPaginator",
     "ListGatewaysPaginator",
     "ListTagsForResourcePaginator",
+    "ListTapePoolsPaginator",
     "ListTapesPaginator",
     "ListVolumesPaginator",
 )

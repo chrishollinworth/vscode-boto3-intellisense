@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import List
+from typing import IO, Any, Dict, List, Union
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -41,6 +40,7 @@ __all__ = (
     "RecordTypeDef",
     "ResourceInUseExceptionTypeDef",
     "ResourceNotFoundExceptionTypeDef",
+    "ResponseMetadata",
     "SequenceNumberRangeTypeDef",
     "ShardTypeDef",
     "StreamDescriptionSummaryTypeDef",
@@ -153,7 +153,8 @@ PutRecordsResultEntryTypeDef = TypedDict(
 )
 
 _RequiredRecordTypeDef = TypedDict(
-    "_RequiredRecordTypeDef", {"SequenceNumber": str, "Data": bytes, "PartitionKey": str}
+    "_RequiredRecordTypeDef",
+    {"SequenceNumber": str, "Data": Union[bytes, IO[bytes]], "PartitionKey": str},
 )
 _OptionalRecordTypeDef = TypedDict(
     "_OptionalRecordTypeDef",
@@ -172,6 +173,17 @@ ResourceInUseExceptionTypeDef = TypedDict(
 
 ResourceNotFoundExceptionTypeDef = TypedDict(
     "ResourceNotFoundExceptionTypeDef", {"message": str}, total=False
+)
+
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
 )
 
 _RequiredSequenceNumberRangeTypeDef = TypedDict(
@@ -310,22 +322,67 @@ class TagTypeDef(_RequiredTagTypeDef, _OptionalTagTypeDef):
     pass
 
 
-DescribeLimitsOutputTypeDef = TypedDict(
-    "DescribeLimitsOutputTypeDef", {"ShardLimit": int, "OpenShardCount": int}
+_RequiredDescribeLimitsOutputTypeDef = TypedDict(
+    "_RequiredDescribeLimitsOutputTypeDef", {"ShardLimit": int, "OpenShardCount": int}
+)
+_OptionalDescribeLimitsOutputTypeDef = TypedDict(
+    "_OptionalDescribeLimitsOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
 )
 
-DescribeStreamConsumerOutputTypeDef = TypedDict(
-    "DescribeStreamConsumerOutputTypeDef", {"ConsumerDescription": "ConsumerDescriptionTypeDef"}
+
+class DescribeLimitsOutputTypeDef(
+    _RequiredDescribeLimitsOutputTypeDef, _OptionalDescribeLimitsOutputTypeDef
+):
+    pass
+
+
+_RequiredDescribeStreamConsumerOutputTypeDef = TypedDict(
+    "_RequiredDescribeStreamConsumerOutputTypeDef",
+    {"ConsumerDescription": "ConsumerDescriptionTypeDef"},
+)
+_OptionalDescribeStreamConsumerOutputTypeDef = TypedDict(
+    "_OptionalDescribeStreamConsumerOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
-DescribeStreamOutputTypeDef = TypedDict(
-    "DescribeStreamOutputTypeDef", {"StreamDescription": "StreamDescriptionTypeDef"}
+
+class DescribeStreamConsumerOutputTypeDef(
+    _RequiredDescribeStreamConsumerOutputTypeDef, _OptionalDescribeStreamConsumerOutputTypeDef
+):
+    pass
+
+
+_RequiredDescribeStreamOutputTypeDef = TypedDict(
+    "_RequiredDescribeStreamOutputTypeDef", {"StreamDescription": "StreamDescriptionTypeDef"}
+)
+_OptionalDescribeStreamOutputTypeDef = TypedDict(
+    "_OptionalDescribeStreamOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
 )
 
-DescribeStreamSummaryOutputTypeDef = TypedDict(
-    "DescribeStreamSummaryOutputTypeDef",
+
+class DescribeStreamOutputTypeDef(
+    _RequiredDescribeStreamOutputTypeDef, _OptionalDescribeStreamOutputTypeDef
+):
+    pass
+
+
+_RequiredDescribeStreamSummaryOutputTypeDef = TypedDict(
+    "_RequiredDescribeStreamSummaryOutputTypeDef",
     {"StreamDescriptionSummary": "StreamDescriptionSummaryTypeDef"},
 )
+_OptionalDescribeStreamSummaryOutputTypeDef = TypedDict(
+    "_OptionalDescribeStreamSummaryOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+
+class DescribeStreamSummaryOutputTypeDef(
+    _RequiredDescribeStreamSummaryOutputTypeDef, _OptionalDescribeStreamSummaryOutputTypeDef
+):
+    pass
+
 
 EnhancedMonitoringOutputTypeDef = TypedDict(
     "EnhancedMonitoringOutputTypeDef",
@@ -355,6 +412,7 @@ EnhancedMonitoringOutputTypeDef = TypedDict(
                 "ALL",
             ]
         ],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -364,7 +422,12 @@ _RequiredGetRecordsOutputTypeDef = TypedDict(
 )
 _OptionalGetRecordsOutputTypeDef = TypedDict(
     "_OptionalGetRecordsOutputTypeDef",
-    {"NextShardIterator": str, "MillisBehindLatest": int, "ChildShards": List["ChildShardTypeDef"]},
+    {
+        "NextShardIterator": str,
+        "MillisBehindLatest": int,
+        "ChildShards": List["ChildShardTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -374,26 +437,54 @@ class GetRecordsOutputTypeDef(_RequiredGetRecordsOutputTypeDef, _OptionalGetReco
 
 
 GetShardIteratorOutputTypeDef = TypedDict(
-    "GetShardIteratorOutputTypeDef", {"ShardIterator": str}, total=False
+    "GetShardIteratorOutputTypeDef",
+    {"ShardIterator": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ListShardsOutputTypeDef = TypedDict(
-    "ListShardsOutputTypeDef", {"Shards": List["ShardTypeDef"], "NextToken": str}, total=False
+    "ListShardsOutputTypeDef",
+    {"Shards": List["ShardTypeDef"], "NextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ListStreamConsumersOutputTypeDef = TypedDict(
     "ListStreamConsumersOutputTypeDef",
-    {"Consumers": List["ConsumerTypeDef"], "NextToken": str},
+    {
+        "Consumers": List["ConsumerTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
-ListStreamsOutputTypeDef = TypedDict(
-    "ListStreamsOutputTypeDef", {"StreamNames": List[str], "HasMoreStreams": bool}
+_RequiredListStreamsOutputTypeDef = TypedDict(
+    "_RequiredListStreamsOutputTypeDef", {"StreamNames": List[str], "HasMoreStreams": bool}
+)
+_OptionalListStreamsOutputTypeDef = TypedDict(
+    "_OptionalListStreamsOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
 )
 
-ListTagsForStreamOutputTypeDef = TypedDict(
-    "ListTagsForStreamOutputTypeDef", {"Tags": List["TagTypeDef"], "HasMoreTags": bool}
+
+class ListStreamsOutputTypeDef(
+    _RequiredListStreamsOutputTypeDef, _OptionalListStreamsOutputTypeDef
+):
+    pass
+
+
+_RequiredListTagsForStreamOutputTypeDef = TypedDict(
+    "_RequiredListTagsForStreamOutputTypeDef", {"Tags": List["TagTypeDef"], "HasMoreTags": bool}
 )
+_OptionalListTagsForStreamOutputTypeDef = TypedDict(
+    "_OptionalListTagsForStreamOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
+)
+
+
+class ListTagsForStreamOutputTypeDef(
+    _RequiredListTagsForStreamOutputTypeDef, _OptionalListTagsForStreamOutputTypeDef
+):
+    pass
+
 
 PaginatorConfigTypeDef = TypedDict(
     "PaginatorConfigTypeDef", {"MaxItems": int, "PageSize": int, "StartingToken": str}, total=False
@@ -403,7 +494,9 @@ _RequiredPutRecordOutputTypeDef = TypedDict(
     "_RequiredPutRecordOutputTypeDef", {"ShardId": str, "SequenceNumber": str}
 )
 _OptionalPutRecordOutputTypeDef = TypedDict(
-    "_OptionalPutRecordOutputTypeDef", {"EncryptionType": Literal["NONE", "KMS"]}, total=False
+    "_OptionalPutRecordOutputTypeDef",
+    {"EncryptionType": Literal["NONE", "KMS"], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 
@@ -416,7 +509,11 @@ _RequiredPutRecordsOutputTypeDef = TypedDict(
 )
 _OptionalPutRecordsOutputTypeDef = TypedDict(
     "_OptionalPutRecordsOutputTypeDef",
-    {"FailedRecordCount": int, "EncryptionType": Literal["NONE", "KMS"]},
+    {
+        "FailedRecordCount": int,
+        "EncryptionType": Literal["NONE", "KMS"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -426,7 +523,7 @@ class PutRecordsOutputTypeDef(_RequiredPutRecordsOutputTypeDef, _OptionalPutReco
 
 
 _RequiredPutRecordsRequestEntryTypeDef = TypedDict(
-    "_RequiredPutRecordsRequestEntryTypeDef", {"Data": bytes, "PartitionKey": str}
+    "_RequiredPutRecordsRequestEntryTypeDef", {"Data": Union[bytes, IO[bytes]], "PartitionKey": str}
 )
 _OptionalPutRecordsRequestEntryTypeDef = TypedDict(
     "_OptionalPutRecordsRequestEntryTypeDef", {"ExplicitHashKey": str}, total=False
@@ -439,9 +536,21 @@ class PutRecordsRequestEntryTypeDef(
     pass
 
 
-RegisterStreamConsumerOutputTypeDef = TypedDict(
-    "RegisterStreamConsumerOutputTypeDef", {"Consumer": "ConsumerTypeDef"}
+_RequiredRegisterStreamConsumerOutputTypeDef = TypedDict(
+    "_RequiredRegisterStreamConsumerOutputTypeDef", {"Consumer": "ConsumerTypeDef"}
 )
+_OptionalRegisterStreamConsumerOutputTypeDef = TypedDict(
+    "_OptionalRegisterStreamConsumerOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+
+class RegisterStreamConsumerOutputTypeDef(
+    _RequiredRegisterStreamConsumerOutputTypeDef, _OptionalRegisterStreamConsumerOutputTypeDef
+):
+    pass
+
 
 _RequiredShardFilterTypeDef = TypedDict(
     "_RequiredShardFilterTypeDef",
@@ -482,13 +591,28 @@ class StartingPositionTypeDef(_RequiredStartingPositionTypeDef, _OptionalStartin
     pass
 
 
-SubscribeToShardOutputTypeDef = TypedDict(
-    "SubscribeToShardOutputTypeDef", {"EventStream": "SubscribeToShardEventStreamTypeDef"}
+_RequiredSubscribeToShardOutputTypeDef = TypedDict(
+    "_RequiredSubscribeToShardOutputTypeDef", {"EventStream": "SubscribeToShardEventStreamTypeDef"}
 )
+_OptionalSubscribeToShardOutputTypeDef = TypedDict(
+    "_OptionalSubscribeToShardOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
+)
+
+
+class SubscribeToShardOutputTypeDef(
+    _RequiredSubscribeToShardOutputTypeDef, _OptionalSubscribeToShardOutputTypeDef
+):
+    pass
+
 
 UpdateShardCountOutputTypeDef = TypedDict(
     "UpdateShardCountOutputTypeDef",
-    {"StreamName": str, "CurrentShardCount": int, "TargetShardCount": int},
+    {
+        "StreamName": str,
+        "CurrentShardCount": int,
+        "TargetShardCount": int,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 

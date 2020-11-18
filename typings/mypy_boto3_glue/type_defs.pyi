@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Dict, List
+from typing import IO, Dict, List, Union
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -28,6 +27,7 @@ __all__ = (
     "ActionTypeDef",
     "BatchStopJobRunErrorTypeDef",
     "BatchStopJobRunSuccessfulSubmissionTypeDef",
+    "BatchUpdatePartitionFailureEntryTypeDef",
     "BinaryColumnStatisticsDataTypeDef",
     "BooleanColumnStatisticsDataTypeDef",
     "CatalogImportStatusTypeDef",
@@ -85,21 +85,27 @@ __all__ = (
     "JobRunTypeDef",
     "JobTypeDef",
     "JsonClassifierTypeDef",
+    "KeySchemaElementTypeDef",
     "LabelingSetGenerationTaskRunPropertiesTypeDef",
     "LastCrawlInfoTypeDef",
     "LongColumnStatisticsDataTypeDef",
     "MLTransformTypeDef",
+    "MLUserDataEncryptionTypeDef",
     "MappingEntryTypeDef",
+    "MongoDBTargetTypeDef",
     "NodeTypeDef",
     "NotificationPropertyTypeDef",
     "OrderTypeDef",
     "PartitionErrorTypeDef",
+    "PartitionIndexDescriptorTypeDef",
+    "PartitionInputTypeDef",
     "PartitionTypeDef",
     "PartitionValueListTypeDef",
     "PhysicalConnectionRequirementsTypeDef",
     "PredecessorTypeDef",
     "PredicateTypeDef",
     "PrincipalPermissionsTypeDef",
+    "RecrawlPolicyTypeDef",
     "ResourceUriTypeDef",
     "S3EncryptionTypeDef",
     "S3TargetTypeDef",
@@ -118,6 +124,7 @@ __all__ = (
     "TableVersionTypeDef",
     "TaskRunPropertiesTypeDef",
     "TaskRunTypeDef",
+    "TransformEncryptionTypeDef",
     "TransformParametersTypeDef",
     "TriggerNodeDetailsTypeDef",
     "TriggerTypeDef",
@@ -139,6 +146,8 @@ __all__ = (
     "BatchGetTriggersResponseTypeDef",
     "BatchGetWorkflowsResponseTypeDef",
     "BatchStopJobRunResponseTypeDef",
+    "BatchUpdatePartitionRequestEntryTypeDef",
+    "BatchUpdatePartitionResponseTypeDef",
     "CancelMLTaskRunResponseTypeDef",
     "CatalogEntryTypeDef",
     "ConnectionInputTypeDef",
@@ -186,6 +195,7 @@ __all__ = (
     "GetMLTransformResponseTypeDef",
     "GetMLTransformsResponseTypeDef",
     "GetMappingResponseTypeDef",
+    "GetPartitionIndexesResponseTypeDef",
     "GetPartitionResponseTypeDef",
     "GetPartitionsResponseTypeDef",
     "GetPlanResponseTypeDef",
@@ -215,7 +225,7 @@ __all__ = (
     "ListWorkflowsResponseTypeDef",
     "LocationTypeDef",
     "PaginatorConfigTypeDef",
-    "PartitionInputTypeDef",
+    "PartitionIndexTypeDef",
     "PropertyPredicateTypeDef",
     "PutResourcePolicyResponseTypeDef",
     "ResetJobBookmarkResponseTypeDef",
@@ -271,6 +281,12 @@ BatchStopJobRunErrorTypeDef = TypedDict(
 
 BatchStopJobRunSuccessfulSubmissionTypeDef = TypedDict(
     "BatchStopJobRunSuccessfulSubmissionTypeDef", {"JobName": str, "JobRunId": str}, total=False
+)
+
+BatchUpdatePartitionFailureEntryTypeDef = TypedDict(
+    "BatchUpdatePartitionFailureEntryTypeDef",
+    {"PartitionValueList": List[str], "ErrorDetail": "ErrorDetailTypeDef"},
+    total=False,
 )
 
 BinaryColumnStatisticsDataTypeDef = TypedDict(
@@ -523,6 +539,7 @@ CrawlerTargetsTypeDef = TypedDict(
     {
         "S3Targets": List["S3TargetTypeDef"],
         "JdbcTargets": List["JdbcTargetTypeDef"],
+        "MongoDBTargets": List["MongoDBTargetTypeDef"],
         "DynamoDBTargets": List["DynamoDBTargetTypeDef"],
         "CatalogTargets": List["CatalogTargetTypeDef"],
     },
@@ -538,6 +555,7 @@ CrawlerTypeDef = TypedDict(
         "DatabaseName": str,
         "Description": str,
         "Classifiers": List[str],
+        "RecrawlPolicy": "RecrawlPolicyTypeDef",
         "SchemaChangePolicy": "SchemaChangePolicyTypeDef",
         "State": Literal["READY", "RUNNING", "STOPPING"],
         "TablePrefix": str,
@@ -646,7 +664,9 @@ class DecimalColumnStatisticsDataTypeDef(
     pass
 
 
-DecimalNumberTypeDef = TypedDict("DecimalNumberTypeDef", {"UnscaledValue": bytes, "Scale": int})
+DecimalNumberTypeDef = TypedDict(
+    "DecimalNumberTypeDef", {"UnscaledValue": Union[bytes, IO[bytes]], "Scale": int}
+)
 
 DevEndpointTypeDef = TypedDict(
     "DevEndpointTypeDef",
@@ -922,6 +942,8 @@ class JsonClassifierTypeDef(_RequiredJsonClassifierTypeDef, _OptionalJsonClassif
     pass
 
 
+KeySchemaElementTypeDef = TypedDict("KeySchemaElementTypeDef", {"Name": str, "Type": str})
+
 LabelingSetGenerationTaskRunPropertiesTypeDef = TypedDict(
     "LabelingSetGenerationTaskRunPropertiesTypeDef", {"OutputS3Path": str}, total=False
 )
@@ -977,9 +999,25 @@ MLTransformTypeDef = TypedDict(
         "NumberOfWorkers": int,
         "Timeout": int,
         "MaxRetries": int,
+        "TransformEncryption": "TransformEncryptionTypeDef",
     },
     total=False,
 )
+
+_RequiredMLUserDataEncryptionTypeDef = TypedDict(
+    "_RequiredMLUserDataEncryptionTypeDef",
+    {"MlUserDataEncryptionMode": Literal["DISABLED", "SSE-KMS"]},
+)
+_OptionalMLUserDataEncryptionTypeDef = TypedDict(
+    "_OptionalMLUserDataEncryptionTypeDef", {"KmsKeyId": str}, total=False
+)
+
+
+class MLUserDataEncryptionTypeDef(
+    _RequiredMLUserDataEncryptionTypeDef, _OptionalMLUserDataEncryptionTypeDef
+):
+    pass
+
 
 MappingEntryTypeDef = TypedDict(
     "MappingEntryTypeDef",
@@ -992,6 +1030,10 @@ MappingEntryTypeDef = TypedDict(
         "TargetType": str,
     },
     total=False,
+)
+
+MongoDBTargetTypeDef = TypedDict(
+    "MongoDBTargetTypeDef", {"ConnectionName": str, "Path": str, "ScanAll": bool}, total=False
 )
 
 NodeTypeDef = TypedDict(
@@ -1016,6 +1058,23 @@ OrderTypeDef = TypedDict("OrderTypeDef", {"Column": str, "SortOrder": int})
 PartitionErrorTypeDef = TypedDict(
     "PartitionErrorTypeDef",
     {"PartitionValues": List[str], "ErrorDetail": "ErrorDetailTypeDef"},
+    total=False,
+)
+
+PartitionIndexDescriptorTypeDef = TypedDict(
+    "PartitionIndexDescriptorTypeDef",
+    {"IndexName": str, "Keys": List["KeySchemaElementTypeDef"], "IndexStatus": Literal["ACTIVE"]},
+)
+
+PartitionInputTypeDef = TypedDict(
+    "PartitionInputTypeDef",
+    {
+        "Values": List[str],
+        "LastAccessTime": datetime,
+        "StorageDescriptor": "StorageDescriptorTypeDef",
+        "Parameters": Dict[str, str],
+        "LastAnalyzedTime": datetime,
+    },
     total=False,
 )
 
@@ -1069,6 +1128,12 @@ PrincipalPermissionsTypeDef = TypedDict(
             ]
         ],
     },
+    total=False,
+)
+
+RecrawlPolicyTypeDef = TypedDict(
+    "RecrawlPolicyTypeDef",
+    {"RecrawlBehavior": Literal["CRAWL_EVERYTHING", "CRAWL_NEW_FOLDERS_ONLY"]},
     total=False,
 )
 
@@ -1242,6 +1307,15 @@ TaskRunTypeDef = TypedDict(
         "LastModifiedOn": datetime,
         "CompletedOn": datetime,
         "ExecutionTime": int,
+    },
+    total=False,
+)
+
+TransformEncryptionTypeDef = TypedDict(
+    "TransformEncryptionTypeDef",
+    {
+        "MlUserDataEncryption": "MLUserDataEncryptionTypeDef",
+        "TaskRunSecurityConfigurationName": str,
     },
     total=False,
 )
@@ -1437,6 +1511,17 @@ BatchStopJobRunResponseTypeDef = TypedDict(
         "SuccessfulSubmissions": List["BatchStopJobRunSuccessfulSubmissionTypeDef"],
         "Errors": List["BatchStopJobRunErrorTypeDef"],
     },
+    total=False,
+)
+
+BatchUpdatePartitionRequestEntryTypeDef = TypedDict(
+    "BatchUpdatePartitionRequestEntryTypeDef",
+    {"PartitionValueList": List[str], "PartitionInput": "PartitionInputTypeDef"},
+)
+
+BatchUpdatePartitionResponseTypeDef = TypedDict(
+    "BatchUpdatePartitionResponseTypeDef",
+    {"Errors": List["BatchUpdatePartitionFailureEntryTypeDef"]},
     total=False,
 )
 
@@ -1809,6 +1894,7 @@ GetMLTransformResponseTypeDef = TypedDict(
         "NumberOfWorkers": int,
         "Timeout": int,
         "MaxRetries": int,
+        "TransformEncryption": "TransformEncryptionTypeDef",
     },
     total=False,
 )
@@ -1829,6 +1915,12 @@ class GetMLTransformsResponseTypeDef(
 
 GetMappingResponseTypeDef = TypedDict(
     "GetMappingResponseTypeDef", {"Mapping": List["MappingEntryTypeDef"]}
+)
+
+GetPartitionIndexesResponseTypeDef = TypedDict(
+    "GetPartitionIndexesResponseTypeDef",
+    {"PartitionIndexDescriptorList": List["PartitionIndexDescriptorTypeDef"], "NextToken": str},
+    total=False,
 )
 
 GetPartitionResponseTypeDef = TypedDict(
@@ -2003,17 +2095,7 @@ PaginatorConfigTypeDef = TypedDict(
     "PaginatorConfigTypeDef", {"MaxItems": int, "PageSize": int, "StartingToken": str}, total=False
 )
 
-PartitionInputTypeDef = TypedDict(
-    "PartitionInputTypeDef",
-    {
-        "Values": List[str],
-        "LastAccessTime": datetime,
-        "StorageDescriptor": "StorageDescriptorTypeDef",
-        "Parameters": Dict[str, str],
-        "LastAnalyzedTime": datetime,
-    },
-    total=False,
-)
+PartitionIndexTypeDef = TypedDict("PartitionIndexTypeDef", {"Keys": List[str], "IndexName": str})
 
 PropertyPredicateTypeDef = TypedDict(
     "PropertyPredicateTypeDef",

@@ -51,20 +51,20 @@ __all__ = (
 
 class ListAgentsPaginator(Boto3Paginator):
     """
-    [Paginator.ListAgents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Paginator.ListAgents)
+    [Paginator.ListAgents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Paginator.ListAgents)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAgentsResponseTypeDef]:
         """
-        [ListAgents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Paginator.ListAgents.paginate)
+        [ListAgents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Paginator.ListAgents.paginate)
         """
 
 
 class ListLocationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListLocations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Paginator.ListLocations)
+    [Paginator.ListLocations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Paginator.ListLocations)
     """
 
     def paginate(
@@ -73,39 +73,39 @@ class ListLocationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListLocationsResponseTypeDef]:
         """
-        [ListLocations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Paginator.ListLocations.paginate)
+        [ListLocations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Paginator.ListLocations.paginate)
         """
 
 
 class ListTagsForResourcePaginator(Boto3Paginator):
     """
-    [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Paginator.ListTagsForResource)
+    [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Paginator.ListTagsForResource)
     """
 
     def paginate(
         self, ResourceArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTagsForResourceResponseTypeDef]:
         """
-        [ListTagsForResource.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Paginator.ListTagsForResource.paginate)
+        [ListTagsForResource.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Paginator.ListTagsForResource.paginate)
         """
 
 
 class ListTaskExecutionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListTaskExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Paginator.ListTaskExecutions)
+    [Paginator.ListTaskExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Paginator.ListTaskExecutions)
     """
 
     def paginate(
         self, TaskArn: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTaskExecutionsResponseTypeDef]:
         """
-        [ListTaskExecutions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Paginator.ListTaskExecutions.paginate)
+        [ListTaskExecutions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Paginator.ListTaskExecutions.paginate)
         """
 
 
 class ListTasksPaginator(Boto3Paginator):
     """
-    [Paginator.ListTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Paginator.ListTasks)
+    [Paginator.ListTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Paginator.ListTasks)
     """
 
     def paginate(
@@ -114,5 +114,5 @@ class ListTasksPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListTasksResponseTypeDef]:
         """
-        [ListTasks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Paginator.ListTasks.paginate)
+        [ListTasks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Paginator.ListTasks.paginate)
         """

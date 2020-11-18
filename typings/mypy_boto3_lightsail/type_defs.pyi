@@ -17,7 +17,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -41,6 +40,15 @@ __all__ = (
     "CloudFormationStackRecordSourceInfoTypeDef",
     "CloudFormationStackRecordTypeDef",
     "ContactMethodTypeDef",
+    "ContainerImageTypeDef",
+    "ContainerServiceDeploymentTypeDef",
+    "ContainerServiceEndpointTypeDef",
+    "ContainerServiceHealthCheckConfigTypeDef",
+    "ContainerServiceLogEventTypeDef",
+    "ContainerServicePowerTypeDef",
+    "ContainerServiceRegistryLoginTypeDef",
+    "ContainerServiceTypeDef",
+    "ContainerTypeDef",
     "CookieObjectTypeDef",
     "DestinationInfoTypeDef",
     "DiskInfoTypeDef",
@@ -51,6 +59,7 @@ __all__ = (
     "DomainEntryTypeDef",
     "DomainTypeDef",
     "DomainValidationRecordTypeDef",
+    "EndpointRequestTypeDef",
     "ExportSnapshotRecordSourceInfoTypeDef",
     "ExportSnapshotRecordTypeDef",
     "HeaderObjectTypeDef",
@@ -105,10 +114,15 @@ __all__ = (
     "AttachLoadBalancerTlsCertificateResultTypeDef",
     "AttachStaticIpResultTypeDef",
     "CloseInstancePublicPortsResultTypeDef",
+    "ContainerServiceDeploymentRequestTypeDef",
+    "ContainerServicesListResultTypeDef",
     "CopySnapshotResultTypeDef",
     "CreateCertificateResultTypeDef",
     "CreateCloudFormationStackResultTypeDef",
     "CreateContactMethodResultTypeDef",
+    "CreateContainerServiceDeploymentResultTypeDef",
+    "CreateContainerServiceRegistryLoginResultTypeDef",
+    "CreateContainerServiceResultTypeDef",
     "CreateDiskFromSnapshotResultTypeDef",
     "CreateDiskResultTypeDef",
     "CreateDiskSnapshotResultTypeDef",
@@ -158,6 +172,12 @@ __all__ = (
     "GetCertificatesResultTypeDef",
     "GetCloudFormationStackRecordsResultTypeDef",
     "GetContactMethodsResultTypeDef",
+    "GetContainerAPIMetadataResultTypeDef",
+    "GetContainerImagesResultTypeDef",
+    "GetContainerLogResultTypeDef",
+    "GetContainerServiceDeploymentsResultTypeDef",
+    "GetContainerServiceMetricDataResultTypeDef",
+    "GetContainerServicePowersResultTypeDef",
     "GetDiskResultTypeDef",
     "GetDiskSnapshotResultTypeDef",
     "GetDiskSnapshotsResultTypeDef",
@@ -213,6 +233,7 @@ __all__ = (
     "PutInstancePublicPortsResultTypeDef",
     "RebootInstanceResultTypeDef",
     "RebootRelationalDatabaseResultTypeDef",
+    "RegisterContainerImageResultTypeDef",
     "ReleaseStaticIpResultTypeDef",
     "ResetDistributionCacheResultTypeDef",
     "SendContactMethodVerificationResultTypeDef",
@@ -224,6 +245,7 @@ __all__ = (
     "TestAlarmResultTypeDef",
     "UnpeerVpcResultTypeDef",
     "UntagResourceResultTypeDef",
+    "UpdateContainerServiceResultTypeDef",
     "UpdateDistributionBundleResultTypeDef",
     "UpdateDistributionResultTypeDef",
     "UpdateDomainEntryResultTypeDef",
@@ -246,6 +268,7 @@ AlarmTypeDef = TypedDict(
         "createdAt": datetime,
         "location": "ResourceLocationTypeDef",
         "resourceType": Literal[
+            "ContainerService",
             "Instance",
             "StaticIp",
             "KeyPair",
@@ -488,6 +511,7 @@ CloudFormationStackRecordTypeDef = TypedDict(
         "createdAt": datetime,
         "location": "ResourceLocationTypeDef",
         "resourceType": Literal[
+            "ContainerService",
             "Instance",
             "StaticIp",
             "KeyPair",
@@ -525,6 +549,7 @@ ContactMethodTypeDef = TypedDict(
         "createdAt": datetime,
         "location": "ResourceLocationTypeDef",
         "resourceType": Literal[
+            "ContainerService",
             "Instance",
             "StaticIp",
             "KeyPair",
@@ -545,6 +570,123 @@ ContactMethodTypeDef = TypedDict(
             "Certificate",
         ],
         "supportCode": str,
+    },
+    total=False,
+)
+
+ContainerImageTypeDef = TypedDict(
+    "ContainerImageTypeDef", {"image": str, "digest": str, "createdAt": datetime}, total=False
+)
+
+ContainerServiceDeploymentTypeDef = TypedDict(
+    "ContainerServiceDeploymentTypeDef",
+    {
+        "version": int,
+        "state": Literal["ACTIVATING", "ACTIVE", "INACTIVE", "FAILED"],
+        "containers": Dict[str, "ContainerTypeDef"],
+        "publicEndpoint": "ContainerServiceEndpointTypeDef",
+        "createdAt": datetime,
+    },
+    total=False,
+)
+
+ContainerServiceEndpointTypeDef = TypedDict(
+    "ContainerServiceEndpointTypeDef",
+    {
+        "containerName": str,
+        "containerPort": int,
+        "healthCheck": "ContainerServiceHealthCheckConfigTypeDef",
+    },
+    total=False,
+)
+
+ContainerServiceHealthCheckConfigTypeDef = TypedDict(
+    "ContainerServiceHealthCheckConfigTypeDef",
+    {
+        "healthyThreshold": int,
+        "unhealthyThreshold": int,
+        "timeoutSeconds": int,
+        "intervalSeconds": int,
+        "path": str,
+        "successCodes": str,
+    },
+    total=False,
+)
+
+ContainerServiceLogEventTypeDef = TypedDict(
+    "ContainerServiceLogEventTypeDef", {"createdAt": datetime, "message": str}, total=False
+)
+
+ContainerServicePowerTypeDef = TypedDict(
+    "ContainerServicePowerTypeDef",
+    {
+        "powerId": str,
+        "price": float,
+        "cpuCount": float,
+        "ramSizeInGb": float,
+        "name": str,
+        "isActive": bool,
+    },
+    total=False,
+)
+
+ContainerServiceRegistryLoginTypeDef = TypedDict(
+    "ContainerServiceRegistryLoginTypeDef",
+    {"username": str, "password": str, "expiresAt": datetime, "registry": str},
+    total=False,
+)
+
+ContainerServiceTypeDef = TypedDict(
+    "ContainerServiceTypeDef",
+    {
+        "containerServiceName": str,
+        "arn": str,
+        "createdAt": datetime,
+        "location": "ResourceLocationTypeDef",
+        "resourceType": Literal[
+            "ContainerService",
+            "Instance",
+            "StaticIp",
+            "KeyPair",
+            "InstanceSnapshot",
+            "Domain",
+            "PeeredVpc",
+            "LoadBalancer",
+            "LoadBalancerTlsCertificate",
+            "Disk",
+            "DiskSnapshot",
+            "RelationalDatabase",
+            "RelationalDatabaseSnapshot",
+            "ExportSnapshotRecord",
+            "CloudFormationStackRecord",
+            "Alarm",
+            "ContactMethod",
+            "Distribution",
+            "Certificate",
+        ],
+        "tags": List["TagTypeDef"],
+        "power": Literal["nano", "micro", "small", "medium", "large", "xlarge"],
+        "powerId": str,
+        "state": Literal["PENDING", "READY", "RUNNING", "UPDATING", "DELETING", "DISABLED"],
+        "scale": int,
+        "currentDeployment": "ContainerServiceDeploymentTypeDef",
+        "nextDeployment": "ContainerServiceDeploymentTypeDef",
+        "isDisabled": bool,
+        "principalArn": str,
+        "privateDomainName": str,
+        "publicDomainNames": Dict[str, List[str]],
+        "url": str,
+    },
+    total=False,
+)
+
+ContainerTypeDef = TypedDict(
+    "ContainerTypeDef",
+    {
+        "image": str,
+        "command": List[str],
+        "environment": Dict[str, str],
+        "ports": Dict[str, Literal["HTTP", "HTTPS", "TCP", "UDP"]],
     },
     total=False,
 )
@@ -576,6 +718,7 @@ DiskSnapshotTypeDef = TypedDict(
         "createdAt": datetime,
         "location": "ResourceLocationTypeDef",
         "resourceType": Literal[
+            "ContainerService",
             "Instance",
             "StaticIp",
             "KeyPair",
@@ -617,6 +760,7 @@ DiskTypeDef = TypedDict(
         "createdAt": datetime,
         "location": "ResourceLocationTypeDef",
         "resourceType": Literal[
+            "ContainerService",
             "Instance",
             "StaticIp",
             "KeyPair",
@@ -679,6 +823,7 @@ DomainTypeDef = TypedDict(
         "createdAt": datetime,
         "location": "ResourceLocationTypeDef",
         "resourceType": Literal[
+            "ContainerService",
             "Instance",
             "StaticIp",
             "KeyPair",
@@ -710,6 +855,20 @@ DomainValidationRecordTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredEndpointRequestTypeDef = TypedDict(
+    "_RequiredEndpointRequestTypeDef", {"containerName": str, "containerPort": int}
+)
+_OptionalEndpointRequestTypeDef = TypedDict(
+    "_OptionalEndpointRequestTypeDef",
+    {"healthCheck": "ContainerServiceHealthCheckConfigTypeDef"},
+    total=False,
+)
+
+
+class EndpointRequestTypeDef(_RequiredEndpointRequestTypeDef, _OptionalEndpointRequestTypeDef):
+    pass
+
+
 ExportSnapshotRecordSourceInfoTypeDef = TypedDict(
     "ExportSnapshotRecordSourceInfoTypeDef",
     {
@@ -733,6 +892,7 @@ ExportSnapshotRecordTypeDef = TypedDict(
         "createdAt": datetime,
         "location": "ResourceLocationTypeDef",
         "resourceType": Literal[
+            "ContainerService",
             "Instance",
             "StaticIp",
             "KeyPair",
@@ -897,6 +1057,7 @@ InstanceSnapshotTypeDef = TypedDict(
         "createdAt": datetime,
         "location": "ResourceLocationTypeDef",
         "resourceType": Literal[
+            "ContainerService",
             "Instance",
             "StaticIp",
             "KeyPair",
@@ -941,6 +1102,7 @@ InstanceTypeDef = TypedDict(
         "createdAt": datetime,
         "location": "ResourceLocationTypeDef",
         "resourceType": Literal[
+            "ContainerService",
             "Instance",
             "StaticIp",
             "KeyPair",
@@ -987,6 +1149,7 @@ KeyPairTypeDef = TypedDict(
         "createdAt": datetime,
         "location": "ResourceLocationTypeDef",
         "resourceType": Literal[
+            "ContainerService",
             "Instance",
             "StaticIp",
             "KeyPair",
@@ -1021,6 +1184,7 @@ LightsailDistributionTypeDef = TypedDict(
         "createdAt": datetime,
         "location": "ResourceLocationTypeDef",
         "resourceType": Literal[
+            "ContainerService",
             "Instance",
             "StaticIp",
             "KeyPair",
@@ -1097,6 +1261,7 @@ LoadBalancerTlsCertificateTypeDef = TypedDict(
         "createdAt": datetime,
         "location": "ResourceLocationTypeDef",
         "resourceType": Literal[
+            "ContainerService",
             "Instance",
             "StaticIp",
             "KeyPair",
@@ -1174,6 +1339,7 @@ LoadBalancerTypeDef = TypedDict(
         "createdAt": datetime,
         "location": "ResourceLocationTypeDef",
         "resourceType": Literal[
+            "ContainerService",
             "Instance",
             "StaticIp",
             "KeyPair",
@@ -1264,6 +1430,7 @@ MonitoredResourceInfoTypeDef = TypedDict(
         "arn": str,
         "name": str,
         "resourceType": Literal[
+            "ContainerService",
             "Instance",
             "StaticIp",
             "KeyPair",
@@ -1297,6 +1464,7 @@ OperationTypeDef = TypedDict(
         "id": str,
         "resourceName": str,
         "resourceType": Literal[
+            "ContainerService",
             "Instance",
             "StaticIp",
             "KeyPair",
@@ -1385,6 +1553,13 @@ OperationTypeDef = TypedDict(
             "UpdateDistributionBundle",
             "CreateCertificate",
             "DeleteCertificate",
+            "CreateContainerService",
+            "UpdateContainerService",
+            "DeleteContainerService",
+            "CreateContainerServiceDeployment",
+            "CreateContainerServiceRegistryLogin",
+            "RegisterContainerImage",
+            "DeleteContainerImage",
         ],
         "status": Literal["NotStarted", "Started", "Failed", "Completed", "Succeeded"],
         "statusChangedAt": datetime,
@@ -1399,6 +1574,7 @@ OriginTypeDef = TypedDict(
     {
         "name": str,
         "resourceType": Literal[
+            "ContainerService",
             "Instance",
             "StaticIp",
             "KeyPair",
@@ -1556,6 +1732,7 @@ RelationalDatabaseSnapshotTypeDef = TypedDict(
         "createdAt": datetime,
         "location": "ResourceLocationTypeDef",
         "resourceType": Literal[
+            "ContainerService",
             "Instance",
             "StaticIp",
             "KeyPair",
@@ -1597,6 +1774,7 @@ RelationalDatabaseTypeDef = TypedDict(
         "createdAt": datetime,
         "location": "ResourceLocationTypeDef",
         "resourceType": Literal[
+            "ContainerService",
             "Instance",
             "StaticIp",
             "KeyPair",
@@ -1688,6 +1866,7 @@ StaticIpTypeDef = TypedDict(
         "createdAt": datetime,
         "location": "ResourceLocationTypeDef",
         "resourceType": Literal[
+            "ContainerService",
             "Instance",
             "StaticIp",
             "KeyPair",
@@ -1762,6 +1941,18 @@ CloseInstancePublicPortsResultTypeDef = TypedDict(
     "CloseInstancePublicPortsResultTypeDef", {"operation": "OperationTypeDef"}, total=False
 )
 
+ContainerServiceDeploymentRequestTypeDef = TypedDict(
+    "ContainerServiceDeploymentRequestTypeDef",
+    {"containers": Dict[str, "ContainerTypeDef"], "publicEndpoint": "EndpointRequestTypeDef"},
+    total=False,
+)
+
+ContainerServicesListResultTypeDef = TypedDict(
+    "ContainerServicesListResultTypeDef",
+    {"containerServices": List["ContainerServiceTypeDef"]},
+    total=False,
+)
+
 CopySnapshotResultTypeDef = TypedDict(
     "CopySnapshotResultTypeDef", {"operations": List["OperationTypeDef"]}, total=False
 )
@@ -1778,6 +1969,24 @@ CreateCloudFormationStackResultTypeDef = TypedDict(
 
 CreateContactMethodResultTypeDef = TypedDict(
     "CreateContactMethodResultTypeDef", {"operations": List["OperationTypeDef"]}, total=False
+)
+
+CreateContainerServiceDeploymentResultTypeDef = TypedDict(
+    "CreateContainerServiceDeploymentResultTypeDef",
+    {"containerService": "ContainerServiceTypeDef"},
+    total=False,
+)
+
+CreateContainerServiceRegistryLoginResultTypeDef = TypedDict(
+    "CreateContainerServiceRegistryLoginResultTypeDef",
+    {"registryLogin": "ContainerServiceRegistryLoginTypeDef"},
+    total=False,
+)
+
+CreateContainerServiceResultTypeDef = TypedDict(
+    "CreateContainerServiceResultTypeDef",
+    {"containerService": "ContainerServiceTypeDef"},
+    total=False,
 )
 
 CreateDiskFromSnapshotResultTypeDef = TypedDict(
@@ -1982,6 +2191,7 @@ GetAutoSnapshotsResultTypeDef = TypedDict(
     {
         "resourceName": str,
         "resourceType": Literal[
+            "ContainerService",
             "Instance",
             "StaticIp",
             "KeyPair",
@@ -2028,6 +2238,43 @@ GetCloudFormationStackRecordsResultTypeDef = TypedDict(
 
 GetContactMethodsResultTypeDef = TypedDict(
     "GetContactMethodsResultTypeDef", {"contactMethods": List["ContactMethodTypeDef"]}, total=False
+)
+
+GetContainerAPIMetadataResultTypeDef = TypedDict(
+    "GetContainerAPIMetadataResultTypeDef", {"metadata": List[Dict[str, str]]}, total=False
+)
+
+GetContainerImagesResultTypeDef = TypedDict(
+    "GetContainerImagesResultTypeDef",
+    {"containerImages": List["ContainerImageTypeDef"]},
+    total=False,
+)
+
+GetContainerLogResultTypeDef = TypedDict(
+    "GetContainerLogResultTypeDef",
+    {"logEvents": List["ContainerServiceLogEventTypeDef"], "nextPageToken": str},
+    total=False,
+)
+
+GetContainerServiceDeploymentsResultTypeDef = TypedDict(
+    "GetContainerServiceDeploymentsResultTypeDef",
+    {"deployments": List["ContainerServiceDeploymentTypeDef"]},
+    total=False,
+)
+
+GetContainerServiceMetricDataResultTypeDef = TypedDict(
+    "GetContainerServiceMetricDataResultTypeDef",
+    {
+        "metricName": Literal["CPUUtilization", "MemoryUtilization"],
+        "metricData": List["MetricDatapointTypeDef"],
+    },
+    total=False,
+)
+
+GetContainerServicePowersResultTypeDef = TypedDict(
+    "GetContainerServicePowersResultTypeDef",
+    {"powers": List["ContainerServicePowerTypeDef"]},
+    total=False,
 )
 
 GetDiskResultTypeDef = TypedDict("GetDiskResultTypeDef", {"disk": "DiskTypeDef"}, total=False)
@@ -2402,6 +2649,10 @@ RebootRelationalDatabaseResultTypeDef = TypedDict(
     "RebootRelationalDatabaseResultTypeDef", {"operations": List["OperationTypeDef"]}, total=False
 )
 
+RegisterContainerImageResultTypeDef = TypedDict(
+    "RegisterContainerImageResultTypeDef", {"containerImage": "ContainerImageTypeDef"}, total=False
+)
+
 ReleaseStaticIpResultTypeDef = TypedDict(
     "ReleaseStaticIpResultTypeDef", {"operations": List["OperationTypeDef"]}, total=False
 )
@@ -2448,6 +2699,12 @@ UnpeerVpcResultTypeDef = TypedDict(
 
 UntagResourceResultTypeDef = TypedDict(
     "UntagResourceResultTypeDef", {"operations": List["OperationTypeDef"]}, total=False
+)
+
+UpdateContainerServiceResultTypeDef = TypedDict(
+    "UpdateContainerServiceResultTypeDef",
+    {"containerService": "ContainerServiceTypeDef"},
+    total=False,
 )
 
 UpdateDistributionBundleResultTypeDef = TypedDict(

@@ -11,7 +11,7 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import List
+from typing import Any, Dict, List
 
 if sys.version_info >= (3, 8):
     from typing import TypedDict
@@ -41,6 +41,7 @@ __all__ = (
     "PolicyAttributeTypeDescriptionTypeDef",
     "PolicyDescriptionTypeDef",
     "PolicyTypeDescriptionTypeDef",
+    "ResponseMetadata",
     "SourceSecurityGroupTypeDef",
     "TagDescriptionTypeDef",
     "TagTypeDef",
@@ -235,6 +236,17 @@ PolicyTypeDescriptionTypeDef = TypedDict(
     total=False,
 )
 
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
+
 SourceSecurityGroupTypeDef = TypedDict(
     "SourceSecurityGroupTypeDef", {"OwnerAlias": str, "GroupName": str}, total=False
 )
@@ -252,76 +264,109 @@ class TagTypeDef(_RequiredTagTypeDef, _OptionalTagTypeDef):
 
 
 AddAvailabilityZonesOutputTypeDef = TypedDict(
-    "AddAvailabilityZonesOutputTypeDef", {"AvailabilityZones": List[str]}, total=False
+    "AddAvailabilityZonesOutputTypeDef",
+    {"AvailabilityZones": List[str], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ApplySecurityGroupsToLoadBalancerOutputTypeDef = TypedDict(
-    "ApplySecurityGroupsToLoadBalancerOutputTypeDef", {"SecurityGroups": List[str]}, total=False
+    "ApplySecurityGroupsToLoadBalancerOutputTypeDef",
+    {"SecurityGroups": List[str], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 AttachLoadBalancerToSubnetsOutputTypeDef = TypedDict(
-    "AttachLoadBalancerToSubnetsOutputTypeDef", {"Subnets": List[str]}, total=False
+    "AttachLoadBalancerToSubnetsOutputTypeDef",
+    {"Subnets": List[str], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ConfigureHealthCheckOutputTypeDef = TypedDict(
-    "ConfigureHealthCheckOutputTypeDef", {"HealthCheck": "HealthCheckTypeDef"}, total=False
+    "ConfigureHealthCheckOutputTypeDef",
+    {"HealthCheck": "HealthCheckTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 CreateAccessPointOutputTypeDef = TypedDict(
-    "CreateAccessPointOutputTypeDef", {"DNSName": str}, total=False
+    "CreateAccessPointOutputTypeDef",
+    {"DNSName": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 DeregisterEndPointsOutputTypeDef = TypedDict(
-    "DeregisterEndPointsOutputTypeDef", {"Instances": List["InstanceTypeDef"]}, total=False
+    "DeregisterEndPointsOutputTypeDef",
+    {"Instances": List["InstanceTypeDef"], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 DescribeAccessPointsOutputTypeDef = TypedDict(
     "DescribeAccessPointsOutputTypeDef",
-    {"LoadBalancerDescriptions": List["LoadBalancerDescriptionTypeDef"], "NextMarker": str},
+    {
+        "LoadBalancerDescriptions": List["LoadBalancerDescriptionTypeDef"],
+        "NextMarker": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 DescribeAccountLimitsOutputTypeDef = TypedDict(
     "DescribeAccountLimitsOutputTypeDef",
-    {"Limits": List["LimitTypeDef"], "NextMarker": str},
+    {"Limits": List["LimitTypeDef"], "NextMarker": str, "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 DescribeEndPointStateOutputTypeDef = TypedDict(
     "DescribeEndPointStateOutputTypeDef",
-    {"InstanceStates": List["InstanceStateTypeDef"]},
+    {"InstanceStates": List["InstanceStateTypeDef"], "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 DescribeLoadBalancerAttributesOutputTypeDef = TypedDict(
     "DescribeLoadBalancerAttributesOutputTypeDef",
-    {"LoadBalancerAttributes": "LoadBalancerAttributesTypeDef"},
+    {
+        "LoadBalancerAttributes": "LoadBalancerAttributesTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 DescribeLoadBalancerPoliciesOutputTypeDef = TypedDict(
     "DescribeLoadBalancerPoliciesOutputTypeDef",
-    {"PolicyDescriptions": List["PolicyDescriptionTypeDef"]},
+    {
+        "PolicyDescriptions": List["PolicyDescriptionTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 DescribeLoadBalancerPolicyTypesOutputTypeDef = TypedDict(
     "DescribeLoadBalancerPolicyTypesOutputTypeDef",
-    {"PolicyTypeDescriptions": List["PolicyTypeDescriptionTypeDef"]},
+    {
+        "PolicyTypeDescriptions": List["PolicyTypeDescriptionTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 DescribeTagsOutputTypeDef = TypedDict(
-    "DescribeTagsOutputTypeDef", {"TagDescriptions": List["TagDescriptionTypeDef"]}, total=False
+    "DescribeTagsOutputTypeDef",
+    {"TagDescriptions": List["TagDescriptionTypeDef"], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 DetachLoadBalancerFromSubnetsOutputTypeDef = TypedDict(
-    "DetachLoadBalancerFromSubnetsOutputTypeDef", {"Subnets": List[str]}, total=False
+    "DetachLoadBalancerFromSubnetsOutputTypeDef",
+    {"Subnets": List[str], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ModifyLoadBalancerAttributesOutputTypeDef = TypedDict(
     "ModifyLoadBalancerAttributesOutputTypeDef",
-    {"LoadBalancerName": str, "LoadBalancerAttributes": "LoadBalancerAttributesTypeDef"},
+    {
+        "LoadBalancerName": str,
+        "LoadBalancerAttributes": "LoadBalancerAttributesTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -334,11 +379,15 @@ PolicyAttributeTypeDef = TypedDict(
 )
 
 RegisterEndPointsOutputTypeDef = TypedDict(
-    "RegisterEndPointsOutputTypeDef", {"Instances": List["InstanceTypeDef"]}, total=False
+    "RegisterEndPointsOutputTypeDef",
+    {"Instances": List["InstanceTypeDef"], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 RemoveAvailabilityZonesOutputTypeDef = TypedDict(
-    "RemoveAvailabilityZonesOutputTypeDef", {"AvailabilityZones": List[str]}, total=False
+    "RemoveAvailabilityZonesOutputTypeDef",
+    {"AvailabilityZones": List[str], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 TagKeyOnlyTypeDef = TypedDict("TagKeyOnlyTypeDef", {"Key": str}, total=False)

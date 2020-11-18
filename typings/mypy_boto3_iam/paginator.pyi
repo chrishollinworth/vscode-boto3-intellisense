@@ -140,7 +140,7 @@ __all__ = (
 
 class GetAccountAuthorizationDetailsPaginator(Boto3Paginator):
     """
-    [Paginator.GetAccountAuthorizationDetails documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.GetAccountAuthorizationDetails)
+    [Paginator.GetAccountAuthorizationDetails documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.GetAccountAuthorizationDetails)
     """
 
     def paginate(
@@ -151,52 +151,52 @@ class GetAccountAuthorizationDetailsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetAccountAuthorizationDetailsResponseTypeDef]:
         """
-        [GetAccountAuthorizationDetails.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.GetAccountAuthorizationDetails.paginate)
+        [GetAccountAuthorizationDetails.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.GetAccountAuthorizationDetails.paginate)
         """
 
 
 class GetGroupPaginator(Boto3Paginator):
     """
-    [Paginator.GetGroup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.GetGroup)
+    [Paginator.GetGroup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.GetGroup)
     """
 
     def paginate(
         self, GroupName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetGroupResponseTypeDef]:
         """
-        [GetGroup.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.GetGroup.paginate)
+        [GetGroup.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.GetGroup.paginate)
         """
 
 
 class ListAccessKeysPaginator(Boto3Paginator):
     """
-    [Paginator.ListAccessKeys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.ListAccessKeys)
+    [Paginator.ListAccessKeys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.ListAccessKeys)
     """
 
     def paginate(
         self, UserName: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAccessKeysResponseTypeDef]:
         """
-        [ListAccessKeys.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.ListAccessKeys.paginate)
+        [ListAccessKeys.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.ListAccessKeys.paginate)
         """
 
 
 class ListAccountAliasesPaginator(Boto3Paginator):
     """
-    [Paginator.ListAccountAliases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.ListAccountAliases)
+    [Paginator.ListAccountAliases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.ListAccountAliases)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAccountAliasesResponseTypeDef]:
         """
-        [ListAccountAliases.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.ListAccountAliases.paginate)
+        [ListAccountAliases.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.ListAccountAliases.paginate)
         """
 
 
 class ListAttachedGroupPoliciesPaginator(Boto3Paginator):
     """
-    [Paginator.ListAttachedGroupPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.ListAttachedGroupPolicies)
+    [Paginator.ListAttachedGroupPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.ListAttachedGroupPolicies)
     """
 
     def paginate(
@@ -206,39 +206,39 @@ class ListAttachedGroupPoliciesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListAttachedGroupPoliciesResponseTypeDef]:
         """
-        [ListAttachedGroupPolicies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.ListAttachedGroupPolicies.paginate)
+        [ListAttachedGroupPolicies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.ListAttachedGroupPolicies.paginate)
         """
 
 
 class ListAttachedRolePoliciesPaginator(Boto3Paginator):
     """
-    [Paginator.ListAttachedRolePolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.ListAttachedRolePolicies)
+    [Paginator.ListAttachedRolePolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.ListAttachedRolePolicies)
     """
 
     def paginate(
         self, RoleName: str, PathPrefix: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAttachedRolePoliciesResponseTypeDef]:
         """
-        [ListAttachedRolePolicies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.ListAttachedRolePolicies.paginate)
+        [ListAttachedRolePolicies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.ListAttachedRolePolicies.paginate)
         """
 
 
 class ListAttachedUserPoliciesPaginator(Boto3Paginator):
     """
-    [Paginator.ListAttachedUserPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.ListAttachedUserPolicies)
+    [Paginator.ListAttachedUserPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.ListAttachedUserPolicies)
     """
 
     def paginate(
         self, UserName: str, PathPrefix: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAttachedUserPoliciesResponseTypeDef]:
         """
-        [ListAttachedUserPolicies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.ListAttachedUserPolicies.paginate)
+        [ListAttachedUserPolicies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.ListAttachedUserPolicies.paginate)
         """
 
 
 class ListEntitiesForPolicyPaginator(Boto3Paginator):
     """
-    [Paginator.ListEntitiesForPolicy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.ListEntitiesForPolicy)
+    [Paginator.ListEntitiesForPolicy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.ListEntitiesForPolicy)
     """
 
     def paginate(
@@ -252,91 +252,91 @@ class ListEntitiesForPolicyPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListEntitiesForPolicyResponseTypeDef]:
         """
-        [ListEntitiesForPolicy.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.ListEntitiesForPolicy.paginate)
+        [ListEntitiesForPolicy.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.ListEntitiesForPolicy.paginate)
         """
 
 
 class ListGroupPoliciesPaginator(Boto3Paginator):
     """
-    [Paginator.ListGroupPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.ListGroupPolicies)
+    [Paginator.ListGroupPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.ListGroupPolicies)
     """
 
     def paginate(
         self, GroupName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListGroupPoliciesResponseTypeDef]:
         """
-        [ListGroupPolicies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.ListGroupPolicies.paginate)
+        [ListGroupPolicies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.ListGroupPolicies.paginate)
         """
 
 
 class ListGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.ListGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.ListGroups)
+    [Paginator.ListGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.ListGroups)
     """
 
     def paginate(
         self, PathPrefix: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListGroupsResponseTypeDef]:
         """
-        [ListGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.ListGroups.paginate)
+        [ListGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.ListGroups.paginate)
         """
 
 
 class ListGroupsForUserPaginator(Boto3Paginator):
     """
-    [Paginator.ListGroupsForUser documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.ListGroupsForUser)
+    [Paginator.ListGroupsForUser documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.ListGroupsForUser)
     """
 
     def paginate(
         self, UserName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListGroupsForUserResponseTypeDef]:
         """
-        [ListGroupsForUser.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.ListGroupsForUser.paginate)
+        [ListGroupsForUser.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.ListGroupsForUser.paginate)
         """
 
 
 class ListInstanceProfilesPaginator(Boto3Paginator):
     """
-    [Paginator.ListInstanceProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.ListInstanceProfiles)
+    [Paginator.ListInstanceProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.ListInstanceProfiles)
     """
 
     def paginate(
         self, PathPrefix: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListInstanceProfilesResponseTypeDef]:
         """
-        [ListInstanceProfiles.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.ListInstanceProfiles.paginate)
+        [ListInstanceProfiles.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.ListInstanceProfiles.paginate)
         """
 
 
 class ListInstanceProfilesForRolePaginator(Boto3Paginator):
     """
-    [Paginator.ListInstanceProfilesForRole documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.ListInstanceProfilesForRole)
+    [Paginator.ListInstanceProfilesForRole documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.ListInstanceProfilesForRole)
     """
 
     def paginate(
         self, RoleName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListInstanceProfilesForRoleResponseTypeDef]:
         """
-        [ListInstanceProfilesForRole.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.ListInstanceProfilesForRole.paginate)
+        [ListInstanceProfilesForRole.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.ListInstanceProfilesForRole.paginate)
         """
 
 
 class ListMFADevicesPaginator(Boto3Paginator):
     """
-    [Paginator.ListMFADevices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.ListMFADevices)
+    [Paginator.ListMFADevices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.ListMFADevices)
     """
 
     def paginate(
         self, UserName: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListMFADevicesResponseTypeDef]:
         """
-        [ListMFADevices.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.ListMFADevices.paginate)
+        [ListMFADevices.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.ListMFADevices.paginate)
         """
 
 
 class ListPoliciesPaginator(Boto3Paginator):
     """
-    [Paginator.ListPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.ListPolicies)
+    [Paginator.ListPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.ListPolicies)
     """
 
     def paginate(
@@ -348,117 +348,117 @@ class ListPoliciesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListPoliciesResponseTypeDef]:
         """
-        [ListPolicies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.ListPolicies.paginate)
+        [ListPolicies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.ListPolicies.paginate)
         """
 
 
 class ListPolicyVersionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListPolicyVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.ListPolicyVersions)
+    [Paginator.ListPolicyVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.ListPolicyVersions)
     """
 
     def paginate(
         self, PolicyArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPolicyVersionsResponseTypeDef]:
         """
-        [ListPolicyVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.ListPolicyVersions.paginate)
+        [ListPolicyVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.ListPolicyVersions.paginate)
         """
 
 
 class ListRolePoliciesPaginator(Boto3Paginator):
     """
-    [Paginator.ListRolePolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.ListRolePolicies)
+    [Paginator.ListRolePolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.ListRolePolicies)
     """
 
     def paginate(
         self, RoleName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRolePoliciesResponseTypeDef]:
         """
-        [ListRolePolicies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.ListRolePolicies.paginate)
+        [ListRolePolicies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.ListRolePolicies.paginate)
         """
 
 
 class ListRolesPaginator(Boto3Paginator):
     """
-    [Paginator.ListRoles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.ListRoles)
+    [Paginator.ListRoles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.ListRoles)
     """
 
     def paginate(
         self, PathPrefix: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRolesResponseTypeDef]:
         """
-        [ListRoles.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.ListRoles.paginate)
+        [ListRoles.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.ListRoles.paginate)
         """
 
 
 class ListSSHPublicKeysPaginator(Boto3Paginator):
     """
-    [Paginator.ListSSHPublicKeys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.ListSSHPublicKeys)
+    [Paginator.ListSSHPublicKeys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.ListSSHPublicKeys)
     """
 
     def paginate(
         self, UserName: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSSHPublicKeysResponseTypeDef]:
         """
-        [ListSSHPublicKeys.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.ListSSHPublicKeys.paginate)
+        [ListSSHPublicKeys.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.ListSSHPublicKeys.paginate)
         """
 
 
 class ListServerCertificatesPaginator(Boto3Paginator):
     """
-    [Paginator.ListServerCertificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.ListServerCertificates)
+    [Paginator.ListServerCertificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.ListServerCertificates)
     """
 
     def paginate(
         self, PathPrefix: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListServerCertificatesResponseTypeDef]:
         """
-        [ListServerCertificates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.ListServerCertificates.paginate)
+        [ListServerCertificates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.ListServerCertificates.paginate)
         """
 
 
 class ListSigningCertificatesPaginator(Boto3Paginator):
     """
-    [Paginator.ListSigningCertificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.ListSigningCertificates)
+    [Paginator.ListSigningCertificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.ListSigningCertificates)
     """
 
     def paginate(
         self, UserName: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSigningCertificatesResponseTypeDef]:
         """
-        [ListSigningCertificates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.ListSigningCertificates.paginate)
+        [ListSigningCertificates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.ListSigningCertificates.paginate)
         """
 
 
 class ListUserPoliciesPaginator(Boto3Paginator):
     """
-    [Paginator.ListUserPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.ListUserPolicies)
+    [Paginator.ListUserPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.ListUserPolicies)
     """
 
     def paginate(
         self, UserName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListUserPoliciesResponseTypeDef]:
         """
-        [ListUserPolicies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.ListUserPolicies.paginate)
+        [ListUserPolicies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.ListUserPolicies.paginate)
         """
 
 
 class ListUsersPaginator(Boto3Paginator):
     """
-    [Paginator.ListUsers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.ListUsers)
+    [Paginator.ListUsers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.ListUsers)
     """
 
     def paginate(
         self, PathPrefix: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListUsersResponseTypeDef]:
         """
-        [ListUsers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.ListUsers.paginate)
+        [ListUsers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.ListUsers.paginate)
         """
 
 
 class ListVirtualMFADevicesPaginator(Boto3Paginator):
     """
-    [Paginator.ListVirtualMFADevices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.ListVirtualMFADevices)
+    [Paginator.ListVirtualMFADevices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.ListVirtualMFADevices)
     """
 
     def paginate(
@@ -467,13 +467,13 @@ class ListVirtualMFADevicesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListVirtualMFADevicesResponseTypeDef]:
         """
-        [ListVirtualMFADevices.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.ListVirtualMFADevices.paginate)
+        [ListVirtualMFADevices.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.ListVirtualMFADevices.paginate)
         """
 
 
 class SimulateCustomPolicyPaginator(Boto3Paginator):
     """
-    [Paginator.SimulateCustomPolicy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.SimulateCustomPolicy)
+    [Paginator.SimulateCustomPolicy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.SimulateCustomPolicy)
     """
 
     def paginate(
@@ -490,13 +490,13 @@ class SimulateCustomPolicyPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[SimulatePolicyResponseTypeDef]:
         """
-        [SimulateCustomPolicy.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.SimulateCustomPolicy.paginate)
+        [SimulateCustomPolicy.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.SimulateCustomPolicy.paginate)
         """
 
 
 class SimulatePrincipalPolicyPaginator(Boto3Paginator):
     """
-    [Paginator.SimulatePrincipalPolicy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.SimulatePrincipalPolicy)
+    [Paginator.SimulatePrincipalPolicy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.SimulatePrincipalPolicy)
     """
 
     def paginate(
@@ -514,5 +514,5 @@ class SimulatePrincipalPolicyPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[SimulatePolicyResponseTypeDef]:
         """
-        [SimulatePrincipalPolicy.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/iam.html#IAM.Paginator.SimulatePrincipalPolicy.paginate)
+        [SimulatePrincipalPolicy.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iam.html#IAM.Paginator.SimulatePrincipalPolicy.paginate)
         """

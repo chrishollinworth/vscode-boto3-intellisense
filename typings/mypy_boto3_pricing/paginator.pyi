@@ -38,7 +38,7 @@ __all__ = ("DescribeServicesPaginator", "GetAttributeValuesPaginator", "GetProdu
 
 class DescribeServicesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeServices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/pricing.html#Pricing.Paginator.DescribeServices)
+    [Paginator.DescribeServices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/pricing.html#Pricing.Paginator.DescribeServices)
     """
 
     def paginate(
@@ -48,26 +48,26 @@ class DescribeServicesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeServicesResponseTypeDef]:
         """
-        [DescribeServices.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/pricing.html#Pricing.Paginator.DescribeServices.paginate)
+        [DescribeServices.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/pricing.html#Pricing.Paginator.DescribeServices.paginate)
         """
 
 
 class GetAttributeValuesPaginator(Boto3Paginator):
     """
-    [Paginator.GetAttributeValues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/pricing.html#Pricing.Paginator.GetAttributeValues)
+    [Paginator.GetAttributeValues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/pricing.html#Pricing.Paginator.GetAttributeValues)
     """
 
     def paginate(
         self, ServiceCode: str, AttributeName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetAttributeValuesResponseTypeDef]:
         """
-        [GetAttributeValues.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/pricing.html#Pricing.Paginator.GetAttributeValues.paginate)
+        [GetAttributeValues.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/pricing.html#Pricing.Paginator.GetAttributeValues.paginate)
         """
 
 
 class GetProductsPaginator(Boto3Paginator):
     """
-    [Paginator.GetProducts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/pricing.html#Pricing.Paginator.GetProducts)
+    [Paginator.GetProducts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/pricing.html#Pricing.Paginator.GetProducts)
     """
 
     def paginate(
@@ -78,5 +78,5 @@ class GetProductsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetProductsResponseTypeDef]:
         """
-        [GetProducts.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/pricing.html#Pricing.Paginator.GetProducts.paginate)
+        [GetProducts.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/pricing.html#Pricing.Paginator.GetProducts.paginate)
         """

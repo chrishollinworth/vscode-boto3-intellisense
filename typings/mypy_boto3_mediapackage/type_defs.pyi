@@ -16,7 +16,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -30,6 +29,7 @@ __all__ = (
     "CmafPackageTypeDef",
     "DashEncryptionTypeDef",
     "DashPackageTypeDef",
+    "EgressAccessLogsTypeDef",
     "HarvestJobTypeDef",
     "HlsEncryptionTypeDef",
     "HlsIngestTypeDef",
@@ -37,6 +37,7 @@ __all__ = (
     "HlsManifestTypeDef",
     "HlsPackageTypeDef",
     "IngestEndpointTypeDef",
+    "IngressAccessLogsTypeDef",
     "MssEncryptionTypeDef",
     "MssPackageTypeDef",
     "OriginEndpointTypeDef",
@@ -44,6 +45,7 @@ __all__ = (
     "SpekeKeyProviderTypeDef",
     "StreamSelectionTypeDef",
     "CmafPackageCreateOrUpdateParametersTypeDef",
+    "ConfigureLogsResponseTypeDef",
     "CreateChannelResponseTypeDef",
     "CreateHarvestJobResponseTypeDef",
     "CreateOriginEndpointResponseTypeDef",
@@ -70,8 +72,10 @@ ChannelTypeDef = TypedDict(
     {
         "Arn": str,
         "Description": str,
+        "EgressAccessLogs": "EgressAccessLogsTypeDef",
         "HlsIngest": "HlsIngestTypeDef",
         "Id": str,
+        "IngressAccessLogs": "IngressAccessLogsTypeDef",
         "Tags": Dict[str, str],
     },
     total=False,
@@ -142,9 +146,13 @@ DashPackageTypeDef = TypedDict(
         ],
         "StreamSelection": "StreamSelectionTypeDef",
         "SuggestedPresentationDelaySeconds": int,
+        "UtcTiming": Literal["NONE", "HTTP-HEAD", "HTTP-ISO"],
+        "UtcTimingUri": str,
     },
     total=False,
 )
+
+EgressAccessLogsTypeDef = TypedDict("EgressAccessLogsTypeDef", {"LogGroupName": str}, total=False)
 
 HarvestJobTypeDef = TypedDict(
     "HarvestJobTypeDef",
@@ -275,6 +283,8 @@ IngestEndpointTypeDef = TypedDict(
     "IngestEndpointTypeDef", {"Id": str, "Password": str, "Url": str, "Username": str}, total=False
 )
 
+IngressAccessLogsTypeDef = TypedDict("IngressAccessLogsTypeDef", {"LogGroupName": str}, total=False)
+
 MssEncryptionTypeDef = TypedDict(
     "MssEncryptionTypeDef", {"SpekeKeyProvider": "SpekeKeyProviderTypeDef"}
 )
@@ -352,13 +362,29 @@ CmafPackageCreateOrUpdateParametersTypeDef = TypedDict(
     total=False,
 )
 
+ConfigureLogsResponseTypeDef = TypedDict(
+    "ConfigureLogsResponseTypeDef",
+    {
+        "Arn": str,
+        "Description": str,
+        "EgressAccessLogs": "EgressAccessLogsTypeDef",
+        "HlsIngest": "HlsIngestTypeDef",
+        "Id": str,
+        "IngressAccessLogs": "IngressAccessLogsTypeDef",
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
 CreateChannelResponseTypeDef = TypedDict(
     "CreateChannelResponseTypeDef",
     {
         "Arn": str,
         "Description": str,
+        "EgressAccessLogs": "EgressAccessLogsTypeDef",
         "HlsIngest": "HlsIngestTypeDef",
         "Id": str,
+        "IngressAccessLogs": "IngressAccessLogsTypeDef",
         "Tags": Dict[str, str],
     },
     total=False,
@@ -408,8 +434,10 @@ DescribeChannelResponseTypeDef = TypedDict(
     {
         "Arn": str,
         "Description": str,
+        "EgressAccessLogs": "EgressAccessLogsTypeDef",
         "HlsIngest": "HlsIngestTypeDef",
         "Id": str,
+        "IngressAccessLogs": "IngressAccessLogsTypeDef",
         "Tags": Dict[str, str],
     },
     total=False,
@@ -485,8 +513,10 @@ RotateChannelCredentialsResponseTypeDef = TypedDict(
     {
         "Arn": str,
         "Description": str,
+        "EgressAccessLogs": "EgressAccessLogsTypeDef",
         "HlsIngest": "HlsIngestTypeDef",
         "Id": str,
+        "IngressAccessLogs": "IngressAccessLogsTypeDef",
         "Tags": Dict[str, str],
     },
     total=False,
@@ -497,8 +527,10 @@ RotateIngestEndpointCredentialsResponseTypeDef = TypedDict(
     {
         "Arn": str,
         "Description": str,
+        "EgressAccessLogs": "EgressAccessLogsTypeDef",
         "HlsIngest": "HlsIngestTypeDef",
         "Id": str,
+        "IngressAccessLogs": "IngressAccessLogsTypeDef",
         "Tags": Dict[str, str],
     },
     total=False,
@@ -509,8 +541,10 @@ UpdateChannelResponseTypeDef = TypedDict(
     {
         "Arn": str,
         "Description": str,
+        "EgressAccessLogs": "EgressAccessLogsTypeDef",
         "HlsIngest": "HlsIngestTypeDef",
         "Id": str,
+        "IngressAccessLogs": "IngressAccessLogsTypeDef",
         "Tags": Dict[str, str],
     },
     total=False,

@@ -1,6 +1,7 @@
 from mypy_boto3_codestar_connections.type_defs import (
     ConnectionTypeDef,
     HostTypeDef,
+    ResponseMetadata,
     TagTypeDef,
     VpcConfigurationTypeDef,
     CreateConnectionOutputTypeDef,
@@ -15,6 +16,7 @@ from mypy_boto3_codestar_connections.type_defs import (
 __all__ = (
     "ConnectionTypeDef",
     "HostTypeDef",
+    "ResponseMetadata",
     "TagTypeDef",
     "VpcConfigurationTypeDef",
     "CreateConnectionOutputTypeDef",

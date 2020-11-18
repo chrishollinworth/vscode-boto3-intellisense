@@ -17,7 +17,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -50,10 +49,12 @@ __all__ = (
     "CreateAddressResultTypeDef",
     "CreateClusterResultTypeDef",
     "CreateJobResultTypeDef",
+    "CreateReturnShippingLabelResultTypeDef",
     "DescribeAddressResultTypeDef",
     "DescribeAddressesResultTypeDef",
     "DescribeClusterResultTypeDef",
     "DescribeJobResultTypeDef",
+    "DescribeReturnShippingLabelResultTypeDef",
     "GetJobManifestResultTypeDef",
     "GetJobUnlockCodeResultTypeDef",
     "GetSnowballUsageResultTypeDef",
@@ -310,6 +311,12 @@ CreateClusterResultTypeDef = TypedDict(
 
 CreateJobResultTypeDef = TypedDict("CreateJobResultTypeDef", {"JobId": str}, total=False)
 
+CreateReturnShippingLabelResultTypeDef = TypedDict(
+    "CreateReturnShippingLabelResultTypeDef",
+    {"Status": Literal["InProgress", "TimedOut", "Succeeded", "Failed"]},
+    total=False,
+)
+
 DescribeAddressResultTypeDef = TypedDict(
     "DescribeAddressResultTypeDef", {"Address": "AddressTypeDef"}, total=False
 )
@@ -327,6 +334,15 @@ DescribeClusterResultTypeDef = TypedDict(
 DescribeJobResultTypeDef = TypedDict(
     "DescribeJobResultTypeDef",
     {"JobMetadata": "JobMetadataTypeDef", "SubJobMetadata": List["JobMetadataTypeDef"]},
+    total=False,
+)
+
+DescribeReturnShippingLabelResultTypeDef = TypedDict(
+    "DescribeReturnShippingLabelResultTypeDef",
+    {
+        "Status": Literal["InProgress", "TimedOut", "Succeeded", "Failed"],
+        "ExpirationDate": datetime,
+    },
     total=False,
 )
 

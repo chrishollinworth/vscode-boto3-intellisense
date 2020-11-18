@@ -17,7 +17,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -33,6 +32,7 @@ __all__ = (
     "AlgorithmValidationSpecificationTypeDef",
     "AnnotationConsolidationConfigTypeDef",
     "AppDetailsTypeDef",
+    "AppImageConfigDetailsTypeDef",
     "AppSpecificationTypeDef",
     "AutoMLCandidateStepTypeDef",
     "AutoMLCandidateTypeDef",
@@ -62,6 +62,7 @@ __all__ = (
     "ContainerDefinitionTypeDef",
     "ContinuousParameterRangeSpecificationTypeDef",
     "ContinuousParameterRangeTypeDef",
+    "CustomImageTypeDef",
     "DataCaptureConfigSummaryTypeDef",
     "DataCaptureConfigTypeDef",
     "DataProcessingTypeDef",
@@ -78,6 +79,7 @@ __all__ = (
     "ExperimentSourceTypeDef",
     "ExperimentSummaryTypeDef",
     "ExperimentTypeDef",
+    "FileSystemConfigTypeDef",
     "FileSystemDataSourceTypeDef",
     "FilterTypeDef",
     "FinalAutoMLJobObjectiveMetricTypeDef",
@@ -100,12 +102,16 @@ __all__ = (
     "HyperParameterTuningJobSummaryTypeDef",
     "HyperParameterTuningJobWarmStartConfigTypeDef",
     "ImageConfigTypeDef",
+    "ImageTypeDef",
+    "ImageVersionTypeDef",
     "InferenceSpecificationTypeDef",
     "InputConfigTypeDef",
     "IntegerParameterRangeSpecificationTypeDef",
     "IntegerParameterRangeTypeDef",
     "JupyterServerAppSettingsTypeDef",
     "KernelGatewayAppSettingsTypeDef",
+    "KernelGatewayImageConfigTypeDef",
+    "KernelSpecTypeDef",
     "LabelCountersForWorkteamTypeDef",
     "LabelCountersTypeDef",
     "LabelingJobAlgorithmsConfigTypeDef",
@@ -117,6 +123,7 @@ __all__ = (
     "LabelingJobOutputTypeDef",
     "LabelingJobResourceConfigTypeDef",
     "LabelingJobS3DataSourceTypeDef",
+    "LabelingJobSnsDataSourceTypeDef",
     "LabelingJobStoppingConditionsTypeDef",
     "LabelingJobSummaryTypeDef",
     "MemberDefinitionTypeDef",
@@ -181,6 +188,7 @@ __all__ = (
     "ResourceConfigTypeDef",
     "ResourceLimitsTypeDef",
     "ResourceSpecTypeDef",
+    "ResponseMetadata",
     "S3DataSourceTypeDef",
     "ScheduleConfigTypeDef",
     "SearchRecordTypeDef",
@@ -234,6 +242,7 @@ __all__ = (
     "AddTagsOutputTypeDef",
     "AssociateTrialComponentResponseTypeDef",
     "CreateAlgorithmOutputTypeDef",
+    "CreateAppImageConfigResponseTypeDef",
     "CreateAppResponseTypeDef",
     "CreateAutoMLJobResponseTypeDef",
     "CreateCodeRepositoryOutputTypeDef",
@@ -245,6 +254,8 @@ __all__ = (
     "CreateFlowDefinitionResponseTypeDef",
     "CreateHumanTaskUiResponseTypeDef",
     "CreateHyperParameterTuningJobResponseTypeDef",
+    "CreateImageResponseTypeDef",
+    "CreateImageVersionResponseTypeDef",
     "CreateLabelingJobResponseTypeDef",
     "CreateModelOutputTypeDef",
     "CreateModelPackageOutputTypeDef",
@@ -266,6 +277,7 @@ __all__ = (
     "DeleteTrialResponseTypeDef",
     "DeleteWorkteamResponseTypeDef",
     "DescribeAlgorithmOutputTypeDef",
+    "DescribeAppImageConfigResponseTypeDef",
     "DescribeAppResponseTypeDef",
     "DescribeAutoMLJobResponseTypeDef",
     "DescribeCodeRepositoryOutputTypeDef",
@@ -277,6 +289,8 @@ __all__ = (
     "DescribeFlowDefinitionResponseTypeDef",
     "DescribeHumanTaskUiResponseTypeDef",
     "DescribeHyperParameterTuningJobResponseTypeDef",
+    "DescribeImageResponseTypeDef",
+    "DescribeImageVersionResponseTypeDef",
     "DescribeLabelingJobResponseTypeDef",
     "DescribeModelOutputTypeDef",
     "DescribeModelPackageOutputTypeDef",
@@ -298,6 +312,7 @@ __all__ = (
     "GetSearchSuggestionsResponseTypeDef",
     "GitConfigForUpdateTypeDef",
     "ListAlgorithmsOutputTypeDef",
+    "ListAppImageConfigsResponseTypeDef",
     "ListAppsResponseTypeDef",
     "ListAutoMLJobsResponseTypeDef",
     "ListCandidatesForAutoMLJobResponseTypeDef",
@@ -310,6 +325,8 @@ __all__ = (
     "ListFlowDefinitionsResponseTypeDef",
     "ListHumanTaskUisResponseTypeDef",
     "ListHyperParameterTuningJobsResponseTypeDef",
+    "ListImageVersionsResponseTypeDef",
+    "ListImagesResponseTypeDef",
     "ListLabelingJobsForWorkteamResponseTypeDef",
     "ListLabelingJobsResponseTypeDef",
     "ListModelPackagesOutputTypeDef",
@@ -337,11 +354,13 @@ __all__ = (
     "SearchResponseTypeDef",
     "SuggestionQueryTypeDef",
     "UiTemplateTypeDef",
+    "UpdateAppImageConfigResponseTypeDef",
     "UpdateCodeRepositoryOutputTypeDef",
     "UpdateDomainResponseTypeDef",
     "UpdateEndpointOutputTypeDef",
     "UpdateEndpointWeightsAndCapacitiesOutputTypeDef",
     "UpdateExperimentResponseTypeDef",
+    "UpdateImageResponseTypeDef",
     "UpdateMonitoringScheduleResponseTypeDef",
     "UpdateTrialComponentResponseTypeDef",
     "UpdateTrialResponseTypeDef",
@@ -450,6 +469,18 @@ AppDetailsTypeDef = TypedDict(
         "AppName": str,
         "Status": Literal["Deleted", "Deleting", "Failed", "InService", "Pending"],
         "CreationTime": datetime,
+    },
+    total=False,
+)
+
+AppImageConfigDetailsTypeDef = TypedDict(
+    "AppImageConfigDetailsTypeDef",
+    {
+        "AppImageConfigArn": str,
+        "AppImageConfigName": str,
+        "CreationTime": datetime,
+        "LastModifiedTime": datetime,
+        "KernelGatewayImageConfig": "KernelGatewayImageConfigTypeDef",
     },
     total=False,
 )
@@ -773,6 +804,7 @@ _OptionalCompilationJobSummaryTypeDef = TypedDict(
             "amba_cv22",
             "x86_win32",
             "x86_win64",
+            "coreml",
         ],
         "CompilationTargetPlatformOs": Literal["ANDROID", "LINUX"],
         "CompilationTargetPlatformArch": Literal[
@@ -822,6 +854,18 @@ _OptionalContinuousParameterRangeTypeDef = TypedDict(
 class ContinuousParameterRangeTypeDef(
     _RequiredContinuousParameterRangeTypeDef, _OptionalContinuousParameterRangeTypeDef
 ):
+    pass
+
+
+_RequiredCustomImageTypeDef = TypedDict(
+    "_RequiredCustomImageTypeDef", {"ImageName": str, "AppImageConfigName": str}
+)
+_OptionalCustomImageTypeDef = TypedDict(
+    "_OptionalCustomImageTypeDef", {"ImageVersionNumber": int}, total=False
+)
+
+
+class CustomImageTypeDef(_RequiredCustomImageTypeDef, _OptionalCustomImageTypeDef):
     pass
 
 
@@ -979,7 +1023,15 @@ DomainDetailsTypeDef = TypedDict(
         "DomainArn": str,
         "DomainId": str,
         "DomainName": str,
-        "Status": Literal["Deleting", "Failed", "InService", "Pending"],
+        "Status": Literal[
+            "Deleting",
+            "Failed",
+            "InService",
+            "Pending",
+            "Updating",
+            "Update_Failed",
+            "Delete_Failed",
+        ],
         "CreationTime": datetime,
         "LastModifiedTime": datetime,
         "Url": str,
@@ -1073,6 +1125,10 @@ ExperimentTypeDef = TypedDict(
         "Tags": List["TagTypeDef"],
     },
     total=False,
+)
+
+FileSystemConfigTypeDef = TypedDict(
+    "FileSystemConfigTypeDef", {"MountPath": str, "DefaultUid": int, "DefaultGid": int}, total=False
 )
 
 FileSystemDataSourceTypeDef = TypedDict(
@@ -1451,6 +1507,57 @@ ImageConfigTypeDef = TypedDict(
     "ImageConfigTypeDef", {"RepositoryAccessMode": Literal["Platform", "Vpc"]}
 )
 
+_RequiredImageTypeDef = TypedDict(
+    "_RequiredImageTypeDef",
+    {
+        "CreationTime": datetime,
+        "ImageArn": str,
+        "ImageName": str,
+        "ImageStatus": Literal[
+            "CREATING",
+            "CREATED",
+            "CREATE_FAILED",
+            "UPDATING",
+            "UPDATE_FAILED",
+            "DELETING",
+            "DELETE_FAILED",
+        ],
+        "LastModifiedTime": datetime,
+    },
+)
+_OptionalImageTypeDef = TypedDict(
+    "_OptionalImageTypeDef",
+    {"Description": str, "DisplayName": str, "FailureReason": str},
+    total=False,
+)
+
+
+class ImageTypeDef(_RequiredImageTypeDef, _OptionalImageTypeDef):
+    pass
+
+
+_RequiredImageVersionTypeDef = TypedDict(
+    "_RequiredImageVersionTypeDef",
+    {
+        "CreationTime": datetime,
+        "ImageArn": str,
+        "ImageVersionArn": str,
+        "ImageVersionStatus": Literal[
+            "CREATING", "CREATED", "CREATE_FAILED", "DELETING", "DELETE_FAILED"
+        ],
+        "LastModifiedTime": datetime,
+        "Version": int,
+    },
+)
+_OptionalImageVersionTypeDef = TypedDict(
+    "_OptionalImageVersionTypeDef", {"FailureReason": str}, total=False
+)
+
+
+class ImageVersionTypeDef(_RequiredImageVersionTypeDef, _OptionalImageVersionTypeDef):
+    pass
+
+
 InferenceSpecificationTypeDef = TypedDict(
     "InferenceSpecificationTypeDef",
     {
@@ -1566,7 +1673,7 @@ InputConfigTypeDef = TypedDict(
         "S3Uri": str,
         "DataInputConfig": str,
         "Framework": Literal[
-            "TENSORFLOW", "KERAS", "MXNET", "ONNX", "PYTORCH", "XGBOOST", "TFLITE"
+            "TENSORFLOW", "KERAS", "MXNET", "ONNX", "PYTORCH", "XGBOOST", "TFLITE", "DARKNET"
         ],
     },
 )
@@ -1596,8 +1703,36 @@ JupyterServerAppSettingsTypeDef = TypedDict(
 )
 
 KernelGatewayAppSettingsTypeDef = TypedDict(
-    "KernelGatewayAppSettingsTypeDef", {"DefaultResourceSpec": "ResourceSpecTypeDef"}, total=False
+    "KernelGatewayAppSettingsTypeDef",
+    {"DefaultResourceSpec": "ResourceSpecTypeDef", "CustomImages": List["CustomImageTypeDef"]},
+    total=False,
 )
+
+_RequiredKernelGatewayImageConfigTypeDef = TypedDict(
+    "_RequiredKernelGatewayImageConfigTypeDef", {"KernelSpecs": List["KernelSpecTypeDef"]}
+)
+_OptionalKernelGatewayImageConfigTypeDef = TypedDict(
+    "_OptionalKernelGatewayImageConfigTypeDef",
+    {"FileSystemConfig": "FileSystemConfigTypeDef"},
+    total=False,
+)
+
+
+class KernelGatewayImageConfigTypeDef(
+    _RequiredKernelGatewayImageConfigTypeDef, _OptionalKernelGatewayImageConfigTypeDef
+):
+    pass
+
+
+_RequiredKernelSpecTypeDef = TypedDict("_RequiredKernelSpecTypeDef", {"Name": str})
+_OptionalKernelSpecTypeDef = TypedDict(
+    "_OptionalKernelSpecTypeDef", {"DisplayName": str}, total=False
+)
+
+
+class KernelSpecTypeDef(_RequiredKernelSpecTypeDef, _OptionalKernelSpecTypeDef):
+    pass
+
 
 LabelCountersForWorkteamTypeDef = TypedDict(
     "LabelCountersForWorkteamTypeDef",
@@ -1647,7 +1782,12 @@ LabelingJobDataAttributesTypeDef = TypedDict(
 )
 
 LabelingJobDataSourceTypeDef = TypedDict(
-    "LabelingJobDataSourceTypeDef", {"S3DataSource": "LabelingJobS3DataSourceTypeDef"}, total=False
+    "LabelingJobDataSourceTypeDef",
+    {
+        "S3DataSource": "LabelingJobS3DataSourceTypeDef",
+        "SnsDataSource": "LabelingJobSnsDataSourceTypeDef",
+    },
+    total=False,
 )
 
 _RequiredLabelingJobForWorkteamSummaryTypeDef = TypedDict(
@@ -1691,7 +1831,7 @@ _RequiredLabelingJobOutputConfigTypeDef = TypedDict(
     "_RequiredLabelingJobOutputConfigTypeDef", {"S3OutputPath": str}
 )
 _OptionalLabelingJobOutputConfigTypeDef = TypedDict(
-    "_OptionalLabelingJobOutputConfigTypeDef", {"KmsKeyId": str}, total=False
+    "_OptionalLabelingJobOutputConfigTypeDef", {"KmsKeyId": str, "SnsTopicArn": str}, total=False
 )
 
 
@@ -1705,7 +1845,9 @@ _RequiredLabelingJobOutputTypeDef = TypedDict(
     "_RequiredLabelingJobOutputTypeDef", {"OutputDatasetS3Uri": str}
 )
 _OptionalLabelingJobOutputTypeDef = TypedDict(
-    "_OptionalLabelingJobOutputTypeDef", {"FinalActiveLearningModelArn": str}, total=False
+    "_OptionalLabelingJobOutputTypeDef",
+    {"FinalActiveLearningModelArn": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 
@@ -1720,6 +1862,8 @@ LabelingJobResourceConfigTypeDef = TypedDict(
 )
 
 LabelingJobS3DataSourceTypeDef = TypedDict("LabelingJobS3DataSourceTypeDef", {"ManifestS3Uri": str})
+
+LabelingJobSnsDataSourceTypeDef = TypedDict("LabelingJobSnsDataSourceTypeDef", {"SnsTopicArn": str})
 
 LabelingJobStoppingConditionsTypeDef = TypedDict(
     "LabelingJobStoppingConditionsTypeDef",
@@ -2034,9 +2178,17 @@ class MonitoringOutputConfigTypeDef(
     pass
 
 
-MonitoringOutputTypeDef = TypedDict(
-    "MonitoringOutputTypeDef", {"S3Output": "MonitoringS3OutputTypeDef"}
+_RequiredMonitoringOutputTypeDef = TypedDict(
+    "_RequiredMonitoringOutputTypeDef", {"S3Output": "MonitoringS3OutputTypeDef"}
 )
+_OptionalMonitoringOutputTypeDef = TypedDict(
+    "_OptionalMonitoringOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
+)
+
+
+class MonitoringOutputTypeDef(_RequiredMonitoringOutputTypeDef, _OptionalMonitoringOutputTypeDef):
+    pass
+
 
 MonitoringResourcesTypeDef = TypedDict(
     "MonitoringResourcesTypeDef", {"ClusterConfig": "MonitoringClusterConfigTypeDef"}
@@ -2047,7 +2199,7 @@ _RequiredMonitoringS3OutputTypeDef = TypedDict(
 )
 _OptionalMonitoringS3OutputTypeDef = TypedDict(
     "_OptionalMonitoringS3OutputTypeDef",
-    {"S3UploadMode": Literal["Continuous", "EndOfJob"]},
+    {"S3UploadMode": Literal["Continuous", "EndOfJob"], "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
@@ -2262,6 +2414,7 @@ _OptionalOutputConfigTypeDef = TypedDict(
             "amba_cv22",
             "x86_win32",
             "x86_win64",
+            "coreml",
         ],
         "TargetPlatform": "TargetPlatformTypeDef",
         "CompilerOptions": str,
@@ -2444,9 +2597,17 @@ class ProcessingOutputConfigTypeDef(
     pass
 
 
-ProcessingOutputTypeDef = TypedDict(
-    "ProcessingOutputTypeDef", {"OutputName": str, "S3Output": "ProcessingS3OutputTypeDef"}
+_RequiredProcessingOutputTypeDef = TypedDict(
+    "_RequiredProcessingOutputTypeDef", {"OutputName": str, "S3Output": "ProcessingS3OutputTypeDef"}
 )
+_OptionalProcessingOutputTypeDef = TypedDict(
+    "_OptionalProcessingOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
+)
+
+
+class ProcessingOutputTypeDef(_RequiredProcessingOutputTypeDef, _OptionalProcessingOutputTypeDef):
+    pass
+
 
 ProcessingResourcesTypeDef = TypedDict(
     "ProcessingResourcesTypeDef", {"ClusterConfig": "ProcessingClusterConfigTypeDef"}
@@ -2477,10 +2638,20 @@ class ProcessingS3InputTypeDef(
     pass
 
 
-ProcessingS3OutputTypeDef = TypedDict(
-    "ProcessingS3OutputTypeDef",
+_RequiredProcessingS3OutputTypeDef = TypedDict(
+    "_RequiredProcessingS3OutputTypeDef",
     {"S3Uri": str, "LocalPath": str, "S3UploadMode": Literal["Continuous", "EndOfJob"]},
 )
+_OptionalProcessingS3OutputTypeDef = TypedDict(
+    "_OptionalProcessingS3OutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
+)
+
+
+class ProcessingS3OutputTypeDef(
+    _RequiredProcessingS3OutputTypeDef, _OptionalProcessingS3OutputTypeDef
+):
+    pass
+
 
 ProcessingStoppingConditionTypeDef = TypedDict(
     "ProcessingStoppingConditionTypeDef", {"MaxRuntimeInSeconds": int}
@@ -2661,6 +2832,7 @@ _RequiredResourceConfigTypeDef = TypedDict(
             "ml.p3.8xlarge",
             "ml.p3.16xlarge",
             "ml.p3dn.24xlarge",
+            "ml.p4d.24xlarge",
             "ml.c5.xlarge",
             "ml.c5.2xlarge",
             "ml.c5.4xlarge",
@@ -2693,6 +2865,7 @@ ResourceSpecTypeDef = TypedDict(
     "ResourceSpecTypeDef",
     {
         "SageMakerImageArn": str,
+        "SageMakerImageVersionArn": str,
         "InstanceType": Literal[
             "system",
             "ml.t3.micro",
@@ -2729,6 +2902,17 @@ ResourceSpecTypeDef = TypedDict(
         ],
     },
     total=False,
+)
+
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
 )
 
 _RequiredS3DataSourceTypeDef = TypedDict(
@@ -3033,6 +3217,7 @@ _RequiredTrainingSpecificationTypeDef = TypedDict(
                 "ml.p3.8xlarge",
                 "ml.p3.16xlarge",
                 "ml.p3dn.24xlarge",
+                "ml.p4d.24xlarge",
                 "ml.c5.xlarge",
                 "ml.c5.2xlarge",
                 "ml.c5.4xlarge",
@@ -3170,7 +3355,12 @@ _RequiredTransformOutputTypeDef = TypedDict(
 )
 _OptionalTransformOutputTypeDef = TypedDict(
     "_OptionalTransformOutputTypeDef",
-    {"Accept": str, "AssembleWith": Literal["None", "Line"], "KmsKeyId": str},
+    {
+        "Accept": str,
+        "AssembleWith": Literal["None", "Line"],
+        "KmsKeyId": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -3420,7 +3610,15 @@ UserProfileDetailsTypeDef = TypedDict(
     {
         "DomainId": str,
         "UserProfileName": str,
-        "Status": Literal["Deleting", "Failed", "InService", "Pending"],
+        "Status": Literal[
+            "Deleting",
+            "Failed",
+            "InService",
+            "Pending",
+            "Updating",
+            "Update_Failed",
+            "Delete_Failed",
+        ],
         "CreationTime": datetime,
         "LastModifiedTime": datetime,
     },
@@ -3492,7 +3690,11 @@ class WorkteamTypeDef(_RequiredWorkteamTypeDef, _OptionalWorkteamTypeDef):
     pass
 
 
-AddTagsOutputTypeDef = TypedDict("AddTagsOutputTypeDef", {"Tags": List["TagTypeDef"]}, total=False)
+AddTagsOutputTypeDef = TypedDict(
+    "AddTagsOutputTypeDef",
+    {"Tags": List["TagTypeDef"], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
 
 AssociateTrialComponentResponseTypeDef = TypedDict(
     "AssociateTrialComponentResponseTypeDef",
@@ -3500,15 +3702,43 @@ AssociateTrialComponentResponseTypeDef = TypedDict(
     total=False,
 )
 
-CreateAlgorithmOutputTypeDef = TypedDict("CreateAlgorithmOutputTypeDef", {"AlgorithmArn": str})
+_RequiredCreateAlgorithmOutputTypeDef = TypedDict(
+    "_RequiredCreateAlgorithmOutputTypeDef", {"AlgorithmArn": str}
+)
+_OptionalCreateAlgorithmOutputTypeDef = TypedDict(
+    "_OptionalCreateAlgorithmOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
+)
+
+
+class CreateAlgorithmOutputTypeDef(
+    _RequiredCreateAlgorithmOutputTypeDef, _OptionalCreateAlgorithmOutputTypeDef
+):
+    pass
+
+
+CreateAppImageConfigResponseTypeDef = TypedDict(
+    "CreateAppImageConfigResponseTypeDef", {"AppImageConfigArn": str}, total=False
+)
 
 CreateAppResponseTypeDef = TypedDict("CreateAppResponseTypeDef", {"AppArn": str}, total=False)
 
 CreateAutoMLJobResponseTypeDef = TypedDict("CreateAutoMLJobResponseTypeDef", {"AutoMLJobArn": str})
 
-CreateCodeRepositoryOutputTypeDef = TypedDict(
-    "CreateCodeRepositoryOutputTypeDef", {"CodeRepositoryArn": str}
+_RequiredCreateCodeRepositoryOutputTypeDef = TypedDict(
+    "_RequiredCreateCodeRepositoryOutputTypeDef", {"CodeRepositoryArn": str}
 )
+_OptionalCreateCodeRepositoryOutputTypeDef = TypedDict(
+    "_OptionalCreateCodeRepositoryOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+
+class CreateCodeRepositoryOutputTypeDef(
+    _RequiredCreateCodeRepositoryOutputTypeDef, _OptionalCreateCodeRepositoryOutputTypeDef
+):
+    pass
+
 
 CreateCompilationJobResponseTypeDef = TypedDict(
     "CreateCompilationJobResponseTypeDef", {"CompilationJobArn": str}
@@ -3518,11 +3748,35 @@ CreateDomainResponseTypeDef = TypedDict(
     "CreateDomainResponseTypeDef", {"DomainArn": str, "Url": str}, total=False
 )
 
-CreateEndpointConfigOutputTypeDef = TypedDict(
-    "CreateEndpointConfigOutputTypeDef", {"EndpointConfigArn": str}
+_RequiredCreateEndpointConfigOutputTypeDef = TypedDict(
+    "_RequiredCreateEndpointConfigOutputTypeDef", {"EndpointConfigArn": str}
+)
+_OptionalCreateEndpointConfigOutputTypeDef = TypedDict(
+    "_OptionalCreateEndpointConfigOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
-CreateEndpointOutputTypeDef = TypedDict("CreateEndpointOutputTypeDef", {"EndpointArn": str})
+
+class CreateEndpointConfigOutputTypeDef(
+    _RequiredCreateEndpointConfigOutputTypeDef, _OptionalCreateEndpointConfigOutputTypeDef
+):
+    pass
+
+
+_RequiredCreateEndpointOutputTypeDef = TypedDict(
+    "_RequiredCreateEndpointOutputTypeDef", {"EndpointArn": str}
+)
+_OptionalCreateEndpointOutputTypeDef = TypedDict(
+    "_OptionalCreateEndpointOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
+)
+
+
+class CreateEndpointOutputTypeDef(
+    _RequiredCreateEndpointOutputTypeDef, _OptionalCreateEndpointOutputTypeDef
+):
+    pass
+
 
 CreateExperimentResponseTypeDef = TypedDict(
     "CreateExperimentResponseTypeDef", {"ExperimentArn": str}, total=False
@@ -3540,15 +3794,45 @@ CreateHyperParameterTuningJobResponseTypeDef = TypedDict(
     "CreateHyperParameterTuningJobResponseTypeDef", {"HyperParameterTuningJobArn": str}
 )
 
+CreateImageResponseTypeDef = TypedDict("CreateImageResponseTypeDef", {"ImageArn": str}, total=False)
+
+CreateImageVersionResponseTypeDef = TypedDict(
+    "CreateImageVersionResponseTypeDef", {"ImageVersionArn": str}, total=False
+)
+
 CreateLabelingJobResponseTypeDef = TypedDict(
     "CreateLabelingJobResponseTypeDef", {"LabelingJobArn": str}
 )
 
-CreateModelOutputTypeDef = TypedDict("CreateModelOutputTypeDef", {"ModelArn": str})
-
-CreateModelPackageOutputTypeDef = TypedDict(
-    "CreateModelPackageOutputTypeDef", {"ModelPackageArn": str}
+_RequiredCreateModelOutputTypeDef = TypedDict(
+    "_RequiredCreateModelOutputTypeDef", {"ModelArn": str}
 )
+_OptionalCreateModelOutputTypeDef = TypedDict(
+    "_OptionalCreateModelOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
+)
+
+
+class CreateModelOutputTypeDef(
+    _RequiredCreateModelOutputTypeDef, _OptionalCreateModelOutputTypeDef
+):
+    pass
+
+
+_RequiredCreateModelPackageOutputTypeDef = TypedDict(
+    "_RequiredCreateModelPackageOutputTypeDef", {"ModelPackageArn": str}
+)
+_OptionalCreateModelPackageOutputTypeDef = TypedDict(
+    "_OptionalCreateModelPackageOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+
+class CreateModelPackageOutputTypeDef(
+    _RequiredCreateModelPackageOutputTypeDef, _OptionalCreateModelPackageOutputTypeDef
+):
+    pass
+
 
 CreateMonitoringScheduleResponseTypeDef = TypedDict(
     "CreateMonitoringScheduleResponseTypeDef", {"MonitoringScheduleArn": str}
@@ -3556,12 +3840,14 @@ CreateMonitoringScheduleResponseTypeDef = TypedDict(
 
 CreateNotebookInstanceLifecycleConfigOutputTypeDef = TypedDict(
     "CreateNotebookInstanceLifecycleConfigOutputTypeDef",
-    {"NotebookInstanceLifecycleConfigArn": str},
+    {"NotebookInstanceLifecycleConfigArn": str, "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 CreateNotebookInstanceOutputTypeDef = TypedDict(
-    "CreateNotebookInstanceOutputTypeDef", {"NotebookInstanceArn": str}, total=False
+    "CreateNotebookInstanceOutputTypeDef",
+    {"NotebookInstanceArn": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 CreatePresignedDomainUrlResponseTypeDef = TypedDict(
@@ -3569,7 +3855,9 @@ CreatePresignedDomainUrlResponseTypeDef = TypedDict(
 )
 
 CreatePresignedNotebookInstanceUrlOutputTypeDef = TypedDict(
-    "CreatePresignedNotebookInstanceUrlOutputTypeDef", {"AuthorizedUrl": str}, total=False
+    "CreatePresignedNotebookInstanceUrlOutputTypeDef",
+    {"AuthorizedUrl": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 CreateProcessingJobResponseTypeDef = TypedDict(
@@ -3631,6 +3919,7 @@ _OptionalDescribeAlgorithmOutputTypeDef = TypedDict(
         "ValidationSpecification": "AlgorithmValidationSpecificationTypeDef",
         "ProductId": str,
         "CertifyForMarketplace": bool,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -3641,6 +3930,18 @@ class DescribeAlgorithmOutputTypeDef(
 ):
     pass
 
+
+DescribeAppImageConfigResponseTypeDef = TypedDict(
+    "DescribeAppImageConfigResponseTypeDef",
+    {
+        "AppImageConfigArn": str,
+        "AppImageConfigName": str,
+        "CreationTime": datetime,
+        "LastModifiedTime": datetime,
+        "KernelGatewayImageConfig": "KernelGatewayImageConfigTypeDef",
+    },
+    total=False,
+)
 
 DescribeAppResponseTypeDef = TypedDict(
     "DescribeAppResponseTypeDef",
@@ -3718,7 +4019,9 @@ _RequiredDescribeCodeRepositoryOutputTypeDef = TypedDict(
     },
 )
 _OptionalDescribeCodeRepositoryOutputTypeDef = TypedDict(
-    "_OptionalDescribeCodeRepositoryOutputTypeDef", {"GitConfig": "GitConfigTypeDef"}, total=False
+    "_OptionalDescribeCodeRepositoryOutputTypeDef",
+    {"GitConfig": "GitConfigTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 
@@ -3767,16 +4070,26 @@ DescribeDomainResponseTypeDef = TypedDict(
         "DomainName": str,
         "HomeEfsFileSystemId": str,
         "SingleSignOnManagedApplicationInstanceId": str,
-        "Status": Literal["Deleting", "Failed", "InService", "Pending"],
+        "Status": Literal[
+            "Deleting",
+            "Failed",
+            "InService",
+            "Pending",
+            "Updating",
+            "Update_Failed",
+            "Delete_Failed",
+        ],
         "CreationTime": datetime,
         "LastModifiedTime": datetime,
         "FailureReason": str,
         "AuthMode": Literal["SSO", "IAM"],
         "DefaultUserSettings": "UserSettingsTypeDef",
+        "AppNetworkAccessType": Literal["PublicInternetOnly", "VpcOnly"],
         "HomeEfsFileSystemKmsKeyId": str,
         "SubnetIds": List[str],
         "Url": str,
         "VpcId": str,
+        "KmsKeyId": str,
     },
     total=False,
 )
@@ -3792,7 +4105,11 @@ _RequiredDescribeEndpointConfigOutputTypeDef = TypedDict(
 )
 _OptionalDescribeEndpointConfigOutputTypeDef = TypedDict(
     "_OptionalDescribeEndpointConfigOutputTypeDef",
-    {"DataCaptureConfig": "DataCaptureConfigTypeDef", "KmsKeyId": str},
+    {
+        "DataCaptureConfig": "DataCaptureConfigTypeDef",
+        "KmsKeyId": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -3829,6 +4146,7 @@ _OptionalDescribeEndpointOutputTypeDef = TypedDict(
         "ProductionVariants": List["ProductionVariantSummaryTypeDef"],
         "DataCaptureConfig": "DataCaptureConfigSummaryTypeDef",
         "FailureReason": str,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -3944,6 +4262,48 @@ class DescribeHyperParameterTuningJobResponseTypeDef(
     pass
 
 
+DescribeImageResponseTypeDef = TypedDict(
+    "DescribeImageResponseTypeDef",
+    {
+        "CreationTime": datetime,
+        "Description": str,
+        "DisplayName": str,
+        "FailureReason": str,
+        "ImageArn": str,
+        "ImageName": str,
+        "ImageStatus": Literal[
+            "CREATING",
+            "CREATED",
+            "CREATE_FAILED",
+            "UPDATING",
+            "UPDATE_FAILED",
+            "DELETING",
+            "DELETE_FAILED",
+        ],
+        "LastModifiedTime": datetime,
+        "RoleArn": str,
+    },
+    total=False,
+)
+
+DescribeImageVersionResponseTypeDef = TypedDict(
+    "DescribeImageVersionResponseTypeDef",
+    {
+        "BaseImage": str,
+        "ContainerImage": str,
+        "CreationTime": datetime,
+        "FailureReason": str,
+        "ImageArn": str,
+        "ImageVersionArn": str,
+        "ImageVersionStatus": Literal[
+            "CREATING", "CREATED", "CREATE_FAILED", "DELETING", "DELETE_FAILED"
+        ],
+        "LastModifiedTime": datetime,
+        "Version": int,
+    },
+    total=False,
+)
+
 _RequiredDescribeLabelingJobResponseTypeDef = TypedDict(
     "_RequiredDescribeLabelingJobResponseTypeDef",
     {
@@ -3994,6 +4354,7 @@ _OptionalDescribeModelOutputTypeDef = TypedDict(
         "Containers": List["ContainerDefinitionTypeDef"],
         "VpcConfig": "VpcConfigTypeDef",
         "EnableNetworkIsolation": bool,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -4023,6 +4384,7 @@ _OptionalDescribeModelPackageOutputTypeDef = TypedDict(
         "SourceAlgorithmSpecification": "SourceAlgorithmSpecificationTypeDef",
         "ValidationSpecification": "ModelPackageValidationSpecificationTypeDef",
         "CertifyForMarketplace": bool,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -4072,6 +4434,7 @@ DescribeNotebookInstanceLifecycleConfigOutputTypeDef = TypedDict(
         "OnStart": List["NotebookInstanceLifecycleHookTypeDef"],
         "LastModifiedTime": datetime,
         "CreationTime": datetime,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -4149,6 +4512,7 @@ DescribeNotebookInstanceOutputTypeDef = TypedDict(
         "DefaultCodeRepository": str,
         "AdditionalCodeRepositories": List[str],
         "RootAccess": Literal["Enabled", "Disabled"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -4349,7 +4713,15 @@ DescribeUserProfileResponseTypeDef = TypedDict(
         "UserProfileArn": str,
         "UserProfileName": str,
         "HomeEfsFileSystemUid": str,
-        "Status": Literal["Deleting", "Failed", "InService", "Pending"],
+        "Status": Literal[
+            "Deleting",
+            "Failed",
+            "InService",
+            "Pending",
+            "Updating",
+            "Update_Failed",
+            "Delete_Failed",
+        ],
         "LastModifiedTime": datetime,
         "CreationTime": datetime,
         "FailureReason": str,
@@ -4414,7 +4786,9 @@ _RequiredListAlgorithmsOutputTypeDef = TypedDict(
     {"AlgorithmSummaryList": List["AlgorithmSummaryTypeDef"]},
 )
 _OptionalListAlgorithmsOutputTypeDef = TypedDict(
-    "_OptionalListAlgorithmsOutputTypeDef", {"NextToken": str}, total=False
+    "_OptionalListAlgorithmsOutputTypeDef",
+    {"NextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 
@@ -4423,6 +4797,12 @@ class ListAlgorithmsOutputTypeDef(
 ):
     pass
 
+
+ListAppImageConfigsResponseTypeDef = TypedDict(
+    "ListAppImageConfigsResponseTypeDef",
+    {"NextToken": str, "AppImageConfigs": List["AppImageConfigDetailsTypeDef"]},
+    total=False,
+)
 
 ListAppsResponseTypeDef = TypedDict(
     "ListAppsResponseTypeDef", {"Apps": List["AppDetailsTypeDef"], "NextToken": str}, total=False
@@ -4464,7 +4844,9 @@ _RequiredListCodeRepositoriesOutputTypeDef = TypedDict(
     {"CodeRepositorySummaryList": List["CodeRepositorySummaryTypeDef"]},
 )
 _OptionalListCodeRepositoriesOutputTypeDef = TypedDict(
-    "_OptionalListCodeRepositoriesOutputTypeDef", {"NextToken": str}, total=False
+    "_OptionalListCodeRepositoriesOutputTypeDef",
+    {"NextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 
@@ -4500,7 +4882,9 @@ _RequiredListEndpointConfigsOutputTypeDef = TypedDict(
     {"EndpointConfigs": List["EndpointConfigSummaryTypeDef"]},
 )
 _OptionalListEndpointConfigsOutputTypeDef = TypedDict(
-    "_OptionalListEndpointConfigsOutputTypeDef", {"NextToken": str}, total=False
+    "_OptionalListEndpointConfigsOutputTypeDef",
+    {"NextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 
@@ -4514,7 +4898,9 @@ _RequiredListEndpointsOutputTypeDef = TypedDict(
     "_RequiredListEndpointsOutputTypeDef", {"Endpoints": List["EndpointSummaryTypeDef"]}
 )
 _OptionalListEndpointsOutputTypeDef = TypedDict(
-    "_OptionalListEndpointsOutputTypeDef", {"NextToken": str}, total=False
+    "_OptionalListEndpointsOutputTypeDef",
+    {"NextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 
@@ -4576,6 +4962,16 @@ class ListHyperParameterTuningJobsResponseTypeDef(
     pass
 
 
+ListImageVersionsResponseTypeDef = TypedDict(
+    "ListImageVersionsResponseTypeDef",
+    {"ImageVersions": List["ImageVersionTypeDef"], "NextToken": str},
+    total=False,
+)
+
+ListImagesResponseTypeDef = TypedDict(
+    "ListImagesResponseTypeDef", {"Images": List["ImageTypeDef"], "NextToken": str}, total=False
+)
+
 _RequiredListLabelingJobsForWorkteamResponseTypeDef = TypedDict(
     "_RequiredListLabelingJobsForWorkteamResponseTypeDef",
     {"LabelingJobSummaryList": List["LabelingJobForWorkteamSummaryTypeDef"]},
@@ -4603,7 +4999,9 @@ _RequiredListModelPackagesOutputTypeDef = TypedDict(
     {"ModelPackageSummaryList": List["ModelPackageSummaryTypeDef"]},
 )
 _OptionalListModelPackagesOutputTypeDef = TypedDict(
-    "_OptionalListModelPackagesOutputTypeDef", {"NextToken": str}, total=False
+    "_OptionalListModelPackagesOutputTypeDef",
+    {"NextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 
@@ -4617,7 +5015,9 @@ _RequiredListModelsOutputTypeDef = TypedDict(
     "_RequiredListModelsOutputTypeDef", {"Models": List["ModelSummaryTypeDef"]}
 )
 _OptionalListModelsOutputTypeDef = TypedDict(
-    "_OptionalListModelsOutputTypeDef", {"NextToken": str}, total=False
+    "_OptionalListModelsOutputTypeDef",
+    {"NextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 
@@ -4661,13 +5061,18 @@ ListNotebookInstanceLifecycleConfigsOutputTypeDef = TypedDict(
     {
         "NextToken": str,
         "NotebookInstanceLifecycleConfigs": List["NotebookInstanceLifecycleConfigSummaryTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
 ListNotebookInstancesOutputTypeDef = TypedDict(
     "ListNotebookInstancesOutputTypeDef",
-    {"NextToken": str, "NotebookInstances": List["NotebookInstanceSummaryTypeDef"]},
+    {
+        "NextToken": str,
+        "NotebookInstances": List["NotebookInstanceSummaryTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -4702,7 +5107,9 @@ class ListSubscribedWorkteamsResponseTypeDef(
 
 
 ListTagsOutputTypeDef = TypedDict(
-    "ListTagsOutputTypeDef", {"Tags": List["TagTypeDef"], "NextToken": str}, total=False
+    "ListTagsOutputTypeDef",
+    {"Tags": List["TagTypeDef"], "NextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 _RequiredListTrainingJobsForHyperParameterTuningJobResponseTypeDef = TypedDict(
@@ -4838,23 +5245,66 @@ SuggestionQueryTypeDef = TypedDict(
 
 UiTemplateTypeDef = TypedDict("UiTemplateTypeDef", {"Content": str})
 
-UpdateCodeRepositoryOutputTypeDef = TypedDict(
-    "UpdateCodeRepositoryOutputTypeDef", {"CodeRepositoryArn": str}
+UpdateAppImageConfigResponseTypeDef = TypedDict(
+    "UpdateAppImageConfigResponseTypeDef", {"AppImageConfigArn": str}, total=False
 )
+
+_RequiredUpdateCodeRepositoryOutputTypeDef = TypedDict(
+    "_RequiredUpdateCodeRepositoryOutputTypeDef", {"CodeRepositoryArn": str}
+)
+_OptionalUpdateCodeRepositoryOutputTypeDef = TypedDict(
+    "_OptionalUpdateCodeRepositoryOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+
+class UpdateCodeRepositoryOutputTypeDef(
+    _RequiredUpdateCodeRepositoryOutputTypeDef, _OptionalUpdateCodeRepositoryOutputTypeDef
+):
+    pass
+
 
 UpdateDomainResponseTypeDef = TypedDict(
     "UpdateDomainResponseTypeDef", {"DomainArn": str}, total=False
 )
 
-UpdateEndpointOutputTypeDef = TypedDict("UpdateEndpointOutputTypeDef", {"EndpointArn": str})
-
-UpdateEndpointWeightsAndCapacitiesOutputTypeDef = TypedDict(
-    "UpdateEndpointWeightsAndCapacitiesOutputTypeDef", {"EndpointArn": str}
+_RequiredUpdateEndpointOutputTypeDef = TypedDict(
+    "_RequiredUpdateEndpointOutputTypeDef", {"EndpointArn": str}
 )
+_OptionalUpdateEndpointOutputTypeDef = TypedDict(
+    "_OptionalUpdateEndpointOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
+)
+
+
+class UpdateEndpointOutputTypeDef(
+    _RequiredUpdateEndpointOutputTypeDef, _OptionalUpdateEndpointOutputTypeDef
+):
+    pass
+
+
+_RequiredUpdateEndpointWeightsAndCapacitiesOutputTypeDef = TypedDict(
+    "_RequiredUpdateEndpointWeightsAndCapacitiesOutputTypeDef", {"EndpointArn": str}
+)
+_OptionalUpdateEndpointWeightsAndCapacitiesOutputTypeDef = TypedDict(
+    "_OptionalUpdateEndpointWeightsAndCapacitiesOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+
+class UpdateEndpointWeightsAndCapacitiesOutputTypeDef(
+    _RequiredUpdateEndpointWeightsAndCapacitiesOutputTypeDef,
+    _OptionalUpdateEndpointWeightsAndCapacitiesOutputTypeDef,
+):
+    pass
+
 
 UpdateExperimentResponseTypeDef = TypedDict(
     "UpdateExperimentResponseTypeDef", {"ExperimentArn": str}, total=False
 )
+
+UpdateImageResponseTypeDef = TypedDict("UpdateImageResponseTypeDef", {"ImageArn": str}, total=False)
 
 UpdateMonitoringScheduleResponseTypeDef = TypedDict(
     "UpdateMonitoringScheduleResponseTypeDef", {"MonitoringScheduleArn": str}

@@ -34,7 +34,7 @@ __all__ = ("DescribeCasesPaginator", "DescribeCommunicationsPaginator")
 
 class DescribeCasesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeCases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/support.html#Support.Paginator.DescribeCases)
+    [Paginator.DescribeCases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/support.html#Support.Paginator.DescribeCases)
     """
 
     def paginate(
@@ -49,13 +49,13 @@ class DescribeCasesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeCasesResponseTypeDef]:
         """
-        [DescribeCases.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/support.html#Support.Paginator.DescribeCases.paginate)
+        [DescribeCases.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/support.html#Support.Paginator.DescribeCases.paginate)
         """
 
 
 class DescribeCommunicationsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeCommunications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/support.html#Support.Paginator.DescribeCommunications)
+    [Paginator.DescribeCommunications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/support.html#Support.Paginator.DescribeCommunications)
     """
 
     def paginate(
@@ -66,5 +66,5 @@ class DescribeCommunicationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeCommunicationsResponseTypeDef]:
         """
-        [DescribeCommunications.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/support.html#Support.Paginator.DescribeCommunications.paginate)
+        [DescribeCommunications.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/support.html#Support.Paginator.DescribeCommunications.paginate)
         """

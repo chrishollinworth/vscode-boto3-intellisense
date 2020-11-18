@@ -10,13 +10,12 @@ Usage::
     ```
 """
 import sys
-from typing import IO, Dict, List
+from typing import IO, Any, Dict, List
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -40,6 +39,7 @@ __all__ = (
     "OutputSerializationTypeDef",
     "PartListElementTypeDef",
     "ProvisionedCapacityDescriptionTypeDef",
+    "ResponseMetadata",
     "S3LocationTypeDef",
     "SelectParametersTypeDef",
     "UploadListElementTypeDef",
@@ -90,6 +90,7 @@ CSVOutputTypeDef = TypedDict(
         "RecordDelimiter": str,
         "FieldDelimiter": str,
         "QuoteCharacter": str,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -111,6 +112,7 @@ DescribeVaultOutputTypeDef = TypedDict(
         "LastInventoryDate": str,
         "NumberOfArchives": int,
         "SizeInBytes": int,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -204,6 +206,17 @@ ProvisionedCapacityDescriptionTypeDef = TypedDict(
     total=False,
 )
 
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
+
 S3LocationTypeDef = TypedDict(
     "S3LocationTypeDef",
     {
@@ -258,14 +271,20 @@ VaultNotificationConfigTypeDef = TypedDict(
 
 ArchiveCreationOutputTypeDef = TypedDict(
     "ArchiveCreationOutputTypeDef",
-    {"location": str, "checksum": str, "archiveId": str},
+    {"location": str, "checksum": str, "archiveId": str, "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
-CreateVaultOutputTypeDef = TypedDict("CreateVaultOutputTypeDef", {"location": str}, total=False)
+CreateVaultOutputTypeDef = TypedDict(
+    "CreateVaultOutputTypeDef",
+    {"location": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
 
 GetDataRetrievalPolicyOutputTypeDef = TypedDict(
-    "GetDataRetrievalPolicyOutputTypeDef", {"Policy": "DataRetrievalPolicyTypeDef"}, total=False
+    "GetDataRetrievalPolicyOutputTypeDef",
+    {"Policy": "DataRetrievalPolicyTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 GetJobOutputOutputTypeDef = TypedDict(
@@ -278,36 +297,54 @@ GetJobOutputOutputTypeDef = TypedDict(
         "acceptRanges": str,
         "contentType": str,
         "archiveDescription": str,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
 GetVaultAccessPolicyOutputTypeDef = TypedDict(
-    "GetVaultAccessPolicyOutputTypeDef", {"policy": "VaultAccessPolicyTypeDef"}, total=False
+    "GetVaultAccessPolicyOutputTypeDef",
+    {"policy": "VaultAccessPolicyTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 GetVaultLockOutputTypeDef = TypedDict(
     "GetVaultLockOutputTypeDef",
-    {"Policy": str, "State": str, "ExpirationDate": str, "CreationDate": str},
+    {
+        "Policy": str,
+        "State": str,
+        "ExpirationDate": str,
+        "CreationDate": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 GetVaultNotificationsOutputTypeDef = TypedDict(
     "GetVaultNotificationsOutputTypeDef",
-    {"vaultNotificationConfig": "VaultNotificationConfigTypeDef"},
+    {
+        "vaultNotificationConfig": "VaultNotificationConfigTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 InitiateJobOutputTypeDef = TypedDict(
-    "InitiateJobOutputTypeDef", {"location": str, "jobId": str, "jobOutputPath": str}, total=False
+    "InitiateJobOutputTypeDef",
+    {"location": str, "jobId": str, "jobOutputPath": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 InitiateMultipartUploadOutputTypeDef = TypedDict(
-    "InitiateMultipartUploadOutputTypeDef", {"location": str, "uploadId": str}, total=False
+    "InitiateMultipartUploadOutputTypeDef",
+    {"location": str, "uploadId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 InitiateVaultLockOutputTypeDef = TypedDict(
-    "InitiateVaultLockOutputTypeDef", {"lockId": str}, total=False
+    "InitiateVaultLockOutputTypeDef",
+    {"lockId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 JobParametersTypeDef = TypedDict(
@@ -329,13 +366,21 @@ JobParametersTypeDef = TypedDict(
 
 ListJobsOutputTypeDef = TypedDict(
     "ListJobsOutputTypeDef",
-    {"JobList": List["GlacierJobDescriptionTypeDef"], "Marker": str},
+    {
+        "JobList": List["GlacierJobDescriptionTypeDef"],
+        "Marker": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListMultipartUploadsOutputTypeDef = TypedDict(
     "ListMultipartUploadsOutputTypeDef",
-    {"UploadsList": List["UploadListElementTypeDef"], "Marker": str},
+    {
+        "UploadsList": List["UploadListElementTypeDef"],
+        "Marker": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -349,23 +394,33 @@ ListPartsOutputTypeDef = TypedDict(
         "CreationDate": str,
         "Parts": List["PartListElementTypeDef"],
         "Marker": str,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
 ListProvisionedCapacityOutputTypeDef = TypedDict(
     "ListProvisionedCapacityOutputTypeDef",
-    {"ProvisionedCapacityList": List["ProvisionedCapacityDescriptionTypeDef"]},
+    {
+        "ProvisionedCapacityList": List["ProvisionedCapacityDescriptionTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListTagsForVaultOutputTypeDef = TypedDict(
-    "ListTagsForVaultOutputTypeDef", {"Tags": Dict[str, str]}, total=False
+    "ListTagsForVaultOutputTypeDef",
+    {"Tags": Dict[str, str], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ListVaultsOutputTypeDef = TypedDict(
     "ListVaultsOutputTypeDef",
-    {"VaultList": List["DescribeVaultOutputTypeDef"], "Marker": str},
+    {
+        "VaultList": List["DescribeVaultOutputTypeDef"],
+        "Marker": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -374,11 +429,15 @@ PaginatorConfigTypeDef = TypedDict(
 )
 
 PurchaseProvisionedCapacityOutputTypeDef = TypedDict(
-    "PurchaseProvisionedCapacityOutputTypeDef", {"capacityId": str}, total=False
+    "PurchaseProvisionedCapacityOutputTypeDef",
+    {"capacityId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 UploadMultipartPartOutputTypeDef = TypedDict(
-    "UploadMultipartPartOutputTypeDef", {"checksum": str}, total=False
+    "UploadMultipartPartOutputTypeDef",
+    {"checksum": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 VaultLockPolicyTypeDef = TypedDict("VaultLockPolicyTypeDef", {"Policy": str}, total=False)

@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Dict, List
+from typing import IO, Dict, List, Union
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -154,7 +153,7 @@ GetSecretValueResponseTypeDef = TypedDict(
         "ARN": str,
         "Name": str,
         "VersionId": str,
-        "SecretBinary": bytes,
+        "SecretBinary": Union[bytes, IO[bytes]],
         "SecretString": str,
         "VersionStages": List[str],
         "CreatedDate": datetime,

@@ -104,6 +104,7 @@ Usage::
         GetManagedPrefixListEntriesPaginator,
         GetTransitGatewayAttachmentPropagationsPaginator,
         GetTransitGatewayMulticastDomainAssociationsPaginator,
+        GetTransitGatewayPrefixListReferencesPaginator,
         GetTransitGatewayRouteTableAssociationsPaginator,
         GetTransitGatewayRouteTablePropagationsPaginator,
         ImageAvailableWaiter,
@@ -265,6 +266,7 @@ Usage::
     get_managed_prefix_list_entries_paginator: GetManagedPrefixListEntriesPaginator = client.get_paginator("get_managed_prefix_list_entries")
     get_transit_gateway_attachment_propagations_paginator: GetTransitGatewayAttachmentPropagationsPaginator = client.get_paginator("get_transit_gateway_attachment_propagations")
     get_transit_gateway_multicast_domain_associations_paginator: GetTransitGatewayMulticastDomainAssociationsPaginator = client.get_paginator("get_transit_gateway_multicast_domain_associations")
+    get_transit_gateway_prefix_list_references_paginator: GetTransitGatewayPrefixListReferencesPaginator = client.get_paginator("get_transit_gateway_prefix_list_references")
     get_transit_gateway_route_table_associations_paginator: GetTransitGatewayRouteTableAssociationsPaginator = client.get_paginator("get_transit_gateway_route_table_associations")
     get_transit_gateway_route_table_propagations_paginator: GetTransitGatewayRouteTablePropagationsPaginator = client.get_paginator("get_transit_gateway_route_table_propagations")
     search_local_gateway_routes_paginator: SearchLocalGatewayRoutesPaginator = client.get_paginator("search_local_gateway_routes")
@@ -361,6 +363,7 @@ from mypy_boto3_ec2.paginator import (
     GetManagedPrefixListEntriesPaginator,
     GetTransitGatewayAttachmentPropagationsPaginator,
     GetTransitGatewayMulticastDomainAssociationsPaginator,
+    GetTransitGatewayPrefixListReferencesPaginator,
     GetTransitGatewayRouteTableAssociationsPaginator,
     GetTransitGatewayRouteTablePropagationsPaginator,
     SearchLocalGatewayRoutesPaginator,
@@ -507,6 +510,7 @@ __all__ = (
     "GetManagedPrefixListEntriesPaginator",
     "GetTransitGatewayAttachmentPropagationsPaginator",
     "GetTransitGatewayMulticastDomainAssociationsPaginator",
+    "GetTransitGatewayPrefixListReferencesPaginator",
     "GetTransitGatewayRouteTableAssociationsPaginator",
     "GetTransitGatewayRouteTablePropagationsPaginator",
     "ImageAvailableWaiter",

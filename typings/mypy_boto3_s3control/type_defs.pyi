@@ -4,20 +4,19 @@ Main interface for s3control service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_s3control.type_defs import AccessPointTypeDef
+    from mypy_boto3_s3control.type_defs import AbortIncompleteMultipartUploadTypeDef
 
-    data: AccessPointTypeDef = {...}
+    data: AbortIncompleteMultipartUploadTypeDef = {...}
     ```
 """
 import sys
 from datetime import datetime
-from typing import Dict, List
+from typing import Any, Dict, List
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -25,6 +24,7 @@ else:
 
 
 __all__ = (
+    "AbortIncompleteMultipartUploadTypeDef",
     "AccessPointTypeDef",
     "JobDescriptorTypeDef",
     "JobFailureTypeDef",
@@ -36,8 +36,16 @@ __all__ = (
     "JobProgressSummaryTypeDef",
     "JobReportTypeDef",
     "LambdaInvokeOperationTypeDef",
+    "LifecycleExpirationTypeDef",
+    "LifecycleRuleAndOperatorTypeDef",
+    "LifecycleRuleFilterTypeDef",
+    "LifecycleRuleTypeDef",
+    "NoncurrentVersionExpirationTypeDef",
+    "NoncurrentVersionTransitionTypeDef",
     "PolicyStatusTypeDef",
     "PublicAccessBlockConfigurationTypeDef",
+    "RegionalBucketTypeDef",
+    "ResponseMetadata",
     "S3AccessControlListTypeDef",
     "S3AccessControlPolicyTypeDef",
     "S3CopyObjectOperationTypeDef",
@@ -53,18 +61,33 @@ __all__ = (
     "S3SetObjectRetentionOperationTypeDef",
     "S3SetObjectTaggingOperationTypeDef",
     "S3TagTypeDef",
+    "TransitionTypeDef",
     "VpcConfigurationTypeDef",
+    "CreateAccessPointResultTypeDef",
+    "CreateBucketConfigurationTypeDef",
+    "CreateBucketResultTypeDef",
     "CreateJobResultTypeDef",
     "DescribeJobResultTypeDef",
     "GetAccessPointPolicyResultTypeDef",
     "GetAccessPointPolicyStatusResultTypeDef",
     "GetAccessPointResultTypeDef",
+    "GetBucketLifecycleConfigurationResultTypeDef",
+    "GetBucketPolicyResultTypeDef",
+    "GetBucketResultTypeDef",
+    "GetBucketTaggingResultTypeDef",
     "GetJobTaggingResultTypeDef",
     "GetPublicAccessBlockOutputTypeDef",
+    "LifecycleConfigurationTypeDef",
     "ListAccessPointsResultTypeDef",
     "ListJobsResultTypeDef",
+    "ListRegionalBucketsResultTypeDef",
+    "TaggingTypeDef",
     "UpdateJobPriorityResultTypeDef",
     "UpdateJobStatusResultTypeDef",
+)
+
+AbortIncompleteMultipartUploadTypeDef = TypedDict(
+    "AbortIncompleteMultipartUploadTypeDef", {"DaysAfterInitiation": int}, total=False
 )
 
 _RequiredAccessPointTypeDef = TypedDict(
@@ -72,7 +95,9 @@ _RequiredAccessPointTypeDef = TypedDict(
     {"Name": str, "NetworkOrigin": Literal["Internet", "VPC"], "Bucket": str},
 )
 _OptionalAccessPointTypeDef = TypedDict(
-    "_OptionalAccessPointTypeDef", {"VpcConfiguration": "VpcConfigurationTypeDef"}, total=False
+    "_OptionalAccessPointTypeDef",
+    {"VpcConfiguration": "VpcConfigurationTypeDef", "AccessPointArn": str},
+    total=False,
 )
 
 
@@ -234,6 +259,59 @@ LambdaInvokeOperationTypeDef = TypedDict(
     "LambdaInvokeOperationTypeDef", {"FunctionArn": str}, total=False
 )
 
+LifecycleExpirationTypeDef = TypedDict(
+    "LifecycleExpirationTypeDef",
+    {"Date": datetime, "Days": int, "ExpiredObjectDeleteMarker": bool},
+    total=False,
+)
+
+LifecycleRuleAndOperatorTypeDef = TypedDict(
+    "LifecycleRuleAndOperatorTypeDef", {"Prefix": str, "Tags": List["S3TagTypeDef"]}, total=False
+)
+
+LifecycleRuleFilterTypeDef = TypedDict(
+    "LifecycleRuleFilterTypeDef",
+    {"Prefix": str, "Tag": "S3TagTypeDef", "And": "LifecycleRuleAndOperatorTypeDef"},
+    total=False,
+)
+
+_RequiredLifecycleRuleTypeDef = TypedDict(
+    "_RequiredLifecycleRuleTypeDef", {"Status": Literal["Enabled", "Disabled"]}
+)
+_OptionalLifecycleRuleTypeDef = TypedDict(
+    "_OptionalLifecycleRuleTypeDef",
+    {
+        "Expiration": "LifecycleExpirationTypeDef",
+        "ID": str,
+        "Filter": "LifecycleRuleFilterTypeDef",
+        "Transitions": List["TransitionTypeDef"],
+        "NoncurrentVersionTransitions": List["NoncurrentVersionTransitionTypeDef"],
+        "NoncurrentVersionExpiration": "NoncurrentVersionExpirationTypeDef",
+        "AbortIncompleteMultipartUpload": "AbortIncompleteMultipartUploadTypeDef",
+    },
+    total=False,
+)
+
+
+class LifecycleRuleTypeDef(_RequiredLifecycleRuleTypeDef, _OptionalLifecycleRuleTypeDef):
+    pass
+
+
+NoncurrentVersionExpirationTypeDef = TypedDict(
+    "NoncurrentVersionExpirationTypeDef", {"NoncurrentDays": int}, total=False
+)
+
+NoncurrentVersionTransitionTypeDef = TypedDict(
+    "NoncurrentVersionTransitionTypeDef",
+    {
+        "NoncurrentDays": int,
+        "StorageClass": Literal[
+            "GLACIER", "STANDARD_IA", "ONEZONE_IA", "INTELLIGENT_TIERING", "DEEP_ARCHIVE"
+        ],
+    },
+    total=False,
+)
+
 PolicyStatusTypeDef = TypedDict("PolicyStatusTypeDef", {"IsPublic": bool}, total=False)
 
 PublicAccessBlockConfigurationTypeDef = TypedDict(
@@ -245,6 +323,30 @@ PublicAccessBlockConfigurationTypeDef = TypedDict(
         "RestrictPublicBuckets": bool,
     },
     total=False,
+)
+
+_RequiredRegionalBucketTypeDef = TypedDict(
+    "_RequiredRegionalBucketTypeDef",
+    {"Bucket": str, "PublicAccessBlockEnabled": bool, "CreationDate": datetime},
+)
+_OptionalRegionalBucketTypeDef = TypedDict(
+    "_OptionalRegionalBucketTypeDef", {"BucketArn": str, "OutpostId": str}, total=False
+)
+
+
+class RegionalBucketTypeDef(_RequiredRegionalBucketTypeDef, _OptionalRegionalBucketTypeDef):
+    pass
+
+
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
 )
 
 _RequiredS3AccessControlListTypeDef = TypedDict(
@@ -401,7 +503,47 @@ S3SetObjectTaggingOperationTypeDef = TypedDict(
 
 S3TagTypeDef = TypedDict("S3TagTypeDef", {"Key": str, "Value": str})
 
+TransitionTypeDef = TypedDict(
+    "TransitionTypeDef",
+    {
+        "Date": datetime,
+        "Days": int,
+        "StorageClass": Literal[
+            "GLACIER", "STANDARD_IA", "ONEZONE_IA", "INTELLIGENT_TIERING", "DEEP_ARCHIVE"
+        ],
+    },
+    total=False,
+)
+
 VpcConfigurationTypeDef = TypedDict("VpcConfigurationTypeDef", {"VpcId": str})
+
+CreateAccessPointResultTypeDef = TypedDict(
+    "CreateAccessPointResultTypeDef", {"AccessPointArn": str}, total=False
+)
+
+CreateBucketConfigurationTypeDef = TypedDict(
+    "CreateBucketConfigurationTypeDef",
+    {
+        "LocationConstraint": Literal[
+            "EU",
+            "eu-west-1",
+            "us-west-1",
+            "us-west-2",
+            "ap-south-1",
+            "ap-southeast-1",
+            "ap-southeast-2",
+            "ap-northeast-1",
+            "sa-east-1",
+            "cn-north-1",
+            "eu-central-1",
+        ]
+    },
+    total=False,
+)
+
+CreateBucketResultTypeDef = TypedDict(
+    "CreateBucketResultTypeDef", {"Location": str, "BucketArn": str}, total=False
+)
 
 CreateJobResultTypeDef = TypedDict("CreateJobResultTypeDef", {"JobId": str}, total=False)
 
@@ -430,14 +572,41 @@ GetAccessPointResultTypeDef = TypedDict(
     total=False,
 )
 
+GetBucketLifecycleConfigurationResultTypeDef = TypedDict(
+    "GetBucketLifecycleConfigurationResultTypeDef",
+    {"Rules": List["LifecycleRuleTypeDef"]},
+    total=False,
+)
+
+GetBucketPolicyResultTypeDef = TypedDict(
+    "GetBucketPolicyResultTypeDef", {"Policy": str}, total=False
+)
+
+GetBucketResultTypeDef = TypedDict(
+    "GetBucketResultTypeDef",
+    {"Bucket": str, "PublicAccessBlockEnabled": bool, "CreationDate": datetime},
+    total=False,
+)
+
+GetBucketTaggingResultTypeDef = TypedDict(
+    "GetBucketTaggingResultTypeDef", {"TagSet": List["S3TagTypeDef"]}
+)
+
 GetJobTaggingResultTypeDef = TypedDict(
     "GetJobTaggingResultTypeDef", {"Tags": List["S3TagTypeDef"]}, total=False
 )
 
 GetPublicAccessBlockOutputTypeDef = TypedDict(
     "GetPublicAccessBlockOutputTypeDef",
-    {"PublicAccessBlockConfiguration": "PublicAccessBlockConfigurationTypeDef"},
+    {
+        "PublicAccessBlockConfiguration": "PublicAccessBlockConfigurationTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
+)
+
+LifecycleConfigurationTypeDef = TypedDict(
+    "LifecycleConfigurationTypeDef", {"Rules": List["LifecycleRuleTypeDef"]}, total=False
 )
 
 ListAccessPointsResultTypeDef = TypedDict(
@@ -451,6 +620,14 @@ ListJobsResultTypeDef = TypedDict(
     {"NextToken": str, "Jobs": List["JobListDescriptorTypeDef"]},
     total=False,
 )
+
+ListRegionalBucketsResultTypeDef = TypedDict(
+    "ListRegionalBucketsResultTypeDef",
+    {"RegionalBucketList": List["RegionalBucketTypeDef"], "NextToken": str},
+    total=False,
+)
+
+TaggingTypeDef = TypedDict("TaggingTypeDef", {"TagSet": List["S3TagTypeDef"]})
 
 UpdateJobPriorityResultTypeDef = TypedDict(
     "UpdateJobPriorityResultTypeDef", {"JobId": str, "Priority": int}

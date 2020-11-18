@@ -26,10 +26,10 @@ __all__ = ("CertificateValidatedWaiter",)
 
 class CertificateValidatedWaiter(Boto3Waiter):
     """
-    [Waiter.CertificateValidated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/acm.html#ACM.Waiter.CertificateValidated)
+    [Waiter.CertificateValidated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm.html#ACM.Waiter.CertificateValidated)
     """
 
     def wait(self, CertificateArn: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [CertificateValidated.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/acm.html#ACM.Waiter.CertificateValidated.wait)
+        [CertificateValidated.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm.html#ACM.Waiter.CertificateValidated.wait)
         """

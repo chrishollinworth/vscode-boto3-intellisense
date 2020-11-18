@@ -44,7 +44,7 @@ __all__ = ("DescribeVoicesPaginator", "ListLexiconsPaginator", "ListSpeechSynthe
 
 class DescribeVoicesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeVoices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/polly.html#Polly.Paginator.DescribeVoices)
+    [Paginator.DescribeVoices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/polly.html#Polly.Paginator.DescribeVoices)
     """
 
     def paginate(
@@ -85,26 +85,26 @@ class DescribeVoicesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeVoicesOutputTypeDef]:
         """
-        [DescribeVoices.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/polly.html#Polly.Paginator.DescribeVoices.paginate)
+        [DescribeVoices.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/polly.html#Polly.Paginator.DescribeVoices.paginate)
         """
 
 
 class ListLexiconsPaginator(Boto3Paginator):
     """
-    [Paginator.ListLexicons documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/polly.html#Polly.Paginator.ListLexicons)
+    [Paginator.ListLexicons documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/polly.html#Polly.Paginator.ListLexicons)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListLexiconsOutputTypeDef]:
         """
-        [ListLexicons.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/polly.html#Polly.Paginator.ListLexicons.paginate)
+        [ListLexicons.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/polly.html#Polly.Paginator.ListLexicons.paginate)
         """
 
 
 class ListSpeechSynthesisTasksPaginator(Boto3Paginator):
     """
-    [Paginator.ListSpeechSynthesisTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/polly.html#Polly.Paginator.ListSpeechSynthesisTasks)
+    [Paginator.ListSpeechSynthesisTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/polly.html#Polly.Paginator.ListSpeechSynthesisTasks)
     """
 
     def paginate(
@@ -113,5 +113,5 @@ class ListSpeechSynthesisTasksPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListSpeechSynthesisTasksOutputTypeDef]:
         """
-        [ListSpeechSynthesisTasks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/polly.html#Polly.Paginator.ListSpeechSynthesisTasks.paginate)
+        [ListSpeechSynthesisTasks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/polly.html#Polly.Paginator.ListSpeechSynthesisTasks.paginate)
         """

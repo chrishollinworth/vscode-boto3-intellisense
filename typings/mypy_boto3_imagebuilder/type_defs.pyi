@@ -16,7 +16,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -98,6 +97,7 @@ AmiDistributionConfigurationTypeDef = TypedDict(
     {
         "name": str,
         "description": str,
+        "targetAccountIds": List[str],
         "amiTags": Dict[str, str],
         "kmsKeyId": str,
         "launchPermission": "LaunchPermissionConfigurationTypeDef",
@@ -107,7 +107,14 @@ AmiDistributionConfigurationTypeDef = TypedDict(
 
 AmiTypeDef = TypedDict(
     "AmiTypeDef",
-    {"region": str, "image": str, "name": str, "description": str, "state": "ImageStateTypeDef"},
+    {
+        "region": str,
+        "image": str,
+        "name": str,
+        "description": str,
+        "state": "ImageStateTypeDef",
+        "accountId": str,
+    },
     total=False,
 )
 
@@ -229,7 +236,7 @@ EbsInstanceBlockDeviceSpecificationTypeDef = TypedDict(
         "kmsKeyId": str,
         "snapshotId": str,
         "volumeSize": int,
-        "volumeType": Literal["standard", "io1", "gp2", "sc1", "st1"],
+        "volumeType": Literal["standard", "io1", "io2", "gp2", "sc1", "st1"],
     },
     total=False,
 )

@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Dict, List
+from typing import Any, Dict, List
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -30,14 +29,18 @@ __all__ = (
     "AccelerationSettingsTypeDef",
     "AiffSettingsTypeDef",
     "AncillarySourceSettingsTypeDef",
+    "AudioChannelTaggingSettingsTypeDef",
     "AudioCodecSettingsTypeDef",
     "AudioDescriptionTypeDef",
     "AudioNormalizationSettingsTypeDef",
     "AudioSelectorGroupTypeDef",
     "AudioSelectorTypeDef",
+    "AutomatedAbrSettingsTypeDef",
+    "AutomatedEncodingSettingsTypeDef",
     "Av1QvbrSettingsTypeDef",
     "Av1SettingsTypeDef",
     "AvailBlankingTypeDef",
+    "AvcIntraSettingsTypeDef",
     "BurninDestinationSettingsTypeDef",
     "CaptionDescriptionPresetTypeDef",
     "CaptionDescriptionTypeDef",
@@ -118,6 +121,7 @@ __all__ = (
     "MxfSettingsTypeDef",
     "NexGuardFileMarkerSettingsTypeDef",
     "NielsenConfigurationTypeDef",
+    "NielsenNonLinearWatermarkSettingsTypeDef",
     "NoiseReducerFilterSettingsTypeDef",
     "NoiseReducerSpatialFilterSettingsTypeDef",
     "NoiseReducerTemporalFilterSettingsTypeDef",
@@ -140,6 +144,7 @@ __all__ = (
     "RemixSettingsTypeDef",
     "ReservationPlanTypeDef",
     "ResourceTagsTypeDef",
+    "ResponseMetadata",
     "S3DestinationAccessControlTypeDef",
     "S3DestinationSettingsTypeDef",
     "S3EncryptionSettingsTypeDef",
@@ -155,6 +160,7 @@ __all__ = (
     "TimingTypeDef",
     "TrackSourceSettingsTypeDef",
     "TtmlDestinationSettingsTypeDef",
+    "Vc3SettingsTypeDef",
     "VideoCodecSettingsTypeDef",
     "VideoDescriptionTypeDef",
     "VideoDetailTypeDef",
@@ -251,6 +257,30 @@ AncillarySourceSettingsTypeDef = TypedDict(
     total=False,
 )
 
+AudioChannelTaggingSettingsTypeDef = TypedDict(
+    "AudioChannelTaggingSettingsTypeDef",
+    {
+        "ChannelTag": Literal[
+            "L",
+            "R",
+            "C",
+            "LFE",
+            "LS",
+            "RS",
+            "LC",
+            "RC",
+            "CS",
+            "LSD",
+            "RSD",
+            "TCS",
+            "VHL",
+            "VHC",
+            "VHR",
+        ]
+    },
+    total=False,
+)
+
 AudioCodecSettingsTypeDef = TypedDict(
     "AudioCodecSettingsTypeDef",
     {
@@ -284,6 +314,7 @@ AudioCodecSettingsTypeDef = TypedDict(
 AudioDescriptionTypeDef = TypedDict(
     "AudioDescriptionTypeDef",
     {
+        "AudioChannelTaggingSettings": "AudioChannelTaggingSettingsTypeDef",
         "AudioNormalizationSettings": "AudioNormalizationSettingsTypeDef",
         "AudioSourceName": str,
         "AudioType": int,
@@ -716,6 +747,16 @@ AudioSelectorTypeDef = TypedDict(
     total=False,
 )
 
+AutomatedAbrSettingsTypeDef = TypedDict(
+    "AutomatedAbrSettingsTypeDef",
+    {"MaxAbrBitrate": int, "MaxRenditions": int, "MinAbrBitrate": int},
+    total=False,
+)
+
+AutomatedEncodingSettingsTypeDef = TypedDict(
+    "AutomatedEncodingSettingsTypeDef", {"AbrSettings": "AutomatedAbrSettingsTypeDef"}, total=False
+)
+
 Av1QvbrSettingsTypeDef = TypedDict(
     "Av1QvbrSettingsTypeDef",
     {"QvbrQualityLevel": int, "QvbrQualityLevelFineTune": float},
@@ -727,7 +768,7 @@ Av1SettingsTypeDef = TypedDict(
     {
         "AdaptiveQuantization": Literal["OFF", "LOW", "MEDIUM", "HIGH", "HIGHER", "MAX"],
         "FramerateControl": Literal["INITIALIZE_FROM_SOURCE", "SPECIFIED"],
-        "FramerateConversionAlgorithm": Literal["DUPLICATE_DROP", "INTERPOLATE"],
+        "FramerateConversionAlgorithm": Literal["DUPLICATE_DROP", "INTERPOLATE", "FRAMEFORMER"],
         "FramerateDenominator": int,
         "FramerateNumerator": int,
         "GopSize": float,
@@ -742,6 +783,23 @@ Av1SettingsTypeDef = TypedDict(
 )
 
 AvailBlankingTypeDef = TypedDict("AvailBlankingTypeDef", {"AvailBlankingImage": str}, total=False)
+
+AvcIntraSettingsTypeDef = TypedDict(
+    "AvcIntraSettingsTypeDef",
+    {
+        "AvcIntraClass": Literal["CLASS_50", "CLASS_100", "CLASS_200"],
+        "FramerateControl": Literal["INITIALIZE_FROM_SOURCE", "SPECIFIED"],
+        "FramerateConversionAlgorithm": Literal["DUPLICATE_DROP", "INTERPOLATE", "FRAMEFORMER"],
+        "FramerateDenominator": int,
+        "FramerateNumerator": int,
+        "InterlaceMode": Literal[
+            "PROGRESSIVE", "TOP_FIELD", "BOTTOM_FIELD", "FOLLOW_TOP_FIELD", "FOLLOW_BOTTOM_FIELD"
+        ],
+        "SlowPal": Literal["DISABLED", "ENABLED"],
+        "Telecine": Literal["NONE", "HARD"],
+    },
+    total=False,
+)
 
 BurninDestinationSettingsTypeDef = TypedDict(
     "BurninDestinationSettingsTypeDef",
@@ -1766,7 +1824,7 @@ H264QvbrSettingsTypeDef = TypedDict(
 H264SettingsTypeDef = TypedDict(
     "H264SettingsTypeDef",
     {
-        "AdaptiveQuantization": Literal["OFF", "LOW", "MEDIUM", "HIGH", "HIGHER", "MAX"],
+        "AdaptiveQuantization": Literal["OFF", "AUTO", "LOW", "MEDIUM", "HIGH", "HIGHER", "MAX"],
         "Bitrate": int,
         "CodecLevel": Literal[
             "AUTO",
@@ -1795,7 +1853,7 @@ H264SettingsTypeDef = TypedDict(
         "FieldEncoding": Literal["PAFF", "FORCE_FIELD"],
         "FlickerAdaptiveQuantization": Literal["DISABLED", "ENABLED"],
         "FramerateControl": Literal["INITIALIZE_FROM_SOURCE", "SPECIFIED"],
-        "FramerateConversionAlgorithm": Literal["DUPLICATE_DROP", "INTERPOLATE"],
+        "FramerateConversionAlgorithm": Literal["DUPLICATE_DROP", "INTERPOLATE", "FRAMEFORMER"],
         "FramerateDenominator": int,
         "FramerateNumerator": int,
         "GopBReference": Literal["DISABLED", "ENABLED"],
@@ -1872,7 +1930,7 @@ H265SettingsTypeDef = TypedDict(
         "DynamicSubGop": Literal["ADAPTIVE", "STATIC"],
         "FlickerAdaptiveQuantization": Literal["DISABLED", "ENABLED"],
         "FramerateControl": Literal["INITIALIZE_FROM_SOURCE", "SPECIFIED"],
-        "FramerateConversionAlgorithm": Literal["DUPLICATE_DROP", "INTERPOLATE"],
+        "FramerateConversionAlgorithm": Literal["DUPLICATE_DROP", "INTERPOLATE", "FRAMEFORMER"],
         "FramerateDenominator": int,
         "FramerateNumerator": int,
         "GopBReference": Literal["DISABLED", "ENABLED"],
@@ -2156,6 +2214,7 @@ HlsGroupSettingsTypeDef = TypedDict(
     {
         "AdMarkers": List[Literal["ELEMENTAL", "ELEMENTAL_SCTE35"]],
         "AdditionalManifests": List["HlsAdditionalManifestTypeDef"],
+        "AudioOnlyHeader": Literal["INCLUDE", "EXCLUDE"],
         "BaseUrl": str,
         "CaptionLanguageMappings": List["HlsCaptionLanguageMappingTypeDef"],
         "CaptionLanguageSetting": Literal["INSERT", "OMIT", "NONE"],
@@ -2245,6 +2304,7 @@ InputTemplateTypeDef = TypedDict(
         "FilterStrength": int,
         "ImageInserter": "ImageInserterTypeDef",
         "InputClippings": List["InputClippingTypeDef"],
+        "InputScanType": Literal["AUTO", "PSF"],
         "Position": "RectangleTypeDef",
         "ProgramNumber": int,
         "PsiControl": Literal["IGNORE_PSI", "USE_PSI"],
@@ -2270,6 +2330,7 @@ InputTypeDef = TypedDict(
         "FilterStrength": int,
         "ImageInserter": "ImageInserterTypeDef",
         "InputClippings": List["InputClippingTypeDef"],
+        "InputScanType": Literal["AUTO", "PSF"],
         "Position": "RectangleTypeDef",
         "ProgramNumber": int,
         "PsiControl": Literal["IGNORE_PSI", "USE_PSI"],
@@ -2312,6 +2373,7 @@ JobSettingsTypeDef = TypedDict(
         "Inputs": List["InputTypeDef"],
         "MotionImageInserter": "MotionImageInserterTypeDef",
         "NielsenConfiguration": "NielsenConfigurationTypeDef",
+        "NielsenNonLinearWatermark": "NielsenNonLinearWatermarkSettingsTypeDef",
         "OutputGroups": List["OutputGroupTypeDef"],
         "TimecodeConfig": "TimecodeConfigTypeDef",
         "TimedMetadataInsertion": "TimedMetadataInsertionTypeDef",
@@ -2328,6 +2390,7 @@ JobTemplateSettingsTypeDef = TypedDict(
         "Inputs": List["InputTemplateTypeDef"],
         "MotionImageInserter": "MotionImageInserterTypeDef",
         "NielsenConfiguration": "NielsenConfigurationTypeDef",
+        "NielsenNonLinearWatermark": "NielsenNonLinearWatermarkSettingsTypeDef",
         "OutputGroups": List["OutputGroupTypeDef"],
         "TimecodeConfig": "TimecodeConfigTypeDef",
         "TimedMetadataInsertion": "TimedMetadataInsertionTypeDef",
@@ -2585,7 +2648,7 @@ Mpeg2SettingsTypeDef = TypedDict(
         "CodecProfile": Literal["MAIN", "PROFILE_422"],
         "DynamicSubGop": Literal["ADAPTIVE", "STATIC"],
         "FramerateControl": Literal["INITIALIZE_FROM_SOURCE", "SPECIFIED"],
-        "FramerateConversionAlgorithm": Literal["DUPLICATE_DROP", "INTERPOLATE"],
+        "FramerateConversionAlgorithm": Literal["DUPLICATE_DROP", "INTERPOLATE", "FRAMEFORMER"],
         "FramerateDenominator": int,
         "FramerateNumerator": int,
         "GopClosedCadence": int,
@@ -2649,7 +2712,12 @@ MsSmoothGroupSettingsTypeDef = TypedDict(
 )
 
 MxfSettingsTypeDef = TypedDict(
-    "MxfSettingsTypeDef", {"AfdSignaling": Literal["NO_COPY", "COPY_FROM_VIDEO"]}, total=False
+    "MxfSettingsTypeDef",
+    {
+        "AfdSignaling": Literal["NO_COPY", "COPY_FROM_VIDEO"],
+        "Profile": Literal["D_10", "XDCAM", "OP1A"],
+    },
+    total=False,
 )
 
 NexGuardFileMarkerSettingsTypeDef = TypedDict(
@@ -2665,6 +2733,24 @@ NexGuardFileMarkerSettingsTypeDef = TypedDict(
 
 NielsenConfigurationTypeDef = TypedDict(
     "NielsenConfigurationTypeDef", {"BreakoutCode": int, "DistributorId": str}, total=False
+)
+
+NielsenNonLinearWatermarkSettingsTypeDef = TypedDict(
+    "NielsenNonLinearWatermarkSettingsTypeDef",
+    {
+        "ActiveWatermarkProcess": Literal["NAES2_AND_NW", "CBET", "NAES2_AND_NW_AND_CBET"],
+        "AdiFilename": str,
+        "AssetId": str,
+        "AssetName": str,
+        "CbetSourceId": str,
+        "EpisodeId": str,
+        "MetadataDestination": str,
+        "SourceId": int,
+        "SourceWatermarkStatus": Literal["CLEAN", "WATERMARKED"],
+        "TicServerUrl": str,
+        "UniqueTicPerAudioTrack": Literal["RESERVE_UNIQUE_TICS_PER_TRACK", "SAME_TICS_PER_TRACK"],
+    },
+    total=False,
 )
 
 NoiseReducerFilterSettingsTypeDef = TypedDict(
@@ -2739,6 +2825,7 @@ OutputGroupSettingsTypeDef = TypedDict(
 OutputGroupTypeDef = TypedDict(
     "OutputGroupTypeDef",
     {
+        "AutomatedEncodingSettings": "AutomatedEncodingSettingsTypeDef",
         "CustomName": str,
         "Name": str,
         "OutputGroupSettings": "OutputGroupSettingsTypeDef",
@@ -2762,6 +2849,7 @@ OutputTypeDef = TypedDict(
         "OutputSettings": "OutputSettingsTypeDef",
         "Preset": str,
         "VideoDescription": "VideoDescriptionTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -2814,7 +2902,7 @@ ProresSettingsTypeDef = TypedDict(
             "APPLE_PRORES_422_PROXY",
         ],
         "FramerateControl": Literal["INITIALIZE_FROM_SOURCE", "SPECIFIED"],
-        "FramerateConversionAlgorithm": Literal["DUPLICATE_DROP", "INTERPOLATE"],
+        "FramerateConversionAlgorithm": Literal["DUPLICATE_DROP", "INTERPOLATE", "FRAMEFORMER"],
         "FramerateDenominator": int,
         "FramerateNumerator": int,
         "InterlaceMode": Literal[
@@ -2883,6 +2971,17 @@ ReservationPlanTypeDef = TypedDict(
 
 ResourceTagsTypeDef = TypedDict(
     "ResourceTagsTypeDef", {"Arn": str, "Tags": Dict[str, str]}, total=False
+)
+
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
 )
 
 S3DestinationAccessControlTypeDef = TypedDict(
@@ -3023,16 +3122,44 @@ TtmlDestinationSettingsTypeDef = TypedDict(
     total=False,
 )
 
+Vc3SettingsTypeDef = TypedDict(
+    "Vc3SettingsTypeDef",
+    {
+        "FramerateControl": Literal["INITIALIZE_FROM_SOURCE", "SPECIFIED"],
+        "FramerateConversionAlgorithm": Literal["DUPLICATE_DROP", "INTERPOLATE", "FRAMEFORMER"],
+        "FramerateDenominator": int,
+        "FramerateNumerator": int,
+        "InterlaceMode": Literal["INTERLACED", "PROGRESSIVE"],
+        "SlowPal": Literal["DISABLED", "ENABLED"],
+        "Telecine": Literal["NONE", "HARD"],
+        "Vc3Class": Literal["CLASS_145_8BIT", "CLASS_220_8BIT", "CLASS_220_10BIT"],
+    },
+    total=False,
+)
+
 VideoCodecSettingsTypeDef = TypedDict(
     "VideoCodecSettingsTypeDef",
     {
         "Av1Settings": "Av1SettingsTypeDef",
-        "Codec": Literal["FRAME_CAPTURE", "AV1", "H_264", "H_265", "MPEG2", "PRORES", "VP8", "VP9"],
+        "AvcIntraSettings": "AvcIntraSettingsTypeDef",
+        "Codec": Literal[
+            "AV1",
+            "AVC_INTRA",
+            "FRAME_CAPTURE",
+            "H_264",
+            "H_265",
+            "MPEG2",
+            "PRORES",
+            "VC3",
+            "VP8",
+            "VP9",
+        ],
         "FrameCaptureSettings": "FrameCaptureSettingsTypeDef",
         "H264Settings": "H264SettingsTypeDef",
         "H265Settings": "H265SettingsTypeDef",
         "Mpeg2Settings": "Mpeg2SettingsTypeDef",
         "ProresSettings": "ProresSettingsTypeDef",
+        "Vc3Settings": "Vc3SettingsTypeDef",
         "Vp8Settings": "Vp8SettingsTypeDef",
         "Vp9Settings": "Vp9SettingsTypeDef",
     },
@@ -3102,7 +3229,7 @@ Vp8SettingsTypeDef = TypedDict(
     {
         "Bitrate": int,
         "FramerateControl": Literal["INITIALIZE_FROM_SOURCE", "SPECIFIED"],
-        "FramerateConversionAlgorithm": Literal["DUPLICATE_DROP", "INTERPOLATE"],
+        "FramerateConversionAlgorithm": Literal["DUPLICATE_DROP", "INTERPOLATE", "FRAMEFORMER"],
         "FramerateDenominator": int,
         "FramerateNumerator": int,
         "GopSize": float,
@@ -3122,7 +3249,7 @@ Vp9SettingsTypeDef = TypedDict(
     {
         "Bitrate": int,
         "FramerateControl": Literal["INITIALIZE_FROM_SOURCE", "SPECIFIED"],
-        "FramerateConversionAlgorithm": Literal["DUPLICATE_DROP", "INTERPOLATE"],
+        "FramerateConversionAlgorithm": Literal["DUPLICATE_DROP", "INTERPOLATE", "FRAMEFORMER"],
         "FramerateDenominator": int,
         "FramerateNumerator": int,
         "GopSize": float,

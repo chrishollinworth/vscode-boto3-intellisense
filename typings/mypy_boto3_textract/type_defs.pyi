@@ -10,13 +10,12 @@ Usage::
     ```
 """
 import sys
-from typing import List
+from typing import IO, Any, Dict, List, Union
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -32,6 +31,7 @@ __all__ = (
     "HumanLoopDataAttributesTypeDef",
     "PointTypeDef",
     "RelationshipTypeDef",
+    "ResponseMetadata",
     "S3ObjectTypeDef",
     "WarningTypeDef",
     "AnalyzeDocumentResponseTypeDef",
@@ -42,6 +42,7 @@ __all__ = (
     "GetDocumentTextDetectionResponseTypeDef",
     "HumanLoopConfigTypeDef",
     "NotificationChannelTypeDef",
+    "OutputConfigTypeDef",
     "StartDocumentAnalysisResponseTypeDef",
     "StartDocumentTextDetectionResponseTypeDef",
 )
@@ -54,6 +55,7 @@ BlockTypeDef = TypedDict(
         ],
         "Confidence": float,
         "Text": str,
+        "TextType": Literal["HANDWRITING", "PRINTED"],
         "RowIndex": int,
         "ColumnIndex": int,
         "RowSpan": int,
@@ -88,6 +90,7 @@ HumanLoopActivationOutputTypeDef = TypedDict(
         "HumanLoopArn": str,
         "HumanLoopActivationReasons": List[str],
         "HumanLoopActivationConditionsEvaluationResults": str,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -105,7 +108,20 @@ HumanLoopDataAttributesTypeDef = TypedDict(
 PointTypeDef = TypedDict("PointTypeDef", {"X": float, "Y": float}, total=False)
 
 RelationshipTypeDef = TypedDict(
-    "RelationshipTypeDef", {"Type": Literal["VALUE", "CHILD"], "Ids": List[str]}, total=False
+    "RelationshipTypeDef",
+    {"Type": Literal["VALUE", "CHILD", "COMPLEX_FEATURES"], "Ids": List[str]},
+    total=False,
+)
+
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
 )
 
 S3ObjectTypeDef = TypedDict(
@@ -140,7 +156,9 @@ DocumentLocationTypeDef = TypedDict(
 )
 
 DocumentTypeDef = TypedDict(
-    "DocumentTypeDef", {"Bytes": bytes, "S3Object": "S3ObjectTypeDef"}, total=False
+    "DocumentTypeDef",
+    {"Bytes": Union[bytes, IO[bytes]], "S3Object": "S3ObjectTypeDef"},
+    total=False,
 )
 
 GetDocumentAnalysisResponseTypeDef = TypedDict(
@@ -188,6 +206,16 @@ class HumanLoopConfigTypeDef(_RequiredHumanLoopConfigTypeDef, _OptionalHumanLoop
 NotificationChannelTypeDef = TypedDict(
     "NotificationChannelTypeDef", {"SNSTopicArn": str, "RoleArn": str}
 )
+
+_RequiredOutputConfigTypeDef = TypedDict("_RequiredOutputConfigTypeDef", {"S3Bucket": str})
+_OptionalOutputConfigTypeDef = TypedDict(
+    "_OptionalOutputConfigTypeDef", {"S3Prefix": str}, total=False
+)
+
+
+class OutputConfigTypeDef(_RequiredOutputConfigTypeDef, _OptionalOutputConfigTypeDef):
+    pass
+
 
 StartDocumentAnalysisResponseTypeDef = TypedDict(
     "StartDocumentAnalysisResponseTypeDef", {"JobId": str}, total=False

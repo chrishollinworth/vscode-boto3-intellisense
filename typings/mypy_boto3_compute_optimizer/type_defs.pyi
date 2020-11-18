@@ -17,7 +17,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -125,7 +124,18 @@ InstanceRecommendationTypeDef = TypedDict(
 
 ProjectedMetricTypeDef = TypedDict(
     "ProjectedMetricTypeDef",
-    {"name": Literal["Cpu", "Memory"], "timestamps": List[datetime], "values": List[float]},
+    {
+        "name": Literal[
+            "Cpu",
+            "Memory",
+            "EBS_READ_OPS_PER_SECOND",
+            "EBS_WRITE_OPS_PER_SECOND",
+            "EBS_READ_BYTES_PER_SECOND",
+            "EBS_WRITE_BYTES_PER_SECOND",
+        ],
+        "timestamps": List[datetime],
+        "values": List[float],
+    },
     total=False,
 )
 
@@ -187,7 +197,18 @@ SummaryTypeDef = TypedDict(
 
 UtilizationMetricTypeDef = TypedDict(
     "UtilizationMetricTypeDef",
-    {"name": Literal["Cpu", "Memory"], "statistic": Literal["Maximum", "Average"], "value": float},
+    {
+        "name": Literal[
+            "Cpu",
+            "Memory",
+            "EBS_READ_OPS_PER_SECOND",
+            "EBS_WRITE_OPS_PER_SECOND",
+            "EBS_READ_BYTES_PER_SECOND",
+            "EBS_WRITE_BYTES_PER_SECOND",
+        ],
+        "statistic": Literal["Maximum", "Average"],
+        "value": float,
+    },
     total=False,
 )
 

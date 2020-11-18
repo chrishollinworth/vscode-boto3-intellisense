@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Dict, List
+from typing import IO, Dict, List, Union
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -38,6 +37,7 @@ __all__ = (
     "DescribeDiscovererResponseTypeDef",
     "DescribeRegistryResponseTypeDef",
     "DescribeSchemaResponseTypeDef",
+    "ExportSchemaResponseTypeDef",
     "GetCodeBindingSourceResponseTypeDef",
     "GetDiscoveredSchemaResponseTypeDef",
     "GetResourcePolicyResponseTypeDef",
@@ -90,7 +90,12 @@ SchemaSummaryTypeDef = TypedDict(
 
 SchemaVersionSummaryTypeDef = TypedDict(
     "SchemaVersionSummaryTypeDef",
-    {"SchemaArn": str, "SchemaName": str, "SchemaVersion": str},
+    {
+        "SchemaArn": str,
+        "SchemaName": str,
+        "SchemaVersion": str,
+        "Type": Literal["OpenApi3", "JSONSchemaDraft4"],
+    },
     total=False,
 )
 
@@ -107,7 +112,11 @@ SearchSchemaSummaryTypeDef = TypedDict(
 
 SearchSchemaVersionSummaryTypeDef = TypedDict(
     "SearchSchemaVersionSummaryTypeDef",
-    {"CreatedDate": datetime, "SchemaVersion": str},
+    {
+        "CreatedDate": datetime,
+        "SchemaVersion": str,
+        "Type": Literal["OpenApi3", "JSONSchemaDraft4"],
+    },
     total=False,
 )
 
@@ -191,8 +200,14 @@ DescribeSchemaResponseTypeDef = TypedDict(
     total=False,
 )
 
+ExportSchemaResponseTypeDef = TypedDict(
+    "ExportSchemaResponseTypeDef",
+    {"Content": str, "SchemaArn": str, "SchemaName": str, "SchemaVersion": str, "Type": str},
+    total=False,
+)
+
 GetCodeBindingSourceResponseTypeDef = TypedDict(
-    "GetCodeBindingSourceResponseTypeDef", {"Body": bytes}, total=False
+    "GetCodeBindingSourceResponseTypeDef", {"Body": Union[bytes, IO[bytes]]}, total=False
 )
 
 GetDiscoveredSchemaResponseTypeDef = TypedDict(

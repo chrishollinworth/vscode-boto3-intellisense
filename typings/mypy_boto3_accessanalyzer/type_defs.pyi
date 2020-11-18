@@ -17,7 +17,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -56,12 +55,12 @@ AnalyzedResourceSummaryTypeDef = TypedDict(
         "resourceArn": str,
         "resourceOwnerAccount": str,
         "resourceType": Literal[
+            "AWS::S3::Bucket",
             "AWS::IAM::Role",
-            "AWS::KMS::Key",
+            "AWS::SQS::Queue",
             "AWS::Lambda::Function",
             "AWS::Lambda::LayerVersion",
-            "AWS::S3::Bucket",
-            "AWS::SQS::Queue",
+            "AWS::KMS::Key",
         ],
     },
 )
@@ -75,12 +74,12 @@ _RequiredAnalyzedResourceTypeDef = TypedDict(
         "resourceArn": str,
         "resourceOwnerAccount": str,
         "resourceType": Literal[
+            "AWS::S3::Bucket",
             "AWS::IAM::Role",
-            "AWS::KMS::Key",
+            "AWS::SQS::Queue",
             "AWS::Lambda::Function",
             "AWS::Lambda::LayerVersion",
-            "AWS::S3::Bucket",
-            "AWS::SQS::Queue",
+            "AWS::KMS::Key",
         ],
         "updatedAt": datetime,
     },
@@ -148,7 +147,7 @@ FindingSourceDetailTypeDef = TypedDict(
 )
 
 _RequiredFindingSourceTypeDef = TypedDict(
-    "_RequiredFindingSourceTypeDef", {"type": Literal["BUCKET_ACL", "POLICY", "S3_ACCESS_POINT"]}
+    "_RequiredFindingSourceTypeDef", {"type": Literal["POLICY", "BUCKET_ACL", "S3_ACCESS_POINT"]}
 )
 _OptionalFindingSourceTypeDef = TypedDict(
     "_OptionalFindingSourceTypeDef", {"detail": "FindingSourceDetailTypeDef"}, total=False
@@ -168,12 +167,12 @@ _RequiredFindingSummaryTypeDef = TypedDict(
         "id": str,
         "resourceOwnerAccount": str,
         "resourceType": Literal[
+            "AWS::S3::Bucket",
             "AWS::IAM::Role",
-            "AWS::KMS::Key",
+            "AWS::SQS::Queue",
             "AWS::Lambda::Function",
             "AWS::Lambda::LayerVersion",
-            "AWS::S3::Bucket",
-            "AWS::SQS::Queue",
+            "AWS::KMS::Key",
         ],
         "status": Literal["ACTIVE", "ARCHIVED", "RESOLVED"],
         "updatedAt": datetime,
@@ -206,12 +205,12 @@ _RequiredFindingTypeDef = TypedDict(
         "id": str,
         "resourceOwnerAccount": str,
         "resourceType": Literal[
+            "AWS::S3::Bucket",
             "AWS::IAM::Role",
-            "AWS::KMS::Key",
+            "AWS::SQS::Queue",
             "AWS::Lambda::Function",
             "AWS::Lambda::LayerVersion",
-            "AWS::S3::Bucket",
-            "AWS::SQS::Queue",
+            "AWS::KMS::Key",
         ],
         "status": Literal["ACTIVE", "ARCHIVED", "RESOLVED"],
         "updatedAt": datetime,

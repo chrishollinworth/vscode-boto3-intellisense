@@ -1,4 +1,4 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import
+# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for codepipeline service client
 
@@ -14,8 +14,7 @@ Usage::
 import sys
 from typing import Any, Dict, List, Type, overload
 
-from botocore.exceptions import ClientError as Boto3ClientError
-from botocore.paginate import Paginator as Boto3Paginator
+from botocore.client import ClientMeta
 
 from mypy_boto3_codepipeline.paginator import (
     ListActionExecutionsPaginator,
@@ -74,66 +73,76 @@ else:
 __all__ = ("CodePipelineClient",)
 
 
+class BotocoreClientError(BaseException):
+    MSG_TEMPLATE: str
+
+    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
+        self.response: Dict[str, Any]
+        self.operation_name: str
+
+
 class Exceptions:
-    ActionNotFoundException: Type[Boto3ClientError]
-    ActionTypeNotFoundException: Type[Boto3ClientError]
-    ApprovalAlreadyCompletedException: Type[Boto3ClientError]
-    ClientError: Type[Boto3ClientError]
-    ConcurrentModificationException: Type[Boto3ClientError]
-    DuplicatedStopRequestException: Type[Boto3ClientError]
-    InvalidActionDeclarationException: Type[Boto3ClientError]
-    InvalidApprovalTokenException: Type[Boto3ClientError]
-    InvalidArnException: Type[Boto3ClientError]
-    InvalidBlockerDeclarationException: Type[Boto3ClientError]
-    InvalidClientTokenException: Type[Boto3ClientError]
-    InvalidJobException: Type[Boto3ClientError]
-    InvalidJobStateException: Type[Boto3ClientError]
-    InvalidNextTokenException: Type[Boto3ClientError]
-    InvalidNonceException: Type[Boto3ClientError]
-    InvalidStageDeclarationException: Type[Boto3ClientError]
-    InvalidStructureException: Type[Boto3ClientError]
-    InvalidTagsException: Type[Boto3ClientError]
-    InvalidWebhookAuthenticationParametersException: Type[Boto3ClientError]
-    InvalidWebhookFilterPatternException: Type[Boto3ClientError]
-    JobNotFoundException: Type[Boto3ClientError]
-    LimitExceededException: Type[Boto3ClientError]
-    NotLatestPipelineExecutionException: Type[Boto3ClientError]
-    OutputVariablesSizeExceededException: Type[Boto3ClientError]
-    PipelineExecutionNotFoundException: Type[Boto3ClientError]
-    PipelineExecutionNotStoppableException: Type[Boto3ClientError]
-    PipelineNameInUseException: Type[Boto3ClientError]
-    PipelineNotFoundException: Type[Boto3ClientError]
-    PipelineVersionNotFoundException: Type[Boto3ClientError]
-    ResourceNotFoundException: Type[Boto3ClientError]
-    StageNotFoundException: Type[Boto3ClientError]
-    StageNotRetryableException: Type[Boto3ClientError]
-    TooManyTagsException: Type[Boto3ClientError]
-    ValidationException: Type[Boto3ClientError]
-    WebhookNotFoundException: Type[Boto3ClientError]
+    ActionNotFoundException: Type[BotocoreClientError]
+    ActionTypeNotFoundException: Type[BotocoreClientError]
+    ApprovalAlreadyCompletedException: Type[BotocoreClientError]
+    ClientError: Type[BotocoreClientError]
+    ConcurrentModificationException: Type[BotocoreClientError]
+    ConflictException: Type[BotocoreClientError]
+    DuplicatedStopRequestException: Type[BotocoreClientError]
+    InvalidActionDeclarationException: Type[BotocoreClientError]
+    InvalidApprovalTokenException: Type[BotocoreClientError]
+    InvalidArnException: Type[BotocoreClientError]
+    InvalidBlockerDeclarationException: Type[BotocoreClientError]
+    InvalidClientTokenException: Type[BotocoreClientError]
+    InvalidJobException: Type[BotocoreClientError]
+    InvalidJobStateException: Type[BotocoreClientError]
+    InvalidNextTokenException: Type[BotocoreClientError]
+    InvalidNonceException: Type[BotocoreClientError]
+    InvalidStageDeclarationException: Type[BotocoreClientError]
+    InvalidStructureException: Type[BotocoreClientError]
+    InvalidTagsException: Type[BotocoreClientError]
+    InvalidWebhookAuthenticationParametersException: Type[BotocoreClientError]
+    InvalidWebhookFilterPatternException: Type[BotocoreClientError]
+    JobNotFoundException: Type[BotocoreClientError]
+    LimitExceededException: Type[BotocoreClientError]
+    NotLatestPipelineExecutionException: Type[BotocoreClientError]
+    OutputVariablesSizeExceededException: Type[BotocoreClientError]
+    PipelineExecutionNotFoundException: Type[BotocoreClientError]
+    PipelineExecutionNotStoppableException: Type[BotocoreClientError]
+    PipelineNameInUseException: Type[BotocoreClientError]
+    PipelineNotFoundException: Type[BotocoreClientError]
+    PipelineVersionNotFoundException: Type[BotocoreClientError]
+    ResourceNotFoundException: Type[BotocoreClientError]
+    StageNotFoundException: Type[BotocoreClientError]
+    StageNotRetryableException: Type[BotocoreClientError]
+    TooManyTagsException: Type[BotocoreClientError]
+    ValidationException: Type[BotocoreClientError]
+    WebhookNotFoundException: Type[BotocoreClientError]
 
 
 class CodePipelineClient:
     """
-    [CodePipeline.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codepipeline.html#CodePipeline.Client)
+    [CodePipeline.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Client)
     """
 
+    meta: ClientMeta
     exceptions: Exceptions
 
     def acknowledge_job(self, jobId: str, nonce: str) -> AcknowledgeJobOutputTypeDef:
         """
-        [Client.acknowledge_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codepipeline.html#CodePipeline.Client.acknowledge_job)
+        [Client.acknowledge_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Client.acknowledge_job)
         """
 
     def acknowledge_third_party_job(
         self, jobId: str, nonce: str, clientToken: str
     ) -> AcknowledgeThirdPartyJobOutputTypeDef:
         """
-        [Client.acknowledge_third_party_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codepipeline.html#CodePipeline.Client.acknowledge_third_party_job)
+        [Client.acknowledge_third_party_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Client.acknowledge_third_party_job)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codepipeline.html#CodePipeline.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Client.can_paginate)
         """
 
     def create_custom_action_type(
@@ -148,14 +157,14 @@ class CodePipelineClient:
         tags: List["TagTypeDef"] = None,
     ) -> CreateCustomActionTypeOutputTypeDef:
         """
-        [Client.create_custom_action_type documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codepipeline.html#CodePipeline.Client.create_custom_action_type)
+        [Client.create_custom_action_type documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Client.create_custom_action_type)
         """
 
     def create_pipeline(
         self, pipeline: "PipelineDeclarationTypeDef", tags: List["TagTypeDef"] = None
     ) -> CreatePipelineOutputTypeDef:
         """
-        [Client.create_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codepipeline.html#CodePipeline.Client.create_pipeline)
+        [Client.create_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Client.create_pipeline)
         """
 
     def delete_custom_action_type(
@@ -165,22 +174,22 @@ class CodePipelineClient:
         version: str,
     ) -> None:
         """
-        [Client.delete_custom_action_type documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codepipeline.html#CodePipeline.Client.delete_custom_action_type)
+        [Client.delete_custom_action_type documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Client.delete_custom_action_type)
         """
 
     def delete_pipeline(self, name: str) -> None:
         """
-        [Client.delete_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codepipeline.html#CodePipeline.Client.delete_pipeline)
+        [Client.delete_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Client.delete_pipeline)
         """
 
     def delete_webhook(self, name: str) -> Dict[str, Any]:
         """
-        [Client.delete_webhook documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codepipeline.html#CodePipeline.Client.delete_webhook)
+        [Client.delete_webhook documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Client.delete_webhook)
         """
 
     def deregister_webhook_with_third_party(self, webhookName: str = None) -> Dict[str, Any]:
         """
-        [Client.deregister_webhook_with_third_party documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codepipeline.html#CodePipeline.Client.deregister_webhook_with_third_party)
+        [Client.deregister_webhook_with_third_party documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Client.deregister_webhook_with_third_party)
         """
 
     def disable_stage_transition(
@@ -191,14 +200,14 @@ class CodePipelineClient:
         reason: str,
     ) -> None:
         """
-        [Client.disable_stage_transition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codepipeline.html#CodePipeline.Client.disable_stage_transition)
+        [Client.disable_stage_transition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Client.disable_stage_transition)
         """
 
     def enable_stage_transition(
         self, pipelineName: str, stageName: str, transitionType: Literal["Inbound", "Outbound"]
     ) -> None:
         """
-        [Client.enable_stage_transition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codepipeline.html#CodePipeline.Client.enable_stage_transition)
+        [Client.enable_stage_transition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Client.enable_stage_transition)
         """
 
     def generate_presigned_url(
@@ -209,36 +218,36 @@ class CodePipelineClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codepipeline.html#CodePipeline.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Client.generate_presigned_url)
         """
 
     def get_job_details(self, jobId: str) -> GetJobDetailsOutputTypeDef:
         """
-        [Client.get_job_details documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codepipeline.html#CodePipeline.Client.get_job_details)
+        [Client.get_job_details documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Client.get_job_details)
         """
 
     def get_pipeline(self, name: str, version: int = None) -> GetPipelineOutputTypeDef:
         """
-        [Client.get_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codepipeline.html#CodePipeline.Client.get_pipeline)
+        [Client.get_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Client.get_pipeline)
         """
 
     def get_pipeline_execution(
         self, pipelineName: str, pipelineExecutionId: str
     ) -> GetPipelineExecutionOutputTypeDef:
         """
-        [Client.get_pipeline_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codepipeline.html#CodePipeline.Client.get_pipeline_execution)
+        [Client.get_pipeline_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Client.get_pipeline_execution)
         """
 
     def get_pipeline_state(self, name: str) -> GetPipelineStateOutputTypeDef:
         """
-        [Client.get_pipeline_state documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codepipeline.html#CodePipeline.Client.get_pipeline_state)
+        [Client.get_pipeline_state documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Client.get_pipeline_state)
         """
 
     def get_third_party_job_details(
         self, jobId: str, clientToken: str
     ) -> GetThirdPartyJobDetailsOutputTypeDef:
         """
-        [Client.get_third_party_job_details documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codepipeline.html#CodePipeline.Client.get_third_party_job_details)
+        [Client.get_third_party_job_details documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Client.get_third_party_job_details)
         """
 
     def list_action_executions(
@@ -249,7 +258,7 @@ class CodePipelineClient:
         nextToken: str = None,
     ) -> ListActionExecutionsOutputTypeDef:
         """
-        [Client.list_action_executions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codepipeline.html#CodePipeline.Client.list_action_executions)
+        [Client.list_action_executions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Client.list_action_executions)
         """
 
     def list_action_types(
@@ -258,33 +267,33 @@ class CodePipelineClient:
         nextToken: str = None,
     ) -> ListActionTypesOutputTypeDef:
         """
-        [Client.list_action_types documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codepipeline.html#CodePipeline.Client.list_action_types)
+        [Client.list_action_types documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Client.list_action_types)
         """
 
     def list_pipeline_executions(
         self, pipelineName: str, maxResults: int = None, nextToken: str = None
     ) -> ListPipelineExecutionsOutputTypeDef:
         """
-        [Client.list_pipeline_executions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codepipeline.html#CodePipeline.Client.list_pipeline_executions)
+        [Client.list_pipeline_executions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Client.list_pipeline_executions)
         """
 
     def list_pipelines(self, nextToken: str = None) -> ListPipelinesOutputTypeDef:
         """
-        [Client.list_pipelines documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codepipeline.html#CodePipeline.Client.list_pipelines)
+        [Client.list_pipelines documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Client.list_pipelines)
         """
 
     def list_tags_for_resource(
         self, resourceArn: str, nextToken: str = None, maxResults: int = None
     ) -> ListTagsForResourceOutputTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codepipeline.html#CodePipeline.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Client.list_tags_for_resource)
         """
 
     def list_webhooks(
         self, NextToken: str = None, MaxResults: int = None
     ) -> ListWebhooksOutputTypeDef:
         """
-        [Client.list_webhooks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codepipeline.html#CodePipeline.Client.list_webhooks)
+        [Client.list_webhooks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Client.list_webhooks)
         """
 
     def poll_for_jobs(
@@ -294,14 +303,14 @@ class CodePipelineClient:
         queryParam: Dict[str, str] = None,
     ) -> PollForJobsOutputTypeDef:
         """
-        [Client.poll_for_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codepipeline.html#CodePipeline.Client.poll_for_jobs)
+        [Client.poll_for_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Client.poll_for_jobs)
         """
 
     def poll_for_third_party_jobs(
         self, actionTypeId: "ActionTypeIdTypeDef", maxBatchSize: int = None
     ) -> PollForThirdPartyJobsOutputTypeDef:
         """
-        [Client.poll_for_third_party_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codepipeline.html#CodePipeline.Client.poll_for_third_party_jobs)
+        [Client.poll_for_third_party_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Client.poll_for_third_party_jobs)
         """
 
     def put_action_revision(
@@ -312,7 +321,7 @@ class CodePipelineClient:
         actionRevision: "ActionRevisionTypeDef",
     ) -> PutActionRevisionOutputTypeDef:
         """
-        [Client.put_action_revision documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codepipeline.html#CodePipeline.Client.put_action_revision)
+        [Client.put_action_revision documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Client.put_action_revision)
         """
 
     def put_approval_result(
@@ -324,12 +333,12 @@ class CodePipelineClient:
         token: str,
     ) -> PutApprovalResultOutputTypeDef:
         """
-        [Client.put_approval_result documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codepipeline.html#CodePipeline.Client.put_approval_result)
+        [Client.put_approval_result documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Client.put_approval_result)
         """
 
     def put_job_failure_result(self, jobId: str, failureDetails: FailureDetailsTypeDef) -> None:
         """
-        [Client.put_job_failure_result documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codepipeline.html#CodePipeline.Client.put_job_failure_result)
+        [Client.put_job_failure_result documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Client.put_job_failure_result)
         """
 
     def put_job_success_result(
@@ -341,14 +350,14 @@ class CodePipelineClient:
         outputVariables: Dict[str, str] = None,
     ) -> None:
         """
-        [Client.put_job_success_result documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codepipeline.html#CodePipeline.Client.put_job_success_result)
+        [Client.put_job_success_result documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Client.put_job_success_result)
         """
 
     def put_third_party_job_failure_result(
         self, jobId: str, clientToken: str, failureDetails: FailureDetailsTypeDef
     ) -> None:
         """
-        [Client.put_third_party_job_failure_result documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codepipeline.html#CodePipeline.Client.put_third_party_job_failure_result)
+        [Client.put_third_party_job_failure_result documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Client.put_third_party_job_failure_result)
         """
 
     def put_third_party_job_success_result(
@@ -360,19 +369,19 @@ class CodePipelineClient:
         executionDetails: ExecutionDetailsTypeDef = None,
     ) -> None:
         """
-        [Client.put_third_party_job_success_result documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codepipeline.html#CodePipeline.Client.put_third_party_job_success_result)
+        [Client.put_third_party_job_success_result documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Client.put_third_party_job_success_result)
         """
 
     def put_webhook(
         self, webhook: "WebhookDefinitionTypeDef", tags: List["TagTypeDef"] = None
     ) -> PutWebhookOutputTypeDef:
         """
-        [Client.put_webhook documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codepipeline.html#CodePipeline.Client.put_webhook)
+        [Client.put_webhook documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Client.put_webhook)
         """
 
     def register_webhook_with_third_party(self, webhookName: str = None) -> Dict[str, Any]:
         """
-        [Client.register_webhook_with_third_party documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codepipeline.html#CodePipeline.Client.register_webhook_with_third_party)
+        [Client.register_webhook_with_third_party documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Client.register_webhook_with_third_party)
         """
 
     def retry_stage_execution(
@@ -383,38 +392,38 @@ class CodePipelineClient:
         retryMode: Literal["FAILED_ACTIONS"],
     ) -> RetryStageExecutionOutputTypeDef:
         """
-        [Client.retry_stage_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codepipeline.html#CodePipeline.Client.retry_stage_execution)
+        [Client.retry_stage_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Client.retry_stage_execution)
         """
 
     def start_pipeline_execution(
         self, name: str, clientRequestToken: str = None
     ) -> StartPipelineExecutionOutputTypeDef:
         """
-        [Client.start_pipeline_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codepipeline.html#CodePipeline.Client.start_pipeline_execution)
+        [Client.start_pipeline_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Client.start_pipeline_execution)
         """
 
     def stop_pipeline_execution(
         self, pipelineName: str, pipelineExecutionId: str, abandon: bool = None, reason: str = None
     ) -> StopPipelineExecutionOutputTypeDef:
         """
-        [Client.stop_pipeline_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codepipeline.html#CodePipeline.Client.stop_pipeline_execution)
+        [Client.stop_pipeline_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Client.stop_pipeline_execution)
         """
 
     def tag_resource(self, resourceArn: str, tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codepipeline.html#CodePipeline.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Client.tag_resource)
         """
 
     def untag_resource(self, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codepipeline.html#CodePipeline.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Client.untag_resource)
         """
 
     def update_pipeline(
         self, pipeline: "PipelineDeclarationTypeDef"
     ) -> UpdatePipelineOutputTypeDef:
         """
-        [Client.update_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codepipeline.html#CodePipeline.Client.update_pipeline)
+        [Client.update_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Client.update_pipeline)
         """
 
     @overload
@@ -422,7 +431,7 @@ class CodePipelineClient:
         self, operation_name: Literal["list_action_executions"]
     ) -> ListActionExecutionsPaginator:
         """
-        [Paginator.ListActionExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codepipeline.html#CodePipeline.Paginator.ListActionExecutions)
+        [Paginator.ListActionExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Paginator.ListActionExecutions)
         """
 
     @overload
@@ -430,7 +439,7 @@ class CodePipelineClient:
         self, operation_name: Literal["list_action_types"]
     ) -> ListActionTypesPaginator:
         """
-        [Paginator.ListActionTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codepipeline.html#CodePipeline.Paginator.ListActionTypes)
+        [Paginator.ListActionTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Paginator.ListActionTypes)
         """
 
     @overload
@@ -438,13 +447,13 @@ class CodePipelineClient:
         self, operation_name: Literal["list_pipeline_executions"]
     ) -> ListPipelineExecutionsPaginator:
         """
-        [Paginator.ListPipelineExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codepipeline.html#CodePipeline.Paginator.ListPipelineExecutions)
+        [Paginator.ListPipelineExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Paginator.ListPipelineExecutions)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_pipelines"]) -> ListPipelinesPaginator:
         """
-        [Paginator.ListPipelines documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codepipeline.html#CodePipeline.Paginator.ListPipelines)
+        [Paginator.ListPipelines documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Paginator.ListPipelines)
         """
 
     @overload
@@ -452,14 +461,11 @@ class CodePipelineClient:
         self, operation_name: Literal["list_tags_for_resource"]
     ) -> ListTagsForResourcePaginator:
         """
-        [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codepipeline.html#CodePipeline.Paginator.ListTagsForResource)
+        [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Paginator.ListTagsForResource)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_webhooks"]) -> ListWebhooksPaginator:
         """
-        [Paginator.ListWebhooks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codepipeline.html#CodePipeline.Paginator.ListWebhooks)
+        [Paginator.ListWebhooks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Paginator.ListWebhooks)
         """
-
-    def get_paginator(self, operation_name: str) -> Boto3Paginator:
-        pass

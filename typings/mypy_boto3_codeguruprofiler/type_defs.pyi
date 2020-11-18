@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Dict, List
+from typing import IO, Dict, List, Union
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -278,7 +277,7 @@ GetNotificationConfigurationResponseTypeDef = TypedDict(
 GetPolicyResponseTypeDef = TypedDict("GetPolicyResponseTypeDef", {"policy": str, "revisionId": str})
 
 _RequiredGetProfileResponseTypeDef = TypedDict(
-    "_RequiredGetProfileResponseTypeDef", {"contentType": str, "profile": bytes}
+    "_RequiredGetProfileResponseTypeDef", {"contentType": str, "profile": Union[bytes, IO[bytes]]}
 )
 _OptionalGetProfileResponseTypeDef = TypedDict(
     "_OptionalGetProfileResponseTypeDef", {"contentEncoding": str}, total=False

@@ -26,10 +26,10 @@ __all__ = ("ResourceRecordSetsChangedWaiter",)
 
 class ResourceRecordSetsChangedWaiter(Boto3Waiter):
     """
-    [Waiter.ResourceRecordSetsChanged documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/route53.html#Route53.Waiter.ResourceRecordSetsChanged)
+    [Waiter.ResourceRecordSetsChanged documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/route53.html#Route53.Waiter.ResourceRecordSetsChanged)
     """
 
     def wait(self, Id: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [ResourceRecordSetsChanged.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/route53.html#Route53.Waiter.ResourceRecordSetsChanged.wait)
+        [ResourceRecordSetsChanged.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/route53.html#Route53.Waiter.ResourceRecordSetsChanged.wait)
         """

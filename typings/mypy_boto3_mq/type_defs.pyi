@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Dict, List
+from typing import Any, Dict, List
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -40,6 +39,7 @@ __all__ = (
     "LogsSummaryTypeDef",
     "LogsTypeDef",
     "PendingLogsTypeDef",
+    "ResponseMetadata",
     "SanitizationWarningTypeDef",
     "UserPendingChangesTypeDef",
     "UserSummaryTypeDef",
@@ -69,7 +69,7 @@ AvailabilityZoneTypeDef = TypedDict("AvailabilityZoneTypeDef", {"Name": str}, to
 
 BrokerEngineTypeTypeDef = TypedDict(
     "BrokerEngineTypeTypeDef",
-    {"EngineType": Literal["ACTIVEMQ"], "EngineVersions": List["EngineVersionTypeDef"]},
+    {"EngineType": Literal["ACTIVEMQ", "RABBITMQ"], "EngineVersions": List["EngineVersionTypeDef"]},
     total=False,
 )
 
@@ -77,10 +77,12 @@ BrokerInstanceOptionTypeDef = TypedDict(
     "BrokerInstanceOptionTypeDef",
     {
         "AvailabilityZones": List["AvailabilityZoneTypeDef"],
-        "EngineType": Literal["ACTIVEMQ"],
+        "EngineType": Literal["ACTIVEMQ", "RABBITMQ"],
         "HostInstanceType": str,
         "StorageType": Literal["EBS", "EFS"],
-        "SupportedDeploymentModes": List[Literal["SINGLE_INSTANCE", "ACTIVE_STANDBY_MULTI_AZ"]],
+        "SupportedDeploymentModes": List[
+            Literal["SINGLE_INSTANCE", "ACTIVE_STANDBY_MULTI_AZ", "CLUSTER_MULTI_AZ"]
+        ],
         "SupportedEngineVersions": List[str],
     },
     total=False,
@@ -106,7 +108,8 @@ BrokerSummaryTypeDef = TypedDict(
             "REBOOT_IN_PROGRESS",
         ],
         "Created": datetime,
-        "DeploymentMode": Literal["SINGLE_INSTANCE", "ACTIVE_STANDBY_MULTI_AZ"],
+        "DeploymentMode": Literal["SINGLE_INSTANCE", "ACTIVE_STANDBY_MULTI_AZ", "CLUSTER_MULTI_AZ"],
+        "EngineType": Literal["ACTIVEMQ", "RABBITMQ"],
         "HostInstanceType": str,
     },
     total=False,
@@ -129,7 +132,7 @@ ConfigurationTypeDef = TypedDict(
         "AuthenticationStrategy": Literal["SIMPLE", "LDAP"],
         "Created": datetime,
         "Description": str,
-        "EngineType": Literal["ACTIVEMQ"],
+        "EngineType": Literal["ACTIVEMQ", "RABBITMQ"],
         "EngineVersion": str,
         "Id": str,
         "LatestRevision": "ConfigurationRevisionTypeDef",
@@ -178,6 +181,7 @@ LdapServerMetadataOutputTypeDef = TypedDict(
         "UserRoleName": str,
         "UserSearchMatching": str,
         "UserSearchSubtree": bool,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -197,6 +201,17 @@ LogsSummaryTypeDef = TypedDict(
 LogsTypeDef = TypedDict("LogsTypeDef", {"Audit": bool, "General": bool}, total=False)
 
 PendingLogsTypeDef = TypedDict("PendingLogsTypeDef", {"Audit": bool, "General": bool}, total=False)
+
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
 
 SanitizationWarningTypeDef = TypedDict(
     "SanitizationWarningTypeDef",
@@ -295,9 +310,9 @@ DescribeBrokerResponseTypeDef = TypedDict(
         ],
         "Configurations": "ConfigurationsTypeDef",
         "Created": datetime,
-        "DeploymentMode": Literal["SINGLE_INSTANCE", "ACTIVE_STANDBY_MULTI_AZ"],
+        "DeploymentMode": Literal["SINGLE_INSTANCE", "ACTIVE_STANDBY_MULTI_AZ", "CLUSTER_MULTI_AZ"],
         "EncryptionOptions": "EncryptionOptionsTypeDef",
-        "EngineType": Literal["ACTIVEMQ"],
+        "EngineType": Literal["ACTIVEMQ", "RABBITMQ"],
         "EngineVersion": str,
         "HostInstanceType": str,
         "LdapServerMetadata": "LdapServerMetadataOutputTypeDef",
@@ -325,7 +340,7 @@ DescribeConfigurationResponseTypeDef = TypedDict(
         "AuthenticationStrategy": Literal["SIMPLE", "LDAP"],
         "Created": datetime,
         "Description": str,
-        "EngineType": Literal["ACTIVEMQ"],
+        "EngineType": Literal["ACTIVEMQ", "RABBITMQ"],
         "EngineVersion": str,
         "Id": str,
         "LatestRevision": "ConfigurationRevisionTypeDef",

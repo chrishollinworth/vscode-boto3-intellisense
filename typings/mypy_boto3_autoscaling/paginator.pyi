@@ -71,7 +71,7 @@ __all__ = (
 
 class DescribeAutoScalingGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeAutoScalingGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeAutoScalingGroups)
+    [Paginator.DescribeAutoScalingGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeAutoScalingGroups)
     """
 
     def paginate(
@@ -80,26 +80,26 @@ class DescribeAutoScalingGroupsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[AutoScalingGroupsTypeTypeDef]:
         """
-        [DescribeAutoScalingGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeAutoScalingGroups.paginate)
+        [DescribeAutoScalingGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeAutoScalingGroups.paginate)
         """
 
 
 class DescribeAutoScalingInstancesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeAutoScalingInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeAutoScalingInstances)
+    [Paginator.DescribeAutoScalingInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeAutoScalingInstances)
     """
 
     def paginate(
         self, InstanceIds: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[AutoScalingInstancesTypeTypeDef]:
         """
-        [DescribeAutoScalingInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeAutoScalingInstances.paginate)
+        [DescribeAutoScalingInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeAutoScalingInstances.paginate)
         """
 
 
 class DescribeLaunchConfigurationsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeLaunchConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeLaunchConfigurations)
+    [Paginator.DescribeLaunchConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeLaunchConfigurations)
     """
 
     def paginate(
@@ -108,39 +108,39 @@ class DescribeLaunchConfigurationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[LaunchConfigurationsTypeTypeDef]:
         """
-        [DescribeLaunchConfigurations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeLaunchConfigurations.paginate)
+        [DescribeLaunchConfigurations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeLaunchConfigurations.paginate)
         """
 
 
 class DescribeLoadBalancerTargetGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeLoadBalancerTargetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeLoadBalancerTargetGroups)
+    [Paginator.DescribeLoadBalancerTargetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeLoadBalancerTargetGroups)
     """
 
     def paginate(
         self, AutoScalingGroupName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeLoadBalancerTargetGroupsResponseTypeDef]:
         """
-        [DescribeLoadBalancerTargetGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeLoadBalancerTargetGroups.paginate)
+        [DescribeLoadBalancerTargetGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeLoadBalancerTargetGroups.paginate)
         """
 
 
 class DescribeLoadBalancersPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeLoadBalancers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeLoadBalancers)
+    [Paginator.DescribeLoadBalancers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeLoadBalancers)
     """
 
     def paginate(
         self, AutoScalingGroupName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeLoadBalancersResponseTypeDef]:
         """
-        [DescribeLoadBalancers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeLoadBalancers.paginate)
+        [DescribeLoadBalancers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeLoadBalancers.paginate)
         """
 
 
 class DescribeNotificationConfigurationsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeNotificationConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeNotificationConfigurations)
+    [Paginator.DescribeNotificationConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeNotificationConfigurations)
     """
 
     def paginate(
@@ -149,13 +149,13 @@ class DescribeNotificationConfigurationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeNotificationConfigurationsAnswerTypeDef]:
         """
-        [DescribeNotificationConfigurations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeNotificationConfigurations.paginate)
+        [DescribeNotificationConfigurations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeNotificationConfigurations.paginate)
         """
 
 
 class DescribePoliciesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribePolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/autoscaling.html#AutoScaling.Paginator.DescribePolicies)
+    [Paginator.DescribePolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/autoscaling.html#AutoScaling.Paginator.DescribePolicies)
     """
 
     def paginate(
@@ -166,13 +166,13 @@ class DescribePoliciesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[PoliciesTypeTypeDef]:
         """
-        [DescribePolicies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/autoscaling.html#AutoScaling.Paginator.DescribePolicies.paginate)
+        [DescribePolicies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/autoscaling.html#AutoScaling.Paginator.DescribePolicies.paginate)
         """
 
 
 class DescribeScalingActivitiesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeScalingActivities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeScalingActivities)
+    [Paginator.DescribeScalingActivities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeScalingActivities)
     """
 
     def paginate(
@@ -182,13 +182,13 @@ class DescribeScalingActivitiesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ActivitiesTypeTypeDef]:
         """
-        [DescribeScalingActivities.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeScalingActivities.paginate)
+        [DescribeScalingActivities.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeScalingActivities.paginate)
         """
 
 
 class DescribeScheduledActionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeScheduledActions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeScheduledActions)
+    [Paginator.DescribeScheduledActions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeScheduledActions)
     """
 
     def paginate(
@@ -200,18 +200,18 @@ class DescribeScheduledActionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ScheduledActionsTypeTypeDef]:
         """
-        [DescribeScheduledActions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeScheduledActions.paginate)
+        [DescribeScheduledActions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeScheduledActions.paginate)
         """
 
 
 class DescribeTagsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeTags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeTags)
+    [Paginator.DescribeTags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeTags)
     """
 
     def paginate(
         self, Filters: List[FilterTypeDef] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[TagsTypeTypeDef]:
         """
-        [DescribeTags.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeTags.paginate)
+        [DescribeTags.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/autoscaling.html#AutoScaling.Paginator.DescribeTags.paginate)
         """

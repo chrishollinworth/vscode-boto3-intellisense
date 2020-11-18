@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Dict, List
+from typing import IO, Dict, List, Union
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -209,7 +208,7 @@ DecryptResponseTypeDef = TypedDict(
     "DecryptResponseTypeDef",
     {
         "KeyId": str,
-        "Plaintext": bytes,
+        "Plaintext": Union[bytes, IO[bytes]],
         "EncryptionAlgorithm": Literal[
             "SYMMETRIC_DEFAULT", "RSAES_OAEP_SHA_1", "RSAES_OAEP_SHA_256"
         ],
@@ -234,7 +233,7 @@ DescribeKeyResponseTypeDef = TypedDict(
 EncryptResponseTypeDef = TypedDict(
     "EncryptResponseTypeDef",
     {
-        "CiphertextBlob": bytes,
+        "CiphertextBlob": Union[bytes, IO[bytes]],
         "KeyId": str,
         "EncryptionAlgorithm": Literal[
             "SYMMETRIC_DEFAULT", "RSAES_OAEP_SHA_1", "RSAES_OAEP_SHA_256"
@@ -246,9 +245,9 @@ EncryptResponseTypeDef = TypedDict(
 GenerateDataKeyPairResponseTypeDef = TypedDict(
     "GenerateDataKeyPairResponseTypeDef",
     {
-        "PrivateKeyCiphertextBlob": bytes,
-        "PrivateKeyPlaintext": bytes,
-        "PublicKey": bytes,
+        "PrivateKeyCiphertextBlob": Union[bytes, IO[bytes]],
+        "PrivateKeyPlaintext": Union[bytes, IO[bytes]],
+        "PublicKey": Union[bytes, IO[bytes]],
         "KeyId": str,
         "KeyPairSpec": Literal[
             "RSA_2048",
@@ -266,8 +265,8 @@ GenerateDataKeyPairResponseTypeDef = TypedDict(
 GenerateDataKeyPairWithoutPlaintextResponseTypeDef = TypedDict(
     "GenerateDataKeyPairWithoutPlaintextResponseTypeDef",
     {
-        "PrivateKeyCiphertextBlob": bytes,
-        "PublicKey": bytes,
+        "PrivateKeyCiphertextBlob": Union[bytes, IO[bytes]],
+        "PublicKey": Union[bytes, IO[bytes]],
         "KeyId": str,
         "KeyPairSpec": Literal[
             "RSA_2048",
@@ -284,18 +283,18 @@ GenerateDataKeyPairWithoutPlaintextResponseTypeDef = TypedDict(
 
 GenerateDataKeyResponseTypeDef = TypedDict(
     "GenerateDataKeyResponseTypeDef",
-    {"CiphertextBlob": bytes, "Plaintext": bytes, "KeyId": str},
+    {"CiphertextBlob": Union[bytes, IO[bytes]], "Plaintext": Union[bytes, IO[bytes]], "KeyId": str},
     total=False,
 )
 
 GenerateDataKeyWithoutPlaintextResponseTypeDef = TypedDict(
     "GenerateDataKeyWithoutPlaintextResponseTypeDef",
-    {"CiphertextBlob": bytes, "KeyId": str},
+    {"CiphertextBlob": Union[bytes, IO[bytes]], "KeyId": str},
     total=False,
 )
 
 GenerateRandomResponseTypeDef = TypedDict(
-    "GenerateRandomResponseTypeDef", {"Plaintext": bytes}, total=False
+    "GenerateRandomResponseTypeDef", {"Plaintext": Union[bytes, IO[bytes]]}, total=False
 )
 
 GetKeyPolicyResponseTypeDef = TypedDict("GetKeyPolicyResponseTypeDef", {"Policy": str}, total=False)
@@ -306,7 +305,12 @@ GetKeyRotationStatusResponseTypeDef = TypedDict(
 
 GetParametersForImportResponseTypeDef = TypedDict(
     "GetParametersForImportResponseTypeDef",
-    {"KeyId": str, "ImportToken": bytes, "PublicKey": bytes, "ParametersValidTo": datetime},
+    {
+        "KeyId": str,
+        "ImportToken": Union[bytes, IO[bytes]],
+        "PublicKey": Union[bytes, IO[bytes]],
+        "ParametersValidTo": datetime,
+    },
     total=False,
 )
 
@@ -314,7 +318,7 @@ GetPublicKeyResponseTypeDef = TypedDict(
     "GetPublicKeyResponseTypeDef",
     {
         "KeyId": str,
-        "PublicKey": bytes,
+        "PublicKey": Union[bytes, IO[bytes]],
         "CustomerMasterKeySpec": Literal[
             "RSA_2048",
             "RSA_3072",
@@ -383,7 +387,7 @@ PaginatorConfigTypeDef = TypedDict(
 ReEncryptResponseTypeDef = TypedDict(
     "ReEncryptResponseTypeDef",
     {
-        "CiphertextBlob": bytes,
+        "CiphertextBlob": Union[bytes, IO[bytes]],
         "SourceKeyId": str,
         "KeyId": str,
         "SourceEncryptionAlgorithm": Literal[
@@ -404,7 +408,7 @@ SignResponseTypeDef = TypedDict(
     "SignResponseTypeDef",
     {
         "KeyId": str,
-        "Signature": bytes,
+        "Signature": Union[bytes, IO[bytes]],
         "SigningAlgorithm": Literal[
             "RSASSA_PSS_SHA_256",
             "RSASSA_PSS_SHA_384",

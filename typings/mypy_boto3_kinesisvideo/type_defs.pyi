@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Dict, List
+from typing import Any, Dict, List
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -27,6 +26,7 @@ else:
 __all__ = (
     "ChannelInfoTypeDef",
     "ResourceEndpointListItemTypeDef",
+    "ResponseMetadata",
     "SingleMasterConfigurationTypeDef",
     "StreamInfoTypeDef",
     "ChannelNameConditionTypeDef",
@@ -66,6 +66,17 @@ ResourceEndpointListItemTypeDef = TypedDict(
     total=False,
 )
 
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
+
 SingleMasterConfigurationTypeDef = TypedDict(
     "SingleMasterConfigurationTypeDef", {"MessageTtlSeconds": int}, total=False
 )
@@ -93,47 +104,74 @@ ChannelNameConditionTypeDef = TypedDict(
 )
 
 CreateSignalingChannelOutputTypeDef = TypedDict(
-    "CreateSignalingChannelOutputTypeDef", {"ChannelARN": str}, total=False
+    "CreateSignalingChannelOutputTypeDef",
+    {"ChannelARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
-CreateStreamOutputTypeDef = TypedDict("CreateStreamOutputTypeDef", {"StreamARN": str}, total=False)
+CreateStreamOutputTypeDef = TypedDict(
+    "CreateStreamOutputTypeDef",
+    {"StreamARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
 
 DescribeSignalingChannelOutputTypeDef = TypedDict(
-    "DescribeSignalingChannelOutputTypeDef", {"ChannelInfo": "ChannelInfoTypeDef"}, total=False
+    "DescribeSignalingChannelOutputTypeDef",
+    {"ChannelInfo": "ChannelInfoTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 DescribeStreamOutputTypeDef = TypedDict(
-    "DescribeStreamOutputTypeDef", {"StreamInfo": "StreamInfoTypeDef"}, total=False
+    "DescribeStreamOutputTypeDef",
+    {"StreamInfo": "StreamInfoTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 GetDataEndpointOutputTypeDef = TypedDict(
-    "GetDataEndpointOutputTypeDef", {"DataEndpoint": str}, total=False
+    "GetDataEndpointOutputTypeDef",
+    {"DataEndpoint": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 GetSignalingChannelEndpointOutputTypeDef = TypedDict(
     "GetSignalingChannelEndpointOutputTypeDef",
-    {"ResourceEndpointList": List["ResourceEndpointListItemTypeDef"]},
+    {
+        "ResourceEndpointList": List["ResourceEndpointListItemTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListSignalingChannelsOutputTypeDef = TypedDict(
     "ListSignalingChannelsOutputTypeDef",
-    {"ChannelInfoList": List["ChannelInfoTypeDef"], "NextToken": str},
+    {
+        "ChannelInfoList": List["ChannelInfoTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListStreamsOutputTypeDef = TypedDict(
     "ListStreamsOutputTypeDef",
-    {"StreamInfoList": List["StreamInfoTypeDef"], "NextToken": str},
+    {
+        "StreamInfoList": List["StreamInfoTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListTagsForResourceOutputTypeDef = TypedDict(
-    "ListTagsForResourceOutputTypeDef", {"NextToken": str, "Tags": Dict[str, str]}, total=False
+    "ListTagsForResourceOutputTypeDef",
+    {"NextToken": str, "Tags": Dict[str, str], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ListTagsForStreamOutputTypeDef = TypedDict(
-    "ListTagsForStreamOutputTypeDef", {"NextToken": str, "Tags": Dict[str, str]}, total=False
+    "ListTagsForStreamOutputTypeDef",
+    {"NextToken": str, "Tags": Dict[str, str], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 PaginatorConfigTypeDef = TypedDict(

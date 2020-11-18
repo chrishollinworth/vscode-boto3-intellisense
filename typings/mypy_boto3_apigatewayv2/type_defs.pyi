@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Dict, List
+from typing import IO, Dict, List, Union
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -37,6 +36,7 @@ __all__ = (
     "IntegrationTypeDef",
     "JWTConfigurationTypeDef",
     "ModelTypeDef",
+    "MutualTlsAuthenticationTypeDef",
     "ParameterConstraintsTypeDef",
     "RouteResponseTypeDef",
     "RouteSettingsTypeDef",
@@ -84,6 +84,7 @@ __all__ = (
     "GetVpcLinkResponseTypeDef",
     "GetVpcLinksResponseTypeDef",
     "ImportApiResponseTypeDef",
+    "MutualTlsAuthenticationInputTypeDef",
     "PaginatorConfigTypeDef",
     "ReimportApiResponseTypeDef",
     "TlsConfigInputTypeDef",
@@ -130,6 +131,7 @@ _OptionalApiTypeDef = TypedDict(
         "CreatedDate": datetime,
         "Description": str,
         "DisableSchemaValidation": bool,
+        "DisableExecuteApiEndpoint": bool,
         "ImportInfo": List[str],
         "Tags": Dict[str, str],
         "Version": str,
@@ -149,9 +151,11 @@ _OptionalAuthorizerTypeDef = TypedDict(
     {
         "AuthorizerCredentialsArn": str,
         "AuthorizerId": str,
+        "AuthorizerPayloadFormatVersion": str,
         "AuthorizerResultTtlInSeconds": int,
         "AuthorizerType": Literal["REQUEST", "JWT"],
         "AuthorizerUri": str,
+        "EnableSimpleResponses": bool,
         "IdentitySource": List[str],
         "IdentityValidationExpression": str,
         "JwtConfiguration": "JWTConfigurationTypeDef",
@@ -212,6 +216,7 @@ _OptionalDomainNameTypeDef = TypedDict(
     {
         "ApiMappingSelectionExpression": str,
         "DomainNameConfigurations": List["DomainNameConfigurationTypeDef"],
+        "MutualTlsAuthentication": "MutualTlsAuthenticationTypeDef",
         "Tags": Dict[str, str],
     },
     total=False,
@@ -285,6 +290,12 @@ _OptionalModelTypeDef = TypedDict(
 class ModelTypeDef(_RequiredModelTypeDef, _OptionalModelTypeDef):
     pass
 
+
+MutualTlsAuthenticationTypeDef = TypedDict(
+    "MutualTlsAuthenticationTypeDef",
+    {"TruststoreUri": str, "TruststoreVersion": str, "TruststoreWarnings": List[str]},
+    total=False,
+)
 
 ParameterConstraintsTypeDef = TypedDict(
     "ParameterConstraintsTypeDef", {"Required": bool}, total=False
@@ -412,6 +423,7 @@ CreateApiResponseTypeDef = TypedDict(
         "CreatedDate": datetime,
         "Description": str,
         "DisableSchemaValidation": bool,
+        "DisableExecuteApiEndpoint": bool,
         "ImportInfo": List[str],
         "Name": str,
         "ProtocolType": Literal["WEBSOCKET", "HTTP"],
@@ -428,9 +440,11 @@ CreateAuthorizerResponseTypeDef = TypedDict(
     {
         "AuthorizerCredentialsArn": str,
         "AuthorizerId": str,
+        "AuthorizerPayloadFormatVersion": str,
         "AuthorizerResultTtlInSeconds": int,
         "AuthorizerType": Literal["REQUEST", "JWT"],
         "AuthorizerUri": str,
+        "EnableSimpleResponses": bool,
         "IdentitySource": List[str],
         "IdentityValidationExpression": str,
         "JwtConfiguration": "JWTConfigurationTypeDef",
@@ -458,6 +472,7 @@ CreateDomainNameResponseTypeDef = TypedDict(
         "ApiMappingSelectionExpression": str,
         "DomainName": str,
         "DomainNameConfigurations": List["DomainNameConfigurationTypeDef"],
+        "MutualTlsAuthentication": "MutualTlsAuthenticationTypeDef",
         "Tags": Dict[str, str],
     },
     total=False,
@@ -577,7 +592,9 @@ CreateVpcLinkResponseTypeDef = TypedDict(
     total=False,
 )
 
-ExportApiResponseTypeDef = TypedDict("ExportApiResponseTypeDef", {"body": bytes}, total=False)
+ExportApiResponseTypeDef = TypedDict(
+    "ExportApiResponseTypeDef", {"body": Union[bytes, IO[bytes]]}, total=False
+)
 
 GetApiMappingResponseTypeDef = TypedDict(
     "GetApiMappingResponseTypeDef",
@@ -602,6 +619,7 @@ GetApiResponseTypeDef = TypedDict(
         "CreatedDate": datetime,
         "Description": str,
         "DisableSchemaValidation": bool,
+        "DisableExecuteApiEndpoint": bool,
         "ImportInfo": List[str],
         "Name": str,
         "ProtocolType": Literal["WEBSOCKET", "HTTP"],
@@ -622,9 +640,11 @@ GetAuthorizerResponseTypeDef = TypedDict(
     {
         "AuthorizerCredentialsArn": str,
         "AuthorizerId": str,
+        "AuthorizerPayloadFormatVersion": str,
         "AuthorizerResultTtlInSeconds": int,
         "AuthorizerType": Literal["REQUEST", "JWT"],
         "AuthorizerUri": str,
+        "EnableSimpleResponses": bool,
         "IdentitySource": List[str],
         "IdentityValidationExpression": str,
         "JwtConfiguration": "JWTConfigurationTypeDef",
@@ -664,6 +684,7 @@ GetDomainNameResponseTypeDef = TypedDict(
         "ApiMappingSelectionExpression": str,
         "DomainName": str,
         "DomainNameConfigurations": List["DomainNameConfigurationTypeDef"],
+        "MutualTlsAuthentication": "MutualTlsAuthenticationTypeDef",
         "Tags": Dict[str, str],
     },
     total=False,
@@ -840,6 +861,7 @@ ImportApiResponseTypeDef = TypedDict(
         "CreatedDate": datetime,
         "Description": str,
         "DisableSchemaValidation": bool,
+        "DisableExecuteApiEndpoint": bool,
         "ImportInfo": List[str],
         "Name": str,
         "ProtocolType": Literal["WEBSOCKET", "HTTP"],
@@ -848,6 +870,12 @@ ImportApiResponseTypeDef = TypedDict(
         "Version": str,
         "Warnings": List[str],
     },
+    total=False,
+)
+
+MutualTlsAuthenticationInputTypeDef = TypedDict(
+    "MutualTlsAuthenticationInputTypeDef",
+    {"TruststoreUri": str, "TruststoreVersion": str},
     total=False,
 )
 
@@ -866,6 +894,7 @@ ReimportApiResponseTypeDef = TypedDict(
         "CreatedDate": datetime,
         "Description": str,
         "DisableSchemaValidation": bool,
+        "DisableExecuteApiEndpoint": bool,
         "ImportInfo": List[str],
         "Name": str,
         "ProtocolType": Literal["WEBSOCKET", "HTTP"],
@@ -896,6 +925,7 @@ UpdateApiResponseTypeDef = TypedDict(
         "CreatedDate": datetime,
         "Description": str,
         "DisableSchemaValidation": bool,
+        "DisableExecuteApiEndpoint": bool,
         "ImportInfo": List[str],
         "Name": str,
         "ProtocolType": Literal["WEBSOCKET", "HTTP"],
@@ -912,9 +942,11 @@ UpdateAuthorizerResponseTypeDef = TypedDict(
     {
         "AuthorizerCredentialsArn": str,
         "AuthorizerId": str,
+        "AuthorizerPayloadFormatVersion": str,
         "AuthorizerResultTtlInSeconds": int,
         "AuthorizerType": Literal["REQUEST", "JWT"],
         "AuthorizerUri": str,
+        "EnableSimpleResponses": bool,
         "IdentitySource": List[str],
         "IdentityValidationExpression": str,
         "JwtConfiguration": "JWTConfigurationTypeDef",
@@ -942,6 +974,7 @@ UpdateDomainNameResponseTypeDef = TypedDict(
         "ApiMappingSelectionExpression": str,
         "DomainName": str,
         "DomainNameConfigurations": List["DomainNameConfigurationTypeDef"],
+        "MutualTlsAuthentication": "MutualTlsAuthenticationTypeDef",
         "Tags": Dict[str, str],
     },
     total=False,

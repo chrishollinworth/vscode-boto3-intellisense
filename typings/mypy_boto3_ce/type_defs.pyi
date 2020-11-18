@@ -4,9 +4,9 @@ Main interface for ce service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_ce.type_defs import CostCategoryReferenceTypeDef
+    from mypy_boto3_ce.type_defs import AnomalyMonitorTypeDef
 
-    data: CostCategoryReferenceTypeDef = {...}
+    data: AnomalyMonitorTypeDef = {...}
     ```
 """
 import sys
@@ -16,7 +16,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -24,6 +23,11 @@ else:
 
 
 __all__ = (
+    "AnomalyMonitorTypeDef",
+    "AnomalyScoreTypeDef",
+    "AnomalySubscriptionTypeDef",
+    "AnomalyTypeDef",
+    "CostCategoryProcessingStatusTypeDef",
     "CostCategoryReferenceTypeDef",
     "CostCategoryRuleTypeDef",
     "CostCategoryTypeDef",
@@ -37,6 +41,7 @@ __all__ = (
     "DateIntervalTypeDef",
     "DimensionValuesTypeDef",
     "DimensionValuesWithAttributesTypeDef",
+    "EBSResourceUtilizationTypeDef",
     "EC2InstanceDetailsTypeDef",
     "EC2ResourceDetailsTypeDef",
     "EC2ResourceUtilizationTypeDef",
@@ -46,6 +51,7 @@ __all__ = (
     "ForecastResultTypeDef",
     "GroupDefinitionTypeDef",
     "GroupTypeDef",
+    "ImpactTypeDef",
     "InstanceDetailsTypeDef",
     "MetricValueTypeDef",
     "ModifyRecommendationDetailTypeDef",
@@ -65,6 +71,7 @@ __all__ = (
     "RightsizingRecommendationMetadataTypeDef",
     "RightsizingRecommendationSummaryTypeDef",
     "RightsizingRecommendationTypeDef",
+    "RootCauseTypeDef",
     "SavingsPlansAmortizedCommitmentTypeDef",
     "SavingsPlansCoverageDataTypeDef",
     "SavingsPlansCoverageTypeDef",
@@ -79,14 +86,21 @@ __all__ = (
     "SavingsPlansUtilizationDetailTypeDef",
     "SavingsPlansUtilizationTypeDef",
     "ServiceSpecificationTypeDef",
+    "SubscriberTypeDef",
     "TagValuesTypeDef",
     "TargetInstanceTypeDef",
     "TerminateRecommendationDetailTypeDef",
     "UtilizationByTimeTypeDef",
+    "AnomalyDateIntervalTypeDef",
+    "CreateAnomalyMonitorResponseTypeDef",
+    "CreateAnomalySubscriptionResponseTypeDef",
     "CreateCostCategoryDefinitionResponseTypeDef",
     "DeleteCostCategoryDefinitionResponseTypeDef",
     "DescribeCostCategoryDefinitionResponseTypeDef",
     "ExpressionTypeDef",
+    "GetAnomaliesResponseTypeDef",
+    "GetAnomalyMonitorsResponseTypeDef",
+    "GetAnomalySubscriptionsResponseTypeDef",
     "GetCostAndUsageResponseTypeDef",
     "GetCostAndUsageWithResourcesResponseTypeDef",
     "GetCostForecastResponseTypeDef",
@@ -102,7 +116,89 @@ __all__ = (
     "GetTagsResponseTypeDef",
     "GetUsageForecastResponseTypeDef",
     "ListCostCategoryDefinitionsResponseTypeDef",
+    "ProvideAnomalyFeedbackResponseTypeDef",
+    "TotalImpactFilterTypeDef",
+    "UpdateAnomalyMonitorResponseTypeDef",
+    "UpdateAnomalySubscriptionResponseTypeDef",
     "UpdateCostCategoryDefinitionResponseTypeDef",
+)
+
+_RequiredAnomalyMonitorTypeDef = TypedDict(
+    "_RequiredAnomalyMonitorTypeDef",
+    {"MonitorName": str, "MonitorType": Literal["DIMENSIONAL", "CUSTOM"]},
+)
+_OptionalAnomalyMonitorTypeDef = TypedDict(
+    "_OptionalAnomalyMonitorTypeDef",
+    {
+        "MonitorArn": str,
+        "CreationDate": str,
+        "LastUpdatedDate": str,
+        "LastEvaluatedDate": str,
+        "MonitorDimension": Literal["SERVICE"],
+        "MonitorSpecification": Dict[str, Any],
+        "DimensionalValueCount": int,
+    },
+    total=False,
+)
+
+
+class AnomalyMonitorTypeDef(_RequiredAnomalyMonitorTypeDef, _OptionalAnomalyMonitorTypeDef):
+    pass
+
+
+AnomalyScoreTypeDef = TypedDict("AnomalyScoreTypeDef", {"MaxScore": float, "CurrentScore": float})
+
+_RequiredAnomalySubscriptionTypeDef = TypedDict(
+    "_RequiredAnomalySubscriptionTypeDef",
+    {
+        "MonitorArnList": List[str],
+        "Subscribers": List["SubscriberTypeDef"],
+        "Threshold": float,
+        "Frequency": Literal["DAILY", "IMMEDIATE", "WEEKLY"],
+        "SubscriptionName": str,
+    },
+)
+_OptionalAnomalySubscriptionTypeDef = TypedDict(
+    "_OptionalAnomalySubscriptionTypeDef", {"SubscriptionArn": str, "AccountId": str}, total=False
+)
+
+
+class AnomalySubscriptionTypeDef(
+    _RequiredAnomalySubscriptionTypeDef, _OptionalAnomalySubscriptionTypeDef
+):
+    pass
+
+
+_RequiredAnomalyTypeDef = TypedDict(
+    "_RequiredAnomalyTypeDef",
+    {
+        "AnomalyId": str,
+        "AnomalyScore": "AnomalyScoreTypeDef",
+        "Impact": "ImpactTypeDef",
+        "MonitorArn": str,
+    },
+)
+_OptionalAnomalyTypeDef = TypedDict(
+    "_OptionalAnomalyTypeDef",
+    {
+        "AnomalyStartDate": str,
+        "AnomalyEndDate": str,
+        "DimensionValue": str,
+        "RootCauses": List["RootCauseTypeDef"],
+        "Feedback": Literal["YES", "NO", "PLANNED_ACTIVITY"],
+    },
+    total=False,
+)
+
+
+class AnomalyTypeDef(_RequiredAnomalyTypeDef, _OptionalAnomalyTypeDef):
+    pass
+
+
+CostCategoryProcessingStatusTypeDef = TypedDict(
+    "CostCategoryProcessingStatusTypeDef",
+    {"Component": Literal["COST_EXPLORER"], "Status": Literal["PROCESSING", "APPLIED"]},
+    total=False,
 )
 
 CostCategoryReferenceTypeDef = TypedDict(
@@ -113,6 +209,8 @@ CostCategoryReferenceTypeDef = TypedDict(
         "EffectiveStart": str,
         "EffectiveEnd": str,
         "NumberOfRules": int,
+        "ProcessingStatus": List["CostCategoryProcessingStatusTypeDef"],
+        "Values": List[str],
     },
     total=False,
 )
@@ -132,7 +230,9 @@ _RequiredCostCategoryTypeDef = TypedDict(
     },
 )
 _OptionalCostCategoryTypeDef = TypedDict(
-    "_OptionalCostCategoryTypeDef", {"EffectiveEnd": str}, total=False
+    "_OptionalCostCategoryTypeDef",
+    {"EffectiveEnd": str, "ProcessingStatus": List["CostCategoryProcessingStatusTypeDef"]},
+    total=False,
 )
 
 
@@ -141,7 +241,22 @@ class CostCategoryTypeDef(_RequiredCostCategoryTypeDef, _OptionalCostCategoryTyp
 
 
 CostCategoryValuesTypeDef = TypedDict(
-    "CostCategoryValuesTypeDef", {"Key": str, "Values": List[str]}, total=False
+    "CostCategoryValuesTypeDef",
+    {
+        "Key": str,
+        "Values": List[str],
+        "MatchOptions": List[
+            Literal[
+                "EQUALS",
+                "STARTS_WITH",
+                "ENDS_WITH",
+                "CONTAINS",
+                "CASE_SENSITIVE",
+                "CASE_INSENSITIVE",
+            ]
+        ],
+    },
+    total=False,
 )
 
 CoverageByTimeTypeDef = TypedDict(
@@ -263,6 +378,17 @@ DimensionValuesWithAttributesTypeDef = TypedDict(
     total=False,
 )
 
+EBSResourceUtilizationTypeDef = TypedDict(
+    "EBSResourceUtilizationTypeDef",
+    {
+        "EbsReadOpsPerSecond": str,
+        "EbsWriteOpsPerSecond": str,
+        "EbsReadBytesPerSecond": str,
+        "EbsWriteBytesPerSecond": str,
+    },
+    total=False,
+)
+
 EC2InstanceDetailsTypeDef = TypedDict(
     "EC2InstanceDetailsTypeDef",
     {
@@ -300,6 +426,7 @@ EC2ResourceUtilizationTypeDef = TypedDict(
         "MaxCpuUtilizationPercentage": str,
         "MaxMemoryUtilizationPercentage": str,
         "MaxStorageUtilizationPercentage": str,
+        "EBSResourceUtilization": "EBSResourceUtilizationTypeDef",
     },
     total=False,
 )
@@ -353,6 +480,14 @@ GroupDefinitionTypeDef = TypedDict(
 GroupTypeDef = TypedDict(
     "GroupTypeDef", {"Keys": List[str], "Metrics": Dict[str, "MetricValueTypeDef"]}, total=False
 )
+
+_RequiredImpactTypeDef = TypedDict("_RequiredImpactTypeDef", {"MaxImpact": float})
+_OptionalImpactTypeDef = TypedDict("_OptionalImpactTypeDef", {"TotalImpact": float}, total=False)
+
+
+class ImpactTypeDef(_RequiredImpactTypeDef, _OptionalImpactTypeDef):
+    pass
+
 
 InstanceDetailsTypeDef = TypedDict(
     "InstanceDetailsTypeDef",
@@ -565,6 +700,12 @@ RightsizingRecommendationTypeDef = TypedDict(
     total=False,
 )
 
+RootCauseTypeDef = TypedDict(
+    "RootCauseTypeDef",
+    {"Service": str, "Region": str, "LinkedAccount": str, "UsageType": str},
+    total=False,
+)
+
 SavingsPlansAmortizedCommitmentTypeDef = TypedDict(
     "SavingsPlansAmortizedCommitmentTypeDef",
     {
@@ -744,6 +885,12 @@ ServiceSpecificationTypeDef = TypedDict(
     "ServiceSpecificationTypeDef", {"EC2Specification": "EC2SpecificationTypeDef"}, total=False
 )
 
+SubscriberTypeDef = TypedDict(
+    "SubscriberTypeDef",
+    {"Address": str, "Type": Literal["EMAIL", "SNS"], "Status": Literal["CONFIRMED", "DECLINED"]},
+    total=False,
+)
+
 TagValuesTypeDef = TypedDict(
     "TagValuesTypeDef",
     {
@@ -792,6 +939,28 @@ UtilizationByTimeTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredAnomalyDateIntervalTypeDef = TypedDict(
+    "_RequiredAnomalyDateIntervalTypeDef", {"StartDate": str}
+)
+_OptionalAnomalyDateIntervalTypeDef = TypedDict(
+    "_OptionalAnomalyDateIntervalTypeDef", {"EndDate": str}, total=False
+)
+
+
+class AnomalyDateIntervalTypeDef(
+    _RequiredAnomalyDateIntervalTypeDef, _OptionalAnomalyDateIntervalTypeDef
+):
+    pass
+
+
+CreateAnomalyMonitorResponseTypeDef = TypedDict(
+    "CreateAnomalyMonitorResponseTypeDef", {"MonitorArn": str}
+)
+
+CreateAnomalySubscriptionResponseTypeDef = TypedDict(
+    "CreateAnomalySubscriptionResponseTypeDef", {"SubscriptionArn": str}
+)
+
 CreateCostCategoryDefinitionResponseTypeDef = TypedDict(
     "CreateCostCategoryDefinitionResponseTypeDef",
     {"CostCategoryArn": str, "EffectiveStart": str},
@@ -822,6 +991,49 @@ ExpressionTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredGetAnomaliesResponseTypeDef = TypedDict(
+    "_RequiredGetAnomaliesResponseTypeDef", {"Anomalies": List["AnomalyTypeDef"]}
+)
+_OptionalGetAnomaliesResponseTypeDef = TypedDict(
+    "_OptionalGetAnomaliesResponseTypeDef", {"NextPageToken": str}, total=False
+)
+
+
+class GetAnomaliesResponseTypeDef(
+    _RequiredGetAnomaliesResponseTypeDef, _OptionalGetAnomaliesResponseTypeDef
+):
+    pass
+
+
+_RequiredGetAnomalyMonitorsResponseTypeDef = TypedDict(
+    "_RequiredGetAnomalyMonitorsResponseTypeDef", {"AnomalyMonitors": List["AnomalyMonitorTypeDef"]}
+)
+_OptionalGetAnomalyMonitorsResponseTypeDef = TypedDict(
+    "_OptionalGetAnomalyMonitorsResponseTypeDef", {"NextPageToken": str}, total=False
+)
+
+
+class GetAnomalyMonitorsResponseTypeDef(
+    _RequiredGetAnomalyMonitorsResponseTypeDef, _OptionalGetAnomalyMonitorsResponseTypeDef
+):
+    pass
+
+
+_RequiredGetAnomalySubscriptionsResponseTypeDef = TypedDict(
+    "_RequiredGetAnomalySubscriptionsResponseTypeDef",
+    {"AnomalySubscriptions": List["AnomalySubscriptionTypeDef"]},
+)
+_OptionalGetAnomalySubscriptionsResponseTypeDef = TypedDict(
+    "_OptionalGetAnomalySubscriptionsResponseTypeDef", {"NextPageToken": str}, total=False
+)
+
+
+class GetAnomalySubscriptionsResponseTypeDef(
+    _RequiredGetAnomalySubscriptionsResponseTypeDef, _OptionalGetAnomalySubscriptionsResponseTypeDef
+):
+    pass
+
 
 GetCostAndUsageResponseTypeDef = TypedDict(
     "GetCostAndUsageResponseTypeDef",
@@ -1011,6 +1223,43 @@ ListCostCategoryDefinitionsResponseTypeDef = TypedDict(
     "ListCostCategoryDefinitionsResponseTypeDef",
     {"CostCategoryReferences": List["CostCategoryReferenceTypeDef"], "NextToken": str},
     total=False,
+)
+
+ProvideAnomalyFeedbackResponseTypeDef = TypedDict(
+    "ProvideAnomalyFeedbackResponseTypeDef", {"AnomalyId": str}
+)
+
+_RequiredTotalImpactFilterTypeDef = TypedDict(
+    "_RequiredTotalImpactFilterTypeDef",
+    {
+        "NumericOperator": Literal[
+            "EQUAL",
+            "GREATER_THAN_OR_EQUAL",
+            "LESS_THAN_OR_EQUAL",
+            "GREATER_THAN",
+            "LESS_THAN",
+            "BETWEEN",
+        ],
+        "StartValue": float,
+    },
+)
+_OptionalTotalImpactFilterTypeDef = TypedDict(
+    "_OptionalTotalImpactFilterTypeDef", {"EndValue": float}, total=False
+)
+
+
+class TotalImpactFilterTypeDef(
+    _RequiredTotalImpactFilterTypeDef, _OptionalTotalImpactFilterTypeDef
+):
+    pass
+
+
+UpdateAnomalyMonitorResponseTypeDef = TypedDict(
+    "UpdateAnomalyMonitorResponseTypeDef", {"MonitorArn": str}
+)
+
+UpdateAnomalySubscriptionResponseTypeDef = TypedDict(
+    "UpdateAnomalySubscriptionResponseTypeDef", {"SubscriptionArn": str}
 )
 
 UpdateCostCategoryDefinitionResponseTypeDef = TypedDict(

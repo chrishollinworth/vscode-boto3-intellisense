@@ -1,4 +1,4 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import
+# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for codecommit service client
 
@@ -14,8 +14,7 @@ Usage::
 import sys
 from typing import IO, Any, Dict, List, Type, Union, overload
 
-from botocore.exceptions import ClientError as Boto3ClientError
-from botocore.paginate import Paginator as Boto3Paginator
+from botocore.client import ClientMeta
 
 from mypy_boto3_codecommit.paginator import (
     DescribePullRequestEventsPaginator,
@@ -111,214 +110,223 @@ else:
 __all__ = ("CodeCommitClient",)
 
 
+class BotocoreClientError(BaseException):
+    MSG_TEMPLATE: str
+
+    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
+        self.response: Dict[str, Any]
+        self.operation_name: str
+
+
 class Exceptions:
-    ActorDoesNotExistException: Type[Boto3ClientError]
-    ApprovalRuleContentRequiredException: Type[Boto3ClientError]
-    ApprovalRuleDoesNotExistException: Type[Boto3ClientError]
-    ApprovalRuleNameAlreadyExistsException: Type[Boto3ClientError]
-    ApprovalRuleNameRequiredException: Type[Boto3ClientError]
-    ApprovalRuleTemplateContentRequiredException: Type[Boto3ClientError]
-    ApprovalRuleTemplateDoesNotExistException: Type[Boto3ClientError]
-    ApprovalRuleTemplateInUseException: Type[Boto3ClientError]
-    ApprovalRuleTemplateNameAlreadyExistsException: Type[Boto3ClientError]
-    ApprovalRuleTemplateNameRequiredException: Type[Boto3ClientError]
-    ApprovalStateRequiredException: Type[Boto3ClientError]
-    AuthorDoesNotExistException: Type[Boto3ClientError]
-    BeforeCommitIdAndAfterCommitIdAreSameException: Type[Boto3ClientError]
-    BlobIdDoesNotExistException: Type[Boto3ClientError]
-    BlobIdRequiredException: Type[Boto3ClientError]
-    BranchDoesNotExistException: Type[Boto3ClientError]
-    BranchNameExistsException: Type[Boto3ClientError]
-    BranchNameIsTagNameException: Type[Boto3ClientError]
-    BranchNameRequiredException: Type[Boto3ClientError]
-    CannotDeleteApprovalRuleFromTemplateException: Type[Boto3ClientError]
-    CannotModifyApprovalRuleFromTemplateException: Type[Boto3ClientError]
-    ClientError: Type[Boto3ClientError]
-    ClientRequestTokenRequiredException: Type[Boto3ClientError]
-    CommentContentRequiredException: Type[Boto3ClientError]
-    CommentContentSizeLimitExceededException: Type[Boto3ClientError]
-    CommentDeletedException: Type[Boto3ClientError]
-    CommentDoesNotExistException: Type[Boto3ClientError]
-    CommentIdRequiredException: Type[Boto3ClientError]
-    CommentNotCreatedByCallerException: Type[Boto3ClientError]
-    CommitDoesNotExistException: Type[Boto3ClientError]
-    CommitIdDoesNotExistException: Type[Boto3ClientError]
-    CommitIdRequiredException: Type[Boto3ClientError]
-    CommitIdsLimitExceededException: Type[Boto3ClientError]
-    CommitIdsListRequiredException: Type[Boto3ClientError]
-    CommitMessageLengthExceededException: Type[Boto3ClientError]
-    CommitRequiredException: Type[Boto3ClientError]
-    ConcurrentReferenceUpdateException: Type[Boto3ClientError]
-    DefaultBranchCannotBeDeletedException: Type[Boto3ClientError]
-    DirectoryNameConflictsWithFileNameException: Type[Boto3ClientError]
-    EncryptionIntegrityChecksFailedException: Type[Boto3ClientError]
-    EncryptionKeyAccessDeniedException: Type[Boto3ClientError]
-    EncryptionKeyDisabledException: Type[Boto3ClientError]
-    EncryptionKeyNotFoundException: Type[Boto3ClientError]
-    EncryptionKeyUnavailableException: Type[Boto3ClientError]
-    FileContentAndSourceFileSpecifiedException: Type[Boto3ClientError]
-    FileContentRequiredException: Type[Boto3ClientError]
-    FileContentSizeLimitExceededException: Type[Boto3ClientError]
-    FileDoesNotExistException: Type[Boto3ClientError]
-    FileEntryRequiredException: Type[Boto3ClientError]
-    FileModeRequiredException: Type[Boto3ClientError]
-    FileNameConflictsWithDirectoryNameException: Type[Boto3ClientError]
-    FilePathConflictsWithSubmodulePathException: Type[Boto3ClientError]
-    FileTooLargeException: Type[Boto3ClientError]
-    FolderContentSizeLimitExceededException: Type[Boto3ClientError]
-    FolderDoesNotExistException: Type[Boto3ClientError]
-    IdempotencyParameterMismatchException: Type[Boto3ClientError]
-    InvalidActorArnException: Type[Boto3ClientError]
-    InvalidApprovalRuleContentException: Type[Boto3ClientError]
-    InvalidApprovalRuleNameException: Type[Boto3ClientError]
-    InvalidApprovalRuleTemplateContentException: Type[Boto3ClientError]
-    InvalidApprovalRuleTemplateDescriptionException: Type[Boto3ClientError]
-    InvalidApprovalRuleTemplateNameException: Type[Boto3ClientError]
-    InvalidApprovalStateException: Type[Boto3ClientError]
-    InvalidAuthorArnException: Type[Boto3ClientError]
-    InvalidBlobIdException: Type[Boto3ClientError]
-    InvalidBranchNameException: Type[Boto3ClientError]
-    InvalidClientRequestTokenException: Type[Boto3ClientError]
-    InvalidCommentIdException: Type[Boto3ClientError]
-    InvalidCommitException: Type[Boto3ClientError]
-    InvalidCommitIdException: Type[Boto3ClientError]
-    InvalidConflictDetailLevelException: Type[Boto3ClientError]
-    InvalidConflictResolutionException: Type[Boto3ClientError]
-    InvalidConflictResolutionStrategyException: Type[Boto3ClientError]
-    InvalidContinuationTokenException: Type[Boto3ClientError]
-    InvalidDeletionParameterException: Type[Boto3ClientError]
-    InvalidDescriptionException: Type[Boto3ClientError]
-    InvalidDestinationCommitSpecifierException: Type[Boto3ClientError]
-    InvalidEmailException: Type[Boto3ClientError]
-    InvalidFileLocationException: Type[Boto3ClientError]
-    InvalidFileModeException: Type[Boto3ClientError]
-    InvalidFilePositionException: Type[Boto3ClientError]
-    InvalidMaxConflictFilesException: Type[Boto3ClientError]
-    InvalidMaxMergeHunksException: Type[Boto3ClientError]
-    InvalidMaxResultsException: Type[Boto3ClientError]
-    InvalidMergeOptionException: Type[Boto3ClientError]
-    InvalidOrderException: Type[Boto3ClientError]
-    InvalidOverrideStatusException: Type[Boto3ClientError]
-    InvalidParentCommitIdException: Type[Boto3ClientError]
-    InvalidPathException: Type[Boto3ClientError]
-    InvalidPullRequestEventTypeException: Type[Boto3ClientError]
-    InvalidPullRequestIdException: Type[Boto3ClientError]
-    InvalidPullRequestStatusException: Type[Boto3ClientError]
-    InvalidPullRequestStatusUpdateException: Type[Boto3ClientError]
-    InvalidReactionUserArnException: Type[Boto3ClientError]
-    InvalidReactionValueException: Type[Boto3ClientError]
-    InvalidReferenceNameException: Type[Boto3ClientError]
-    InvalidRelativeFileVersionEnumException: Type[Boto3ClientError]
-    InvalidReplacementContentException: Type[Boto3ClientError]
-    InvalidReplacementTypeException: Type[Boto3ClientError]
-    InvalidRepositoryDescriptionException: Type[Boto3ClientError]
-    InvalidRepositoryNameException: Type[Boto3ClientError]
-    InvalidRepositoryTriggerBranchNameException: Type[Boto3ClientError]
-    InvalidRepositoryTriggerCustomDataException: Type[Boto3ClientError]
-    InvalidRepositoryTriggerDestinationArnException: Type[Boto3ClientError]
-    InvalidRepositoryTriggerEventsException: Type[Boto3ClientError]
-    InvalidRepositoryTriggerNameException: Type[Boto3ClientError]
-    InvalidRepositoryTriggerRegionException: Type[Boto3ClientError]
-    InvalidResourceArnException: Type[Boto3ClientError]
-    InvalidRevisionIdException: Type[Boto3ClientError]
-    InvalidRuleContentSha256Exception: Type[Boto3ClientError]
-    InvalidSortByException: Type[Boto3ClientError]
-    InvalidSourceCommitSpecifierException: Type[Boto3ClientError]
-    InvalidSystemTagUsageException: Type[Boto3ClientError]
-    InvalidTagKeysListException: Type[Boto3ClientError]
-    InvalidTagsMapException: Type[Boto3ClientError]
-    InvalidTargetBranchException: Type[Boto3ClientError]
-    InvalidTargetException: Type[Boto3ClientError]
-    InvalidTargetsException: Type[Boto3ClientError]
-    InvalidTitleException: Type[Boto3ClientError]
-    ManualMergeRequiredException: Type[Boto3ClientError]
-    MaximumBranchesExceededException: Type[Boto3ClientError]
-    MaximumConflictResolutionEntriesExceededException: Type[Boto3ClientError]
-    MaximumFileContentToLoadExceededException: Type[Boto3ClientError]
-    MaximumFileEntriesExceededException: Type[Boto3ClientError]
-    MaximumItemsToCompareExceededException: Type[Boto3ClientError]
-    MaximumNumberOfApprovalsExceededException: Type[Boto3ClientError]
-    MaximumOpenPullRequestsExceededException: Type[Boto3ClientError]
-    MaximumRepositoryNamesExceededException: Type[Boto3ClientError]
-    MaximumRepositoryTriggersExceededException: Type[Boto3ClientError]
-    MaximumRuleTemplatesAssociatedWithRepositoryException: Type[Boto3ClientError]
-    MergeOptionRequiredException: Type[Boto3ClientError]
-    MultipleConflictResolutionEntriesException: Type[Boto3ClientError]
-    MultipleRepositoriesInPullRequestException: Type[Boto3ClientError]
-    NameLengthExceededException: Type[Boto3ClientError]
-    NoChangeException: Type[Boto3ClientError]
-    NumberOfRuleTemplatesExceededException: Type[Boto3ClientError]
-    NumberOfRulesExceededException: Type[Boto3ClientError]
-    OverrideAlreadySetException: Type[Boto3ClientError]
-    OverrideStatusRequiredException: Type[Boto3ClientError]
-    ParentCommitDoesNotExistException: Type[Boto3ClientError]
-    ParentCommitIdOutdatedException: Type[Boto3ClientError]
-    ParentCommitIdRequiredException: Type[Boto3ClientError]
-    PathDoesNotExistException: Type[Boto3ClientError]
-    PathRequiredException: Type[Boto3ClientError]
-    PullRequestAlreadyClosedException: Type[Boto3ClientError]
-    PullRequestApprovalRulesNotSatisfiedException: Type[Boto3ClientError]
-    PullRequestCannotBeApprovedByAuthorException: Type[Boto3ClientError]
-    PullRequestDoesNotExistException: Type[Boto3ClientError]
-    PullRequestIdRequiredException: Type[Boto3ClientError]
-    PullRequestStatusRequiredException: Type[Boto3ClientError]
-    PutFileEntryConflictException: Type[Boto3ClientError]
-    ReactionLimitExceededException: Type[Boto3ClientError]
-    ReactionValueRequiredException: Type[Boto3ClientError]
-    ReferenceDoesNotExistException: Type[Boto3ClientError]
-    ReferenceNameRequiredException: Type[Boto3ClientError]
-    ReferenceTypeNotSupportedException: Type[Boto3ClientError]
-    ReplacementContentRequiredException: Type[Boto3ClientError]
-    ReplacementTypeRequiredException: Type[Boto3ClientError]
-    RepositoryDoesNotExistException: Type[Boto3ClientError]
-    RepositoryLimitExceededException: Type[Boto3ClientError]
-    RepositoryNameExistsException: Type[Boto3ClientError]
-    RepositoryNameRequiredException: Type[Boto3ClientError]
-    RepositoryNamesRequiredException: Type[Boto3ClientError]
-    RepositoryNotAssociatedWithPullRequestException: Type[Boto3ClientError]
-    RepositoryTriggerBranchNameListRequiredException: Type[Boto3ClientError]
-    RepositoryTriggerDestinationArnRequiredException: Type[Boto3ClientError]
-    RepositoryTriggerEventsListRequiredException: Type[Boto3ClientError]
-    RepositoryTriggerNameRequiredException: Type[Boto3ClientError]
-    RepositoryTriggersListRequiredException: Type[Boto3ClientError]
-    ResourceArnRequiredException: Type[Boto3ClientError]
-    RestrictedSourceFileException: Type[Boto3ClientError]
-    RevisionIdRequiredException: Type[Boto3ClientError]
-    RevisionNotCurrentException: Type[Boto3ClientError]
-    SameFileContentException: Type[Boto3ClientError]
-    SamePathRequestException: Type[Boto3ClientError]
-    SourceAndDestinationAreSameException: Type[Boto3ClientError]
-    SourceFileOrContentRequiredException: Type[Boto3ClientError]
-    TagKeysListRequiredException: Type[Boto3ClientError]
-    TagPolicyException: Type[Boto3ClientError]
-    TagsMapRequiredException: Type[Boto3ClientError]
-    TargetRequiredException: Type[Boto3ClientError]
-    TargetsRequiredException: Type[Boto3ClientError]
-    TipOfSourceReferenceIsDifferentException: Type[Boto3ClientError]
-    TipsDivergenceExceededException: Type[Boto3ClientError]
-    TitleRequiredException: Type[Boto3ClientError]
-    TooManyTagsException: Type[Boto3ClientError]
+    ActorDoesNotExistException: Type[BotocoreClientError]
+    ApprovalRuleContentRequiredException: Type[BotocoreClientError]
+    ApprovalRuleDoesNotExistException: Type[BotocoreClientError]
+    ApprovalRuleNameAlreadyExistsException: Type[BotocoreClientError]
+    ApprovalRuleNameRequiredException: Type[BotocoreClientError]
+    ApprovalRuleTemplateContentRequiredException: Type[BotocoreClientError]
+    ApprovalRuleTemplateDoesNotExistException: Type[BotocoreClientError]
+    ApprovalRuleTemplateInUseException: Type[BotocoreClientError]
+    ApprovalRuleTemplateNameAlreadyExistsException: Type[BotocoreClientError]
+    ApprovalRuleTemplateNameRequiredException: Type[BotocoreClientError]
+    ApprovalStateRequiredException: Type[BotocoreClientError]
+    AuthorDoesNotExistException: Type[BotocoreClientError]
+    BeforeCommitIdAndAfterCommitIdAreSameException: Type[BotocoreClientError]
+    BlobIdDoesNotExistException: Type[BotocoreClientError]
+    BlobIdRequiredException: Type[BotocoreClientError]
+    BranchDoesNotExistException: Type[BotocoreClientError]
+    BranchNameExistsException: Type[BotocoreClientError]
+    BranchNameIsTagNameException: Type[BotocoreClientError]
+    BranchNameRequiredException: Type[BotocoreClientError]
+    CannotDeleteApprovalRuleFromTemplateException: Type[BotocoreClientError]
+    CannotModifyApprovalRuleFromTemplateException: Type[BotocoreClientError]
+    ClientError: Type[BotocoreClientError]
+    ClientRequestTokenRequiredException: Type[BotocoreClientError]
+    CommentContentRequiredException: Type[BotocoreClientError]
+    CommentContentSizeLimitExceededException: Type[BotocoreClientError]
+    CommentDeletedException: Type[BotocoreClientError]
+    CommentDoesNotExistException: Type[BotocoreClientError]
+    CommentIdRequiredException: Type[BotocoreClientError]
+    CommentNotCreatedByCallerException: Type[BotocoreClientError]
+    CommitDoesNotExistException: Type[BotocoreClientError]
+    CommitIdDoesNotExistException: Type[BotocoreClientError]
+    CommitIdRequiredException: Type[BotocoreClientError]
+    CommitIdsLimitExceededException: Type[BotocoreClientError]
+    CommitIdsListRequiredException: Type[BotocoreClientError]
+    CommitMessageLengthExceededException: Type[BotocoreClientError]
+    CommitRequiredException: Type[BotocoreClientError]
+    ConcurrentReferenceUpdateException: Type[BotocoreClientError]
+    DefaultBranchCannotBeDeletedException: Type[BotocoreClientError]
+    DirectoryNameConflictsWithFileNameException: Type[BotocoreClientError]
+    EncryptionIntegrityChecksFailedException: Type[BotocoreClientError]
+    EncryptionKeyAccessDeniedException: Type[BotocoreClientError]
+    EncryptionKeyDisabledException: Type[BotocoreClientError]
+    EncryptionKeyNotFoundException: Type[BotocoreClientError]
+    EncryptionKeyUnavailableException: Type[BotocoreClientError]
+    FileContentAndSourceFileSpecifiedException: Type[BotocoreClientError]
+    FileContentRequiredException: Type[BotocoreClientError]
+    FileContentSizeLimitExceededException: Type[BotocoreClientError]
+    FileDoesNotExistException: Type[BotocoreClientError]
+    FileEntryRequiredException: Type[BotocoreClientError]
+    FileModeRequiredException: Type[BotocoreClientError]
+    FileNameConflictsWithDirectoryNameException: Type[BotocoreClientError]
+    FilePathConflictsWithSubmodulePathException: Type[BotocoreClientError]
+    FileTooLargeException: Type[BotocoreClientError]
+    FolderContentSizeLimitExceededException: Type[BotocoreClientError]
+    FolderDoesNotExistException: Type[BotocoreClientError]
+    IdempotencyParameterMismatchException: Type[BotocoreClientError]
+    InvalidActorArnException: Type[BotocoreClientError]
+    InvalidApprovalRuleContentException: Type[BotocoreClientError]
+    InvalidApprovalRuleNameException: Type[BotocoreClientError]
+    InvalidApprovalRuleTemplateContentException: Type[BotocoreClientError]
+    InvalidApprovalRuleTemplateDescriptionException: Type[BotocoreClientError]
+    InvalidApprovalRuleTemplateNameException: Type[BotocoreClientError]
+    InvalidApprovalStateException: Type[BotocoreClientError]
+    InvalidAuthorArnException: Type[BotocoreClientError]
+    InvalidBlobIdException: Type[BotocoreClientError]
+    InvalidBranchNameException: Type[BotocoreClientError]
+    InvalidClientRequestTokenException: Type[BotocoreClientError]
+    InvalidCommentIdException: Type[BotocoreClientError]
+    InvalidCommitException: Type[BotocoreClientError]
+    InvalidCommitIdException: Type[BotocoreClientError]
+    InvalidConflictDetailLevelException: Type[BotocoreClientError]
+    InvalidConflictResolutionException: Type[BotocoreClientError]
+    InvalidConflictResolutionStrategyException: Type[BotocoreClientError]
+    InvalidContinuationTokenException: Type[BotocoreClientError]
+    InvalidDeletionParameterException: Type[BotocoreClientError]
+    InvalidDescriptionException: Type[BotocoreClientError]
+    InvalidDestinationCommitSpecifierException: Type[BotocoreClientError]
+    InvalidEmailException: Type[BotocoreClientError]
+    InvalidFileLocationException: Type[BotocoreClientError]
+    InvalidFileModeException: Type[BotocoreClientError]
+    InvalidFilePositionException: Type[BotocoreClientError]
+    InvalidMaxConflictFilesException: Type[BotocoreClientError]
+    InvalidMaxMergeHunksException: Type[BotocoreClientError]
+    InvalidMaxResultsException: Type[BotocoreClientError]
+    InvalidMergeOptionException: Type[BotocoreClientError]
+    InvalidOrderException: Type[BotocoreClientError]
+    InvalidOverrideStatusException: Type[BotocoreClientError]
+    InvalidParentCommitIdException: Type[BotocoreClientError]
+    InvalidPathException: Type[BotocoreClientError]
+    InvalidPullRequestEventTypeException: Type[BotocoreClientError]
+    InvalidPullRequestIdException: Type[BotocoreClientError]
+    InvalidPullRequestStatusException: Type[BotocoreClientError]
+    InvalidPullRequestStatusUpdateException: Type[BotocoreClientError]
+    InvalidReactionUserArnException: Type[BotocoreClientError]
+    InvalidReactionValueException: Type[BotocoreClientError]
+    InvalidReferenceNameException: Type[BotocoreClientError]
+    InvalidRelativeFileVersionEnumException: Type[BotocoreClientError]
+    InvalidReplacementContentException: Type[BotocoreClientError]
+    InvalidReplacementTypeException: Type[BotocoreClientError]
+    InvalidRepositoryDescriptionException: Type[BotocoreClientError]
+    InvalidRepositoryNameException: Type[BotocoreClientError]
+    InvalidRepositoryTriggerBranchNameException: Type[BotocoreClientError]
+    InvalidRepositoryTriggerCustomDataException: Type[BotocoreClientError]
+    InvalidRepositoryTriggerDestinationArnException: Type[BotocoreClientError]
+    InvalidRepositoryTriggerEventsException: Type[BotocoreClientError]
+    InvalidRepositoryTriggerNameException: Type[BotocoreClientError]
+    InvalidRepositoryTriggerRegionException: Type[BotocoreClientError]
+    InvalidResourceArnException: Type[BotocoreClientError]
+    InvalidRevisionIdException: Type[BotocoreClientError]
+    InvalidRuleContentSha256Exception: Type[BotocoreClientError]
+    InvalidSortByException: Type[BotocoreClientError]
+    InvalidSourceCommitSpecifierException: Type[BotocoreClientError]
+    InvalidSystemTagUsageException: Type[BotocoreClientError]
+    InvalidTagKeysListException: Type[BotocoreClientError]
+    InvalidTagsMapException: Type[BotocoreClientError]
+    InvalidTargetBranchException: Type[BotocoreClientError]
+    InvalidTargetException: Type[BotocoreClientError]
+    InvalidTargetsException: Type[BotocoreClientError]
+    InvalidTitleException: Type[BotocoreClientError]
+    ManualMergeRequiredException: Type[BotocoreClientError]
+    MaximumBranchesExceededException: Type[BotocoreClientError]
+    MaximumConflictResolutionEntriesExceededException: Type[BotocoreClientError]
+    MaximumFileContentToLoadExceededException: Type[BotocoreClientError]
+    MaximumFileEntriesExceededException: Type[BotocoreClientError]
+    MaximumItemsToCompareExceededException: Type[BotocoreClientError]
+    MaximumNumberOfApprovalsExceededException: Type[BotocoreClientError]
+    MaximumOpenPullRequestsExceededException: Type[BotocoreClientError]
+    MaximumRepositoryNamesExceededException: Type[BotocoreClientError]
+    MaximumRepositoryTriggersExceededException: Type[BotocoreClientError]
+    MaximumRuleTemplatesAssociatedWithRepositoryException: Type[BotocoreClientError]
+    MergeOptionRequiredException: Type[BotocoreClientError]
+    MultipleConflictResolutionEntriesException: Type[BotocoreClientError]
+    MultipleRepositoriesInPullRequestException: Type[BotocoreClientError]
+    NameLengthExceededException: Type[BotocoreClientError]
+    NoChangeException: Type[BotocoreClientError]
+    NumberOfRuleTemplatesExceededException: Type[BotocoreClientError]
+    NumberOfRulesExceededException: Type[BotocoreClientError]
+    OverrideAlreadySetException: Type[BotocoreClientError]
+    OverrideStatusRequiredException: Type[BotocoreClientError]
+    ParentCommitDoesNotExistException: Type[BotocoreClientError]
+    ParentCommitIdOutdatedException: Type[BotocoreClientError]
+    ParentCommitIdRequiredException: Type[BotocoreClientError]
+    PathDoesNotExistException: Type[BotocoreClientError]
+    PathRequiredException: Type[BotocoreClientError]
+    PullRequestAlreadyClosedException: Type[BotocoreClientError]
+    PullRequestApprovalRulesNotSatisfiedException: Type[BotocoreClientError]
+    PullRequestCannotBeApprovedByAuthorException: Type[BotocoreClientError]
+    PullRequestDoesNotExistException: Type[BotocoreClientError]
+    PullRequestIdRequiredException: Type[BotocoreClientError]
+    PullRequestStatusRequiredException: Type[BotocoreClientError]
+    PutFileEntryConflictException: Type[BotocoreClientError]
+    ReactionLimitExceededException: Type[BotocoreClientError]
+    ReactionValueRequiredException: Type[BotocoreClientError]
+    ReferenceDoesNotExistException: Type[BotocoreClientError]
+    ReferenceNameRequiredException: Type[BotocoreClientError]
+    ReferenceTypeNotSupportedException: Type[BotocoreClientError]
+    ReplacementContentRequiredException: Type[BotocoreClientError]
+    ReplacementTypeRequiredException: Type[BotocoreClientError]
+    RepositoryDoesNotExistException: Type[BotocoreClientError]
+    RepositoryLimitExceededException: Type[BotocoreClientError]
+    RepositoryNameExistsException: Type[BotocoreClientError]
+    RepositoryNameRequiredException: Type[BotocoreClientError]
+    RepositoryNamesRequiredException: Type[BotocoreClientError]
+    RepositoryNotAssociatedWithPullRequestException: Type[BotocoreClientError]
+    RepositoryTriggerBranchNameListRequiredException: Type[BotocoreClientError]
+    RepositoryTriggerDestinationArnRequiredException: Type[BotocoreClientError]
+    RepositoryTriggerEventsListRequiredException: Type[BotocoreClientError]
+    RepositoryTriggerNameRequiredException: Type[BotocoreClientError]
+    RepositoryTriggersListRequiredException: Type[BotocoreClientError]
+    ResourceArnRequiredException: Type[BotocoreClientError]
+    RestrictedSourceFileException: Type[BotocoreClientError]
+    RevisionIdRequiredException: Type[BotocoreClientError]
+    RevisionNotCurrentException: Type[BotocoreClientError]
+    SameFileContentException: Type[BotocoreClientError]
+    SamePathRequestException: Type[BotocoreClientError]
+    SourceAndDestinationAreSameException: Type[BotocoreClientError]
+    SourceFileOrContentRequiredException: Type[BotocoreClientError]
+    TagKeysListRequiredException: Type[BotocoreClientError]
+    TagPolicyException: Type[BotocoreClientError]
+    TagsMapRequiredException: Type[BotocoreClientError]
+    TargetRequiredException: Type[BotocoreClientError]
+    TargetsRequiredException: Type[BotocoreClientError]
+    TipOfSourceReferenceIsDifferentException: Type[BotocoreClientError]
+    TipsDivergenceExceededException: Type[BotocoreClientError]
+    TitleRequiredException: Type[BotocoreClientError]
+    TooManyTagsException: Type[BotocoreClientError]
 
 
 class CodeCommitClient:
     """
-    [CodeCommit.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client)
+    [CodeCommit.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client)
     """
 
+    meta: ClientMeta
     exceptions: Exceptions
 
     def associate_approval_rule_template_with_repository(
         self, approvalRuleTemplateName: str, repositoryName: str
     ) -> None:
         """
-        [Client.associate_approval_rule_template_with_repository documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.associate_approval_rule_template_with_repository)
+        [Client.associate_approval_rule_template_with_repository documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.associate_approval_rule_template_with_repository)
         """
 
     def batch_associate_approval_rule_template_with_repositories(
         self, approvalRuleTemplateName: str, repositoryNames: List[str]
     ) -> BatchAssociateApprovalRuleTemplateWithRepositoriesOutputTypeDef:
         """
-        [Client.batch_associate_approval_rule_template_with_repositories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.batch_associate_approval_rule_template_with_repositories)
+        [Client.batch_associate_approval_rule_template_with_repositories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.batch_associate_approval_rule_template_with_repositories)
         """
 
     def batch_describe_merge_conflicts(
@@ -337,33 +345,33 @@ class CodeCommitClient:
         nextToken: str = None,
     ) -> BatchDescribeMergeConflictsOutputTypeDef:
         """
-        [Client.batch_describe_merge_conflicts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.batch_describe_merge_conflicts)
+        [Client.batch_describe_merge_conflicts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.batch_describe_merge_conflicts)
         """
 
     def batch_disassociate_approval_rule_template_from_repositories(
         self, approvalRuleTemplateName: str, repositoryNames: List[str]
     ) -> BatchDisassociateApprovalRuleTemplateFromRepositoriesOutputTypeDef:
         """
-        [Client.batch_disassociate_approval_rule_template_from_repositories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.batch_disassociate_approval_rule_template_from_repositories)
+        [Client.batch_disassociate_approval_rule_template_from_repositories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.batch_disassociate_approval_rule_template_from_repositories)
         """
 
     def batch_get_commits(
         self, commitIds: List[str], repositoryName: str
     ) -> BatchGetCommitsOutputTypeDef:
         """
-        [Client.batch_get_commits documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.batch_get_commits)
+        [Client.batch_get_commits documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.batch_get_commits)
         """
 
     def batch_get_repositories(
         self, repositoryNames: List[str]
     ) -> BatchGetRepositoriesOutputTypeDef:
         """
-        [Client.batch_get_repositories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.batch_get_repositories)
+        [Client.batch_get_repositories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.batch_get_repositories)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.can_paginate)
         """
 
     def create_approval_rule_template(
@@ -373,12 +381,12 @@ class CodeCommitClient:
         approvalRuleTemplateDescription: str = None,
     ) -> CreateApprovalRuleTemplateOutputTypeDef:
         """
-        [Client.create_approval_rule_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.create_approval_rule_template)
+        [Client.create_approval_rule_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.create_approval_rule_template)
         """
 
     def create_branch(self, repositoryName: str, branchName: str, commitId: str) -> None:
         """
-        [Client.create_branch documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.create_branch)
+        [Client.create_branch documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.create_branch)
         """
 
     def create_commit(
@@ -395,7 +403,7 @@ class CodeCommitClient:
         setFileModes: List["SetFileModeEntryTypeDef"] = None,
     ) -> CreateCommitOutputTypeDef:
         """
-        [Client.create_commit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.create_commit)
+        [Client.create_commit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.create_commit)
         """
 
     def create_pull_request(
@@ -406,21 +414,21 @@ class CodeCommitClient:
         clientRequestToken: str = None,
     ) -> CreatePullRequestOutputTypeDef:
         """
-        [Client.create_pull_request documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.create_pull_request)
+        [Client.create_pull_request documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.create_pull_request)
         """
 
     def create_pull_request_approval_rule(
         self, pullRequestId: str, approvalRuleName: str, approvalRuleContent: str
     ) -> CreatePullRequestApprovalRuleOutputTypeDef:
         """
-        [Client.create_pull_request_approval_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.create_pull_request_approval_rule)
+        [Client.create_pull_request_approval_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.create_pull_request_approval_rule)
         """
 
     def create_repository(
         self, repositoryName: str, repositoryDescription: str = None, tags: Dict[str, str] = None
     ) -> CreateRepositoryOutputTypeDef:
         """
-        [Client.create_repository documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.create_repository)
+        [Client.create_repository documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.create_repository)
         """
 
     def create_unreferenced_merge_commit(
@@ -440,24 +448,24 @@ class CodeCommitClient:
         conflictResolution: ConflictResolutionTypeDef = None,
     ) -> CreateUnreferencedMergeCommitOutputTypeDef:
         """
-        [Client.create_unreferenced_merge_commit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.create_unreferenced_merge_commit)
+        [Client.create_unreferenced_merge_commit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.create_unreferenced_merge_commit)
         """
 
     def delete_approval_rule_template(
         self, approvalRuleTemplateName: str
     ) -> DeleteApprovalRuleTemplateOutputTypeDef:
         """
-        [Client.delete_approval_rule_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.delete_approval_rule_template)
+        [Client.delete_approval_rule_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.delete_approval_rule_template)
         """
 
     def delete_branch(self, repositoryName: str, branchName: str) -> DeleteBranchOutputTypeDef:
         """
-        [Client.delete_branch documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.delete_branch)
+        [Client.delete_branch documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.delete_branch)
         """
 
     def delete_comment_content(self, commentId: str) -> DeleteCommentContentOutputTypeDef:
         """
-        [Client.delete_comment_content documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.delete_comment_content)
+        [Client.delete_comment_content documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.delete_comment_content)
         """
 
     def delete_file(
@@ -472,19 +480,19 @@ class CodeCommitClient:
         email: str = None,
     ) -> DeleteFileOutputTypeDef:
         """
-        [Client.delete_file documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.delete_file)
+        [Client.delete_file documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.delete_file)
         """
 
     def delete_pull_request_approval_rule(
         self, pullRequestId: str, approvalRuleName: str
     ) -> DeletePullRequestApprovalRuleOutputTypeDef:
         """
-        [Client.delete_pull_request_approval_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.delete_pull_request_approval_rule)
+        [Client.delete_pull_request_approval_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.delete_pull_request_approval_rule)
         """
 
     def delete_repository(self, repositoryName: str) -> DeleteRepositoryOutputTypeDef:
         """
-        [Client.delete_repository documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.delete_repository)
+        [Client.delete_repository documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.delete_repository)
         """
 
     def describe_merge_conflicts(
@@ -502,7 +510,7 @@ class CodeCommitClient:
         nextToken: str = None,
     ) -> DescribeMergeConflictsOutputTypeDef:
         """
-        [Client.describe_merge_conflicts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.describe_merge_conflicts)
+        [Client.describe_merge_conflicts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.describe_merge_conflicts)
         """
 
     def describe_pull_request_events(
@@ -524,21 +532,21 @@ class CodeCommitClient:
         maxResults: int = None,
     ) -> DescribePullRequestEventsOutputTypeDef:
         """
-        [Client.describe_pull_request_events documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.describe_pull_request_events)
+        [Client.describe_pull_request_events documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.describe_pull_request_events)
         """
 
     def disassociate_approval_rule_template_from_repository(
         self, approvalRuleTemplateName: str, repositoryName: str
     ) -> None:
         """
-        [Client.disassociate_approval_rule_template_from_repository documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.disassociate_approval_rule_template_from_repository)
+        [Client.disassociate_approval_rule_template_from_repository documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.disassociate_approval_rule_template_from_repository)
         """
 
     def evaluate_pull_request_approval_rules(
         self, pullRequestId: str, revisionId: str
     ) -> EvaluatePullRequestApprovalRulesOutputTypeDef:
         """
-        [Client.evaluate_pull_request_approval_rules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.evaluate_pull_request_approval_rules)
+        [Client.evaluate_pull_request_approval_rules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.evaluate_pull_request_approval_rules)
         """
 
     def generate_presigned_url(
@@ -549,31 +557,31 @@ class CodeCommitClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.generate_presigned_url)
         """
 
     def get_approval_rule_template(
         self, approvalRuleTemplateName: str
     ) -> GetApprovalRuleTemplateOutputTypeDef:
         """
-        [Client.get_approval_rule_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.get_approval_rule_template)
+        [Client.get_approval_rule_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.get_approval_rule_template)
         """
 
     def get_blob(self, repositoryName: str, blobId: str) -> GetBlobOutputTypeDef:
         """
-        [Client.get_blob documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.get_blob)
+        [Client.get_blob documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.get_blob)
         """
 
     def get_branch(
         self, repositoryName: str = None, branchName: str = None
     ) -> GetBranchOutputTypeDef:
         """
-        [Client.get_branch documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.get_branch)
+        [Client.get_branch documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.get_branch)
         """
 
     def get_comment(self, commentId: str) -> GetCommentOutputTypeDef:
         """
-        [Client.get_comment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.get_comment)
+        [Client.get_comment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.get_comment)
         """
 
     def get_comment_reactions(
@@ -584,7 +592,7 @@ class CodeCommitClient:
         maxResults: int = None,
     ) -> GetCommentReactionsOutputTypeDef:
         """
-        [Client.get_comment_reactions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.get_comment_reactions)
+        [Client.get_comment_reactions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.get_comment_reactions)
         """
 
     def get_comments_for_compared_commit(
@@ -596,7 +604,7 @@ class CodeCommitClient:
         maxResults: int = None,
     ) -> GetCommentsForComparedCommitOutputTypeDef:
         """
-        [Client.get_comments_for_compared_commit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.get_comments_for_compared_commit)
+        [Client.get_comments_for_compared_commit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.get_comments_for_compared_commit)
         """
 
     def get_comments_for_pull_request(
@@ -609,12 +617,12 @@ class CodeCommitClient:
         maxResults: int = None,
     ) -> GetCommentsForPullRequestOutputTypeDef:
         """
-        [Client.get_comments_for_pull_request documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.get_comments_for_pull_request)
+        [Client.get_comments_for_pull_request documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.get_comments_for_pull_request)
         """
 
     def get_commit(self, repositoryName: str, commitId: str) -> GetCommitOutputTypeDef:
         """
-        [Client.get_commit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.get_commit)
+        [Client.get_commit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.get_commit)
         """
 
     def get_differences(
@@ -628,21 +636,21 @@ class CodeCommitClient:
         NextToken: str = None,
     ) -> GetDifferencesOutputTypeDef:
         """
-        [Client.get_differences documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.get_differences)
+        [Client.get_differences documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.get_differences)
         """
 
     def get_file(
         self, repositoryName: str, filePath: str, commitSpecifier: str = None
     ) -> GetFileOutputTypeDef:
         """
-        [Client.get_file documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.get_file)
+        [Client.get_file documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.get_file)
         """
 
     def get_folder(
         self, repositoryName: str, folderPath: str, commitSpecifier: str = None
     ) -> GetFolderOutputTypeDef:
         """
-        [Client.get_folder documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.get_folder)
+        [Client.get_folder documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.get_folder)
         """
 
     def get_merge_commit(
@@ -656,7 +664,7 @@ class CodeCommitClient:
         ] = None,
     ) -> GetMergeCommitOutputTypeDef:
         """
-        [Client.get_merge_commit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.get_merge_commit)
+        [Client.get_merge_commit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.get_merge_commit)
         """
 
     def get_merge_conflicts(
@@ -673,7 +681,7 @@ class CodeCommitClient:
         nextToken: str = None,
     ) -> GetMergeConflictsOutputTypeDef:
         """
-        [Client.get_merge_conflicts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.get_merge_conflicts)
+        [Client.get_merge_conflicts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.get_merge_conflicts)
         """
 
     def get_merge_options(
@@ -687,57 +695,57 @@ class CodeCommitClient:
         ] = None,
     ) -> GetMergeOptionsOutputTypeDef:
         """
-        [Client.get_merge_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.get_merge_options)
+        [Client.get_merge_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.get_merge_options)
         """
 
     def get_pull_request(self, pullRequestId: str) -> GetPullRequestOutputTypeDef:
         """
-        [Client.get_pull_request documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.get_pull_request)
+        [Client.get_pull_request documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.get_pull_request)
         """
 
     def get_pull_request_approval_states(
         self, pullRequestId: str, revisionId: str
     ) -> GetPullRequestApprovalStatesOutputTypeDef:
         """
-        [Client.get_pull_request_approval_states documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.get_pull_request_approval_states)
+        [Client.get_pull_request_approval_states documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.get_pull_request_approval_states)
         """
 
     def get_pull_request_override_state(
         self, pullRequestId: str, revisionId: str
     ) -> GetPullRequestOverrideStateOutputTypeDef:
         """
-        [Client.get_pull_request_override_state documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.get_pull_request_override_state)
+        [Client.get_pull_request_override_state documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.get_pull_request_override_state)
         """
 
     def get_repository(self, repositoryName: str) -> GetRepositoryOutputTypeDef:
         """
-        [Client.get_repository documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.get_repository)
+        [Client.get_repository documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.get_repository)
         """
 
     def get_repository_triggers(self, repositoryName: str) -> GetRepositoryTriggersOutputTypeDef:
         """
-        [Client.get_repository_triggers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.get_repository_triggers)
+        [Client.get_repository_triggers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.get_repository_triggers)
         """
 
     def list_approval_rule_templates(
         self, nextToken: str = None, maxResults: int = None
     ) -> ListApprovalRuleTemplatesOutputTypeDef:
         """
-        [Client.list_approval_rule_templates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.list_approval_rule_templates)
+        [Client.list_approval_rule_templates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.list_approval_rule_templates)
         """
 
     def list_associated_approval_rule_templates_for_repository(
         self, repositoryName: str, nextToken: str = None, maxResults: int = None
     ) -> ListAssociatedApprovalRuleTemplatesForRepositoryOutputTypeDef:
         """
-        [Client.list_associated_approval_rule_templates_for_repository documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.list_associated_approval_rule_templates_for_repository)
+        [Client.list_associated_approval_rule_templates_for_repository documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.list_associated_approval_rule_templates_for_repository)
         """
 
     def list_branches(
         self, repositoryName: str, nextToken: str = None
     ) -> ListBranchesOutputTypeDef:
         """
-        [Client.list_branches documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.list_branches)
+        [Client.list_branches documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.list_branches)
         """
 
     def list_pull_requests(
@@ -749,7 +757,7 @@ class CodeCommitClient:
         maxResults: int = None,
     ) -> ListPullRequestsOutputTypeDef:
         """
-        [Client.list_pull_requests documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.list_pull_requests)
+        [Client.list_pull_requests documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.list_pull_requests)
         """
 
     def list_repositories(
@@ -759,21 +767,21 @@ class CodeCommitClient:
         order: Literal["ascending", "descending"] = None,
     ) -> ListRepositoriesOutputTypeDef:
         """
-        [Client.list_repositories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.list_repositories)
+        [Client.list_repositories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.list_repositories)
         """
 
     def list_repositories_for_approval_rule_template(
         self, approvalRuleTemplateName: str, nextToken: str = None, maxResults: int = None
     ) -> ListRepositoriesForApprovalRuleTemplateOutputTypeDef:
         """
-        [Client.list_repositories_for_approval_rule_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.list_repositories_for_approval_rule_template)
+        [Client.list_repositories_for_approval_rule_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.list_repositories_for_approval_rule_template)
         """
 
     def list_tags_for_resource(
         self, resourceArn: str, nextToken: str = None
     ) -> ListTagsForResourceOutputTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.list_tags_for_resource)
         """
 
     def merge_branches_by_fast_forward(
@@ -784,7 +792,7 @@ class CodeCommitClient:
         targetBranch: str = None,
     ) -> MergeBranchesByFastForwardOutputTypeDef:
         """
-        [Client.merge_branches_by_fast_forward documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.merge_branches_by_fast_forward)
+        [Client.merge_branches_by_fast_forward documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.merge_branches_by_fast_forward)
         """
 
     def merge_branches_by_squash(
@@ -804,7 +812,7 @@ class CodeCommitClient:
         conflictResolution: ConflictResolutionTypeDef = None,
     ) -> MergeBranchesBySquashOutputTypeDef:
         """
-        [Client.merge_branches_by_squash documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.merge_branches_by_squash)
+        [Client.merge_branches_by_squash documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.merge_branches_by_squash)
         """
 
     def merge_branches_by_three_way(
@@ -824,14 +832,14 @@ class CodeCommitClient:
         conflictResolution: ConflictResolutionTypeDef = None,
     ) -> MergeBranchesByThreeWayOutputTypeDef:
         """
-        [Client.merge_branches_by_three_way documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.merge_branches_by_three_way)
+        [Client.merge_branches_by_three_way documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.merge_branches_by_three_way)
         """
 
     def merge_pull_request_by_fast_forward(
         self, pullRequestId: str, repositoryName: str, sourceCommitId: str = None
     ) -> MergePullRequestByFastForwardOutputTypeDef:
         """
-        [Client.merge_pull_request_by_fast_forward documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.merge_pull_request_by_fast_forward)
+        [Client.merge_pull_request_by_fast_forward documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.merge_pull_request_by_fast_forward)
         """
 
     def merge_pull_request_by_squash(
@@ -850,7 +858,7 @@ class CodeCommitClient:
         conflictResolution: ConflictResolutionTypeDef = None,
     ) -> MergePullRequestBySquashOutputTypeDef:
         """
-        [Client.merge_pull_request_by_squash documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.merge_pull_request_by_squash)
+        [Client.merge_pull_request_by_squash documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.merge_pull_request_by_squash)
         """
 
     def merge_pull_request_by_three_way(
@@ -869,14 +877,14 @@ class CodeCommitClient:
         conflictResolution: ConflictResolutionTypeDef = None,
     ) -> MergePullRequestByThreeWayOutputTypeDef:
         """
-        [Client.merge_pull_request_by_three_way documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.merge_pull_request_by_three_way)
+        [Client.merge_pull_request_by_three_way documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.merge_pull_request_by_three_way)
         """
 
     def override_pull_request_approval_rules(
         self, pullRequestId: str, revisionId: str, overrideStatus: Literal["OVERRIDE", "REVOKE"]
     ) -> None:
         """
-        [Client.override_pull_request_approval_rules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.override_pull_request_approval_rules)
+        [Client.override_pull_request_approval_rules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.override_pull_request_approval_rules)
         """
 
     def post_comment_for_compared_commit(
@@ -889,7 +897,7 @@ class CodeCommitClient:
         clientRequestToken: str = None,
     ) -> PostCommentForComparedCommitOutputTypeDef:
         """
-        [Client.post_comment_for_compared_commit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.post_comment_for_compared_commit)
+        [Client.post_comment_for_compared_commit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.post_comment_for_compared_commit)
         """
 
     def post_comment_for_pull_request(
@@ -903,19 +911,19 @@ class CodeCommitClient:
         clientRequestToken: str = None,
     ) -> PostCommentForPullRequestOutputTypeDef:
         """
-        [Client.post_comment_for_pull_request documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.post_comment_for_pull_request)
+        [Client.post_comment_for_pull_request documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.post_comment_for_pull_request)
         """
 
     def post_comment_reply(
         self, inReplyTo: str, content: str, clientRequestToken: str = None
     ) -> PostCommentReplyOutputTypeDef:
         """
-        [Client.post_comment_reply documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.post_comment_reply)
+        [Client.post_comment_reply documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.post_comment_reply)
         """
 
     def put_comment_reaction(self, commentId: str, reactionValue: str) -> None:
         """
-        [Client.put_comment_reaction documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.put_comment_reaction)
+        [Client.put_comment_reaction documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.put_comment_reaction)
         """
 
     def put_file(
@@ -931,31 +939,31 @@ class CodeCommitClient:
         email: str = None,
     ) -> PutFileOutputTypeDef:
         """
-        [Client.put_file documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.put_file)
+        [Client.put_file documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.put_file)
         """
 
     def put_repository_triggers(
         self, repositoryName: str, triggers: List["RepositoryTriggerTypeDef"]
     ) -> PutRepositoryTriggersOutputTypeDef:
         """
-        [Client.put_repository_triggers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.put_repository_triggers)
+        [Client.put_repository_triggers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.put_repository_triggers)
         """
 
     def tag_resource(self, resourceArn: str, tags: Dict[str, str]) -> None:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.tag_resource)
         """
 
     def test_repository_triggers(
         self, repositoryName: str, triggers: List["RepositoryTriggerTypeDef"]
     ) -> TestRepositoryTriggersOutputTypeDef:
         """
-        [Client.test_repository_triggers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.test_repository_triggers)
+        [Client.test_repository_triggers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.test_repository_triggers)
         """
 
     def untag_resource(self, resourceArn: str, tagKeys: List[str]) -> None:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.untag_resource)
         """
 
     def update_approval_rule_template_content(
@@ -965,31 +973,31 @@ class CodeCommitClient:
         existingRuleContentSha256: str = None,
     ) -> UpdateApprovalRuleTemplateContentOutputTypeDef:
         """
-        [Client.update_approval_rule_template_content documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.update_approval_rule_template_content)
+        [Client.update_approval_rule_template_content documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.update_approval_rule_template_content)
         """
 
     def update_approval_rule_template_description(
         self, approvalRuleTemplateName: str, approvalRuleTemplateDescription: str
     ) -> UpdateApprovalRuleTemplateDescriptionOutputTypeDef:
         """
-        [Client.update_approval_rule_template_description documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.update_approval_rule_template_description)
+        [Client.update_approval_rule_template_description documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.update_approval_rule_template_description)
         """
 
     def update_approval_rule_template_name(
         self, oldApprovalRuleTemplateName: str, newApprovalRuleTemplateName: str
     ) -> UpdateApprovalRuleTemplateNameOutputTypeDef:
         """
-        [Client.update_approval_rule_template_name documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.update_approval_rule_template_name)
+        [Client.update_approval_rule_template_name documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.update_approval_rule_template_name)
         """
 
     def update_comment(self, commentId: str, content: str) -> UpdateCommentOutputTypeDef:
         """
-        [Client.update_comment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.update_comment)
+        [Client.update_comment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.update_comment)
         """
 
     def update_default_branch(self, repositoryName: str, defaultBranchName: str) -> None:
         """
-        [Client.update_default_branch documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.update_default_branch)
+        [Client.update_default_branch documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.update_default_branch)
         """
 
     def update_pull_request_approval_rule_content(
@@ -1000,47 +1008,47 @@ class CodeCommitClient:
         existingRuleContentSha256: str = None,
     ) -> UpdatePullRequestApprovalRuleContentOutputTypeDef:
         """
-        [Client.update_pull_request_approval_rule_content documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.update_pull_request_approval_rule_content)
+        [Client.update_pull_request_approval_rule_content documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.update_pull_request_approval_rule_content)
         """
 
     def update_pull_request_approval_state(
         self, pullRequestId: str, revisionId: str, approvalState: Literal["APPROVE", "REVOKE"]
     ) -> None:
         """
-        [Client.update_pull_request_approval_state documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.update_pull_request_approval_state)
+        [Client.update_pull_request_approval_state documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.update_pull_request_approval_state)
         """
 
     def update_pull_request_description(
         self, pullRequestId: str, description: str
     ) -> UpdatePullRequestDescriptionOutputTypeDef:
         """
-        [Client.update_pull_request_description documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.update_pull_request_description)
+        [Client.update_pull_request_description documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.update_pull_request_description)
         """
 
     def update_pull_request_status(
         self, pullRequestId: str, pullRequestStatus: Literal["OPEN", "CLOSED"]
     ) -> UpdatePullRequestStatusOutputTypeDef:
         """
-        [Client.update_pull_request_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.update_pull_request_status)
+        [Client.update_pull_request_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.update_pull_request_status)
         """
 
     def update_pull_request_title(
         self, pullRequestId: str, title: str
     ) -> UpdatePullRequestTitleOutputTypeDef:
         """
-        [Client.update_pull_request_title documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.update_pull_request_title)
+        [Client.update_pull_request_title documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.update_pull_request_title)
         """
 
     def update_repository_description(
         self, repositoryName: str, repositoryDescription: str = None
     ) -> None:
         """
-        [Client.update_repository_description documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.update_repository_description)
+        [Client.update_repository_description documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.update_repository_description)
         """
 
     def update_repository_name(self, oldName: str, newName: str) -> None:
         """
-        [Client.update_repository_name documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Client.update_repository_name)
+        [Client.update_repository_name documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Client.update_repository_name)
         """
 
     @overload
@@ -1048,7 +1056,7 @@ class CodeCommitClient:
         self, operation_name: Literal["describe_pull_request_events"]
     ) -> DescribePullRequestEventsPaginator:
         """
-        [Paginator.DescribePullRequestEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Paginator.DescribePullRequestEvents)
+        [Paginator.DescribePullRequestEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Paginator.DescribePullRequestEvents)
         """
 
     @overload
@@ -1056,7 +1064,7 @@ class CodeCommitClient:
         self, operation_name: Literal["get_comments_for_compared_commit"]
     ) -> GetCommentsForComparedCommitPaginator:
         """
-        [Paginator.GetCommentsForComparedCommit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Paginator.GetCommentsForComparedCommit)
+        [Paginator.GetCommentsForComparedCommit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Paginator.GetCommentsForComparedCommit)
         """
 
     @overload
@@ -1064,19 +1072,19 @@ class CodeCommitClient:
         self, operation_name: Literal["get_comments_for_pull_request"]
     ) -> GetCommentsForPullRequestPaginator:
         """
-        [Paginator.GetCommentsForPullRequest documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Paginator.GetCommentsForPullRequest)
+        [Paginator.GetCommentsForPullRequest documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Paginator.GetCommentsForPullRequest)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_differences"]) -> GetDifferencesPaginator:
         """
-        [Paginator.GetDifferences documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Paginator.GetDifferences)
+        [Paginator.GetDifferences documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Paginator.GetDifferences)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_branches"]) -> ListBranchesPaginator:
         """
-        [Paginator.ListBranches documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Paginator.ListBranches)
+        [Paginator.ListBranches documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Paginator.ListBranches)
         """
 
     @overload
@@ -1084,7 +1092,7 @@ class CodeCommitClient:
         self, operation_name: Literal["list_pull_requests"]
     ) -> ListPullRequestsPaginator:
         """
-        [Paginator.ListPullRequests documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Paginator.ListPullRequests)
+        [Paginator.ListPullRequests documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Paginator.ListPullRequests)
         """
 
     @overload
@@ -1092,8 +1100,5 @@ class CodeCommitClient:
         self, operation_name: Literal["list_repositories"]
     ) -> ListRepositoriesPaginator:
         """
-        [Paginator.ListRepositories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/codecommit.html#CodeCommit.Paginator.ListRepositories)
+        [Paginator.ListRepositories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codecommit.html#CodeCommit.Paginator.ListRepositories)
         """
-
-    def get_paginator(self, operation_name: str) -> Boto3Paginator:
-        pass

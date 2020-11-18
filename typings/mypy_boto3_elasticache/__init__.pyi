@@ -24,6 +24,8 @@ Usage::
         DescribeServiceUpdatesPaginator,
         DescribeSnapshotsPaginator,
         DescribeUpdateActionsPaginator,
+        DescribeUserGroupsPaginator,
+        DescribeUsersPaginator,
         ElastiCacheClient,
         ReplicationGroupAvailableWaiter,
         ReplicationGroupDeletedWaiter,
@@ -54,6 +56,8 @@ Usage::
     describe_service_updates_paginator: DescribeServiceUpdatesPaginator = client.get_paginator("describe_service_updates")
     describe_snapshots_paginator: DescribeSnapshotsPaginator = client.get_paginator("describe_snapshots")
     describe_update_actions_paginator: DescribeUpdateActionsPaginator = client.get_paginator("describe_update_actions")
+    describe_user_groups_paginator: DescribeUserGroupsPaginator = client.get_paginator("describe_user_groups")
+    describe_users_paginator: DescribeUsersPaginator = client.get_paginator("describe_users")
     ```
 """
 from mypy_boto3_elasticache.client import ElastiCacheClient
@@ -73,6 +77,8 @@ from mypy_boto3_elasticache.paginator import (
     DescribeServiceUpdatesPaginator,
     DescribeSnapshotsPaginator,
     DescribeUpdateActionsPaginator,
+    DescribeUserGroupsPaginator,
+    DescribeUsersPaginator,
 )
 from mypy_boto3_elasticache.waiter import (
     CacheClusterAvailableWaiter,
@@ -103,6 +109,8 @@ __all__ = (
     "DescribeServiceUpdatesPaginator",
     "DescribeSnapshotsPaginator",
     "DescribeUpdateActionsPaginator",
+    "DescribeUserGroupsPaginator",
+    "DescribeUsersPaginator",
     "ElastiCacheClient",
     "ReplicationGroupAvailableWaiter",
     "ReplicationGroupDeletedWaiter",

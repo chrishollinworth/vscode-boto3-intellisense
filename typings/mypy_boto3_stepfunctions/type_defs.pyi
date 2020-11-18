@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import List
+from typing import Any, Dict, List
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -32,6 +31,7 @@ __all__ = (
     "ActivityStartedEventDetailsTypeDef",
     "ActivitySucceededEventDetailsTypeDef",
     "ActivityTimedOutEventDetailsTypeDef",
+    "CloudWatchEventsExecutionDataDetailsTypeDef",
     "CloudWatchLogsLogGroupTypeDef",
     "ExecutionAbortedEventDetailsTypeDef",
     "ExecutionFailedEventDetailsTypeDef",
@@ -39,6 +39,7 @@ __all__ = (
     "ExecutionStartedEventDetailsTypeDef",
     "ExecutionSucceededEventDetailsTypeDef",
     "ExecutionTimedOutEventDetailsTypeDef",
+    "HistoryEventExecutionDataDetailsTypeDef",
     "HistoryEventTypeDef",
     "LambdaFunctionFailedEventDetailsTypeDef",
     "LambdaFunctionScheduleFailedEventDetailsTypeDef",
@@ -50,6 +51,7 @@ __all__ = (
     "LoggingConfigurationTypeDef",
     "MapIterationEventDetailsTypeDef",
     "MapStateStartedEventDetailsTypeDef",
+    "ResponseMetadata",
     "StateEnteredEventDetailsTypeDef",
     "StateExitedEventDetailsTypeDef",
     "StateMachineListItemTypeDef",
@@ -62,6 +64,7 @@ __all__ = (
     "TaskSubmittedEventDetailsTypeDef",
     "TaskSucceededEventDetailsTypeDef",
     "TaskTimedOutEventDetailsTypeDef",
+    "TracingConfigurationTypeDef",
     "CreateActivityOutputTypeDef",
     "CreateStateMachineOutputTypeDef",
     "DescribeActivityOutputTypeDef",
@@ -97,7 +100,12 @@ _RequiredActivityScheduledEventDetailsTypeDef = TypedDict(
 )
 _OptionalActivityScheduledEventDetailsTypeDef = TypedDict(
     "_OptionalActivityScheduledEventDetailsTypeDef",
-    {"input": str, "timeoutInSeconds": int, "heartbeatInSeconds": int},
+    {
+        "input": str,
+        "inputDetails": "HistoryEventExecutionDataDetailsTypeDef",
+        "timeoutInSeconds": int,
+        "heartbeatInSeconds": int,
+    },
     total=False,
 )
 
@@ -113,11 +121,17 @@ ActivityStartedEventDetailsTypeDef = TypedDict(
 )
 
 ActivitySucceededEventDetailsTypeDef = TypedDict(
-    "ActivitySucceededEventDetailsTypeDef", {"output": str}, total=False
+    "ActivitySucceededEventDetailsTypeDef",
+    {"output": str, "outputDetails": "HistoryEventExecutionDataDetailsTypeDef"},
+    total=False,
 )
 
 ActivityTimedOutEventDetailsTypeDef = TypedDict(
     "ActivityTimedOutEventDetailsTypeDef", {"error": str, "cause": str}, total=False
+)
+
+CloudWatchEventsExecutionDataDetailsTypeDef = TypedDict(
+    "CloudWatchEventsExecutionDataDetailsTypeDef", {"included": bool}, total=False
 )
 
 CloudWatchLogsLogGroupTypeDef = TypedDict(
@@ -154,15 +168,23 @@ class ExecutionListItemTypeDef(
 
 
 ExecutionStartedEventDetailsTypeDef = TypedDict(
-    "ExecutionStartedEventDetailsTypeDef", {"input": str, "roleArn": str}, total=False
+    "ExecutionStartedEventDetailsTypeDef",
+    {"input": str, "inputDetails": "HistoryEventExecutionDataDetailsTypeDef", "roleArn": str},
+    total=False,
 )
 
 ExecutionSucceededEventDetailsTypeDef = TypedDict(
-    "ExecutionSucceededEventDetailsTypeDef", {"output": str}, total=False
+    "ExecutionSucceededEventDetailsTypeDef",
+    {"output": str, "outputDetails": "HistoryEventExecutionDataDetailsTypeDef"},
+    total=False,
 )
 
 ExecutionTimedOutEventDetailsTypeDef = TypedDict(
     "ExecutionTimedOutEventDetailsTypeDef", {"error": str, "cause": str}, total=False
+)
+
+HistoryEventExecutionDataDetailsTypeDef = TypedDict(
+    "HistoryEventExecutionDataDetailsTypeDef", {"truncated": bool}, total=False
 )
 
 _RequiredHistoryEventTypeDef = TypedDict(
@@ -287,7 +309,11 @@ _RequiredLambdaFunctionScheduledEventDetailsTypeDef = TypedDict(
 )
 _OptionalLambdaFunctionScheduledEventDetailsTypeDef = TypedDict(
     "_OptionalLambdaFunctionScheduledEventDetailsTypeDef",
-    {"input": str, "timeoutInSeconds": int},
+    {
+        "input": str,
+        "inputDetails": "HistoryEventExecutionDataDetailsTypeDef",
+        "timeoutInSeconds": int,
+    },
     total=False,
 )
 
@@ -304,7 +330,9 @@ LambdaFunctionStartFailedEventDetailsTypeDef = TypedDict(
 )
 
 LambdaFunctionSucceededEventDetailsTypeDef = TypedDict(
-    "LambdaFunctionSucceededEventDetailsTypeDef", {"output": str}, total=False
+    "LambdaFunctionSucceededEventDetailsTypeDef",
+    {"output": str, "outputDetails": "HistoryEventExecutionDataDetailsTypeDef"},
+    total=False,
 )
 
 LambdaFunctionTimedOutEventDetailsTypeDef = TypedDict(
@@ -335,11 +363,24 @@ MapStateStartedEventDetailsTypeDef = TypedDict(
     "MapStateStartedEventDetailsTypeDef", {"length": int}, total=False
 )
 
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
+
 _RequiredStateEnteredEventDetailsTypeDef = TypedDict(
     "_RequiredStateEnteredEventDetailsTypeDef", {"name": str}
 )
 _OptionalStateEnteredEventDetailsTypeDef = TypedDict(
-    "_OptionalStateEnteredEventDetailsTypeDef", {"input": str}, total=False
+    "_OptionalStateEnteredEventDetailsTypeDef",
+    {"input": str, "inputDetails": "HistoryEventExecutionDataDetailsTypeDef"},
+    total=False,
 )
 
 
@@ -353,7 +394,9 @@ _RequiredStateExitedEventDetailsTypeDef = TypedDict(
     "_RequiredStateExitedEventDetailsTypeDef", {"name": str}
 )
 _OptionalStateExitedEventDetailsTypeDef = TypedDict(
-    "_OptionalStateExitedEventDetailsTypeDef", {"output": str}, total=False
+    "_OptionalStateExitedEventDetailsTypeDef",
+    {"output": str, "outputDetails": "HistoryEventExecutionDataDetailsTypeDef"},
+    total=False,
 )
 
 
@@ -394,7 +437,9 @@ _RequiredTaskScheduledEventDetailsTypeDef = TypedDict(
     {"resourceType": str, "resource": str, "region": str, "parameters": str},
 )
 _OptionalTaskScheduledEventDetailsTypeDef = TypedDict(
-    "_OptionalTaskScheduledEventDetailsTypeDef", {"timeoutInSeconds": int}, total=False
+    "_OptionalTaskScheduledEventDetailsTypeDef",
+    {"timeoutInSeconds": int, "heartbeatInSeconds": int},
+    total=False,
 )
 
 
@@ -440,7 +485,9 @@ _RequiredTaskSubmittedEventDetailsTypeDef = TypedDict(
     "_RequiredTaskSubmittedEventDetailsTypeDef", {"resourceType": str, "resource": str}
 )
 _OptionalTaskSubmittedEventDetailsTypeDef = TypedDict(
-    "_OptionalTaskSubmittedEventDetailsTypeDef", {"output": str}, total=False
+    "_OptionalTaskSubmittedEventDetailsTypeDef",
+    {"output": str, "outputDetails": "HistoryEventExecutionDataDetailsTypeDef"},
+    total=False,
 )
 
 
@@ -454,7 +501,9 @@ _RequiredTaskSucceededEventDetailsTypeDef = TypedDict(
     "_RequiredTaskSucceededEventDetailsTypeDef", {"resourceType": str, "resource": str}
 )
 _OptionalTaskSucceededEventDetailsTypeDef = TypedDict(
-    "_OptionalTaskSucceededEventDetailsTypeDef", {"output": str}, total=False
+    "_OptionalTaskSucceededEventDetailsTypeDef",
+    {"output": str, "outputDetails": "HistoryEventExecutionDataDetailsTypeDef"},
+    total=False,
 )
 
 
@@ -478,17 +527,54 @@ class TaskTimedOutEventDetailsTypeDef(
     pass
 
 
-CreateActivityOutputTypeDef = TypedDict(
-    "CreateActivityOutputTypeDef", {"activityArn": str, "creationDate": datetime}
+TracingConfigurationTypeDef = TypedDict(
+    "TracingConfigurationTypeDef", {"enabled": bool}, total=False
 )
 
-CreateStateMachineOutputTypeDef = TypedDict(
-    "CreateStateMachineOutputTypeDef", {"stateMachineArn": str, "creationDate": datetime}
+_RequiredCreateActivityOutputTypeDef = TypedDict(
+    "_RequiredCreateActivityOutputTypeDef", {"activityArn": str, "creationDate": datetime}
+)
+_OptionalCreateActivityOutputTypeDef = TypedDict(
+    "_OptionalCreateActivityOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
 )
 
-DescribeActivityOutputTypeDef = TypedDict(
-    "DescribeActivityOutputTypeDef", {"activityArn": str, "name": str, "creationDate": datetime}
+
+class CreateActivityOutputTypeDef(
+    _RequiredCreateActivityOutputTypeDef, _OptionalCreateActivityOutputTypeDef
+):
+    pass
+
+
+_RequiredCreateStateMachineOutputTypeDef = TypedDict(
+    "_RequiredCreateStateMachineOutputTypeDef", {"stateMachineArn": str, "creationDate": datetime}
 )
+_OptionalCreateStateMachineOutputTypeDef = TypedDict(
+    "_OptionalCreateStateMachineOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+
+class CreateStateMachineOutputTypeDef(
+    _RequiredCreateStateMachineOutputTypeDef, _OptionalCreateStateMachineOutputTypeDef
+):
+    pass
+
+
+_RequiredDescribeActivityOutputTypeDef = TypedDict(
+    "_RequiredDescribeActivityOutputTypeDef",
+    {"activityArn": str, "name": str, "creationDate": datetime},
+)
+_OptionalDescribeActivityOutputTypeDef = TypedDict(
+    "_OptionalDescribeActivityOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
+)
+
+
+class DescribeActivityOutputTypeDef(
+    _RequiredDescribeActivityOutputTypeDef, _OptionalDescribeActivityOutputTypeDef
+):
+    pass
+
 
 _RequiredDescribeExecutionOutputTypeDef = TypedDict(
     "_RequiredDescribeExecutionOutputTypeDef",
@@ -497,12 +583,20 @@ _RequiredDescribeExecutionOutputTypeDef = TypedDict(
         "stateMachineArn": str,
         "status": Literal["RUNNING", "SUCCEEDED", "FAILED", "TIMED_OUT", "ABORTED"],
         "startDate": datetime,
-        "input": str,
     },
 )
 _OptionalDescribeExecutionOutputTypeDef = TypedDict(
     "_OptionalDescribeExecutionOutputTypeDef",
-    {"name": str, "stopDate": datetime, "output": str},
+    {
+        "name": str,
+        "stopDate": datetime,
+        "input": str,
+        "inputDetails": "CloudWatchEventsExecutionDataDetailsTypeDef",
+        "output": str,
+        "outputDetails": "CloudWatchEventsExecutionDataDetailsTypeDef",
+        "traceHeader": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -525,7 +619,11 @@ _RequiredDescribeStateMachineForExecutionOutputTypeDef = TypedDict(
 )
 _OptionalDescribeStateMachineForExecutionOutputTypeDef = TypedDict(
     "_OptionalDescribeStateMachineForExecutionOutputTypeDef",
-    {"loggingConfiguration": "LoggingConfigurationTypeDef"},
+    {
+        "loggingConfiguration": "LoggingConfigurationTypeDef",
+        "tracingConfiguration": "TracingConfigurationTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -553,6 +651,8 @@ _OptionalDescribeStateMachineOutputTypeDef = TypedDict(
     {
         "status": Literal["ACTIVE", "DELETING"],
         "loggingConfiguration": "LoggingConfigurationTypeDef",
+        "tracingConfiguration": "TracingConfigurationTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -565,14 +665,18 @@ class DescribeStateMachineOutputTypeDef(
 
 
 GetActivityTaskOutputTypeDef = TypedDict(
-    "GetActivityTaskOutputTypeDef", {"taskToken": str, "input": str}, total=False
+    "GetActivityTaskOutputTypeDef",
+    {"taskToken": str, "input": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 _RequiredGetExecutionHistoryOutputTypeDef = TypedDict(
     "_RequiredGetExecutionHistoryOutputTypeDef", {"events": List["HistoryEventTypeDef"]}
 )
 _OptionalGetExecutionHistoryOutputTypeDef = TypedDict(
-    "_OptionalGetExecutionHistoryOutputTypeDef", {"nextToken": str}, total=False
+    "_OptionalGetExecutionHistoryOutputTypeDef",
+    {"nextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 
@@ -586,7 +690,9 @@ _RequiredListActivitiesOutputTypeDef = TypedDict(
     "_RequiredListActivitiesOutputTypeDef", {"activities": List["ActivityListItemTypeDef"]}
 )
 _OptionalListActivitiesOutputTypeDef = TypedDict(
-    "_OptionalListActivitiesOutputTypeDef", {"nextToken": str}, total=False
+    "_OptionalListActivitiesOutputTypeDef",
+    {"nextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 
@@ -600,7 +706,9 @@ _RequiredListExecutionsOutputTypeDef = TypedDict(
     "_RequiredListExecutionsOutputTypeDef", {"executions": List["ExecutionListItemTypeDef"]}
 )
 _OptionalListExecutionsOutputTypeDef = TypedDict(
-    "_OptionalListExecutionsOutputTypeDef", {"nextToken": str}, total=False
+    "_OptionalListExecutionsOutputTypeDef",
+    {"nextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 
@@ -615,7 +723,9 @@ _RequiredListStateMachinesOutputTypeDef = TypedDict(
     {"stateMachines": List["StateMachineListItemTypeDef"]},
 )
 _OptionalListStateMachinesOutputTypeDef = TypedDict(
-    "_OptionalListStateMachinesOutputTypeDef", {"nextToken": str}, total=False
+    "_OptionalListStateMachinesOutputTypeDef",
+    {"nextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 
@@ -626,19 +736,54 @@ class ListStateMachinesOutputTypeDef(
 
 
 ListTagsForResourceOutputTypeDef = TypedDict(
-    "ListTagsForResourceOutputTypeDef", {"tags": List["TagTypeDef"]}, total=False
+    "ListTagsForResourceOutputTypeDef",
+    {"tags": List["TagTypeDef"], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 PaginatorConfigTypeDef = TypedDict(
     "PaginatorConfigTypeDef", {"MaxItems": int, "PageSize": int, "StartingToken": str}, total=False
 )
 
-StartExecutionOutputTypeDef = TypedDict(
-    "StartExecutionOutputTypeDef", {"executionArn": str, "startDate": datetime}
+_RequiredStartExecutionOutputTypeDef = TypedDict(
+    "_RequiredStartExecutionOutputTypeDef", {"executionArn": str, "startDate": datetime}
+)
+_OptionalStartExecutionOutputTypeDef = TypedDict(
+    "_OptionalStartExecutionOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
 )
 
-StopExecutionOutputTypeDef = TypedDict("StopExecutionOutputTypeDef", {"stopDate": datetime})
 
-UpdateStateMachineOutputTypeDef = TypedDict(
-    "UpdateStateMachineOutputTypeDef", {"updateDate": datetime}
+class StartExecutionOutputTypeDef(
+    _RequiredStartExecutionOutputTypeDef, _OptionalStartExecutionOutputTypeDef
+):
+    pass
+
+
+_RequiredStopExecutionOutputTypeDef = TypedDict(
+    "_RequiredStopExecutionOutputTypeDef", {"stopDate": datetime}
 )
+_OptionalStopExecutionOutputTypeDef = TypedDict(
+    "_OptionalStopExecutionOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
+)
+
+
+class StopExecutionOutputTypeDef(
+    _RequiredStopExecutionOutputTypeDef, _OptionalStopExecutionOutputTypeDef
+):
+    pass
+
+
+_RequiredUpdateStateMachineOutputTypeDef = TypedDict(
+    "_RequiredUpdateStateMachineOutputTypeDef", {"updateDate": datetime}
+)
+_OptionalUpdateStateMachineOutputTypeDef = TypedDict(
+    "_OptionalUpdateStateMachineOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+
+class UpdateStateMachineOutputTypeDef(
+    _RequiredUpdateStateMachineOutputTypeDef, _OptionalUpdateStateMachineOutputTypeDef
+):
+    pass

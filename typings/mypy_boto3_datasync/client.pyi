@@ -1,4 +1,4 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import
+# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for datasync service client
 
@@ -14,8 +14,7 @@ Usage::
 import sys
 from typing import Any, Dict, List, Type, overload
 
-from botocore.exceptions import ClientError as Boto3ClientError
-from botocore.paginate import Paginator as Boto3Paginator
+from botocore.client import ClientMeta
 
 from mypy_boto3_datasync.paginator import (
     ListAgentsPaginator,
@@ -70,27 +69,36 @@ else:
 __all__ = ("DataSyncClient",)
 
 
+class BotocoreClientError(BaseException):
+    MSG_TEMPLATE: str
+
+    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
+        self.response: Dict[str, Any]
+        self.operation_name: str
+
+
 class Exceptions:
-    ClientError: Type[Boto3ClientError]
-    InternalException: Type[Boto3ClientError]
-    InvalidRequestException: Type[Boto3ClientError]
+    ClientError: Type[BotocoreClientError]
+    InternalException: Type[BotocoreClientError]
+    InvalidRequestException: Type[BotocoreClientError]
 
 
 class DataSyncClient:
     """
-    [DataSync.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Client)
+    [DataSync.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Client)
     """
 
+    meta: ClientMeta
     exceptions: Exceptions
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Client.can_paginate)
         """
 
     def cancel_task_execution(self, TaskExecutionArn: str) -> Dict[str, Any]:
         """
-        [Client.cancel_task_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Client.cancel_task_execution)
+        [Client.cancel_task_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Client.cancel_task_execution)
         """
 
     def create_agent(
@@ -103,7 +111,7 @@ class DataSyncClient:
         SecurityGroupArns: List[str] = None,
     ) -> CreateAgentResponseTypeDef:
         """
-        [Client.create_agent documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Client.create_agent)
+        [Client.create_agent documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Client.create_agent)
         """
 
     def create_location_efs(
@@ -114,7 +122,7 @@ class DataSyncClient:
         Tags: List["TagListEntryTypeDef"] = None,
     ) -> CreateLocationEfsResponseTypeDef:
         """
-        [Client.create_location_efs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Client.create_location_efs)
+        [Client.create_location_efs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Client.create_location_efs)
         """
 
     def create_location_fsx_windows(
@@ -128,7 +136,7 @@ class DataSyncClient:
         Domain: str = None,
     ) -> CreateLocationFsxWindowsResponseTypeDef:
         """
-        [Client.create_location_fsx_windows documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Client.create_location_fsx_windows)
+        [Client.create_location_fsx_windows documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Client.create_location_fsx_windows)
         """
 
     def create_location_nfs(
@@ -140,7 +148,7 @@ class DataSyncClient:
         Tags: List["TagListEntryTypeDef"] = None,
     ) -> CreateLocationNfsResponseTypeDef:
         """
-        [Client.create_location_nfs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Client.create_location_nfs)
+        [Client.create_location_nfs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Client.create_location_nfs)
         """
 
     def create_location_object_storage(
@@ -156,7 +164,7 @@ class DataSyncClient:
         Tags: List["TagListEntryTypeDef"] = None,
     ) -> CreateLocationObjectStorageResponseTypeDef:
         """
-        [Client.create_location_object_storage documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Client.create_location_object_storage)
+        [Client.create_location_object_storage documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Client.create_location_object_storage)
         """
 
     def create_location_s3(
@@ -171,11 +179,13 @@ class DataSyncClient:
             "INTELLIGENT_TIERING",
             "GLACIER",
             "DEEP_ARCHIVE",
+            "OUTPOSTS",
         ] = None,
+        AgentArns: List[str] = None,
         Tags: List["TagListEntryTypeDef"] = None,
     ) -> CreateLocationS3ResponseTypeDef:
         """
-        [Client.create_location_s3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Client.create_location_s3)
+        [Client.create_location_s3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Client.create_location_s3)
         """
 
     def create_location_smb(
@@ -190,7 +200,7 @@ class DataSyncClient:
         Tags: List["TagListEntryTypeDef"] = None,
     ) -> CreateLocationSmbResponseTypeDef:
         """
-        [Client.create_location_smb documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Client.create_location_smb)
+        [Client.create_location_smb documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Client.create_location_smb)
         """
 
     def create_task(
@@ -205,73 +215,73 @@ class DataSyncClient:
         Tags: List["TagListEntryTypeDef"] = None,
     ) -> CreateTaskResponseTypeDef:
         """
-        [Client.create_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Client.create_task)
+        [Client.create_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Client.create_task)
         """
 
     def delete_agent(self, AgentArn: str) -> Dict[str, Any]:
         """
-        [Client.delete_agent documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Client.delete_agent)
+        [Client.delete_agent documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Client.delete_agent)
         """
 
     def delete_location(self, LocationArn: str) -> Dict[str, Any]:
         """
-        [Client.delete_location documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Client.delete_location)
+        [Client.delete_location documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Client.delete_location)
         """
 
     def delete_task(self, TaskArn: str) -> Dict[str, Any]:
         """
-        [Client.delete_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Client.delete_task)
+        [Client.delete_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Client.delete_task)
         """
 
     def describe_agent(self, AgentArn: str) -> DescribeAgentResponseTypeDef:
         """
-        [Client.describe_agent documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Client.describe_agent)
+        [Client.describe_agent documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Client.describe_agent)
         """
 
     def describe_location_efs(self, LocationArn: str) -> DescribeLocationEfsResponseTypeDef:
         """
-        [Client.describe_location_efs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Client.describe_location_efs)
+        [Client.describe_location_efs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Client.describe_location_efs)
         """
 
     def describe_location_fsx_windows(
         self, LocationArn: str
     ) -> DescribeLocationFsxWindowsResponseTypeDef:
         """
-        [Client.describe_location_fsx_windows documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Client.describe_location_fsx_windows)
+        [Client.describe_location_fsx_windows documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Client.describe_location_fsx_windows)
         """
 
     def describe_location_nfs(self, LocationArn: str) -> DescribeLocationNfsResponseTypeDef:
         """
-        [Client.describe_location_nfs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Client.describe_location_nfs)
+        [Client.describe_location_nfs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Client.describe_location_nfs)
         """
 
     def describe_location_object_storage(
         self, LocationArn: str
     ) -> DescribeLocationObjectStorageResponseTypeDef:
         """
-        [Client.describe_location_object_storage documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Client.describe_location_object_storage)
+        [Client.describe_location_object_storage documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Client.describe_location_object_storage)
         """
 
     def describe_location_s3(self, LocationArn: str) -> DescribeLocationS3ResponseTypeDef:
         """
-        [Client.describe_location_s3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Client.describe_location_s3)
+        [Client.describe_location_s3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Client.describe_location_s3)
         """
 
     def describe_location_smb(self, LocationArn: str) -> DescribeLocationSmbResponseTypeDef:
         """
-        [Client.describe_location_smb documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Client.describe_location_smb)
+        [Client.describe_location_smb documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Client.describe_location_smb)
         """
 
     def describe_task(self, TaskArn: str) -> DescribeTaskResponseTypeDef:
         """
-        [Client.describe_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Client.describe_task)
+        [Client.describe_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Client.describe_task)
         """
 
     def describe_task_execution(
         self, TaskExecutionArn: str
     ) -> DescribeTaskExecutionResponseTypeDef:
         """
-        [Client.describe_task_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Client.describe_task_execution)
+        [Client.describe_task_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Client.describe_task_execution)
         """
 
     def generate_presigned_url(
@@ -282,14 +292,14 @@ class DataSyncClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Client.generate_presigned_url)
         """
 
     def list_agents(
         self, MaxResults: int = None, NextToken: str = None
     ) -> ListAgentsResponseTypeDef:
         """
-        [Client.list_agents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Client.list_agents)
+        [Client.list_agents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Client.list_agents)
         """
 
     def list_locations(
@@ -299,28 +309,28 @@ class DataSyncClient:
         Filters: List[LocationFilterTypeDef] = None,
     ) -> ListLocationsResponseTypeDef:
         """
-        [Client.list_locations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Client.list_locations)
+        [Client.list_locations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Client.list_locations)
         """
 
     def list_tags_for_resource(
         self, ResourceArn: str, MaxResults: int = None, NextToken: str = None
     ) -> ListTagsForResourceResponseTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Client.list_tags_for_resource)
         """
 
     def list_task_executions(
         self, TaskArn: str = None, MaxResults: int = None, NextToken: str = None
     ) -> ListTaskExecutionsResponseTypeDef:
         """
-        [Client.list_task_executions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Client.list_task_executions)
+        [Client.list_task_executions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Client.list_task_executions)
         """
 
     def list_tasks(
         self, MaxResults: int = None, NextToken: str = None, Filters: List[TaskFilterTypeDef] = None
     ) -> ListTasksResponseTypeDef:
         """
-        [Client.list_tasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Client.list_tasks)
+        [Client.list_tasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Client.list_tasks)
         """
 
     def start_task_execution(
@@ -330,22 +340,22 @@ class DataSyncClient:
         Includes: List["FilterRuleTypeDef"] = None,
     ) -> StartTaskExecutionResponseTypeDef:
         """
-        [Client.start_task_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Client.start_task_execution)
+        [Client.start_task_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Client.start_task_execution)
         """
 
     def tag_resource(self, ResourceArn: str, Tags: List["TagListEntryTypeDef"]) -> Dict[str, Any]:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Client.tag_resource)
         """
 
     def untag_resource(self, ResourceArn: str, Keys: List[str]) -> Dict[str, Any]:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Client.untag_resource)
         """
 
     def update_agent(self, AgentArn: str, Name: str = None) -> Dict[str, Any]:
         """
-        [Client.update_agent documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Client.update_agent)
+        [Client.update_agent documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Client.update_agent)
         """
 
     def update_task(
@@ -358,19 +368,26 @@ class DataSyncClient:
         CloudWatchLogGroupArn: str = None,
     ) -> Dict[str, Any]:
         """
-        [Client.update_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Client.update_task)
+        [Client.update_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Client.update_task)
+        """
+
+    def update_task_execution(
+        self, TaskExecutionArn: str, Options: "OptionsTypeDef"
+    ) -> Dict[str, Any]:
+        """
+        [Client.update_task_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Client.update_task_execution)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_agents"]) -> ListAgentsPaginator:
         """
-        [Paginator.ListAgents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Paginator.ListAgents)
+        [Paginator.ListAgents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Paginator.ListAgents)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_locations"]) -> ListLocationsPaginator:
         """
-        [Paginator.ListLocations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Paginator.ListLocations)
+        [Paginator.ListLocations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Paginator.ListLocations)
         """
 
     @overload
@@ -378,7 +395,7 @@ class DataSyncClient:
         self, operation_name: Literal["list_tags_for_resource"]
     ) -> ListTagsForResourcePaginator:
         """
-        [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Paginator.ListTagsForResource)
+        [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Paginator.ListTagsForResource)
         """
 
     @overload
@@ -386,14 +403,11 @@ class DataSyncClient:
         self, operation_name: Literal["list_task_executions"]
     ) -> ListTaskExecutionsPaginator:
         """
-        [Paginator.ListTaskExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Paginator.ListTaskExecutions)
+        [Paginator.ListTaskExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Paginator.ListTaskExecutions)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_tasks"]) -> ListTasksPaginator:
         """
-        [Paginator.ListTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/datasync.html#DataSync.Paginator.ListTasks)
+        [Paginator.ListTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/datasync.html#DataSync.Paginator.ListTasks)
         """
-
-    def get_paginator(self, operation_name: str) -> Boto3Paginator:
-        pass

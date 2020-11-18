@@ -1,4 +1,4 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import
+# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for pricing service client
 
@@ -14,8 +14,7 @@ Usage::
 import sys
 from typing import Any, Dict, List, Type, overload
 
-from botocore.exceptions import ClientError as Boto3ClientError
-from botocore.paginate import Paginator as Boto3Paginator
+from botocore.client import ClientMeta
 
 from mypy_boto3_pricing.paginator import (
     DescribeServicesPaginator,
@@ -38,25 +37,34 @@ else:
 __all__ = ("PricingClient",)
 
 
+class BotocoreClientError(BaseException):
+    MSG_TEMPLATE: str
+
+    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
+        self.response: Dict[str, Any]
+        self.operation_name: str
+
+
 class Exceptions:
-    ClientError: Type[Boto3ClientError]
-    ExpiredNextTokenException: Type[Boto3ClientError]
-    InternalErrorException: Type[Boto3ClientError]
-    InvalidNextTokenException: Type[Boto3ClientError]
-    InvalidParameterException: Type[Boto3ClientError]
-    NotFoundException: Type[Boto3ClientError]
+    ClientError: Type[BotocoreClientError]
+    ExpiredNextTokenException: Type[BotocoreClientError]
+    InternalErrorException: Type[BotocoreClientError]
+    InvalidNextTokenException: Type[BotocoreClientError]
+    InvalidParameterException: Type[BotocoreClientError]
+    NotFoundException: Type[BotocoreClientError]
 
 
 class PricingClient:
     """
-    [Pricing.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/pricing.html#Pricing.Client)
+    [Pricing.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/pricing.html#Pricing.Client)
     """
 
+    meta: ClientMeta
     exceptions: Exceptions
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/pricing.html#Pricing.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/pricing.html#Pricing.Client.can_paginate)
         """
 
     def describe_services(
@@ -67,7 +75,7 @@ class PricingClient:
         MaxResults: int = None,
     ) -> DescribeServicesResponseTypeDef:
         """
-        [Client.describe_services documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/pricing.html#Pricing.Client.describe_services)
+        [Client.describe_services documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/pricing.html#Pricing.Client.describe_services)
         """
 
     def generate_presigned_url(
@@ -78,14 +86,14 @@ class PricingClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/pricing.html#Pricing.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/pricing.html#Pricing.Client.generate_presigned_url)
         """
 
     def get_attribute_values(
         self, ServiceCode: str, AttributeName: str, NextToken: str = None, MaxResults: int = None
     ) -> GetAttributeValuesResponseTypeDef:
         """
-        [Client.get_attribute_values documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/pricing.html#Pricing.Client.get_attribute_values)
+        [Client.get_attribute_values documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/pricing.html#Pricing.Client.get_attribute_values)
         """
 
     def get_products(
@@ -97,7 +105,7 @@ class PricingClient:
         MaxResults: int = None,
     ) -> GetProductsResponseTypeDef:
         """
-        [Client.get_products documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/pricing.html#Pricing.Client.get_products)
+        [Client.get_products documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/pricing.html#Pricing.Client.get_products)
         """
 
     @overload
@@ -105,7 +113,7 @@ class PricingClient:
         self, operation_name: Literal["describe_services"]
     ) -> DescribeServicesPaginator:
         """
-        [Paginator.DescribeServices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/pricing.html#Pricing.Paginator.DescribeServices)
+        [Paginator.DescribeServices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/pricing.html#Pricing.Paginator.DescribeServices)
         """
 
     @overload
@@ -113,14 +121,11 @@ class PricingClient:
         self, operation_name: Literal["get_attribute_values"]
     ) -> GetAttributeValuesPaginator:
         """
-        [Paginator.GetAttributeValues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/pricing.html#Pricing.Paginator.GetAttributeValues)
+        [Paginator.GetAttributeValues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/pricing.html#Pricing.Paginator.GetAttributeValues)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_products"]) -> GetProductsPaginator:
         """
-        [Paginator.GetProducts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/pricing.html#Pricing.Paginator.GetProducts)
+        [Paginator.GetProducts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/pricing.html#Pricing.Paginator.GetProducts)
         """
-
-    def get_paginator(self, operation_name: str) -> Boto3Paginator:
-        pass

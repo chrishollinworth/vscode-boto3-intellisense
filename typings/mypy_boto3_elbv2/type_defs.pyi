@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Dict, List
+from typing import Any, Dict, List
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -47,6 +46,7 @@ __all__ = (
     "QueryStringConditionConfigTypeDef",
     "QueryStringKeyValuePairTypeDef",
     "RedirectActionConfigTypeDef",
+    "ResponseMetadata",
     "RuleConditionTypeDef",
     "RuleTypeDef",
     "SourceIpConditionConfigTypeDef",
@@ -174,7 +174,12 @@ class AuthenticateOidcActionConfigTypeDef(
 
 AvailabilityZoneTypeDef = TypedDict(
     "AvailabilityZoneTypeDef",
-    {"ZoneName": str, "SubnetId": str, "LoadBalancerAddresses": List["LoadBalancerAddressTypeDef"]},
+    {
+        "ZoneName": str,
+        "SubnetId": str,
+        "OutpostId": str,
+        "LoadBalancerAddresses": List["LoadBalancerAddressTypeDef"],
+    },
     total=False,
 )
 
@@ -229,7 +234,7 @@ ListenerTypeDef = TypedDict(
         "ListenerArn": str,
         "LoadBalancerArn": str,
         "Port": int,
-        "Protocol": Literal["HTTP", "HTTPS", "TCP", "TLS", "UDP", "TCP_UDP"],
+        "Protocol": Literal["HTTP", "HTTPS", "TCP", "TLS", "UDP", "TCP_UDP", "GENEVE"],
         "Certificates": List["CertificateTypeDef"],
         "SslPolicy": str,
         "DefaultActions": List["ActionTypeDef"],
@@ -240,7 +245,7 @@ ListenerTypeDef = TypedDict(
 
 LoadBalancerAddressTypeDef = TypedDict(
     "LoadBalancerAddressTypeDef",
-    {"IpAddress": str, "AllocationId": str, "PrivateIPv4Address": str},
+    {"IpAddress": str, "AllocationId": str, "PrivateIPv4Address": str, "IPv6Address": str},
     total=False,
 )
 
@@ -265,15 +270,16 @@ LoadBalancerTypeDef = TypedDict(
         "Scheme": Literal["internet-facing", "internal"],
         "VpcId": str,
         "State": "LoadBalancerStateTypeDef",
-        "Type": Literal["application", "network"],
+        "Type": Literal["application", "network", "gateway"],
         "AvailabilityZones": List["AvailabilityZoneTypeDef"],
         "SecurityGroups": List[str],
         "IpAddressType": Literal["ipv4", "dualstack"],
+        "CustomerOwnedIpv4Pool": str,
     },
     total=False,
 )
 
-MatcherTypeDef = TypedDict("MatcherTypeDef", {"HttpCode": str})
+MatcherTypeDef = TypedDict("MatcherTypeDef", {"HttpCode": str, "GrpcCode": str}, total=False)
 
 PathPatternConditionConfigTypeDef = TypedDict(
     "PathPatternConditionConfigTypeDef", {"Values": List[str]}, total=False
@@ -304,6 +310,17 @@ class RedirectActionConfigTypeDef(
 ):
     pass
 
+
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
 
 RuleConditionTypeDef = TypedDict(
     "RuleConditionTypeDef",
@@ -383,10 +400,10 @@ TargetGroupTypeDef = TypedDict(
     {
         "TargetGroupArn": str,
         "TargetGroupName": str,
-        "Protocol": Literal["HTTP", "HTTPS", "TCP", "TLS", "UDP", "TCP_UDP"],
+        "Protocol": Literal["HTTP", "HTTPS", "TCP", "TLS", "UDP", "TCP_UDP", "GENEVE"],
         "Port": int,
         "VpcId": str,
-        "HealthCheckProtocol": Literal["HTTP", "HTTPS", "TCP", "TLS", "UDP", "TCP_UDP"],
+        "HealthCheckProtocol": Literal["HTTP", "HTTPS", "TCP", "TLS", "UDP", "TCP_UDP", "GENEVE"],
         "HealthCheckPort": str,
         "HealthCheckEnabled": bool,
         "HealthCheckIntervalSeconds": int,
@@ -397,6 +414,7 @@ TargetGroupTypeDef = TypedDict(
         "Matcher": "MatcherTypeDef",
         "LoadBalancerArns": List[str],
         "TargetType": Literal["instance", "ip", "lambda"],
+        "ProtocolVersion": str,
     },
     total=False,
 )
@@ -436,110 +454,151 @@ TargetHealthTypeDef = TypedDict(
 
 AddListenerCertificatesOutputTypeDef = TypedDict(
     "AddListenerCertificatesOutputTypeDef",
-    {"Certificates": List["CertificateTypeDef"]},
+    {"Certificates": List["CertificateTypeDef"], "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 CreateListenerOutputTypeDef = TypedDict(
-    "CreateListenerOutputTypeDef", {"Listeners": List["ListenerTypeDef"]}, total=False
+    "CreateListenerOutputTypeDef",
+    {"Listeners": List["ListenerTypeDef"], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 CreateLoadBalancerOutputTypeDef = TypedDict(
-    "CreateLoadBalancerOutputTypeDef", {"LoadBalancers": List["LoadBalancerTypeDef"]}, total=False
+    "CreateLoadBalancerOutputTypeDef",
+    {"LoadBalancers": List["LoadBalancerTypeDef"], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 CreateRuleOutputTypeDef = TypedDict(
-    "CreateRuleOutputTypeDef", {"Rules": List["RuleTypeDef"]}, total=False
+    "CreateRuleOutputTypeDef",
+    {"Rules": List["RuleTypeDef"], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 CreateTargetGroupOutputTypeDef = TypedDict(
-    "CreateTargetGroupOutputTypeDef", {"TargetGroups": List["TargetGroupTypeDef"]}, total=False
+    "CreateTargetGroupOutputTypeDef",
+    {"TargetGroups": List["TargetGroupTypeDef"], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 DescribeAccountLimitsOutputTypeDef = TypedDict(
     "DescribeAccountLimitsOutputTypeDef",
-    {"Limits": List["LimitTypeDef"], "NextMarker": str},
+    {"Limits": List["LimitTypeDef"], "NextMarker": str, "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 DescribeListenerCertificatesOutputTypeDef = TypedDict(
     "DescribeListenerCertificatesOutputTypeDef",
-    {"Certificates": List["CertificateTypeDef"], "NextMarker": str},
+    {
+        "Certificates": List["CertificateTypeDef"],
+        "NextMarker": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 DescribeListenersOutputTypeDef = TypedDict(
     "DescribeListenersOutputTypeDef",
-    {"Listeners": List["ListenerTypeDef"], "NextMarker": str},
+    {
+        "Listeners": List["ListenerTypeDef"],
+        "NextMarker": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 DescribeLoadBalancerAttributesOutputTypeDef = TypedDict(
     "DescribeLoadBalancerAttributesOutputTypeDef",
-    {"Attributes": List["LoadBalancerAttributeTypeDef"]},
+    {"Attributes": List["LoadBalancerAttributeTypeDef"], "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 DescribeLoadBalancersOutputTypeDef = TypedDict(
     "DescribeLoadBalancersOutputTypeDef",
-    {"LoadBalancers": List["LoadBalancerTypeDef"], "NextMarker": str},
+    {
+        "LoadBalancers": List["LoadBalancerTypeDef"],
+        "NextMarker": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 DescribeRulesOutputTypeDef = TypedDict(
-    "DescribeRulesOutputTypeDef", {"Rules": List["RuleTypeDef"], "NextMarker": str}, total=False
+    "DescribeRulesOutputTypeDef",
+    {"Rules": List["RuleTypeDef"], "NextMarker": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 DescribeSSLPoliciesOutputTypeDef = TypedDict(
     "DescribeSSLPoliciesOutputTypeDef",
-    {"SslPolicies": List["SslPolicyTypeDef"], "NextMarker": str},
+    {
+        "SslPolicies": List["SslPolicyTypeDef"],
+        "NextMarker": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 DescribeTagsOutputTypeDef = TypedDict(
-    "DescribeTagsOutputTypeDef", {"TagDescriptions": List["TagDescriptionTypeDef"]}, total=False
+    "DescribeTagsOutputTypeDef",
+    {"TagDescriptions": List["TagDescriptionTypeDef"], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 DescribeTargetGroupAttributesOutputTypeDef = TypedDict(
     "DescribeTargetGroupAttributesOutputTypeDef",
-    {"Attributes": List["TargetGroupAttributeTypeDef"]},
+    {"Attributes": List["TargetGroupAttributeTypeDef"], "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 DescribeTargetGroupsOutputTypeDef = TypedDict(
     "DescribeTargetGroupsOutputTypeDef",
-    {"TargetGroups": List["TargetGroupTypeDef"], "NextMarker": str},
+    {
+        "TargetGroups": List["TargetGroupTypeDef"],
+        "NextMarker": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 DescribeTargetHealthOutputTypeDef = TypedDict(
     "DescribeTargetHealthOutputTypeDef",
-    {"TargetHealthDescriptions": List["TargetHealthDescriptionTypeDef"]},
+    {
+        "TargetHealthDescriptions": List["TargetHealthDescriptionTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ModifyListenerOutputTypeDef = TypedDict(
-    "ModifyListenerOutputTypeDef", {"Listeners": List["ListenerTypeDef"]}, total=False
+    "ModifyListenerOutputTypeDef",
+    {"Listeners": List["ListenerTypeDef"], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ModifyLoadBalancerAttributesOutputTypeDef = TypedDict(
     "ModifyLoadBalancerAttributesOutputTypeDef",
-    {"Attributes": List["LoadBalancerAttributeTypeDef"]},
+    {"Attributes": List["LoadBalancerAttributeTypeDef"], "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 ModifyRuleOutputTypeDef = TypedDict(
-    "ModifyRuleOutputTypeDef", {"Rules": List["RuleTypeDef"]}, total=False
+    "ModifyRuleOutputTypeDef",
+    {"Rules": List["RuleTypeDef"], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ModifyTargetGroupAttributesOutputTypeDef = TypedDict(
     "ModifyTargetGroupAttributesOutputTypeDef",
-    {"Attributes": List["TargetGroupAttributeTypeDef"]},
+    {"Attributes": List["TargetGroupAttributeTypeDef"], "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 ModifyTargetGroupOutputTypeDef = TypedDict(
-    "ModifyTargetGroupOutputTypeDef", {"TargetGroups": List["TargetGroupTypeDef"]}, total=False
+    "ModifyTargetGroupOutputTypeDef",
+    {"TargetGroups": List["TargetGroupTypeDef"], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 PaginatorConfigTypeDef = TypedDict(
@@ -551,24 +610,36 @@ RulePriorityPairTypeDef = TypedDict(
 )
 
 SetIpAddressTypeOutputTypeDef = TypedDict(
-    "SetIpAddressTypeOutputTypeDef", {"IpAddressType": Literal["ipv4", "dualstack"]}, total=False
+    "SetIpAddressTypeOutputTypeDef",
+    {"IpAddressType": Literal["ipv4", "dualstack"], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 SetRulePrioritiesOutputTypeDef = TypedDict(
-    "SetRulePrioritiesOutputTypeDef", {"Rules": List["RuleTypeDef"]}, total=False
+    "SetRulePrioritiesOutputTypeDef",
+    {"Rules": List["RuleTypeDef"], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 SetSecurityGroupsOutputTypeDef = TypedDict(
-    "SetSecurityGroupsOutputTypeDef", {"SecurityGroupIds": List[str]}, total=False
+    "SetSecurityGroupsOutputTypeDef",
+    {"SecurityGroupIds": List[str], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 SetSubnetsOutputTypeDef = TypedDict(
-    "SetSubnetsOutputTypeDef", {"AvailabilityZones": List["AvailabilityZoneTypeDef"]}, total=False
+    "SetSubnetsOutputTypeDef",
+    {
+        "AvailabilityZones": List["AvailabilityZoneTypeDef"],
+        "IpAddressType": Literal["ipv4", "dualstack"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
+    total=False,
 )
 
 SubnetMappingTypeDef = TypedDict(
     "SubnetMappingTypeDef",
-    {"SubnetId": str, "AllocationId": str, "PrivateIPv4Address": str},
+    {"SubnetId": str, "AllocationId": str, "PrivateIPv4Address": str, "IPv6Address": str},
     total=False,
 )
 

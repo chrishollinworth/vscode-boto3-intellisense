@@ -72,7 +72,7 @@ __all__ = (
 
 class ListAssignmentsForHITPaginator(Boto3Paginator):
     """
-    [Paginator.ListAssignmentsForHIT documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mturk.html#MTurk.Paginator.ListAssignmentsForHIT)
+    [Paginator.ListAssignmentsForHIT documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Paginator.ListAssignmentsForHIT)
     """
 
     def paginate(
@@ -82,13 +82,13 @@ class ListAssignmentsForHITPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListAssignmentsForHITResponseTypeDef]:
         """
-        [ListAssignmentsForHIT.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mturk.html#MTurk.Paginator.ListAssignmentsForHIT.paginate)
+        [ListAssignmentsForHIT.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Paginator.ListAssignmentsForHIT.paginate)
         """
 
 
 class ListBonusPaymentsPaginator(Boto3Paginator):
     """
-    [Paginator.ListBonusPayments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mturk.html#MTurk.Paginator.ListBonusPayments)
+    [Paginator.ListBonusPayments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Paginator.ListBonusPayments)
     """
 
     def paginate(
@@ -98,52 +98,52 @@ class ListBonusPaymentsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListBonusPaymentsResponseTypeDef]:
         """
-        [ListBonusPayments.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mturk.html#MTurk.Paginator.ListBonusPayments.paginate)
+        [ListBonusPayments.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Paginator.ListBonusPayments.paginate)
         """
 
 
 class ListHITsPaginator(Boto3Paginator):
     """
-    [Paginator.ListHITs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mturk.html#MTurk.Paginator.ListHITs)
+    [Paginator.ListHITs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Paginator.ListHITs)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListHITsResponseTypeDef]:
         """
-        [ListHITs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mturk.html#MTurk.Paginator.ListHITs.paginate)
+        [ListHITs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Paginator.ListHITs.paginate)
         """
 
 
 class ListHITsForQualificationTypePaginator(Boto3Paginator):
     """
-    [Paginator.ListHITsForQualificationType documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mturk.html#MTurk.Paginator.ListHITsForQualificationType)
+    [Paginator.ListHITsForQualificationType documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Paginator.ListHITsForQualificationType)
     """
 
     def paginate(
         self, QualificationTypeId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListHITsForQualificationTypeResponseTypeDef]:
         """
-        [ListHITsForQualificationType.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mturk.html#MTurk.Paginator.ListHITsForQualificationType.paginate)
+        [ListHITsForQualificationType.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Paginator.ListHITsForQualificationType.paginate)
         """
 
 
 class ListQualificationRequestsPaginator(Boto3Paginator):
     """
-    [Paginator.ListQualificationRequests documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mturk.html#MTurk.Paginator.ListQualificationRequests)
+    [Paginator.ListQualificationRequests documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Paginator.ListQualificationRequests)
     """
 
     def paginate(
         self, QualificationTypeId: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListQualificationRequestsResponseTypeDef]:
         """
-        [ListQualificationRequests.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mturk.html#MTurk.Paginator.ListQualificationRequests.paginate)
+        [ListQualificationRequests.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Paginator.ListQualificationRequests.paginate)
         """
 
 
 class ListQualificationTypesPaginator(Boto3Paginator):
     """
-    [Paginator.ListQualificationTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mturk.html#MTurk.Paginator.ListQualificationTypes)
+    [Paginator.ListQualificationTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Paginator.ListQualificationTypes)
     """
 
     def paginate(
@@ -154,13 +154,13 @@ class ListQualificationTypesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListQualificationTypesResponseTypeDef]:
         """
-        [ListQualificationTypes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mturk.html#MTurk.Paginator.ListQualificationTypes.paginate)
+        [ListQualificationTypes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Paginator.ListQualificationTypes.paginate)
         """
 
 
 class ListReviewableHITsPaginator(Boto3Paginator):
     """
-    [Paginator.ListReviewableHITs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mturk.html#MTurk.Paginator.ListReviewableHITs)
+    [Paginator.ListReviewableHITs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Paginator.ListReviewableHITs)
     """
 
     def paginate(
@@ -170,26 +170,26 @@ class ListReviewableHITsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListReviewableHITsResponseTypeDef]:
         """
-        [ListReviewableHITs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mturk.html#MTurk.Paginator.ListReviewableHITs.paginate)
+        [ListReviewableHITs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Paginator.ListReviewableHITs.paginate)
         """
 
 
 class ListWorkerBlocksPaginator(Boto3Paginator):
     """
-    [Paginator.ListWorkerBlocks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mturk.html#MTurk.Paginator.ListWorkerBlocks)
+    [Paginator.ListWorkerBlocks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Paginator.ListWorkerBlocks)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListWorkerBlocksResponseTypeDef]:
         """
-        [ListWorkerBlocks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mturk.html#MTurk.Paginator.ListWorkerBlocks.paginate)
+        [ListWorkerBlocks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Paginator.ListWorkerBlocks.paginate)
         """
 
 
 class ListWorkersWithQualificationTypePaginator(Boto3Paginator):
     """
-    [Paginator.ListWorkersWithQualificationType documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mturk.html#MTurk.Paginator.ListWorkersWithQualificationType)
+    [Paginator.ListWorkersWithQualificationType documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Paginator.ListWorkersWithQualificationType)
     """
 
     def paginate(
@@ -199,5 +199,5 @@ class ListWorkersWithQualificationTypePaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListWorkersWithQualificationTypeResponseTypeDef]:
         """
-        [ListWorkersWithQualificationType.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mturk.html#MTurk.Paginator.ListWorkersWithQualificationType.paginate)
+        [ListWorkersWithQualificationType.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Paginator.ListWorkersWithQualificationType.paginate)
         """

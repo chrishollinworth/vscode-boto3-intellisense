@@ -28,12 +28,12 @@ __all__ = ("ListContainersPaginator",)
 
 class ListContainersPaginator(Boto3Paginator):
     """
-    [Paginator.ListContainers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mediastore.html#MediaStore.Paginator.ListContainers)
+    [Paginator.ListContainers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediastore.html#MediaStore.Paginator.ListContainers)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListContainersOutputTypeDef]:
         """
-        [ListContainers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mediastore.html#MediaStore.Paginator.ListContainers.paginate)
+        [ListContainers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediastore.html#MediaStore.Paginator.ListContainers.paginate)
         """

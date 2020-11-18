@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import IO, List
+from typing import IO, Any, Dict, List
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -28,6 +27,7 @@ __all__ = (
     "LexiconAttributesTypeDef",
     "LexiconDescriptionTypeDef",
     "LexiconTypeDef",
+    "ResponseMetadata",
     "SynthesisTaskTypeDef",
     "VoiceTypeDef",
     "DescribeVoicesOutputTypeDef",
@@ -90,6 +90,17 @@ LexiconDescriptionTypeDef = TypedDict(
 )
 
 LexiconTypeDef = TypedDict("LexiconTypeDef", {"Content": str, "Name": str}, total=False)
+
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
 
 SynthesisTaskTypeDef = TypedDict(
     "SynthesisTaskTypeDef",
@@ -156,6 +167,7 @@ SynthesisTaskTypeDef = TypedDict(
             "Mizuki",
             "Naja",
             "Nicole",
+            "Olivia",
             "Penelope",
             "Raveena",
             "Ricardo",
@@ -258,6 +270,7 @@ VoiceTypeDef = TypedDict(
             "Mizuki",
             "Naja",
             "Nicole",
+            "Olivia",
             "Penelope",
             "Raveena",
             "Ricardo",
@@ -344,28 +357,44 @@ VoiceTypeDef = TypedDict(
 )
 
 DescribeVoicesOutputTypeDef = TypedDict(
-    "DescribeVoicesOutputTypeDef", {"Voices": List["VoiceTypeDef"], "NextToken": str}, total=False
+    "DescribeVoicesOutputTypeDef",
+    {"Voices": List["VoiceTypeDef"], "NextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 GetLexiconOutputTypeDef = TypedDict(
     "GetLexiconOutputTypeDef",
-    {"Lexicon": "LexiconTypeDef", "LexiconAttributes": "LexiconAttributesTypeDef"},
+    {
+        "Lexicon": "LexiconTypeDef",
+        "LexiconAttributes": "LexiconAttributesTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 GetSpeechSynthesisTaskOutputTypeDef = TypedDict(
-    "GetSpeechSynthesisTaskOutputTypeDef", {"SynthesisTask": "SynthesisTaskTypeDef"}, total=False
+    "GetSpeechSynthesisTaskOutputTypeDef",
+    {"SynthesisTask": "SynthesisTaskTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ListLexiconsOutputTypeDef = TypedDict(
     "ListLexiconsOutputTypeDef",
-    {"Lexicons": List["LexiconDescriptionTypeDef"], "NextToken": str},
+    {
+        "Lexicons": List["LexiconDescriptionTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListSpeechSynthesisTasksOutputTypeDef = TypedDict(
     "ListSpeechSynthesisTasksOutputTypeDef",
-    {"NextToken": str, "SynthesisTasks": List["SynthesisTaskTypeDef"]},
+    {
+        "NextToken": str,
+        "SynthesisTasks": List["SynthesisTaskTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -374,11 +403,18 @@ PaginatorConfigTypeDef = TypedDict(
 )
 
 StartSpeechSynthesisTaskOutputTypeDef = TypedDict(
-    "StartSpeechSynthesisTaskOutputTypeDef", {"SynthesisTask": "SynthesisTaskTypeDef"}, total=False
+    "StartSpeechSynthesisTaskOutputTypeDef",
+    {"SynthesisTask": "SynthesisTaskTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 SynthesizeSpeechOutputTypeDef = TypedDict(
     "SynthesizeSpeechOutputTypeDef",
-    {"AudioStream": IO[bytes], "ContentType": str, "RequestCharacters": int},
+    {
+        "AudioStream": IO[bytes],
+        "ContentType": str,
+        "RequestCharacters": int,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )

@@ -24,6 +24,8 @@ Usage::
         DescribeServiceUpdatesPaginator,
         DescribeSnapshotsPaginator,
         DescribeUpdateActionsPaginator,
+        DescribeUserGroupsPaginator,
+        DescribeUsersPaginator,
     )
 
     client: ElastiCacheClient = boto3.client("elasticache")
@@ -43,6 +45,8 @@ Usage::
     describe_service_updates_paginator: DescribeServiceUpdatesPaginator = client.get_paginator("describe_service_updates")
     describe_snapshots_paginator: DescribeSnapshotsPaginator = client.get_paginator("describe_snapshots")
     describe_update_actions_paginator: DescribeUpdateActionsPaginator = client.get_paginator("describe_update_actions")
+    describe_user_groups_paginator: DescribeUserGroupsPaginator = client.get_paginator("describe_user_groups")
+    describe_users_paginator: DescribeUsersPaginator = client.get_paginator("describe_users")
     ```
 """
 import sys
@@ -61,7 +65,10 @@ from mypy_boto3_elasticache.type_defs import (
     DescribeEngineDefaultParametersResultTypeDef,
     DescribeGlobalReplicationGroupsResultTypeDef,
     DescribeSnapshotsListMessageTypeDef,
+    DescribeUserGroupsResultTypeDef,
+    DescribeUsersResultTypeDef,
     EventsMessageTypeDef,
+    FilterTypeDef,
     PaginatorConfigTypeDef,
     ReplicationGroupMessageTypeDef,
     ReservedCacheNodeMessageTypeDef,
@@ -93,12 +100,14 @@ __all__ = (
     "DescribeServiceUpdatesPaginator",
     "DescribeSnapshotsPaginator",
     "DescribeUpdateActionsPaginator",
+    "DescribeUserGroupsPaginator",
+    "DescribeUsersPaginator",
 )
 
 
 class DescribeCacheClustersPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeCacheClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheClusters)
+    [Paginator.DescribeCacheClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheClusters)
     """
 
     def paginate(
@@ -109,13 +118,13 @@ class DescribeCacheClustersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[CacheClusterMessageTypeDef]:
         """
-        [DescribeCacheClusters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheClusters.paginate)
+        [DescribeCacheClusters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheClusters.paginate)
         """
 
 
 class DescribeCacheEngineVersionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeCacheEngineVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheEngineVersions)
+    [Paginator.DescribeCacheEngineVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheEngineVersions)
     """
 
     def paginate(
@@ -127,26 +136,26 @@ class DescribeCacheEngineVersionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[CacheEngineVersionMessageTypeDef]:
         """
-        [DescribeCacheEngineVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheEngineVersions.paginate)
+        [DescribeCacheEngineVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheEngineVersions.paginate)
         """
 
 
 class DescribeCacheParameterGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeCacheParameterGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheParameterGroups)
+    [Paginator.DescribeCacheParameterGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheParameterGroups)
     """
 
     def paginate(
         self, CacheParameterGroupName: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[CacheParameterGroupsMessageTypeDef]:
         """
-        [DescribeCacheParameterGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheParameterGroups.paginate)
+        [DescribeCacheParameterGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheParameterGroups.paginate)
         """
 
 
 class DescribeCacheParametersPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeCacheParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheParameters)
+    [Paginator.DescribeCacheParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheParameters)
     """
 
     def paginate(
@@ -156,52 +165,52 @@ class DescribeCacheParametersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[CacheParameterGroupDetailsTypeDef]:
         """
-        [DescribeCacheParameters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheParameters.paginate)
+        [DescribeCacheParameters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheParameters.paginate)
         """
 
 
 class DescribeCacheSecurityGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeCacheSecurityGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheSecurityGroups)
+    [Paginator.DescribeCacheSecurityGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheSecurityGroups)
     """
 
     def paginate(
         self, CacheSecurityGroupName: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[CacheSecurityGroupMessageTypeDef]:
         """
-        [DescribeCacheSecurityGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheSecurityGroups.paginate)
+        [DescribeCacheSecurityGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheSecurityGroups.paginate)
         """
 
 
 class DescribeCacheSubnetGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeCacheSubnetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheSubnetGroups)
+    [Paginator.DescribeCacheSubnetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheSubnetGroups)
     """
 
     def paginate(
         self, CacheSubnetGroupName: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[CacheSubnetGroupMessageTypeDef]:
         """
-        [DescribeCacheSubnetGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheSubnetGroups.paginate)
+        [DescribeCacheSubnetGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticache.html#ElastiCache.Paginator.DescribeCacheSubnetGroups.paginate)
         """
 
 
 class DescribeEngineDefaultParametersPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeEngineDefaultParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elasticache.html#ElastiCache.Paginator.DescribeEngineDefaultParameters)
+    [Paginator.DescribeEngineDefaultParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticache.html#ElastiCache.Paginator.DescribeEngineDefaultParameters)
     """
 
     def paginate(
         self, CacheParameterGroupFamily: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeEngineDefaultParametersResultTypeDef]:
         """
-        [DescribeEngineDefaultParameters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elasticache.html#ElastiCache.Paginator.DescribeEngineDefaultParameters.paginate)
+        [DescribeEngineDefaultParameters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticache.html#ElastiCache.Paginator.DescribeEngineDefaultParameters.paginate)
         """
 
 
 class DescribeEventsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elasticache.html#ElastiCache.Paginator.DescribeEvents)
+    [Paginator.DescribeEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticache.html#ElastiCache.Paginator.DescribeEvents)
     """
 
     def paginate(
@@ -213,6 +222,8 @@ class DescribeEventsPaginator(Boto3Paginator):
             "cache-security-group",
             "cache-subnet-group",
             "replication-group",
+            "user",
+            "user-group",
         ] = None,
         StartTime: datetime = None,
         EndTime: datetime = None,
@@ -220,13 +231,13 @@ class DescribeEventsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[EventsMessageTypeDef]:
         """
-        [DescribeEvents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elasticache.html#ElastiCache.Paginator.DescribeEvents.paginate)
+        [DescribeEvents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticache.html#ElastiCache.Paginator.DescribeEvents.paginate)
         """
 
 
 class DescribeGlobalReplicationGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeGlobalReplicationGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elasticache.html#ElastiCache.Paginator.DescribeGlobalReplicationGroups)
+    [Paginator.DescribeGlobalReplicationGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticache.html#ElastiCache.Paginator.DescribeGlobalReplicationGroups)
     """
 
     def paginate(
@@ -236,26 +247,26 @@ class DescribeGlobalReplicationGroupsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeGlobalReplicationGroupsResultTypeDef]:
         """
-        [DescribeGlobalReplicationGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elasticache.html#ElastiCache.Paginator.DescribeGlobalReplicationGroups.paginate)
+        [DescribeGlobalReplicationGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticache.html#ElastiCache.Paginator.DescribeGlobalReplicationGroups.paginate)
         """
 
 
 class DescribeReplicationGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeReplicationGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elasticache.html#ElastiCache.Paginator.DescribeReplicationGroups)
+    [Paginator.DescribeReplicationGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticache.html#ElastiCache.Paginator.DescribeReplicationGroups)
     """
 
     def paginate(
         self, ReplicationGroupId: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ReplicationGroupMessageTypeDef]:
         """
-        [DescribeReplicationGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elasticache.html#ElastiCache.Paginator.DescribeReplicationGroups.paginate)
+        [DescribeReplicationGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticache.html#ElastiCache.Paginator.DescribeReplicationGroups.paginate)
         """
 
 
 class DescribeReservedCacheNodesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeReservedCacheNodes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elasticache.html#ElastiCache.Paginator.DescribeReservedCacheNodes)
+    [Paginator.DescribeReservedCacheNodes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticache.html#ElastiCache.Paginator.DescribeReservedCacheNodes)
     """
 
     def paginate(
@@ -269,13 +280,13 @@ class DescribeReservedCacheNodesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ReservedCacheNodeMessageTypeDef]:
         """
-        [DescribeReservedCacheNodes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elasticache.html#ElastiCache.Paginator.DescribeReservedCacheNodes.paginate)
+        [DescribeReservedCacheNodes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticache.html#ElastiCache.Paginator.DescribeReservedCacheNodes.paginate)
         """
 
 
 class DescribeReservedCacheNodesOfferingsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeReservedCacheNodesOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elasticache.html#ElastiCache.Paginator.DescribeReservedCacheNodesOfferings)
+    [Paginator.DescribeReservedCacheNodesOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticache.html#ElastiCache.Paginator.DescribeReservedCacheNodesOfferings)
     """
 
     def paginate(
@@ -288,13 +299,13 @@ class DescribeReservedCacheNodesOfferingsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ReservedCacheNodesOfferingMessageTypeDef]:
         """
-        [DescribeReservedCacheNodesOfferings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elasticache.html#ElastiCache.Paginator.DescribeReservedCacheNodesOfferings.paginate)
+        [DescribeReservedCacheNodesOfferings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticache.html#ElastiCache.Paginator.DescribeReservedCacheNodesOfferings.paginate)
         """
 
 
 class DescribeServiceUpdatesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeServiceUpdates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elasticache.html#ElastiCache.Paginator.DescribeServiceUpdates)
+    [Paginator.DescribeServiceUpdates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticache.html#ElastiCache.Paginator.DescribeServiceUpdates)
     """
 
     def paginate(
@@ -304,13 +315,13 @@ class DescribeServiceUpdatesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ServiceUpdatesMessageTypeDef]:
         """
-        [DescribeServiceUpdates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elasticache.html#ElastiCache.Paginator.DescribeServiceUpdates.paginate)
+        [DescribeServiceUpdates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticache.html#ElastiCache.Paginator.DescribeServiceUpdates.paginate)
         """
 
 
 class DescribeSnapshotsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elasticache.html#ElastiCache.Paginator.DescribeSnapshots)
+    [Paginator.DescribeSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticache.html#ElastiCache.Paginator.DescribeSnapshots)
     """
 
     def paginate(
@@ -323,13 +334,13 @@ class DescribeSnapshotsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeSnapshotsListMessageTypeDef]:
         """
-        [DescribeSnapshots.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elasticache.html#ElastiCache.Paginator.DescribeSnapshots.paginate)
+        [DescribeSnapshots.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticache.html#ElastiCache.Paginator.DescribeSnapshots.paginate)
         """
 
 
 class DescribeUpdateActionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeUpdateActions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elasticache.html#ElastiCache.Paginator.DescribeUpdateActions)
+    [Paginator.DescribeUpdateActions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticache.html#ElastiCache.Paginator.DescribeUpdateActions)
     """
 
     def paginate(
@@ -357,5 +368,35 @@ class DescribeUpdateActionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[UpdateActionsMessageTypeDef]:
         """
-        [DescribeUpdateActions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elasticache.html#ElastiCache.Paginator.DescribeUpdateActions.paginate)
+        [DescribeUpdateActions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticache.html#ElastiCache.Paginator.DescribeUpdateActions.paginate)
+        """
+
+
+class DescribeUserGroupsPaginator(Boto3Paginator):
+    """
+    [Paginator.DescribeUserGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticache.html#ElastiCache.Paginator.DescribeUserGroups)
+    """
+
+    def paginate(
+        self, UserGroupId: str = None, PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[DescribeUserGroupsResultTypeDef]:
+        """
+        [DescribeUserGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticache.html#ElastiCache.Paginator.DescribeUserGroups.paginate)
+        """
+
+
+class DescribeUsersPaginator(Boto3Paginator):
+    """
+    [Paginator.DescribeUsers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticache.html#ElastiCache.Paginator.DescribeUsers)
+    """
+
+    def paginate(
+        self,
+        Engine: str = None,
+        UserId: str = None,
+        Filters: List[FilterTypeDef] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None,
+    ) -> Iterator[DescribeUsersResultTypeDef]:
+        """
+        [DescribeUsers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticache.html#ElastiCache.Paginator.DescribeUsers.paginate)
         """

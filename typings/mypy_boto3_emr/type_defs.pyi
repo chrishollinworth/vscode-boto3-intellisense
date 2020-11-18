@@ -17,7 +17,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -48,6 +47,7 @@ __all__ = (
     "EbsConfigurationTypeDef",
     "EbsVolumeTypeDef",
     "Ec2InstanceAttributesTypeDef",
+    "ExecutionEngineConfigTypeDef",
     "FailureDetailsTypeDef",
     "HadoopJarStepConfigTypeDef",
     "HadoopStepConfigTypeDef",
@@ -77,9 +77,13 @@ __all__ = (
     "KeyValueTypeDef",
     "ManagedScalingPolicyTypeDef",
     "MetricDimensionTypeDef",
+    "NotebookExecutionSummaryTypeDef",
+    "NotebookExecutionTypeDef",
     "OnDemandProvisioningSpecificationTypeDef",
+    "PlacementGroupConfigTypeDef",
     "PlacementTypeTypeDef",
     "PortRangeTypeDef",
+    "ResponseMetadata",
     "ScalingActionTypeDef",
     "ScalingConstraintsTypeDef",
     "ScalingRuleTypeDef",
@@ -106,6 +110,7 @@ __all__ = (
     "CreateSecurityConfigurationOutputTypeDef",
     "DescribeClusterOutputTypeDef",
     "DescribeJobFlowsOutputTypeDef",
+    "DescribeNotebookExecutionOutputTypeDef",
     "DescribeSecurityConfigurationOutputTypeDef",
     "DescribeStepOutputTypeDef",
     "ConfigurationTypeDef",
@@ -119,12 +124,14 @@ __all__ = (
     "ListInstanceFleetsOutputTypeDef",
     "ListInstanceGroupsOutputTypeDef",
     "ListInstancesOutputTypeDef",
+    "ListNotebookExecutionsOutputTypeDef",
     "ListSecurityConfigurationsOutputTypeDef",
     "ListStepsOutputTypeDef",
     "ModifyClusterOutputTypeDef",
     "PaginatorConfigTypeDef",
     "PutAutoScalingPolicyOutputTypeDef",
     "RunJobFlowOutputTypeDef",
+    "StartNotebookExecutionOutputTypeDef",
     "SupportedProductConfigTypeDef",
     "WaiterConfigTypeDef",
 )
@@ -348,6 +355,7 @@ ClusterTypeDef = TypedDict(
         "ClusterArn": str,
         "OutpostArn": str,
         "StepConcurrencyLevel": int,
+        "PlacementGroups": List["PlacementGroupConfigTypeDef"],
     },
     total=False,
 )
@@ -420,6 +428,22 @@ Ec2InstanceAttributesTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredExecutionEngineConfigTypeDef = TypedDict(
+    "_RequiredExecutionEngineConfigTypeDef", {"Id": str}
+)
+_OptionalExecutionEngineConfigTypeDef = TypedDict(
+    "_OptionalExecutionEngineConfigTypeDef",
+    {"Type": Literal["EMR"], "MasterInstanceSecurityGroupId": str},
+    total=False,
+)
+
+
+class ExecutionEngineConfigTypeDef(
+    _RequiredExecutionEngineConfigTypeDef, _OptionalExecutionEngineConfigTypeDef
+):
+    pass
+
 
 FailureDetailsTypeDef = TypedDict(
     "FailureDetailsTypeDef", {"Reason": str, "Message": str, "LogFile": str}, total=False
@@ -878,9 +902,80 @@ MetricDimensionTypeDef = TypedDict(
     "MetricDimensionTypeDef", {"Key": str, "Value": str}, total=False
 )
 
+NotebookExecutionSummaryTypeDef = TypedDict(
+    "NotebookExecutionSummaryTypeDef",
+    {
+        "NotebookExecutionId": str,
+        "EditorId": str,
+        "NotebookExecutionName": str,
+        "Status": Literal[
+            "START_PENDING",
+            "STARTING",
+            "RUNNING",
+            "FINISHING",
+            "FINISHED",
+            "FAILING",
+            "FAILED",
+            "STOP_PENDING",
+            "STOPPING",
+            "STOPPED",
+        ],
+        "StartTime": datetime,
+        "EndTime": datetime,
+    },
+    total=False,
+)
+
+NotebookExecutionTypeDef = TypedDict(
+    "NotebookExecutionTypeDef",
+    {
+        "NotebookExecutionId": str,
+        "EditorId": str,
+        "ExecutionEngine": "ExecutionEngineConfigTypeDef",
+        "NotebookExecutionName": str,
+        "NotebookParams": str,
+        "Status": Literal[
+            "START_PENDING",
+            "STARTING",
+            "RUNNING",
+            "FINISHING",
+            "FINISHED",
+            "FAILING",
+            "FAILED",
+            "STOP_PENDING",
+            "STOPPING",
+            "STOPPED",
+        ],
+        "StartTime": datetime,
+        "EndTime": datetime,
+        "Arn": str,
+        "OutputNotebookURI": str,
+        "LastStateChangeReason": str,
+        "NotebookInstanceSecurityGroupId": str,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
 OnDemandProvisioningSpecificationTypeDef = TypedDict(
     "OnDemandProvisioningSpecificationTypeDef", {"AllocationStrategy": Literal["lowest-price"]}
 )
+
+_RequiredPlacementGroupConfigTypeDef = TypedDict(
+    "_RequiredPlacementGroupConfigTypeDef", {"InstanceRole": Literal["MASTER", "CORE", "TASK"]}
+)
+_OptionalPlacementGroupConfigTypeDef = TypedDict(
+    "_OptionalPlacementGroupConfigTypeDef",
+    {"PlacementStrategy": Literal["SPREAD", "PARTITION", "CLUSTER", "NONE"]},
+    total=False,
+)
+
+
+class PlacementGroupConfigTypeDef(
+    _RequiredPlacementGroupConfigTypeDef, _OptionalPlacementGroupConfigTypeDef
+):
+    pass
+
 
 PlacementTypeTypeDef = TypedDict(
     "PlacementTypeTypeDef", {"AvailabilityZone": str, "AvailabilityZones": List[str]}, total=False
@@ -893,6 +988,17 @@ _OptionalPortRangeTypeDef = TypedDict("_OptionalPortRangeTypeDef", {"MaxRange": 
 class PortRangeTypeDef(_RequiredPortRangeTypeDef, _OptionalPortRangeTypeDef):
     pass
 
+
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
 
 _RequiredScalingActionTypeDef = TypedDict(
     "_RequiredScalingActionTypeDef",
@@ -1117,44 +1223,88 @@ class VolumeSpecificationTypeDef(
 
 AddInstanceFleetOutputTypeDef = TypedDict(
     "AddInstanceFleetOutputTypeDef",
-    {"ClusterId": str, "InstanceFleetId": str, "ClusterArn": str},
+    {
+        "ClusterId": str,
+        "InstanceFleetId": str,
+        "ClusterArn": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 AddInstanceGroupsOutputTypeDef = TypedDict(
     "AddInstanceGroupsOutputTypeDef",
-    {"JobFlowId": str, "InstanceGroupIds": List[str], "ClusterArn": str},
+    {
+        "JobFlowId": str,
+        "InstanceGroupIds": List[str],
+        "ClusterArn": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 AddJobFlowStepsOutputTypeDef = TypedDict(
-    "AddJobFlowStepsOutputTypeDef", {"StepIds": List[str]}, total=False
+    "AddJobFlowStepsOutputTypeDef",
+    {"StepIds": List[str], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 CancelStepsOutputTypeDef = TypedDict(
-    "CancelStepsOutputTypeDef", {"CancelStepsInfoList": List["CancelStepsInfoTypeDef"]}, total=False
+    "CancelStepsOutputTypeDef",
+    {"CancelStepsInfoList": List["CancelStepsInfoTypeDef"], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
-CreateSecurityConfigurationOutputTypeDef = TypedDict(
-    "CreateSecurityConfigurationOutputTypeDef", {"Name": str, "CreationDateTime": datetime}
+_RequiredCreateSecurityConfigurationOutputTypeDef = TypedDict(
+    "_RequiredCreateSecurityConfigurationOutputTypeDef", {"Name": str, "CreationDateTime": datetime}
 )
+_OptionalCreateSecurityConfigurationOutputTypeDef = TypedDict(
+    "_OptionalCreateSecurityConfigurationOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+
+class CreateSecurityConfigurationOutputTypeDef(
+    _RequiredCreateSecurityConfigurationOutputTypeDef,
+    _OptionalCreateSecurityConfigurationOutputTypeDef,
+):
+    pass
+
 
 DescribeClusterOutputTypeDef = TypedDict(
-    "DescribeClusterOutputTypeDef", {"Cluster": "ClusterTypeDef"}, total=False
+    "DescribeClusterOutputTypeDef",
+    {"Cluster": "ClusterTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 DescribeJobFlowsOutputTypeDef = TypedDict(
-    "DescribeJobFlowsOutputTypeDef", {"JobFlows": List["JobFlowDetailTypeDef"]}, total=False
+    "DescribeJobFlowsOutputTypeDef",
+    {"JobFlows": List["JobFlowDetailTypeDef"], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+DescribeNotebookExecutionOutputTypeDef = TypedDict(
+    "DescribeNotebookExecutionOutputTypeDef",
+    {"NotebookExecution": "NotebookExecutionTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 DescribeSecurityConfigurationOutputTypeDef = TypedDict(
     "DescribeSecurityConfigurationOutputTypeDef",
-    {"Name": str, "SecurityConfiguration": str, "CreationDateTime": datetime},
+    {
+        "Name": str,
+        "SecurityConfiguration": str,
+        "CreationDateTime": datetime,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 DescribeStepOutputTypeDef = TypedDict(
-    "DescribeStepOutputTypeDef", {"Step": "StepTypeDef"}, total=False
+    "DescribeStepOutputTypeDef",
+    {"Step": "StepTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ConfigurationTypeDef = TypedDict(
@@ -1163,17 +1313,30 @@ ConfigurationTypeDef = TypedDict(
     total=False,
 )
 
-GetBlockPublicAccessConfigurationOutputTypeDef = TypedDict(
-    "GetBlockPublicAccessConfigurationOutputTypeDef",
+_RequiredGetBlockPublicAccessConfigurationOutputTypeDef = TypedDict(
+    "_RequiredGetBlockPublicAccessConfigurationOutputTypeDef",
     {
         "BlockPublicAccessConfiguration": "BlockPublicAccessConfigurationTypeDef",
         "BlockPublicAccessConfigurationMetadata": "BlockPublicAccessConfigurationMetadataTypeDef",
     },
 )
+_OptionalGetBlockPublicAccessConfigurationOutputTypeDef = TypedDict(
+    "_OptionalGetBlockPublicAccessConfigurationOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+
+class GetBlockPublicAccessConfigurationOutputTypeDef(
+    _RequiredGetBlockPublicAccessConfigurationOutputTypeDef,
+    _OptionalGetBlockPublicAccessConfigurationOutputTypeDef,
+):
+    pass
+
 
 GetManagedScalingPolicyOutputTypeDef = TypedDict(
     "GetManagedScalingPolicyOutputTypeDef",
-    {"ManagedScalingPolicy": "ManagedScalingPolicyTypeDef"},
+    {"ManagedScalingPolicy": "ManagedScalingPolicyTypeDef", "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
@@ -1240,44 +1403,80 @@ JobFlowInstancesConfigTypeDef = TypedDict(
 
 ListBootstrapActionsOutputTypeDef = TypedDict(
     "ListBootstrapActionsOutputTypeDef",
-    {"BootstrapActions": List["CommandTypeDef"], "Marker": str},
+    {
+        "BootstrapActions": List["CommandTypeDef"],
+        "Marker": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListClustersOutputTypeDef = TypedDict(
     "ListClustersOutputTypeDef",
-    {"Clusters": List["ClusterSummaryTypeDef"], "Marker": str},
+    {
+        "Clusters": List["ClusterSummaryTypeDef"],
+        "Marker": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListInstanceFleetsOutputTypeDef = TypedDict(
     "ListInstanceFleetsOutputTypeDef",
-    {"InstanceFleets": List["InstanceFleetTypeDef"], "Marker": str},
+    {
+        "InstanceFleets": List["InstanceFleetTypeDef"],
+        "Marker": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListInstanceGroupsOutputTypeDef = TypedDict(
     "ListInstanceGroupsOutputTypeDef",
-    {"InstanceGroups": List["InstanceGroupTypeDef"], "Marker": str},
+    {
+        "InstanceGroups": List["InstanceGroupTypeDef"],
+        "Marker": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListInstancesOutputTypeDef = TypedDict(
-    "ListInstancesOutputTypeDef", {"Instances": List["InstanceTypeDef"], "Marker": str}, total=False
+    "ListInstancesOutputTypeDef",
+    {"Instances": List["InstanceTypeDef"], "Marker": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+ListNotebookExecutionsOutputTypeDef = TypedDict(
+    "ListNotebookExecutionsOutputTypeDef",
+    {
+        "NotebookExecutions": List["NotebookExecutionSummaryTypeDef"],
+        "Marker": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
+    total=False,
 )
 
 ListSecurityConfigurationsOutputTypeDef = TypedDict(
     "ListSecurityConfigurationsOutputTypeDef",
-    {"SecurityConfigurations": List["SecurityConfigurationSummaryTypeDef"], "Marker": str},
+    {
+        "SecurityConfigurations": List["SecurityConfigurationSummaryTypeDef"],
+        "Marker": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListStepsOutputTypeDef = TypedDict(
-    "ListStepsOutputTypeDef", {"Steps": List["StepSummaryTypeDef"], "Marker": str}, total=False
+    "ListStepsOutputTypeDef",
+    {"Steps": List["StepSummaryTypeDef"], "Marker": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ModifyClusterOutputTypeDef = TypedDict(
-    "ModifyClusterOutputTypeDef", {"StepConcurrencyLevel": int}, total=False
+    "ModifyClusterOutputTypeDef",
+    {"StepConcurrencyLevel": int, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 PaginatorConfigTypeDef = TypedDict(
@@ -1291,12 +1490,21 @@ PutAutoScalingPolicyOutputTypeDef = TypedDict(
         "InstanceGroupId": str,
         "AutoScalingPolicy": "AutoScalingPolicyDescriptionTypeDef",
         "ClusterArn": str,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
 RunJobFlowOutputTypeDef = TypedDict(
-    "RunJobFlowOutputTypeDef", {"JobFlowId": str, "ClusterArn": str}, total=False
+    "RunJobFlowOutputTypeDef",
+    {"JobFlowId": str, "ClusterArn": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+StartNotebookExecutionOutputTypeDef = TypedDict(
+    "StartNotebookExecutionOutputTypeDef",
+    {"NotebookExecutionId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 SupportedProductConfigTypeDef = TypedDict(

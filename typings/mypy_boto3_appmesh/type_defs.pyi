@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import List
+from typing import Any, Dict, List
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -75,8 +74,10 @@ __all__ = (
     "MeshRefTypeDef",
     "MeshSpecTypeDef",
     "MeshStatusTypeDef",
+    "OutlierDetectionTypeDef",
     "PortMappingTypeDef",
     "ResourceMetadataTypeDef",
+    "ResponseMetadata",
     "RouteDataTypeDef",
     "RouteRefTypeDef",
     "RouteSpecTypeDef",
@@ -94,9 +95,13 @@ __all__ = (
     "VirtualGatewayBackendDefaultsTypeDef",
     "VirtualGatewayClientPolicyTlsTypeDef",
     "VirtualGatewayClientPolicyTypeDef",
+    "VirtualGatewayConnectionPoolTypeDef",
     "VirtualGatewayDataTypeDef",
     "VirtualGatewayFileAccessLogTypeDef",
+    "VirtualGatewayGrpcConnectionPoolTypeDef",
     "VirtualGatewayHealthCheckPolicyTypeDef",
+    "VirtualGatewayHttp2ConnectionPoolTypeDef",
+    "VirtualGatewayHttpConnectionPoolTypeDef",
     "VirtualGatewayListenerTlsAcmCertificateTypeDef",
     "VirtualGatewayListenerTlsCertificateTypeDef",
     "VirtualGatewayListenerTlsFileCertificateTypeDef",
@@ -111,11 +116,16 @@ __all__ = (
     "VirtualGatewayTlsValidationContextFileTrustTypeDef",
     "VirtualGatewayTlsValidationContextTrustTypeDef",
     "VirtualGatewayTlsValidationContextTypeDef",
+    "VirtualNodeConnectionPoolTypeDef",
     "VirtualNodeDataTypeDef",
+    "VirtualNodeGrpcConnectionPoolTypeDef",
+    "VirtualNodeHttp2ConnectionPoolTypeDef",
+    "VirtualNodeHttpConnectionPoolTypeDef",
     "VirtualNodeRefTypeDef",
     "VirtualNodeServiceProviderTypeDef",
     "VirtualNodeSpecTypeDef",
     "VirtualNodeStatusTypeDef",
+    "VirtualNodeTcpConnectionPoolTypeDef",
     "VirtualRouterDataTypeDef",
     "VirtualRouterListenerTypeDef",
     "VirtualRouterRefTypeDef",
@@ -217,7 +227,7 @@ ClientPolicyTypeDef = TypedDict(
 DnsServiceDiscoveryTypeDef = TypedDict("DnsServiceDiscoveryTypeDef", {"hostname": str})
 
 DurationTypeDef = TypedDict(
-    "DurationTypeDef", {"unit": Literal["ms", "s"], "value": int}, total=False
+    "DurationTypeDef", {"unit": Literal["s", "ms"], "value": int}, total=False
 )
 
 EgressFilterTypeDef = TypedDict("EgressFilterTypeDef", {"type": Literal["ALLOW_ALL", "DROP_ALL"]})
@@ -262,7 +272,7 @@ GatewayRouteSpecTypeDef = TypedDict(
 )
 
 GatewayRouteStatusTypeDef = TypedDict(
-    "GatewayRouteStatusTypeDef", {"status": Literal["ACTIVE", "DELETED", "INACTIVE"]}
+    "GatewayRouteStatusTypeDef", {"status": Literal["ACTIVE", "INACTIVE", "DELETED"]}
 )
 
 GatewayRouteTargetTypeDef = TypedDict(
@@ -368,7 +378,7 @@ _RequiredHealthCheckPolicyTypeDef = TypedDict(
     {
         "healthyThreshold": int,
         "intervalMillis": int,
-        "protocol": Literal["grpc", "http", "http2", "tcp"],
+        "protocol": Literal["http", "tcp", "http2", "grpc"],
         "timeoutMillis": int,
         "unhealthyThreshold": int,
     },
@@ -431,7 +441,7 @@ _OptionalHttpRouteMatchTypeDef = TypedDict(
     {
         "headers": List["HttpRouteHeaderTypeDef"],
         "method": Literal[
-            "CONNECT", "DELETE", "GET", "HEAD", "OPTIONS", "PATCH", "POST", "PUT", "TRACE"
+            "GET", "HEAD", "POST", "PUT", "DELETE", "CONNECT", "OPTIONS", "TRACE", "PATCH"
         ],
         "scheme": Literal["http", "https"],
     },
@@ -491,7 +501,7 @@ ListenerTlsTypeDef = TypedDict(
     "ListenerTlsTypeDef",
     {
         "certificate": "ListenerTlsCertificateTypeDef",
-        "mode": Literal["DISABLED", "PERMISSIVE", "STRICT"],
+        "mode": Literal["STRICT", "PERMISSIVE", "DISABLED"],
     },
 )
 
@@ -501,7 +511,9 @@ _RequiredListenerTypeDef = TypedDict(
 _OptionalListenerTypeDef = TypedDict(
     "_OptionalListenerTypeDef",
     {
+        "connectionPool": "VirtualNodeConnectionPoolTypeDef",
         "healthCheck": "HealthCheckPolicyTypeDef",
+        "outlierDetection": "OutlierDetectionTypeDef",
         "timeout": "ListenerTimeoutTypeDef",
         "tls": "ListenerTlsTypeDef",
     },
@@ -543,11 +555,21 @@ MeshRefTypeDef = TypedDict(
 MeshSpecTypeDef = TypedDict("MeshSpecTypeDef", {"egressFilter": "EgressFilterTypeDef"}, total=False)
 
 MeshStatusTypeDef = TypedDict(
-    "MeshStatusTypeDef", {"status": Literal["ACTIVE", "DELETED", "INACTIVE"]}, total=False
+    "MeshStatusTypeDef", {"status": Literal["ACTIVE", "INACTIVE", "DELETED"]}, total=False
+)
+
+OutlierDetectionTypeDef = TypedDict(
+    "OutlierDetectionTypeDef",
+    {
+        "baseEjectionDuration": "DurationTypeDef",
+        "interval": "DurationTypeDef",
+        "maxEjectionPercent": int,
+        "maxServerErrors": int,
+    },
 )
 
 PortMappingTypeDef = TypedDict(
-    "PortMappingTypeDef", {"port": int, "protocol": Literal["grpc", "http", "http2", "tcp"]}
+    "PortMappingTypeDef", {"port": int, "protocol": Literal["http", "tcp", "http2", "grpc"]}
 )
 
 ResourceMetadataTypeDef = TypedDict(
@@ -560,6 +582,17 @@ ResourceMetadataTypeDef = TypedDict(
         "resourceOwner": str,
         "uid": str,
         "version": int,
+    },
+)
+
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
     },
 )
 
@@ -603,7 +636,7 @@ RouteSpecTypeDef = TypedDict(
 )
 
 RouteStatusTypeDef = TypedDict(
-    "RouteStatusTypeDef", {"status": Literal["ACTIVE", "DELETED", "INACTIVE"]}
+    "RouteStatusTypeDef", {"status": Literal["ACTIVE", "INACTIVE", "DELETED"]}
 )
 
 ServiceDiscoveryTypeDef = TypedDict(
@@ -689,6 +722,16 @@ VirtualGatewayClientPolicyTypeDef = TypedDict(
     total=False,
 )
 
+VirtualGatewayConnectionPoolTypeDef = TypedDict(
+    "VirtualGatewayConnectionPoolTypeDef",
+    {
+        "grpc": "VirtualGatewayGrpcConnectionPoolTypeDef",
+        "http": "VirtualGatewayHttpConnectionPoolTypeDef",
+        "http2": "VirtualGatewayHttp2ConnectionPoolTypeDef",
+    },
+    total=False,
+)
+
 VirtualGatewayDataTypeDef = TypedDict(
     "VirtualGatewayDataTypeDef",
     {
@@ -702,12 +745,16 @@ VirtualGatewayDataTypeDef = TypedDict(
 
 VirtualGatewayFileAccessLogTypeDef = TypedDict("VirtualGatewayFileAccessLogTypeDef", {"path": str})
 
+VirtualGatewayGrpcConnectionPoolTypeDef = TypedDict(
+    "VirtualGatewayGrpcConnectionPoolTypeDef", {"maxRequests": int}
+)
+
 _RequiredVirtualGatewayHealthCheckPolicyTypeDef = TypedDict(
     "_RequiredVirtualGatewayHealthCheckPolicyTypeDef",
     {
         "healthyThreshold": int,
         "intervalMillis": int,
-        "protocol": Literal["grpc", "http", "http2"],
+        "protocol": Literal["http", "http2", "grpc"],
         "timeoutMillis": int,
         "unhealthyThreshold": int,
     },
@@ -719,6 +766,25 @@ _OptionalVirtualGatewayHealthCheckPolicyTypeDef = TypedDict(
 
 class VirtualGatewayHealthCheckPolicyTypeDef(
     _RequiredVirtualGatewayHealthCheckPolicyTypeDef, _OptionalVirtualGatewayHealthCheckPolicyTypeDef
+):
+    pass
+
+
+VirtualGatewayHttp2ConnectionPoolTypeDef = TypedDict(
+    "VirtualGatewayHttp2ConnectionPoolTypeDef", {"maxRequests": int}
+)
+
+_RequiredVirtualGatewayHttpConnectionPoolTypeDef = TypedDict(
+    "_RequiredVirtualGatewayHttpConnectionPoolTypeDef", {"maxConnections": int}
+)
+_OptionalVirtualGatewayHttpConnectionPoolTypeDef = TypedDict(
+    "_OptionalVirtualGatewayHttpConnectionPoolTypeDef", {"maxPendingRequests": int}, total=False
+)
+
+
+class VirtualGatewayHttpConnectionPoolTypeDef(
+    _RequiredVirtualGatewayHttpConnectionPoolTypeDef,
+    _OptionalVirtualGatewayHttpConnectionPoolTypeDef,
 ):
     pass
 
@@ -744,7 +810,7 @@ VirtualGatewayListenerTlsTypeDef = TypedDict(
     "VirtualGatewayListenerTlsTypeDef",
     {
         "certificate": "VirtualGatewayListenerTlsCertificateTypeDef",
-        "mode": Literal["DISABLED", "PERMISSIVE", "STRICT"],
+        "mode": Literal["STRICT", "PERMISSIVE", "DISABLED"],
     },
 )
 
@@ -754,6 +820,7 @@ _RequiredVirtualGatewayListenerTypeDef = TypedDict(
 _OptionalVirtualGatewayListenerTypeDef = TypedDict(
     "_OptionalVirtualGatewayListenerTypeDef",
     {
+        "connectionPool": "VirtualGatewayConnectionPoolTypeDef",
         "healthCheck": "VirtualGatewayHealthCheckPolicyTypeDef",
         "tls": "VirtualGatewayListenerTlsTypeDef",
     },
@@ -772,7 +839,7 @@ VirtualGatewayLoggingTypeDef = TypedDict(
 )
 
 VirtualGatewayPortMappingTypeDef = TypedDict(
-    "VirtualGatewayPortMappingTypeDef", {"port": int, "protocol": Literal["grpc", "http", "http2"]}
+    "VirtualGatewayPortMappingTypeDef", {"port": int, "protocol": Literal["http", "http2", "grpc"]}
 )
 
 VirtualGatewayRefTypeDef = TypedDict(
@@ -809,7 +876,7 @@ class VirtualGatewaySpecTypeDef(
 
 
 VirtualGatewayStatusTypeDef = TypedDict(
-    "VirtualGatewayStatusTypeDef", {"status": Literal["ACTIVE", "DELETED", "INACTIVE"]}
+    "VirtualGatewayStatusTypeDef", {"status": Literal["ACTIVE", "INACTIVE", "DELETED"]}
 )
 
 VirtualGatewayTlsValidationContextAcmTrustTypeDef = TypedDict(
@@ -834,6 +901,17 @@ VirtualGatewayTlsValidationContextTypeDef = TypedDict(
     {"trust": "VirtualGatewayTlsValidationContextTrustTypeDef"},
 )
 
+VirtualNodeConnectionPoolTypeDef = TypedDict(
+    "VirtualNodeConnectionPoolTypeDef",
+    {
+        "grpc": "VirtualNodeGrpcConnectionPoolTypeDef",
+        "http": "VirtualNodeHttpConnectionPoolTypeDef",
+        "http2": "VirtualNodeHttp2ConnectionPoolTypeDef",
+        "tcp": "VirtualNodeTcpConnectionPoolTypeDef",
+    },
+    total=False,
+)
+
 VirtualNodeDataTypeDef = TypedDict(
     "VirtualNodeDataTypeDef",
     {
@@ -844,6 +922,28 @@ VirtualNodeDataTypeDef = TypedDict(
         "virtualNodeName": str,
     },
 )
+
+VirtualNodeGrpcConnectionPoolTypeDef = TypedDict(
+    "VirtualNodeGrpcConnectionPoolTypeDef", {"maxRequests": int}
+)
+
+VirtualNodeHttp2ConnectionPoolTypeDef = TypedDict(
+    "VirtualNodeHttp2ConnectionPoolTypeDef", {"maxRequests": int}
+)
+
+_RequiredVirtualNodeHttpConnectionPoolTypeDef = TypedDict(
+    "_RequiredVirtualNodeHttpConnectionPoolTypeDef", {"maxConnections": int}
+)
+_OptionalVirtualNodeHttpConnectionPoolTypeDef = TypedDict(
+    "_OptionalVirtualNodeHttpConnectionPoolTypeDef", {"maxPendingRequests": int}, total=False
+)
+
+
+class VirtualNodeHttpConnectionPoolTypeDef(
+    _RequiredVirtualNodeHttpConnectionPoolTypeDef, _OptionalVirtualNodeHttpConnectionPoolTypeDef
+):
+    pass
+
 
 VirtualNodeRefTypeDef = TypedDict(
     "VirtualNodeRefTypeDef",
@@ -876,7 +976,11 @@ VirtualNodeSpecTypeDef = TypedDict(
 )
 
 VirtualNodeStatusTypeDef = TypedDict(
-    "VirtualNodeStatusTypeDef", {"status": Literal["ACTIVE", "DELETED", "INACTIVE"]}
+    "VirtualNodeStatusTypeDef", {"status": Literal["ACTIVE", "INACTIVE", "DELETED"]}
+)
+
+VirtualNodeTcpConnectionPoolTypeDef = TypedDict(
+    "VirtualNodeTcpConnectionPoolTypeDef", {"maxConnections": int}
 )
 
 VirtualRouterDataTypeDef = TypedDict(
@@ -917,7 +1021,7 @@ VirtualRouterSpecTypeDef = TypedDict(
 )
 
 VirtualRouterStatusTypeDef = TypedDict(
-    "VirtualRouterStatusTypeDef", {"status": Literal["ACTIVE", "DELETED", "INACTIVE"]}
+    "VirtualRouterStatusTypeDef", {"status": Literal["ACTIVE", "INACTIVE", "DELETED"]}
 )
 
 _RequiredVirtualServiceBackendTypeDef = TypedDict(
@@ -973,88 +1077,334 @@ VirtualServiceSpecTypeDef = TypedDict(
 )
 
 VirtualServiceStatusTypeDef = TypedDict(
-    "VirtualServiceStatusTypeDef", {"status": Literal["ACTIVE", "DELETED", "INACTIVE"]}
+    "VirtualServiceStatusTypeDef", {"status": Literal["ACTIVE", "INACTIVE", "DELETED"]}
 )
 
 WeightedTargetTypeDef = TypedDict("WeightedTargetTypeDef", {"virtualNode": str, "weight": int})
 
-CreateGatewayRouteOutputTypeDef = TypedDict(
-    "CreateGatewayRouteOutputTypeDef", {"gatewayRoute": "GatewayRouteDataTypeDef"}
+_RequiredCreateGatewayRouteOutputTypeDef = TypedDict(
+    "_RequiredCreateGatewayRouteOutputTypeDef", {"gatewayRoute": "GatewayRouteDataTypeDef"}
+)
+_OptionalCreateGatewayRouteOutputTypeDef = TypedDict(
+    "_OptionalCreateGatewayRouteOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
-CreateMeshOutputTypeDef = TypedDict("CreateMeshOutputTypeDef", {"mesh": "MeshDataTypeDef"})
 
-CreateRouteOutputTypeDef = TypedDict("CreateRouteOutputTypeDef", {"route": "RouteDataTypeDef"})
+class CreateGatewayRouteOutputTypeDef(
+    _RequiredCreateGatewayRouteOutputTypeDef, _OptionalCreateGatewayRouteOutputTypeDef
+):
+    pass
 
-CreateVirtualGatewayOutputTypeDef = TypedDict(
-    "CreateVirtualGatewayOutputTypeDef", {"virtualGateway": "VirtualGatewayDataTypeDef"}
+
+_RequiredCreateMeshOutputTypeDef = TypedDict(
+    "_RequiredCreateMeshOutputTypeDef", {"mesh": "MeshDataTypeDef"}
+)
+_OptionalCreateMeshOutputTypeDef = TypedDict(
+    "_OptionalCreateMeshOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
 )
 
-CreateVirtualNodeOutputTypeDef = TypedDict(
-    "CreateVirtualNodeOutputTypeDef", {"virtualNode": "VirtualNodeDataTypeDef"}
+
+class CreateMeshOutputTypeDef(_RequiredCreateMeshOutputTypeDef, _OptionalCreateMeshOutputTypeDef):
+    pass
+
+
+_RequiredCreateRouteOutputTypeDef = TypedDict(
+    "_RequiredCreateRouteOutputTypeDef", {"route": "RouteDataTypeDef"}
+)
+_OptionalCreateRouteOutputTypeDef = TypedDict(
+    "_OptionalCreateRouteOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
 )
 
-CreateVirtualRouterOutputTypeDef = TypedDict(
-    "CreateVirtualRouterOutputTypeDef", {"virtualRouter": "VirtualRouterDataTypeDef"}
+
+class CreateRouteOutputTypeDef(
+    _RequiredCreateRouteOutputTypeDef, _OptionalCreateRouteOutputTypeDef
+):
+    pass
+
+
+_RequiredCreateVirtualGatewayOutputTypeDef = TypedDict(
+    "_RequiredCreateVirtualGatewayOutputTypeDef", {"virtualGateway": "VirtualGatewayDataTypeDef"}
+)
+_OptionalCreateVirtualGatewayOutputTypeDef = TypedDict(
+    "_OptionalCreateVirtualGatewayOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
-CreateVirtualServiceOutputTypeDef = TypedDict(
-    "CreateVirtualServiceOutputTypeDef", {"virtualService": "VirtualServiceDataTypeDef"}
+
+class CreateVirtualGatewayOutputTypeDef(
+    _RequiredCreateVirtualGatewayOutputTypeDef, _OptionalCreateVirtualGatewayOutputTypeDef
+):
+    pass
+
+
+_RequiredCreateVirtualNodeOutputTypeDef = TypedDict(
+    "_RequiredCreateVirtualNodeOutputTypeDef", {"virtualNode": "VirtualNodeDataTypeDef"}
+)
+_OptionalCreateVirtualNodeOutputTypeDef = TypedDict(
+    "_OptionalCreateVirtualNodeOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
 )
 
-DeleteGatewayRouteOutputTypeDef = TypedDict(
-    "DeleteGatewayRouteOutputTypeDef", {"gatewayRoute": "GatewayRouteDataTypeDef"}
+
+class CreateVirtualNodeOutputTypeDef(
+    _RequiredCreateVirtualNodeOutputTypeDef, _OptionalCreateVirtualNodeOutputTypeDef
+):
+    pass
+
+
+_RequiredCreateVirtualRouterOutputTypeDef = TypedDict(
+    "_RequiredCreateVirtualRouterOutputTypeDef", {"virtualRouter": "VirtualRouterDataTypeDef"}
+)
+_OptionalCreateVirtualRouterOutputTypeDef = TypedDict(
+    "_OptionalCreateVirtualRouterOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
-DeleteMeshOutputTypeDef = TypedDict("DeleteMeshOutputTypeDef", {"mesh": "MeshDataTypeDef"})
 
-DeleteRouteOutputTypeDef = TypedDict("DeleteRouteOutputTypeDef", {"route": "RouteDataTypeDef"})
+class CreateVirtualRouterOutputTypeDef(
+    _RequiredCreateVirtualRouterOutputTypeDef, _OptionalCreateVirtualRouterOutputTypeDef
+):
+    pass
 
-DeleteVirtualGatewayOutputTypeDef = TypedDict(
-    "DeleteVirtualGatewayOutputTypeDef", {"virtualGateway": "VirtualGatewayDataTypeDef"}
+
+_RequiredCreateVirtualServiceOutputTypeDef = TypedDict(
+    "_RequiredCreateVirtualServiceOutputTypeDef", {"virtualService": "VirtualServiceDataTypeDef"}
+)
+_OptionalCreateVirtualServiceOutputTypeDef = TypedDict(
+    "_OptionalCreateVirtualServiceOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
-DeleteVirtualNodeOutputTypeDef = TypedDict(
-    "DeleteVirtualNodeOutputTypeDef", {"virtualNode": "VirtualNodeDataTypeDef"}
+
+class CreateVirtualServiceOutputTypeDef(
+    _RequiredCreateVirtualServiceOutputTypeDef, _OptionalCreateVirtualServiceOutputTypeDef
+):
+    pass
+
+
+_RequiredDeleteGatewayRouteOutputTypeDef = TypedDict(
+    "_RequiredDeleteGatewayRouteOutputTypeDef", {"gatewayRoute": "GatewayRouteDataTypeDef"}
+)
+_OptionalDeleteGatewayRouteOutputTypeDef = TypedDict(
+    "_OptionalDeleteGatewayRouteOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
-DeleteVirtualRouterOutputTypeDef = TypedDict(
-    "DeleteVirtualRouterOutputTypeDef", {"virtualRouter": "VirtualRouterDataTypeDef"}
+
+class DeleteGatewayRouteOutputTypeDef(
+    _RequiredDeleteGatewayRouteOutputTypeDef, _OptionalDeleteGatewayRouteOutputTypeDef
+):
+    pass
+
+
+_RequiredDeleteMeshOutputTypeDef = TypedDict(
+    "_RequiredDeleteMeshOutputTypeDef", {"mesh": "MeshDataTypeDef"}
+)
+_OptionalDeleteMeshOutputTypeDef = TypedDict(
+    "_OptionalDeleteMeshOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
 )
 
-DeleteVirtualServiceOutputTypeDef = TypedDict(
-    "DeleteVirtualServiceOutputTypeDef", {"virtualService": "VirtualServiceDataTypeDef"}
+
+class DeleteMeshOutputTypeDef(_RequiredDeleteMeshOutputTypeDef, _OptionalDeleteMeshOutputTypeDef):
+    pass
+
+
+_RequiredDeleteRouteOutputTypeDef = TypedDict(
+    "_RequiredDeleteRouteOutputTypeDef", {"route": "RouteDataTypeDef"}
+)
+_OptionalDeleteRouteOutputTypeDef = TypedDict(
+    "_OptionalDeleteRouteOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
 )
 
-DescribeGatewayRouteOutputTypeDef = TypedDict(
-    "DescribeGatewayRouteOutputTypeDef", {"gatewayRoute": "GatewayRouteDataTypeDef"}
+
+class DeleteRouteOutputTypeDef(
+    _RequiredDeleteRouteOutputTypeDef, _OptionalDeleteRouteOutputTypeDef
+):
+    pass
+
+
+_RequiredDeleteVirtualGatewayOutputTypeDef = TypedDict(
+    "_RequiredDeleteVirtualGatewayOutputTypeDef", {"virtualGateway": "VirtualGatewayDataTypeDef"}
+)
+_OptionalDeleteVirtualGatewayOutputTypeDef = TypedDict(
+    "_OptionalDeleteVirtualGatewayOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
-DescribeMeshOutputTypeDef = TypedDict("DescribeMeshOutputTypeDef", {"mesh": "MeshDataTypeDef"})
 
-DescribeRouteOutputTypeDef = TypedDict("DescribeRouteOutputTypeDef", {"route": "RouteDataTypeDef"})
+class DeleteVirtualGatewayOutputTypeDef(
+    _RequiredDeleteVirtualGatewayOutputTypeDef, _OptionalDeleteVirtualGatewayOutputTypeDef
+):
+    pass
 
-DescribeVirtualGatewayOutputTypeDef = TypedDict(
-    "DescribeVirtualGatewayOutputTypeDef", {"virtualGateway": "VirtualGatewayDataTypeDef"}
+
+_RequiredDeleteVirtualNodeOutputTypeDef = TypedDict(
+    "_RequiredDeleteVirtualNodeOutputTypeDef", {"virtualNode": "VirtualNodeDataTypeDef"}
+)
+_OptionalDeleteVirtualNodeOutputTypeDef = TypedDict(
+    "_OptionalDeleteVirtualNodeOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
 )
 
-DescribeVirtualNodeOutputTypeDef = TypedDict(
-    "DescribeVirtualNodeOutputTypeDef", {"virtualNode": "VirtualNodeDataTypeDef"}
+
+class DeleteVirtualNodeOutputTypeDef(
+    _RequiredDeleteVirtualNodeOutputTypeDef, _OptionalDeleteVirtualNodeOutputTypeDef
+):
+    pass
+
+
+_RequiredDeleteVirtualRouterOutputTypeDef = TypedDict(
+    "_RequiredDeleteVirtualRouterOutputTypeDef", {"virtualRouter": "VirtualRouterDataTypeDef"}
+)
+_OptionalDeleteVirtualRouterOutputTypeDef = TypedDict(
+    "_OptionalDeleteVirtualRouterOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
-DescribeVirtualRouterOutputTypeDef = TypedDict(
-    "DescribeVirtualRouterOutputTypeDef", {"virtualRouter": "VirtualRouterDataTypeDef"}
+
+class DeleteVirtualRouterOutputTypeDef(
+    _RequiredDeleteVirtualRouterOutputTypeDef, _OptionalDeleteVirtualRouterOutputTypeDef
+):
+    pass
+
+
+_RequiredDeleteVirtualServiceOutputTypeDef = TypedDict(
+    "_RequiredDeleteVirtualServiceOutputTypeDef", {"virtualService": "VirtualServiceDataTypeDef"}
+)
+_OptionalDeleteVirtualServiceOutputTypeDef = TypedDict(
+    "_OptionalDeleteVirtualServiceOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
-DescribeVirtualServiceOutputTypeDef = TypedDict(
-    "DescribeVirtualServiceOutputTypeDef", {"virtualService": "VirtualServiceDataTypeDef"}
+
+class DeleteVirtualServiceOutputTypeDef(
+    _RequiredDeleteVirtualServiceOutputTypeDef, _OptionalDeleteVirtualServiceOutputTypeDef
+):
+    pass
+
+
+_RequiredDescribeGatewayRouteOutputTypeDef = TypedDict(
+    "_RequiredDescribeGatewayRouteOutputTypeDef", {"gatewayRoute": "GatewayRouteDataTypeDef"}
 )
+_OptionalDescribeGatewayRouteOutputTypeDef = TypedDict(
+    "_OptionalDescribeGatewayRouteOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+
+class DescribeGatewayRouteOutputTypeDef(
+    _RequiredDescribeGatewayRouteOutputTypeDef, _OptionalDescribeGatewayRouteOutputTypeDef
+):
+    pass
+
+
+_RequiredDescribeMeshOutputTypeDef = TypedDict(
+    "_RequiredDescribeMeshOutputTypeDef", {"mesh": "MeshDataTypeDef"}
+)
+_OptionalDescribeMeshOutputTypeDef = TypedDict(
+    "_OptionalDescribeMeshOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
+)
+
+
+class DescribeMeshOutputTypeDef(
+    _RequiredDescribeMeshOutputTypeDef, _OptionalDescribeMeshOutputTypeDef
+):
+    pass
+
+
+_RequiredDescribeRouteOutputTypeDef = TypedDict(
+    "_RequiredDescribeRouteOutputTypeDef", {"route": "RouteDataTypeDef"}
+)
+_OptionalDescribeRouteOutputTypeDef = TypedDict(
+    "_OptionalDescribeRouteOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
+)
+
+
+class DescribeRouteOutputTypeDef(
+    _RequiredDescribeRouteOutputTypeDef, _OptionalDescribeRouteOutputTypeDef
+):
+    pass
+
+
+_RequiredDescribeVirtualGatewayOutputTypeDef = TypedDict(
+    "_RequiredDescribeVirtualGatewayOutputTypeDef", {"virtualGateway": "VirtualGatewayDataTypeDef"}
+)
+_OptionalDescribeVirtualGatewayOutputTypeDef = TypedDict(
+    "_OptionalDescribeVirtualGatewayOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+
+class DescribeVirtualGatewayOutputTypeDef(
+    _RequiredDescribeVirtualGatewayOutputTypeDef, _OptionalDescribeVirtualGatewayOutputTypeDef
+):
+    pass
+
+
+_RequiredDescribeVirtualNodeOutputTypeDef = TypedDict(
+    "_RequiredDescribeVirtualNodeOutputTypeDef", {"virtualNode": "VirtualNodeDataTypeDef"}
+)
+_OptionalDescribeVirtualNodeOutputTypeDef = TypedDict(
+    "_OptionalDescribeVirtualNodeOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+
+class DescribeVirtualNodeOutputTypeDef(
+    _RequiredDescribeVirtualNodeOutputTypeDef, _OptionalDescribeVirtualNodeOutputTypeDef
+):
+    pass
+
+
+_RequiredDescribeVirtualRouterOutputTypeDef = TypedDict(
+    "_RequiredDescribeVirtualRouterOutputTypeDef", {"virtualRouter": "VirtualRouterDataTypeDef"}
+)
+_OptionalDescribeVirtualRouterOutputTypeDef = TypedDict(
+    "_OptionalDescribeVirtualRouterOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+
+class DescribeVirtualRouterOutputTypeDef(
+    _RequiredDescribeVirtualRouterOutputTypeDef, _OptionalDescribeVirtualRouterOutputTypeDef
+):
+    pass
+
+
+_RequiredDescribeVirtualServiceOutputTypeDef = TypedDict(
+    "_RequiredDescribeVirtualServiceOutputTypeDef", {"virtualService": "VirtualServiceDataTypeDef"}
+)
+_OptionalDescribeVirtualServiceOutputTypeDef = TypedDict(
+    "_OptionalDescribeVirtualServiceOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+
+class DescribeVirtualServiceOutputTypeDef(
+    _RequiredDescribeVirtualServiceOutputTypeDef, _OptionalDescribeVirtualServiceOutputTypeDef
+):
+    pass
+
 
 _RequiredListGatewayRoutesOutputTypeDef = TypedDict(
     "_RequiredListGatewayRoutesOutputTypeDef", {"gatewayRoutes": List["GatewayRouteRefTypeDef"]}
 )
 _OptionalListGatewayRoutesOutputTypeDef = TypedDict(
-    "_OptionalListGatewayRoutesOutputTypeDef", {"nextToken": str}, total=False
+    "_OptionalListGatewayRoutesOutputTypeDef",
+    {"nextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 
@@ -1068,7 +1418,9 @@ _RequiredListMeshesOutputTypeDef = TypedDict(
     "_RequiredListMeshesOutputTypeDef", {"meshes": List["MeshRefTypeDef"]}
 )
 _OptionalListMeshesOutputTypeDef = TypedDict(
-    "_OptionalListMeshesOutputTypeDef", {"nextToken": str}, total=False
+    "_OptionalListMeshesOutputTypeDef",
+    {"nextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 
@@ -1080,7 +1432,9 @@ _RequiredListRoutesOutputTypeDef = TypedDict(
     "_RequiredListRoutesOutputTypeDef", {"routes": List["RouteRefTypeDef"]}
 )
 _OptionalListRoutesOutputTypeDef = TypedDict(
-    "_OptionalListRoutesOutputTypeDef", {"nextToken": str}, total=False
+    "_OptionalListRoutesOutputTypeDef",
+    {"nextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 
@@ -1092,7 +1446,9 @@ _RequiredListTagsForResourceOutputTypeDef = TypedDict(
     "_RequiredListTagsForResourceOutputTypeDef", {"tags": List["TagRefTypeDef"]}
 )
 _OptionalListTagsForResourceOutputTypeDef = TypedDict(
-    "_OptionalListTagsForResourceOutputTypeDef", {"nextToken": str}, total=False
+    "_OptionalListTagsForResourceOutputTypeDef",
+    {"nextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 
@@ -1107,7 +1463,9 @@ _RequiredListVirtualGatewaysOutputTypeDef = TypedDict(
     {"virtualGateways": List["VirtualGatewayRefTypeDef"]},
 )
 _OptionalListVirtualGatewaysOutputTypeDef = TypedDict(
-    "_OptionalListVirtualGatewaysOutputTypeDef", {"nextToken": str}, total=False
+    "_OptionalListVirtualGatewaysOutputTypeDef",
+    {"nextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 
@@ -1121,7 +1479,9 @@ _RequiredListVirtualNodesOutputTypeDef = TypedDict(
     "_RequiredListVirtualNodesOutputTypeDef", {"virtualNodes": List["VirtualNodeRefTypeDef"]}
 )
 _OptionalListVirtualNodesOutputTypeDef = TypedDict(
-    "_OptionalListVirtualNodesOutputTypeDef", {"nextToken": str}, total=False
+    "_OptionalListVirtualNodesOutputTypeDef",
+    {"nextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 
@@ -1135,7 +1495,9 @@ _RequiredListVirtualRoutersOutputTypeDef = TypedDict(
     "_RequiredListVirtualRoutersOutputTypeDef", {"virtualRouters": List["VirtualRouterRefTypeDef"]}
 )
 _OptionalListVirtualRoutersOutputTypeDef = TypedDict(
-    "_OptionalListVirtualRoutersOutputTypeDef", {"nextToken": str}, total=False
+    "_OptionalListVirtualRoutersOutputTypeDef",
+    {"nextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 
@@ -1150,7 +1512,9 @@ _RequiredListVirtualServicesOutputTypeDef = TypedDict(
     {"virtualServices": List["VirtualServiceRefTypeDef"]},
 )
 _OptionalListVirtualServicesOutputTypeDef = TypedDict(
-    "_OptionalListVirtualServicesOutputTypeDef", {"nextToken": str}, total=False
+    "_OptionalListVirtualServicesOutputTypeDef",
+    {"nextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 
@@ -1164,26 +1528,105 @@ PaginatorConfigTypeDef = TypedDict(
     "PaginatorConfigTypeDef", {"MaxItems": int, "PageSize": int, "StartingToken": str}, total=False
 )
 
-UpdateGatewayRouteOutputTypeDef = TypedDict(
-    "UpdateGatewayRouteOutputTypeDef", {"gatewayRoute": "GatewayRouteDataTypeDef"}
+_RequiredUpdateGatewayRouteOutputTypeDef = TypedDict(
+    "_RequiredUpdateGatewayRouteOutputTypeDef", {"gatewayRoute": "GatewayRouteDataTypeDef"}
+)
+_OptionalUpdateGatewayRouteOutputTypeDef = TypedDict(
+    "_OptionalUpdateGatewayRouteOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
-UpdateMeshOutputTypeDef = TypedDict("UpdateMeshOutputTypeDef", {"mesh": "MeshDataTypeDef"})
 
-UpdateRouteOutputTypeDef = TypedDict("UpdateRouteOutputTypeDef", {"route": "RouteDataTypeDef"})
+class UpdateGatewayRouteOutputTypeDef(
+    _RequiredUpdateGatewayRouteOutputTypeDef, _OptionalUpdateGatewayRouteOutputTypeDef
+):
+    pass
 
-UpdateVirtualGatewayOutputTypeDef = TypedDict(
-    "UpdateVirtualGatewayOutputTypeDef", {"virtualGateway": "VirtualGatewayDataTypeDef"}
+
+_RequiredUpdateMeshOutputTypeDef = TypedDict(
+    "_RequiredUpdateMeshOutputTypeDef", {"mesh": "MeshDataTypeDef"}
+)
+_OptionalUpdateMeshOutputTypeDef = TypedDict(
+    "_OptionalUpdateMeshOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
 )
 
-UpdateVirtualNodeOutputTypeDef = TypedDict(
-    "UpdateVirtualNodeOutputTypeDef", {"virtualNode": "VirtualNodeDataTypeDef"}
+
+class UpdateMeshOutputTypeDef(_RequiredUpdateMeshOutputTypeDef, _OptionalUpdateMeshOutputTypeDef):
+    pass
+
+
+_RequiredUpdateRouteOutputTypeDef = TypedDict(
+    "_RequiredUpdateRouteOutputTypeDef", {"route": "RouteDataTypeDef"}
+)
+_OptionalUpdateRouteOutputTypeDef = TypedDict(
+    "_OptionalUpdateRouteOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
 )
 
-UpdateVirtualRouterOutputTypeDef = TypedDict(
-    "UpdateVirtualRouterOutputTypeDef", {"virtualRouter": "VirtualRouterDataTypeDef"}
+
+class UpdateRouteOutputTypeDef(
+    _RequiredUpdateRouteOutputTypeDef, _OptionalUpdateRouteOutputTypeDef
+):
+    pass
+
+
+_RequiredUpdateVirtualGatewayOutputTypeDef = TypedDict(
+    "_RequiredUpdateVirtualGatewayOutputTypeDef", {"virtualGateway": "VirtualGatewayDataTypeDef"}
+)
+_OptionalUpdateVirtualGatewayOutputTypeDef = TypedDict(
+    "_OptionalUpdateVirtualGatewayOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
-UpdateVirtualServiceOutputTypeDef = TypedDict(
-    "UpdateVirtualServiceOutputTypeDef", {"virtualService": "VirtualServiceDataTypeDef"}
+
+class UpdateVirtualGatewayOutputTypeDef(
+    _RequiredUpdateVirtualGatewayOutputTypeDef, _OptionalUpdateVirtualGatewayOutputTypeDef
+):
+    pass
+
+
+_RequiredUpdateVirtualNodeOutputTypeDef = TypedDict(
+    "_RequiredUpdateVirtualNodeOutputTypeDef", {"virtualNode": "VirtualNodeDataTypeDef"}
 )
+_OptionalUpdateVirtualNodeOutputTypeDef = TypedDict(
+    "_OptionalUpdateVirtualNodeOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
+)
+
+
+class UpdateVirtualNodeOutputTypeDef(
+    _RequiredUpdateVirtualNodeOutputTypeDef, _OptionalUpdateVirtualNodeOutputTypeDef
+):
+    pass
+
+
+_RequiredUpdateVirtualRouterOutputTypeDef = TypedDict(
+    "_RequiredUpdateVirtualRouterOutputTypeDef", {"virtualRouter": "VirtualRouterDataTypeDef"}
+)
+_OptionalUpdateVirtualRouterOutputTypeDef = TypedDict(
+    "_OptionalUpdateVirtualRouterOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+
+class UpdateVirtualRouterOutputTypeDef(
+    _RequiredUpdateVirtualRouterOutputTypeDef, _OptionalUpdateVirtualRouterOutputTypeDef
+):
+    pass
+
+
+_RequiredUpdateVirtualServiceOutputTypeDef = TypedDict(
+    "_RequiredUpdateVirtualServiceOutputTypeDef", {"virtualService": "VirtualServiceDataTypeDef"}
+)
+_OptionalUpdateVirtualServiceOutputTypeDef = TypedDict(
+    "_OptionalUpdateVirtualServiceOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+
+class UpdateVirtualServiceOutputTypeDef(
+    _RequiredUpdateVirtualServiceOutputTypeDef, _OptionalUpdateVirtualServiceOutputTypeDef
+):
+    pass

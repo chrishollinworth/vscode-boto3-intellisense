@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Dict, List
+from typing import IO, Any, Dict, List, Union
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -46,6 +45,8 @@ __all__ = (
     "OnFailureTypeDef",
     "OnSuccessTypeDef",
     "ProvisionedConcurrencyConfigListItemTypeDef",
+    "ResponseMetadata",
+    "SourceAccessConfigurationTypeDef",
     "TracingConfigResponseTypeDef",
     "VpcConfigResponseTypeDef",
     "AddLayerVersionPermissionResponseTypeDef",
@@ -149,6 +150,8 @@ EventSourceMappingConfigurationTypeDef = TypedDict(
         "StateTransitionReason": str,
         "DestinationConfig": "DestinationConfigTypeDef",
         "Topics": List[str],
+        "Queues": List[str],
+        "SourceAccessConfigurations": List["SourceAccessConfigurationTypeDef"],
         "MaximumRecordAgeInSeconds": int,
         "BisectBatchOnFunctionError": bool,
         "MaximumRetryAttempts": int,
@@ -255,7 +258,7 @@ LayerTypeDef = TypedDict("LayerTypeDef", {"Arn": str, "CodeSize": int}, total=Fa
 
 LayerVersionContentOutputTypeDef = TypedDict(
     "LayerVersionContentOutputTypeDef",
-    {"Location": str, "CodeSha256": str, "CodeSize": int},
+    {"Location": str, "CodeSha256": str, "CodeSize": int, "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
@@ -322,6 +325,21 @@ ProvisionedConcurrencyConfigListItemTypeDef = TypedDict(
     total=False,
 )
 
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
+
+SourceAccessConfigurationTypeDef = TypedDict(
+    "SourceAccessConfigurationTypeDef", {"Type": Literal["BASIC_AUTH"], "URI": str}, total=False
+)
+
 TracingConfigResponseTypeDef = TypedDict(
     "TracingConfigResponseTypeDef", {"Mode": Literal["Active", "PassThrough"]}, total=False
 )
@@ -344,7 +362,7 @@ EnvironmentTypeDef = TypedDict("EnvironmentTypeDef", {"Variables": Dict[str, str
 
 FunctionCodeTypeDef = TypedDict(
     "FunctionCodeTypeDef",
-    {"ZipFile": bytes, "S3Bucket": str, "S3Key": str, "S3ObjectVersion": str},
+    {"ZipFile": Union[bytes, IO[bytes]], "S3Bucket": str, "S3Key": str, "S3ObjectVersion": str},
     total=False,
 )
 
@@ -437,7 +455,7 @@ InvocationResponseTypeDef = TypedDict(
         "StatusCode": int,
         "FunctionError": str,
         "LogResult": str,
-        "Payload": bytes,
+        "Payload": IO[bytes],
         "ExecutedVersion": str,
     },
     total=False,
@@ -447,7 +465,7 @@ InvokeAsyncResponseTypeDef = TypedDict("InvokeAsyncResponseTypeDef", {"Status": 
 
 LayerVersionContentInputTypeDef = TypedDict(
     "LayerVersionContentInputTypeDef",
-    {"S3Bucket": str, "S3Key": str, "S3ObjectVersion": str, "ZipFile": bytes},
+    {"S3Bucket": str, "S3Key": str, "S3ObjectVersion": str, "ZipFile": Union[bytes, IO[bytes]]},
     total=False,
 )
 

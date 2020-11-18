@@ -17,7 +17,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -41,9 +40,11 @@ __all__ = (
     "BorderStyleTypeDef",
     "CalculatedColumnTypeDef",
     "CastColumnTypeOperationTypeDef",
+    "ColumnDescriptionTypeDef",
     "ColumnGroupColumnSchemaTypeDef",
     "ColumnGroupSchemaTypeDef",
     "ColumnGroupTypeDef",
+    "ColumnLevelPermissionRuleTypeDef",
     "ColumnSchemaTypeDef",
     "ColumnTagTypeDef",
     "CreateColumnsOperationTypeDef",
@@ -88,6 +89,7 @@ __all__ = (
     "MySqlParametersTypeDef",
     "NamespaceErrorTypeDef",
     "NamespaceInfoV2TypeDef",
+    "OracleParametersTypeDef",
     "OutputColumnTypeDef",
     "PhysicalTableTypeDef",
     "PostgreSqlParametersTypeDef",
@@ -106,6 +108,7 @@ __all__ = (
     "ServiceNowParametersTypeDef",
     "SheetControlsOptionTypeDef",
     "SheetStyleTypeDef",
+    "SheetTypeDef",
     "SnowflakeParametersTypeDef",
     "SparkParametersTypeDef",
     "SqlServerParametersTypeDef",
@@ -341,6 +344,7 @@ AnalysisTypeDef = TypedDict(
         "ThemeArn": str,
         "CreatedTime": datetime,
         "LastUpdatedTime": datetime,
+        "Sheets": List["SheetTypeDef"],
     },
     total=False,
 )
@@ -380,6 +384,8 @@ class CastColumnTypeOperationTypeDef(
     pass
 
 
+ColumnDescriptionTypeDef = TypedDict("ColumnDescriptionTypeDef", {"Text": str}, total=False)
+
 ColumnGroupColumnSchemaTypeDef = TypedDict(
     "ColumnGroupColumnSchemaTypeDef", {"Name": str}, total=False
 )
@@ -394,6 +400,12 @@ ColumnGroupTypeDef = TypedDict(
     "ColumnGroupTypeDef", {"GeoSpatialColumnGroup": "GeoSpatialColumnGroupTypeDef"}, total=False
 )
 
+ColumnLevelPermissionRuleTypeDef = TypedDict(
+    "ColumnLevelPermissionRuleTypeDef",
+    {"Principals": List[str], "ColumnNames": List[str]},
+    total=False,
+)
+
 ColumnSchemaTypeDef = TypedDict(
     "ColumnSchemaTypeDef", {"Name": str, "DataType": str, "GeographicRole": str}, total=False
 )
@@ -403,7 +415,8 @@ ColumnTagTypeDef = TypedDict(
     {
         "ColumnGeographicRole": Literal[
             "COUNTRY", "STATE", "COUNTY", "CITY", "POSTCODE", "LONGITUDE", "LATITUDE"
-        ]
+        ],
+        "ColumnDescription": "ColumnDescriptionTypeDef",
     },
     total=False,
 )
@@ -532,6 +545,7 @@ DashboardVersionTypeDef = TypedDict(
         "DataSetArns": List[str],
         "Description": str,
         "ThemeArn": str,
+        "Sheets": List["SheetTypeDef"],
     },
     total=False,
 )
@@ -570,6 +584,7 @@ DataSetSummaryTypeDef = TypedDict(
         "LastUpdatedTime": datetime,
         "ImportMode": Literal["SPICE", "DIRECT_QUERY"],
         "RowLevelPermissionDataSet": "RowLevelPermissionDataSetTypeDef",
+        "ColumnLevelPermissionRulesApplied": bool,
     },
     total=False,
 )
@@ -589,6 +604,7 @@ DataSetTypeDef = TypedDict(
         "ConsumedSpiceCapacityInBytes": int,
         "ColumnGroups": List["ColumnGroupTypeDef"],
         "RowLevelPermissionDataSet": "RowLevelPermissionDataSetTypeDef",
+        "ColumnLevelPermissionRules": List["ColumnLevelPermissionRuleTypeDef"],
     },
     total=False,
 )
@@ -622,6 +638,7 @@ DataSourceParametersTypeDef = TypedDict(
         "JiraParameters": "JiraParametersTypeDef",
         "MariaDbParameters": "MariaDbParametersTypeDef",
         "MySqlParameters": "MySqlParametersTypeDef",
+        "OracleParameters": "OracleParametersTypeDef",
         "PostgreSqlParameters": "PostgreSqlParametersTypeDef",
         "PrestoParameters": "PrestoParametersTypeDef",
         "RdsParameters": "RdsParametersTypeDef",
@@ -654,6 +671,7 @@ DataSourceTypeDef = TypedDict(
             "JIRA",
             "MARIADB",
             "MYSQL",
+            "ORACLE",
             "POSTGRESQL",
             "PRESTO",
             "REDSHIFT",
@@ -665,6 +683,7 @@ DataSourceTypeDef = TypedDict(
             "SQLSERVER",
             "TERADATA",
             "TWITTER",
+            "TIMESTREAM",
         ],
         "Status": Literal[
             "CREATION_IN_PROGRESS",
@@ -887,9 +906,13 @@ NamespaceInfoV2TypeDef = TypedDict(
     total=False,
 )
 
+OracleParametersTypeDef = TypedDict(
+    "OracleParametersTypeDef", {"Host": str, "Port": int, "Database": str}
+)
+
 OutputColumnTypeDef = TypedDict(
     "OutputColumnTypeDef",
-    {"Name": str, "Type": Literal["STRING", "INTEGER", "DECIMAL", "DATETIME"]},
+    {"Name": str, "Description": str, "Type": Literal["STRING", "INTEGER", "DECIMAL", "DATETIME"]},
     total=False,
 )
 
@@ -998,6 +1021,8 @@ SheetStyleTypeDef = TypedDict(
     {"Tile": "TileStyleTypeDef", "TileLayout": "TileLayoutStyleTypeDef"},
     total=False,
 )
+
+SheetTypeDef = TypedDict("SheetTypeDef", {"SheetId": str, "Name": str}, total=False)
 
 SnowflakeParametersTypeDef = TypedDict(
     "SnowflakeParametersTypeDef", {"Host": str, "Database": str, "Warehouse": str}
@@ -1108,6 +1133,7 @@ TemplateVersionTypeDef = TypedDict(
         "Description": str,
         "SourceEntityArn": str,
         "ThemeArn": str,
+        "Sheets": List["SheetTypeDef"],
     },
     total=False,
 )
@@ -1300,6 +1326,7 @@ CancelIngestionResponseTypeDef = TypedDict(
 CreateAccountCustomizationResponseTypeDef = TypedDict(
     "CreateAccountCustomizationResponseTypeDef",
     {
+        "Arn": str,
         "AwsAccountId": str,
         "Namespace": str,
         "AccountCustomization": "AccountCustomizationTypeDef",
@@ -1612,6 +1639,7 @@ DeleteUserResponseTypeDef = TypedDict(
 DescribeAccountCustomizationResponseTypeDef = TypedDict(
     "DescribeAccountCustomizationResponseTypeDef",
     {
+        "Arn": str,
         "AwsAccountId": str,
         "Namespace": str,
         "AccountCustomization": "AccountCustomizationTypeDef",
@@ -2044,6 +2072,7 @@ UntagResourceResponseTypeDef = TypedDict(
 UpdateAccountCustomizationResponseTypeDef = TypedDict(
     "UpdateAccountCustomizationResponseTypeDef",
     {
+        "Arn": str,
         "AwsAccountId": str,
         "Namespace": str,
         "AccountCustomization": "AccountCustomizationTypeDef",

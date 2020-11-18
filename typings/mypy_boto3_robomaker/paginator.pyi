@@ -74,33 +74,33 @@ __all__ = (
 
 class ListDeploymentJobsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDeploymentJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/robomaker.html#RoboMaker.Paginator.ListDeploymentJobs)
+    [Paginator.ListDeploymentJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/robomaker.html#RoboMaker.Paginator.ListDeploymentJobs)
     """
 
     def paginate(
         self, filters: List[FilterTypeDef] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDeploymentJobsResponseTypeDef]:
         """
-        [ListDeploymentJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/robomaker.html#RoboMaker.Paginator.ListDeploymentJobs.paginate)
+        [ListDeploymentJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/robomaker.html#RoboMaker.Paginator.ListDeploymentJobs.paginate)
         """
 
 
 class ListFleetsPaginator(Boto3Paginator):
     """
-    [Paginator.ListFleets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/robomaker.html#RoboMaker.Paginator.ListFleets)
+    [Paginator.ListFleets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/robomaker.html#RoboMaker.Paginator.ListFleets)
     """
 
     def paginate(
         self, filters: List[FilterTypeDef] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListFleetsResponseTypeDef]:
         """
-        [ListFleets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/robomaker.html#RoboMaker.Paginator.ListFleets.paginate)
+        [ListFleets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/robomaker.html#RoboMaker.Paginator.ListFleets.paginate)
         """
 
 
 class ListRobotApplicationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListRobotApplications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/robomaker.html#RoboMaker.Paginator.ListRobotApplications)
+    [Paginator.ListRobotApplications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/robomaker.html#RoboMaker.Paginator.ListRobotApplications)
     """
 
     def paginate(
@@ -110,26 +110,26 @@ class ListRobotApplicationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListRobotApplicationsResponseTypeDef]:
         """
-        [ListRobotApplications.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/robomaker.html#RoboMaker.Paginator.ListRobotApplications.paginate)
+        [ListRobotApplications.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/robomaker.html#RoboMaker.Paginator.ListRobotApplications.paginate)
         """
 
 
 class ListRobotsPaginator(Boto3Paginator):
     """
-    [Paginator.ListRobots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/robomaker.html#RoboMaker.Paginator.ListRobots)
+    [Paginator.ListRobots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/robomaker.html#RoboMaker.Paginator.ListRobots)
     """
 
     def paginate(
         self, filters: List[FilterTypeDef] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRobotsResponseTypeDef]:
         """
-        [ListRobots.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/robomaker.html#RoboMaker.Paginator.ListRobots.paginate)
+        [ListRobots.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/robomaker.html#RoboMaker.Paginator.ListRobots.paginate)
         """
 
 
 class ListSimulationApplicationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListSimulationApplications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/robomaker.html#RoboMaker.Paginator.ListSimulationApplications)
+    [Paginator.ListSimulationApplications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/robomaker.html#RoboMaker.Paginator.ListSimulationApplications)
     """
 
     def paginate(
@@ -139,83 +139,83 @@ class ListSimulationApplicationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListSimulationApplicationsResponseTypeDef]:
         """
-        [ListSimulationApplications.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/robomaker.html#RoboMaker.Paginator.ListSimulationApplications.paginate)
+        [ListSimulationApplications.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/robomaker.html#RoboMaker.Paginator.ListSimulationApplications.paginate)
         """
 
 
 class ListSimulationJobBatchesPaginator(Boto3Paginator):
     """
-    [Paginator.ListSimulationJobBatches documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/robomaker.html#RoboMaker.Paginator.ListSimulationJobBatches)
+    [Paginator.ListSimulationJobBatches documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/robomaker.html#RoboMaker.Paginator.ListSimulationJobBatches)
     """
 
     def paginate(
         self, filters: List[FilterTypeDef] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSimulationJobBatchesResponseTypeDef]:
         """
-        [ListSimulationJobBatches.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/robomaker.html#RoboMaker.Paginator.ListSimulationJobBatches.paginate)
+        [ListSimulationJobBatches.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/robomaker.html#RoboMaker.Paginator.ListSimulationJobBatches.paginate)
         """
 
 
 class ListSimulationJobsPaginator(Boto3Paginator):
     """
-    [Paginator.ListSimulationJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/robomaker.html#RoboMaker.Paginator.ListSimulationJobs)
+    [Paginator.ListSimulationJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/robomaker.html#RoboMaker.Paginator.ListSimulationJobs)
     """
 
     def paginate(
         self, filters: List[FilterTypeDef] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSimulationJobsResponseTypeDef]:
         """
-        [ListSimulationJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/robomaker.html#RoboMaker.Paginator.ListSimulationJobs.paginate)
+        [ListSimulationJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/robomaker.html#RoboMaker.Paginator.ListSimulationJobs.paginate)
         """
 
 
 class ListWorldExportJobsPaginator(Boto3Paginator):
     """
-    [Paginator.ListWorldExportJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/robomaker.html#RoboMaker.Paginator.ListWorldExportJobs)
+    [Paginator.ListWorldExportJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/robomaker.html#RoboMaker.Paginator.ListWorldExportJobs)
     """
 
     def paginate(
         self, filters: List[FilterTypeDef] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListWorldExportJobsResponseTypeDef]:
         """
-        [ListWorldExportJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/robomaker.html#RoboMaker.Paginator.ListWorldExportJobs.paginate)
+        [ListWorldExportJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/robomaker.html#RoboMaker.Paginator.ListWorldExportJobs.paginate)
         """
 
 
 class ListWorldGenerationJobsPaginator(Boto3Paginator):
     """
-    [Paginator.ListWorldGenerationJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/robomaker.html#RoboMaker.Paginator.ListWorldGenerationJobs)
+    [Paginator.ListWorldGenerationJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/robomaker.html#RoboMaker.Paginator.ListWorldGenerationJobs)
     """
 
     def paginate(
         self, filters: List[FilterTypeDef] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListWorldGenerationJobsResponseTypeDef]:
         """
-        [ListWorldGenerationJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/robomaker.html#RoboMaker.Paginator.ListWorldGenerationJobs.paginate)
+        [ListWorldGenerationJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/robomaker.html#RoboMaker.Paginator.ListWorldGenerationJobs.paginate)
         """
 
 
 class ListWorldTemplatesPaginator(Boto3Paginator):
     """
-    [Paginator.ListWorldTemplates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/robomaker.html#RoboMaker.Paginator.ListWorldTemplates)
+    [Paginator.ListWorldTemplates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/robomaker.html#RoboMaker.Paginator.ListWorldTemplates)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListWorldTemplatesResponseTypeDef]:
         """
-        [ListWorldTemplates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/robomaker.html#RoboMaker.Paginator.ListWorldTemplates.paginate)
+        [ListWorldTemplates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/robomaker.html#RoboMaker.Paginator.ListWorldTemplates.paginate)
         """
 
 
 class ListWorldsPaginator(Boto3Paginator):
     """
-    [Paginator.ListWorlds documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/robomaker.html#RoboMaker.Paginator.ListWorlds)
+    [Paginator.ListWorlds documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/robomaker.html#RoboMaker.Paginator.ListWorlds)
     """
 
     def paginate(
         self, filters: List[FilterTypeDef] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListWorldsResponseTypeDef]:
         """
-        [ListWorlds.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/robomaker.html#RoboMaker.Paginator.ListWorlds.paginate)
+        [ListWorlds.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/robomaker.html#RoboMaker.Paginator.ListWorlds.paginate)
         """

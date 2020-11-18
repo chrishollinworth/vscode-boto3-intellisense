@@ -16,7 +16,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -50,6 +49,7 @@ ChangeSetSummaryListItemTypeDef = TypedDict(
         "EndTime": str,
         "Status": Literal["PREPARING", "APPLYING", "SUCCEEDED", "CANCELLED", "FAILED"],
         "EntityIdList": List[str],
+        "FailureCode": Literal["CLIENT_ERROR", "SERVER_FAULT"],
     },
     total=False,
 )
@@ -107,6 +107,7 @@ DescribeChangeSetResponseTypeDef = TypedDict(
         "StartTime": str,
         "EndTime": str,
         "Status": Literal["PREPARING", "APPLYING", "SUCCEEDED", "CANCELLED", "FAILED"],
+        "FailureCode": Literal["CLIENT_ERROR", "SERVER_FAULT"],
         "FailureDescription": str,
         "ChangeSet": List["ChangeSummaryTypeDef"],
     },

@@ -37,38 +37,38 @@ __all__ = ("ListAcceleratorsPaginator", "ListEndpointGroupsPaginator", "ListList
 
 class ListAcceleratorsPaginator(Boto3Paginator):
     """
-    [Paginator.ListAccelerators documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListAccelerators)
+    [Paginator.ListAccelerators documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListAccelerators)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAcceleratorsResponseTypeDef]:
         """
-        [ListAccelerators.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListAccelerators.paginate)
+        [ListAccelerators.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListAccelerators.paginate)
         """
 
 
 class ListEndpointGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.ListEndpointGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListEndpointGroups)
+    [Paginator.ListEndpointGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListEndpointGroups)
     """
 
     def paginate(
         self, ListenerArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListEndpointGroupsResponseTypeDef]:
         """
-        [ListEndpointGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListEndpointGroups.paginate)
+        [ListEndpointGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListEndpointGroups.paginate)
         """
 
 
 class ListListenersPaginator(Boto3Paginator):
     """
-    [Paginator.ListListeners documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListListeners)
+    [Paginator.ListListeners documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListListeners)
     """
 
     def paginate(
         self, AcceleratorArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListListenersResponseTypeDef]:
         """
-        [ListListeners.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListListeners.paginate)
+        [ListListeners.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/globalaccelerator.html#GlobalAccelerator.Paginator.ListListeners.paginate)
         """

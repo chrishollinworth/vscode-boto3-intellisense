@@ -17,7 +17,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -34,11 +33,15 @@ __all__ = (
     "RecommendationFeedbackSummaryTypeDef",
     "RecommendationFeedbackTypeDef",
     "RecommendationSummaryTypeDef",
+    "RepositoryAnalysisTypeDef",
     "RepositoryAssociationSummaryTypeDef",
     "RepositoryAssociationTypeDef",
+    "RepositoryHeadSourceCodeTypeTypeDef",
     "SourceCodeTypeTypeDef",
     "ThirdPartySourceRepositoryTypeDef",
     "AssociateRepositoryResponseTypeDef",
+    "CodeReviewTypeTypeDef",
+    "CreateCodeReviewResponseTypeDef",
     "DescribeCodeReviewResponseTypeDef",
     "DescribeRecommendationFeedbackResponseTypeDef",
     "DescribeRepositoryAssociationResponseTypeDef",
@@ -64,7 +67,7 @@ CodeReviewSummaryTypeDef = TypedDict(
         "State": Literal["Completed", "Pending", "Failed", "Deleting"],
         "CreatedTimeStamp": datetime,
         "LastUpdatedTimeStamp": datetime,
-        "Type": Literal["PullRequest"],
+        "Type": Literal["PullRequest", "RepositoryAnalysis"],
         "PullRequestId": str,
         "MetricsSummary": "MetricsSummaryTypeDef",
     },
@@ -83,7 +86,7 @@ CodeReviewTypeDef = TypedDict(
         "StateReason": str,
         "CreatedTimeStamp": datetime,
         "LastUpdatedTimeStamp": datetime,
-        "Type": Literal["PullRequest"],
+        "Type": Literal["PullRequest", "RepositoryAnalysis"],
         "PullRequestId": str,
         "SourceCodeType": "SourceCodeTypeTypeDef",
         "Metrics": "MetricsTypeDef",
@@ -134,6 +137,10 @@ RecommendationSummaryTypeDef = TypedDict(
     total=False,
 )
 
+RepositoryAnalysisTypeDef = TypedDict(
+    "RepositoryAnalysisTypeDef", {"RepositoryHead": "RepositoryHeadSourceCodeTypeTypeDef"}
+)
+
 RepositoryAssociationSummaryTypeDef = TypedDict(
     "RepositoryAssociationSummaryTypeDef",
     {
@@ -166,8 +173,17 @@ RepositoryAssociationTypeDef = TypedDict(
     total=False,
 )
 
+RepositoryHeadSourceCodeTypeTypeDef = TypedDict(
+    "RepositoryHeadSourceCodeTypeTypeDef", {"BranchName": str}
+)
+
 SourceCodeTypeTypeDef = TypedDict(
-    "SourceCodeTypeTypeDef", {"CommitDiff": "CommitDiffSourceCodeTypeTypeDef"}, total=False
+    "SourceCodeTypeTypeDef",
+    {
+        "CommitDiff": "CommitDiffSourceCodeTypeTypeDef",
+        "RepositoryHead": "RepositoryHeadSourceCodeTypeTypeDef",
+    },
+    total=False,
 )
 
 ThirdPartySourceRepositoryTypeDef = TypedDict(
@@ -178,6 +194,14 @@ AssociateRepositoryResponseTypeDef = TypedDict(
     "AssociateRepositoryResponseTypeDef",
     {"RepositoryAssociation": "RepositoryAssociationTypeDef"},
     total=False,
+)
+
+CodeReviewTypeTypeDef = TypedDict(
+    "CodeReviewTypeTypeDef", {"RepositoryAnalysis": "RepositoryAnalysisTypeDef"}
+)
+
+CreateCodeReviewResponseTypeDef = TypedDict(
+    "CreateCodeReviewResponseTypeDef", {"CodeReview": "CodeReviewTypeDef"}, total=False
 )
 
 DescribeCodeReviewResponseTypeDef = TypedDict(

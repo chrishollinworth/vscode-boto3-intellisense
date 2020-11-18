@@ -1,4 +1,4 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import
+# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for mediaconvert service client
 
@@ -14,8 +14,7 @@ Usage::
 import sys
 from typing import Any, Dict, List, Type, overload
 
-from botocore.exceptions import ClientError as Boto3ClientError
-from botocore.paginate import Paginator as Boto3Paginator
+from botocore.client import ClientMeta
 
 from mypy_boto3_mediaconvert.paginator import (
     DescribeEndpointsPaginator,
@@ -59,36 +58,45 @@ else:
 __all__ = ("MediaConvertClient",)
 
 
+class BotocoreClientError(BaseException):
+    MSG_TEMPLATE: str
+
+    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
+        self.response: Dict[str, Any]
+        self.operation_name: str
+
+
 class Exceptions:
-    BadRequestException: Type[Boto3ClientError]
-    ClientError: Type[Boto3ClientError]
-    ConflictException: Type[Boto3ClientError]
-    ForbiddenException: Type[Boto3ClientError]
-    InternalServerErrorException: Type[Boto3ClientError]
-    NotFoundException: Type[Boto3ClientError]
-    TooManyRequestsException: Type[Boto3ClientError]
+    BadRequestException: Type[BotocoreClientError]
+    ClientError: Type[BotocoreClientError]
+    ConflictException: Type[BotocoreClientError]
+    ForbiddenException: Type[BotocoreClientError]
+    InternalServerErrorException: Type[BotocoreClientError]
+    NotFoundException: Type[BotocoreClientError]
+    TooManyRequestsException: Type[BotocoreClientError]
 
 
 class MediaConvertClient:
     """
-    [MediaConvert.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mediaconvert.html#MediaConvert.Client)
+    [MediaConvert.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediaconvert.html#MediaConvert.Client)
     """
 
+    meta: ClientMeta
     exceptions: Exceptions
 
     def associate_certificate(self, Arn: str) -> Dict[str, Any]:
         """
-        [Client.associate_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mediaconvert.html#MediaConvert.Client.associate_certificate)
+        [Client.associate_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediaconvert.html#MediaConvert.Client.associate_certificate)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mediaconvert.html#MediaConvert.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediaconvert.html#MediaConvert.Client.can_paginate)
         """
 
     def cancel_job(self, Id: str) -> Dict[str, Any]:
         """
-        [Client.cancel_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mediaconvert.html#MediaConvert.Client.cancel_job)
+        [Client.cancel_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediaconvert.html#MediaConvert.Client.cancel_job)
         """
 
     def create_job(
@@ -124,7 +132,7 @@ class MediaConvertClient:
         UserMetadata: Dict[str, str] = None,
     ) -> CreateJobResponseTypeDef:
         """
-        [Client.create_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mediaconvert.html#MediaConvert.Client.create_job)
+        [Client.create_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediaconvert.html#MediaConvert.Client.create_job)
         """
 
     def create_job_template(
@@ -157,7 +165,7 @@ class MediaConvertClient:
         Tags: Dict[str, str] = None,
     ) -> CreateJobTemplateResponseTypeDef:
         """
-        [Client.create_job_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mediaconvert.html#MediaConvert.Client.create_job_template)
+        [Client.create_job_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediaconvert.html#MediaConvert.Client.create_job_template)
         """
 
     def create_preset(
@@ -169,7 +177,7 @@ class MediaConvertClient:
         Tags: Dict[str, str] = None,
     ) -> CreatePresetResponseTypeDef:
         """
-        [Client.create_preset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mediaconvert.html#MediaConvert.Client.create_preset)
+        [Client.create_preset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediaconvert.html#MediaConvert.Client.create_preset)
         """
 
     def create_queue(
@@ -182,22 +190,22 @@ class MediaConvertClient:
         Tags: Dict[str, str] = None,
     ) -> CreateQueueResponseTypeDef:
         """
-        [Client.create_queue documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mediaconvert.html#MediaConvert.Client.create_queue)
+        [Client.create_queue documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediaconvert.html#MediaConvert.Client.create_queue)
         """
 
     def delete_job_template(self, Name: str) -> Dict[str, Any]:
         """
-        [Client.delete_job_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mediaconvert.html#MediaConvert.Client.delete_job_template)
+        [Client.delete_job_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediaconvert.html#MediaConvert.Client.delete_job_template)
         """
 
     def delete_preset(self, Name: str) -> Dict[str, Any]:
         """
-        [Client.delete_preset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mediaconvert.html#MediaConvert.Client.delete_preset)
+        [Client.delete_preset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediaconvert.html#MediaConvert.Client.delete_preset)
         """
 
     def delete_queue(self, Name: str) -> Dict[str, Any]:
         """
-        [Client.delete_queue documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mediaconvert.html#MediaConvert.Client.delete_queue)
+        [Client.delete_queue documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediaconvert.html#MediaConvert.Client.delete_queue)
         """
 
     def describe_endpoints(
@@ -207,12 +215,12 @@ class MediaConvertClient:
         NextToken: str = None,
     ) -> DescribeEndpointsResponseTypeDef:
         """
-        [Client.describe_endpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mediaconvert.html#MediaConvert.Client.describe_endpoints)
+        [Client.describe_endpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediaconvert.html#MediaConvert.Client.describe_endpoints)
         """
 
     def disassociate_certificate(self, Arn: str) -> Dict[str, Any]:
         """
-        [Client.disassociate_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mediaconvert.html#MediaConvert.Client.disassociate_certificate)
+        [Client.disassociate_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediaconvert.html#MediaConvert.Client.disassociate_certificate)
         """
 
     def generate_presigned_url(
@@ -223,27 +231,27 @@ class MediaConvertClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mediaconvert.html#MediaConvert.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediaconvert.html#MediaConvert.Client.generate_presigned_url)
         """
 
     def get_job(self, Id: str) -> GetJobResponseTypeDef:
         """
-        [Client.get_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mediaconvert.html#MediaConvert.Client.get_job)
+        [Client.get_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediaconvert.html#MediaConvert.Client.get_job)
         """
 
     def get_job_template(self, Name: str) -> GetJobTemplateResponseTypeDef:
         """
-        [Client.get_job_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mediaconvert.html#MediaConvert.Client.get_job_template)
+        [Client.get_job_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediaconvert.html#MediaConvert.Client.get_job_template)
         """
 
     def get_preset(self, Name: str) -> GetPresetResponseTypeDef:
         """
-        [Client.get_preset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mediaconvert.html#MediaConvert.Client.get_preset)
+        [Client.get_preset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediaconvert.html#MediaConvert.Client.get_preset)
         """
 
     def get_queue(self, Name: str) -> GetQueueResponseTypeDef:
         """
-        [Client.get_queue documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mediaconvert.html#MediaConvert.Client.get_queue)
+        [Client.get_queue documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediaconvert.html#MediaConvert.Client.get_queue)
         """
 
     def list_job_templates(
@@ -255,7 +263,7 @@ class MediaConvertClient:
         Order: Literal["ASCENDING", "DESCENDING"] = None,
     ) -> ListJobTemplatesResponseTypeDef:
         """
-        [Client.list_job_templates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mediaconvert.html#MediaConvert.Client.list_job_templates)
+        [Client.list_job_templates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediaconvert.html#MediaConvert.Client.list_job_templates)
         """
 
     def list_jobs(
@@ -267,7 +275,7 @@ class MediaConvertClient:
         Status: Literal["SUBMITTED", "PROGRESSING", "COMPLETE", "CANCELED", "ERROR"] = None,
     ) -> ListJobsResponseTypeDef:
         """
-        [Client.list_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mediaconvert.html#MediaConvert.Client.list_jobs)
+        [Client.list_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediaconvert.html#MediaConvert.Client.list_jobs)
         """
 
     def list_presets(
@@ -279,7 +287,7 @@ class MediaConvertClient:
         Order: Literal["ASCENDING", "DESCENDING"] = None,
     ) -> ListPresetsResponseTypeDef:
         """
-        [Client.list_presets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mediaconvert.html#MediaConvert.Client.list_presets)
+        [Client.list_presets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediaconvert.html#MediaConvert.Client.list_presets)
         """
 
     def list_queues(
@@ -290,22 +298,22 @@ class MediaConvertClient:
         Order: Literal["ASCENDING", "DESCENDING"] = None,
     ) -> ListQueuesResponseTypeDef:
         """
-        [Client.list_queues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mediaconvert.html#MediaConvert.Client.list_queues)
+        [Client.list_queues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediaconvert.html#MediaConvert.Client.list_queues)
         """
 
     def list_tags_for_resource(self, Arn: str) -> ListTagsForResourceResponseTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mediaconvert.html#MediaConvert.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediaconvert.html#MediaConvert.Client.list_tags_for_resource)
         """
 
     def tag_resource(self, Arn: str, Tags: Dict[str, str]) -> Dict[str, Any]:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mediaconvert.html#MediaConvert.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediaconvert.html#MediaConvert.Client.tag_resource)
         """
 
     def untag_resource(self, Arn: str, TagKeys: List[str] = None) -> Dict[str, Any]:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mediaconvert.html#MediaConvert.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediaconvert.html#MediaConvert.Client.untag_resource)
         """
 
     def update_job_template(
@@ -337,7 +345,7 @@ class MediaConvertClient:
         ] = None,
     ) -> UpdateJobTemplateResponseTypeDef:
         """
-        [Client.update_job_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mediaconvert.html#MediaConvert.Client.update_job_template)
+        [Client.update_job_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediaconvert.html#MediaConvert.Client.update_job_template)
         """
 
     def update_preset(
@@ -348,7 +356,7 @@ class MediaConvertClient:
         Settings: "PresetSettingsTypeDef" = None,
     ) -> UpdatePresetResponseTypeDef:
         """
-        [Client.update_preset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mediaconvert.html#MediaConvert.Client.update_preset)
+        [Client.update_preset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediaconvert.html#MediaConvert.Client.update_preset)
         """
 
     def update_queue(
@@ -359,7 +367,7 @@ class MediaConvertClient:
         Status: Literal["ACTIVE", "PAUSED"] = None,
     ) -> UpdateQueueResponseTypeDef:
         """
-        [Client.update_queue documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mediaconvert.html#MediaConvert.Client.update_queue)
+        [Client.update_queue documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediaconvert.html#MediaConvert.Client.update_queue)
         """
 
     @overload
@@ -367,7 +375,7 @@ class MediaConvertClient:
         self, operation_name: Literal["describe_endpoints"]
     ) -> DescribeEndpointsPaginator:
         """
-        [Paginator.DescribeEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mediaconvert.html#MediaConvert.Paginator.DescribeEndpoints)
+        [Paginator.DescribeEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediaconvert.html#MediaConvert.Paginator.DescribeEndpoints)
         """
 
     @overload
@@ -375,26 +383,23 @@ class MediaConvertClient:
         self, operation_name: Literal["list_job_templates"]
     ) -> ListJobTemplatesPaginator:
         """
-        [Paginator.ListJobTemplates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mediaconvert.html#MediaConvert.Paginator.ListJobTemplates)
+        [Paginator.ListJobTemplates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediaconvert.html#MediaConvert.Paginator.ListJobTemplates)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_jobs"]) -> ListJobsPaginator:
         """
-        [Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mediaconvert.html#MediaConvert.Paginator.ListJobs)
+        [Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediaconvert.html#MediaConvert.Paginator.ListJobs)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_presets"]) -> ListPresetsPaginator:
         """
-        [Paginator.ListPresets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mediaconvert.html#MediaConvert.Paginator.ListPresets)
+        [Paginator.ListPresets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediaconvert.html#MediaConvert.Paginator.ListPresets)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_queues"]) -> ListQueuesPaginator:
         """
-        [Paginator.ListQueues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mediaconvert.html#MediaConvert.Paginator.ListQueues)
+        [Paginator.ListQueues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediaconvert.html#MediaConvert.Paginator.ListQueues)
         """
-
-    def get_paginator(self, operation_name: str) -> Boto3Paginator:
-        pass

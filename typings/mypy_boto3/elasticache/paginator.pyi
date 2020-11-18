@@ -14,6 +14,8 @@ from mypy_boto3_elasticache.paginator import (
     DescribeServiceUpdatesPaginator,
     DescribeSnapshotsPaginator,
     DescribeUpdateActionsPaginator,
+    DescribeUserGroupsPaginator,
+    DescribeUsersPaginator,
 )
 
 __all__ = (
@@ -32,4 +34,6 @@ __all__ = (
     "DescribeServiceUpdatesPaginator",
     "DescribeSnapshotsPaginator",
     "DescribeUpdateActionsPaginator",
+    "DescribeUserGroupsPaginator",
+    "DescribeUsersPaginator",
 )

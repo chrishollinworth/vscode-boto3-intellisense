@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import List
+from typing import IO, List, Union
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -30,6 +29,7 @@ __all__ = (
     "CertificateTypeDef",
     "ConnectionTypeDef",
     "DmsTransferSettingsTypeDef",
+    "DocDbSettingsTypeDef",
     "DynamoDbSettingsTypeDef",
     "ElasticsearchSettingsTypeDef",
     "EndpointTypeDef",
@@ -110,6 +110,7 @@ __all__ = (
     "ModifyReplicationInstanceResponseTypeDef",
     "ModifyReplicationSubnetGroupResponseTypeDef",
     "ModifyReplicationTaskResponseTypeDef",
+    "MoveReplicationTaskResponseTypeDef",
     "PaginatorConfigTypeDef",
     "RebootReplicationInstanceResponseTypeDef",
     "RefreshSchemasResponseTypeDef",
@@ -135,7 +136,7 @@ CertificateTypeDef = TypedDict(
         "CertificateIdentifier": str,
         "CertificateCreationDate": datetime,
         "CertificatePem": str,
-        "CertificateWallet": bytes,
+        "CertificateWallet": Union[bytes, IO[bytes]],
         "CertificateArn": str,
         "CertificateOwner": str,
         "ValidFromDate": datetime,
@@ -161,6 +162,22 @@ ConnectionTypeDef = TypedDict(
 
 DmsTransferSettingsTypeDef = TypedDict(
     "DmsTransferSettingsTypeDef", {"ServiceAccessRoleArn": str, "BucketName": str}, total=False
+)
+
+DocDbSettingsTypeDef = TypedDict(
+    "DocDbSettingsTypeDef",
+    {
+        "Username": str,
+        "Password": str,
+        "ServerName": str,
+        "Port": int,
+        "DatabaseName": str,
+        "NestingLevel": Literal["none", "one"],
+        "ExtractDocId": bool,
+        "DocsToInvestigate": int,
+        "KmsKeyId": str,
+    },
+    total=False,
 )
 
 DynamoDbSettingsTypeDef = TypedDict("DynamoDbSettingsTypeDef", {"ServiceAccessRoleArn": str})
@@ -216,6 +233,7 @@ EndpointTypeDef = TypedDict(
         "SybaseSettings": "SybaseSettingsTypeDef",
         "MicrosoftSQLServerSettings": "MicrosoftSQLServerSettingsTypeDef",
         "IBMDb2Settings": "IBMDb2SettingsTypeDef",
+        "DocDbSettings": "DocDbSettingsTypeDef",
     },
     total=False,
 )
@@ -254,7 +272,16 @@ EventTypeDef = TypedDict(
 
 IBMDb2SettingsTypeDef = TypedDict(
     "IBMDb2SettingsTypeDef",
-    {"DatabaseName": str, "Password": str, "Port": int, "ServerName": str, "Username": str},
+    {
+        "DatabaseName": str,
+        "Password": str,
+        "Port": int,
+        "ServerName": str,
+        "SetDataCaptureChanges": bool,
+        "CurrentLsn": str,
+        "MaxKBytesPerRead": int,
+        "Username": str,
+    },
     total=False,
 )
 
@@ -269,6 +296,8 @@ KafkaSettingsTypeDef = TypedDict(
         "PartitionIncludeSchemaTable": bool,
         "IncludeTableAlterOperations": bool,
         "IncludeControlDetails": bool,
+        "MessageMaxBytes": int,
+        "IncludeNullAndEmpty": bool,
     },
     total=False,
 )
@@ -284,13 +313,29 @@ KinesisSettingsTypeDef = TypedDict(
         "PartitionIncludeSchemaTable": bool,
         "IncludeTableAlterOperations": bool,
         "IncludeControlDetails": bool,
+        "IncludeNullAndEmpty": bool,
     },
     total=False,
 )
 
 MicrosoftSQLServerSettingsTypeDef = TypedDict(
     "MicrosoftSQLServerSettingsTypeDef",
-    {"Port": int, "DatabaseName": str, "Password": str, "ServerName": str, "Username": str},
+    {
+        "Port": int,
+        "BcpPacketSize": int,
+        "DatabaseName": str,
+        "ControlTablesFileGroup": str,
+        "Password": str,
+        "ReadBackupOnly": bool,
+        "SafeguardPolicy": Literal[
+            "rely-on-sql-server-replication-agent",
+            "exclusive-automatic-truncation",
+            "shared-automatic-truncation",
+        ],
+        "ServerName": str,
+        "Username": str,
+        "UseBcpFullLoad": bool,
+    },
     total=False,
 )
 
@@ -315,7 +360,19 @@ MongoDbSettingsTypeDef = TypedDict(
 
 MySQLSettingsTypeDef = TypedDict(
     "MySQLSettingsTypeDef",
-    {"DatabaseName": str, "Password": str, "Port": int, "ServerName": str, "Username": str},
+    {
+        "AfterConnectScript": str,
+        "DatabaseName": str,
+        "EventsPollInterval": int,
+        "TargetDbType": Literal["specific-database", "multiple-databases"],
+        "MaxFileSize": int,
+        "ParallelLoadThreads": int,
+        "Password": str,
+        "Port": int,
+        "ServerName": str,
+        "ServerTimezone": str,
+        "Username": str,
+    },
     total=False,
 )
 
@@ -342,12 +399,32 @@ class NeptuneSettingsTypeDef(_RequiredNeptuneSettingsTypeDef, _OptionalNeptuneSe
 OracleSettingsTypeDef = TypedDict(
     "OracleSettingsTypeDef",
     {
+        "AddSupplementalLogging": bool,
+        "ArchivedLogDestId": int,
+        "AdditionalArchivedLogDestId": int,
+        "AllowSelectNestedTables": bool,
+        "ParallelAsmReadThreads": int,
+        "ReadAheadBlocks": int,
+        "AccessAlternateDirectly": bool,
+        "UseAlternateFolderForOnline": bool,
+        "OraclePathPrefix": str,
+        "UsePathPrefix": str,
+        "ReplacePathPrefix": bool,
+        "EnableHomogenousTablespace": bool,
+        "DirectPathNoLog": bool,
+        "ArchivedLogsOnly": bool,
         "AsmPassword": str,
         "AsmServer": str,
         "AsmUser": str,
+        "CharLengthSemantics": Literal["default", "char", "byte"],
         "DatabaseName": str,
+        "DirectPathParallelLoad": bool,
+        "FailTasksOnLobTruncation": bool,
+        "NumberDatatypeScale": int,
         "Password": str,
         "Port": int,
+        "ReadTableSpaceName": bool,
+        "RetryInterval": int,
         "SecurityDbEncryption": str,
         "SecurityDbEncryptionName": str,
         "ServerName": str,
@@ -387,7 +464,20 @@ PendingMaintenanceActionTypeDef = TypedDict(
 
 PostgreSQLSettingsTypeDef = TypedDict(
     "PostgreSQLSettingsTypeDef",
-    {"DatabaseName": str, "Password": str, "Port": int, "ServerName": str, "Username": str},
+    {
+        "AfterConnectScript": str,
+        "CaptureDdls": bool,
+        "MaxFileSize": int,
+        "DatabaseName": str,
+        "DdlArtifactsSchema": str,
+        "ExecuteTimeout": int,
+        "FailTasksOnLobTruncation": bool,
+        "Password": str,
+        "Port": int,
+        "ServerName": str,
+        "Username": str,
+        "SlotName": str,
+    },
     total=False,
 )
 
@@ -398,11 +488,14 @@ RedshiftSettingsTypeDef = TypedDict(
         "AfterConnectScript": str,
         "BucketFolder": str,
         "BucketName": str,
+        "CaseSensitiveNames": bool,
+        "CompUpdate": bool,
         "ConnectionTimeout": int,
         "DatabaseName": str,
         "DateFormat": str,
         "EmptyAsNull": bool,
         "EncryptionMode": Literal["sse-s3", "sse-kms"],
+        "ExplicitIds": bool,
         "FileTransferUploadStreams": int,
         "LoadTimeout": int,
         "MaxFileSize": int,
@@ -584,6 +677,7 @@ ReplicationTaskTypeDef = TypedDict(
         "ReplicationTaskArn": str,
         "ReplicationTaskStats": "ReplicationTaskStatsTypeDef",
         "TaskData": str,
+        "TargetReplicationInstanceArn": str,
     },
     total=False,
 )
@@ -621,6 +715,11 @@ S3SettingsTypeDef = TypedDict(
         "TimestampColumnName": str,
         "ParquetTimestampInMillisecond": bool,
         "CdcInsertsAndUpdates": bool,
+        "DatePartitionEnabled": bool,
+        "DatePartitionSequence": Literal[
+            "YYYYMMDD", "YYYYMMDDHH", "YYYYMM", "MMYYYYDD", "DDMMYYYY"
+        ],
+        "DatePartitionDelimiter": Literal["SLASH", "UNDERSCORE", "DASH", "NONE"],
     },
     total=False,
 )
@@ -930,6 +1029,10 @@ ModifyReplicationTaskResponseTypeDef = TypedDict(
     "ModifyReplicationTaskResponseTypeDef",
     {"ReplicationTask": "ReplicationTaskTypeDef"},
     total=False,
+)
+
+MoveReplicationTaskResponseTypeDef = TypedDict(
+    "MoveReplicationTaskResponseTypeDef", {"ReplicationTask": "ReplicationTaskTypeDef"}, total=False
 )
 
 PaginatorConfigTypeDef = TypedDict(

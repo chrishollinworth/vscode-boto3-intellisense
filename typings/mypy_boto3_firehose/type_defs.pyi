@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Dict, List
+from typing import IO, Any, Dict, List, Union
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -60,6 +59,7 @@ __all__ = (
     "PutRecordBatchResponseEntryTypeDef",
     "RedshiftDestinationDescriptionTypeDef",
     "RedshiftRetryOptionsTypeDef",
+    "ResponseMetadata",
     "S3DestinationConfigurationTypeDef",
     "S3DestinationDescriptionTypeDef",
     "S3DestinationUpdateTypeDef",
@@ -471,6 +471,17 @@ RedshiftRetryOptionsTypeDef = TypedDict(
     "RedshiftRetryOptionsTypeDef", {"DurationInSeconds": int}, total=False
 )
 
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
+
 _RequiredS3DestinationConfigurationTypeDef = TypedDict(
     "_RequiredS3DestinationConfigurationTypeDef", {"RoleARN": str, "BucketARN": str}
 )
@@ -600,7 +611,9 @@ VpcConfigurationTypeDef = TypedDict(
 )
 
 CreateDeliveryStreamOutputTypeDef = TypedDict(
-    "CreateDeliveryStreamOutputTypeDef", {"DeliveryStreamARN": str}, total=False
+    "CreateDeliveryStreamOutputTypeDef",
+    {"DeliveryStreamARN": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 _RequiredDeliveryStreamEncryptionConfigurationInputTypeDef = TypedDict(
@@ -619,10 +632,22 @@ class DeliveryStreamEncryptionConfigurationInputTypeDef(
     pass
 
 
-DescribeDeliveryStreamOutputTypeDef = TypedDict(
-    "DescribeDeliveryStreamOutputTypeDef",
+_RequiredDescribeDeliveryStreamOutputTypeDef = TypedDict(
+    "_RequiredDescribeDeliveryStreamOutputTypeDef",
     {"DeliveryStreamDescription": "DeliveryStreamDescriptionTypeDef"},
 )
+_OptionalDescribeDeliveryStreamOutputTypeDef = TypedDict(
+    "_OptionalDescribeDeliveryStreamOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+
+class DescribeDeliveryStreamOutputTypeDef(
+    _RequiredDescribeDeliveryStreamOutputTypeDef, _OptionalDescribeDeliveryStreamOutputTypeDef
+):
+    pass
+
 
 _RequiredElasticsearchDestinationConfigurationTypeDef = TypedDict(
     "_RequiredElasticsearchDestinationConfigurationTypeDef",
@@ -767,21 +792,48 @@ KinesisStreamSourceConfigurationTypeDef = TypedDict(
     "KinesisStreamSourceConfigurationTypeDef", {"KinesisStreamARN": str, "RoleARN": str}
 )
 
-ListDeliveryStreamsOutputTypeDef = TypedDict(
-    "ListDeliveryStreamsOutputTypeDef",
+_RequiredListDeliveryStreamsOutputTypeDef = TypedDict(
+    "_RequiredListDeliveryStreamsOutputTypeDef",
     {"DeliveryStreamNames": List[str], "HasMoreDeliveryStreams": bool},
 )
-
-ListTagsForDeliveryStreamOutputTypeDef = TypedDict(
-    "ListTagsForDeliveryStreamOutputTypeDef", {"Tags": List["TagTypeDef"], "HasMoreTags": bool}
+_OptionalListDeliveryStreamsOutputTypeDef = TypedDict(
+    "_OptionalListDeliveryStreamsOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
+
+
+class ListDeliveryStreamsOutputTypeDef(
+    _RequiredListDeliveryStreamsOutputTypeDef, _OptionalListDeliveryStreamsOutputTypeDef
+):
+    pass
+
+
+_RequiredListTagsForDeliveryStreamOutputTypeDef = TypedDict(
+    "_RequiredListTagsForDeliveryStreamOutputTypeDef",
+    {"Tags": List["TagTypeDef"], "HasMoreTags": bool},
+)
+_OptionalListTagsForDeliveryStreamOutputTypeDef = TypedDict(
+    "_OptionalListTagsForDeliveryStreamOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+
+class ListTagsForDeliveryStreamOutputTypeDef(
+    _RequiredListTagsForDeliveryStreamOutputTypeDef, _OptionalListTagsForDeliveryStreamOutputTypeDef
+):
+    pass
+
 
 _RequiredPutRecordBatchOutputTypeDef = TypedDict(
     "_RequiredPutRecordBatchOutputTypeDef",
     {"FailedPutCount": int, "RequestResponses": List["PutRecordBatchResponseEntryTypeDef"]},
 )
 _OptionalPutRecordBatchOutputTypeDef = TypedDict(
-    "_OptionalPutRecordBatchOutputTypeDef", {"Encrypted": bool}, total=False
+    "_OptionalPutRecordBatchOutputTypeDef",
+    {"Encrypted": bool, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 
@@ -793,7 +845,9 @@ class PutRecordBatchOutputTypeDef(
 
 _RequiredPutRecordOutputTypeDef = TypedDict("_RequiredPutRecordOutputTypeDef", {"RecordId": str})
 _OptionalPutRecordOutputTypeDef = TypedDict(
-    "_OptionalPutRecordOutputTypeDef", {"Encrypted": bool}, total=False
+    "_OptionalPutRecordOutputTypeDef",
+    {"Encrypted": bool, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 
@@ -801,7 +855,7 @@ class PutRecordOutputTypeDef(_RequiredPutRecordOutputTypeDef, _OptionalPutRecord
     pass
 
 
-RecordTypeDef = TypedDict("RecordTypeDef", {"Data": bytes})
+RecordTypeDef = TypedDict("RecordTypeDef", {"Data": Union[bytes, IO[bytes]]})
 
 _RequiredRedshiftDestinationConfigurationTypeDef = TypedDict(
     "_RequiredRedshiftDestinationConfigurationTypeDef",

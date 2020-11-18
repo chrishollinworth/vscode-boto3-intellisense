@@ -58,120 +58,120 @@ __all__ = (
 
 class ChannelCreatedWaiter(Boto3Waiter):
     """
-    [Waiter.ChannelCreated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/medialive.html#MediaLive.Waiter.ChannelCreated)
+    [Waiter.ChannelCreated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/medialive.html#MediaLive.Waiter.ChannelCreated)
     """
 
     def wait(self, ChannelId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [ChannelCreated.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/medialive.html#MediaLive.Waiter.ChannelCreated.wait)
+        [ChannelCreated.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/medialive.html#MediaLive.Waiter.ChannelCreated.wait)
         """
 
 
 class ChannelDeletedWaiter(Boto3Waiter):
     """
-    [Waiter.ChannelDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/medialive.html#MediaLive.Waiter.ChannelDeleted)
+    [Waiter.ChannelDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/medialive.html#MediaLive.Waiter.ChannelDeleted)
     """
 
     def wait(self, ChannelId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [ChannelDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/medialive.html#MediaLive.Waiter.ChannelDeleted.wait)
+        [ChannelDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/medialive.html#MediaLive.Waiter.ChannelDeleted.wait)
         """
 
 
 class ChannelRunningWaiter(Boto3Waiter):
     """
-    [Waiter.ChannelRunning documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/medialive.html#MediaLive.Waiter.ChannelRunning)
+    [Waiter.ChannelRunning documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/medialive.html#MediaLive.Waiter.ChannelRunning)
     """
 
     def wait(self, ChannelId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [ChannelRunning.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/medialive.html#MediaLive.Waiter.ChannelRunning.wait)
+        [ChannelRunning.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/medialive.html#MediaLive.Waiter.ChannelRunning.wait)
         """
 
 
 class ChannelStoppedWaiter(Boto3Waiter):
     """
-    [Waiter.ChannelStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/medialive.html#MediaLive.Waiter.ChannelStopped)
+    [Waiter.ChannelStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/medialive.html#MediaLive.Waiter.ChannelStopped)
     """
 
     def wait(self, ChannelId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [ChannelStopped.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/medialive.html#MediaLive.Waiter.ChannelStopped.wait)
+        [ChannelStopped.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/medialive.html#MediaLive.Waiter.ChannelStopped.wait)
         """
 
 
 class InputAttachedWaiter(Boto3Waiter):
     """
-    [Waiter.InputAttached documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/medialive.html#MediaLive.Waiter.InputAttached)
+    [Waiter.InputAttached documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/medialive.html#MediaLive.Waiter.InputAttached)
     """
 
     def wait(self, InputId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [InputAttached.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/medialive.html#MediaLive.Waiter.InputAttached.wait)
+        [InputAttached.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/medialive.html#MediaLive.Waiter.InputAttached.wait)
         """
 
 
 class InputDeletedWaiter(Boto3Waiter):
     """
-    [Waiter.InputDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/medialive.html#MediaLive.Waiter.InputDeleted)
+    [Waiter.InputDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/medialive.html#MediaLive.Waiter.InputDeleted)
     """
 
     def wait(self, InputId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [InputDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/medialive.html#MediaLive.Waiter.InputDeleted.wait)
+        [InputDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/medialive.html#MediaLive.Waiter.InputDeleted.wait)
         """
 
 
 class InputDetachedWaiter(Boto3Waiter):
     """
-    [Waiter.InputDetached documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/medialive.html#MediaLive.Waiter.InputDetached)
+    [Waiter.InputDetached documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/medialive.html#MediaLive.Waiter.InputDetached)
     """
 
     def wait(self, InputId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [InputDetached.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/medialive.html#MediaLive.Waiter.InputDetached.wait)
+        [InputDetached.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/medialive.html#MediaLive.Waiter.InputDetached.wait)
         """
 
 
 class MultiplexCreatedWaiter(Boto3Waiter):
     """
-    [Waiter.MultiplexCreated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/medialive.html#MediaLive.Waiter.MultiplexCreated)
+    [Waiter.MultiplexCreated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/medialive.html#MediaLive.Waiter.MultiplexCreated)
     """
 
     def wait(self, MultiplexId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [MultiplexCreated.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/medialive.html#MediaLive.Waiter.MultiplexCreated.wait)
+        [MultiplexCreated.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/medialive.html#MediaLive.Waiter.MultiplexCreated.wait)
         """
 
 
 class MultiplexDeletedWaiter(Boto3Waiter):
     """
-    [Waiter.MultiplexDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/medialive.html#MediaLive.Waiter.MultiplexDeleted)
+    [Waiter.MultiplexDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/medialive.html#MediaLive.Waiter.MultiplexDeleted)
     """
 
     def wait(self, MultiplexId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [MultiplexDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/medialive.html#MediaLive.Waiter.MultiplexDeleted.wait)
+        [MultiplexDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/medialive.html#MediaLive.Waiter.MultiplexDeleted.wait)
         """
 
 
 class MultiplexRunningWaiter(Boto3Waiter):
     """
-    [Waiter.MultiplexRunning documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/medialive.html#MediaLive.Waiter.MultiplexRunning)
+    [Waiter.MultiplexRunning documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/medialive.html#MediaLive.Waiter.MultiplexRunning)
     """
 
     def wait(self, MultiplexId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [MultiplexRunning.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/medialive.html#MediaLive.Waiter.MultiplexRunning.wait)
+        [MultiplexRunning.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/medialive.html#MediaLive.Waiter.MultiplexRunning.wait)
         """
 
 
 class MultiplexStoppedWaiter(Boto3Waiter):
     """
-    [Waiter.MultiplexStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/medialive.html#MediaLive.Waiter.MultiplexStopped)
+    [Waiter.MultiplexStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/medialive.html#MediaLive.Waiter.MultiplexStopped)
     """
 
     def wait(self, MultiplexId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [MultiplexStopped.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/medialive.html#MediaLive.Waiter.MultiplexStopped.wait)
+        [MultiplexStopped.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/medialive.html#MediaLive.Waiter.MultiplexStopped.wait)
         """

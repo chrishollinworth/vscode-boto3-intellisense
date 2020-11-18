@@ -26,7 +26,7 @@ __all__ = ("CommandExecutedWaiter",)
 
 class CommandExecutedWaiter(Boto3Waiter):
     """
-    [Waiter.CommandExecuted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Waiter.CommandExecuted)
+    [Waiter.CommandExecuted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Waiter.CommandExecuted)
     """
 
     def wait(
@@ -37,5 +37,5 @@ class CommandExecutedWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [CommandExecuted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ssm.html#SSM.Waiter.CommandExecuted.wait)
+        [CommandExecuted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Waiter.CommandExecuted.wait)
         """

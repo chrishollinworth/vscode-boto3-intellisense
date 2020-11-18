@@ -48,20 +48,20 @@ __all__ = (
 
 class ListInstancesPaginator(Boto3Paginator):
     """
-    [Paginator.ListInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/servicediscovery.html#ServiceDiscovery.Paginator.ListInstances)
+    [Paginator.ListInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicediscovery.html#ServiceDiscovery.Paginator.ListInstances)
     """
 
     def paginate(
         self, ServiceId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListInstancesResponseTypeDef]:
         """
-        [ListInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/servicediscovery.html#ServiceDiscovery.Paginator.ListInstances.paginate)
+        [ListInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicediscovery.html#ServiceDiscovery.Paginator.ListInstances.paginate)
         """
 
 
 class ListNamespacesPaginator(Boto3Paginator):
     """
-    [Paginator.ListNamespaces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/servicediscovery.html#ServiceDiscovery.Paginator.ListNamespaces)
+    [Paginator.ListNamespaces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicediscovery.html#ServiceDiscovery.Paginator.ListNamespaces)
     """
 
     def paginate(
@@ -70,13 +70,13 @@ class ListNamespacesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListNamespacesResponseTypeDef]:
         """
-        [ListNamespaces.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/servicediscovery.html#ServiceDiscovery.Paginator.ListNamespaces.paginate)
+        [ListNamespaces.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicediscovery.html#ServiceDiscovery.Paginator.ListNamespaces.paginate)
         """
 
 
 class ListOperationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListOperations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/servicediscovery.html#ServiceDiscovery.Paginator.ListOperations)
+    [Paginator.ListOperations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicediscovery.html#ServiceDiscovery.Paginator.ListOperations)
     """
 
     def paginate(
@@ -85,13 +85,13 @@ class ListOperationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListOperationsResponseTypeDef]:
         """
-        [ListOperations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/servicediscovery.html#ServiceDiscovery.Paginator.ListOperations.paginate)
+        [ListOperations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicediscovery.html#ServiceDiscovery.Paginator.ListOperations.paginate)
         """
 
 
 class ListServicesPaginator(Boto3Paginator):
     """
-    [Paginator.ListServices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/servicediscovery.html#ServiceDiscovery.Paginator.ListServices)
+    [Paginator.ListServices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicediscovery.html#ServiceDiscovery.Paginator.ListServices)
     """
 
     def paginate(
@@ -100,5 +100,5 @@ class ListServicesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListServicesResponseTypeDef]:
         """
-        [ListServices.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/servicediscovery.html#ServiceDiscovery.Paginator.ListServices.paginate)
+        [ListServices.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicediscovery.html#ServiceDiscovery.Paginator.ListServices.paginate)
         """

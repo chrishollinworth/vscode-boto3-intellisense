@@ -3,6 +3,7 @@ from mypy_boto3_gamelift.paginator import (
     DescribeFleetCapacityPaginator,
     DescribeFleetEventsPaginator,
     DescribeFleetUtilizationPaginator,
+    DescribeGameServerInstancesPaginator,
     DescribeGameSessionDetailsPaginator,
     DescribeGameSessionQueuesPaginator,
     DescribeGameSessionsPaginator,
@@ -14,6 +15,9 @@ from mypy_boto3_gamelift.paginator import (
     ListAliasesPaginator,
     ListBuildsPaginator,
     ListFleetsPaginator,
+    ListGameServerGroupsPaginator,
+    ListGameServersPaginator,
+    ListScriptsPaginator,
     SearchGameSessionsPaginator,
 )
 
@@ -22,6 +26,7 @@ __all__ = (
     "DescribeFleetCapacityPaginator",
     "DescribeFleetEventsPaginator",
     "DescribeFleetUtilizationPaginator",
+    "DescribeGameServerInstancesPaginator",
     "DescribeGameSessionDetailsPaginator",
     "DescribeGameSessionQueuesPaginator",
     "DescribeGameSessionsPaginator",
@@ -33,5 +38,8 @@ __all__ = (
     "ListAliasesPaginator",
     "ListBuildsPaginator",
     "ListFleetsPaginator",
+    "ListGameServerGroupsPaginator",
+    "ListGameServersPaginator",
+    "ListScriptsPaginator",
     "SearchGameSessionsPaginator",
 )

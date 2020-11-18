@@ -57,20 +57,20 @@ __all__ = (
 
 class DescribeGlobalNetworksPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeGlobalNetworks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/networkmanager.html#NetworkManager.Paginator.DescribeGlobalNetworks)
+    [Paginator.DescribeGlobalNetworks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/networkmanager.html#NetworkManager.Paginator.DescribeGlobalNetworks)
     """
 
     def paginate(
         self, GlobalNetworkIds: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeGlobalNetworksResponseTypeDef]:
         """
-        [DescribeGlobalNetworks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/networkmanager.html#NetworkManager.Paginator.DescribeGlobalNetworks.paginate)
+        [DescribeGlobalNetworks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/networkmanager.html#NetworkManager.Paginator.DescribeGlobalNetworks.paginate)
         """
 
 
 class GetCustomerGatewayAssociationsPaginator(Boto3Paginator):
     """
-    [Paginator.GetCustomerGatewayAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/networkmanager.html#NetworkManager.Paginator.GetCustomerGatewayAssociations)
+    [Paginator.GetCustomerGatewayAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/networkmanager.html#NetworkManager.Paginator.GetCustomerGatewayAssociations)
     """
 
     def paginate(
@@ -80,13 +80,13 @@ class GetCustomerGatewayAssociationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetCustomerGatewayAssociationsResponseTypeDef]:
         """
-        [GetCustomerGatewayAssociations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/networkmanager.html#NetworkManager.Paginator.GetCustomerGatewayAssociations.paginate)
+        [GetCustomerGatewayAssociations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/networkmanager.html#NetworkManager.Paginator.GetCustomerGatewayAssociations.paginate)
         """
 
 
 class GetDevicesPaginator(Boto3Paginator):
     """
-    [Paginator.GetDevices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/networkmanager.html#NetworkManager.Paginator.GetDevices)
+    [Paginator.GetDevices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/networkmanager.html#NetworkManager.Paginator.GetDevices)
     """
 
     def paginate(
@@ -97,13 +97,13 @@ class GetDevicesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetDevicesResponseTypeDef]:
         """
-        [GetDevices.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/networkmanager.html#NetworkManager.Paginator.GetDevices.paginate)
+        [GetDevices.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/networkmanager.html#NetworkManager.Paginator.GetDevices.paginate)
         """
 
 
 class GetLinkAssociationsPaginator(Boto3Paginator):
     """
-    [Paginator.GetLinkAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/networkmanager.html#NetworkManager.Paginator.GetLinkAssociations)
+    [Paginator.GetLinkAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/networkmanager.html#NetworkManager.Paginator.GetLinkAssociations)
     """
 
     def paginate(
@@ -114,13 +114,13 @@ class GetLinkAssociationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetLinkAssociationsResponseTypeDef]:
         """
-        [GetLinkAssociations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/networkmanager.html#NetworkManager.Paginator.GetLinkAssociations.paginate)
+        [GetLinkAssociations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/networkmanager.html#NetworkManager.Paginator.GetLinkAssociations.paginate)
         """
 
 
 class GetLinksPaginator(Boto3Paginator):
     """
-    [Paginator.GetLinks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/networkmanager.html#NetworkManager.Paginator.GetLinks)
+    [Paginator.GetLinks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/networkmanager.html#NetworkManager.Paginator.GetLinks)
     """
 
     def paginate(
@@ -133,13 +133,13 @@ class GetLinksPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetLinksResponseTypeDef]:
         """
-        [GetLinks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/networkmanager.html#NetworkManager.Paginator.GetLinks.paginate)
+        [GetLinks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/networkmanager.html#NetworkManager.Paginator.GetLinks.paginate)
         """
 
 
 class GetSitesPaginator(Boto3Paginator):
     """
-    [Paginator.GetSites documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/networkmanager.html#NetworkManager.Paginator.GetSites)
+    [Paginator.GetSites documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/networkmanager.html#NetworkManager.Paginator.GetSites)
     """
 
     def paginate(
@@ -149,13 +149,13 @@ class GetSitesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetSitesResponseTypeDef]:
         """
-        [GetSites.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/networkmanager.html#NetworkManager.Paginator.GetSites.paginate)
+        [GetSites.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/networkmanager.html#NetworkManager.Paginator.GetSites.paginate)
         """
 
 
 class GetTransitGatewayRegistrationsPaginator(Boto3Paginator):
     """
-    [Paginator.GetTransitGatewayRegistrations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/networkmanager.html#NetworkManager.Paginator.GetTransitGatewayRegistrations)
+    [Paginator.GetTransitGatewayRegistrations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/networkmanager.html#NetworkManager.Paginator.GetTransitGatewayRegistrations)
     """
 
     def paginate(
@@ -165,5 +165,5 @@ class GetTransitGatewayRegistrationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetTransitGatewayRegistrationsResponseTypeDef]:
         """
-        [GetTransitGatewayRegistrations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/networkmanager.html#NetworkManager.Paginator.GetTransitGatewayRegistrations.paginate)
+        [GetTransitGatewayRegistrations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/networkmanager.html#NetworkManager.Paginator.GetTransitGatewayRegistrations.paginate)
         """

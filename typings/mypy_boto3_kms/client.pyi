@@ -1,4 +1,4 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import
+# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for kms service client
 
@@ -15,8 +15,7 @@ import sys
 from datetime import datetime
 from typing import IO, Any, Dict, List, Type, Union, overload
 
-from botocore.exceptions import ClientError as Boto3ClientError
-from botocore.paginate import Paginator as Boto3Paginator
+from botocore.client import ClientMeta
 
 from mypy_boto3_kms.paginator import (
     ListAliasesPaginator,
@@ -64,68 +63,77 @@ else:
 __all__ = ("KMSClient",)
 
 
+class BotocoreClientError(BaseException):
+    MSG_TEMPLATE: str
+
+    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
+        self.response: Dict[str, Any]
+        self.operation_name: str
+
+
 class Exceptions:
-    AlreadyExistsException: Type[Boto3ClientError]
-    ClientError: Type[Boto3ClientError]
-    CloudHsmClusterInUseException: Type[Boto3ClientError]
-    CloudHsmClusterInvalidConfigurationException: Type[Boto3ClientError]
-    CloudHsmClusterNotActiveException: Type[Boto3ClientError]
-    CloudHsmClusterNotFoundException: Type[Boto3ClientError]
-    CloudHsmClusterNotRelatedException: Type[Boto3ClientError]
-    CustomKeyStoreHasCMKsException: Type[Boto3ClientError]
-    CustomKeyStoreInvalidStateException: Type[Boto3ClientError]
-    CustomKeyStoreNameInUseException: Type[Boto3ClientError]
-    CustomKeyStoreNotFoundException: Type[Boto3ClientError]
-    DependencyTimeoutException: Type[Boto3ClientError]
-    DisabledException: Type[Boto3ClientError]
-    ExpiredImportTokenException: Type[Boto3ClientError]
-    IncorrectKeyException: Type[Boto3ClientError]
-    IncorrectKeyMaterialException: Type[Boto3ClientError]
-    IncorrectTrustAnchorException: Type[Boto3ClientError]
-    InvalidAliasNameException: Type[Boto3ClientError]
-    InvalidArnException: Type[Boto3ClientError]
-    InvalidCiphertextException: Type[Boto3ClientError]
-    InvalidGrantIdException: Type[Boto3ClientError]
-    InvalidGrantTokenException: Type[Boto3ClientError]
-    InvalidImportTokenException: Type[Boto3ClientError]
-    InvalidKeyUsageException: Type[Boto3ClientError]
-    InvalidMarkerException: Type[Boto3ClientError]
-    KMSInternalException: Type[Boto3ClientError]
-    KMSInvalidSignatureException: Type[Boto3ClientError]
-    KMSInvalidStateException: Type[Boto3ClientError]
-    KeyUnavailableException: Type[Boto3ClientError]
-    LimitExceededException: Type[Boto3ClientError]
-    MalformedPolicyDocumentException: Type[Boto3ClientError]
-    NotFoundException: Type[Boto3ClientError]
-    TagException: Type[Boto3ClientError]
-    UnsupportedOperationException: Type[Boto3ClientError]
+    AlreadyExistsException: Type[BotocoreClientError]
+    ClientError: Type[BotocoreClientError]
+    CloudHsmClusterInUseException: Type[BotocoreClientError]
+    CloudHsmClusterInvalidConfigurationException: Type[BotocoreClientError]
+    CloudHsmClusterNotActiveException: Type[BotocoreClientError]
+    CloudHsmClusterNotFoundException: Type[BotocoreClientError]
+    CloudHsmClusterNotRelatedException: Type[BotocoreClientError]
+    CustomKeyStoreHasCMKsException: Type[BotocoreClientError]
+    CustomKeyStoreInvalidStateException: Type[BotocoreClientError]
+    CustomKeyStoreNameInUseException: Type[BotocoreClientError]
+    CustomKeyStoreNotFoundException: Type[BotocoreClientError]
+    DependencyTimeoutException: Type[BotocoreClientError]
+    DisabledException: Type[BotocoreClientError]
+    ExpiredImportTokenException: Type[BotocoreClientError]
+    IncorrectKeyException: Type[BotocoreClientError]
+    IncorrectKeyMaterialException: Type[BotocoreClientError]
+    IncorrectTrustAnchorException: Type[BotocoreClientError]
+    InvalidAliasNameException: Type[BotocoreClientError]
+    InvalidArnException: Type[BotocoreClientError]
+    InvalidCiphertextException: Type[BotocoreClientError]
+    InvalidGrantIdException: Type[BotocoreClientError]
+    InvalidGrantTokenException: Type[BotocoreClientError]
+    InvalidImportTokenException: Type[BotocoreClientError]
+    InvalidKeyUsageException: Type[BotocoreClientError]
+    InvalidMarkerException: Type[BotocoreClientError]
+    KMSInternalException: Type[BotocoreClientError]
+    KMSInvalidSignatureException: Type[BotocoreClientError]
+    KMSInvalidStateException: Type[BotocoreClientError]
+    KeyUnavailableException: Type[BotocoreClientError]
+    LimitExceededException: Type[BotocoreClientError]
+    MalformedPolicyDocumentException: Type[BotocoreClientError]
+    NotFoundException: Type[BotocoreClientError]
+    TagException: Type[BotocoreClientError]
+    UnsupportedOperationException: Type[BotocoreClientError]
 
 
 class KMSClient:
     """
-    [KMS.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client)
+    [KMS.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client)
     """
 
+    meta: ClientMeta
     exceptions: Exceptions
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.can_paginate)
         """
 
     def cancel_key_deletion(self, KeyId: str) -> CancelKeyDeletionResponseTypeDef:
         """
-        [Client.cancel_key_deletion documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.cancel_key_deletion)
+        [Client.cancel_key_deletion documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.cancel_key_deletion)
         """
 
     def connect_custom_key_store(self, CustomKeyStoreId: str) -> Dict[str, Any]:
         """
-        [Client.connect_custom_key_store documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.connect_custom_key_store)
+        [Client.connect_custom_key_store documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.connect_custom_key_store)
         """
 
     def create_alias(self, AliasName: str, TargetKeyId: str) -> None:
         """
-        [Client.create_alias documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.create_alias)
+        [Client.create_alias documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.create_alias)
         """
 
     def create_custom_key_store(
@@ -136,7 +144,7 @@ class KMSClient:
         KeyStorePassword: str,
     ) -> CreateCustomKeyStoreResponseTypeDef:
         """
-        [Client.create_custom_key_store documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.create_custom_key_store)
+        [Client.create_custom_key_store documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.create_custom_key_store)
         """
 
     def create_grant(
@@ -167,7 +175,7 @@ class KMSClient:
         Name: str = None,
     ) -> CreateGrantResponseTypeDef:
         """
-        [Client.create_grant documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.create_grant)
+        [Client.create_grant documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.create_grant)
         """
 
     def create_key(
@@ -191,7 +199,7 @@ class KMSClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateKeyResponseTypeDef:
         """
-        [Client.create_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.create_key)
+        [Client.create_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.create_key)
         """
 
     def decrypt(
@@ -205,22 +213,22 @@ class KMSClient:
         ] = None,
     ) -> DecryptResponseTypeDef:
         """
-        [Client.decrypt documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.decrypt)
+        [Client.decrypt documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.decrypt)
         """
 
     def delete_alias(self, AliasName: str) -> None:
         """
-        [Client.delete_alias documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.delete_alias)
+        [Client.delete_alias documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.delete_alias)
         """
 
     def delete_custom_key_store(self, CustomKeyStoreId: str) -> Dict[str, Any]:
         """
-        [Client.delete_custom_key_store documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.delete_custom_key_store)
+        [Client.delete_custom_key_store documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.delete_custom_key_store)
         """
 
     def delete_imported_key_material(self, KeyId: str) -> None:
         """
-        [Client.delete_imported_key_material documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.delete_imported_key_material)
+        [Client.delete_imported_key_material documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.delete_imported_key_material)
         """
 
     def describe_custom_key_stores(
@@ -231,37 +239,37 @@ class KMSClient:
         Marker: str = None,
     ) -> DescribeCustomKeyStoresResponseTypeDef:
         """
-        [Client.describe_custom_key_stores documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.describe_custom_key_stores)
+        [Client.describe_custom_key_stores documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.describe_custom_key_stores)
         """
 
     def describe_key(self, KeyId: str, GrantTokens: List[str] = None) -> DescribeKeyResponseTypeDef:
         """
-        [Client.describe_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.describe_key)
+        [Client.describe_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.describe_key)
         """
 
     def disable_key(self, KeyId: str) -> None:
         """
-        [Client.disable_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.disable_key)
+        [Client.disable_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.disable_key)
         """
 
     def disable_key_rotation(self, KeyId: str) -> None:
         """
-        [Client.disable_key_rotation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.disable_key_rotation)
+        [Client.disable_key_rotation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.disable_key_rotation)
         """
 
     def disconnect_custom_key_store(self, CustomKeyStoreId: str) -> Dict[str, Any]:
         """
-        [Client.disconnect_custom_key_store documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.disconnect_custom_key_store)
+        [Client.disconnect_custom_key_store documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.disconnect_custom_key_store)
         """
 
     def enable_key(self, KeyId: str) -> None:
         """
-        [Client.enable_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.enable_key)
+        [Client.enable_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.enable_key)
         """
 
     def enable_key_rotation(self, KeyId: str) -> None:
         """
-        [Client.enable_key_rotation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.enable_key_rotation)
+        [Client.enable_key_rotation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.enable_key_rotation)
         """
 
     def encrypt(
@@ -275,7 +283,7 @@ class KMSClient:
         ] = None,
     ) -> EncryptResponseTypeDef:
         """
-        [Client.encrypt documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.encrypt)
+        [Client.encrypt documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.encrypt)
         """
 
     def generate_data_key(
@@ -287,7 +295,7 @@ class KMSClient:
         GrantTokens: List[str] = None,
     ) -> GenerateDataKeyResponseTypeDef:
         """
-        [Client.generate_data_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.generate_data_key)
+        [Client.generate_data_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.generate_data_key)
         """
 
     def generate_data_key_pair(
@@ -306,7 +314,7 @@ class KMSClient:
         GrantTokens: List[str] = None,
     ) -> GenerateDataKeyPairResponseTypeDef:
         """
-        [Client.generate_data_key_pair documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.generate_data_key_pair)
+        [Client.generate_data_key_pair documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.generate_data_key_pair)
         """
 
     def generate_data_key_pair_without_plaintext(
@@ -325,7 +333,7 @@ class KMSClient:
         GrantTokens: List[str] = None,
     ) -> GenerateDataKeyPairWithoutPlaintextResponseTypeDef:
         """
-        [Client.generate_data_key_pair_without_plaintext documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.generate_data_key_pair_without_plaintext)
+        [Client.generate_data_key_pair_without_plaintext documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.generate_data_key_pair_without_plaintext)
         """
 
     def generate_data_key_without_plaintext(
@@ -337,7 +345,7 @@ class KMSClient:
         GrantTokens: List[str] = None,
     ) -> GenerateDataKeyWithoutPlaintextResponseTypeDef:
         """
-        [Client.generate_data_key_without_plaintext documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.generate_data_key_without_plaintext)
+        [Client.generate_data_key_without_plaintext documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.generate_data_key_without_plaintext)
         """
 
     def generate_presigned_url(
@@ -348,24 +356,24 @@ class KMSClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.generate_presigned_url)
         """
 
     def generate_random(
         self, NumberOfBytes: int = None, CustomKeyStoreId: str = None
     ) -> GenerateRandomResponseTypeDef:
         """
-        [Client.generate_random documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.generate_random)
+        [Client.generate_random documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.generate_random)
         """
 
     def get_key_policy(self, KeyId: str, PolicyName: str) -> GetKeyPolicyResponseTypeDef:
         """
-        [Client.get_key_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.get_key_policy)
+        [Client.get_key_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.get_key_policy)
         """
 
     def get_key_rotation_status(self, KeyId: str) -> GetKeyRotationStatusResponseTypeDef:
         """
-        [Client.get_key_rotation_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.get_key_rotation_status)
+        [Client.get_key_rotation_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.get_key_rotation_status)
         """
 
     def get_parameters_for_import(
@@ -375,14 +383,14 @@ class KMSClient:
         WrappingKeySpec: Literal["RSA_2048"],
     ) -> GetParametersForImportResponseTypeDef:
         """
-        [Client.get_parameters_for_import documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.get_parameters_for_import)
+        [Client.get_parameters_for_import documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.get_parameters_for_import)
         """
 
     def get_public_key(
         self, KeyId: str, GrantTokens: List[str] = None
     ) -> GetPublicKeyResponseTypeDef:
         """
-        [Client.get_public_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.get_public_key)
+        [Client.get_public_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.get_public_key)
         """
 
     def import_key_material(
@@ -394,54 +402,54 @@ class KMSClient:
         ExpirationModel: Literal["KEY_MATERIAL_EXPIRES", "KEY_MATERIAL_DOES_NOT_EXPIRE"] = None,
     ) -> Dict[str, Any]:
         """
-        [Client.import_key_material documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.import_key_material)
+        [Client.import_key_material documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.import_key_material)
         """
 
     def list_aliases(
         self, KeyId: str = None, Limit: int = None, Marker: str = None
     ) -> ListAliasesResponseTypeDef:
         """
-        [Client.list_aliases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.list_aliases)
+        [Client.list_aliases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.list_aliases)
         """
 
     def list_grants(
         self, KeyId: str, Limit: int = None, Marker: str = None
     ) -> ListGrantsResponseTypeDef:
         """
-        [Client.list_grants documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.list_grants)
+        [Client.list_grants documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.list_grants)
         """
 
     def list_key_policies(
         self, KeyId: str, Limit: int = None, Marker: str = None
     ) -> ListKeyPoliciesResponseTypeDef:
         """
-        [Client.list_key_policies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.list_key_policies)
+        [Client.list_key_policies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.list_key_policies)
         """
 
     def list_keys(self, Limit: int = None, Marker: str = None) -> ListKeysResponseTypeDef:
         """
-        [Client.list_keys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.list_keys)
+        [Client.list_keys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.list_keys)
         """
 
     def list_resource_tags(
         self, KeyId: str, Limit: int = None, Marker: str = None
     ) -> ListResourceTagsResponseTypeDef:
         """
-        [Client.list_resource_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.list_resource_tags)
+        [Client.list_resource_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.list_resource_tags)
         """
 
     def list_retirable_grants(
         self, RetiringPrincipal: str, Limit: int = None, Marker: str = None
     ) -> ListGrantsResponseTypeDef:
         """
-        [Client.list_retirable_grants documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.list_retirable_grants)
+        [Client.list_retirable_grants documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.list_retirable_grants)
         """
 
     def put_key_policy(
         self, KeyId: str, PolicyName: str, Policy: str, BypassPolicyLockoutSafetyCheck: bool = None
     ) -> None:
         """
-        [Client.put_key_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.put_key_policy)
+        [Client.put_key_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.put_key_policy)
         """
 
     def re_encrypt(
@@ -460,24 +468,24 @@ class KMSClient:
         GrantTokens: List[str] = None,
     ) -> ReEncryptResponseTypeDef:
         """
-        [Client.re_encrypt documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.re_encrypt)
+        [Client.re_encrypt documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.re_encrypt)
         """
 
     def retire_grant(self, GrantToken: str = None, KeyId: str = None, GrantId: str = None) -> None:
         """
-        [Client.retire_grant documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.retire_grant)
+        [Client.retire_grant documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.retire_grant)
         """
 
     def revoke_grant(self, KeyId: str, GrantId: str) -> None:
         """
-        [Client.revoke_grant documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.revoke_grant)
+        [Client.revoke_grant documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.revoke_grant)
         """
 
     def schedule_key_deletion(
         self, KeyId: str, PendingWindowInDays: int = None
     ) -> ScheduleKeyDeletionResponseTypeDef:
         """
-        [Client.schedule_key_deletion documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.schedule_key_deletion)
+        [Client.schedule_key_deletion documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.schedule_key_deletion)
         """
 
     def sign(
@@ -499,22 +507,22 @@ class KMSClient:
         GrantTokens: List[str] = None,
     ) -> SignResponseTypeDef:
         """
-        [Client.sign documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.sign)
+        [Client.sign documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.sign)
         """
 
     def tag_resource(self, KeyId: str, Tags: List["TagTypeDef"]) -> None:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.tag_resource)
         """
 
     def untag_resource(self, KeyId: str, TagKeys: List[str]) -> None:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.untag_resource)
         """
 
     def update_alias(self, AliasName: str, TargetKeyId: str) -> None:
         """
-        [Client.update_alias documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.update_alias)
+        [Client.update_alias documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.update_alias)
         """
 
     def update_custom_key_store(
@@ -525,12 +533,12 @@ class KMSClient:
         CloudHsmClusterId: str = None,
     ) -> Dict[str, Any]:
         """
-        [Client.update_custom_key_store documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.update_custom_key_store)
+        [Client.update_custom_key_store documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.update_custom_key_store)
         """
 
     def update_key_description(self, KeyId: str, Description: str) -> None:
         """
-        [Client.update_key_description documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.update_key_description)
+        [Client.update_key_description documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.update_key_description)
         """
 
     def verify(
@@ -553,19 +561,19 @@ class KMSClient:
         GrantTokens: List[str] = None,
     ) -> VerifyResponseTypeDef:
         """
-        [Client.verify documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Client.verify)
+        [Client.verify documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Client.verify)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_aliases"]) -> ListAliasesPaginator:
         """
-        [Paginator.ListAliases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Paginator.ListAliases)
+        [Paginator.ListAliases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Paginator.ListAliases)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_grants"]) -> ListGrantsPaginator:
         """
-        [Paginator.ListGrants documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Paginator.ListGrants)
+        [Paginator.ListGrants documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Paginator.ListGrants)
         """
 
     @overload
@@ -573,14 +581,11 @@ class KMSClient:
         self, operation_name: Literal["list_key_policies"]
     ) -> ListKeyPoliciesPaginator:
         """
-        [Paginator.ListKeyPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Paginator.ListKeyPolicies)
+        [Paginator.ListKeyPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Paginator.ListKeyPolicies)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_keys"]) -> ListKeysPaginator:
         """
-        [Paginator.ListKeys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/kms.html#KMS.Paginator.ListKeys)
+        [Paginator.ListKeys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Paginator.ListKeys)
         """
-
-    def get_paginator(self, operation_name: str) -> Boto3Paginator:
-        pass

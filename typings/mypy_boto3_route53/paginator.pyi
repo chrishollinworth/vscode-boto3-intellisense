@@ -49,59 +49,59 @@ __all__ = (
 
 class ListHealthChecksPaginator(Boto3Paginator):
     """
-    [Paginator.ListHealthChecks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/route53.html#Route53.Paginator.ListHealthChecks)
+    [Paginator.ListHealthChecks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/route53.html#Route53.Paginator.ListHealthChecks)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListHealthChecksResponseTypeDef]:
         """
-        [ListHealthChecks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/route53.html#Route53.Paginator.ListHealthChecks.paginate)
+        [ListHealthChecks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/route53.html#Route53.Paginator.ListHealthChecks.paginate)
         """
 
 
 class ListHostedZonesPaginator(Boto3Paginator):
     """
-    [Paginator.ListHostedZones documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/route53.html#Route53.Paginator.ListHostedZones)
+    [Paginator.ListHostedZones documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/route53.html#Route53.Paginator.ListHostedZones)
     """
 
     def paginate(
         self, DelegationSetId: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListHostedZonesResponseTypeDef]:
         """
-        [ListHostedZones.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/route53.html#Route53.Paginator.ListHostedZones.paginate)
+        [ListHostedZones.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/route53.html#Route53.Paginator.ListHostedZones.paginate)
         """
 
 
 class ListQueryLoggingConfigsPaginator(Boto3Paginator):
     """
-    [Paginator.ListQueryLoggingConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/route53.html#Route53.Paginator.ListQueryLoggingConfigs)
+    [Paginator.ListQueryLoggingConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/route53.html#Route53.Paginator.ListQueryLoggingConfigs)
     """
 
     def paginate(
         self, HostedZoneId: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListQueryLoggingConfigsResponseTypeDef]:
         """
-        [ListQueryLoggingConfigs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/route53.html#Route53.Paginator.ListQueryLoggingConfigs.paginate)
+        [ListQueryLoggingConfigs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/route53.html#Route53.Paginator.ListQueryLoggingConfigs.paginate)
         """
 
 
 class ListResourceRecordSetsPaginator(Boto3Paginator):
     """
-    [Paginator.ListResourceRecordSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/route53.html#Route53.Paginator.ListResourceRecordSets)
+    [Paginator.ListResourceRecordSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/route53.html#Route53.Paginator.ListResourceRecordSets)
     """
 
     def paginate(
         self, HostedZoneId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListResourceRecordSetsResponseTypeDef]:
         """
-        [ListResourceRecordSets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/route53.html#Route53.Paginator.ListResourceRecordSets.paginate)
+        [ListResourceRecordSets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/route53.html#Route53.Paginator.ListResourceRecordSets.paginate)
         """
 
 
 class ListVPCAssociationAuthorizationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListVPCAssociationAuthorizations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/route53.html#Route53.Paginator.ListVPCAssociationAuthorizations)
+    [Paginator.ListVPCAssociationAuthorizations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/route53.html#Route53.Paginator.ListVPCAssociationAuthorizations)
     """
 
     def paginate(
@@ -111,5 +111,5 @@ class ListVPCAssociationAuthorizationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListVPCAssociationAuthorizationsResponseTypeDef]:
         """
-        [ListVPCAssociationAuthorizations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/route53.html#Route53.Paginator.ListVPCAssociationAuthorizations.paginate)
+        [ListVPCAssociationAuthorizations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/route53.html#Route53.Paginator.ListVPCAssociationAuthorizations.paginate)
         """

@@ -10,13 +10,12 @@ Usage::
     ```
 """
 import sys
-from typing import Dict, List
+from typing import IO, Dict, List, Union
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -77,9 +76,9 @@ _OptionalMessageAttributeValueTypeDef = TypedDict(
     "_OptionalMessageAttributeValueTypeDef",
     {
         "StringValue": str,
-        "BinaryValue": bytes,
+        "BinaryValue": Union[bytes, IO[bytes]],
         "StringListValues": List[str],
-        "BinaryListValues": List[bytes],
+        "BinaryListValues": List[Union[bytes, IO[bytes]]],
     },
     total=False,
 )
@@ -98,9 +97,9 @@ _OptionalMessageSystemAttributeValueTypeDef = TypedDict(
     "_OptionalMessageSystemAttributeValueTypeDef",
     {
         "StringValue": str,
-        "BinaryValue": bytes,
+        "BinaryValue": Union[bytes, IO[bytes]],
         "StringListValues": List[str],
-        "BinaryListValues": List[bytes],
+        "BinaryListValues": List[Union[bytes, IO[bytes]]],
     },
     total=False,
 )

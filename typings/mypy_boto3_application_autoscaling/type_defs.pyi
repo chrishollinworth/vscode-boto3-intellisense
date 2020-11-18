@@ -17,7 +17,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -91,6 +90,7 @@ _RequiredPredefinedMetricSpecificationTypeDef = TypedDict(
             "LambdaProvisionedConcurrencyUtilization",
             "CassandraReadCapacityUtilization",
             "CassandraWriteCapacityUtilization",
+            "KafkaBrokerStorageUtilization",
         ]
     },
 )
@@ -124,6 +124,7 @@ _RequiredScalableTargetTypeDef = TypedDict(
             "comprehend",
             "lambda",
             "cassandra",
+            "kafka",
         ],
         "ResourceId": str,
         "ScalableDimension": Literal[
@@ -139,9 +140,11 @@ _RequiredScalableTargetTypeDef = TypedDict(
             "sagemaker:variant:DesiredInstanceCount",
             "custom-resource:ResourceType:Property",
             "comprehend:document-classifier-endpoint:DesiredInferenceUnits",
+            "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits",
             "lambda:function:ProvisionedConcurrency",
             "cassandra:table:ReadCapacityUnits",
             "cassandra:table:WriteCapacityUnits",
+            "kafka:broker-storage:VolumeSize",
         ],
         "MinCapacity": int,
         "MaxCapacity": int,
@@ -174,6 +177,7 @@ _RequiredScalingActivityTypeDef = TypedDict(
             "comprehend",
             "lambda",
             "cassandra",
+            "kafka",
         ],
         "ResourceId": str,
         "ScalableDimension": Literal[
@@ -189,9 +193,11 @@ _RequiredScalingActivityTypeDef = TypedDict(
             "sagemaker:variant:DesiredInstanceCount",
             "custom-resource:ResourceType:Property",
             "comprehend:document-classifier-endpoint:DesiredInferenceUnits",
+            "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits",
             "lambda:function:ProvisionedConcurrency",
             "cassandra:table:ReadCapacityUnits",
             "cassandra:table:WriteCapacityUnits",
+            "kafka:broker-storage:VolumeSize",
         ],
         "Description": str,
         "Cause": str,
@@ -229,6 +235,7 @@ _RequiredScalingPolicyTypeDef = TypedDict(
             "comprehend",
             "lambda",
             "cassandra",
+            "kafka",
         ],
         "ResourceId": str,
         "ScalableDimension": Literal[
@@ -244,9 +251,11 @@ _RequiredScalingPolicyTypeDef = TypedDict(
             "sagemaker:variant:DesiredInstanceCount",
             "custom-resource:ResourceType:Property",
             "comprehend:document-classifier-endpoint:DesiredInferenceUnits",
+            "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits",
             "lambda:function:ProvisionedConcurrency",
             "cassandra:table:ReadCapacityUnits",
             "cassandra:table:WriteCapacityUnits",
+            "kafka:broker-storage:VolumeSize",
         ],
         "PolicyType": Literal["StepScaling", "TargetTrackingScaling"],
         "CreationTime": datetime,
@@ -284,6 +293,7 @@ _RequiredScheduledActionTypeDef = TypedDict(
             "comprehend",
             "lambda",
             "cassandra",
+            "kafka",
         ],
         "Schedule": str,
         "ResourceId": str,
@@ -306,9 +316,11 @@ _OptionalScheduledActionTypeDef = TypedDict(
             "sagemaker:variant:DesiredInstanceCount",
             "custom-resource:ResourceType:Property",
             "comprehend:document-classifier-endpoint:DesiredInferenceUnits",
+            "comprehend:entity-recognizer-endpoint:DesiredInferenceUnits",
             "lambda:function:ProvisionedConcurrency",
             "cassandra:table:ReadCapacityUnits",
             "cassandra:table:WriteCapacityUnits",
+            "kafka:broker-storage:VolumeSize",
         ],
         "StartTime": datetime,
         "EndTime": datetime,

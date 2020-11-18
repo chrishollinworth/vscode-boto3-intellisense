@@ -17,7 +17,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -282,8 +281,10 @@ DescribeLocationS3ResponseTypeDef = TypedDict(
             "INTELLIGENT_TIERING",
             "GLACIER",
             "DEEP_ARCHIVE",
+            "OUTPOSTS",
         ],
         "S3Config": "S3ConfigTypeDef",
+        "AgentArns": List[str],
         "CreationTime": datetime,
     },
     total=False,

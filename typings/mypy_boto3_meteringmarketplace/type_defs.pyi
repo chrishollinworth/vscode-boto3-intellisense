@@ -4,9 +4,9 @@ Main interface for meteringmarketplace service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_meteringmarketplace.type_defs import UsageRecordResultTypeDef
+    from mypy_boto3_meteringmarketplace.type_defs import TagTypeDef
 
-    data: UsageRecordResultTypeDef = {...}
+    data: TagTypeDef = {...}
     ```
 """
 import sys
@@ -17,7 +17,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -25,6 +24,8 @@ else:
 
 
 __all__ = (
+    "TagTypeDef",
+    "UsageAllocationTypeDef",
     "UsageRecordResultTypeDef",
     "UsageRecordTypeDef",
     "BatchMeterUsageResultTypeDef",
@@ -32,6 +33,20 @@ __all__ = (
     "RegisterUsageResultTypeDef",
     "ResolveCustomerResultTypeDef",
 )
+
+TagTypeDef = TypedDict("TagTypeDef", {"Key": str, "Value": str})
+
+_RequiredUsageAllocationTypeDef = TypedDict(
+    "_RequiredUsageAllocationTypeDef", {"AllocatedUsageQuantity": int}
+)
+_OptionalUsageAllocationTypeDef = TypedDict(
+    "_OptionalUsageAllocationTypeDef", {"Tags": List["TagTypeDef"]}, total=False
+)
+
+
+class UsageAllocationTypeDef(_RequiredUsageAllocationTypeDef, _OptionalUsageAllocationTypeDef):
+    pass
+
 
 UsageRecordResultTypeDef = TypedDict(
     "UsageRecordResultTypeDef",
@@ -48,7 +63,9 @@ _RequiredUsageRecordTypeDef = TypedDict(
     {"Timestamp": datetime, "CustomerIdentifier": str, "Dimension": str},
 )
 _OptionalUsageRecordTypeDef = TypedDict(
-    "_OptionalUsageRecordTypeDef", {"Quantity": int}, total=False
+    "_OptionalUsageRecordTypeDef",
+    {"Quantity": int, "UsageAllocations": List["UsageAllocationTypeDef"]},
+    total=False,
 )
 
 

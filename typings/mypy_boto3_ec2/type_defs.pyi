@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import List
+from typing import IO, List, Union
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -31,6 +30,7 @@ __all__ = (
     "AddressTypeDef",
     "AllowedPrincipalTypeDef",
     "AssignedPrivateIpAddressTypeDef",
+    "AssociatedRoleTypeDef",
     "AssociatedTargetNetworkTypeDef",
     "AssociationStatusTypeDef",
     "AttributeBooleanValueTypeDef",
@@ -63,10 +63,12 @@ __all__ = (
     "ClassicLoadBalancerTypeDef",
     "ClassicLoadBalancersConfigTypeDef",
     "ClientCertificateRevocationListStatusTypeDef",
+    "ClientConnectResponseOptionsTypeDef",
     "ClientVpnAuthenticationTypeDef",
     "ClientVpnAuthorizationRuleStatusTypeDef",
     "ClientVpnConnectionStatusTypeDef",
     "ClientVpnConnectionTypeDef",
+    "ClientVpnEndpointAttributeStatusTypeDef",
     "ClientVpnEndpointStatusTypeDef",
     "ClientVpnEndpointTypeDef",
     "ClientVpnRouteStatusTypeDef",
@@ -121,6 +123,7 @@ __all__ = (
     "EnableFastSnapshotRestoreStateErrorItemTypeDef",
     "EnableFastSnapshotRestoreStateErrorTypeDef",
     "EnableFastSnapshotRestoreSuccessItemTypeDef",
+    "EnclaveOptionsTypeDef",
     "EventInformationTypeDef",
     "ExportImageTaskTypeDef",
     "ExportTaskS3LocationTypeDef",
@@ -135,6 +138,10 @@ __all__ = (
     "FleetLaunchTemplateOverridesTypeDef",
     "FleetLaunchTemplateSpecificationRequestTypeDef",
     "FleetLaunchTemplateSpecificationTypeDef",
+    "FleetSpotCapacityRebalanceRequestTypeDef",
+    "FleetSpotCapacityRebalanceTypeDef",
+    "FleetSpotMaintenanceStrategiesRequestTypeDef",
+    "FleetSpotMaintenanceStrategiesTypeDef",
     "FlowLogTypeDef",
     "FpgaDeviceInfoTypeDef",
     "FpgaDeviceMemoryInfoTypeDef",
@@ -221,6 +228,8 @@ __all__ = (
     "LaunchTemplateEbsBlockDeviceTypeDef",
     "LaunchTemplateElasticInferenceAcceleratorResponseTypeDef",
     "LaunchTemplateElasticInferenceAcceleratorTypeDef",
+    "LaunchTemplateEnclaveOptionsRequestTypeDef",
+    "LaunchTemplateEnclaveOptionsTypeDef",
     "LaunchTemplateHibernationOptionsRequestTypeDef",
     "LaunchTemplateHibernationOptionsTypeDef",
     "LaunchTemplateIamInstanceProfileSpecificationRequestTypeDef",
@@ -264,6 +273,7 @@ __all__ = (
     "NetworkAclAssociationTypeDef",
     "NetworkAclEntryTypeDef",
     "NetworkAclTypeDef",
+    "NetworkCardInfoTypeDef",
     "NetworkInfoTypeDef",
     "NetworkInterfaceAssociationTypeDef",
     "NetworkInterfaceAttachmentTypeDef",
@@ -352,6 +362,7 @@ __all__ = (
     "SnapshotInfoTypeDef",
     "SnapshotTaskDetailTypeDef",
     "SnapshotTypeDef",
+    "SpotCapacityRebalanceTypeDef",
     "SpotDatafeedSubscriptionTypeDef",
     "SpotFleetLaunchSpecificationTypeDef",
     "SpotFleetMonitoringTypeDef",
@@ -361,6 +372,7 @@ __all__ = (
     "SpotInstanceRequestTypeDef",
     "SpotInstanceStateFaultTypeDef",
     "SpotInstanceStatusTypeDef",
+    "SpotMaintenanceStrategiesTypeDef",
     "SpotMarketOptionsTypeDef",
     "SpotOptionsTypeDef",
     "SpotPlacementTypeDef",
@@ -403,6 +415,8 @@ __all__ = (
     "TransitGatewayMulticastRegisteredGroupSourcesTypeDef",
     "TransitGatewayOptionsTypeDef",
     "TransitGatewayPeeringAttachmentTypeDef",
+    "TransitGatewayPrefixListAttachmentTypeDef",
+    "TransitGatewayPrefixListReferenceTypeDef",
     "TransitGatewayPropagationTypeDef",
     "TransitGatewayRouteAttachmentTypeDef",
     "TransitGatewayRouteTableAssociationTypeDef",
@@ -466,6 +480,7 @@ __all__ = (
     "AssignPrivateIpAddressesResultTypeDef",
     "AssociateAddressResultTypeDef",
     "AssociateClientVpnTargetNetworkResultTypeDef",
+    "AssociateEnclaveCertificateIamRoleResultTypeDef",
     "AssociateIamInstanceProfileResultTypeDef",
     "AssociateRouteTableResultTypeDef",
     "AssociateSubnetCidrBlockResultTypeDef",
@@ -486,6 +501,7 @@ __all__ = (
     "CancelSpotInstanceRequestsResultTypeDef",
     "CapacityReservationSpecificationTypeDef",
     "CidrAuthorizationContextTypeDef",
+    "ClientConnectOptionsTypeDef",
     "ClientDataTypeDef",
     "ClientVpnAuthenticationRequestTypeDef",
     "ConfirmProductInstanceResultTypeDef",
@@ -532,6 +548,7 @@ __all__ = (
     "CreateTrafficMirrorTargetResultTypeDef",
     "CreateTransitGatewayMulticastDomainResultTypeDef",
     "CreateTransitGatewayPeeringAttachmentResultTypeDef",
+    "CreateTransitGatewayPrefixListReferenceResultTypeDef",
     "CreateTransitGatewayResultTypeDef",
     "CreateTransitGatewayRouteResultTypeDef",
     "CreateTransitGatewayRouteTableResultTypeDef",
@@ -566,6 +583,7 @@ __all__ = (
     "DeleteTrafficMirrorTargetResultTypeDef",
     "DeleteTransitGatewayMulticastDomainResultTypeDef",
     "DeleteTransitGatewayPeeringAttachmentResultTypeDef",
+    "DeleteTransitGatewayPrefixListReferenceResultTypeDef",
     "DeleteTransitGatewayResultTypeDef",
     "DeleteTransitGatewayRouteResultTypeDef",
     "DeleteTransitGatewayRouteTableResultTypeDef",
@@ -699,6 +717,7 @@ __all__ = (
     "DisableVpcClassicLinkDnsSupportResultTypeDef",
     "DisableVpcClassicLinkResultTypeDef",
     "DisassociateClientVpnTargetNetworkResultTypeDef",
+    "DisassociateEnclaveCertificateIamRoleResultTypeDef",
     "DisassociateIamInstanceProfileResultTypeDef",
     "DisassociateSubnetCidrBlockResultTypeDef",
     "DisassociateTransitGatewayMulticastDomainResultTypeDef",
@@ -712,6 +731,7 @@ __all__ = (
     "EnableTransitGatewayRouteTablePropagationResultTypeDef",
     "EnableVpcClassicLinkDnsSupportResultTypeDef",
     "EnableVpcClassicLinkResultTypeDef",
+    "EnclaveOptionsRequestTypeDef",
     "ExportClientVpnClientCertificateRevocationListResultTypeDef",
     "ExportClientVpnClientConfigurationResultTypeDef",
     "ExportImageResultTypeDef",
@@ -720,6 +740,7 @@ __all__ = (
     "ExportTransitGatewayRoutesResultTypeDef",
     "FilterTypeDef",
     "FleetLaunchTemplateConfigRequestTypeDef",
+    "GetAssociatedEnclaveCertificateIamRolesResultTypeDef",
     "GetAssociatedIpv6PoolCidrsResultTypeDef",
     "GetCapacityReservationUsageResultTypeDef",
     "GetCoipPoolUsageResultTypeDef",
@@ -737,6 +758,7 @@ __all__ = (
     "GetReservedInstancesExchangeQuoteResultTypeDef",
     "GetTransitGatewayAttachmentPropagationsResultTypeDef",
     "GetTransitGatewayMulticastDomainAssociationsResultTypeDef",
+    "GetTransitGatewayPrefixListReferencesResultTypeDef",
     "GetTransitGatewayRouteTableAssociationsResultTypeDef",
     "GetTransitGatewayRouteTablePropagationsResultTypeDef",
     "HibernationOptionsRequestTypeDef",
@@ -781,6 +803,9 @@ __all__ = (
     "ModifyTrafficMirrorFilterNetworkServicesResultTypeDef",
     "ModifyTrafficMirrorFilterRuleResultTypeDef",
     "ModifyTrafficMirrorSessionResultTypeDef",
+    "ModifyTransitGatewayOptionsTypeDef",
+    "ModifyTransitGatewayPrefixListReferenceResultTypeDef",
+    "ModifyTransitGatewayResultTypeDef",
     "ModifyTransitGatewayVpcAttachmentRequestOptionsTypeDef",
     "ModifyTransitGatewayVpcAttachmentResultTypeDef",
     "ModifyVolumeResultTypeDef",
@@ -790,6 +815,7 @@ __all__ = (
     "ModifyVpcEndpointServicePermissionsResultTypeDef",
     "ModifyVpcPeeringConnectionOptionsResultTypeDef",
     "ModifyVpcTenancyResultTypeDef",
+    "ModifyVpnConnectionOptionsResultTypeDef",
     "ModifyVpnConnectionResultTypeDef",
     "ModifyVpnTunnelCertificateResultTypeDef",
     "ModifyVpnTunnelOptionsResultTypeDef",
@@ -832,6 +858,8 @@ __all__ = (
     "RestoreAddressToClassicResultTypeDef",
     "RestoreManagedPrefixListVersionResultTypeDef",
     "RevokeClientVpnIngressResultTypeDef",
+    "RevokeSecurityGroupEgressResultTypeDef",
+    "RevokeSecurityGroupIngressResultTypeDef",
     "RunScheduledInstancesResultTypeDef",
     "ScheduledInstanceRecurrenceRequestTypeDef",
     "ScheduledInstancesLaunchSpecificationTypeDef",
@@ -915,6 +943,17 @@ AllowedPrincipalTypeDef = TypedDict(
 
 AssignedPrivateIpAddressTypeDef = TypedDict(
     "AssignedPrivateIpAddressTypeDef", {"PrivateIpAddress": str}, total=False
+)
+
+AssociatedRoleTypeDef = TypedDict(
+    "AssociatedRoleTypeDef",
+    {
+        "AssociatedRoleArn": str,
+        "CertificateS3BucketName": str,
+        "CertificateS3ObjectKey": str,
+        "EncryptionKmsKeyId": str,
+    },
+    total=False,
 )
 
 AssociatedTargetNetworkTypeDef = TypedDict(
@@ -1212,6 +1251,16 @@ ClientCertificateRevocationListStatusTypeDef = TypedDict(
     total=False,
 )
 
+ClientConnectResponseOptionsTypeDef = TypedDict(
+    "ClientConnectResponseOptionsTypeDef",
+    {
+        "Enabled": bool,
+        "LambdaFunctionArn": str,
+        "Status": "ClientVpnEndpointAttributeStatusTypeDef",
+    },
+    total=False,
+)
+
 ClientVpnAuthenticationTypeDef = TypedDict(
     "ClientVpnAuthenticationTypeDef",
     {
@@ -1255,7 +1304,14 @@ ClientVpnConnectionTypeDef = TypedDict(
         "CommonName": str,
         "Status": "ClientVpnConnectionStatusTypeDef",
         "ConnectionEndTime": str,
+        "PostureComplianceStatuses": List[str],
     },
+    total=False,
+)
+
+ClientVpnEndpointAttributeStatusTypeDef = TypedDict(
+    "ClientVpnEndpointAttributeStatusTypeDef",
+    {"Code": Literal["applying", "applied"], "Message": str},
     total=False,
 )
 
@@ -1287,6 +1343,8 @@ ClientVpnEndpointTypeDef = TypedDict(
         "Tags": List["TagTypeDef"],
         "SecurityGroupIds": List[str],
         "VpcId": str,
+        "SelfServicePortalUrl": str,
+        "ClientConnectOptions": "ClientConnectResponseOptionsTypeDef",
     },
     total=False,
 )
@@ -1407,6 +1465,13 @@ CreateFleetInstanceTypeDef = TypedDict(
             "t3a.large",
             "t3a.xlarge",
             "t3a.2xlarge",
+            "t4g.nano",
+            "t4g.micro",
+            "t4g.small",
+            "t4g.medium",
+            "t4g.large",
+            "t4g.xlarge",
+            "t4g.2xlarge",
             "m1.small",
             "m1.medium",
             "m1.large",
@@ -1610,6 +1675,7 @@ CreateFleetInstanceTypeDef = TypedDict(
             "p3.8xlarge",
             "p3.16xlarge",
             "p3dn.24xlarge",
+            "p4d.24xlarge",
             "d2.xlarge",
             "d2.2xlarge",
             "d2.4xlarge",
@@ -1889,6 +1955,13 @@ DescribeFleetsInstancesTypeDef = TypedDict(
             "t3a.large",
             "t3a.xlarge",
             "t3a.2xlarge",
+            "t4g.nano",
+            "t4g.micro",
+            "t4g.small",
+            "t4g.medium",
+            "t4g.large",
+            "t4g.xlarge",
+            "t4g.2xlarge",
             "m1.small",
             "m1.medium",
             "m1.large",
@@ -2092,6 +2165,7 @@ DescribeFleetsInstancesTypeDef = TypedDict(
             "p3.8xlarge",
             "p3.16xlarge",
             "p3dn.24xlarge",
+            "p4d.24xlarge",
             "d2.xlarge",
             "d2.2xlarge",
             "d2.4xlarge",
@@ -2308,7 +2382,7 @@ EbsBlockDeviceTypeDef = TypedDict(
         "Iops": int,
         "SnapshotId": str,
         "VolumeSize": int,
-        "VolumeType": Literal["standard", "io1", "gp2", "sc1", "st1"],
+        "VolumeType": Literal["standard", "io1", "io2", "gp2", "sc1", "st1"],
         "KmsKeyId": str,
         "Encrypted": bool,
     },
@@ -2449,6 +2523,8 @@ EnableFastSnapshotRestoreSuccessItemTypeDef = TypedDict(
     total=False,
 )
 
+EnclaveOptionsTypeDef = TypedDict("EnclaveOptionsTypeDef", {"Enabled": bool}, total=False)
+
 EventInformationTypeDef = TypedDict(
     "EventInformationTypeDef",
     {"EventDescription": str, "EventSubType": str, "InstanceId": str},
@@ -2506,11 +2582,15 @@ FailedQueuedPurchaseDeletionTypeDef = TypedDict(
 )
 
 FederatedAuthenticationRequestTypeDef = TypedDict(
-    "FederatedAuthenticationRequestTypeDef", {"SAMLProviderArn": str}, total=False
+    "FederatedAuthenticationRequestTypeDef",
+    {"SAMLProviderArn": str, "SelfServiceSAMLProviderArn": str},
+    total=False,
 )
 
 FederatedAuthenticationTypeDef = TypedDict(
-    "FederatedAuthenticationTypeDef", {"SamlProviderArn": str}, total=False
+    "FederatedAuthenticationTypeDef",
+    {"SamlProviderArn": str, "SelfServiceSamlProviderArn": str},
+    total=False,
 )
 
 FleetDataTypeDef = TypedDict(
@@ -2585,6 +2665,13 @@ FleetLaunchTemplateOverridesRequestTypeDef = TypedDict(
             "t3a.large",
             "t3a.xlarge",
             "t3a.2xlarge",
+            "t4g.nano",
+            "t4g.micro",
+            "t4g.small",
+            "t4g.medium",
+            "t4g.large",
+            "t4g.xlarge",
+            "t4g.2xlarge",
             "m1.small",
             "m1.medium",
             "m1.large",
@@ -2788,6 +2875,7 @@ FleetLaunchTemplateOverridesRequestTypeDef = TypedDict(
             "p3.8xlarge",
             "p3.16xlarge",
             "p3dn.24xlarge",
+            "p4d.24xlarge",
             "d2.xlarge",
             "d2.2xlarge",
             "d2.4xlarge",
@@ -2942,6 +3030,13 @@ FleetLaunchTemplateOverridesTypeDef = TypedDict(
             "t3a.large",
             "t3a.xlarge",
             "t3a.2xlarge",
+            "t4g.nano",
+            "t4g.micro",
+            "t4g.small",
+            "t4g.medium",
+            "t4g.large",
+            "t4g.xlarge",
+            "t4g.2xlarge",
             "m1.small",
             "m1.medium",
             "m1.large",
@@ -3145,6 +3240,7 @@ FleetLaunchTemplateOverridesTypeDef = TypedDict(
             "p3.8xlarge",
             "p3.16xlarge",
             "p3dn.24xlarge",
+            "p4d.24xlarge",
             "d2.xlarge",
             "d2.2xlarge",
             "d2.4xlarge",
@@ -3282,6 +3378,28 @@ FleetLaunchTemplateSpecificationRequestTypeDef = TypedDict(
 FleetLaunchTemplateSpecificationTypeDef = TypedDict(
     "FleetLaunchTemplateSpecificationTypeDef",
     {"LaunchTemplateId": str, "LaunchTemplateName": str, "Version": str},
+    total=False,
+)
+
+FleetSpotCapacityRebalanceRequestTypeDef = TypedDict(
+    "FleetSpotCapacityRebalanceRequestTypeDef",
+    {"ReplacementStrategy": Literal["launch"]},
+    total=False,
+)
+
+FleetSpotCapacityRebalanceTypeDef = TypedDict(
+    "FleetSpotCapacityRebalanceTypeDef", {"ReplacementStrategy": Literal["launch"]}, total=False
+)
+
+FleetSpotMaintenanceStrategiesRequestTypeDef = TypedDict(
+    "FleetSpotMaintenanceStrategiesRequestTypeDef",
+    {"CapacityRebalance": "FleetSpotCapacityRebalanceRequestTypeDef"},
+    total=False,
+)
+
+FleetSpotMaintenanceStrategiesTypeDef = TypedDict(
+    "FleetSpotMaintenanceStrategiesTypeDef",
+    {"CapacityRebalance": "FleetSpotCapacityRebalanceTypeDef"},
     total=False,
 )
 
@@ -3663,7 +3781,7 @@ InstanceExportDetailsTypeDef = TypedDict(
 
 InstanceFamilyCreditSpecificationTypeDef = TypedDict(
     "InstanceFamilyCreditSpecificationTypeDef",
-    {"InstanceFamily": Literal["t2", "t3", "t3a"], "CpuCredits": str},
+    {"InstanceFamily": Literal["t2", "t3", "t3a", "t4g"], "CpuCredits": str},
     total=False,
 )
 
@@ -3704,6 +3822,7 @@ InstanceNetworkInterfaceAttachmentTypeDef = TypedDict(
         "DeleteOnTermination": bool,
         "DeviceIndex": int,
         "Status": Literal["attaching", "attached", "detaching", "detached"],
+        "NetworkCardIndex": int,
     },
     total=False,
 )
@@ -3725,6 +3844,7 @@ InstanceNetworkInterfaceSpecificationTypeDef = TypedDict(
         "SubnetId": str,
         "AssociateCarrierIpAddress": bool,
         "InterfaceType": str,
+        "NetworkCardIndex": int,
     },
     total=False,
 )
@@ -3836,7 +3956,11 @@ InstanceStatusTypeDef = TypedDict(
 
 InstanceStorageInfoTypeDef = TypedDict(
     "InstanceStorageInfoTypeDef",
-    {"TotalSizeInGB": int, "Disks": List["DiskInfoTypeDef"]},
+    {
+        "TotalSizeInGB": int,
+        "Disks": List["DiskInfoTypeDef"],
+        "NvmeSupport": Literal["unsupported", "supported", "required"],
+    },
     total=False,
 )
 
@@ -3875,6 +3999,13 @@ InstanceTypeDef = TypedDict(
             "t3a.large",
             "t3a.xlarge",
             "t3a.2xlarge",
+            "t4g.nano",
+            "t4g.micro",
+            "t4g.small",
+            "t4g.medium",
+            "t4g.large",
+            "t4g.xlarge",
+            "t4g.2xlarge",
             "m1.small",
             "m1.medium",
             "m1.large",
@@ -4078,6 +4209,7 @@ InstanceTypeDef = TypedDict(
             "p3.8xlarge",
             "p3.16xlarge",
             "p3dn.24xlarge",
+            "p4d.24xlarge",
             "d2.xlarge",
             "d2.2xlarge",
             "d2.4xlarge",
@@ -4241,6 +4373,7 @@ InstanceTypeDef = TypedDict(
         "HibernationOptions": "HibernationOptionsTypeDef",
         "Licenses": List["LicenseConfigurationTypeDef"],
         "MetadataOptions": "InstanceMetadataOptionsResponseTypeDef",
+        "EnclaveOptions": "EnclaveOptionsTypeDef",
     },
     total=False,
 )
@@ -4271,6 +4404,13 @@ InstanceTypeInfoTypeDef = TypedDict(
             "t3a.large",
             "t3a.xlarge",
             "t3a.2xlarge",
+            "t4g.nano",
+            "t4g.micro",
+            "t4g.small",
+            "t4g.medium",
+            "t4g.large",
+            "t4g.xlarge",
+            "t4g.2xlarge",
             "m1.small",
             "m1.medium",
             "m1.large",
@@ -4474,6 +4614,7 @@ InstanceTypeInfoTypeDef = TypedDict(
             "p3.8xlarge",
             "p3.16xlarge",
             "p3dn.24xlarge",
+            "p4d.24xlarge",
             "d2.xlarge",
             "d2.2xlarge",
             "d2.4xlarge",
@@ -4644,6 +4785,13 @@ InstanceTypeOfferingTypeDef = TypedDict(
             "t3a.large",
             "t3a.xlarge",
             "t3a.2xlarge",
+            "t4g.nano",
+            "t4g.micro",
+            "t4g.small",
+            "t4g.medium",
+            "t4g.large",
+            "t4g.xlarge",
+            "t4g.2xlarge",
             "m1.small",
             "m1.medium",
             "m1.large",
@@ -4847,6 +4995,7 @@ InstanceTypeOfferingTypeDef = TypedDict(
             "p3.8xlarge",
             "p3.16xlarge",
             "p3dn.24xlarge",
+            "p4d.24xlarge",
             "d2.xlarge",
             "d2.2xlarge",
             "d2.4xlarge",
@@ -5072,6 +5221,13 @@ LaunchSpecificationTypeDef = TypedDict(
             "t3a.large",
             "t3a.xlarge",
             "t3a.2xlarge",
+            "t4g.nano",
+            "t4g.micro",
+            "t4g.small",
+            "t4g.medium",
+            "t4g.large",
+            "t4g.xlarge",
+            "t4g.2xlarge",
             "m1.small",
             "m1.medium",
             "m1.large",
@@ -5275,6 +5431,7 @@ LaunchSpecificationTypeDef = TypedDict(
             "p3.8xlarge",
             "p3.16xlarge",
             "p3dn.24xlarge",
+            "p4d.24xlarge",
             "d2.xlarge",
             "d2.2xlarge",
             "d2.4xlarge",
@@ -5479,7 +5636,7 @@ LaunchTemplateEbsBlockDeviceRequestTypeDef = TypedDict(
         "KmsKeyId": str,
         "SnapshotId": str,
         "VolumeSize": int,
-        "VolumeType": Literal["standard", "io1", "gp2", "sc1", "st1"],
+        "VolumeType": Literal["standard", "io1", "io2", "gp2", "sc1", "st1"],
     },
     total=False,
 )
@@ -5493,7 +5650,7 @@ LaunchTemplateEbsBlockDeviceTypeDef = TypedDict(
         "KmsKeyId": str,
         "SnapshotId": str,
         "VolumeSize": int,
-        "VolumeType": Literal["standard", "io1", "gp2", "sc1", "st1"],
+        "VolumeType": Literal["standard", "io1", "io2", "gp2", "sc1", "st1"],
     },
     total=False,
 )
@@ -5518,6 +5675,14 @@ class LaunchTemplateElasticInferenceAcceleratorTypeDef(
 ):
     pass
 
+
+LaunchTemplateEnclaveOptionsRequestTypeDef = TypedDict(
+    "LaunchTemplateEnclaveOptionsRequestTypeDef", {"Enabled": bool}, total=False
+)
+
+LaunchTemplateEnclaveOptionsTypeDef = TypedDict(
+    "LaunchTemplateEnclaveOptionsTypeDef", {"Enabled": bool}, total=False
+)
 
 LaunchTemplateHibernationOptionsRequestTypeDef = TypedDict(
     "LaunchTemplateHibernationOptionsRequestTypeDef", {"Configured": bool}, total=False
@@ -5587,6 +5752,7 @@ LaunchTemplateInstanceNetworkInterfaceSpecificationRequestTypeDef = TypedDict(
         "PrivateIpAddresses": List["PrivateIpAddressSpecificationTypeDef"],
         "SecondaryPrivateIpAddressCount": int,
         "SubnetId": str,
+        "NetworkCardIndex": int,
     },
     total=False,
 )
@@ -5608,6 +5774,7 @@ LaunchTemplateInstanceNetworkInterfaceSpecificationTypeDef = TypedDict(
         "PrivateIpAddresses": List["PrivateIpAddressSpecificationTypeDef"],
         "SecondaryPrivateIpAddressCount": int,
         "SubnetId": str,
+        "NetworkCardIndex": int,
     },
     total=False,
 )
@@ -5648,6 +5815,13 @@ LaunchTemplateOverridesTypeDef = TypedDict(
             "t3a.large",
             "t3a.xlarge",
             "t3a.2xlarge",
+            "t4g.nano",
+            "t4g.micro",
+            "t4g.small",
+            "t4g.medium",
+            "t4g.large",
+            "t4g.xlarge",
+            "t4g.2xlarge",
             "m1.small",
             "m1.medium",
             "m1.large",
@@ -5851,6 +6025,7 @@ LaunchTemplateOverridesTypeDef = TypedDict(
             "p3.8xlarge",
             "p3.16xlarge",
             "p3dn.24xlarge",
+            "p4d.24xlarge",
             "d2.xlarge",
             "d2.2xlarge",
             "d2.4xlarge",
@@ -6040,6 +6215,7 @@ LaunchTemplateTagSpecificationRequestTypeDef = TypedDict(
             "customer-gateway",
             "dedicated-host",
             "dhcp-options",
+            "egress-only-internet-gateway",
             "elastic-ip",
             "elastic-gpu",
             "export-image-task",
@@ -6093,6 +6269,7 @@ LaunchTemplateTagSpecificationTypeDef = TypedDict(
             "customer-gateway",
             "dedicated-host",
             "dhcp-options",
+            "egress-only-internet-gateway",
             "elastic-ip",
             "elastic-gpu",
             "export-image-task",
@@ -6200,8 +6377,10 @@ LocalGatewayRouteTableTypeDef = TypedDict(
     "LocalGatewayRouteTableTypeDef",
     {
         "LocalGatewayRouteTableId": str,
+        "LocalGatewayRouteTableArn": str,
         "LocalGatewayId": str,
         "OutpostArn": str,
+        "OwnerId": str,
         "State": str,
         "Tags": List["TagTypeDef"],
     },
@@ -6215,6 +6394,8 @@ LocalGatewayRouteTableVirtualInterfaceGroupAssociationTypeDef = TypedDict(
         "LocalGatewayVirtualInterfaceGroupId": str,
         "LocalGatewayId": str,
         "LocalGatewayRouteTableId": str,
+        "LocalGatewayRouteTableArn": str,
+        "OwnerId": str,
         "State": str,
         "Tags": List["TagTypeDef"],
     },
@@ -6226,8 +6407,10 @@ LocalGatewayRouteTableVpcAssociationTypeDef = TypedDict(
     {
         "LocalGatewayRouteTableVpcAssociationId": str,
         "LocalGatewayRouteTableId": str,
+        "LocalGatewayRouteTableArn": str,
         "LocalGatewayId": str,
         "VpcId": str,
+        "OwnerId": str,
         "State": str,
         "Tags": List["TagTypeDef"],
     },
@@ -6242,6 +6425,8 @@ LocalGatewayRouteTypeDef = TypedDict(
         "Type": Literal["static", "propagated"],
         "State": Literal["pending", "active", "blackhole", "deleting", "deleted"],
         "LocalGatewayRouteTableId": str,
+        "LocalGatewayRouteTableArn": str,
+        "OwnerId": str,
     },
     total=False,
 )
@@ -6264,6 +6449,7 @@ LocalGatewayVirtualInterfaceGroupTypeDef = TypedDict(
         "LocalGatewayVirtualInterfaceGroupId": str,
         "LocalGatewayVirtualInterfaceIds": List[str],
         "LocalGatewayId": str,
+        "OwnerId": str,
         "Tags": List["TagTypeDef"],
     },
     total=False,
@@ -6279,6 +6465,7 @@ LocalGatewayVirtualInterfaceTypeDef = TypedDict(
         "PeerAddress": str,
         "LocalBgpAsn": int,
         "PeerBgpAsn": int,
+        "OwnerId": str,
         "Tags": List["TagTypeDef"],
     },
     total=False,
@@ -6387,11 +6574,20 @@ NetworkAclTypeDef = TypedDict(
     total=False,
 )
 
+NetworkCardInfoTypeDef = TypedDict(
+    "NetworkCardInfoTypeDef",
+    {"NetworkCardIndex": int, "NetworkPerformance": str, "MaximumNetworkInterfaces": int},
+    total=False,
+)
+
 NetworkInfoTypeDef = TypedDict(
     "NetworkInfoTypeDef",
     {
         "NetworkPerformance": str,
         "MaximumNetworkInterfaces": int,
+        "MaximumNetworkCards": int,
+        "DefaultNetworkCardIndex": int,
+        "NetworkCards": List["NetworkCardInfoTypeDef"],
         "Ipv4AddressesPerInterface": int,
         "Ipv6AddressesPerInterface": int,
         "Ipv6Supported": bool,
@@ -6422,6 +6618,7 @@ NetworkInterfaceAttachmentTypeDef = TypedDict(
         "AttachmentId": str,
         "DeleteOnTermination": bool,
         "DeviceIndex": int,
+        "NetworkCardIndex": int,
         "InstanceId": str,
         "InstanceOwnerId": str,
         "Status": Literal["attaching", "attached", "detaching", "detached"],
@@ -6787,6 +6984,13 @@ ReservedInstancesConfigurationTypeDef = TypedDict(
             "t3a.large",
             "t3a.xlarge",
             "t3a.2xlarge",
+            "t4g.nano",
+            "t4g.micro",
+            "t4g.small",
+            "t4g.medium",
+            "t4g.large",
+            "t4g.xlarge",
+            "t4g.2xlarge",
             "m1.small",
             "m1.medium",
             "m1.large",
@@ -6990,6 +7194,7 @@ ReservedInstancesConfigurationTypeDef = TypedDict(
             "p3.8xlarge",
             "p3.16xlarge",
             "p3dn.24xlarge",
+            "p4d.24xlarge",
             "d2.xlarge",
             "d2.2xlarge",
             "d2.4xlarge",
@@ -7186,6 +7391,13 @@ ReservedInstancesOfferingTypeDef = TypedDict(
             "t3a.large",
             "t3a.xlarge",
             "t3a.2xlarge",
+            "t4g.nano",
+            "t4g.micro",
+            "t4g.small",
+            "t4g.medium",
+            "t4g.large",
+            "t4g.xlarge",
+            "t4g.2xlarge",
             "m1.small",
             "m1.medium",
             "m1.large",
@@ -7389,6 +7601,7 @@ ReservedInstancesOfferingTypeDef = TypedDict(
             "p3.8xlarge",
             "p3.16xlarge",
             "p3dn.24xlarge",
+            "p4d.24xlarge",
             "d2.xlarge",
             "d2.2xlarge",
             "d2.4xlarge",
@@ -7562,6 +7775,13 @@ ReservedInstancesTypeDef = TypedDict(
             "t3a.large",
             "t3a.xlarge",
             "t3a.2xlarge",
+            "t4g.nano",
+            "t4g.micro",
+            "t4g.small",
+            "t4g.medium",
+            "t4g.large",
+            "t4g.xlarge",
+            "t4g.2xlarge",
             "m1.small",
             "m1.medium",
             "m1.large",
@@ -7765,6 +7985,7 @@ ReservedInstancesTypeDef = TypedDict(
             "p3.8xlarge",
             "p3.16xlarge",
             "p3dn.24xlarge",
+            "p4d.24xlarge",
             "d2.xlarge",
             "d2.2xlarge",
             "d2.4xlarge",
@@ -7958,6 +8179,13 @@ ResponseLaunchTemplateDataTypeDef = TypedDict(
             "t3a.large",
             "t3a.xlarge",
             "t3a.2xlarge",
+            "t4g.nano",
+            "t4g.micro",
+            "t4g.small",
+            "t4g.medium",
+            "t4g.large",
+            "t4g.xlarge",
+            "t4g.2xlarge",
             "m1.small",
             "m1.medium",
             "m1.large",
@@ -8161,6 +8389,7 @@ ResponseLaunchTemplateDataTypeDef = TypedDict(
             "p3.8xlarge",
             "p3.16xlarge",
             "p3dn.24xlarge",
+            "p4d.24xlarge",
             "d2.xlarge",
             "d2.2xlarge",
             "d2.4xlarge",
@@ -8300,6 +8529,7 @@ ResponseLaunchTemplateDataTypeDef = TypedDict(
         "LicenseSpecifications": List["LaunchTemplateLicenseConfigurationTypeDef"],
         "HibernationOptions": "LaunchTemplateHibernationOptionsTypeDef",
         "MetadataOptions": "LaunchTemplateInstanceMetadataOptionsTypeDef",
+        "EnclaveOptions": "LaunchTemplateEnclaveOptionsTypeDef",
     },
     total=False,
 )
@@ -8372,7 +8602,7 @@ S3StorageTypeDef = TypedDict(
         "AWSAccessKeyId": str,
         "Bucket": str,
         "Prefix": str,
-        "UploadPolicy": bytes,
+        "UploadPolicy": Union[bytes, IO[bytes]],
         "UploadPolicySignature": str,
     },
     total=False,
@@ -8528,6 +8758,7 @@ ServiceConfigurationTypeDef = TypedDict(
         "AcceptanceRequired": bool,
         "ManagesVpcEndpoints": bool,
         "NetworkLoadBalancerArns": List[str],
+        "GatewayLoadBalancerArns": List[str],
         "BaseEndpointDnsNames": List[str],
         "PrivateDnsName": str,
         "PrivateDnsNameConfiguration": "PrivateDnsNameConfigurationTypeDef",
@@ -8556,7 +8787,9 @@ ServiceDetailTypeDef = TypedDict(
 )
 
 ServiceTypeDetailTypeDef = TypedDict(
-    "ServiceTypeDetailTypeDef", {"ServiceType": Literal["Interface", "Gateway"]}, total=False
+    "ServiceTypeDetailTypeDef",
+    {"ServiceType": Literal["Interface", "Gateway", "GatewayLoadBalancer"]},
+    total=False,
 )
 
 SnapshotDetailTypeDef = TypedDict(
@@ -8632,6 +8865,10 @@ SnapshotTypeDef = TypedDict(
     total=False,
 )
 
+SpotCapacityRebalanceTypeDef = TypedDict(
+    "SpotCapacityRebalanceTypeDef", {"ReplacementStrategy": Literal["launch"]}, total=False
+)
+
 SpotDatafeedSubscriptionTypeDef = TypedDict(
     "SpotDatafeedSubscriptionTypeDef",
     {
@@ -8676,6 +8913,13 @@ SpotFleetLaunchSpecificationTypeDef = TypedDict(
             "t3a.large",
             "t3a.xlarge",
             "t3a.2xlarge",
+            "t4g.nano",
+            "t4g.micro",
+            "t4g.small",
+            "t4g.medium",
+            "t4g.large",
+            "t4g.xlarge",
+            "t4g.2xlarge",
             "m1.small",
             "m1.medium",
             "m1.large",
@@ -8879,6 +9123,7 @@ SpotFleetLaunchSpecificationTypeDef = TypedDict(
             "p3.8xlarge",
             "p3.16xlarge",
             "p3dn.24xlarge",
+            "p4d.24xlarge",
             "d2.xlarge",
             "d2.2xlarge",
             "d2.4xlarge",
@@ -9022,6 +9267,7 @@ _OptionalSpotFleetRequestConfigDataTypeDef = TypedDict(
     {
         "AllocationStrategy": Literal["lowestPrice", "diversified", "capacityOptimized"],
         "OnDemandAllocationStrategy": Literal["lowestPrice", "prioritized"],
+        "SpotMaintenanceStrategies": "SpotMaintenanceStrategiesTypeDef",
         "ClientToken": str,
         "ExcessCapacityTerminationPolicy": Literal["noTermination", "default"],
         "FulfilledCapacity": float,
@@ -9083,6 +9329,7 @@ SpotFleetTagSpecificationTypeDef = TypedDict(
             "customer-gateway",
             "dedicated-host",
             "dhcp-options",
+            "egress-only-internet-gateway",
             "elastic-ip",
             "elastic-gpu",
             "export-image-task",
@@ -9164,6 +9411,12 @@ SpotInstanceStatusTypeDef = TypedDict(
     "SpotInstanceStatusTypeDef", {"Code": str, "Message": str, "UpdateTime": datetime}, total=False
 )
 
+SpotMaintenanceStrategiesTypeDef = TypedDict(
+    "SpotMaintenanceStrategiesTypeDef",
+    {"CapacityRebalance": "SpotCapacityRebalanceTypeDef"},
+    total=False,
+)
+
 SpotMarketOptionsTypeDef = TypedDict(
     "SpotMarketOptionsTypeDef",
     {
@@ -9180,6 +9433,7 @@ SpotOptionsTypeDef = TypedDict(
     "SpotOptionsTypeDef",
     {
         "AllocationStrategy": Literal["lowest-price", "diversified", "capacity-optimized"],
+        "MaintenanceStrategies": "FleetSpotMaintenanceStrategiesTypeDef",
         "InstanceInterruptionBehavior": Literal["hibernate", "stop", "terminate"],
         "InstancePoolsToUseCount": int,
         "SingleInstanceType": bool,
@@ -9223,6 +9477,13 @@ SpotPriceTypeDef = TypedDict(
             "t3a.large",
             "t3a.xlarge",
             "t3a.2xlarge",
+            "t4g.nano",
+            "t4g.micro",
+            "t4g.small",
+            "t4g.medium",
+            "t4g.large",
+            "t4g.xlarge",
+            "t4g.2xlarge",
             "m1.small",
             "m1.medium",
             "m1.large",
@@ -9426,6 +9687,7 @@ SpotPriceTypeDef = TypedDict(
             "p3.8xlarge",
             "p3.16xlarge",
             "p3dn.24xlarge",
+            "p4d.24xlarge",
             "d2.xlarge",
             "d2.2xlarge",
             "d2.4xlarge",
@@ -9655,6 +9917,7 @@ TagDescriptionTypeDef = TypedDict(
             "customer-gateway",
             "dedicated-host",
             "dhcp-options",
+            "egress-only-internet-gateway",
             "elastic-ip",
             "elastic-gpu",
             "export-image-task",
@@ -9708,6 +9971,7 @@ TagSpecificationTypeDef = TypedDict(
             "customer-gateway",
             "dedicated-host",
             "dhcp-options",
+            "egress-only-internet-gateway",
             "elastic-ip",
             "elastic-gpu",
             "export-image-task",
@@ -9878,7 +10142,7 @@ TransitGatewayAssociationTypeDef = TypedDict(
         "TransitGatewayRouteTableId": str,
         "TransitGatewayAttachmentId": str,
         "ResourceId": str,
-        "ResourceType": Literal["vpc", "vpn", "direct-connect-gateway", "tgw-peering"],
+        "ResourceType": Literal["vpc", "vpn", "direct-connect-gateway", "peering", "tgw-peering"],
         "State": Literal["associating", "associated", "disassociating", "disassociated"],
     },
     total=False,
@@ -9909,10 +10173,11 @@ TransitGatewayAttachmentTypeDef = TypedDict(
         "TransitGatewayId": str,
         "TransitGatewayOwnerId": str,
         "ResourceOwnerId": str,
-        "ResourceType": Literal["vpc", "vpn", "direct-connect-gateway", "tgw-peering"],
+        "ResourceType": Literal["vpc", "vpn", "direct-connect-gateway", "peering", "tgw-peering"],
         "ResourceId": str,
         "State": Literal[
             "initiating",
+            "initiatingRequest",
             "pendingAcceptance",
             "rollingBack",
             "pending",
@@ -9957,7 +10222,7 @@ TransitGatewayMulticastDomainAssociationTypeDef = TypedDict(
     {
         "TransitGatewayAttachmentId": str,
         "ResourceId": str,
-        "ResourceType": Literal["vpc", "vpn", "direct-connect-gateway", "tgw-peering"],
+        "ResourceType": Literal["vpc", "vpn", "direct-connect-gateway", "peering", "tgw-peering"],
         "Subnet": "SubnetAssociationTypeDef",
     },
     total=False,
@@ -9969,7 +10234,7 @@ TransitGatewayMulticastDomainAssociationsTypeDef = TypedDict(
         "TransitGatewayMulticastDomainId": str,
         "TransitGatewayAttachmentId": str,
         "ResourceId": str,
-        "ResourceType": Literal["vpc", "vpn", "direct-connect-gateway", "tgw-peering"],
+        "ResourceType": Literal["vpc", "vpn", "direct-connect-gateway", "peering", "tgw-peering"],
         "Subnets": List["SubnetAssociationTypeDef"],
     },
     total=False,
@@ -9994,7 +10259,7 @@ TransitGatewayMulticastGroupTypeDef = TypedDict(
         "TransitGatewayAttachmentId": str,
         "SubnetId": str,
         "ResourceId": str,
-        "ResourceType": Literal["vpc", "vpn", "direct-connect-gateway", "tgw-peering"],
+        "ResourceType": Literal["vpc", "vpn", "direct-connect-gateway", "peering", "tgw-peering"],
         "NetworkInterfaceId": str,
         "GroupMember": bool,
         "GroupSource": bool,
@@ -10049,6 +10314,7 @@ TransitGatewayPeeringAttachmentTypeDef = TypedDict(
         "Status": "PeeringAttachmentStatusTypeDef",
         "State": Literal[
             "initiating",
+            "initiatingRequest",
             "pendingAcceptance",
             "rollingBack",
             "pending",
@@ -10067,12 +10333,35 @@ TransitGatewayPeeringAttachmentTypeDef = TypedDict(
     total=False,
 )
 
+TransitGatewayPrefixListAttachmentTypeDef = TypedDict(
+    "TransitGatewayPrefixListAttachmentTypeDef",
+    {
+        "TransitGatewayAttachmentId": str,
+        "ResourceType": Literal["vpc", "vpn", "direct-connect-gateway", "peering", "tgw-peering"],
+        "ResourceId": str,
+    },
+    total=False,
+)
+
+TransitGatewayPrefixListReferenceTypeDef = TypedDict(
+    "TransitGatewayPrefixListReferenceTypeDef",
+    {
+        "TransitGatewayRouteTableId": str,
+        "PrefixListId": str,
+        "PrefixListOwnerId": str,
+        "State": Literal["pending", "available", "modifying", "deleting"],
+        "Blackhole": bool,
+        "TransitGatewayAttachment": "TransitGatewayPrefixListAttachmentTypeDef",
+    },
+    total=False,
+)
+
 TransitGatewayPropagationTypeDef = TypedDict(
     "TransitGatewayPropagationTypeDef",
     {
         "TransitGatewayAttachmentId": str,
         "ResourceId": str,
-        "ResourceType": Literal["vpc", "vpn", "direct-connect-gateway", "tgw-peering"],
+        "ResourceType": Literal["vpc", "vpn", "direct-connect-gateway", "peering", "tgw-peering"],
         "TransitGatewayRouteTableId": str,
         "State": Literal["enabling", "enabled", "disabling", "disabled"],
     },
@@ -10084,7 +10373,7 @@ TransitGatewayRouteAttachmentTypeDef = TypedDict(
     {
         "ResourceId": str,
         "TransitGatewayAttachmentId": str,
-        "ResourceType": Literal["vpc", "vpn", "direct-connect-gateway", "tgw-peering"],
+        "ResourceType": Literal["vpc", "vpn", "direct-connect-gateway", "peering", "tgw-peering"],
     },
     total=False,
 )
@@ -10094,7 +10383,7 @@ TransitGatewayRouteTableAssociationTypeDef = TypedDict(
     {
         "TransitGatewayAttachmentId": str,
         "ResourceId": str,
-        "ResourceType": Literal["vpc", "vpn", "direct-connect-gateway", "tgw-peering"],
+        "ResourceType": Literal["vpc", "vpn", "direct-connect-gateway", "peering", "tgw-peering"],
         "State": Literal["associating", "associated", "disassociating", "disassociated"],
     },
     total=False,
@@ -10105,7 +10394,7 @@ TransitGatewayRouteTablePropagationTypeDef = TypedDict(
     {
         "TransitGatewayAttachmentId": str,
         "ResourceId": str,
-        "ResourceType": Literal["vpc", "vpn", "direct-connect-gateway", "tgw-peering"],
+        "ResourceType": Literal["vpc", "vpn", "direct-connect-gateway", "peering", "tgw-peering"],
         "State": Literal["enabling", "enabled", "disabling", "disabled"],
     },
     total=False,
@@ -10129,6 +10418,7 @@ TransitGatewayRouteTypeDef = TypedDict(
     "TransitGatewayRouteTypeDef",
     {
         "DestinationCidrBlock": str,
+        "PrefixListId": str,
         "TransitGatewayAttachments": List["TransitGatewayRouteAttachmentTypeDef"],
         "Type": Literal["static", "propagated"],
         "State": Literal["pending", "active", "blackhole", "deleting", "deleted"],
@@ -10153,7 +10443,11 @@ TransitGatewayTypeDef = TypedDict(
 
 TransitGatewayVpcAttachmentOptionsTypeDef = TypedDict(
     "TransitGatewayVpcAttachmentOptionsTypeDef",
-    {"DnsSupport": Literal["enable", "disable"], "Ipv6Support": Literal["enable", "disable"]},
+    {
+        "DnsSupport": Literal["enable", "disable"],
+        "Ipv6Support": Literal["enable", "disable"],
+        "ApplianceModeSupport": Literal["enable", "disable"],
+    },
     total=False,
 )
 
@@ -10166,6 +10460,7 @@ TransitGatewayVpcAttachmentTypeDef = TypedDict(
         "VpcOwnerId": str,
         "State": Literal[
             "initiating",
+            "initiatingRequest",
             "pendingAcceptance",
             "rollingBack",
             "pending",
@@ -10199,6 +10494,7 @@ TunnelOptionTypeDef = TypedDict(
         "RekeyFuzzPercentage": int,
         "ReplayWindowSize": int,
         "DpdTimeoutSeconds": int,
+        "DpdTimeoutAction": str,
         "Phase1EncryptionAlgorithms": List["Phase1EncryptionAlgorithmsListValueTypeDef"],
         "Phase2EncryptionAlgorithms": List["Phase2EncryptionAlgorithmsListValueTypeDef"],
         "Phase1IntegrityAlgorithms": List["Phase1IntegrityAlgorithmsListValueTypeDef"],
@@ -10206,6 +10502,7 @@ TunnelOptionTypeDef = TypedDict(
         "Phase1DHGroupNumbers": List["Phase1DHGroupNumbersListValueTypeDef"],
         "Phase2DHGroupNumbers": List["Phase2DHGroupNumbersListValueTypeDef"],
         "IkeVersions": List["IKEVersionsListValueTypeDef"],
+        "StartupAction": str,
     },
     total=False,
 )
@@ -10318,10 +10615,10 @@ VolumeModificationTypeDef = TypedDict(
         "StatusMessage": str,
         "TargetSize": int,
         "TargetIops": int,
-        "TargetVolumeType": Literal["standard", "io1", "gp2", "sc1", "st1"],
+        "TargetVolumeType": Literal["standard", "io1", "io2", "gp2", "sc1", "st1"],
         "OriginalSize": int,
         "OriginalIops": int,
-        "OriginalVolumeType": Literal["standard", "io1", "gp2", "sc1", "st1"],
+        "OriginalVolumeType": Literal["standard", "io1", "io2", "gp2", "sc1", "st1"],
         "Progress": int,
         "StartTime": datetime,
         "EndTime": datetime,
@@ -10396,7 +10693,7 @@ VolumeTypeDef = TypedDict(
         "VolumeId": str,
         "Iops": int,
         "Tags": List["TagTypeDef"],
-        "VolumeType": Literal["standard", "io1", "gp2", "sc1", "st1"],
+        "VolumeType": Literal["standard", "io1", "io2", "gp2", "sc1", "st1"],
         "FastRestored": bool,
         "MultiAttachEnabled": bool,
     },
@@ -10451,6 +10748,7 @@ VpcEndpointConnectionTypeDef = TypedDict(
         "CreationTimestamp": datetime,
         "DnsEntries": List["DnsEntryTypeDef"],
         "NetworkLoadBalancerArns": List[str],
+        "GatewayLoadBalancerArns": List[str],
     },
     total=False,
 )
@@ -10459,7 +10757,7 @@ VpcEndpointTypeDef = TypedDict(
     "VpcEndpointTypeDef",
     {
         "VpcEndpointId": str,
-        "VpcEndpointType": Literal["Interface", "Gateway"],
+        "VpcEndpointType": Literal["Interface", "Gateway", "GatewayLoadBalancer"],
         "VpcId": str,
         "ServiceName": str,
         "State": Literal[
@@ -10578,6 +10876,10 @@ VpnConnectionOptionsTypeDef = TypedDict(
     {
         "EnableAcceleration": bool,
         "StaticRoutesOnly": bool,
+        "LocalIpv4NetworkCidr": str,
+        "RemoteIpv4NetworkCidr": str,
+        "LocalIpv6NetworkCidr": str,
+        "RemoteIpv6NetworkCidr": str,
         "TunnelInsideIpVersion": Literal["ipv4", "ipv6"],
         "TunnelOptions": List["TunnelOptionTypeDef"],
     },
@@ -10639,6 +10941,7 @@ VpnTunnelOptionsSpecificationTypeDef = TypedDict(
         "RekeyFuzzPercentage": int,
         "ReplayWindowSize": int,
         "DPDTimeoutSeconds": int,
+        "DPDTimeoutAction": str,
         "Phase1EncryptionAlgorithms": List["Phase1EncryptionAlgorithmsRequestListValueTypeDef"],
         "Phase2EncryptionAlgorithms": List["Phase2EncryptionAlgorithmsRequestListValueTypeDef"],
         "Phase1IntegrityAlgorithms": List["Phase1IntegrityAlgorithmsRequestListValueTypeDef"],
@@ -10646,6 +10949,7 @@ VpnTunnelOptionsSpecificationTypeDef = TypedDict(
         "Phase1DHGroupNumbers": List["Phase1DHGroupNumbersRequestListValueTypeDef"],
         "Phase2DHGroupNumbers": List["Phase2DHGroupNumbersRequestListValueTypeDef"],
         "IKEVersions": List["IKEVersionsRequestListValueTypeDef"],
+        "StartupAction": str,
     },
     total=False,
 )
@@ -10744,6 +11048,12 @@ AssociateClientVpnTargetNetworkResultTypeDef = TypedDict(
     total=False,
 )
 
+AssociateEnclaveCertificateIamRoleResultTypeDef = TypedDict(
+    "AssociateEnclaveCertificateIamRoleResultTypeDef",
+    {"CertificateS3BucketName": str, "CertificateS3ObjectKey": str, "EncryptionKmsKeyId": str},
+    total=False,
+)
+
 AssociateIamInstanceProfileResultTypeDef = TypedDict(
     "AssociateIamInstanceProfileResultTypeDef",
     {"IamInstanceProfileAssociation": "IamInstanceProfileAssociationTypeDef"},
@@ -10789,7 +11099,9 @@ AttachClassicLinkVpcResultTypeDef = TypedDict(
 )
 
 AttachNetworkInterfaceResultTypeDef = TypedDict(
-    "AttachNetworkInterfaceResultTypeDef", {"AttachmentId": str}, total=False
+    "AttachNetworkInterfaceResultTypeDef",
+    {"AttachmentId": str, "NetworkCardIndex": int},
+    total=False,
 )
 
 AttachVpnGatewayResultTypeDef = TypedDict(
@@ -10802,7 +11114,9 @@ AuthorizeClientVpnIngressResultTypeDef = TypedDict(
     total=False,
 )
 
-BlobAttributeValueTypeDef = TypedDict("BlobAttributeValueTypeDef", {"Value": bytes}, total=False)
+BlobAttributeValueTypeDef = TypedDict(
+    "BlobAttributeValueTypeDef", {"Value": Union[bytes, IO[bytes]]}, total=False
+)
 
 BundleInstanceResultTypeDef = TypedDict(
     "BundleInstanceResultTypeDef", {"BundleTask": "BundleTaskTypeDef"}, total=False
@@ -10854,6 +11168,10 @@ CapacityReservationSpecificationTypeDef = TypedDict(
 
 CidrAuthorizationContextTypeDef = TypedDict(
     "CidrAuthorizationContextTypeDef", {"Message": str, "Signature": str}
+)
+
+ClientConnectOptionsTypeDef = TypedDict(
+    "ClientConnectOptionsTypeDef", {"Enabled": bool, "LambdaFunctionArn": str}, total=False
 )
 
 ClientDataTypeDef = TypedDict(
@@ -11094,6 +11412,12 @@ CreateTransitGatewayPeeringAttachmentResultTypeDef = TypedDict(
     total=False,
 )
 
+CreateTransitGatewayPrefixListReferenceResultTypeDef = TypedDict(
+    "CreateTransitGatewayPrefixListReferenceResultTypeDef",
+    {"TransitGatewayPrefixListReference": "TransitGatewayPrefixListReferenceTypeDef"},
+    total=False,
+)
+
 CreateTransitGatewayResultTypeDef = TypedDict(
     "CreateTransitGatewayResultTypeDef", {"TransitGateway": "TransitGatewayTypeDef"}, total=False
 )
@@ -11110,7 +11434,11 @@ CreateTransitGatewayRouteTableResultTypeDef = TypedDict(
 
 CreateTransitGatewayVpcAttachmentRequestOptionsTypeDef = TypedDict(
     "CreateTransitGatewayVpcAttachmentRequestOptionsTypeDef",
-    {"DnsSupport": Literal["enable", "disable"], "Ipv6Support": Literal["enable", "disable"]},
+    {
+        "DnsSupport": Literal["enable", "disable"],
+        "Ipv6Support": Literal["enable", "disable"],
+        "ApplianceModeSupport": Literal["enable", "disable"],
+    },
     total=False,
 )
 
@@ -11268,6 +11596,12 @@ DeleteTransitGatewayMulticastDomainResultTypeDef = TypedDict(
 DeleteTransitGatewayPeeringAttachmentResultTypeDef = TypedDict(
     "DeleteTransitGatewayPeeringAttachmentResultTypeDef",
     {"TransitGatewayPeeringAttachment": "TransitGatewayPeeringAttachmentTypeDef"},
+    total=False,
+)
+
+DeleteTransitGatewayPrefixListReferenceResultTypeDef = TypedDict(
+    "DeleteTransitGatewayPrefixListReferenceResultTypeDef",
+    {"TransitGatewayPrefixListReference": "TransitGatewayPrefixListReferenceTypeDef"},
     total=False,
 )
 
@@ -12096,6 +12430,10 @@ DisassociateClientVpnTargetNetworkResultTypeDef = TypedDict(
     total=False,
 )
 
+DisassociateEnclaveCertificateIamRoleResultTypeDef = TypedDict(
+    "DisassociateEnclaveCertificateIamRoleResultTypeDef", {"Return": bool}, total=False
+)
+
 DisassociateIamInstanceProfileResultTypeDef = TypedDict(
     "DisassociateIamInstanceProfileResultTypeDef",
     {"IamInstanceProfileAssociation": "IamInstanceProfileAssociationTypeDef"},
@@ -12183,6 +12521,10 @@ EnableVpcClassicLinkResultTypeDef = TypedDict(
     "EnableVpcClassicLinkResultTypeDef", {"Return": bool}, total=False
 )
 
+EnclaveOptionsRequestTypeDef = TypedDict(
+    "EnclaveOptionsRequestTypeDef", {"Enabled": bool}, total=False
+)
+
 ExportClientVpnClientCertificateRevocationListResultTypeDef = TypedDict(
     "ExportClientVpnClientCertificateRevocationListResultTypeDef",
     {"CertificateRevocationList": str, "Status": "ClientCertificateRevocationListStatusTypeDef"},
@@ -12247,6 +12589,12 @@ FleetLaunchTemplateConfigRequestTypeDef = TypedDict(
         "LaunchTemplateSpecification": "FleetLaunchTemplateSpecificationRequestTypeDef",
         "Overrides": List["FleetLaunchTemplateOverridesRequestTypeDef"],
     },
+    total=False,
+)
+
+GetAssociatedEnclaveCertificateIamRolesResultTypeDef = TypedDict(
+    "GetAssociatedEnclaveCertificateIamRolesResultTypeDef",
+    {"AssociatedRoles": List["AssociatedRoleTypeDef"]},
     total=False,
 )
 
@@ -12379,6 +12727,15 @@ GetTransitGatewayMulticastDomainAssociationsResultTypeDef = TypedDict(
     total=False,
 )
 
+GetTransitGatewayPrefixListReferencesResultTypeDef = TypedDict(
+    "GetTransitGatewayPrefixListReferencesResultTypeDef",
+    {
+        "TransitGatewayPrefixListReferences": List["TransitGatewayPrefixListReferenceTypeDef"],
+        "NextToken": str,
+    },
+    total=False,
+)
+
 GetTransitGatewayRouteTableAssociationsResultTypeDef = TypedDict(
     "GetTransitGatewayRouteTableAssociationsResultTypeDef",
     {"Associations": List["TransitGatewayRouteTableAssociationTypeDef"], "NextToken": str},
@@ -12487,6 +12844,13 @@ ImportInstanceLaunchSpecificationTypeDef = TypedDict(
             "t3a.large",
             "t3a.xlarge",
             "t3a.2xlarge",
+            "t4g.nano",
+            "t4g.micro",
+            "t4g.small",
+            "t4g.medium",
+            "t4g.large",
+            "t4g.xlarge",
+            "t4g.2xlarge",
             "m1.small",
             "m1.medium",
             "m1.large",
@@ -12690,6 +13054,7 @@ ImportInstanceLaunchSpecificationTypeDef = TypedDict(
             "p3.8xlarge",
             "p3.16xlarge",
             "p3dn.24xlarge",
+            "p4d.24xlarge",
             "d2.xlarge",
             "d2.2xlarge",
             "d2.4xlarge",
@@ -12849,6 +13214,7 @@ InstanceAttributeTypeDef = TypedDict(
         "BlockDeviceMappings": List["InstanceBlockDeviceMappingTypeDef"],
         "DisableApiTermination": "AttributeBooleanValueTypeDef",
         "EnaSupport": "AttributeBooleanValueTypeDef",
+        "EnclaveOptions": "EnclaveOptionsTypeDef",
         "EbsOptimized": "AttributeBooleanValueTypeDef",
         "InstanceId": str,
         "InstanceInitiatedShutdownBehavior": "AttributeValueTypeDef",
@@ -13036,9 +13402,37 @@ ModifyTrafficMirrorSessionResultTypeDef = TypedDict(
     total=False,
 )
 
+ModifyTransitGatewayOptionsTypeDef = TypedDict(
+    "ModifyTransitGatewayOptionsTypeDef",
+    {
+        "VpnEcmpSupport": Literal["enable", "disable"],
+        "DnsSupport": Literal["enable", "disable"],
+        "AutoAcceptSharedAttachments": Literal["enable", "disable"],
+        "DefaultRouteTableAssociation": Literal["enable", "disable"],
+        "AssociationDefaultRouteTableId": str,
+        "DefaultRouteTablePropagation": Literal["enable", "disable"],
+        "PropagationDefaultRouteTableId": str,
+    },
+    total=False,
+)
+
+ModifyTransitGatewayPrefixListReferenceResultTypeDef = TypedDict(
+    "ModifyTransitGatewayPrefixListReferenceResultTypeDef",
+    {"TransitGatewayPrefixListReference": "TransitGatewayPrefixListReferenceTypeDef"},
+    total=False,
+)
+
+ModifyTransitGatewayResultTypeDef = TypedDict(
+    "ModifyTransitGatewayResultTypeDef", {"TransitGateway": "TransitGatewayTypeDef"}, total=False
+)
+
 ModifyTransitGatewayVpcAttachmentRequestOptionsTypeDef = TypedDict(
     "ModifyTransitGatewayVpcAttachmentRequestOptionsTypeDef",
-    {"DnsSupport": Literal["enable", "disable"], "Ipv6Support": Literal["enable", "disable"]},
+    {
+        "DnsSupport": Literal["enable", "disable"],
+        "Ipv6Support": Literal["enable", "disable"],
+        "ApplianceModeSupport": Literal["enable", "disable"],
+    },
     total=False,
 )
 
@@ -13081,6 +13475,12 @@ ModifyVpcTenancyResultTypeDef = TypedDict(
     "ModifyVpcTenancyResultTypeDef", {"ReturnValue": bool}, total=False
 )
 
+ModifyVpnConnectionOptionsResultTypeDef = TypedDict(
+    "ModifyVpnConnectionOptionsResultTypeDef",
+    {"VpnConnection": "VpnConnectionTypeDef"},
+    total=False,
+)
+
 ModifyVpnConnectionResultTypeDef = TypedDict(
     "ModifyVpnConnectionResultTypeDef", {"VpnConnection": "VpnConnectionTypeDef"}, total=False
 )
@@ -13107,6 +13507,7 @@ ModifyVpnTunnelOptionsSpecificationTypeDef = TypedDict(
         "RekeyFuzzPercentage": int,
         "ReplayWindowSize": int,
         "DPDTimeoutSeconds": int,
+        "DPDTimeoutAction": str,
         "Phase1EncryptionAlgorithms": List["Phase1EncryptionAlgorithmsRequestListValueTypeDef"],
         "Phase2EncryptionAlgorithms": List["Phase2EncryptionAlgorithmsRequestListValueTypeDef"],
         "Phase1IntegrityAlgorithms": List["Phase1IntegrityAlgorithmsRequestListValueTypeDef"],
@@ -13114,6 +13515,7 @@ ModifyVpnTunnelOptionsSpecificationTypeDef = TypedDict(
         "Phase1DHGroupNumbers": List["Phase1DHGroupNumbersRequestListValueTypeDef"],
         "Phase2DHGroupNumbers": List["Phase2DHGroupNumbersRequestListValueTypeDef"],
         "IKEVersions": List["IKEVersionsRequestListValueTypeDef"],
+        "StartupAction": str,
     },
     total=False,
 )
@@ -13313,6 +13715,13 @@ RequestLaunchTemplateDataTypeDef = TypedDict(
             "t3a.large",
             "t3a.xlarge",
             "t3a.2xlarge",
+            "t4g.nano",
+            "t4g.micro",
+            "t4g.small",
+            "t4g.medium",
+            "t4g.large",
+            "t4g.xlarge",
+            "t4g.2xlarge",
             "m1.small",
             "m1.medium",
             "m1.large",
@@ -13516,6 +13925,7 @@ RequestLaunchTemplateDataTypeDef = TypedDict(
             "p3.8xlarge",
             "p3.16xlarge",
             "p3dn.24xlarge",
+            "p4d.24xlarge",
             "d2.xlarge",
             "d2.2xlarge",
             "d2.4xlarge",
@@ -13653,6 +14063,7 @@ RequestLaunchTemplateDataTypeDef = TypedDict(
         "LicenseSpecifications": List["LaunchTemplateLicenseConfigurationRequestTypeDef"],
         "HibernationOptions": "LaunchTemplateHibernationOptionsRequestTypeDef",
         "MetadataOptions": "LaunchTemplateInstanceMetadataOptionsRequestTypeDef",
+        "EnclaveOptions": "LaunchTemplateEnclaveOptionsRequestTypeDef",
     },
     total=False,
 )
@@ -13700,6 +14111,13 @@ RequestSpotLaunchSpecificationTypeDef = TypedDict(
             "t3a.large",
             "t3a.xlarge",
             "t3a.2xlarge",
+            "t4g.nano",
+            "t4g.micro",
+            "t4g.small",
+            "t4g.medium",
+            "t4g.large",
+            "t4g.xlarge",
+            "t4g.2xlarge",
             "m1.small",
             "m1.medium",
             "m1.large",
@@ -13903,6 +14321,7 @@ RequestSpotLaunchSpecificationTypeDef = TypedDict(
             "p3.8xlarge",
             "p3.16xlarge",
             "p3dn.24xlarge",
+            "p4d.24xlarge",
             "d2.xlarge",
             "d2.2xlarge",
             "d2.4xlarge",
@@ -14065,6 +14484,18 @@ RevokeClientVpnIngressResultTypeDef = TypedDict(
     total=False,
 )
 
+RevokeSecurityGroupEgressResultTypeDef = TypedDict(
+    "RevokeSecurityGroupEgressResultTypeDef",
+    {"Return": bool, "UnknownIpPermissions": List["IpPermissionTypeDef"]},
+    total=False,
+)
+
+RevokeSecurityGroupIngressResultTypeDef = TypedDict(
+    "RevokeSecurityGroupIngressResultTypeDef",
+    {"Return": bool, "UnknownIpPermissions": List["IpPermissionTypeDef"]},
+    total=False,
+)
+
 RunScheduledInstancesResultTypeDef = TypedDict(
     "RunScheduledInstancesResultTypeDef", {"InstanceIdSet": List[str]}, total=False
 )
@@ -14150,6 +14581,7 @@ SpotOptionsRequestTypeDef = TypedDict(
     "SpotOptionsRequestTypeDef",
     {
         "AllocationStrategy": Literal["lowest-price", "diversified", "capacity-optimized"],
+        "MaintenanceStrategies": "FleetSpotMaintenanceStrategiesRequestTypeDef",
         "InstanceInterruptionBehavior": Literal["hibernate", "stop", "terminate"],
         "InstancePoolsToUseCount": int,
         "SingleInstanceType": bool,
@@ -14284,6 +14716,10 @@ VpnConnectionOptionsSpecificationTypeDef = TypedDict(
         "StaticRoutesOnly": bool,
         "TunnelInsideIpVersion": Literal["ipv4", "ipv6"],
         "TunnelOptions": List["VpnTunnelOptionsSpecificationTypeDef"],
+        "LocalIpv4NetworkCidr": str,
+        "RemoteIpv4NetworkCidr": str,
+        "LocalIpv6NetworkCidr": str,
+        "RemoteIpv6NetworkCidr": str,
     },
     total=False,
 )

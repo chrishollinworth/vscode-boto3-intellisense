@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import IO, Any, Dict, List, Union
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -108,7 +107,7 @@ AndStatementTypeDef = TypedDict("AndStatementTypeDef", {"Statements": List[Dict[
 ByteMatchStatementTypeDef = TypedDict(
     "ByteMatchStatementTypeDef",
     {
-        "SearchString": bytes,
+        "SearchString": Union[bytes, IO[bytes]],
         "FieldToMatch": "FieldToMatchTypeDef",
         "TextTransformations": List["TextTransformationTypeDef"],
         "PositionalConstraint": Literal[

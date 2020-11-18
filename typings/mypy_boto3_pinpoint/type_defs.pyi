@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Dict, List
+from typing import IO, Dict, List, Union
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -83,7 +82,9 @@ __all__ = (
     "EndpointsResponseTypeDef",
     "EventConditionTypeDef",
     "EventDimensionsTypeDef",
+    "EventFilterTypeDef",
     "EventItemResponseTypeDef",
+    "EventStartConditionTypeDef",
     "EventStreamTypeDef",
     "EventTypeDef",
     "EventsBatchTypeDef",
@@ -851,7 +852,13 @@ CampaignStateTypeDef = TypedDict(
     "CampaignStateTypeDef",
     {
         "CampaignStatus": Literal[
-            "SCHEDULED", "EXECUTING", "PENDING_NEXT_RUN", "COMPLETED", "PAUSED", "DELETED"
+            "SCHEDULED",
+            "EXECUTING",
+            "PENDING_NEXT_RUN",
+            "COMPLETED",
+            "PAUSED",
+            "DELETED",
+            "INVALID",
         ]
     },
     total=False,
@@ -1270,8 +1277,19 @@ EventDimensionsTypeDef = TypedDict(
     total=False,
 )
 
+EventFilterTypeDef = TypedDict(
+    "EventFilterTypeDef",
+    {"Dimensions": "EventDimensionsTypeDef", "FilterType": Literal["SYSTEM", "ENDPOINT"]},
+)
+
 EventItemResponseTypeDef = TypedDict(
     "EventItemResponseTypeDef", {"Message": str, "StatusCode": int}, total=False
+)
+
+EventStartConditionTypeDef = TypedDict(
+    "EventStartConditionTypeDef",
+    {"EventFilter": "EventFilterTypeDef", "SegmentId": str},
+    total=False,
 )
 
 _RequiredEventStreamTypeDef = TypedDict(
@@ -1882,7 +1900,7 @@ RandomSplitEntryTypeDef = TypedDict(
     "RandomSplitEntryTypeDef", {"NextActivity": str, "Percentage": int}, total=False
 )
 
-RawEmailTypeDef = TypedDict("RawEmailTypeDef", {"Data": bytes}, total=False)
+RawEmailTypeDef = TypedDict("RawEmailTypeDef", {"Data": Union[bytes, IO[bytes]]}, total=False)
 
 RecencyDimensionTypeDef = TypedDict(
     "RecencyDimensionTypeDef",
@@ -2226,7 +2244,11 @@ SimpleEmailTypeDef = TypedDict(
 
 StartConditionTypeDef = TypedDict(
     "StartConditionTypeDef",
-    {"Description": str, "SegmentStartCondition": "SegmentConditionTypeDef"},
+    {
+        "Description": str,
+        "EventStartCondition": "EventStartConditionTypeDef",
+        "SegmentStartCondition": "SegmentConditionTypeDef",
+    },
     total=False,
 )
 
@@ -3289,6 +3311,7 @@ WriteApplicationSettingsRequestTypeDef = TypedDict(
     {
         "CampaignHook": "CampaignHookTypeDef",
         "CloudWatchMetricsEnabled": bool,
+        "EventTaggingEnabled": bool,
         "Limits": "CampaignLimitsTypeDef",
         "QuietTime": "QuietTimeTypeDef",
     },

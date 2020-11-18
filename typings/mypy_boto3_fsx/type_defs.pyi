@@ -17,7 +17,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -28,6 +27,7 @@ __all__ = (
     "ActiveDirectoryBackupAttributesTypeDef",
     "AdministrativeActionFailureDetailsTypeDef",
     "AdministrativeActionTypeDef",
+    "AliasTypeDef",
     "BackupFailureDetailsTypeDef",
     "BackupTypeDef",
     "CompletionReportTypeDef",
@@ -45,6 +45,7 @@ __all__ = (
     "SelfManagedActiveDirectoryConfigurationUpdatesTypeDef",
     "TagTypeDef",
     "WindowsFileSystemConfigurationTypeDef",
+    "AssociateFileSystemAliasesResponseTypeDef",
     "CancelDataRepositoryTaskResponseTypeDef",
     "CreateBackupResponseTypeDef",
     "CreateDataRepositoryTaskResponseTypeDef",
@@ -59,8 +60,10 @@ __all__ = (
     "DeleteFileSystemWindowsConfigurationTypeDef",
     "DescribeBackupsResponseTypeDef",
     "DescribeDataRepositoryTasksResponseTypeDef",
+    "DescribeFileSystemAliasesResponseTypeDef",
     "DescribeFileSystemsResponseTypeDef",
     "FileSystemTypeDef",
+    "DisassociateFileSystemAliasesResponseTypeDef",
     "FilterTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "PaginatorConfigTypeDef",
@@ -82,12 +85,26 @@ AdministrativeActionFailureDetailsTypeDef = TypedDict(
 AdministrativeActionTypeDef = TypedDict(
     "AdministrativeActionTypeDef",
     {
-        "AdministrativeActionType": Literal["FILE_SYSTEM_UPDATE", "STORAGE_OPTIMIZATION"],
+        "AdministrativeActionType": Literal[
+            "FILE_SYSTEM_UPDATE",
+            "STORAGE_OPTIMIZATION",
+            "FILE_SYSTEM_ALIAS_ASSOCIATION",
+            "FILE_SYSTEM_ALIAS_DISASSOCIATION",
+        ],
         "ProgressPercent": int,
         "RequestTime": datetime,
         "Status": Literal["FAILED", "IN_PROGRESS", "PENDING", "COMPLETED", "UPDATED_OPTIMIZING"],
         "TargetFileSystemValues": Dict[str, Any],
         "FailureDetails": "AdministrativeActionFailureDetailsTypeDef",
+    },
+    total=False,
+)
+
+AliasTypeDef = TypedDict(
+    "AliasTypeDef",
+    {
+        "Name": str,
+        "Lifecycle": Literal["AVAILABLE", "CREATING", "DELETING", "CREATE_FAILED", "DELETE_FAILED"],
     },
     total=False,
 )
@@ -101,7 +118,7 @@ _RequiredBackupTypeDef = TypedDict(
     {
         "BackupId": str,
         "Lifecycle": Literal["AVAILABLE", "CREATING", "TRANSFERRING", "DELETED", "FAILED"],
-        "Type": Literal["AUTOMATIC", "USER_INITIATED"],
+        "Type": Literal["AUTOMATIC", "USER_INITIATED", "AWS_BACKUP"],
         "CreationTime": datetime,
         "FileSystem": Dict[str, Any],
     },
@@ -282,8 +299,13 @@ WindowsFileSystemConfigurationTypeDef = TypedDict(
         "DailyAutomaticBackupStartTime": str,
         "AutomaticBackupRetentionDays": int,
         "CopyTagsToBackups": bool,
+        "Aliases": List["AliasTypeDef"],
     },
     total=False,
+)
+
+AssociateFileSystemAliasesResponseTypeDef = TypedDict(
+    "AssociateFileSystemAliasesResponseTypeDef", {"Aliases": List["AliasTypeDef"]}, total=False
 )
 
 CancelDataRepositoryTaskResponseTypeDef = TypedDict(
@@ -347,6 +369,7 @@ _OptionalCreateFileSystemWindowsConfigurationTypeDef = TypedDict(
         "DailyAutomaticBackupStartTime": str,
         "AutomaticBackupRetentionDays": int,
         "CopyTagsToBackups": bool,
+        "Aliases": List[str],
     },
     total=False,
 )
@@ -411,6 +434,12 @@ DescribeDataRepositoryTasksResponseTypeDef = TypedDict(
     total=False,
 )
 
+DescribeFileSystemAliasesResponseTypeDef = TypedDict(
+    "DescribeFileSystemAliasesResponseTypeDef",
+    {"Aliases": List["AliasTypeDef"], "NextToken": str},
+    total=False,
+)
+
 DescribeFileSystemsResponseTypeDef = TypedDict(
     "DescribeFileSystemsResponseTypeDef",
     {"FileSystems": List[Dict[str, Any]], "NextToken": str},
@@ -442,6 +471,10 @@ FileSystemTypeDef = TypedDict(
         "AdministrativeActions": List["AdministrativeActionTypeDef"],
     },
     total=False,
+)
+
+DisassociateFileSystemAliasesResponseTypeDef = TypedDict(
+    "DisassociateFileSystemAliasesResponseTypeDef", {"Aliases": List["AliasTypeDef"]}, total=False
 )
 
 FilterTypeDef = TypedDict(

@@ -49,87 +49,87 @@ __all__ = (
 
 class EndpointDeletedWaiter(Boto3Waiter):
     """
-    [Waiter.EndpointDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sagemaker.html#SageMaker.Waiter.EndpointDeleted)
+    [Waiter.EndpointDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Waiter.EndpointDeleted)
     """
 
     def wait(self, EndpointName: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [EndpointDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sagemaker.html#SageMaker.Waiter.EndpointDeleted.wait)
+        [EndpointDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Waiter.EndpointDeleted.wait)
         """
 
 
 class EndpointInServiceWaiter(Boto3Waiter):
     """
-    [Waiter.EndpointInService documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sagemaker.html#SageMaker.Waiter.EndpointInService)
+    [Waiter.EndpointInService documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Waiter.EndpointInService)
     """
 
     def wait(self, EndpointName: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [EndpointInService.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sagemaker.html#SageMaker.Waiter.EndpointInService.wait)
+        [EndpointInService.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Waiter.EndpointInService.wait)
         """
 
 
 class NotebookInstanceDeletedWaiter(Boto3Waiter):
     """
-    [Waiter.NotebookInstanceDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sagemaker.html#SageMaker.Waiter.NotebookInstanceDeleted)
+    [Waiter.NotebookInstanceDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Waiter.NotebookInstanceDeleted)
     """
 
     def wait(self, NotebookInstanceName: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [NotebookInstanceDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sagemaker.html#SageMaker.Waiter.NotebookInstanceDeleted.wait)
+        [NotebookInstanceDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Waiter.NotebookInstanceDeleted.wait)
         """
 
 
 class NotebookInstanceInServiceWaiter(Boto3Waiter):
     """
-    [Waiter.NotebookInstanceInService documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sagemaker.html#SageMaker.Waiter.NotebookInstanceInService)
+    [Waiter.NotebookInstanceInService documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Waiter.NotebookInstanceInService)
     """
 
     def wait(self, NotebookInstanceName: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [NotebookInstanceInService.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sagemaker.html#SageMaker.Waiter.NotebookInstanceInService.wait)
+        [NotebookInstanceInService.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Waiter.NotebookInstanceInService.wait)
         """
 
 
 class NotebookInstanceStoppedWaiter(Boto3Waiter):
     """
-    [Waiter.NotebookInstanceStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sagemaker.html#SageMaker.Waiter.NotebookInstanceStopped)
+    [Waiter.NotebookInstanceStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Waiter.NotebookInstanceStopped)
     """
 
     def wait(self, NotebookInstanceName: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [NotebookInstanceStopped.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sagemaker.html#SageMaker.Waiter.NotebookInstanceStopped.wait)
+        [NotebookInstanceStopped.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Waiter.NotebookInstanceStopped.wait)
         """
 
 
 class ProcessingJobCompletedOrStoppedWaiter(Boto3Waiter):
     """
-    [Waiter.ProcessingJobCompletedOrStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sagemaker.html#SageMaker.Waiter.ProcessingJobCompletedOrStopped)
+    [Waiter.ProcessingJobCompletedOrStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Waiter.ProcessingJobCompletedOrStopped)
     """
 
     def wait(self, ProcessingJobName: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [ProcessingJobCompletedOrStopped.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sagemaker.html#SageMaker.Waiter.ProcessingJobCompletedOrStopped.wait)
+        [ProcessingJobCompletedOrStopped.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Waiter.ProcessingJobCompletedOrStopped.wait)
         """
 
 
 class TrainingJobCompletedOrStoppedWaiter(Boto3Waiter):
     """
-    [Waiter.TrainingJobCompletedOrStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sagemaker.html#SageMaker.Waiter.TrainingJobCompletedOrStopped)
+    [Waiter.TrainingJobCompletedOrStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Waiter.TrainingJobCompletedOrStopped)
     """
 
     def wait(self, TrainingJobName: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [TrainingJobCompletedOrStopped.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sagemaker.html#SageMaker.Waiter.TrainingJobCompletedOrStopped.wait)
+        [TrainingJobCompletedOrStopped.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Waiter.TrainingJobCompletedOrStopped.wait)
         """
 
 
 class TransformJobCompletedOrStoppedWaiter(Boto3Waiter):
     """
-    [Waiter.TransformJobCompletedOrStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sagemaker.html#SageMaker.Waiter.TransformJobCompletedOrStopped)
+    [Waiter.TransformJobCompletedOrStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Waiter.TransformJobCompletedOrStopped)
     """
 
     def wait(self, TransformJobName: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [TransformJobCompletedOrStopped.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sagemaker.html#SageMaker.Waiter.TransformJobCompletedOrStopped.wait)
+        [TransformJobCompletedOrStopped.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Waiter.TransformJobCompletedOrStopped.wait)
         """

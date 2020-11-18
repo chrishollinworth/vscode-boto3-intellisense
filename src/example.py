@@ -5,10 +5,19 @@ subnet1b = 'subnet-09b9d0dbca4bae8a5'
 subnet1c = 'subnet-0437dfe009676c434'
 
 ec2_client = boto3.client("ec2")
-ec2_client.
 servicecatalog_client = boto3.client("servicecatalog")
-service.
-servicecatalog_client.servicecatalog.
+networkfirewall_client = boto3.client("network-firewall")
+lambda_client = boto3.client("lambda")
+
+
+servicecatalog_client.accept_portfolio_share()
+networkfirewall_client.create_firewall(
+  FirewallName="",
+  FirewallPolicyChangeProtection=False
+)
+ 
+lambda_client.create_function()
+
 response = ec2_client.create_fleet(
      SpotOptions= {
       'AllocationStrategy': 'lowest-price',
@@ -72,7 +81,3 @@ response = ec2_client.create_fleet(
   )
 
 ec2_service = boto3.resource("ec2")
-ec2_servic
-  InstanceType='t3a.xlarge',
-  ElasticGpuSpecification=''
-  )

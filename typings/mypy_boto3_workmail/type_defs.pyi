@@ -17,7 +17,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -30,6 +29,7 @@ __all__ = (
     "DelegateTypeDef",
     "FolderConfigurationTypeDef",
     "GroupTypeDef",
+    "MailboxExportJobTypeDef",
     "MemberTypeDef",
     "OrganizationSummaryTypeDef",
     "PermissionTypeDef",
@@ -37,12 +37,16 @@ __all__ = (
     "TagTypeDef",
     "UserTypeDef",
     "CreateGroupResponseTypeDef",
+    "CreateOrganizationResponseTypeDef",
     "CreateResourceResponseTypeDef",
     "CreateUserResponseTypeDef",
+    "DeleteOrganizationResponseTypeDef",
     "DescribeGroupResponseTypeDef",
+    "DescribeMailboxExportJobResponseTypeDef",
     "DescribeOrganizationResponseTypeDef",
     "DescribeResourceResponseTypeDef",
     "DescribeUserResponseTypeDef",
+    "DomainTypeDef",
     "GetAccessControlEffectResponseTypeDef",
     "GetDefaultRetentionPolicyResponseTypeDef",
     "GetMailboxDetailsResponseTypeDef",
@@ -50,6 +54,7 @@ __all__ = (
     "ListAliasesResponseTypeDef",
     "ListGroupMembersResponseTypeDef",
     "ListGroupsResponseTypeDef",
+    "ListMailboxExportJobsResponseTypeDef",
     "ListMailboxPermissionsResponseTypeDef",
     "ListOrganizationsResponseTypeDef",
     "ListResourceDelegatesResponseTypeDef",
@@ -57,6 +62,7 @@ __all__ = (
     "ListTagsForResourceResponseTypeDef",
     "ListUsersResponseTypeDef",
     "PaginatorConfigTypeDef",
+    "StartMailboxExportJobResponseTypeDef",
 )
 
 AccessControlRuleTypeDef = TypedDict(
@@ -120,6 +126,22 @@ GroupTypeDef = TypedDict(
     total=False,
 )
 
+MailboxExportJobTypeDef = TypedDict(
+    "MailboxExportJobTypeDef",
+    {
+        "JobId": str,
+        "EntityId": str,
+        "Description": str,
+        "S3BucketName": str,
+        "S3Path": str,
+        "EstimatedProgress": int,
+        "State": Literal["RUNNING", "COMPLETED", "FAILED", "CANCELLED"],
+        "StartTime": datetime,
+        "EndTime": datetime,
+    },
+    total=False,
+)
+
 MemberTypeDef = TypedDict(
     "MemberTypeDef",
     {
@@ -135,7 +157,13 @@ MemberTypeDef = TypedDict(
 
 OrganizationSummaryTypeDef = TypedDict(
     "OrganizationSummaryTypeDef",
-    {"OrganizationId": str, "Alias": str, "ErrorMessage": str, "State": str},
+    {
+        "OrganizationId": str,
+        "Alias": str,
+        "DefaultMailDomain": str,
+        "ErrorMessage": str,
+        "State": str,
+    },
     total=False,
 )
 
@@ -181,11 +209,19 @@ UserTypeDef = TypedDict(
 
 CreateGroupResponseTypeDef = TypedDict("CreateGroupResponseTypeDef", {"GroupId": str}, total=False)
 
+CreateOrganizationResponseTypeDef = TypedDict(
+    "CreateOrganizationResponseTypeDef", {"OrganizationId": str}, total=False
+)
+
 CreateResourceResponseTypeDef = TypedDict(
     "CreateResourceResponseTypeDef", {"ResourceId": str}, total=False
 )
 
 CreateUserResponseTypeDef = TypedDict("CreateUserResponseTypeDef", {"UserId": str}, total=False)
+
+DeleteOrganizationResponseTypeDef = TypedDict(
+    "DeleteOrganizationResponseTypeDef", {"OrganizationId": str, "State": str}, total=False
+)
 
 DescribeGroupResponseTypeDef = TypedDict(
     "DescribeGroupResponseTypeDef",
@@ -196,6 +232,25 @@ DescribeGroupResponseTypeDef = TypedDict(
         "State": Literal["ENABLED", "DISABLED", "DELETED"],
         "EnabledDate": datetime,
         "DisabledDate": datetime,
+    },
+    total=False,
+)
+
+DescribeMailboxExportJobResponseTypeDef = TypedDict(
+    "DescribeMailboxExportJobResponseTypeDef",
+    {
+        "EntityId": str,
+        "Description": str,
+        "RoleArn": str,
+        "KmsKeyArn": str,
+        "S3BucketName": str,
+        "S3Prefix": str,
+        "S3Path": str,
+        "EstimatedProgress": int,
+        "State": Literal["RUNNING", "COMPLETED", "FAILED", "CANCELLED"],
+        "ErrorInfo": str,
+        "StartTime": datetime,
+        "EndTime": datetime,
     },
     total=False,
 )
@@ -246,6 +301,8 @@ DescribeUserResponseTypeDef = TypedDict(
     total=False,
 )
 
+DomainTypeDef = TypedDict("DomainTypeDef", {"DomainName": str, "HostedZoneId": str}, total=False)
+
 GetAccessControlEffectResponseTypeDef = TypedDict(
     "GetAccessControlEffectResponseTypeDef",
     {"Effect": Literal["ALLOW", "DENY"], "MatchedRules": List[str]},
@@ -287,6 +344,12 @@ ListGroupsResponseTypeDef = TypedDict(
     "ListGroupsResponseTypeDef", {"Groups": List["GroupTypeDef"], "NextToken": str}, total=False
 )
 
+ListMailboxExportJobsResponseTypeDef = TypedDict(
+    "ListMailboxExportJobsResponseTypeDef",
+    {"Jobs": List["MailboxExportJobTypeDef"], "NextToken": str},
+    total=False,
+)
+
 ListMailboxPermissionsResponseTypeDef = TypedDict(
     "ListMailboxPermissionsResponseTypeDef",
     {"Permissions": List["PermissionTypeDef"], "NextToken": str},
@@ -321,4 +384,8 @@ ListUsersResponseTypeDef = TypedDict(
 
 PaginatorConfigTypeDef = TypedDict(
     "PaginatorConfigTypeDef", {"MaxItems": int, "PageSize": int, "StartingToken": str}, total=False
+)
+
+StartMailboxExportJobResponseTypeDef = TypedDict(
+    "StartMailboxExportJobResponseTypeDef", {"JobId": str}, total=False
 )

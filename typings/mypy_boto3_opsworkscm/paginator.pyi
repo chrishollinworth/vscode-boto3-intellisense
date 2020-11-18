@@ -45,7 +45,7 @@ __all__ = (
 
 class DescribeBackupsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeBackups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/opsworkscm.html#OpsWorksCM.Paginator.DescribeBackups)
+    [Paginator.DescribeBackups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworkscm.html#OpsWorksCM.Paginator.DescribeBackups)
     """
 
     def paginate(
@@ -55,44 +55,44 @@ class DescribeBackupsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeBackupsResponseTypeDef]:
         """
-        [DescribeBackups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/opsworkscm.html#OpsWorksCM.Paginator.DescribeBackups.paginate)
+        [DescribeBackups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworkscm.html#OpsWorksCM.Paginator.DescribeBackups.paginate)
         """
 
 
 class DescribeEventsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/opsworkscm.html#OpsWorksCM.Paginator.DescribeEvents)
+    [Paginator.DescribeEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworkscm.html#OpsWorksCM.Paginator.DescribeEvents)
     """
 
     def paginate(
         self, ServerName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeEventsResponseTypeDef]:
         """
-        [DescribeEvents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/opsworkscm.html#OpsWorksCM.Paginator.DescribeEvents.paginate)
+        [DescribeEvents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworkscm.html#OpsWorksCM.Paginator.DescribeEvents.paginate)
         """
 
 
 class DescribeServersPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeServers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/opsworkscm.html#OpsWorksCM.Paginator.DescribeServers)
+    [Paginator.DescribeServers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworkscm.html#OpsWorksCM.Paginator.DescribeServers)
     """
 
     def paginate(
         self, ServerName: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeServersResponseTypeDef]:
         """
-        [DescribeServers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/opsworkscm.html#OpsWorksCM.Paginator.DescribeServers.paginate)
+        [DescribeServers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworkscm.html#OpsWorksCM.Paginator.DescribeServers.paginate)
         """
 
 
 class ListTagsForResourcePaginator(Boto3Paginator):
     """
-    [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/opsworkscm.html#OpsWorksCM.Paginator.ListTagsForResource)
+    [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworkscm.html#OpsWorksCM.Paginator.ListTagsForResource)
     """
 
     def paginate(
         self, ResourceArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTagsForResourceResponseTypeDef]:
         """
-        [ListTagsForResource.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/opsworkscm.html#OpsWorksCM.Paginator.ListTagsForResource.paginate)
+        [ListTagsForResource.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworkscm.html#OpsWorksCM.Paginator.ListTagsForResource.paginate)
         """

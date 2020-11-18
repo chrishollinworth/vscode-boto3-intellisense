@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Dict, List
+from typing import IO, Dict, List, Union
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -706,7 +705,12 @@ _RequiredVirtualMFADeviceTypeDef = TypedDict(
 )
 _OptionalVirtualMFADeviceTypeDef = TypedDict(
     "_OptionalVirtualMFADeviceTypeDef",
-    {"Base32StringSeed": bytes, "QRCodePNG": bytes, "User": "UserTypeDef", "EnableDate": datetime},
+    {
+        "Base32StringSeed": Union[bytes, IO[bytes]],
+        "QRCodePNG": Union[bytes, IO[bytes]],
+        "User": "UserTypeDef",
+        "EnableDate": datetime,
+    },
     total=False,
 )
 
@@ -873,7 +877,11 @@ GetContextKeysForPolicyResponseTypeDef = TypedDict(
 
 GetCredentialReportResponseTypeDef = TypedDict(
     "GetCredentialReportResponseTypeDef",
-    {"Content": bytes, "ReportFormat": Literal["text/csv"], "GeneratedTime": datetime},
+    {
+        "Content": Union[bytes, IO[bytes]],
+        "ReportFormat": Literal["text/csv"],
+        "GeneratedTime": datetime,
+    },
     total=False,
 )
 

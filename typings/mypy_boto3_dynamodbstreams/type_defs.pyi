@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import IO, Any, Dict, List, Union
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -28,6 +27,7 @@ __all__ = (
     "IdentityTypeDef",
     "KeySchemaElementTypeDef",
     "RecordTypeDef",
+    "ResponseMetadata",
     "SequenceNumberRangeTypeDef",
     "ShardTypeDef",
     "StreamDescriptionTypeDef",
@@ -58,6 +58,17 @@ RecordTypeDef = TypedDict(
         "userIdentity": "IdentityTypeDef",
     },
     total=False,
+)
+
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
 )
 
 SequenceNumberRangeTypeDef = TypedDict(
@@ -107,7 +118,9 @@ StreamTypeDef = TypedDict(
 )
 
 DescribeStreamOutputTypeDef = TypedDict(
-    "DescribeStreamOutputTypeDef", {"StreamDescription": "StreamDescriptionTypeDef"}, total=False
+    "DescribeStreamOutputTypeDef",
+    {"StreamDescription": "StreamDescriptionTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 AttributeValueTypeDef = TypedDict(
@@ -115,10 +128,10 @@ AttributeValueTypeDef = TypedDict(
     {
         "S": str,
         "N": str,
-        "B": bytes,
+        "B": Union[bytes, IO[bytes]],
         "SS": List[str],
         "NS": List[str],
-        "BS": List[bytes],
+        "BS": List[Union[bytes, IO[bytes]]],
         "M": Dict[str, Dict[str, Any]],
         "L": List[Dict[str, Any]],
         "NULL": bool,
@@ -129,16 +142,26 @@ AttributeValueTypeDef = TypedDict(
 
 GetRecordsOutputTypeDef = TypedDict(
     "GetRecordsOutputTypeDef",
-    {"Records": List["RecordTypeDef"], "NextShardIterator": str},
+    {
+        "Records": List["RecordTypeDef"],
+        "NextShardIterator": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 GetShardIteratorOutputTypeDef = TypedDict(
-    "GetShardIteratorOutputTypeDef", {"ShardIterator": str}, total=False
+    "GetShardIteratorOutputTypeDef",
+    {"ShardIterator": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ListStreamsOutputTypeDef = TypedDict(
     "ListStreamsOutputTypeDef",
-    {"Streams": List["StreamTypeDef"], "LastEvaluatedStreamArn": str},
+    {
+        "Streams": List["StreamTypeDef"],
+        "LastEvaluatedStreamArn": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )

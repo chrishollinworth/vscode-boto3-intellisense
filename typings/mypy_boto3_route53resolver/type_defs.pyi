@@ -16,7 +16,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -26,20 +25,29 @@ else:
 __all__ = (
     "IpAddressResponseTypeDef",
     "ResolverEndpointTypeDef",
+    "ResolverQueryLogConfigAssociationTypeDef",
+    "ResolverQueryLogConfigTypeDef",
     "ResolverRuleAssociationTypeDef",
     "ResolverRuleTypeDef",
     "TagTypeDef",
     "TargetAddressTypeDef",
     "AssociateResolverEndpointIpAddressResponseTypeDef",
+    "AssociateResolverQueryLogConfigResponseTypeDef",
     "AssociateResolverRuleResponseTypeDef",
     "CreateResolverEndpointResponseTypeDef",
+    "CreateResolverQueryLogConfigResponseTypeDef",
     "CreateResolverRuleResponseTypeDef",
     "DeleteResolverEndpointResponseTypeDef",
+    "DeleteResolverQueryLogConfigResponseTypeDef",
     "DeleteResolverRuleResponseTypeDef",
     "DisassociateResolverEndpointIpAddressResponseTypeDef",
+    "DisassociateResolverQueryLogConfigResponseTypeDef",
     "DisassociateResolverRuleResponseTypeDef",
     "FilterTypeDef",
     "GetResolverEndpointResponseTypeDef",
+    "GetResolverQueryLogConfigAssociationResponseTypeDef",
+    "GetResolverQueryLogConfigPolicyResponseTypeDef",
+    "GetResolverQueryLogConfigResponseTypeDef",
     "GetResolverRuleAssociationResponseTypeDef",
     "GetResolverRulePolicyResponseTypeDef",
     "GetResolverRuleResponseTypeDef",
@@ -47,10 +55,13 @@ __all__ = (
     "IpAddressUpdateTypeDef",
     "ListResolverEndpointIpAddressesResponseTypeDef",
     "ListResolverEndpointsResponseTypeDef",
+    "ListResolverQueryLogConfigAssociationsResponseTypeDef",
+    "ListResolverQueryLogConfigsResponseTypeDef",
     "ListResolverRuleAssociationsResponseTypeDef",
     "ListResolverRulesResponseTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "PaginatorConfigTypeDef",
+    "PutResolverQueryLogConfigPolicyResponseTypeDef",
     "PutResolverRulePolicyResponseTypeDef",
     "ResolverRuleConfigTypeDef",
     "UpdateResolverEndpointResponseTypeDef",
@@ -103,6 +114,39 @@ ResolverEndpointTypeDef = TypedDict(
     total=False,
 )
 
+ResolverQueryLogConfigAssociationTypeDef = TypedDict(
+    "ResolverQueryLogConfigAssociationTypeDef",
+    {
+        "Id": str,
+        "ResolverQueryLogConfigId": str,
+        "ResourceId": str,
+        "Status": Literal["CREATING", "ACTIVE", "ACTION_NEEDED", "DELETING", "FAILED"],
+        "Error": Literal[
+            "NONE", "DESTINATION_NOT_FOUND", "ACCESS_DENIED", "INTERNAL_SERVICE_ERROR"
+        ],
+        "ErrorMessage": str,
+        "CreationTime": str,
+    },
+    total=False,
+)
+
+ResolverQueryLogConfigTypeDef = TypedDict(
+    "ResolverQueryLogConfigTypeDef",
+    {
+        "Id": str,
+        "OwnerId": str,
+        "Status": Literal["CREATING", "CREATED", "DELETING", "FAILED"],
+        "ShareStatus": Literal["NOT_SHARED", "SHARED_WITH_ME", "SHARED_BY_ME"],
+        "AssociationCount": int,
+        "Arn": str,
+        "Name": str,
+        "DestinationArn": str,
+        "CreatorRequestId": str,
+        "CreationTime": str,
+    },
+    total=False,
+)
+
 ResolverRuleAssociationTypeDef = TypedDict(
     "ResolverRuleAssociationTypeDef",
     {
@@ -131,11 +175,13 @@ ResolverRuleTypeDef = TypedDict(
         "ResolverEndpointId": str,
         "OwnerId": str,
         "ShareStatus": Literal["NOT_SHARED", "SHARED_WITH_ME", "SHARED_BY_ME"],
+        "CreationTime": str,
+        "ModificationTime": str,
     },
     total=False,
 )
 
-TagTypeDef = TypedDict("TagTypeDef", {"Key": str, "Value": str}, total=False)
+TagTypeDef = TypedDict("TagTypeDef", {"Key": str, "Value": str})
 
 _RequiredTargetAddressTypeDef = TypedDict("_RequiredTargetAddressTypeDef", {"Ip": str})
 _OptionalTargetAddressTypeDef = TypedDict(
@@ -153,6 +199,12 @@ AssociateResolverEndpointIpAddressResponseTypeDef = TypedDict(
     total=False,
 )
 
+AssociateResolverQueryLogConfigResponseTypeDef = TypedDict(
+    "AssociateResolverQueryLogConfigResponseTypeDef",
+    {"ResolverQueryLogConfigAssociation": "ResolverQueryLogConfigAssociationTypeDef"},
+    total=False,
+)
+
 AssociateResolverRuleResponseTypeDef = TypedDict(
     "AssociateResolverRuleResponseTypeDef",
     {"ResolverRuleAssociation": "ResolverRuleAssociationTypeDef"},
@@ -162,6 +214,12 @@ AssociateResolverRuleResponseTypeDef = TypedDict(
 CreateResolverEndpointResponseTypeDef = TypedDict(
     "CreateResolverEndpointResponseTypeDef",
     {"ResolverEndpoint": "ResolverEndpointTypeDef"},
+    total=False,
+)
+
+CreateResolverQueryLogConfigResponseTypeDef = TypedDict(
+    "CreateResolverQueryLogConfigResponseTypeDef",
+    {"ResolverQueryLogConfig": "ResolverQueryLogConfigTypeDef"},
     total=False,
 )
 
@@ -175,6 +233,12 @@ DeleteResolverEndpointResponseTypeDef = TypedDict(
     total=False,
 )
 
+DeleteResolverQueryLogConfigResponseTypeDef = TypedDict(
+    "DeleteResolverQueryLogConfigResponseTypeDef",
+    {"ResolverQueryLogConfig": "ResolverQueryLogConfigTypeDef"},
+    total=False,
+)
+
 DeleteResolverRuleResponseTypeDef = TypedDict(
     "DeleteResolverRuleResponseTypeDef", {"ResolverRule": "ResolverRuleTypeDef"}, total=False
 )
@@ -182,6 +246,12 @@ DeleteResolverRuleResponseTypeDef = TypedDict(
 DisassociateResolverEndpointIpAddressResponseTypeDef = TypedDict(
     "DisassociateResolverEndpointIpAddressResponseTypeDef",
     {"ResolverEndpoint": "ResolverEndpointTypeDef"},
+    total=False,
+)
+
+DisassociateResolverQueryLogConfigResponseTypeDef = TypedDict(
+    "DisassociateResolverQueryLogConfigResponseTypeDef",
+    {"ResolverQueryLogConfigAssociation": "ResolverQueryLogConfigAssociationTypeDef"},
     total=False,
 )
 
@@ -196,6 +266,24 @@ FilterTypeDef = TypedDict("FilterTypeDef", {"Name": str, "Values": List[str]}, t
 GetResolverEndpointResponseTypeDef = TypedDict(
     "GetResolverEndpointResponseTypeDef",
     {"ResolverEndpoint": "ResolverEndpointTypeDef"},
+    total=False,
+)
+
+GetResolverQueryLogConfigAssociationResponseTypeDef = TypedDict(
+    "GetResolverQueryLogConfigAssociationResponseTypeDef",
+    {"ResolverQueryLogConfigAssociation": "ResolverQueryLogConfigAssociationTypeDef"},
+    total=False,
+)
+
+GetResolverQueryLogConfigPolicyResponseTypeDef = TypedDict(
+    "GetResolverQueryLogConfigPolicyResponseTypeDef",
+    {"ResolverQueryLogConfigPolicy": str},
+    total=False,
+)
+
+GetResolverQueryLogConfigResponseTypeDef = TypedDict(
+    "GetResolverQueryLogConfigResponseTypeDef",
+    {"ResolverQueryLogConfig": "ResolverQueryLogConfigTypeDef"},
     total=False,
 )
 
@@ -239,6 +327,28 @@ ListResolverEndpointsResponseTypeDef = TypedDict(
     total=False,
 )
 
+ListResolverQueryLogConfigAssociationsResponseTypeDef = TypedDict(
+    "ListResolverQueryLogConfigAssociationsResponseTypeDef",
+    {
+        "NextToken": str,
+        "TotalCount": int,
+        "TotalFilteredCount": int,
+        "ResolverQueryLogConfigAssociations": List["ResolverQueryLogConfigAssociationTypeDef"],
+    },
+    total=False,
+)
+
+ListResolverQueryLogConfigsResponseTypeDef = TypedDict(
+    "ListResolverQueryLogConfigsResponseTypeDef",
+    {
+        "NextToken": str,
+        "TotalCount": int,
+        "TotalFilteredCount": int,
+        "ResolverQueryLogConfigs": List["ResolverQueryLogConfigTypeDef"],
+    },
+    total=False,
+)
+
 ListResolverRuleAssociationsResponseTypeDef = TypedDict(
     "ListResolverRuleAssociationsResponseTypeDef",
     {
@@ -263,6 +373,10 @@ ListTagsForResourceResponseTypeDef = TypedDict(
 
 PaginatorConfigTypeDef = TypedDict(
     "PaginatorConfigTypeDef", {"MaxItems": int, "PageSize": int, "StartingToken": str}, total=False
+)
+
+PutResolverQueryLogConfigPolicyResponseTypeDef = TypedDict(
+    "PutResolverQueryLogConfigPolicyResponseTypeDef", {"ReturnValue": bool}, total=False
 )
 
 PutResolverRulePolicyResponseTypeDef = TypedDict(

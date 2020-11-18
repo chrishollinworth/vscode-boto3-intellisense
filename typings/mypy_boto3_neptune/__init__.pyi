@@ -9,6 +9,7 @@ Usage::
         Client,
         DBInstanceAvailableWaiter,
         DBInstanceDeletedWaiter,
+        DescribeDBClusterEndpointsPaginator,
         DescribeDBClusterParameterGroupsPaginator,
         DescribeDBClusterParametersPaginator,
         DescribeDBClusterSnapshotsPaginator,
@@ -34,6 +35,7 @@ Usage::
     db_instance_available_waiter: DBInstanceAvailableWaiter = client.get_waiter("db_instance_available")
     db_instance_deleted_waiter: DBInstanceDeletedWaiter = client.get_waiter("db_instance_deleted")
 
+    describe_db_cluster_endpoints_paginator: DescribeDBClusterEndpointsPaginator = client.get_paginator("describe_db_cluster_endpoints")
     describe_db_cluster_parameter_groups_paginator: DescribeDBClusterParameterGroupsPaginator = client.get_paginator("describe_db_cluster_parameter_groups")
     describe_db_cluster_parameters_paginator: DescribeDBClusterParametersPaginator = client.get_paginator("describe_db_cluster_parameters")
     describe_db_cluster_snapshots_paginator: DescribeDBClusterSnapshotsPaginator = client.get_paginator("describe_db_cluster_snapshots")
@@ -52,6 +54,7 @@ Usage::
 """
 from mypy_boto3_neptune.client import NeptuneClient
 from mypy_boto3_neptune.paginator import (
+    DescribeDBClusterEndpointsPaginator,
     DescribeDBClusterParameterGroupsPaginator,
     DescribeDBClusterParametersPaginator,
     DescribeDBClusterSnapshotsPaginator,
@@ -76,6 +79,7 @@ __all__ = (
     "Client",
     "DBInstanceAvailableWaiter",
     "DBInstanceDeletedWaiter",
+    "DescribeDBClusterEndpointsPaginator",
     "DescribeDBClusterParameterGroupsPaginator",
     "DescribeDBClusterParametersPaginator",
     "DescribeDBClusterSnapshotsPaginator",

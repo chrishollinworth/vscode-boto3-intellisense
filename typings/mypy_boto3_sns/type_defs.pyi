@@ -10,7 +10,7 @@ Usage::
     ```
 """
 import sys
-from typing import Dict, List
+from typing import IO, Dict, List, Union
 
 if sys.version_info >= (3, 8):
     from typing import TypedDict
@@ -147,7 +147,9 @@ _RequiredMessageAttributeValueTypeDef = TypedDict(
     "_RequiredMessageAttributeValueTypeDef", {"DataType": str}
 )
 _OptionalMessageAttributeValueTypeDef = TypedDict(
-    "_OptionalMessageAttributeValueTypeDef", {"StringValue": str, "BinaryValue": bytes}, total=False
+    "_OptionalMessageAttributeValueTypeDef",
+    {"StringValue": str, "BinaryValue": Union[bytes, IO[bytes]]},
+    total=False,
 )
 
 
@@ -161,7 +163,9 @@ PaginatorConfigTypeDef = TypedDict(
     "PaginatorConfigTypeDef", {"MaxItems": int, "PageSize": int, "StartingToken": str}, total=False
 )
 
-PublishResponseTypeDef = TypedDict("PublishResponseTypeDef", {"MessageId": str}, total=False)
+PublishResponseTypeDef = TypedDict(
+    "PublishResponseTypeDef", {"MessageId": str, "SequenceNumber": str}, total=False
+)
 
 SubscribeResponseTypeDef = TypedDict(
     "SubscribeResponseTypeDef", {"SubscriptionArn": str}, total=False

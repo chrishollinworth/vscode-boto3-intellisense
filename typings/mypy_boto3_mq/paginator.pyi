@@ -28,12 +28,12 @@ __all__ = ("ListBrokersPaginator",)
 
 class ListBrokersPaginator(Boto3Paginator):
     """
-    [Paginator.ListBrokers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mq.html#MQ.Paginator.ListBrokers)
+    [Paginator.ListBrokers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mq.html#MQ.Paginator.ListBrokers)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListBrokersResponseTypeDef]:
         """
-        [ListBrokers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/mq.html#MQ.Paginator.ListBrokers.paginate)
+        [ListBrokers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mq.html#MQ.Paginator.ListBrokers.paginate)
         """

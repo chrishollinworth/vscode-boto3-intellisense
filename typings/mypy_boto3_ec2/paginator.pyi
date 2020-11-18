@@ -97,6 +97,7 @@ Usage::
         GetManagedPrefixListEntriesPaginator,
         GetTransitGatewayAttachmentPropagationsPaginator,
         GetTransitGatewayMulticastDomainAssociationsPaginator,
+        GetTransitGatewayPrefixListReferencesPaginator,
         GetTransitGatewayRouteTableAssociationsPaginator,
         GetTransitGatewayRouteTablePropagationsPaginator,
         SearchLocalGatewayRoutesPaginator,
@@ -193,6 +194,7 @@ Usage::
     get_managed_prefix_list_entries_paginator: GetManagedPrefixListEntriesPaginator = client.get_paginator("get_managed_prefix_list_entries")
     get_transit_gateway_attachment_propagations_paginator: GetTransitGatewayAttachmentPropagationsPaginator = client.get_paginator("get_transit_gateway_attachment_propagations")
     get_transit_gateway_multicast_domain_associations_paginator: GetTransitGatewayMulticastDomainAssociationsPaginator = client.get_paginator("get_transit_gateway_multicast_domain_associations")
+    get_transit_gateway_prefix_list_references_paginator: GetTransitGatewayPrefixListReferencesPaginator = client.get_paginator("get_transit_gateway_prefix_list_references")
     get_transit_gateway_route_table_associations_paginator: GetTransitGatewayRouteTableAssociationsPaginator = client.get_paginator("get_transit_gateway_route_table_associations")
     get_transit_gateway_route_table_propagations_paginator: GetTransitGatewayRouteTablePropagationsPaginator = client.get_paginator("get_transit_gateway_route_table_propagations")
     search_local_gateway_routes_paginator: SearchLocalGatewayRoutesPaginator = client.get_paginator("search_local_gateway_routes")
@@ -295,6 +297,7 @@ from mypy_boto3_ec2.type_defs import (
     GetManagedPrefixListEntriesResultTypeDef,
     GetTransitGatewayAttachmentPropagationsResultTypeDef,
     GetTransitGatewayMulticastDomainAssociationsResultTypeDef,
+    GetTransitGatewayPrefixListReferencesResultTypeDef,
     GetTransitGatewayRouteTableAssociationsResultTypeDef,
     GetTransitGatewayRouteTablePropagationsResultTypeDef,
     PaginatorConfigTypeDef,
@@ -400,6 +403,7 @@ __all__ = (
     "GetManagedPrefixListEntriesPaginator",
     "GetTransitGatewayAttachmentPropagationsPaginator",
     "GetTransitGatewayMulticastDomainAssociationsPaginator",
+    "GetTransitGatewayPrefixListReferencesPaginator",
     "GetTransitGatewayRouteTableAssociationsPaginator",
     "GetTransitGatewayRouteTablePropagationsPaginator",
     "SearchLocalGatewayRoutesPaginator",
@@ -409,20 +413,20 @@ __all__ = (
 
 class DescribeByoipCidrsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeByoipCidrs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeByoipCidrs)
+    [Paginator.DescribeByoipCidrs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeByoipCidrs)
     """
 
     def paginate(
         self, DryRun: bool = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeByoipCidrsResultTypeDef]:
         """
-        [DescribeByoipCidrs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeByoipCidrs.paginate)
+        [DescribeByoipCidrs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeByoipCidrs.paginate)
         """
 
 
 class DescribeCapacityReservationsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeCapacityReservations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeCapacityReservations)
+    [Paginator.DescribeCapacityReservations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeCapacityReservations)
     """
 
     def paginate(
@@ -433,13 +437,13 @@ class DescribeCapacityReservationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeCapacityReservationsResultTypeDef]:
         """
-        [DescribeCapacityReservations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeCapacityReservations.paginate)
+        [DescribeCapacityReservations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeCapacityReservations.paginate)
         """
 
 
 class DescribeCarrierGatewaysPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeCarrierGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeCarrierGateways)
+    [Paginator.DescribeCarrierGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeCarrierGateways)
     """
 
     def paginate(
@@ -450,13 +454,13 @@ class DescribeCarrierGatewaysPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeCarrierGatewaysResultTypeDef]:
         """
-        [DescribeCarrierGateways.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeCarrierGateways.paginate)
+        [DescribeCarrierGateways.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeCarrierGateways.paginate)
         """
 
 
 class DescribeClassicLinkInstancesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeClassicLinkInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeClassicLinkInstances)
+    [Paginator.DescribeClassicLinkInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeClassicLinkInstances)
     """
 
     def paginate(
@@ -467,13 +471,13 @@ class DescribeClassicLinkInstancesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeClassicLinkInstancesResultTypeDef]:
         """
-        [DescribeClassicLinkInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeClassicLinkInstances.paginate)
+        [DescribeClassicLinkInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeClassicLinkInstances.paginate)
         """
 
 
 class DescribeClientVpnAuthorizationRulesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeClientVpnAuthorizationRules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnAuthorizationRules)
+    [Paginator.DescribeClientVpnAuthorizationRules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnAuthorizationRules)
     """
 
     def paginate(
@@ -484,13 +488,13 @@ class DescribeClientVpnAuthorizationRulesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeClientVpnAuthorizationRulesResultTypeDef]:
         """
-        [DescribeClientVpnAuthorizationRules.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnAuthorizationRules.paginate)
+        [DescribeClientVpnAuthorizationRules.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnAuthorizationRules.paginate)
         """
 
 
 class DescribeClientVpnConnectionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeClientVpnConnections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnConnections)
+    [Paginator.DescribeClientVpnConnections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnConnections)
     """
 
     def paginate(
@@ -501,13 +505,13 @@ class DescribeClientVpnConnectionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeClientVpnConnectionsResultTypeDef]:
         """
-        [DescribeClientVpnConnections.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnConnections.paginate)
+        [DescribeClientVpnConnections.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnConnections.paginate)
         """
 
 
 class DescribeClientVpnEndpointsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeClientVpnEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnEndpoints)
+    [Paginator.DescribeClientVpnEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnEndpoints)
     """
 
     def paginate(
@@ -518,13 +522,13 @@ class DescribeClientVpnEndpointsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeClientVpnEndpointsResultTypeDef]:
         """
-        [DescribeClientVpnEndpoints.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnEndpoints.paginate)
+        [DescribeClientVpnEndpoints.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnEndpoints.paginate)
         """
 
 
 class DescribeClientVpnRoutesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeClientVpnRoutes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnRoutes)
+    [Paginator.DescribeClientVpnRoutes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnRoutes)
     """
 
     def paginate(
@@ -535,13 +539,13 @@ class DescribeClientVpnRoutesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeClientVpnRoutesResultTypeDef]:
         """
-        [DescribeClientVpnRoutes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnRoutes.paginate)
+        [DescribeClientVpnRoutes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnRoutes.paginate)
         """
 
 
 class DescribeClientVpnTargetNetworksPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeClientVpnTargetNetworks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnTargetNetworks)
+    [Paginator.DescribeClientVpnTargetNetworks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnTargetNetworks)
     """
 
     def paginate(
@@ -553,13 +557,13 @@ class DescribeClientVpnTargetNetworksPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeClientVpnTargetNetworksResultTypeDef]:
         """
-        [DescribeClientVpnTargetNetworks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnTargetNetworks.paginate)
+        [DescribeClientVpnTargetNetworks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnTargetNetworks.paginate)
         """
 
 
 class DescribeCoipPoolsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeCoipPools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeCoipPools)
+    [Paginator.DescribeCoipPools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeCoipPools)
     """
 
     def paginate(
@@ -570,13 +574,13 @@ class DescribeCoipPoolsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeCoipPoolsResultTypeDef]:
         """
-        [DescribeCoipPools.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeCoipPools.paginate)
+        [DescribeCoipPools.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeCoipPools.paginate)
         """
 
 
 class DescribeDhcpOptionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeDhcpOptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeDhcpOptions)
+    [Paginator.DescribeDhcpOptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeDhcpOptions)
     """
 
     def paginate(
@@ -587,13 +591,13 @@ class DescribeDhcpOptionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeDhcpOptionsResultTypeDef]:
         """
-        [DescribeDhcpOptions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeDhcpOptions.paginate)
+        [DescribeDhcpOptions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeDhcpOptions.paginate)
         """
 
 
 class DescribeEgressOnlyInternetGatewaysPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeEgressOnlyInternetGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeEgressOnlyInternetGateways)
+    [Paginator.DescribeEgressOnlyInternetGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeEgressOnlyInternetGateways)
     """
 
     def paginate(
@@ -604,13 +608,13 @@ class DescribeEgressOnlyInternetGatewaysPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeEgressOnlyInternetGatewaysResultTypeDef]:
         """
-        [DescribeEgressOnlyInternetGateways.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeEgressOnlyInternetGateways.paginate)
+        [DescribeEgressOnlyInternetGateways.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeEgressOnlyInternetGateways.paginate)
         """
 
 
 class DescribeExportImageTasksPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeExportImageTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeExportImageTasks)
+    [Paginator.DescribeExportImageTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeExportImageTasks)
     """
 
     def paginate(
@@ -621,13 +625,13 @@ class DescribeExportImageTasksPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeExportImageTasksResultTypeDef]:
         """
-        [DescribeExportImageTasks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeExportImageTasks.paginate)
+        [DescribeExportImageTasks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeExportImageTasks.paginate)
         """
 
 
 class DescribeFastSnapshotRestoresPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeFastSnapshotRestores documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeFastSnapshotRestores)
+    [Paginator.DescribeFastSnapshotRestores documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeFastSnapshotRestores)
     """
 
     def paginate(
@@ -637,13 +641,13 @@ class DescribeFastSnapshotRestoresPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeFastSnapshotRestoresResultTypeDef]:
         """
-        [DescribeFastSnapshotRestores.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeFastSnapshotRestores.paginate)
+        [DescribeFastSnapshotRestores.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeFastSnapshotRestores.paginate)
         """
 
 
 class DescribeFleetsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeFleets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeFleets)
+    [Paginator.DescribeFleets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeFleets)
     """
 
     def paginate(
@@ -654,13 +658,13 @@ class DescribeFleetsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeFleetsResultTypeDef]:
         """
-        [DescribeFleets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeFleets.paginate)
+        [DescribeFleets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeFleets.paginate)
         """
 
 
 class DescribeFlowLogsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeFlowLogs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeFlowLogs)
+    [Paginator.DescribeFlowLogs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeFlowLogs)
     """
 
     def paginate(
@@ -671,13 +675,13 @@ class DescribeFlowLogsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeFlowLogsResultTypeDef]:
         """
-        [DescribeFlowLogs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeFlowLogs.paginate)
+        [DescribeFlowLogs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeFlowLogs.paginate)
         """
 
 
 class DescribeFpgaImagesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeFpgaImages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeFpgaImages)
+    [Paginator.DescribeFpgaImages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeFpgaImages)
     """
 
     def paginate(
@@ -689,13 +693,13 @@ class DescribeFpgaImagesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeFpgaImagesResultTypeDef]:
         """
-        [DescribeFpgaImages.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeFpgaImages.paginate)
+        [DescribeFpgaImages.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeFpgaImages.paginate)
         """
 
 
 class DescribeHostReservationOfferingsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeHostReservationOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeHostReservationOfferings)
+    [Paginator.DescribeHostReservationOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeHostReservationOfferings)
     """
 
     def paginate(
@@ -707,13 +711,13 @@ class DescribeHostReservationOfferingsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeHostReservationOfferingsResultTypeDef]:
         """
-        [DescribeHostReservationOfferings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeHostReservationOfferings.paginate)
+        [DescribeHostReservationOfferings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeHostReservationOfferings.paginate)
         """
 
 
 class DescribeHostReservationsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeHostReservations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeHostReservations)
+    [Paginator.DescribeHostReservations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeHostReservations)
     """
 
     def paginate(
@@ -723,13 +727,13 @@ class DescribeHostReservationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeHostReservationsResultTypeDef]:
         """
-        [DescribeHostReservations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeHostReservations.paginate)
+        [DescribeHostReservations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeHostReservations.paginate)
         """
 
 
 class DescribeHostsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeHosts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeHosts)
+    [Paginator.DescribeHosts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeHosts)
     """
 
     def paginate(
@@ -739,13 +743,13 @@ class DescribeHostsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeHostsResultTypeDef]:
         """
-        [DescribeHosts.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeHosts.paginate)
+        [DescribeHosts.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeHosts.paginate)
         """
 
 
 class DescribeIamInstanceProfileAssociationsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeIamInstanceProfileAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeIamInstanceProfileAssociations)
+    [Paginator.DescribeIamInstanceProfileAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeIamInstanceProfileAssociations)
     """
 
     def paginate(
@@ -755,13 +759,13 @@ class DescribeIamInstanceProfileAssociationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeIamInstanceProfileAssociationsResultTypeDef]:
         """
-        [DescribeIamInstanceProfileAssociations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeIamInstanceProfileAssociations.paginate)
+        [DescribeIamInstanceProfileAssociations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeIamInstanceProfileAssociations.paginate)
         """
 
 
 class DescribeImportImageTasksPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeImportImageTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeImportImageTasks)
+    [Paginator.DescribeImportImageTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeImportImageTasks)
     """
 
     def paginate(
@@ -772,13 +776,13 @@ class DescribeImportImageTasksPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeImportImageTasksResultTypeDef]:
         """
-        [DescribeImportImageTasks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeImportImageTasks.paginate)
+        [DescribeImportImageTasks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeImportImageTasks.paginate)
         """
 
 
 class DescribeImportSnapshotTasksPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeImportSnapshotTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeImportSnapshotTasks)
+    [Paginator.DescribeImportSnapshotTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeImportSnapshotTasks)
     """
 
     def paginate(
@@ -789,13 +793,13 @@ class DescribeImportSnapshotTasksPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeImportSnapshotTasksResultTypeDef]:
         """
-        [DescribeImportSnapshotTasks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeImportSnapshotTasks.paginate)
+        [DescribeImportSnapshotTasks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeImportSnapshotTasks.paginate)
         """
 
 
 class DescribeInstanceCreditSpecificationsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeInstanceCreditSpecifications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeInstanceCreditSpecifications)
+    [Paginator.DescribeInstanceCreditSpecifications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeInstanceCreditSpecifications)
     """
 
     def paginate(
@@ -806,13 +810,13 @@ class DescribeInstanceCreditSpecificationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeInstanceCreditSpecificationsResultTypeDef]:
         """
-        [DescribeInstanceCreditSpecifications.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeInstanceCreditSpecifications.paginate)
+        [DescribeInstanceCreditSpecifications.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeInstanceCreditSpecifications.paginate)
         """
 
 
 class DescribeInstanceStatusPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeInstanceStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeInstanceStatus)
+    [Paginator.DescribeInstanceStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeInstanceStatus)
     """
 
     def paginate(
@@ -824,13 +828,13 @@ class DescribeInstanceStatusPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeInstanceStatusResultTypeDef]:
         """
-        [DescribeInstanceStatus.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeInstanceStatus.paginate)
+        [DescribeInstanceStatus.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeInstanceStatus.paginate)
         """
 
 
 class DescribeInstanceTypeOfferingsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeInstanceTypeOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeInstanceTypeOfferings)
+    [Paginator.DescribeInstanceTypeOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeInstanceTypeOfferings)
     """
 
     def paginate(
@@ -841,13 +845,13 @@ class DescribeInstanceTypeOfferingsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeInstanceTypeOfferingsResultTypeDef]:
         """
-        [DescribeInstanceTypeOfferings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeInstanceTypeOfferings.paginate)
+        [DescribeInstanceTypeOfferings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeInstanceTypeOfferings.paginate)
         """
 
 
 class DescribeInstanceTypesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeInstanceTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeInstanceTypes)
+    [Paginator.DescribeInstanceTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeInstanceTypes)
     """
 
     def paginate(
@@ -877,6 +881,13 @@ class DescribeInstanceTypesPaginator(Boto3Paginator):
                 "t3a.large",
                 "t3a.xlarge",
                 "t3a.2xlarge",
+                "t4g.nano",
+                "t4g.micro",
+                "t4g.small",
+                "t4g.medium",
+                "t4g.large",
+                "t4g.xlarge",
+                "t4g.2xlarge",
                 "m1.small",
                 "m1.medium",
                 "m1.large",
@@ -1080,6 +1091,7 @@ class DescribeInstanceTypesPaginator(Boto3Paginator):
                 "p3.8xlarge",
                 "p3.16xlarge",
                 "p3dn.24xlarge",
+                "p4d.24xlarge",
                 "d2.xlarge",
                 "d2.2xlarge",
                 "d2.4xlarge",
@@ -1203,13 +1215,13 @@ class DescribeInstanceTypesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeInstanceTypesResultTypeDef]:
         """
-        [DescribeInstanceTypes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeInstanceTypes.paginate)
+        [DescribeInstanceTypes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeInstanceTypes.paginate)
         """
 
 
 class DescribeInstancesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeInstances)
+    [Paginator.DescribeInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeInstances)
     """
 
     def paginate(
@@ -1220,13 +1232,13 @@ class DescribeInstancesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeInstancesResultTypeDef]:
         """
-        [DescribeInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeInstances.paginate)
+        [DescribeInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeInstances.paginate)
         """
 
 
 class DescribeInternetGatewaysPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeInternetGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeInternetGateways)
+    [Paginator.DescribeInternetGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeInternetGateways)
     """
 
     def paginate(
@@ -1237,13 +1249,13 @@ class DescribeInternetGatewaysPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeInternetGatewaysResultTypeDef]:
         """
-        [DescribeInternetGateways.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeInternetGateways.paginate)
+        [DescribeInternetGateways.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeInternetGateways.paginate)
         """
 
 
 class DescribeIpv6PoolsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeIpv6Pools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeIpv6Pools)
+    [Paginator.DescribeIpv6Pools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeIpv6Pools)
     """
 
     def paginate(
@@ -1254,13 +1266,13 @@ class DescribeIpv6PoolsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeIpv6PoolsResultTypeDef]:
         """
-        [DescribeIpv6Pools.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeIpv6Pools.paginate)
+        [DescribeIpv6Pools.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeIpv6Pools.paginate)
         """
 
 
 class DescribeLaunchTemplateVersionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeLaunchTemplateVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeLaunchTemplateVersions)
+    [Paginator.DescribeLaunchTemplateVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeLaunchTemplateVersions)
     """
 
     def paginate(
@@ -1275,13 +1287,13 @@ class DescribeLaunchTemplateVersionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeLaunchTemplateVersionsResultTypeDef]:
         """
-        [DescribeLaunchTemplateVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeLaunchTemplateVersions.paginate)
+        [DescribeLaunchTemplateVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeLaunchTemplateVersions.paginate)
         """
 
 
 class DescribeLaunchTemplatesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeLaunchTemplates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeLaunchTemplates)
+    [Paginator.DescribeLaunchTemplates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeLaunchTemplates)
     """
 
     def paginate(
@@ -1293,13 +1305,13 @@ class DescribeLaunchTemplatesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeLaunchTemplatesResultTypeDef]:
         """
-        [DescribeLaunchTemplates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeLaunchTemplates.paginate)
+        [DescribeLaunchTemplates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeLaunchTemplates.paginate)
         """
 
 
 class DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations)
+    [Paginator.DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations)
     """
 
     def paginate(
@@ -1310,13 +1322,13 @@ class DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsPaginator(B
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResultTypeDef]:
         """
-        [DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations.paginate)
+        [DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations.paginate)
         """
 
 
 class DescribeLocalGatewayRouteTableVpcAssociationsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeLocalGatewayRouteTableVpcAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayRouteTableVpcAssociations)
+    [Paginator.DescribeLocalGatewayRouteTableVpcAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayRouteTableVpcAssociations)
     """
 
     def paginate(
@@ -1327,13 +1339,13 @@ class DescribeLocalGatewayRouteTableVpcAssociationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeLocalGatewayRouteTableVpcAssociationsResultTypeDef]:
         """
-        [DescribeLocalGatewayRouteTableVpcAssociations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayRouteTableVpcAssociations.paginate)
+        [DescribeLocalGatewayRouteTableVpcAssociations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayRouteTableVpcAssociations.paginate)
         """
 
 
 class DescribeLocalGatewayRouteTablesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeLocalGatewayRouteTables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayRouteTables)
+    [Paginator.DescribeLocalGatewayRouteTables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayRouteTables)
     """
 
     def paginate(
@@ -1344,13 +1356,13 @@ class DescribeLocalGatewayRouteTablesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeLocalGatewayRouteTablesResultTypeDef]:
         """
-        [DescribeLocalGatewayRouteTables.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayRouteTables.paginate)
+        [DescribeLocalGatewayRouteTables.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayRouteTables.paginate)
         """
 
 
 class DescribeLocalGatewayVirtualInterfaceGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeLocalGatewayVirtualInterfaceGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayVirtualInterfaceGroups)
+    [Paginator.DescribeLocalGatewayVirtualInterfaceGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayVirtualInterfaceGroups)
     """
 
     def paginate(
@@ -1361,13 +1373,13 @@ class DescribeLocalGatewayVirtualInterfaceGroupsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeLocalGatewayVirtualInterfaceGroupsResultTypeDef]:
         """
-        [DescribeLocalGatewayVirtualInterfaceGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayVirtualInterfaceGroups.paginate)
+        [DescribeLocalGatewayVirtualInterfaceGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayVirtualInterfaceGroups.paginate)
         """
 
 
 class DescribeLocalGatewayVirtualInterfacesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeLocalGatewayVirtualInterfaces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayVirtualInterfaces)
+    [Paginator.DescribeLocalGatewayVirtualInterfaces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayVirtualInterfaces)
     """
 
     def paginate(
@@ -1378,13 +1390,13 @@ class DescribeLocalGatewayVirtualInterfacesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeLocalGatewayVirtualInterfacesResultTypeDef]:
         """
-        [DescribeLocalGatewayVirtualInterfaces.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayVirtualInterfaces.paginate)
+        [DescribeLocalGatewayVirtualInterfaces.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayVirtualInterfaces.paginate)
         """
 
 
 class DescribeLocalGatewaysPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeLocalGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeLocalGateways)
+    [Paginator.DescribeLocalGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeLocalGateways)
     """
 
     def paginate(
@@ -1395,13 +1407,13 @@ class DescribeLocalGatewaysPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeLocalGatewaysResultTypeDef]:
         """
-        [DescribeLocalGateways.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeLocalGateways.paginate)
+        [DescribeLocalGateways.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeLocalGateways.paginate)
         """
 
 
 class DescribeManagedPrefixListsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeManagedPrefixLists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeManagedPrefixLists)
+    [Paginator.DescribeManagedPrefixLists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeManagedPrefixLists)
     """
 
     def paginate(
@@ -1412,13 +1424,13 @@ class DescribeManagedPrefixListsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeManagedPrefixListsResultTypeDef]:
         """
-        [DescribeManagedPrefixLists.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeManagedPrefixLists.paginate)
+        [DescribeManagedPrefixLists.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeManagedPrefixLists.paginate)
         """
 
 
 class DescribeMovingAddressesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeMovingAddresses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeMovingAddresses)
+    [Paginator.DescribeMovingAddresses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeMovingAddresses)
     """
 
     def paginate(
@@ -1429,13 +1441,13 @@ class DescribeMovingAddressesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeMovingAddressesResultTypeDef]:
         """
-        [DescribeMovingAddresses.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeMovingAddresses.paginate)
+        [DescribeMovingAddresses.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeMovingAddresses.paginate)
         """
 
 
 class DescribeNatGatewaysPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeNatGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeNatGateways)
+    [Paginator.DescribeNatGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeNatGateways)
     """
 
     def paginate(
@@ -1446,13 +1458,13 @@ class DescribeNatGatewaysPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeNatGatewaysResultTypeDef]:
         """
-        [DescribeNatGateways.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeNatGateways.paginate)
+        [DescribeNatGateways.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeNatGateways.paginate)
         """
 
 
 class DescribeNetworkAclsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeNetworkAcls documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeNetworkAcls)
+    [Paginator.DescribeNetworkAcls documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeNetworkAcls)
     """
 
     def paginate(
@@ -1463,13 +1475,13 @@ class DescribeNetworkAclsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeNetworkAclsResultTypeDef]:
         """
-        [DescribeNetworkAcls.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeNetworkAcls.paginate)
+        [DescribeNetworkAcls.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeNetworkAcls.paginate)
         """
 
 
 class DescribeNetworkInterfacePermissionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeNetworkInterfacePermissions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeNetworkInterfacePermissions)
+    [Paginator.DescribeNetworkInterfacePermissions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeNetworkInterfacePermissions)
     """
 
     def paginate(
@@ -1479,13 +1491,13 @@ class DescribeNetworkInterfacePermissionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeNetworkInterfacePermissionsResultTypeDef]:
         """
-        [DescribeNetworkInterfacePermissions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeNetworkInterfacePermissions.paginate)
+        [DescribeNetworkInterfacePermissions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeNetworkInterfacePermissions.paginate)
         """
 
 
 class DescribeNetworkInterfacesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeNetworkInterfaces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeNetworkInterfaces)
+    [Paginator.DescribeNetworkInterfaces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeNetworkInterfaces)
     """
 
     def paginate(
@@ -1496,13 +1508,13 @@ class DescribeNetworkInterfacesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeNetworkInterfacesResultTypeDef]:
         """
-        [DescribeNetworkInterfaces.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeNetworkInterfaces.paginate)
+        [DescribeNetworkInterfaces.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeNetworkInterfaces.paginate)
         """
 
 
 class DescribePrefixListsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribePrefixLists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribePrefixLists)
+    [Paginator.DescribePrefixLists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribePrefixLists)
     """
 
     def paginate(
@@ -1513,13 +1525,13 @@ class DescribePrefixListsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribePrefixListsResultTypeDef]:
         """
-        [DescribePrefixLists.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribePrefixLists.paginate)
+        [DescribePrefixLists.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribePrefixLists.paginate)
         """
 
 
 class DescribePrincipalIdFormatPaginator(Boto3Paginator):
     """
-    [Paginator.DescribePrincipalIdFormat documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribePrincipalIdFormat)
+    [Paginator.DescribePrincipalIdFormat documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribePrincipalIdFormat)
     """
 
     def paginate(
@@ -1529,13 +1541,13 @@ class DescribePrincipalIdFormatPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribePrincipalIdFormatResultTypeDef]:
         """
-        [DescribePrincipalIdFormat.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribePrincipalIdFormat.paginate)
+        [DescribePrincipalIdFormat.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribePrincipalIdFormat.paginate)
         """
 
 
 class DescribePublicIpv4PoolsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribePublicIpv4Pools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribePublicIpv4Pools)
+    [Paginator.DescribePublicIpv4Pools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribePublicIpv4Pools)
     """
 
     def paginate(
@@ -1545,13 +1557,13 @@ class DescribePublicIpv4PoolsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribePublicIpv4PoolsResultTypeDef]:
         """
-        [DescribePublicIpv4Pools.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribePublicIpv4Pools.paginate)
+        [DescribePublicIpv4Pools.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribePublicIpv4Pools.paginate)
         """
 
 
 class DescribeReservedInstancesModificationsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeReservedInstancesModifications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeReservedInstancesModifications)
+    [Paginator.DescribeReservedInstancesModifications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeReservedInstancesModifications)
     """
 
     def paginate(
@@ -1561,13 +1573,13 @@ class DescribeReservedInstancesModificationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeReservedInstancesModificationsResultTypeDef]:
         """
-        [DescribeReservedInstancesModifications.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeReservedInstancesModifications.paginate)
+        [DescribeReservedInstancesModifications.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeReservedInstancesModifications.paginate)
         """
 
 
 class DescribeReservedInstancesOfferingsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeReservedInstancesOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeReservedInstancesOfferings)
+    [Paginator.DescribeReservedInstancesOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeReservedInstancesOfferings)
     """
 
     def paginate(
@@ -1598,6 +1610,13 @@ class DescribeReservedInstancesOfferingsPaginator(Boto3Paginator):
             "t3a.large",
             "t3a.xlarge",
             "t3a.2xlarge",
+            "t4g.nano",
+            "t4g.micro",
+            "t4g.small",
+            "t4g.medium",
+            "t4g.large",
+            "t4g.xlarge",
+            "t4g.2xlarge",
             "m1.small",
             "m1.medium",
             "m1.large",
@@ -1801,6 +1820,7 @@ class DescribeReservedInstancesOfferingsPaginator(Boto3Paginator):
             "p3.8xlarge",
             "p3.16xlarge",
             "p3dn.24xlarge",
+            "p4d.24xlarge",
             "d2.xlarge",
             "d2.2xlarge",
             "d2.4xlarge",
@@ -1940,13 +1960,13 @@ class DescribeReservedInstancesOfferingsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeReservedInstancesOfferingsResultTypeDef]:
         """
-        [DescribeReservedInstancesOfferings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeReservedInstancesOfferings.paginate)
+        [DescribeReservedInstancesOfferings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeReservedInstancesOfferings.paginate)
         """
 
 
 class DescribeRouteTablesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeRouteTables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeRouteTables)
+    [Paginator.DescribeRouteTables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeRouteTables)
     """
 
     def paginate(
@@ -1957,13 +1977,13 @@ class DescribeRouteTablesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeRouteTablesResultTypeDef]:
         """
-        [DescribeRouteTables.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeRouteTables.paginate)
+        [DescribeRouteTables.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeRouteTables.paginate)
         """
 
 
 class DescribeScheduledInstanceAvailabilityPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeScheduledInstanceAvailability documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeScheduledInstanceAvailability)
+    [Paginator.DescribeScheduledInstanceAvailability documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeScheduledInstanceAvailability)
     """
 
     def paginate(
@@ -1977,13 +1997,13 @@ class DescribeScheduledInstanceAvailabilityPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeScheduledInstanceAvailabilityResultTypeDef]:
         """
-        [DescribeScheduledInstanceAvailability.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeScheduledInstanceAvailability.paginate)
+        [DescribeScheduledInstanceAvailability.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeScheduledInstanceAvailability.paginate)
         """
 
 
 class DescribeScheduledInstancesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeScheduledInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeScheduledInstances)
+    [Paginator.DescribeScheduledInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeScheduledInstances)
     """
 
     def paginate(
@@ -1995,13 +2015,13 @@ class DescribeScheduledInstancesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeScheduledInstancesResultTypeDef]:
         """
-        [DescribeScheduledInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeScheduledInstances.paginate)
+        [DescribeScheduledInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeScheduledInstances.paginate)
         """
 
 
 class DescribeSecurityGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeSecurityGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeSecurityGroups)
+    [Paginator.DescribeSecurityGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeSecurityGroups)
     """
 
     def paginate(
@@ -2013,13 +2033,13 @@ class DescribeSecurityGroupsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeSecurityGroupsResultTypeDef]:
         """
-        [DescribeSecurityGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeSecurityGroups.paginate)
+        [DescribeSecurityGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeSecurityGroups.paginate)
         """
 
 
 class DescribeSnapshotsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeSnapshots)
+    [Paginator.DescribeSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeSnapshots)
     """
 
     def paginate(
@@ -2032,13 +2052,13 @@ class DescribeSnapshotsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeSnapshotsResultTypeDef]:
         """
-        [DescribeSnapshots.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeSnapshots.paginate)
+        [DescribeSnapshots.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeSnapshots.paginate)
         """
 
 
 class DescribeSpotFleetInstancesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeSpotFleetInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeSpotFleetInstances)
+    [Paginator.DescribeSpotFleetInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeSpotFleetInstances)
     """
 
     def paginate(
@@ -2048,13 +2068,13 @@ class DescribeSpotFleetInstancesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeSpotFleetInstancesResponseTypeDef]:
         """
-        [DescribeSpotFleetInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeSpotFleetInstances.paginate)
+        [DescribeSpotFleetInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeSpotFleetInstances.paginate)
         """
 
 
 class DescribeSpotFleetRequestsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeSpotFleetRequests documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeSpotFleetRequests)
+    [Paginator.DescribeSpotFleetRequests documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeSpotFleetRequests)
     """
 
     def paginate(
@@ -2064,13 +2084,13 @@ class DescribeSpotFleetRequestsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeSpotFleetRequestsResponseTypeDef]:
         """
-        [DescribeSpotFleetRequests.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeSpotFleetRequests.paginate)
+        [DescribeSpotFleetRequests.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeSpotFleetRequests.paginate)
         """
 
 
 class DescribeSpotInstanceRequestsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeSpotInstanceRequests documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeSpotInstanceRequests)
+    [Paginator.DescribeSpotInstanceRequests documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeSpotInstanceRequests)
     """
 
     def paginate(
@@ -2081,13 +2101,13 @@ class DescribeSpotInstanceRequestsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeSpotInstanceRequestsResultTypeDef]:
         """
-        [DescribeSpotInstanceRequests.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeSpotInstanceRequests.paginate)
+        [DescribeSpotInstanceRequests.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeSpotInstanceRequests.paginate)
         """
 
 
 class DescribeSpotPriceHistoryPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeSpotPriceHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeSpotPriceHistory)
+    [Paginator.DescribeSpotPriceHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeSpotPriceHistory)
     """
 
     def paginate(
@@ -2120,6 +2140,13 @@ class DescribeSpotPriceHistoryPaginator(Boto3Paginator):
                 "t3a.large",
                 "t3a.xlarge",
                 "t3a.2xlarge",
+                "t4g.nano",
+                "t4g.micro",
+                "t4g.small",
+                "t4g.medium",
+                "t4g.large",
+                "t4g.xlarge",
+                "t4g.2xlarge",
                 "m1.small",
                 "m1.medium",
                 "m1.large",
@@ -2323,6 +2350,7 @@ class DescribeSpotPriceHistoryPaginator(Boto3Paginator):
                 "p3.8xlarge",
                 "p3.16xlarge",
                 "p3dn.24xlarge",
+                "p4d.24xlarge",
                 "d2.xlarge",
                 "d2.2xlarge",
                 "d2.4xlarge",
@@ -2447,26 +2475,26 @@ class DescribeSpotPriceHistoryPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeSpotPriceHistoryResultTypeDef]:
         """
-        [DescribeSpotPriceHistory.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeSpotPriceHistory.paginate)
+        [DescribeSpotPriceHistory.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeSpotPriceHistory.paginate)
         """
 
 
 class DescribeStaleSecurityGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeStaleSecurityGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeStaleSecurityGroups)
+    [Paginator.DescribeStaleSecurityGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeStaleSecurityGroups)
     """
 
     def paginate(
         self, VpcId: str, DryRun: bool = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeStaleSecurityGroupsResultTypeDef]:
         """
-        [DescribeStaleSecurityGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeStaleSecurityGroups.paginate)
+        [DescribeStaleSecurityGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeStaleSecurityGroups.paginate)
         """
 
 
 class DescribeSubnetsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeSubnets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeSubnets)
+    [Paginator.DescribeSubnets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeSubnets)
     """
 
     def paginate(
@@ -2477,13 +2505,13 @@ class DescribeSubnetsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeSubnetsResultTypeDef]:
         """
-        [DescribeSubnets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeSubnets.paginate)
+        [DescribeSubnets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeSubnets.paginate)
         """
 
 
 class DescribeTagsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeTags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeTags)
+    [Paginator.DescribeTags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeTags)
     """
 
     def paginate(
@@ -2493,13 +2521,13 @@ class DescribeTagsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeTagsResultTypeDef]:
         """
-        [DescribeTags.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeTags.paginate)
+        [DescribeTags.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeTags.paginate)
         """
 
 
 class DescribeTrafficMirrorFiltersPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeTrafficMirrorFilters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeTrafficMirrorFilters)
+    [Paginator.DescribeTrafficMirrorFilters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeTrafficMirrorFilters)
     """
 
     def paginate(
@@ -2510,13 +2538,13 @@ class DescribeTrafficMirrorFiltersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeTrafficMirrorFiltersResultTypeDef]:
         """
-        [DescribeTrafficMirrorFilters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeTrafficMirrorFilters.paginate)
+        [DescribeTrafficMirrorFilters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeTrafficMirrorFilters.paginate)
         """
 
 
 class DescribeTrafficMirrorSessionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeTrafficMirrorSessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeTrafficMirrorSessions)
+    [Paginator.DescribeTrafficMirrorSessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeTrafficMirrorSessions)
     """
 
     def paginate(
@@ -2527,13 +2555,13 @@ class DescribeTrafficMirrorSessionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeTrafficMirrorSessionsResultTypeDef]:
         """
-        [DescribeTrafficMirrorSessions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeTrafficMirrorSessions.paginate)
+        [DescribeTrafficMirrorSessions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeTrafficMirrorSessions.paginate)
         """
 
 
 class DescribeTrafficMirrorTargetsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeTrafficMirrorTargets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeTrafficMirrorTargets)
+    [Paginator.DescribeTrafficMirrorTargets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeTrafficMirrorTargets)
     """
 
     def paginate(
@@ -2544,13 +2572,13 @@ class DescribeTrafficMirrorTargetsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeTrafficMirrorTargetsResultTypeDef]:
         """
-        [DescribeTrafficMirrorTargets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeTrafficMirrorTargets.paginate)
+        [DescribeTrafficMirrorTargets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeTrafficMirrorTargets.paginate)
         """
 
 
 class DescribeTransitGatewayAttachmentsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeTransitGatewayAttachments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayAttachments)
+    [Paginator.DescribeTransitGatewayAttachments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayAttachments)
     """
 
     def paginate(
@@ -2561,13 +2589,13 @@ class DescribeTransitGatewayAttachmentsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeTransitGatewayAttachmentsResultTypeDef]:
         """
-        [DescribeTransitGatewayAttachments.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayAttachments.paginate)
+        [DescribeTransitGatewayAttachments.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayAttachments.paginate)
         """
 
 
 class DescribeTransitGatewayMulticastDomainsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeTransitGatewayMulticastDomains documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayMulticastDomains)
+    [Paginator.DescribeTransitGatewayMulticastDomains documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayMulticastDomains)
     """
 
     def paginate(
@@ -2578,13 +2606,13 @@ class DescribeTransitGatewayMulticastDomainsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeTransitGatewayMulticastDomainsResultTypeDef]:
         """
-        [DescribeTransitGatewayMulticastDomains.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayMulticastDomains.paginate)
+        [DescribeTransitGatewayMulticastDomains.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayMulticastDomains.paginate)
         """
 
 
 class DescribeTransitGatewayPeeringAttachmentsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeTransitGatewayPeeringAttachments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayPeeringAttachments)
+    [Paginator.DescribeTransitGatewayPeeringAttachments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayPeeringAttachments)
     """
 
     def paginate(
@@ -2595,13 +2623,13 @@ class DescribeTransitGatewayPeeringAttachmentsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeTransitGatewayPeeringAttachmentsResultTypeDef]:
         """
-        [DescribeTransitGatewayPeeringAttachments.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayPeeringAttachments.paginate)
+        [DescribeTransitGatewayPeeringAttachments.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayPeeringAttachments.paginate)
         """
 
 
 class DescribeTransitGatewayRouteTablesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeTransitGatewayRouteTables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayRouteTables)
+    [Paginator.DescribeTransitGatewayRouteTables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayRouteTables)
     """
 
     def paginate(
@@ -2612,13 +2640,13 @@ class DescribeTransitGatewayRouteTablesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeTransitGatewayRouteTablesResultTypeDef]:
         """
-        [DescribeTransitGatewayRouteTables.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayRouteTables.paginate)
+        [DescribeTransitGatewayRouteTables.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayRouteTables.paginate)
         """
 
 
 class DescribeTransitGatewayVpcAttachmentsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeTransitGatewayVpcAttachments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayVpcAttachments)
+    [Paginator.DescribeTransitGatewayVpcAttachments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayVpcAttachments)
     """
 
     def paginate(
@@ -2629,13 +2657,13 @@ class DescribeTransitGatewayVpcAttachmentsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeTransitGatewayVpcAttachmentsResultTypeDef]:
         """
-        [DescribeTransitGatewayVpcAttachments.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayVpcAttachments.paginate)
+        [DescribeTransitGatewayVpcAttachments.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayVpcAttachments.paginate)
         """
 
 
 class DescribeTransitGatewaysPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeTransitGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeTransitGateways)
+    [Paginator.DescribeTransitGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeTransitGateways)
     """
 
     def paginate(
@@ -2646,13 +2674,13 @@ class DescribeTransitGatewaysPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeTransitGatewaysResultTypeDef]:
         """
-        [DescribeTransitGateways.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeTransitGateways.paginate)
+        [DescribeTransitGateways.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeTransitGateways.paginate)
         """
 
 
 class DescribeVolumeStatusPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeVolumeStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeVolumeStatus)
+    [Paginator.DescribeVolumeStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeVolumeStatus)
     """
 
     def paginate(
@@ -2663,13 +2691,13 @@ class DescribeVolumeStatusPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeVolumeStatusResultTypeDef]:
         """
-        [DescribeVolumeStatus.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeVolumeStatus.paginate)
+        [DescribeVolumeStatus.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeVolumeStatus.paginate)
         """
 
 
 class DescribeVolumesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeVolumes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeVolumes)
+    [Paginator.DescribeVolumes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeVolumes)
     """
 
     def paginate(
@@ -2680,13 +2708,13 @@ class DescribeVolumesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeVolumesResultTypeDef]:
         """
-        [DescribeVolumes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeVolumes.paginate)
+        [DescribeVolumes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeVolumes.paginate)
         """
 
 
 class DescribeVolumesModificationsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeVolumesModifications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeVolumesModifications)
+    [Paginator.DescribeVolumesModifications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeVolumesModifications)
     """
 
     def paginate(
@@ -2697,26 +2725,26 @@ class DescribeVolumesModificationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeVolumesModificationsResultTypeDef]:
         """
-        [DescribeVolumesModifications.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeVolumesModifications.paginate)
+        [DescribeVolumesModifications.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeVolumesModifications.paginate)
         """
 
 
 class DescribeVpcClassicLinkDnsSupportPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeVpcClassicLinkDnsSupport documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeVpcClassicLinkDnsSupport)
+    [Paginator.DescribeVpcClassicLinkDnsSupport documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeVpcClassicLinkDnsSupport)
     """
 
     def paginate(
         self, VpcIds: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeVpcClassicLinkDnsSupportResultTypeDef]:
         """
-        [DescribeVpcClassicLinkDnsSupport.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeVpcClassicLinkDnsSupport.paginate)
+        [DescribeVpcClassicLinkDnsSupport.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeVpcClassicLinkDnsSupport.paginate)
         """
 
 
 class DescribeVpcEndpointConnectionNotificationsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeVpcEndpointConnectionNotifications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointConnectionNotifications)
+    [Paginator.DescribeVpcEndpointConnectionNotifications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointConnectionNotifications)
     """
 
     def paginate(
@@ -2727,13 +2755,13 @@ class DescribeVpcEndpointConnectionNotificationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeVpcEndpointConnectionNotificationsResultTypeDef]:
         """
-        [DescribeVpcEndpointConnectionNotifications.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointConnectionNotifications.paginate)
+        [DescribeVpcEndpointConnectionNotifications.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointConnectionNotifications.paginate)
         """
 
 
 class DescribeVpcEndpointConnectionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeVpcEndpointConnections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointConnections)
+    [Paginator.DescribeVpcEndpointConnections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointConnections)
     """
 
     def paginate(
@@ -2743,13 +2771,13 @@ class DescribeVpcEndpointConnectionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeVpcEndpointConnectionsResultTypeDef]:
         """
-        [DescribeVpcEndpointConnections.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointConnections.paginate)
+        [DescribeVpcEndpointConnections.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointConnections.paginate)
         """
 
 
 class DescribeVpcEndpointServiceConfigurationsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeVpcEndpointServiceConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointServiceConfigurations)
+    [Paginator.DescribeVpcEndpointServiceConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointServiceConfigurations)
     """
 
     def paginate(
@@ -2760,13 +2788,13 @@ class DescribeVpcEndpointServiceConfigurationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeVpcEndpointServiceConfigurationsResultTypeDef]:
         """
-        [DescribeVpcEndpointServiceConfigurations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointServiceConfigurations.paginate)
+        [DescribeVpcEndpointServiceConfigurations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointServiceConfigurations.paginate)
         """
 
 
 class DescribeVpcEndpointServicePermissionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeVpcEndpointServicePermissions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointServicePermissions)
+    [Paginator.DescribeVpcEndpointServicePermissions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointServicePermissions)
     """
 
     def paginate(
@@ -2777,13 +2805,13 @@ class DescribeVpcEndpointServicePermissionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeVpcEndpointServicePermissionsResultTypeDef]:
         """
-        [DescribeVpcEndpointServicePermissions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointServicePermissions.paginate)
+        [DescribeVpcEndpointServicePermissions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointServicePermissions.paginate)
         """
 
 
 class DescribeVpcEndpointServicesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeVpcEndpointServices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointServices)
+    [Paginator.DescribeVpcEndpointServices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointServices)
     """
 
     def paginate(
@@ -2794,13 +2822,13 @@ class DescribeVpcEndpointServicesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeVpcEndpointServicesResultTypeDef]:
         """
-        [DescribeVpcEndpointServices.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointServices.paginate)
+        [DescribeVpcEndpointServices.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointServices.paginate)
         """
 
 
 class DescribeVpcEndpointsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeVpcEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpoints)
+    [Paginator.DescribeVpcEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpoints)
     """
 
     def paginate(
@@ -2811,13 +2839,13 @@ class DescribeVpcEndpointsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeVpcEndpointsResultTypeDef]:
         """
-        [DescribeVpcEndpoints.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpoints.paginate)
+        [DescribeVpcEndpoints.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpoints.paginate)
         """
 
 
 class DescribeVpcPeeringConnectionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeVpcPeeringConnections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeVpcPeeringConnections)
+    [Paginator.DescribeVpcPeeringConnections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeVpcPeeringConnections)
     """
 
     def paginate(
@@ -2828,13 +2856,13 @@ class DescribeVpcPeeringConnectionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeVpcPeeringConnectionsResultTypeDef]:
         """
-        [DescribeVpcPeeringConnections.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeVpcPeeringConnections.paginate)
+        [DescribeVpcPeeringConnections.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeVpcPeeringConnections.paginate)
         """
 
 
 class DescribeVpcsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeVpcs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeVpcs)
+    [Paginator.DescribeVpcs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeVpcs)
     """
 
     def paginate(
@@ -2845,26 +2873,26 @@ class DescribeVpcsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeVpcsResultTypeDef]:
         """
-        [DescribeVpcs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.DescribeVpcs.paginate)
+        [DescribeVpcs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.DescribeVpcs.paginate)
         """
 
 
 class GetAssociatedIpv6PoolCidrsPaginator(Boto3Paginator):
     """
-    [Paginator.GetAssociatedIpv6PoolCidrs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.GetAssociatedIpv6PoolCidrs)
+    [Paginator.GetAssociatedIpv6PoolCidrs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.GetAssociatedIpv6PoolCidrs)
     """
 
     def paginate(
         self, PoolId: str, DryRun: bool = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetAssociatedIpv6PoolCidrsResultTypeDef]:
         """
-        [GetAssociatedIpv6PoolCidrs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.GetAssociatedIpv6PoolCidrs.paginate)
+        [GetAssociatedIpv6PoolCidrs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.GetAssociatedIpv6PoolCidrs.paginate)
         """
 
 
 class GetGroupsForCapacityReservationPaginator(Boto3Paginator):
     """
-    [Paginator.GetGroupsForCapacityReservation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.GetGroupsForCapacityReservation)
+    [Paginator.GetGroupsForCapacityReservation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.GetGroupsForCapacityReservation)
     """
 
     def paginate(
@@ -2874,13 +2902,13 @@ class GetGroupsForCapacityReservationPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetGroupsForCapacityReservationResultTypeDef]:
         """
-        [GetGroupsForCapacityReservation.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.GetGroupsForCapacityReservation.paginate)
+        [GetGroupsForCapacityReservation.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.GetGroupsForCapacityReservation.paginate)
         """
 
 
 class GetManagedPrefixListAssociationsPaginator(Boto3Paginator):
     """
-    [Paginator.GetManagedPrefixListAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.GetManagedPrefixListAssociations)
+    [Paginator.GetManagedPrefixListAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.GetManagedPrefixListAssociations)
     """
 
     def paginate(
@@ -2890,13 +2918,13 @@ class GetManagedPrefixListAssociationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetManagedPrefixListAssociationsResultTypeDef]:
         """
-        [GetManagedPrefixListAssociations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.GetManagedPrefixListAssociations.paginate)
+        [GetManagedPrefixListAssociations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.GetManagedPrefixListAssociations.paginate)
         """
 
 
 class GetManagedPrefixListEntriesPaginator(Boto3Paginator):
     """
-    [Paginator.GetManagedPrefixListEntries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.GetManagedPrefixListEntries)
+    [Paginator.GetManagedPrefixListEntries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.GetManagedPrefixListEntries)
     """
 
     def paginate(
@@ -2907,13 +2935,13 @@ class GetManagedPrefixListEntriesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetManagedPrefixListEntriesResultTypeDef]:
         """
-        [GetManagedPrefixListEntries.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.GetManagedPrefixListEntries.paginate)
+        [GetManagedPrefixListEntries.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.GetManagedPrefixListEntries.paginate)
         """
 
 
 class GetTransitGatewayAttachmentPropagationsPaginator(Boto3Paginator):
     """
-    [Paginator.GetTransitGatewayAttachmentPropagations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayAttachmentPropagations)
+    [Paginator.GetTransitGatewayAttachmentPropagations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayAttachmentPropagations)
     """
 
     def paginate(
@@ -2924,13 +2952,13 @@ class GetTransitGatewayAttachmentPropagationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetTransitGatewayAttachmentPropagationsResultTypeDef]:
         """
-        [GetTransitGatewayAttachmentPropagations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayAttachmentPropagations.paginate)
+        [GetTransitGatewayAttachmentPropagations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayAttachmentPropagations.paginate)
         """
 
 
 class GetTransitGatewayMulticastDomainAssociationsPaginator(Boto3Paginator):
     """
-    [Paginator.GetTransitGatewayMulticastDomainAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayMulticastDomainAssociations)
+    [Paginator.GetTransitGatewayMulticastDomainAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayMulticastDomainAssociations)
     """
 
     def paginate(
@@ -2941,13 +2969,30 @@ class GetTransitGatewayMulticastDomainAssociationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetTransitGatewayMulticastDomainAssociationsResultTypeDef]:
         """
-        [GetTransitGatewayMulticastDomainAssociations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayMulticastDomainAssociations.paginate)
+        [GetTransitGatewayMulticastDomainAssociations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayMulticastDomainAssociations.paginate)
+        """
+
+
+class GetTransitGatewayPrefixListReferencesPaginator(Boto3Paginator):
+    """
+    [Paginator.GetTransitGatewayPrefixListReferences documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayPrefixListReferences)
+    """
+
+    def paginate(
+        self,
+        TransitGatewayRouteTableId: str,
+        Filters: List[FilterTypeDef] = None,
+        DryRun: bool = None,
+        PaginationConfig: PaginatorConfigTypeDef = None,
+    ) -> Iterator[GetTransitGatewayPrefixListReferencesResultTypeDef]:
+        """
+        [GetTransitGatewayPrefixListReferences.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayPrefixListReferences.paginate)
         """
 
 
 class GetTransitGatewayRouteTableAssociationsPaginator(Boto3Paginator):
     """
-    [Paginator.GetTransitGatewayRouteTableAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayRouteTableAssociations)
+    [Paginator.GetTransitGatewayRouteTableAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayRouteTableAssociations)
     """
 
     def paginate(
@@ -2958,13 +3003,13 @@ class GetTransitGatewayRouteTableAssociationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetTransitGatewayRouteTableAssociationsResultTypeDef]:
         """
-        [GetTransitGatewayRouteTableAssociations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayRouteTableAssociations.paginate)
+        [GetTransitGatewayRouteTableAssociations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayRouteTableAssociations.paginate)
         """
 
 
 class GetTransitGatewayRouteTablePropagationsPaginator(Boto3Paginator):
     """
-    [Paginator.GetTransitGatewayRouteTablePropagations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayRouteTablePropagations)
+    [Paginator.GetTransitGatewayRouteTablePropagations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayRouteTablePropagations)
     """
 
     def paginate(
@@ -2975,13 +3020,13 @@ class GetTransitGatewayRouteTablePropagationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetTransitGatewayRouteTablePropagationsResultTypeDef]:
         """
-        [GetTransitGatewayRouteTablePropagations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayRouteTablePropagations.paginate)
+        [GetTransitGatewayRouteTablePropagations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayRouteTablePropagations.paginate)
         """
 
 
 class SearchLocalGatewayRoutesPaginator(Boto3Paginator):
     """
-    [Paginator.SearchLocalGatewayRoutes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.SearchLocalGatewayRoutes)
+    [Paginator.SearchLocalGatewayRoutes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.SearchLocalGatewayRoutes)
     """
 
     def paginate(
@@ -2992,13 +3037,13 @@ class SearchLocalGatewayRoutesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[SearchLocalGatewayRoutesResultTypeDef]:
         """
-        [SearchLocalGatewayRoutes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.SearchLocalGatewayRoutes.paginate)
+        [SearchLocalGatewayRoutes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.SearchLocalGatewayRoutes.paginate)
         """
 
 
 class SearchTransitGatewayMulticastGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.SearchTransitGatewayMulticastGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.SearchTransitGatewayMulticastGroups)
+    [Paginator.SearchTransitGatewayMulticastGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.SearchTransitGatewayMulticastGroups)
     """
 
     def paginate(
@@ -3009,5 +3054,5 @@ class SearchTransitGatewayMulticastGroupsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[SearchTransitGatewayMulticastGroupsResultTypeDef]:
         """
-        [SearchTransitGatewayMulticastGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ec2.html#EC2.Paginator.SearchTransitGatewayMulticastGroups.paginate)
+        [SearchTransitGatewayMulticastGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Paginator.SearchTransitGatewayMulticastGroups.paginate)
         """

@@ -17,7 +17,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -154,6 +153,7 @@ ContactDataTypeDef = TypedDict(
         "contactStatus": Literal[
             "AVAILABLE",
             "AWS_CANCELLED",
+            "AWS_FAILED",
             "CANCELLED",
             "CANCELLING",
             "COMPLETED",
@@ -182,7 +182,7 @@ ContactDataTypeDef = TypedDict(
 
 DataflowDetailTypeDef = TypedDict(
     "DataflowDetailTypeDef",
-    {"destination": "DestinationTypeDef", "source": "SourceTypeDef"},
+    {"destination": "DestinationTypeDef", "errorMessage": str, "source": "SourceTypeDef"},
     total=False,
 )
 
@@ -371,6 +371,7 @@ DescribeContactResponseTypeDef = TypedDict(
         "contactStatus": Literal[
             "AVAILABLE",
             "AWS_CANCELLED",
+            "AWS_FAILED",
             "CANCELLED",
             "CANCELLING",
             "COMPLETED",

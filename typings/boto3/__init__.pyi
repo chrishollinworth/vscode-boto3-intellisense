@@ -14,6 +14,7 @@ from mypy_boto3.apigateway import APIGatewayClient
 from mypy_boto3.apigatewaymanagementapi import ApiGatewayManagementApiClient
 from mypy_boto3.apigatewayv2 import ApiGatewayV2Client
 from mypy_boto3.appconfig import AppConfigClient
+from mypy_boto3.appflow import AppflowClient
 from mypy_boto3.application_autoscaling import ApplicationAutoScalingClient
 from mypy_boto3.application_insights import ApplicationInsightsClient
 from mypy_boto3.appmesh import AppMeshClient
@@ -24,6 +25,7 @@ from mypy_boto3.autoscaling import AutoScalingClient
 from mypy_boto3.autoscaling_plans import AutoScalingPlansClient
 from mypy_boto3.backup import BackupClient
 from mypy_boto3.batch import BatchClient
+from mypy_boto3.braket import BraketClient
 from mypy_boto3.budgets import BudgetsClient
 from mypy_boto3.ce import CostExplorerClient
 from mypy_boto3.chime import ChimeClient
@@ -59,6 +61,7 @@ from mypy_boto3.config import ConfigServiceClient
 from mypy_boto3.connect import ConnectClient
 from mypy_boto3.connectparticipant import ConnectParticipantClient
 from mypy_boto3.cur import CostandUsageReportServiceClient
+from mypy_boto3.databrew import GlueDataBrewClient
 from mypy_boto3.dataexchange import DataExchangeClient
 from mypy_boto3.datapipeline import DataPipelineClient
 from mypy_boto3.datasync import DataSyncClient
@@ -106,8 +109,10 @@ from mypy_boto3.greengrass import GreengrassClient
 from mypy_boto3.groundstation import GroundStationClient
 from mypy_boto3.guardduty import GuardDutyClient
 from mypy_boto3.health import HealthClient
+from mypy_boto3.honeycode import HoneycodeClient
 from mypy_boto3.iam import IAMClient
 from mypy_boto3.iam import IAMServiceResource
+from mypy_boto3.identitystore import IdentityStoreClient
 from mypy_boto3.imagebuilder import ImagebuilderClient
 from mypy_boto3.importexport import ImportExportClient
 from mypy_boto3.inspector import InspectorClient
@@ -122,6 +127,7 @@ from mypy_boto3.iotevents_data import IoTEventsDataClient
 from mypy_boto3.iotsecuretunneling import IoTSecureTunnelingClient
 from mypy_boto3.iotsitewise import IoTSiteWiseClient
 from mypy_boto3.iotthingsgraph import IoTThingsGraphClient
+from mypy_boto3.ivs import IVSClient
 from mypy_boto3.kafka import KafkaClient
 from mypy_boto3.kendra import KendraClient
 from mypy_boto3.kinesis import KinesisClient
@@ -161,6 +167,7 @@ from mypy_boto3.mobile import MobileClient
 from mypy_boto3.mq import MQClient
 from mypy_boto3.mturk import MTurkClient
 from mypy_boto3.neptune import NeptuneClient
+from mypy_boto3.network_firewall import NetworkFirewallClient
 from mypy_boto3.networkmanager import NetworkManagerClient
 from mypy_boto3.opsworks import OpsWorksClient
 from mypy_boto3.opsworks import OpsWorksServiceResource
@@ -183,6 +190,7 @@ from mypy_boto3.ram import RAMClient
 from mypy_boto3.rds import RDSClient
 from mypy_boto3.rds_data import RDSDataServiceClient
 from mypy_boto3.redshift import RedshiftClient
+from mypy_boto3.redshift_data import RedshiftDataAPIServiceClient
 from mypy_boto3.rekognition import RekognitionClient
 from mypy_boto3.resource_groups import ResourceGroupsClient
 from mypy_boto3.resourcegroupstaggingapi import ResourceGroupsTaggingAPIClient
@@ -193,6 +201,7 @@ from mypy_boto3.route53resolver import Route53ResolverClient
 from mypy_boto3.s3 import S3Client
 from mypy_boto3.s3 import S3ServiceResource
 from mypy_boto3.s3control import S3ControlClient
+from mypy_boto3.s3outposts import S3OutpostsClient
 from mypy_boto3.sagemaker import SageMakerClient
 from mypy_boto3.sagemaker_a2i_runtime import AugmentedAIRuntimeClient
 from mypy_boto3.sagemaker_runtime import SageMakerRuntimeClient
@@ -204,6 +213,7 @@ from mypy_boto3.securityhub import SecurityHubClient
 from mypy_boto3.serverlessrepo import ServerlessApplicationRepositoryClient
 from mypy_boto3.service_quotas import ServiceQuotasClient
 from mypy_boto3.servicecatalog import ServiceCatalogClient
+from mypy_boto3.servicecatalog_appregistry import ServiceCatalogAppRegistryClient
 from mypy_boto3.servicediscovery import ServiceDiscoveryClient
 from mypy_boto3.ses import SESClient
 from mypy_boto3.sesv2 import SESV2Client
@@ -218,6 +228,7 @@ from mypy_boto3.sqs import SQSClient
 from mypy_boto3.sqs import SQSServiceResource
 from mypy_boto3.ssm import SSMClient
 from mypy_boto3.sso import SSOClient
+from mypy_boto3.sso_admin import SSOAdminClient
 from mypy_boto3.sso_oidc import SSOOIDCClient
 from mypy_boto3.stepfunctions import SFNClient
 from mypy_boto3.storagegateway import StorageGatewayClient
@@ -226,6 +237,8 @@ from mypy_boto3.support import SupportClient
 from mypy_boto3.swf import SWFClient
 from mypy_boto3.synthetics import SyntheticsClient
 from mypy_boto3.textract import TextractClient
+from mypy_boto3.timestream_query import TimestreamQueryClient
+from mypy_boto3.timestream_write import TimestreamWriteClient
 from mypy_boto3.transcribe import TranscribeServiceClient
 from mypy_boto3.transfer import TransferClient
 from mypy_boto3.translate import TranslateClient
@@ -367,6 +380,20 @@ def client(
     pass
 @overload
 def client(
+    service_name: Literal["appflow"],
+    region_name: str = None,
+    api_version: str = None,
+    use_ssl: bool = None,
+    verify: Union[str, bool] = None,
+    endpoint_url: str = None,
+    aws_access_key_id: str = None,
+    aws_secret_access_key: str = None,
+    aws_session_token: str = None,
+    config: Config = None,
+) -> AppflowClient:
+    pass
+@overload
+def client(
     service_name: Literal["application-autoscaling"],
     region_name: str = None,
     api_version: str = None,
@@ -504,6 +531,20 @@ def client(
     aws_session_token: str = None,
     config: Config = None,
 ) -> BatchClient:
+    pass
+@overload
+def client(
+    service_name: Literal["braket"],
+    region_name: str = None,
+    api_version: str = None,
+    use_ssl: bool = None,
+    verify: Union[str, bool] = None,
+    endpoint_url: str = None,
+    aws_access_key_id: str = None,
+    aws_secret_access_key: str = None,
+    aws_session_token: str = None,
+    config: Config = None,
+) -> BraketClient:
     pass
 @overload
 def client(
@@ -966,6 +1007,20 @@ def client(
     aws_session_token: str = None,
     config: Config = None,
 ) -> CostandUsageReportServiceClient:
+    pass
+@overload
+def client(
+    service_name: Literal["databrew"],
+    region_name: str = None,
+    api_version: str = None,
+    use_ssl: bool = None,
+    verify: Union[str, bool] = None,
+    endpoint_url: str = None,
+    aws_access_key_id: str = None,
+    aws_secret_access_key: str = None,
+    aws_session_token: str = None,
+    config: Config = None,
+) -> GlueDataBrewClient:
     pass
 @overload
 def client(
@@ -1585,6 +1640,20 @@ def client(
     pass
 @overload
 def client(
+    service_name: Literal["honeycode"],
+    region_name: str = None,
+    api_version: str = None,
+    use_ssl: bool = None,
+    verify: Union[str, bool] = None,
+    endpoint_url: str = None,
+    aws_access_key_id: str = None,
+    aws_secret_access_key: str = None,
+    aws_session_token: str = None,
+    config: Config = None,
+) -> HoneycodeClient:
+    pass
+@overload
+def client(
     service_name: Literal["iam"],
     region_name: str = None,
     api_version: str = None,
@@ -1596,6 +1665,20 @@ def client(
     aws_session_token: str = None,
     config: Config = None,
 ) -> IAMClient:
+    pass
+@overload
+def client(
+    service_name: Literal["identitystore"],
+    region_name: str = None,
+    api_version: str = None,
+    use_ssl: bool = None,
+    verify: Union[str, bool] = None,
+    endpoint_url: str = None,
+    aws_access_key_id: str = None,
+    aws_secret_access_key: str = None,
+    aws_session_token: str = None,
+    config: Config = None,
+) -> IdentityStoreClient:
     pass
 @overload
 def client(
@@ -1792,6 +1875,20 @@ def client(
     aws_session_token: str = None,
     config: Config = None,
 ) -> IoTThingsGraphClient:
+    pass
+@overload
+def client(
+    service_name: Literal["ivs"],
+    region_name: str = None,
+    api_version: str = None,
+    use_ssl: bool = None,
+    verify: Union[str, bool] = None,
+    endpoint_url: str = None,
+    aws_access_key_id: str = None,
+    aws_secret_access_key: str = None,
+    aws_session_token: str = None,
+    config: Config = None,
+) -> IVSClient:
     pass
 @overload
 def client(
@@ -2341,6 +2438,20 @@ def client(
     pass
 @overload
 def client(
+    service_name: Literal["network-firewall"],
+    region_name: str = None,
+    api_version: str = None,
+    use_ssl: bool = None,
+    verify: Union[str, bool] = None,
+    endpoint_url: str = None,
+    aws_access_key_id: str = None,
+    aws_secret_access_key: str = None,
+    aws_session_token: str = None,
+    config: Config = None,
+) -> NetworkFirewallClient:
+    pass
+@overload
+def client(
     service_name: Literal["networkmanager"],
     region_name: str = None,
     api_version: str = None,
@@ -2635,6 +2746,20 @@ def client(
     pass
 @overload
 def client(
+    service_name: Literal["redshift-data"],
+    region_name: str = None,
+    api_version: str = None,
+    use_ssl: bool = None,
+    verify: Union[str, bool] = None,
+    endpoint_url: str = None,
+    aws_access_key_id: str = None,
+    aws_secret_access_key: str = None,
+    aws_session_token: str = None,
+    config: Config = None,
+) -> RedshiftDataAPIServiceClient:
+    pass
+@overload
+def client(
     service_name: Literal["rekognition"],
     region_name: str = None,
     api_version: str = None,
@@ -2758,6 +2883,20 @@ def client(
     aws_session_token: str = None,
     config: Config = None,
 ) -> S3ControlClient:
+    pass
+@overload
+def client(
+    service_name: Literal["s3outposts"],
+    region_name: str = None,
+    api_version: str = None,
+    use_ssl: bool = None,
+    verify: Union[str, bool] = None,
+    endpoint_url: str = None,
+    aws_access_key_id: str = None,
+    aws_secret_access_key: str = None,
+    aws_session_token: str = None,
+    config: Config = None,
+) -> S3OutpostsClient:
     pass
 @overload
 def client(
@@ -2912,6 +3051,20 @@ def client(
     aws_session_token: str = None,
     config: Config = None,
 ) -> ServiceCatalogClient:
+    pass
+@overload
+def client(
+    service_name: Literal["servicecatalog-appregistry"],
+    region_name: str = None,
+    api_version: str = None,
+    use_ssl: bool = None,
+    verify: Union[str, bool] = None,
+    endpoint_url: str = None,
+    aws_access_key_id: str = None,
+    aws_secret_access_key: str = None,
+    aws_session_token: str = None,
+    config: Config = None,
+) -> ServiceCatalogAppRegistryClient:
     pass
 @overload
 def client(
@@ -3083,6 +3236,20 @@ def client(
     pass
 @overload
 def client(
+    service_name: Literal["sso-admin"],
+    region_name: str = None,
+    api_version: str = None,
+    use_ssl: bool = None,
+    verify: Union[str, bool] = None,
+    endpoint_url: str = None,
+    aws_access_key_id: str = None,
+    aws_secret_access_key: str = None,
+    aws_session_token: str = None,
+    config: Config = None,
+) -> SSOAdminClient:
+    pass
+@overload
+def client(
     service_name: Literal["sso-oidc"],
     region_name: str = None,
     api_version: str = None,
@@ -3192,6 +3359,34 @@ def client(
     aws_session_token: str = None,
     config: Config = None,
 ) -> TextractClient:
+    pass
+@overload
+def client(
+    service_name: Literal["timestream-query"],
+    region_name: str = None,
+    api_version: str = None,
+    use_ssl: bool = None,
+    verify: Union[str, bool] = None,
+    endpoint_url: str = None,
+    aws_access_key_id: str = None,
+    aws_secret_access_key: str = None,
+    aws_session_token: str = None,
+    config: Config = None,
+) -> TimestreamQueryClient:
+    pass
+@overload
+def client(
+    service_name: Literal["timestream-write"],
+    region_name: str = None,
+    api_version: str = None,
+    use_ssl: bool = None,
+    verify: Union[str, bool] = None,
+    endpoint_url: str = None,
+    aws_access_key_id: str = None,
+    aws_secret_access_key: str = None,
+    aws_session_token: str = None,
+    config: Config = None,
+) -> TimestreamWriteClient:
     pass
 @overload
 def client(

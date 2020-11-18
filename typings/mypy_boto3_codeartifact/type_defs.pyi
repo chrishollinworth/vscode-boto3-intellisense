@@ -17,7 +17,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -39,6 +38,7 @@ __all__ = (
     "RepositorySummaryTypeDef",
     "ResourcePolicyTypeDef",
     "SuccessfulPackageVersionInfoTypeDef",
+    "TagTypeDef",
     "UpstreamRepositoryInfoTypeDef",
     "AssociateExternalConnectionResultTypeDef",
     "CopyPackageVersionsResultTypeDef",
@@ -67,6 +67,7 @@ __all__ = (
     "ListPackagesResultTypeDef",
     "ListRepositoriesInDomainResultTypeDef",
     "ListRepositoriesResultTypeDef",
+    "ListTagsForResourceResultTypeDef",
     "PaginatorConfigTypeDef",
     "PutDomainPermissionsPolicyResultTypeDef",
     "PutRepositoryPermissionsPolicyResultTypeDef",
@@ -98,6 +99,7 @@ DomainDescriptionTypeDef = TypedDict(
         "encryptionKey": str,
         "repositoryCount": int,
         "assetSizeBytes": int,
+        "s3BucketArn": str,
     },
     total=False,
 )
@@ -232,6 +234,8 @@ SuccessfulPackageVersionInfoTypeDef = TypedDict(
     },
     total=False,
 )
+
+TagTypeDef = TypedDict("TagTypeDef", {"key": str, "value": str})
 
 UpstreamRepositoryInfoTypeDef = TypedDict(
     "UpstreamRepositoryInfoTypeDef", {"repositoryName": str}, total=False
@@ -414,6 +418,10 @@ ListRepositoriesResultTypeDef = TypedDict(
     "ListRepositoriesResultTypeDef",
     {"repositories": List["RepositorySummaryTypeDef"], "nextToken": str},
     total=False,
+)
+
+ListTagsForResourceResultTypeDef = TypedDict(
+    "ListTagsForResourceResultTypeDef", {"tags": List["TagTypeDef"]}, total=False
 )
 
 PaginatorConfigTypeDef = TypedDict(

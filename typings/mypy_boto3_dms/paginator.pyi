@@ -90,59 +90,59 @@ __all__ = (
 
 class DescribeCertificatesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeCertificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeCertificates)
+    [Paginator.DescribeCertificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeCertificates)
     """
 
     def paginate(
         self, Filters: List[FilterTypeDef] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeCertificatesResponseTypeDef]:
         """
-        [DescribeCertificates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeCertificates.paginate)
+        [DescribeCertificates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeCertificates.paginate)
         """
 
 
 class DescribeConnectionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeConnections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeConnections)
+    [Paginator.DescribeConnections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeConnections)
     """
 
     def paginate(
         self, Filters: List[FilterTypeDef] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeConnectionsResponseTypeDef]:
         """
-        [DescribeConnections.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeConnections.paginate)
+        [DescribeConnections.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeConnections.paginate)
         """
 
 
 class DescribeEndpointTypesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeEndpointTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeEndpointTypes)
+    [Paginator.DescribeEndpointTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeEndpointTypes)
     """
 
     def paginate(
         self, Filters: List[FilterTypeDef] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeEndpointTypesResponseTypeDef]:
         """
-        [DescribeEndpointTypes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeEndpointTypes.paginate)
+        [DescribeEndpointTypes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeEndpointTypes.paginate)
         """
 
 
 class DescribeEndpointsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeEndpoints)
+    [Paginator.DescribeEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeEndpoints)
     """
 
     def paginate(
         self, Filters: List[FilterTypeDef] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeEndpointsResponseTypeDef]:
         """
-        [DescribeEndpoints.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeEndpoints.paginate)
+        [DescribeEndpoints.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeEndpoints.paginate)
         """
 
 
 class DescribeEventSubscriptionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeEventSubscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeEventSubscriptions)
+    [Paginator.DescribeEventSubscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeEventSubscriptions)
     """
 
     def paginate(
@@ -152,13 +152,13 @@ class DescribeEventSubscriptionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeEventSubscriptionsResponseTypeDef]:
         """
-        [DescribeEventSubscriptions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeEventSubscriptions.paginate)
+        [DescribeEventSubscriptions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeEventSubscriptions.paginate)
         """
 
 
 class DescribeEventsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeEvents)
+    [Paginator.DescribeEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeEvents)
     """
 
     def paginate(
@@ -173,65 +173,65 @@ class DescribeEventsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeEventsResponseTypeDef]:
         """
-        [DescribeEvents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeEvents.paginate)
+        [DescribeEvents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeEvents.paginate)
         """
 
 
 class DescribeOrderableReplicationInstancesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeOrderableReplicationInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeOrderableReplicationInstances)
+    [Paginator.DescribeOrderableReplicationInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeOrderableReplicationInstances)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeOrderableReplicationInstancesResponseTypeDef]:
         """
-        [DescribeOrderableReplicationInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeOrderableReplicationInstances.paginate)
+        [DescribeOrderableReplicationInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeOrderableReplicationInstances.paginate)
         """
 
 
 class DescribeReplicationInstancesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeReplicationInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeReplicationInstances)
+    [Paginator.DescribeReplicationInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeReplicationInstances)
     """
 
     def paginate(
         self, Filters: List[FilterTypeDef] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeReplicationInstancesResponseTypeDef]:
         """
-        [DescribeReplicationInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeReplicationInstances.paginate)
+        [DescribeReplicationInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeReplicationInstances.paginate)
         """
 
 
 class DescribeReplicationSubnetGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeReplicationSubnetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeReplicationSubnetGroups)
+    [Paginator.DescribeReplicationSubnetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeReplicationSubnetGroups)
     """
 
     def paginate(
         self, Filters: List[FilterTypeDef] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeReplicationSubnetGroupsResponseTypeDef]:
         """
-        [DescribeReplicationSubnetGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeReplicationSubnetGroups.paginate)
+        [DescribeReplicationSubnetGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeReplicationSubnetGroups.paginate)
         """
 
 
 class DescribeReplicationTaskAssessmentResultsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeReplicationTaskAssessmentResults documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeReplicationTaskAssessmentResults)
+    [Paginator.DescribeReplicationTaskAssessmentResults documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeReplicationTaskAssessmentResults)
     """
 
     def paginate(
         self, ReplicationTaskArn: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeReplicationTaskAssessmentResultsResponseTypeDef]:
         """
-        [DescribeReplicationTaskAssessmentResults.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeReplicationTaskAssessmentResults.paginate)
+        [DescribeReplicationTaskAssessmentResults.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeReplicationTaskAssessmentResults.paginate)
         """
 
 
 class DescribeReplicationTasksPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeReplicationTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeReplicationTasks)
+    [Paginator.DescribeReplicationTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeReplicationTasks)
     """
 
     def paginate(
@@ -241,26 +241,26 @@ class DescribeReplicationTasksPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeReplicationTasksResponseTypeDef]:
         """
-        [DescribeReplicationTasks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeReplicationTasks.paginate)
+        [DescribeReplicationTasks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeReplicationTasks.paginate)
         """
 
 
 class DescribeSchemasPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeSchemas documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeSchemas)
+    [Paginator.DescribeSchemas documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeSchemas)
     """
 
     def paginate(
         self, EndpointArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeSchemasResponseTypeDef]:
         """
-        [DescribeSchemas.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeSchemas.paginate)
+        [DescribeSchemas.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeSchemas.paginate)
         """
 
 
 class DescribeTableStatisticsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeTableStatistics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeTableStatistics)
+    [Paginator.DescribeTableStatistics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeTableStatistics)
     """
 
     def paginate(
@@ -270,5 +270,5 @@ class DescribeTableStatisticsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeTableStatisticsResponseTypeDef]:
         """
-        [DescribeTableStatistics.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeTableStatistics.paginate)
+        [DescribeTableStatistics.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeTableStatistics.paginate)
         """

@@ -42,7 +42,7 @@ __all__ = (
 
 class LoadBalancerAvailableWaiter(Boto3Waiter):
     """
-    [Waiter.LoadBalancerAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.LoadBalancerAvailable)
+    [Waiter.LoadBalancerAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.LoadBalancerAvailable)
     """
 
     def wait(
@@ -54,13 +54,13 @@ class LoadBalancerAvailableWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [LoadBalancerAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.LoadBalancerAvailable.wait)
+        [LoadBalancerAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.LoadBalancerAvailable.wait)
         """
 
 
 class LoadBalancerExistsWaiter(Boto3Waiter):
     """
-    [Waiter.LoadBalancerExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.LoadBalancerExists)
+    [Waiter.LoadBalancerExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.LoadBalancerExists)
     """
 
     def wait(
@@ -72,13 +72,13 @@ class LoadBalancerExistsWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [LoadBalancerExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.LoadBalancerExists.wait)
+        [LoadBalancerExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.LoadBalancerExists.wait)
         """
 
 
 class LoadBalancersDeletedWaiter(Boto3Waiter):
     """
-    [Waiter.LoadBalancersDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.LoadBalancersDeleted)
+    [Waiter.LoadBalancersDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.LoadBalancersDeleted)
     """
 
     def wait(
@@ -90,13 +90,13 @@ class LoadBalancersDeletedWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [LoadBalancersDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.LoadBalancersDeleted.wait)
+        [LoadBalancersDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.LoadBalancersDeleted.wait)
         """
 
 
 class TargetDeregisteredWaiter(Boto3Waiter):
     """
-    [Waiter.TargetDeregistered documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.TargetDeregistered)
+    [Waiter.TargetDeregistered documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.TargetDeregistered)
     """
 
     def wait(
@@ -106,13 +106,13 @@ class TargetDeregisteredWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [TargetDeregistered.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.TargetDeregistered.wait)
+        [TargetDeregistered.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.TargetDeregistered.wait)
         """
 
 
 class TargetInServiceWaiter(Boto3Waiter):
     """
-    [Waiter.TargetInService documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.TargetInService)
+    [Waiter.TargetInService documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.TargetInService)
     """
 
     def wait(
@@ -122,5 +122,5 @@ class TargetInServiceWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [TargetInService.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.TargetInService.wait)
+        [TargetInService.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elbv2.html#ElasticLoadBalancingv2.Waiter.TargetInService.wait)
         """

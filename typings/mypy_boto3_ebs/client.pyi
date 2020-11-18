@@ -1,4 +1,4 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import
+# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for ebs service client
 
@@ -14,7 +14,7 @@ Usage::
 import sys
 from typing import IO, Any, Dict, List, Type, Union
 
-from botocore.exceptions import ClientError as Boto3ClientError
+from botocore.client import ClientMeta
 
 from mypy_boto3_ebs.type_defs import (
     CompleteSnapshotResponseTypeDef,
@@ -35,28 +35,37 @@ else:
 __all__ = ("EBSClient",)
 
 
+class BotocoreClientError(BaseException):
+    MSG_TEMPLATE: str
+
+    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
+        self.response: Dict[str, Any]
+        self.operation_name: str
+
+
 class Exceptions:
-    AccessDeniedException: Type[Boto3ClientError]
-    ClientError: Type[Boto3ClientError]
-    ConcurrentLimitExceededException: Type[Boto3ClientError]
-    ConflictException: Type[Boto3ClientError]
-    InternalServerException: Type[Boto3ClientError]
-    RequestThrottledException: Type[Boto3ClientError]
-    ResourceNotFoundException: Type[Boto3ClientError]
-    ServiceQuotaExceededException: Type[Boto3ClientError]
-    ValidationException: Type[Boto3ClientError]
+    AccessDeniedException: Type[BotocoreClientError]
+    ClientError: Type[BotocoreClientError]
+    ConcurrentLimitExceededException: Type[BotocoreClientError]
+    ConflictException: Type[BotocoreClientError]
+    InternalServerException: Type[BotocoreClientError]
+    RequestThrottledException: Type[BotocoreClientError]
+    ResourceNotFoundException: Type[BotocoreClientError]
+    ServiceQuotaExceededException: Type[BotocoreClientError]
+    ValidationException: Type[BotocoreClientError]
 
 
 class EBSClient:
     """
-    [EBS.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ebs.html#EBS.Client)
+    [EBS.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ebs.html#EBS.Client)
     """
 
+    meta: ClientMeta
     exceptions: Exceptions
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ebs.html#EBS.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ebs.html#EBS.Client.can_paginate)
         """
 
     def complete_snapshot(
@@ -68,7 +77,7 @@ class EBSClient:
         ChecksumAggregationMethod: Literal["LINEAR"] = None,
     ) -> CompleteSnapshotResponseTypeDef:
         """
-        [Client.complete_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ebs.html#EBS.Client.complete_snapshot)
+        [Client.complete_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ebs.html#EBS.Client.complete_snapshot)
         """
 
     def generate_presigned_url(
@@ -79,14 +88,14 @@ class EBSClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ebs.html#EBS.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ebs.html#EBS.Client.generate_presigned_url)
         """
 
     def get_snapshot_block(
         self, SnapshotId: str, BlockIndex: int, BlockToken: str
     ) -> GetSnapshotBlockResponseTypeDef:
         """
-        [Client.get_snapshot_block documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ebs.html#EBS.Client.get_snapshot_block)
+        [Client.get_snapshot_block documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ebs.html#EBS.Client.get_snapshot_block)
         """
 
     def list_changed_blocks(
@@ -98,7 +107,7 @@ class EBSClient:
         StartingBlockIndex: int = None,
     ) -> ListChangedBlocksResponseTypeDef:
         """
-        [Client.list_changed_blocks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ebs.html#EBS.Client.list_changed_blocks)
+        [Client.list_changed_blocks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ebs.html#EBS.Client.list_changed_blocks)
         """
 
     def list_snapshot_blocks(
@@ -109,7 +118,7 @@ class EBSClient:
         StartingBlockIndex: int = None,
     ) -> ListSnapshotBlocksResponseTypeDef:
         """
-        [Client.list_snapshot_blocks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ebs.html#EBS.Client.list_snapshot_blocks)
+        [Client.list_snapshot_blocks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ebs.html#EBS.Client.list_snapshot_blocks)
         """
 
     def put_snapshot_block(
@@ -123,7 +132,7 @@ class EBSClient:
         Progress: int = None,
     ) -> PutSnapshotBlockResponseTypeDef:
         """
-        [Client.put_snapshot_block documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ebs.html#EBS.Client.put_snapshot_block)
+        [Client.put_snapshot_block documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ebs.html#EBS.Client.put_snapshot_block)
         """
 
     def start_snapshot(
@@ -138,5 +147,5 @@ class EBSClient:
         Timeout: int = None,
     ) -> StartSnapshotResponseTypeDef:
         """
-        [Client.start_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/ebs.html#EBS.Client.start_snapshot)
+        [Client.start_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ebs.html#EBS.Client.start_snapshot)
         """

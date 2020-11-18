@@ -1,4 +1,4 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import
+# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for sqs service client
 
@@ -14,8 +14,7 @@ Usage::
 import sys
 from typing import Any, Dict, List, Type, overload
 
-from botocore.exceptions import ClientError as Boto3ClientError
-from botocore.paginate import Paginator as Boto3Paginator
+from botocore.client import ClientMeta
 
 from mypy_boto3_sqs.paginator import ListDeadLetterSourceQueuesPaginator, ListQueuesPaginator
 from mypy_boto3_sqs.type_defs import (
@@ -46,57 +45,66 @@ else:
 __all__ = ("SQSClient",)
 
 
+class BotocoreClientError(BaseException):
+    MSG_TEMPLATE: str
+
+    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
+        self.response: Dict[str, Any]
+        self.operation_name: str
+
+
 class Exceptions:
-    BatchEntryIdsNotDistinct: Type[Boto3ClientError]
-    BatchRequestTooLong: Type[Boto3ClientError]
-    ClientError: Type[Boto3ClientError]
-    EmptyBatchRequest: Type[Boto3ClientError]
-    InvalidAttributeName: Type[Boto3ClientError]
-    InvalidBatchEntryId: Type[Boto3ClientError]
-    InvalidIdFormat: Type[Boto3ClientError]
-    InvalidMessageContents: Type[Boto3ClientError]
-    MessageNotInflight: Type[Boto3ClientError]
-    OverLimit: Type[Boto3ClientError]
-    PurgeQueueInProgress: Type[Boto3ClientError]
-    QueueDeletedRecently: Type[Boto3ClientError]
-    QueueDoesNotExist: Type[Boto3ClientError]
-    QueueNameExists: Type[Boto3ClientError]
-    ReceiptHandleIsInvalid: Type[Boto3ClientError]
-    TooManyEntriesInBatchRequest: Type[Boto3ClientError]
-    UnsupportedOperation: Type[Boto3ClientError]
+    BatchEntryIdsNotDistinct: Type[BotocoreClientError]
+    BatchRequestTooLong: Type[BotocoreClientError]
+    ClientError: Type[BotocoreClientError]
+    EmptyBatchRequest: Type[BotocoreClientError]
+    InvalidAttributeName: Type[BotocoreClientError]
+    InvalidBatchEntryId: Type[BotocoreClientError]
+    InvalidIdFormat: Type[BotocoreClientError]
+    InvalidMessageContents: Type[BotocoreClientError]
+    MessageNotInflight: Type[BotocoreClientError]
+    OverLimit: Type[BotocoreClientError]
+    PurgeQueueInProgress: Type[BotocoreClientError]
+    QueueDeletedRecently: Type[BotocoreClientError]
+    QueueDoesNotExist: Type[BotocoreClientError]
+    QueueNameExists: Type[BotocoreClientError]
+    ReceiptHandleIsInvalid: Type[BotocoreClientError]
+    TooManyEntriesInBatchRequest: Type[BotocoreClientError]
+    UnsupportedOperation: Type[BotocoreClientError]
 
 
 class SQSClient:
     """
-    [SQS.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sqs.html#SQS.Client)
+    [SQS.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Client)
     """
 
+    meta: ClientMeta
     exceptions: Exceptions
 
     def add_permission(
         self, QueueUrl: str, Label: str, AWSAccountIds: List[str], Actions: List[str]
     ) -> None:
         """
-        [Client.add_permission documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sqs.html#SQS.Client.add_permission)
+        [Client.add_permission documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Client.add_permission)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sqs.html#SQS.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Client.can_paginate)
         """
 
     def change_message_visibility(
         self, QueueUrl: str, ReceiptHandle: str, VisibilityTimeout: int
     ) -> None:
         """
-        [Client.change_message_visibility documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sqs.html#SQS.Client.change_message_visibility)
+        [Client.change_message_visibility documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Client.change_message_visibility)
         """
 
     def change_message_visibility_batch(
         self, QueueUrl: str, Entries: List[ChangeMessageVisibilityBatchRequestEntryTypeDef]
     ) -> ChangeMessageVisibilityBatchResultTypeDef:
         """
-        [Client.change_message_visibility_batch documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sqs.html#SQS.Client.change_message_visibility_batch)
+        [Client.change_message_visibility_batch documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Client.change_message_visibility_batch)
         """
 
     def create_queue(
@@ -128,24 +136,24 @@ class SQSClient:
         tags: Dict[str, str] = None,
     ) -> CreateQueueResultTypeDef:
         """
-        [Client.create_queue documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sqs.html#SQS.Client.create_queue)
+        [Client.create_queue documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Client.create_queue)
         """
 
     def delete_message(self, QueueUrl: str, ReceiptHandle: str) -> None:
         """
-        [Client.delete_message documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sqs.html#SQS.Client.delete_message)
+        [Client.delete_message documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Client.delete_message)
         """
 
     def delete_message_batch(
         self, QueueUrl: str, Entries: List[DeleteMessageBatchRequestEntryTypeDef]
     ) -> DeleteMessageBatchResultTypeDef:
         """
-        [Client.delete_message_batch documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sqs.html#SQS.Client.delete_message_batch)
+        [Client.delete_message_batch documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Client.delete_message_batch)
         """
 
     def delete_queue(self, QueueUrl: str) -> None:
         """
-        [Client.delete_queue documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sqs.html#SQS.Client.delete_queue)
+        [Client.delete_queue documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Client.delete_queue)
         """
 
     def generate_presigned_url(
@@ -156,7 +164,7 @@ class SQSClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sqs.html#SQS.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Client.generate_presigned_url)
         """
 
     def get_queue_attributes(
@@ -186,38 +194,38 @@ class SQSClient:
         ] = None,
     ) -> GetQueueAttributesResultTypeDef:
         """
-        [Client.get_queue_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sqs.html#SQS.Client.get_queue_attributes)
+        [Client.get_queue_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Client.get_queue_attributes)
         """
 
     def get_queue_url(
         self, QueueName: str, QueueOwnerAWSAccountId: str = None
     ) -> GetQueueUrlResultTypeDef:
         """
-        [Client.get_queue_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sqs.html#SQS.Client.get_queue_url)
+        [Client.get_queue_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Client.get_queue_url)
         """
 
     def list_dead_letter_source_queues(
         self, QueueUrl: str, NextToken: str = None, MaxResults: int = None
     ) -> ListDeadLetterSourceQueuesResultTypeDef:
         """
-        [Client.list_dead_letter_source_queues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sqs.html#SQS.Client.list_dead_letter_source_queues)
+        [Client.list_dead_letter_source_queues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Client.list_dead_letter_source_queues)
         """
 
     def list_queue_tags(self, QueueUrl: str) -> ListQueueTagsResultTypeDef:
         """
-        [Client.list_queue_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sqs.html#SQS.Client.list_queue_tags)
+        [Client.list_queue_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Client.list_queue_tags)
         """
 
     def list_queues(
         self, QueueNamePrefix: str = None, NextToken: str = None, MaxResults: int = None
     ) -> ListQueuesResultTypeDef:
         """
-        [Client.list_queues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sqs.html#SQS.Client.list_queues)
+        [Client.list_queues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Client.list_queues)
         """
 
     def purge_queue(self, QueueUrl: str) -> None:
         """
-        [Client.purge_queue documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sqs.html#SQS.Client.purge_queue)
+        [Client.purge_queue documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Client.purge_queue)
         """
 
     def receive_message(
@@ -252,12 +260,12 @@ class SQSClient:
         ReceiveRequestAttemptId: str = None,
     ) -> ReceiveMessageResultTypeDef:
         """
-        [Client.receive_message documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sqs.html#SQS.Client.receive_message)
+        [Client.receive_message documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Client.receive_message)
         """
 
     def remove_permission(self, QueueUrl: str, Label: str) -> None:
         """
-        [Client.remove_permission documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sqs.html#SQS.Client.remove_permission)
+        [Client.remove_permission documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Client.remove_permission)
         """
 
     def send_message(
@@ -273,14 +281,14 @@ class SQSClient:
         MessageGroupId: str = None,
     ) -> SendMessageResultTypeDef:
         """
-        [Client.send_message documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sqs.html#SQS.Client.send_message)
+        [Client.send_message documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Client.send_message)
         """
 
     def send_message_batch(
         self, QueueUrl: str, Entries: List[SendMessageBatchRequestEntryTypeDef]
     ) -> SendMessageBatchResultTypeDef:
         """
-        [Client.send_message_batch documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sqs.html#SQS.Client.send_message_batch)
+        [Client.send_message_batch documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Client.send_message_batch)
         """
 
     def set_queue_attributes(
@@ -311,17 +319,17 @@ class SQSClient:
         ],
     ) -> None:
         """
-        [Client.set_queue_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sqs.html#SQS.Client.set_queue_attributes)
+        [Client.set_queue_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Client.set_queue_attributes)
         """
 
     def tag_queue(self, QueueUrl: str, Tags: Dict[str, str]) -> None:
         """
-        [Client.tag_queue documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sqs.html#SQS.Client.tag_queue)
+        [Client.tag_queue documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Client.tag_queue)
         """
 
     def untag_queue(self, QueueUrl: str, TagKeys: List[str]) -> None:
         """
-        [Client.untag_queue documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sqs.html#SQS.Client.untag_queue)
+        [Client.untag_queue documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Client.untag_queue)
         """
 
     @overload
@@ -329,14 +337,11 @@ class SQSClient:
         self, operation_name: Literal["list_dead_letter_source_queues"]
     ) -> ListDeadLetterSourceQueuesPaginator:
         """
-        [Paginator.ListDeadLetterSourceQueues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sqs.html#SQS.Paginator.ListDeadLetterSourceQueues)
+        [Paginator.ListDeadLetterSourceQueues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Paginator.ListDeadLetterSourceQueues)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_queues"]) -> ListQueuesPaginator:
         """
-        [Paginator.ListQueues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sqs.html#SQS.Paginator.ListQueues)
+        [Paginator.ListQueues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Paginator.ListQueues)
         """
-
-    def get_paginator(self, operation_name: str) -> Boto3Paginator:
-        pass

@@ -17,7 +17,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -210,7 +209,7 @@ MedicalTranscriptionJobTypeDef = TypedDict(
             "zh-CN",
         ],
         "MediaSampleRateHertz": int,
-        "MediaFormat": Literal["mp3", "mp4", "wav", "flac"],
+        "MediaFormat": Literal["mp3", "mp4", "wav", "flac", "ogg", "amr", "webm"],
         "Media": "MediaTypeDef",
         "Transcript": "MedicalTranscriptTypeDef",
         "StartTime": datetime,
@@ -308,6 +307,8 @@ TranscriptionJobSummaryTypeDef = TypedDict(
         "OutputLocationType": Literal["CUSTOMER_BUCKET", "SERVICE_BUCKET"],
         "ContentRedaction": "ContentRedactionTypeDef",
         "ModelSettings": "ModelSettingsTypeDef",
+        "IdentifyLanguage": bool,
+        "IdentifiedLanguageScore": float,
     },
     total=False,
 )
@@ -356,7 +357,7 @@ TranscriptionJobTypeDef = TypedDict(
             "zh-CN",
         ],
         "MediaSampleRateHertz": int,
-        "MediaFormat": Literal["mp3", "mp4", "wav", "flac"],
+        "MediaFormat": Literal["mp3", "mp4", "wav", "flac", "ogg", "amr", "webm"],
         "Media": "MediaTypeDef",
         "Transcript": "TranscriptTypeDef",
         "StartTime": datetime,
@@ -367,6 +368,48 @@ TranscriptionJobTypeDef = TypedDict(
         "ModelSettings": "ModelSettingsTypeDef",
         "JobExecutionSettings": "JobExecutionSettingsTypeDef",
         "ContentRedaction": "ContentRedactionTypeDef",
+        "IdentifyLanguage": bool,
+        "LanguageOptions": List[
+            Literal[
+                "af-ZA",
+                "ar-AE",
+                "ar-SA",
+                "cy-GB",
+                "da-DK",
+                "de-CH",
+                "de-DE",
+                "en-AB",
+                "en-AU",
+                "en-GB",
+                "en-IE",
+                "en-IN",
+                "en-US",
+                "en-WL",
+                "es-ES",
+                "es-US",
+                "fa-IR",
+                "fr-CA",
+                "fr-FR",
+                "ga-IE",
+                "gd-GB",
+                "he-IL",
+                "hi-IN",
+                "id-ID",
+                "it-IT",
+                "ja-JP",
+                "ko-KR",
+                "ms-MY",
+                "nl-NL",
+                "pt-BR",
+                "pt-PT",
+                "ru-RU",
+                "ta-IN",
+                "te-IN",
+                "tr-TR",
+                "zh-CN",
+            ]
+        ],
+        "IdentifiedLanguageScore": float,
     },
     total=False,
 )

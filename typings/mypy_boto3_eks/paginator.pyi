@@ -45,51 +45,51 @@ __all__ = (
 
 class ListClustersPaginator(Boto3Paginator):
     """
-    [Paginator.ListClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/eks.html#EKS.Paginator.ListClusters)
+    [Paginator.ListClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/eks.html#EKS.Paginator.ListClusters)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListClustersResponseTypeDef]:
         """
-        [ListClusters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/eks.html#EKS.Paginator.ListClusters.paginate)
+        [ListClusters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/eks.html#EKS.Paginator.ListClusters.paginate)
         """
 
 
 class ListFargateProfilesPaginator(Boto3Paginator):
     """
-    [Paginator.ListFargateProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/eks.html#EKS.Paginator.ListFargateProfiles)
+    [Paginator.ListFargateProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/eks.html#EKS.Paginator.ListFargateProfiles)
     """
 
     def paginate(
         self, clusterName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListFargateProfilesResponseTypeDef]:
         """
-        [ListFargateProfiles.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/eks.html#EKS.Paginator.ListFargateProfiles.paginate)
+        [ListFargateProfiles.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/eks.html#EKS.Paginator.ListFargateProfiles.paginate)
         """
 
 
 class ListNodegroupsPaginator(Boto3Paginator):
     """
-    [Paginator.ListNodegroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/eks.html#EKS.Paginator.ListNodegroups)
+    [Paginator.ListNodegroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/eks.html#EKS.Paginator.ListNodegroups)
     """
 
     def paginate(
         self, clusterName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListNodegroupsResponseTypeDef]:
         """
-        [ListNodegroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/eks.html#EKS.Paginator.ListNodegroups.paginate)
+        [ListNodegroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/eks.html#EKS.Paginator.ListNodegroups.paginate)
         """
 
 
 class ListUpdatesPaginator(Boto3Paginator):
     """
-    [Paginator.ListUpdates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/eks.html#EKS.Paginator.ListUpdates)
+    [Paginator.ListUpdates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/eks.html#EKS.Paginator.ListUpdates)
     """
 
     def paginate(
         self, name: str, nodegroupName: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListUpdatesResponseTypeDef]:
         """
-        [ListUpdates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/eks.html#EKS.Paginator.ListUpdates.paginate)
+        [ListUpdates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/eks.html#EKS.Paginator.ListUpdates.paginate)
         """

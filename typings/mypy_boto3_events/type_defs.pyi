@@ -4,9 +4,9 @@ Main interface for events service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_events.type_defs import AwsVpcConfigurationTypeDef
+    from mypy_boto3_events.type_defs import ArchiveTypeDef
 
-    data: AwsVpcConfigurationTypeDef = {...}
+    data: ArchiveTypeDef = {...}
     ```
 """
 import sys
@@ -17,7 +17,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -25,10 +24,12 @@ else:
 
 
 __all__ = (
+    "ArchiveTypeDef",
     "AwsVpcConfigurationTypeDef",
     "BatchArrayPropertiesTypeDef",
     "BatchParametersTypeDef",
     "BatchRetryStrategyTypeDef",
+    "DeadLetterConfigTypeDef",
     "EcsParametersTypeDef",
     "EventBusTypeDef",
     "EventSourceTypeDef",
@@ -41,24 +42,34 @@ __all__ = (
     "PutEventsResultEntryTypeDef",
     "PutPartnerEventsResultEntryTypeDef",
     "PutTargetsResultEntryTypeDef",
+    "RedshiftDataParametersTypeDef",
     "RemoveTargetsResultEntryTypeDef",
+    "ReplayDestinationTypeDef",
+    "ReplayTypeDef",
+    "RetryPolicyTypeDef",
     "RuleTypeDef",
     "RunCommandParametersTypeDef",
     "RunCommandTargetTypeDef",
     "SqsParametersTypeDef",
     "TagTypeDef",
     "TargetTypeDef",
+    "CancelReplayResponseTypeDef",
     "ConditionTypeDef",
+    "CreateArchiveResponseTypeDef",
     "CreateEventBusResponseTypeDef",
     "CreatePartnerEventSourceResponseTypeDef",
+    "DescribeArchiveResponseTypeDef",
     "DescribeEventBusResponseTypeDef",
     "DescribeEventSourceResponseTypeDef",
     "DescribePartnerEventSourceResponseTypeDef",
+    "DescribeReplayResponseTypeDef",
     "DescribeRuleResponseTypeDef",
+    "ListArchivesResponseTypeDef",
     "ListEventBusesResponseTypeDef",
     "ListEventSourcesResponseTypeDef",
     "ListPartnerEventSourceAccountsResponseTypeDef",
     "ListPartnerEventSourcesResponseTypeDef",
+    "ListReplaysResponseTypeDef",
     "ListRuleNamesByTargetResponseTypeDef",
     "ListRulesResponseTypeDef",
     "ListTagsForResourceResponseTypeDef",
@@ -71,7 +82,26 @@ __all__ = (
     "PutRuleResponseTypeDef",
     "PutTargetsResponseTypeDef",
     "RemoveTargetsResponseTypeDef",
+    "StartReplayResponseTypeDef",
     "TestEventPatternResponseTypeDef",
+    "UpdateArchiveResponseTypeDef",
+)
+
+ArchiveTypeDef = TypedDict(
+    "ArchiveTypeDef",
+    {
+        "ArchiveName": str,
+        "EventSourceArn": str,
+        "State": Literal[
+            "ENABLED", "DISABLED", "CREATING", "UPDATING", "CREATE_FAILED", "UPDATE_FAILED"
+        ],
+        "StateReason": str,
+        "RetentionDays": int,
+        "SizeBytes": int,
+        "EventCount": int,
+        "CreationTime": datetime,
+    },
+    total=False,
 )
 
 _RequiredAwsVpcConfigurationTypeDef = TypedDict(
@@ -110,6 +140,8 @@ class BatchParametersTypeDef(_RequiredBatchParametersTypeDef, _OptionalBatchPara
 
 
 BatchRetryStrategyTypeDef = TypedDict("BatchRetryStrategyTypeDef", {"Attempts": int}, total=False)
+
+DeadLetterConfigTypeDef = TypedDict("DeadLetterConfigTypeDef", {"Arn": str}, total=False)
 
 _RequiredEcsParametersTypeDef = TypedDict(
     "_RequiredEcsParametersTypeDef", {"TaskDefinitionArn": str}
@@ -211,9 +243,59 @@ PutTargetsResultEntryTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredRedshiftDataParametersTypeDef = TypedDict(
+    "_RequiredRedshiftDataParametersTypeDef", {"Database": str, "Sql": str}
+)
+_OptionalRedshiftDataParametersTypeDef = TypedDict(
+    "_OptionalRedshiftDataParametersTypeDef",
+    {"SecretManagerArn": str, "DbUser": str, "StatementName": str, "WithEvent": bool},
+    total=False,
+)
+
+
+class RedshiftDataParametersTypeDef(
+    _RequiredRedshiftDataParametersTypeDef, _OptionalRedshiftDataParametersTypeDef
+):
+    pass
+
+
 RemoveTargetsResultEntryTypeDef = TypedDict(
     "RemoveTargetsResultEntryTypeDef",
     {"TargetId": str, "ErrorCode": str, "ErrorMessage": str},
+    total=False,
+)
+
+_RequiredReplayDestinationTypeDef = TypedDict("_RequiredReplayDestinationTypeDef", {"Arn": str})
+_OptionalReplayDestinationTypeDef = TypedDict(
+    "_OptionalReplayDestinationTypeDef", {"FilterArns": List[str]}, total=False
+)
+
+
+class ReplayDestinationTypeDef(
+    _RequiredReplayDestinationTypeDef, _OptionalReplayDestinationTypeDef
+):
+    pass
+
+
+ReplayTypeDef = TypedDict(
+    "ReplayTypeDef",
+    {
+        "ReplayName": str,
+        "EventSourceArn": str,
+        "State": Literal["STARTING", "RUNNING", "CANCELLING", "COMPLETED", "CANCELLED", "FAILED"],
+        "StateReason": str,
+        "EventStartTime": datetime,
+        "EventEndTime": datetime,
+        "EventLastReplayedTime": datetime,
+        "ReplayStartTime": datetime,
+        "ReplayEndTime": datetime,
+    },
+    total=False,
+)
+
+RetryPolicyTypeDef = TypedDict(
+    "RetryPolicyTypeDef",
+    {"MaximumRetryAttempts": int, "MaximumEventAgeInSeconds": int},
     total=False,
 )
 
@@ -257,6 +339,9 @@ _OptionalTargetTypeDef = TypedDict(
         "BatchParameters": "BatchParametersTypeDef",
         "SqsParameters": "SqsParametersTypeDef",
         "HttpParameters": "HttpParametersTypeDef",
+        "RedshiftDataParameters": "RedshiftDataParametersTypeDef",
+        "DeadLetterConfig": "DeadLetterConfigTypeDef",
+        "RetryPolicy": "RetryPolicyTypeDef",
     },
     total=False,
 )
@@ -266,7 +351,30 @@ class TargetTypeDef(_RequiredTargetTypeDef, _OptionalTargetTypeDef):
     pass
 
 
+CancelReplayResponseTypeDef = TypedDict(
+    "CancelReplayResponseTypeDef",
+    {
+        "ReplayArn": str,
+        "State": Literal["STARTING", "RUNNING", "CANCELLING", "COMPLETED", "CANCELLED", "FAILED"],
+        "StateReason": str,
+    },
+    total=False,
+)
+
 ConditionTypeDef = TypedDict("ConditionTypeDef", {"Type": str, "Key": str, "Value": str})
+
+CreateArchiveResponseTypeDef = TypedDict(
+    "CreateArchiveResponseTypeDef",
+    {
+        "ArchiveArn": str,
+        "State": Literal[
+            "ENABLED", "DISABLED", "CREATING", "UPDATING", "CREATE_FAILED", "UPDATE_FAILED"
+        ],
+        "StateReason": str,
+        "CreationTime": datetime,
+    },
+    total=False,
+)
 
 CreateEventBusResponseTypeDef = TypedDict(
     "CreateEventBusResponseTypeDef", {"EventBusArn": str}, total=False
@@ -274,6 +382,26 @@ CreateEventBusResponseTypeDef = TypedDict(
 
 CreatePartnerEventSourceResponseTypeDef = TypedDict(
     "CreatePartnerEventSourceResponseTypeDef", {"EventSourceArn": str}, total=False
+)
+
+DescribeArchiveResponseTypeDef = TypedDict(
+    "DescribeArchiveResponseTypeDef",
+    {
+        "ArchiveArn": str,
+        "ArchiveName": str,
+        "EventSourceArn": str,
+        "Description": str,
+        "EventPattern": str,
+        "State": Literal[
+            "ENABLED", "DISABLED", "CREATING", "UPDATING", "CREATE_FAILED", "UPDATE_FAILED"
+        ],
+        "StateReason": str,
+        "RetentionDays": int,
+        "SizeBytes": int,
+        "EventCount": int,
+        "CreationTime": datetime,
+    },
+    total=False,
 )
 
 DescribeEventBusResponseTypeDef = TypedDict(
@@ -297,6 +425,25 @@ DescribePartnerEventSourceResponseTypeDef = TypedDict(
     "DescribePartnerEventSourceResponseTypeDef", {"Arn": str, "Name": str}, total=False
 )
 
+DescribeReplayResponseTypeDef = TypedDict(
+    "DescribeReplayResponseTypeDef",
+    {
+        "ReplayName": str,
+        "ReplayArn": str,
+        "Description": str,
+        "State": Literal["STARTING", "RUNNING", "CANCELLING", "COMPLETED", "CANCELLED", "FAILED"],
+        "StateReason": str,
+        "EventSourceArn": str,
+        "Destination": "ReplayDestinationTypeDef",
+        "EventStartTime": datetime,
+        "EventEndTime": datetime,
+        "EventLastReplayedTime": datetime,
+        "ReplayStartTime": datetime,
+        "ReplayEndTime": datetime,
+    },
+    total=False,
+)
+
 DescribeRuleResponseTypeDef = TypedDict(
     "DescribeRuleResponseTypeDef",
     {
@@ -310,6 +457,12 @@ DescribeRuleResponseTypeDef = TypedDict(
         "ManagedBy": str,
         "EventBusName": str,
     },
+    total=False,
+)
+
+ListArchivesResponseTypeDef = TypedDict(
+    "ListArchivesResponseTypeDef",
+    {"Archives": List["ArchiveTypeDef"], "NextToken": str},
     total=False,
 )
 
@@ -335,6 +488,10 @@ ListPartnerEventSourcesResponseTypeDef = TypedDict(
     "ListPartnerEventSourcesResponseTypeDef",
     {"PartnerEventSources": List["PartnerEventSourceTypeDef"], "NextToken": str},
     total=False,
+)
+
+ListReplaysResponseTypeDef = TypedDict(
+    "ListReplaysResponseTypeDef", {"Replays": List["ReplayTypeDef"], "NextToken": str}, total=False
 )
 
 ListRuleNamesByTargetResponseTypeDef = TypedDict(
@@ -404,6 +561,30 @@ RemoveTargetsResponseTypeDef = TypedDict(
     total=False,
 )
 
+StartReplayResponseTypeDef = TypedDict(
+    "StartReplayResponseTypeDef",
+    {
+        "ReplayArn": str,
+        "State": Literal["STARTING", "RUNNING", "CANCELLING", "COMPLETED", "CANCELLED", "FAILED"],
+        "StateReason": str,
+        "ReplayStartTime": datetime,
+    },
+    total=False,
+)
+
 TestEventPatternResponseTypeDef = TypedDict(
     "TestEventPatternResponseTypeDef", {"Result": bool}, total=False
+)
+
+UpdateArchiveResponseTypeDef = TypedDict(
+    "UpdateArchiveResponseTypeDef",
+    {
+        "ArchiveArn": str,
+        "State": Literal[
+            "ENABLED", "DISABLED", "CREATING", "UPDATING", "CREATE_FAILED", "UPDATE_FAILED"
+        ],
+        "StateReason": str,
+        "CreationTime": datetime,
+    },
+    total=False,
 )

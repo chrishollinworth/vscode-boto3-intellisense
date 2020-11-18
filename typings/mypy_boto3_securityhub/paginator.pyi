@@ -55,7 +55,7 @@ __all__ = (
 
 class GetEnabledStandardsPaginator(Boto3Paginator):
     """
-    [Paginator.GetEnabledStandards documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/securityhub.html#SecurityHub.Paginator.GetEnabledStandards)
+    [Paginator.GetEnabledStandards documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/securityhub.html#SecurityHub.Paginator.GetEnabledStandards)
     """
 
     def paginate(
@@ -64,13 +64,13 @@ class GetEnabledStandardsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetEnabledStandardsResponseTypeDef]:
         """
-        [GetEnabledStandards.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/securityhub.html#SecurityHub.Paginator.GetEnabledStandards.paginate)
+        [GetEnabledStandards.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/securityhub.html#SecurityHub.Paginator.GetEnabledStandards.paginate)
         """
 
 
 class GetFindingsPaginator(Boto3Paginator):
     """
-    [Paginator.GetFindings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/securityhub.html#SecurityHub.Paginator.GetFindings)
+    [Paginator.GetFindings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/securityhub.html#SecurityHub.Paginator.GetFindings)
     """
 
     def paginate(
@@ -80,57 +80,57 @@ class GetFindingsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetFindingsResponseTypeDef]:
         """
-        [GetFindings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/securityhub.html#SecurityHub.Paginator.GetFindings.paginate)
+        [GetFindings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/securityhub.html#SecurityHub.Paginator.GetFindings.paginate)
         """
 
 
 class GetInsightsPaginator(Boto3Paginator):
     """
-    [Paginator.GetInsights documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/securityhub.html#SecurityHub.Paginator.GetInsights)
+    [Paginator.GetInsights documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/securityhub.html#SecurityHub.Paginator.GetInsights)
     """
 
     def paginate(
         self, InsightArns: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetInsightsResponseTypeDef]:
         """
-        [GetInsights.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/securityhub.html#SecurityHub.Paginator.GetInsights.paginate)
+        [GetInsights.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/securityhub.html#SecurityHub.Paginator.GetInsights.paginate)
         """
 
 
 class ListEnabledProductsForImportPaginator(Boto3Paginator):
     """
-    [Paginator.ListEnabledProductsForImport documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/securityhub.html#SecurityHub.Paginator.ListEnabledProductsForImport)
+    [Paginator.ListEnabledProductsForImport documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/securityhub.html#SecurityHub.Paginator.ListEnabledProductsForImport)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListEnabledProductsForImportResponseTypeDef]:
         """
-        [ListEnabledProductsForImport.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/securityhub.html#SecurityHub.Paginator.ListEnabledProductsForImport.paginate)
+        [ListEnabledProductsForImport.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/securityhub.html#SecurityHub.Paginator.ListEnabledProductsForImport.paginate)
         """
 
 
 class ListInvitationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListInvitations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/securityhub.html#SecurityHub.Paginator.ListInvitations)
+    [Paginator.ListInvitations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/securityhub.html#SecurityHub.Paginator.ListInvitations)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListInvitationsResponseTypeDef]:
         """
-        [ListInvitations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/securityhub.html#SecurityHub.Paginator.ListInvitations.paginate)
+        [ListInvitations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/securityhub.html#SecurityHub.Paginator.ListInvitations.paginate)
         """
 
 
 class ListMembersPaginator(Boto3Paginator):
     """
-    [Paginator.ListMembers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/securityhub.html#SecurityHub.Paginator.ListMembers)
+    [Paginator.ListMembers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/securityhub.html#SecurityHub.Paginator.ListMembers)
     """
 
     def paginate(
         self, OnlyAssociated: bool = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListMembersResponseTypeDef]:
         """
-        [ListMembers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/securityhub.html#SecurityHub.Paginator.ListMembers.paginate)
+        [ListMembers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/securityhub.html#SecurityHub.Paginator.ListMembers.paginate)
         """

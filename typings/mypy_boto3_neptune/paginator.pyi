@@ -9,6 +9,7 @@ Usage::
 
     from mypy_boto3_neptune import NeptuneClient
     from mypy_boto3_neptune.paginator import (
+        DescribeDBClusterEndpointsPaginator,
         DescribeDBClusterParameterGroupsPaginator,
         DescribeDBClusterParametersPaginator,
         DescribeDBClusterSnapshotsPaginator,
@@ -27,6 +28,7 @@ Usage::
 
     client: NeptuneClient = boto3.client("neptune")
 
+    describe_db_cluster_endpoints_paginator: DescribeDBClusterEndpointsPaginator = client.get_paginator("describe_db_cluster_endpoints")
     describe_db_cluster_parameter_groups_paginator: DescribeDBClusterParameterGroupsPaginator = client.get_paginator("describe_db_cluster_parameter_groups")
     describe_db_cluster_parameters_paginator: DescribeDBClusterParametersPaginator = client.get_paginator("describe_db_cluster_parameters")
     describe_db_cluster_snapshots_paginator: DescribeDBClusterSnapshotsPaginator = client.get_paginator("describe_db_cluster_snapshots")
@@ -50,6 +52,7 @@ from typing import Iterator, List
 from botocore.paginate import Paginator as Boto3Paginator
 
 from mypy_boto3_neptune.type_defs import (
+    DBClusterEndpointMessageTypeDef,
     DBClusterMessageTypeDef,
     DBClusterParameterGroupDetailsTypeDef,
     DBClusterParameterGroupsMessageTypeDef,
@@ -75,6 +78,7 @@ else:
 
 
 __all__ = (
+    "DescribeDBClusterEndpointsPaginator",
     "DescribeDBClusterParameterGroupsPaginator",
     "DescribeDBClusterParametersPaginator",
     "DescribeDBClusterSnapshotsPaginator",
@@ -92,9 +96,26 @@ __all__ = (
 )
 
 
+class DescribeDBClusterEndpointsPaginator(Boto3Paginator):
+    """
+    [Paginator.DescribeDBClusterEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusterEndpoints)
+    """
+
+    def paginate(
+        self,
+        DBClusterIdentifier: str = None,
+        DBClusterEndpointIdentifier: str = None,
+        Filters: List[FilterTypeDef] = None,
+        PaginationConfig: PaginatorConfigTypeDef = None,
+    ) -> Iterator[DBClusterEndpointMessageTypeDef]:
+        """
+        [DescribeDBClusterEndpoints.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusterEndpoints.paginate)
+        """
+
+
 class DescribeDBClusterParameterGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeDBClusterParameterGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusterParameterGroups)
+    [Paginator.DescribeDBClusterParameterGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusterParameterGroups)
     """
 
     def paginate(
@@ -104,13 +125,13 @@ class DescribeDBClusterParameterGroupsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DBClusterParameterGroupsMessageTypeDef]:
         """
-        [DescribeDBClusterParameterGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusterParameterGroups.paginate)
+        [DescribeDBClusterParameterGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusterParameterGroups.paginate)
         """
 
 
 class DescribeDBClusterParametersPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeDBClusterParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusterParameters)
+    [Paginator.DescribeDBClusterParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusterParameters)
     """
 
     def paginate(
@@ -121,13 +142,13 @@ class DescribeDBClusterParametersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DBClusterParameterGroupDetailsTypeDef]:
         """
-        [DescribeDBClusterParameters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusterParameters.paginate)
+        [DescribeDBClusterParameters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusterParameters.paginate)
         """
 
 
 class DescribeDBClusterSnapshotsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeDBClusterSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusterSnapshots)
+    [Paginator.DescribeDBClusterSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusterSnapshots)
     """
 
     def paginate(
@@ -141,13 +162,13 @@ class DescribeDBClusterSnapshotsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DBClusterSnapshotMessageTypeDef]:
         """
-        [DescribeDBClusterSnapshots.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusterSnapshots.paginate)
+        [DescribeDBClusterSnapshots.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusterSnapshots.paginate)
         """
 
 
 class DescribeDBClustersPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeDBClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusters)
+    [Paginator.DescribeDBClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusters)
     """
 
     def paginate(
@@ -157,13 +178,13 @@ class DescribeDBClustersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DBClusterMessageTypeDef]:
         """
-        [DescribeDBClusters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusters.paginate)
+        [DescribeDBClusters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/neptune.html#Neptune.Paginator.DescribeDBClusters.paginate)
         """
 
 
 class DescribeDBEngineVersionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeDBEngineVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/neptune.html#Neptune.Paginator.DescribeDBEngineVersions)
+    [Paginator.DescribeDBEngineVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/neptune.html#Neptune.Paginator.DescribeDBEngineVersions)
     """
 
     def paginate(
@@ -178,13 +199,13 @@ class DescribeDBEngineVersionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DBEngineVersionMessageTypeDef]:
         """
-        [DescribeDBEngineVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/neptune.html#Neptune.Paginator.DescribeDBEngineVersions.paginate)
+        [DescribeDBEngineVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/neptune.html#Neptune.Paginator.DescribeDBEngineVersions.paginate)
         """
 
 
 class DescribeDBInstancesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeDBInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/neptune.html#Neptune.Paginator.DescribeDBInstances)
+    [Paginator.DescribeDBInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/neptune.html#Neptune.Paginator.DescribeDBInstances)
     """
 
     def paginate(
@@ -194,13 +215,13 @@ class DescribeDBInstancesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DBInstanceMessageTypeDef]:
         """
-        [DescribeDBInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/neptune.html#Neptune.Paginator.DescribeDBInstances.paginate)
+        [DescribeDBInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/neptune.html#Neptune.Paginator.DescribeDBInstances.paginate)
         """
 
 
 class DescribeDBParameterGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeDBParameterGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/neptune.html#Neptune.Paginator.DescribeDBParameterGroups)
+    [Paginator.DescribeDBParameterGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/neptune.html#Neptune.Paginator.DescribeDBParameterGroups)
     """
 
     def paginate(
@@ -210,13 +231,13 @@ class DescribeDBParameterGroupsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DBParameterGroupsMessageTypeDef]:
         """
-        [DescribeDBParameterGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/neptune.html#Neptune.Paginator.DescribeDBParameterGroups.paginate)
+        [DescribeDBParameterGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/neptune.html#Neptune.Paginator.DescribeDBParameterGroups.paginate)
         """
 
 
 class DescribeDBParametersPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeDBParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/neptune.html#Neptune.Paginator.DescribeDBParameters)
+    [Paginator.DescribeDBParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/neptune.html#Neptune.Paginator.DescribeDBParameters)
     """
 
     def paginate(
@@ -227,13 +248,13 @@ class DescribeDBParametersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DBParameterGroupDetailsTypeDef]:
         """
-        [DescribeDBParameters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/neptune.html#Neptune.Paginator.DescribeDBParameters.paginate)
+        [DescribeDBParameters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/neptune.html#Neptune.Paginator.DescribeDBParameters.paginate)
         """
 
 
 class DescribeDBSubnetGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeDBSubnetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/neptune.html#Neptune.Paginator.DescribeDBSubnetGroups)
+    [Paginator.DescribeDBSubnetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/neptune.html#Neptune.Paginator.DescribeDBSubnetGroups)
     """
 
     def paginate(
@@ -243,13 +264,13 @@ class DescribeDBSubnetGroupsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DBSubnetGroupMessageTypeDef]:
         """
-        [DescribeDBSubnetGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/neptune.html#Neptune.Paginator.DescribeDBSubnetGroups.paginate)
+        [DescribeDBSubnetGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/neptune.html#Neptune.Paginator.DescribeDBSubnetGroups.paginate)
         """
 
 
 class DescribeEngineDefaultParametersPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeEngineDefaultParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/neptune.html#Neptune.Paginator.DescribeEngineDefaultParameters)
+    [Paginator.DescribeEngineDefaultParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/neptune.html#Neptune.Paginator.DescribeEngineDefaultParameters)
     """
 
     def paginate(
@@ -259,13 +280,13 @@ class DescribeEngineDefaultParametersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeEngineDefaultParametersResultTypeDef]:
         """
-        [DescribeEngineDefaultParameters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/neptune.html#Neptune.Paginator.DescribeEngineDefaultParameters.paginate)
+        [DescribeEngineDefaultParameters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/neptune.html#Neptune.Paginator.DescribeEngineDefaultParameters.paginate)
         """
 
 
 class DescribeEventSubscriptionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeEventSubscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/neptune.html#Neptune.Paginator.DescribeEventSubscriptions)
+    [Paginator.DescribeEventSubscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/neptune.html#Neptune.Paginator.DescribeEventSubscriptions)
     """
 
     def paginate(
@@ -275,13 +296,13 @@ class DescribeEventSubscriptionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[EventSubscriptionsMessageTypeDef]:
         """
-        [DescribeEventSubscriptions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/neptune.html#Neptune.Paginator.DescribeEventSubscriptions.paginate)
+        [DescribeEventSubscriptions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/neptune.html#Neptune.Paginator.DescribeEventSubscriptions.paginate)
         """
 
 
 class DescribeEventsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/neptune.html#Neptune.Paginator.DescribeEvents)
+    [Paginator.DescribeEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/neptune.html#Neptune.Paginator.DescribeEvents)
     """
 
     def paginate(
@@ -303,13 +324,13 @@ class DescribeEventsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[EventsMessageTypeDef]:
         """
-        [DescribeEvents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/neptune.html#Neptune.Paginator.DescribeEvents.paginate)
+        [DescribeEvents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/neptune.html#Neptune.Paginator.DescribeEvents.paginate)
         """
 
 
 class DescribeOrderableDBInstanceOptionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeOrderableDBInstanceOptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/neptune.html#Neptune.Paginator.DescribeOrderableDBInstanceOptions)
+    [Paginator.DescribeOrderableDBInstanceOptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/neptune.html#Neptune.Paginator.DescribeOrderableDBInstanceOptions)
     """
 
     def paginate(
@@ -323,13 +344,13 @@ class DescribeOrderableDBInstanceOptionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[OrderableDBInstanceOptionsMessageTypeDef]:
         """
-        [DescribeOrderableDBInstanceOptions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/neptune.html#Neptune.Paginator.DescribeOrderableDBInstanceOptions.paginate)
+        [DescribeOrderableDBInstanceOptions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/neptune.html#Neptune.Paginator.DescribeOrderableDBInstanceOptions.paginate)
         """
 
 
 class DescribePendingMaintenanceActionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribePendingMaintenanceActions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/neptune.html#Neptune.Paginator.DescribePendingMaintenanceActions)
+    [Paginator.DescribePendingMaintenanceActions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/neptune.html#Neptune.Paginator.DescribePendingMaintenanceActions)
     """
 
     def paginate(
@@ -339,5 +360,5 @@ class DescribePendingMaintenanceActionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[PendingMaintenanceActionsMessageTypeDef]:
         """
-        [DescribePendingMaintenanceActions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/neptune.html#Neptune.Paginator.DescribePendingMaintenanceActions.paginate)
+        [DescribePendingMaintenanceActions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/neptune.html#Neptune.Paginator.DescribePendingMaintenanceActions.paginate)
         """

@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import List
+from typing import Any, Dict, List
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -27,6 +26,7 @@ else:
 __all__ = (
     "ArtifactTypeDef",
     "JobTypeDef",
+    "ResponseMetadata",
     "CancelJobOutputTypeDef",
     "CreateJobOutputTypeDef",
     "GetShippingLabelOutputTypeDef",
@@ -49,7 +49,20 @@ JobTypeDef = TypedDict(
     total=False,
 )
 
-CancelJobOutputTypeDef = TypedDict("CancelJobOutputTypeDef", {"Success": bool}, total=False)
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
+
+CancelJobOutputTypeDef = TypedDict(
+    "CancelJobOutputTypeDef", {"Success": bool, "ResponseMetadata": "ResponseMetadata"}, total=False
+)
 
 CreateJobOutputTypeDef = TypedDict(
     "CreateJobOutputTypeDef",
@@ -60,12 +73,15 @@ CreateJobOutputTypeDef = TypedDict(
         "SignatureFileContents": str,
         "WarningMessage": str,
         "ArtifactList": List["ArtifactTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
 GetShippingLabelOutputTypeDef = TypedDict(
-    "GetShippingLabelOutputTypeDef", {"ShippingLabelURL": str, "Warning": str}, total=False
+    "GetShippingLabelOutputTypeDef",
+    {"ShippingLabelURL": str, "Warning": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 GetStatusOutputTypeDef = TypedDict(
@@ -87,12 +103,15 @@ GetStatusOutputTypeDef = TypedDict(
         "CurrentManifest": str,
         "CreationDate": datetime,
         "ArtifactList": List["ArtifactTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
 ListJobsOutputTypeDef = TypedDict(
-    "ListJobsOutputTypeDef", {"Jobs": List["JobTypeDef"], "IsTruncated": bool}, total=False
+    "ListJobsOutputTypeDef",
+    {"Jobs": List["JobTypeDef"], "IsTruncated": bool, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 PaginatorConfigTypeDef = TypedDict(
@@ -101,6 +120,11 @@ PaginatorConfigTypeDef = TypedDict(
 
 UpdateJobOutputTypeDef = TypedDict(
     "UpdateJobOutputTypeDef",
-    {"Success": bool, "WarningMessage": str, "ArtifactList": List["ArtifactTypeDef"]},
+    {
+        "Success": bool,
+        "WarningMessage": str,
+        "ArtifactList": List["ArtifactTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )

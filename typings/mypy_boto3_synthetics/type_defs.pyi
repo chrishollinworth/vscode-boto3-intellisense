@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Dict, List
+from typing import IO, Any, Dict, List, Union
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -35,6 +34,7 @@ __all__ = (
     "CanaryStatusTypeDef",
     "CanaryTimelineTypeDef",
     "CanaryTypeDef",
+    "ResponseMetadata",
     "RuntimeVersionTypeDef",
     "VpcConfigOutputTypeDef",
     "CanaryCodeInputTypeDef",
@@ -51,7 +51,9 @@ __all__ = (
 )
 
 CanaryCodeOutputTypeDef = TypedDict(
-    "CanaryCodeOutputTypeDef", {"SourceLocationArn": str, "Handler": str}, total=False
+    "CanaryCodeOutputTypeDef",
+    {"SourceLocationArn": str, "Handler": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 CanaryLastRunTypeDef = TypedDict(
@@ -59,7 +61,14 @@ CanaryLastRunTypeDef = TypedDict(
 )
 
 CanaryRunConfigOutputTypeDef = TypedDict(
-    "CanaryRunConfigOutputTypeDef", {"TimeoutInSeconds": int, "MemoryInMB": int}, total=False
+    "CanaryRunConfigOutputTypeDef",
+    {
+        "TimeoutInSeconds": int,
+        "MemoryInMB": int,
+        "ActiveTracing": bool,
+        "ResponseMetadata": "ResponseMetadata",
+    },
+    total=False,
 )
 
 CanaryRunStatusTypeDef = TypedDict(
@@ -79,6 +88,7 @@ CanaryRunTimelineTypeDef = TypedDict(
 CanaryRunTypeDef = TypedDict(
     "CanaryRunTypeDef",
     {
+        "Id": str,
         "Name": str,
         "Status": "CanaryRunStatusTypeDef",
         "Timeline": "CanaryRunTimelineTypeDef",
@@ -88,7 +98,9 @@ CanaryRunTypeDef = TypedDict(
 )
 
 CanaryScheduleOutputTypeDef = TypedDict(
-    "CanaryScheduleOutputTypeDef", {"Expression": str, "DurationInSeconds": int}, total=False
+    "CanaryScheduleOutputTypeDef",
+    {"Expression": str, "DurationInSeconds": int, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 CanaryStatusTypeDef = TypedDict(
@@ -144,6 +156,17 @@ CanaryTypeDef = TypedDict(
     total=False,
 )
 
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
+
 RuntimeVersionTypeDef = TypedDict(
     "RuntimeVersionTypeDef",
     {"VersionName": str, "Description": str, "ReleaseDate": datetime, "DeprecationDate": datetime},
@@ -152,14 +175,19 @@ RuntimeVersionTypeDef = TypedDict(
 
 VpcConfigOutputTypeDef = TypedDict(
     "VpcConfigOutputTypeDef",
-    {"VpcId": str, "SubnetIds": List[str], "SecurityGroupIds": List[str]},
+    {
+        "VpcId": str,
+        "SubnetIds": List[str],
+        "SecurityGroupIds": List[str],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 _RequiredCanaryCodeInputTypeDef = TypedDict("_RequiredCanaryCodeInputTypeDef", {"Handler": str})
 _OptionalCanaryCodeInputTypeDef = TypedDict(
     "_OptionalCanaryCodeInputTypeDef",
-    {"S3Bucket": str, "S3Key": str, "S3Version": str, "ZipFile": bytes},
+    {"S3Bucket": str, "S3Key": str, "S3Version": str, "ZipFile": Union[bytes, IO[bytes]]},
     total=False,
 )
 
@@ -168,19 +196,16 @@ class CanaryCodeInputTypeDef(_RequiredCanaryCodeInputTypeDef, _OptionalCanaryCod
     pass
 
 
-_RequiredCanaryRunConfigInputTypeDef = TypedDict(
-    "_RequiredCanaryRunConfigInputTypeDef", {"TimeoutInSeconds": int}
+CanaryRunConfigInputTypeDef = TypedDict(
+    "CanaryRunConfigInputTypeDef",
+    {
+        "TimeoutInSeconds": int,
+        "MemoryInMB": int,
+        "ActiveTracing": bool,
+        "EnvironmentVariables": Dict[str, str],
+    },
+    total=False,
 )
-_OptionalCanaryRunConfigInputTypeDef = TypedDict(
-    "_OptionalCanaryRunConfigInputTypeDef", {"MemoryInMB": int}, total=False
-)
-
-
-class CanaryRunConfigInputTypeDef(
-    _RequiredCanaryRunConfigInputTypeDef, _OptionalCanaryRunConfigInputTypeDef
-):
-    pass
-
 
 _RequiredCanaryScheduleInputTypeDef = TypedDict(
     "_RequiredCanaryScheduleInputTypeDef", {"Expression": str}

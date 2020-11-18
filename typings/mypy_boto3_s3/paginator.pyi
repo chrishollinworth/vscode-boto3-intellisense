@@ -56,7 +56,7 @@ __all__ = (
 
 class ListMultipartUploadsPaginator(Boto3Paginator):
     """
-    [Paginator.ListMultipartUploads documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Paginator.ListMultipartUploads)
+    [Paginator.ListMultipartUploads documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Paginator.ListMultipartUploads)
     """
 
     def paginate(
@@ -65,16 +65,17 @@ class ListMultipartUploadsPaginator(Boto3Paginator):
         Delimiter: str = None,
         EncodingType: Literal["url"] = None,
         Prefix: str = None,
+        ExpectedBucketOwner: str = None,
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListMultipartUploadsOutputTypeDef]:
         """
-        [ListMultipartUploads.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Paginator.ListMultipartUploads.paginate)
+        [ListMultipartUploads.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Paginator.ListMultipartUploads.paginate)
         """
 
 
 class ListObjectVersionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListObjectVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Paginator.ListObjectVersions)
+    [Paginator.ListObjectVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Paginator.ListObjectVersions)
     """
 
     def paginate(
@@ -83,16 +84,17 @@ class ListObjectVersionsPaginator(Boto3Paginator):
         Delimiter: str = None,
         EncodingType: Literal["url"] = None,
         Prefix: str = None,
+        ExpectedBucketOwner: str = None,
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListObjectVersionsOutputTypeDef]:
         """
-        [ListObjectVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Paginator.ListObjectVersions.paginate)
+        [ListObjectVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Paginator.ListObjectVersions.paginate)
         """
 
 
 class ListObjectsPaginator(Boto3Paginator):
     """
-    [Paginator.ListObjects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Paginator.ListObjects)
+    [Paginator.ListObjects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Paginator.ListObjects)
     """
 
     def paginate(
@@ -102,16 +104,17 @@ class ListObjectsPaginator(Boto3Paginator):
         EncodingType: Literal["url"] = None,
         Prefix: str = None,
         RequestPayer: Literal["requester"] = None,
+        ExpectedBucketOwner: str = None,
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListObjectsOutputTypeDef]:
         """
-        [ListObjects.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Paginator.ListObjects.paginate)
+        [ListObjects.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Paginator.ListObjects.paginate)
         """
 
 
 class ListObjectsV2Paginator(Boto3Paginator):
     """
-    [Paginator.ListObjectsV2 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Paginator.ListObjectsV2)
+    [Paginator.ListObjectsV2 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Paginator.ListObjectsV2)
     """
 
     def paginate(
@@ -123,16 +126,17 @@ class ListObjectsV2Paginator(Boto3Paginator):
         FetchOwner: bool = None,
         StartAfter: str = None,
         RequestPayer: Literal["requester"] = None,
+        ExpectedBucketOwner: str = None,
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListObjectsV2OutputTypeDef]:
         """
-        [ListObjectsV2.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Paginator.ListObjectsV2.paginate)
+        [ListObjectsV2.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Paginator.ListObjectsV2.paginate)
         """
 
 
 class ListPartsPaginator(Boto3Paginator):
     """
-    [Paginator.ListParts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Paginator.ListParts)
+    [Paginator.ListParts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Paginator.ListParts)
     """
 
     def paginate(
@@ -141,8 +145,9 @@ class ListPartsPaginator(Boto3Paginator):
         Key: str,
         UploadId: str,
         RequestPayer: Literal["requester"] = None,
+        ExpectedBucketOwner: str = None,
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListPartsOutputTypeDef]:
         """
-        [ListParts.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Paginator.ListParts.paginate)
+        [ListParts.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Paginator.ListParts.paginate)
         """

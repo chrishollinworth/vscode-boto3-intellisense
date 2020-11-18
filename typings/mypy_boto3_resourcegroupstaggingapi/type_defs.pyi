@@ -10,13 +10,12 @@ Usage::
     ```
 """
 import sys
-from typing import Dict, List
+from typing import Any, Dict, List
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -27,6 +26,7 @@ __all__ = (
     "ComplianceDetailsTypeDef",
     "FailureInfoTypeDef",
     "ResourceTagMappingTypeDef",
+    "ResponseMetadata",
     "SummaryTypeDef",
     "TagTypeDef",
     "DescribeReportCreationOutputTypeDef",
@@ -70,6 +70,17 @@ ResourceTagMappingTypeDef = TypedDict(
     total=False,
 )
 
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
+
 SummaryTypeDef = TypedDict(
     "SummaryTypeDef",
     {
@@ -87,28 +98,40 @@ TagTypeDef = TypedDict("TagTypeDef", {"Key": str, "Value": str})
 
 DescribeReportCreationOutputTypeDef = TypedDict(
     "DescribeReportCreationOutputTypeDef",
-    {"Status": str, "S3Location": str, "ErrorMessage": str},
+    {"Status": str, "S3Location": str, "ErrorMessage": str, "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 GetComplianceSummaryOutputTypeDef = TypedDict(
     "GetComplianceSummaryOutputTypeDef",
-    {"SummaryList": List["SummaryTypeDef"], "PaginationToken": str},
+    {
+        "SummaryList": List["SummaryTypeDef"],
+        "PaginationToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 GetResourcesOutputTypeDef = TypedDict(
     "GetResourcesOutputTypeDef",
-    {"PaginationToken": str, "ResourceTagMappingList": List["ResourceTagMappingTypeDef"]},
+    {
+        "PaginationToken": str,
+        "ResourceTagMappingList": List["ResourceTagMappingTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 GetTagKeysOutputTypeDef = TypedDict(
-    "GetTagKeysOutputTypeDef", {"PaginationToken": str, "TagKeys": List[str]}, total=False
+    "GetTagKeysOutputTypeDef",
+    {"PaginationToken": str, "TagKeys": List[str], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 GetTagValuesOutputTypeDef = TypedDict(
-    "GetTagValuesOutputTypeDef", {"PaginationToken": str, "TagValues": List[str]}, total=False
+    "GetTagValuesOutputTypeDef",
+    {"PaginationToken": str, "TagValues": List[str], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 PaginatorConfigTypeDef = TypedDict(
@@ -119,12 +142,12 @@ TagFilterTypeDef = TypedDict("TagFilterTypeDef", {"Key": str, "Values": List[str
 
 TagResourcesOutputTypeDef = TypedDict(
     "TagResourcesOutputTypeDef",
-    {"FailedResourcesMap": Dict[str, "FailureInfoTypeDef"]},
+    {"FailedResourcesMap": Dict[str, "FailureInfoTypeDef"], "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 UntagResourcesOutputTypeDef = TypedDict(
     "UntagResourcesOutputTypeDef",
-    {"FailedResourcesMap": Dict[str, "FailureInfoTypeDef"]},
+    {"FailedResourcesMap": Dict[str, "FailureInfoTypeDef"], "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )

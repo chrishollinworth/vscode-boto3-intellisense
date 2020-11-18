@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import List
+from typing import Any, Dict, List
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -29,6 +28,7 @@ __all__ = (
     "CorsRuleTypeDef",
     "MetricPolicyRuleTypeDef",
     "MetricPolicyTypeDef",
+    "ResponseMetadata",
     "TagTypeDef",
     "CreateContainerOutputTypeDef",
     "DescribeContainerOutputTypeDef",
@@ -90,6 +90,17 @@ class MetricPolicyTypeDef(_RequiredMetricPolicyTypeDef, _OptionalMetricPolicyTyp
     pass
 
 
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
+
 _RequiredTagTypeDef = TypedDict("_RequiredTagTypeDef", {"Key": str})
 _OptionalTagTypeDef = TypedDict("_OptionalTagTypeDef", {"Value": str}, total=False)
 
@@ -98,33 +109,93 @@ class TagTypeDef(_RequiredTagTypeDef, _OptionalTagTypeDef):
     pass
 
 
-CreateContainerOutputTypeDef = TypedDict(
-    "CreateContainerOutputTypeDef", {"Container": "ContainerTypeDef"}
+_RequiredCreateContainerOutputTypeDef = TypedDict(
+    "_RequiredCreateContainerOutputTypeDef", {"Container": "ContainerTypeDef"}
 )
+_OptionalCreateContainerOutputTypeDef = TypedDict(
+    "_OptionalCreateContainerOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
+)
+
+
+class CreateContainerOutputTypeDef(
+    _RequiredCreateContainerOutputTypeDef, _OptionalCreateContainerOutputTypeDef
+):
+    pass
+
 
 DescribeContainerOutputTypeDef = TypedDict(
-    "DescribeContainerOutputTypeDef", {"Container": "ContainerTypeDef"}, total=False
+    "DescribeContainerOutputTypeDef",
+    {"Container": "ContainerTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
-GetContainerPolicyOutputTypeDef = TypedDict("GetContainerPolicyOutputTypeDef", {"Policy": str})
-
-GetCorsPolicyOutputTypeDef = TypedDict(
-    "GetCorsPolicyOutputTypeDef", {"CorsPolicy": List["CorsRuleTypeDef"]}
+_RequiredGetContainerPolicyOutputTypeDef = TypedDict(
+    "_RequiredGetContainerPolicyOutputTypeDef", {"Policy": str}
+)
+_OptionalGetContainerPolicyOutputTypeDef = TypedDict(
+    "_OptionalGetContainerPolicyOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
-GetLifecyclePolicyOutputTypeDef = TypedDict(
-    "GetLifecyclePolicyOutputTypeDef", {"LifecyclePolicy": str}
+
+class GetContainerPolicyOutputTypeDef(
+    _RequiredGetContainerPolicyOutputTypeDef, _OptionalGetContainerPolicyOutputTypeDef
+):
+    pass
+
+
+_RequiredGetCorsPolicyOutputTypeDef = TypedDict(
+    "_RequiredGetCorsPolicyOutputTypeDef", {"CorsPolicy": List["CorsRuleTypeDef"]}
+)
+_OptionalGetCorsPolicyOutputTypeDef = TypedDict(
+    "_OptionalGetCorsPolicyOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
 )
 
-GetMetricPolicyOutputTypeDef = TypedDict(
-    "GetMetricPolicyOutputTypeDef", {"MetricPolicy": "MetricPolicyTypeDef"}
+
+class GetCorsPolicyOutputTypeDef(
+    _RequiredGetCorsPolicyOutputTypeDef, _OptionalGetCorsPolicyOutputTypeDef
+):
+    pass
+
+
+_RequiredGetLifecyclePolicyOutputTypeDef = TypedDict(
+    "_RequiredGetLifecyclePolicyOutputTypeDef", {"LifecyclePolicy": str}
 )
+_OptionalGetLifecyclePolicyOutputTypeDef = TypedDict(
+    "_OptionalGetLifecyclePolicyOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+
+class GetLifecyclePolicyOutputTypeDef(
+    _RequiredGetLifecyclePolicyOutputTypeDef, _OptionalGetLifecyclePolicyOutputTypeDef
+):
+    pass
+
+
+_RequiredGetMetricPolicyOutputTypeDef = TypedDict(
+    "_RequiredGetMetricPolicyOutputTypeDef", {"MetricPolicy": "MetricPolicyTypeDef"}
+)
+_OptionalGetMetricPolicyOutputTypeDef = TypedDict(
+    "_OptionalGetMetricPolicyOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
+)
+
+
+class GetMetricPolicyOutputTypeDef(
+    _RequiredGetMetricPolicyOutputTypeDef, _OptionalGetMetricPolicyOutputTypeDef
+):
+    pass
+
 
 _RequiredListContainersOutputTypeDef = TypedDict(
     "_RequiredListContainersOutputTypeDef", {"Containers": List["ContainerTypeDef"]}
 )
 _OptionalListContainersOutputTypeDef = TypedDict(
-    "_OptionalListContainersOutputTypeDef", {"NextToken": str}, total=False
+    "_OptionalListContainersOutputTypeDef",
+    {"NextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 
@@ -135,7 +206,9 @@ class ListContainersOutputTypeDef(
 
 
 ListTagsForResourceOutputTypeDef = TypedDict(
-    "ListTagsForResourceOutputTypeDef", {"Tags": List["TagTypeDef"]}, total=False
+    "ListTagsForResourceOutputTypeDef",
+    {"Tags": List["TagTypeDef"], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 PaginatorConfigTypeDef = TypedDict(

@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import List
+from typing import Any, Dict, List
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -33,6 +32,7 @@ __all__ = (
     "ReplicationJobTypeDef",
     "ReplicationRunStageDetailsTypeDef",
     "ReplicationRunTypeDef",
+    "ResponseMetadata",
     "S3LocationTypeDef",
     "SSMOutputTypeDef",
     "SSMValidationParametersTypeDef",
@@ -144,7 +144,9 @@ AppValidationConfigurationTypeDef = TypedDict(
 )
 
 AppValidationOutputTypeDef = TypedDict(
-    "AppValidationOutputTypeDef", {"ssmOutput": "SSMOutputTypeDef"}, total=False
+    "AppValidationOutputTypeDef",
+    {"ssmOutput": "SSMOutputTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ConnectorTypeDef = TypedDict(
@@ -230,9 +232,24 @@ ReplicationRunTypeDef = TypedDict(
     total=False,
 )
 
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
+
 S3LocationTypeDef = TypedDict("S3LocationTypeDef", {"bucket": str, "key": str}, total=False)
 
-SSMOutputTypeDef = TypedDict("SSMOutputTypeDef", {"s3Location": "S3LocationTypeDef"}, total=False)
+SSMOutputTypeDef = TypedDict(
+    "SSMOutputTypeDef",
+    {"s3Location": "S3LocationTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
 
 SSMValidationParametersTypeDef = TypedDict(
     "SSMValidationParametersTypeDef",
@@ -348,7 +365,9 @@ ServerValidationConfigurationTypeDef = TypedDict(
 )
 
 ServerValidationOutputTypeDef = TypedDict(
-    "ServerValidationOutputTypeDef", {"server": "ServerTypeDef"}, total=False
+    "ServerValidationOutputTypeDef",
+    {"server": "ServerTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 SourceTypeDef = TypedDict("SourceTypeDef", {"s3Location": "S3LocationTypeDef"}, total=False)
@@ -373,6 +392,7 @@ ValidationOutputTypeDef = TypedDict(
         "latestValidationTime": datetime,
         "appValidationOutput": "AppValidationOutputTypeDef",
         "serverValidationOutput": "ServerValidationOutputTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )

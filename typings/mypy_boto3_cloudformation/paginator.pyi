@@ -89,20 +89,20 @@ __all__ = (
 
 class DescribeAccountLimitsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeAccountLimits documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudformation.html#CloudFormation.Paginator.DescribeAccountLimits)
+    [Paginator.DescribeAccountLimits documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.Paginator.DescribeAccountLimits)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeAccountLimitsOutputTypeDef]:
         """
-        [DescribeAccountLimits.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudformation.html#CloudFormation.Paginator.DescribeAccountLimits.paginate)
+        [DescribeAccountLimits.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.Paginator.DescribeAccountLimits.paginate)
         """
 
 
 class DescribeChangeSetPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeChangeSet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudformation.html#CloudFormation.Paginator.DescribeChangeSet)
+    [Paginator.DescribeChangeSet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.Paginator.DescribeChangeSet)
     """
 
     def paginate(
@@ -112,78 +112,78 @@ class DescribeChangeSetPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeChangeSetOutputTypeDef]:
         """
-        [DescribeChangeSet.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudformation.html#CloudFormation.Paginator.DescribeChangeSet.paginate)
+        [DescribeChangeSet.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.Paginator.DescribeChangeSet.paginate)
         """
 
 
 class DescribeStackEventsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeStackEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudformation.html#CloudFormation.Paginator.DescribeStackEvents)
+    [Paginator.DescribeStackEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.Paginator.DescribeStackEvents)
     """
 
     def paginate(
         self, StackName: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeStackEventsOutputTypeDef]:
         """
-        [DescribeStackEvents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudformation.html#CloudFormation.Paginator.DescribeStackEvents.paginate)
+        [DescribeStackEvents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.Paginator.DescribeStackEvents.paginate)
         """
 
 
 class DescribeStacksPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeStacks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudformation.html#CloudFormation.Paginator.DescribeStacks)
+    [Paginator.DescribeStacks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.Paginator.DescribeStacks)
     """
 
     def paginate(
         self, StackName: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeStacksOutputTypeDef]:
         """
-        [DescribeStacks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudformation.html#CloudFormation.Paginator.DescribeStacks.paginate)
+        [DescribeStacks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.Paginator.DescribeStacks.paginate)
         """
 
 
 class ListChangeSetsPaginator(Boto3Paginator):
     """
-    [Paginator.ListChangeSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudformation.html#CloudFormation.Paginator.ListChangeSets)
+    [Paginator.ListChangeSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.Paginator.ListChangeSets)
     """
 
     def paginate(
         self, StackName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListChangeSetsOutputTypeDef]:
         """
-        [ListChangeSets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudformation.html#CloudFormation.Paginator.ListChangeSets.paginate)
+        [ListChangeSets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.Paginator.ListChangeSets.paginate)
         """
 
 
 class ListExportsPaginator(Boto3Paginator):
     """
-    [Paginator.ListExports documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudformation.html#CloudFormation.Paginator.ListExports)
+    [Paginator.ListExports documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.Paginator.ListExports)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListExportsOutputTypeDef]:
         """
-        [ListExports.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudformation.html#CloudFormation.Paginator.ListExports.paginate)
+        [ListExports.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.Paginator.ListExports.paginate)
         """
 
 
 class ListImportsPaginator(Boto3Paginator):
     """
-    [Paginator.ListImports documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudformation.html#CloudFormation.Paginator.ListImports)
+    [Paginator.ListImports documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.Paginator.ListImports)
     """
 
     def paginate(
         self, ExportName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListImportsOutputTypeDef]:
         """
-        [ListImports.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudformation.html#CloudFormation.Paginator.ListImports.paginate)
+        [ListImports.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.Paginator.ListImports.paginate)
         """
 
 
 class ListStackInstancesPaginator(Boto3Paginator):
     """
-    [Paginator.ListStackInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudformation.html#CloudFormation.Paginator.ListStackInstances)
+    [Paginator.ListStackInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.Paginator.ListStackInstances)
     """
 
     def paginate(
@@ -195,52 +195,52 @@ class ListStackInstancesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListStackInstancesOutputTypeDef]:
         """
-        [ListStackInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudformation.html#CloudFormation.Paginator.ListStackInstances.paginate)
+        [ListStackInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.Paginator.ListStackInstances.paginate)
         """
 
 
 class ListStackResourcesPaginator(Boto3Paginator):
     """
-    [Paginator.ListStackResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudformation.html#CloudFormation.Paginator.ListStackResources)
+    [Paginator.ListStackResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.Paginator.ListStackResources)
     """
 
     def paginate(
         self, StackName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListStackResourcesOutputTypeDef]:
         """
-        [ListStackResources.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudformation.html#CloudFormation.Paginator.ListStackResources.paginate)
+        [ListStackResources.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.Paginator.ListStackResources.paginate)
         """
 
 
 class ListStackSetOperationResultsPaginator(Boto3Paginator):
     """
-    [Paginator.ListStackSetOperationResults documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudformation.html#CloudFormation.Paginator.ListStackSetOperationResults)
+    [Paginator.ListStackSetOperationResults documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.Paginator.ListStackSetOperationResults)
     """
 
     def paginate(
         self, StackSetName: str, OperationId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListStackSetOperationResultsOutputTypeDef]:
         """
-        [ListStackSetOperationResults.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudformation.html#CloudFormation.Paginator.ListStackSetOperationResults.paginate)
+        [ListStackSetOperationResults.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.Paginator.ListStackSetOperationResults.paginate)
         """
 
 
 class ListStackSetOperationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListStackSetOperations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudformation.html#CloudFormation.Paginator.ListStackSetOperations)
+    [Paginator.ListStackSetOperations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.Paginator.ListStackSetOperations)
     """
 
     def paginate(
         self, StackSetName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListStackSetOperationsOutputTypeDef]:
         """
-        [ListStackSetOperations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudformation.html#CloudFormation.Paginator.ListStackSetOperations.paginate)
+        [ListStackSetOperations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.Paginator.ListStackSetOperations.paginate)
         """
 
 
 class ListStackSetsPaginator(Boto3Paginator):
     """
-    [Paginator.ListStackSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudformation.html#CloudFormation.Paginator.ListStackSets)
+    [Paginator.ListStackSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.Paginator.ListStackSets)
     """
 
     def paginate(
@@ -249,13 +249,13 @@ class ListStackSetsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListStackSetsOutputTypeDef]:
         """
-        [ListStackSets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudformation.html#CloudFormation.Paginator.ListStackSets.paginate)
+        [ListStackSets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.Paginator.ListStackSets.paginate)
         """
 
 
 class ListStacksPaginator(Boto3Paginator):
     """
-    [Paginator.ListStacks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudformation.html#CloudFormation.Paginator.ListStacks)
+    [Paginator.ListStacks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.Paginator.ListStacks)
     """
 
     def paginate(
@@ -289,5 +289,5 @@ class ListStacksPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListStacksOutputTypeDef]:
         """
-        [ListStacks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudformation.html#CloudFormation.Paginator.ListStacks.paginate)
+        [ListStacks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.Paginator.ListStacks.paginate)
         """

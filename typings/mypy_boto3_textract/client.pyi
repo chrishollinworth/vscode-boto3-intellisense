@@ -1,4 +1,4 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import
+# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for textract service client
 
@@ -14,7 +14,7 @@ Usage::
 import sys
 from typing import Any, Dict, List, Type
 
-from botocore.exceptions import ClientError as Boto3ClientError
+from botocore.client import ClientMeta
 
 from mypy_boto3_textract.type_defs import (
     AnalyzeDocumentResponseTypeDef,
@@ -25,6 +25,7 @@ from mypy_boto3_textract.type_defs import (
     GetDocumentTextDetectionResponseTypeDef,
     HumanLoopConfigTypeDef,
     NotificationChannelTypeDef,
+    OutputConfigTypeDef,
     StartDocumentAnalysisResponseTypeDef,
     StartDocumentTextDetectionResponseTypeDef,
 )
@@ -38,28 +39,38 @@ else:
 __all__ = ("TextractClient",)
 
 
+class BotocoreClientError(BaseException):
+    MSG_TEMPLATE: str
+
+    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
+        self.response: Dict[str, Any]
+        self.operation_name: str
+
+
 class Exceptions:
-    AccessDeniedException: Type[Boto3ClientError]
-    BadDocumentException: Type[Boto3ClientError]
-    ClientError: Type[Boto3ClientError]
-    DocumentTooLargeException: Type[Boto3ClientError]
-    HumanLoopQuotaExceededException: Type[Boto3ClientError]
-    IdempotentParameterMismatchException: Type[Boto3ClientError]
-    InternalServerError: Type[Boto3ClientError]
-    InvalidJobIdException: Type[Boto3ClientError]
-    InvalidParameterException: Type[Boto3ClientError]
-    InvalidS3ObjectException: Type[Boto3ClientError]
-    LimitExceededException: Type[Boto3ClientError]
-    ProvisionedThroughputExceededException: Type[Boto3ClientError]
-    ThrottlingException: Type[Boto3ClientError]
-    UnsupportedDocumentException: Type[Boto3ClientError]
+    AccessDeniedException: Type[BotocoreClientError]
+    BadDocumentException: Type[BotocoreClientError]
+    ClientError: Type[BotocoreClientError]
+    DocumentTooLargeException: Type[BotocoreClientError]
+    HumanLoopQuotaExceededException: Type[BotocoreClientError]
+    IdempotentParameterMismatchException: Type[BotocoreClientError]
+    InternalServerError: Type[BotocoreClientError]
+    InvalidJobIdException: Type[BotocoreClientError]
+    InvalidKMSKeyException: Type[BotocoreClientError]
+    InvalidParameterException: Type[BotocoreClientError]
+    InvalidS3ObjectException: Type[BotocoreClientError]
+    LimitExceededException: Type[BotocoreClientError]
+    ProvisionedThroughputExceededException: Type[BotocoreClientError]
+    ThrottlingException: Type[BotocoreClientError]
+    UnsupportedDocumentException: Type[BotocoreClientError]
 
 
 class TextractClient:
     """
-    [Textract.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/textract.html#Textract.Client)
+    [Textract.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/textract.html#Textract.Client)
     """
 
+    meta: ClientMeta
     exceptions: Exceptions
 
     def analyze_document(
@@ -69,17 +80,17 @@ class TextractClient:
         HumanLoopConfig: HumanLoopConfigTypeDef = None,
     ) -> AnalyzeDocumentResponseTypeDef:
         """
-        [Client.analyze_document documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/textract.html#Textract.Client.analyze_document)
+        [Client.analyze_document documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/textract.html#Textract.Client.analyze_document)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/textract.html#Textract.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/textract.html#Textract.Client.can_paginate)
         """
 
     def detect_document_text(self, Document: DocumentTypeDef) -> DetectDocumentTextResponseTypeDef:
         """
-        [Client.detect_document_text documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/textract.html#Textract.Client.detect_document_text)
+        [Client.detect_document_text documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/textract.html#Textract.Client.detect_document_text)
         """
 
     def generate_presigned_url(
@@ -90,21 +101,21 @@ class TextractClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/textract.html#Textract.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/textract.html#Textract.Client.generate_presigned_url)
         """
 
     def get_document_analysis(
         self, JobId: str, MaxResults: int = None, NextToken: str = None
     ) -> GetDocumentAnalysisResponseTypeDef:
         """
-        [Client.get_document_analysis documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/textract.html#Textract.Client.get_document_analysis)
+        [Client.get_document_analysis documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/textract.html#Textract.Client.get_document_analysis)
         """
 
     def get_document_text_detection(
         self, JobId: str, MaxResults: int = None, NextToken: str = None
     ) -> GetDocumentTextDetectionResponseTypeDef:
         """
-        [Client.get_document_text_detection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/textract.html#Textract.Client.get_document_text_detection)
+        [Client.get_document_text_detection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/textract.html#Textract.Client.get_document_text_detection)
         """
 
     def start_document_analysis(
@@ -114,9 +125,11 @@ class TextractClient:
         ClientRequestToken: str = None,
         JobTag: str = None,
         NotificationChannel: NotificationChannelTypeDef = None,
+        OutputConfig: OutputConfigTypeDef = None,
+        KMSKeyId: str = None,
     ) -> StartDocumentAnalysisResponseTypeDef:
         """
-        [Client.start_document_analysis documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/textract.html#Textract.Client.start_document_analysis)
+        [Client.start_document_analysis documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/textract.html#Textract.Client.start_document_analysis)
         """
 
     def start_document_text_detection(
@@ -125,7 +138,9 @@ class TextractClient:
         ClientRequestToken: str = None,
         JobTag: str = None,
         NotificationChannel: NotificationChannelTypeDef = None,
+        OutputConfig: OutputConfigTypeDef = None,
+        KMSKeyId: str = None,
     ) -> StartDocumentTextDetectionResponseTypeDef:
         """
-        [Client.start_document_text_detection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/textract.html#Textract.Client.start_document_text_detection)
+        [Client.start_document_text_detection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/textract.html#Textract.Client.start_document_text_detection)
         """

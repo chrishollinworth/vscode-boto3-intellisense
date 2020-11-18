@@ -19,7 +19,7 @@ else:
     from typing_extensions import TypedDict
 
 
-__all__ = ("EventTypeDef",)
+__all__ = ("EventTypeDef", "ItemTypeDef", "UserTypeDef")
 
 _RequiredEventTypeDef = TypedDict("_RequiredEventTypeDef", {"eventType": str, "sentAt": datetime})
 _OptionalEventTypeDef = TypedDict(
@@ -37,4 +37,20 @@ _OptionalEventTypeDef = TypedDict(
 
 
 class EventTypeDef(_RequiredEventTypeDef, _OptionalEventTypeDef):
+    pass
+
+
+_RequiredItemTypeDef = TypedDict("_RequiredItemTypeDef", {"itemId": str})
+_OptionalItemTypeDef = TypedDict("_OptionalItemTypeDef", {"properties": str}, total=False)
+
+
+class ItemTypeDef(_RequiredItemTypeDef, _OptionalItemTypeDef):
+    pass
+
+
+_RequiredUserTypeDef = TypedDict("_RequiredUserTypeDef", {"userId": str})
+_OptionalUserTypeDef = TypedDict("_OptionalUserTypeDef", {"properties": str}, total=False)
+
+
+class UserTypeDef(_RequiredUserTypeDef, _OptionalUserTypeDef):
     pass

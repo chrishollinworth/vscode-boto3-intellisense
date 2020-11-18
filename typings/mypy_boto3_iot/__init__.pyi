@@ -45,6 +45,7 @@ Usage::
         ListTargetsForSecurityProfilePaginator,
         ListThingGroupsForThingPaginator,
         ListThingGroupsPaginator,
+        ListThingPrincipalsPaginator,
         ListThingRegistrationTaskReportsPaginator,
         ListThingRegistrationTasksPaginator,
         ListThingTypesPaginator,
@@ -99,6 +100,7 @@ Usage::
     list_targets_for_security_profile_paginator: ListTargetsForSecurityProfilePaginator = client.get_paginator("list_targets_for_security_profile")
     list_thing_groups_paginator: ListThingGroupsPaginator = client.get_paginator("list_thing_groups")
     list_thing_groups_for_thing_paginator: ListThingGroupsForThingPaginator = client.get_paginator("list_thing_groups_for_thing")
+    list_thing_principals_paginator: ListThingPrincipalsPaginator = client.get_paginator("list_thing_principals")
     list_thing_registration_task_reports_paginator: ListThingRegistrationTaskReportsPaginator = client.get_paginator("list_thing_registration_task_reports")
     list_thing_registration_tasks_paginator: ListThingRegistrationTasksPaginator = client.get_paginator("list_thing_registration_tasks")
     list_thing_types_paginator: ListThingTypesPaginator = client.get_paginator("list_thing_types")
@@ -150,6 +152,7 @@ from mypy_boto3_iot.paginator import (
     ListTargetsForSecurityProfilePaginator,
     ListThingGroupsForThingPaginator,
     ListThingGroupsPaginator,
+    ListThingPrincipalsPaginator,
     ListThingRegistrationTaskReportsPaginator,
     ListThingRegistrationTasksPaginator,
     ListThingsInBillingGroupPaginator,
@@ -205,6 +208,7 @@ __all__ = (
     "ListTargetsForSecurityProfilePaginator",
     "ListThingGroupsForThingPaginator",
     "ListThingGroupsPaginator",
+    "ListThingPrincipalsPaginator",
     "ListThingRegistrationTaskReportsPaginator",
     "ListThingRegistrationTasksPaginator",
     "ListThingTypesPaginator",

@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Dict, List
+from typing import Any, Dict, List
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -38,6 +37,7 @@ __all__ = (
     "RedshiftDatabaseCredentialsTypeDef",
     "RedshiftDatabaseTypeDef",
     "RedshiftMetadataTypeDef",
+    "ResponseMetadata",
     "TagTypeDef",
     "AddTagsOutputTypeDef",
     "CreateBatchPredictionOutputTypeDef",
@@ -230,6 +230,17 @@ RedshiftMetadataTypeDef = TypedDict(
     total=False,
 )
 
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
+
 TagTypeDef = TypedDict("TagTypeDef", {"Key": str, "Value": str}, total=False)
 
 AddTagsOutputTypeDef = TypedDict(
@@ -237,59 +248,88 @@ AddTagsOutputTypeDef = TypedDict(
     {
         "ResourceId": str,
         "ResourceType": Literal["BatchPrediction", "DataSource", "Evaluation", "MLModel"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
 CreateBatchPredictionOutputTypeDef = TypedDict(
-    "CreateBatchPredictionOutputTypeDef", {"BatchPredictionId": str}, total=False
+    "CreateBatchPredictionOutputTypeDef",
+    {"BatchPredictionId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 CreateDataSourceFromRDSOutputTypeDef = TypedDict(
-    "CreateDataSourceFromRDSOutputTypeDef", {"DataSourceId": str}, total=False
+    "CreateDataSourceFromRDSOutputTypeDef",
+    {"DataSourceId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 CreateDataSourceFromRedshiftOutputTypeDef = TypedDict(
-    "CreateDataSourceFromRedshiftOutputTypeDef", {"DataSourceId": str}, total=False
+    "CreateDataSourceFromRedshiftOutputTypeDef",
+    {"DataSourceId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 CreateDataSourceFromS3OutputTypeDef = TypedDict(
-    "CreateDataSourceFromS3OutputTypeDef", {"DataSourceId": str}, total=False
+    "CreateDataSourceFromS3OutputTypeDef",
+    {"DataSourceId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 CreateEvaluationOutputTypeDef = TypedDict(
-    "CreateEvaluationOutputTypeDef", {"EvaluationId": str}, total=False
+    "CreateEvaluationOutputTypeDef",
+    {"EvaluationId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 CreateMLModelOutputTypeDef = TypedDict(
-    "CreateMLModelOutputTypeDef", {"MLModelId": str}, total=False
+    "CreateMLModelOutputTypeDef",
+    {"MLModelId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 CreateRealtimeEndpointOutputTypeDef = TypedDict(
     "CreateRealtimeEndpointOutputTypeDef",
-    {"MLModelId": str, "RealtimeEndpointInfo": "RealtimeEndpointInfoTypeDef"},
+    {
+        "MLModelId": str,
+        "RealtimeEndpointInfo": "RealtimeEndpointInfoTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 DeleteBatchPredictionOutputTypeDef = TypedDict(
-    "DeleteBatchPredictionOutputTypeDef", {"BatchPredictionId": str}, total=False
+    "DeleteBatchPredictionOutputTypeDef",
+    {"BatchPredictionId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 DeleteDataSourceOutputTypeDef = TypedDict(
-    "DeleteDataSourceOutputTypeDef", {"DataSourceId": str}, total=False
+    "DeleteDataSourceOutputTypeDef",
+    {"DataSourceId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 DeleteEvaluationOutputTypeDef = TypedDict(
-    "DeleteEvaluationOutputTypeDef", {"EvaluationId": str}, total=False
+    "DeleteEvaluationOutputTypeDef",
+    {"EvaluationId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 DeleteMLModelOutputTypeDef = TypedDict(
-    "DeleteMLModelOutputTypeDef", {"MLModelId": str}, total=False
+    "DeleteMLModelOutputTypeDef",
+    {"MLModelId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 DeleteRealtimeEndpointOutputTypeDef = TypedDict(
     "DeleteRealtimeEndpointOutputTypeDef",
-    {"MLModelId": str, "RealtimeEndpointInfo": "RealtimeEndpointInfoTypeDef"},
+    {
+        "MLModelId": str,
+        "RealtimeEndpointInfo": "RealtimeEndpointInfoTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -298,31 +338,44 @@ DeleteTagsOutputTypeDef = TypedDict(
     {
         "ResourceId": str,
         "ResourceType": Literal["BatchPrediction", "DataSource", "Evaluation", "MLModel"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
 DescribeBatchPredictionsOutputTypeDef = TypedDict(
     "DescribeBatchPredictionsOutputTypeDef",
-    {"Results": List["BatchPredictionTypeDef"], "NextToken": str},
+    {
+        "Results": List["BatchPredictionTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 DescribeDataSourcesOutputTypeDef = TypedDict(
     "DescribeDataSourcesOutputTypeDef",
-    {"Results": List["DataSourceTypeDef"], "NextToken": str},
+    {
+        "Results": List["DataSourceTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 DescribeEvaluationsOutputTypeDef = TypedDict(
     "DescribeEvaluationsOutputTypeDef",
-    {"Results": List["EvaluationTypeDef"], "NextToken": str},
+    {
+        "Results": List["EvaluationTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 DescribeMLModelsOutputTypeDef = TypedDict(
     "DescribeMLModelsOutputTypeDef",
-    {"Results": List["MLModelTypeDef"], "NextToken": str},
+    {"Results": List["MLModelTypeDef"], "NextToken": str, "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
@@ -332,6 +385,7 @@ DescribeTagsOutputTypeDef = TypedDict(
         "ResourceId": str,
         "ResourceType": Literal["BatchPrediction", "DataSource", "Evaluation", "MLModel"],
         "Tags": List["TagTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -356,6 +410,7 @@ GetBatchPredictionOutputTypeDef = TypedDict(
         "StartedAt": datetime,
         "TotalRecordCount": int,
         "InvalidRecordCount": int,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -383,6 +438,7 @@ GetDataSourceOutputTypeDef = TypedDict(
         "FinishedAt": datetime,
         "StartedAt": datetime,
         "DataSourceSchema": str,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -405,6 +461,7 @@ GetEvaluationOutputTypeDef = TypedDict(
         "ComputeTime": int,
         "FinishedAt": datetime,
         "StartedAt": datetime,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -433,6 +490,7 @@ GetMLModelOutputTypeDef = TypedDict(
         "StartedAt": datetime,
         "Recipe": str,
         "Schema": str,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -442,7 +500,9 @@ PaginatorConfigTypeDef = TypedDict(
 )
 
 PredictOutputTypeDef = TypedDict(
-    "PredictOutputTypeDef", {"Prediction": "PredictionTypeDef"}, total=False
+    "PredictOutputTypeDef",
+    {"Prediction": "PredictionTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 _RequiredRDSDataSpecTypeDef = TypedDict(
@@ -502,19 +562,27 @@ class S3DataSpecTypeDef(_RequiredS3DataSpecTypeDef, _OptionalS3DataSpecTypeDef):
 
 
 UpdateBatchPredictionOutputTypeDef = TypedDict(
-    "UpdateBatchPredictionOutputTypeDef", {"BatchPredictionId": str}, total=False
+    "UpdateBatchPredictionOutputTypeDef",
+    {"BatchPredictionId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 UpdateDataSourceOutputTypeDef = TypedDict(
-    "UpdateDataSourceOutputTypeDef", {"DataSourceId": str}, total=False
+    "UpdateDataSourceOutputTypeDef",
+    {"DataSourceId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 UpdateEvaluationOutputTypeDef = TypedDict(
-    "UpdateEvaluationOutputTypeDef", {"EvaluationId": str}, total=False
+    "UpdateEvaluationOutputTypeDef",
+    {"EvaluationId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 UpdateMLModelOutputTypeDef = TypedDict(
-    "UpdateMLModelOutputTypeDef", {"MLModelId": str}, total=False
+    "UpdateMLModelOutputTypeDef",
+    {"MLModelId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 WaiterConfigTypeDef = TypedDict(

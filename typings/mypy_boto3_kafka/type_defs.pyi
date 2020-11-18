@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Dict, List
+from typing import IO, Dict, List, Union
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -58,13 +57,19 @@ __all__ = (
     "PrometheusInfoTypeDef",
     "PrometheusTypeDef",
     "S3TypeDef",
+    "SaslTypeDef",
+    "ScramTypeDef",
     "StateInfoTypeDef",
     "StorageInfoTypeDef",
     "TlsTypeDef",
+    "UnprocessedScramSecretTypeDef",
     "ZookeeperNodeInfoTypeDef",
+    "BatchAssociateScramSecretResponseTypeDef",
+    "BatchDisassociateScramSecretResponseTypeDef",
     "CreateClusterResponseTypeDef",
     "CreateConfigurationResponseTypeDef",
     "DeleteClusterResponseTypeDef",
+    "DeleteConfigurationResponseTypeDef",
     "DescribeClusterOperationResponseTypeDef",
     "DescribeClusterResponseTypeDef",
     "DescribeConfigurationResponseTypeDef",
@@ -77,6 +82,7 @@ __all__ = (
     "ListConfigurationsResponseTypeDef",
     "ListKafkaVersionsResponseTypeDef",
     "ListNodesResponseTypeDef",
+    "ListScramSecretsResponseTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "OpenMonitoringInfoTypeDef",
     "PaginatorConfigTypeDef",
@@ -85,6 +91,7 @@ __all__ = (
     "UpdateBrokerStorageResponseTypeDef",
     "UpdateClusterConfigurationResponseTypeDef",
     "UpdateClusterKafkaVersionResponseTypeDef",
+    "UpdateConfigurationResponseTypeDef",
     "UpdateMonitoringResponseTypeDef",
 )
 
@@ -138,7 +145,7 @@ BrokerSoftwareInfoTypeDef = TypedDict(
 )
 
 ClientAuthenticationTypeDef = TypedDict(
-    "ClientAuthenticationTypeDef", {"Tls": "TlsTypeDef"}, total=False
+    "ClientAuthenticationTypeDef", {"Sasl": "SaslTypeDef", "Tls": "TlsTypeDef"}, total=False
 )
 
 _RequiredCloudWatchLogsTypeDef = TypedDict("_RequiredCloudWatchLogsTypeDef", {"Enabled": bool})
@@ -171,6 +178,7 @@ ClusterInfoTypeDef = TypedDict(
         "StateInfo": "StateInfoTypeDef",
         "Tags": Dict[str, str],
         "ZookeeperConnectString": str,
+        "ZookeeperConnectStringTls": str,
     },
     total=False,
 )
@@ -234,6 +242,7 @@ ConfigurationTypeDef = TypedDict(
         "KafkaVersions": List[str],
         "LatestRevision": "ConfigurationRevisionTypeDef",
         "Name": str,
+        "State": Literal["ACTIVE", "DELETING", "DELETE_FAILED"],
     },
 )
 
@@ -333,6 +342,10 @@ class S3TypeDef(_RequiredS3TypeDef, _OptionalS3TypeDef):
     pass
 
 
+SaslTypeDef = TypedDict("SaslTypeDef", {"Scram": "ScramTypeDef"}, total=False)
+
+ScramTypeDef = TypedDict("ScramTypeDef", {"Enabled": bool}, total=False)
+
 StateInfoTypeDef = TypedDict("StateInfoTypeDef", {"Code": str, "Message": str}, total=False)
 
 StorageInfoTypeDef = TypedDict(
@@ -340,6 +353,12 @@ StorageInfoTypeDef = TypedDict(
 )
 
 TlsTypeDef = TypedDict("TlsTypeDef", {"CertificateAuthorityArnList": List[str]}, total=False)
+
+UnprocessedScramSecretTypeDef = TypedDict(
+    "UnprocessedScramSecretTypeDef",
+    {"ErrorCode": str, "ErrorMessage": str, "SecretArn": str},
+    total=False,
+)
 
 ZookeeperNodeInfoTypeDef = TypedDict(
     "ZookeeperNodeInfoTypeDef",
@@ -350,6 +369,18 @@ ZookeeperNodeInfoTypeDef = TypedDict(
         "ZookeeperId": float,
         "ZookeeperVersion": str,
     },
+    total=False,
+)
+
+BatchAssociateScramSecretResponseTypeDef = TypedDict(
+    "BatchAssociateScramSecretResponseTypeDef",
+    {"ClusterArn": str, "UnprocessedScramSecrets": List["UnprocessedScramSecretTypeDef"]},
+    total=False,
+)
+
+BatchDisassociateScramSecretResponseTypeDef = TypedDict(
+    "BatchDisassociateScramSecretResponseTypeDef",
+    {"ClusterArn": str, "UnprocessedScramSecrets": List["UnprocessedScramSecretTypeDef"]},
     total=False,
 )
 
@@ -370,6 +401,7 @@ CreateConfigurationResponseTypeDef = TypedDict(
         "CreationTime": datetime,
         "LatestRevision": "ConfigurationRevisionTypeDef",
         "Name": str,
+        "State": Literal["ACTIVE", "DELETING", "DELETE_FAILED"],
     },
     total=False,
 )
@@ -377,6 +409,12 @@ CreateConfigurationResponseTypeDef = TypedDict(
 DeleteClusterResponseTypeDef = TypedDict(
     "DeleteClusterResponseTypeDef",
     {"ClusterArn": str, "State": Literal["ACTIVE", "CREATING", "UPDATING", "DELETING", "FAILED"]},
+    total=False,
+)
+
+DeleteConfigurationResponseTypeDef = TypedDict(
+    "DeleteConfigurationResponseTypeDef",
+    {"Arn": str, "State": Literal["ACTIVE", "DELETING", "DELETE_FAILED"]},
     total=False,
 )
 
@@ -399,6 +437,7 @@ DescribeConfigurationResponseTypeDef = TypedDict(
         "KafkaVersions": List[str],
         "LatestRevision": "ConfigurationRevisionTypeDef",
         "Name": str,
+        "State": Literal["ACTIVE", "DELETING", "DELETE_FAILED"],
     },
     total=False,
 )
@@ -410,14 +449,18 @@ DescribeConfigurationRevisionResponseTypeDef = TypedDict(
         "CreationTime": datetime,
         "Description": str,
         "Revision": int,
-        "ServerProperties": bytes,
+        "ServerProperties": Union[bytes, IO[bytes]],
     },
     total=False,
 )
 
 GetBootstrapBrokersResponseTypeDef = TypedDict(
     "GetBootstrapBrokersResponseTypeDef",
-    {"BootstrapBrokerString": str, "BootstrapBrokerStringTls": str},
+    {
+        "BootstrapBrokerString": str,
+        "BootstrapBrokerStringTls": str,
+        "BootstrapBrokerStringSaslScram": str,
+    },
     total=False,
 )
 
@@ -463,6 +506,10 @@ ListNodesResponseTypeDef = TypedDict(
     total=False,
 )
 
+ListScramSecretsResponseTypeDef = TypedDict(
+    "ListScramSecretsResponseTypeDef", {"NextToken": str, "SecretArnList": List[str]}, total=False
+)
+
 ListTagsForResourceResponseTypeDef = TypedDict(
     "ListTagsForResourceResponseTypeDef", {"Tags": Dict[str, str]}, total=False
 )
@@ -498,6 +545,12 @@ UpdateClusterConfigurationResponseTypeDef = TypedDict(
 UpdateClusterKafkaVersionResponseTypeDef = TypedDict(
     "UpdateClusterKafkaVersionResponseTypeDef",
     {"ClusterArn": str, "ClusterOperationArn": str},
+    total=False,
+)
+
+UpdateConfigurationResponseTypeDef = TypedDict(
+    "UpdateConfigurationResponseTypeDef",
+    {"Arn": str, "LatestRevision": "ConfigurationRevisionTypeDef"},
     total=False,
 )
 

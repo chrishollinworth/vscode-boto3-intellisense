@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import List
+from typing import Any, Dict, List
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -74,6 +73,7 @@ __all__ = (
     "RequestCancelExternalWorkflowExecutionFailedEventAttributesTypeDef",
     "RequestCancelExternalWorkflowExecutionInitiatedEventAttributesTypeDef",
     "ResourceTagTypeDef",
+    "ResponseMetadata",
     "ScheduleActivityTaskDecisionAttributesTypeDef",
     "ScheduleActivityTaskFailedEventAttributesTypeDef",
     "ScheduleLambdaFunctionDecisionAttributesTypeDef",
@@ -872,6 +872,17 @@ class ResourceTagTypeDef(_RequiredResourceTagTypeDef, _OptionalResourceTagTypeDe
     pass
 
 
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
+
 _RequiredScheduleActivityTaskDecisionAttributesTypeDef = TypedDict(
     "_RequiredScheduleActivityTaskDecisionAttributesTypeDef",
     {"activityType": "ActivityTypeTypeDef", "activityId": str},
@@ -1610,7 +1621,9 @@ class HistoryTypeDef(_RequiredHistoryTypeDef, _OptionalHistoryTypeDef):
 
 
 ListTagsForResourceOutputTypeDef = TypedDict(
-    "ListTagsForResourceOutputTypeDef", {"tags": List["ResourceTagTypeDef"]}, total=False
+    "ListTagsForResourceOutputTypeDef",
+    {"tags": List["ResourceTagTypeDef"], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 PaginatorConfigTypeDef = TypedDict(

@@ -30,38 +30,38 @@ __all__ = ("FunctionActiveWaiter", "FunctionExistsWaiter", "FunctionUpdatedWaite
 
 class FunctionActiveWaiter(Boto3Waiter):
     """
-    [Waiter.FunctionActive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Waiter.FunctionActive)
+    [Waiter.FunctionActive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Waiter.FunctionActive)
     """
 
     def wait(
         self, FunctionName: str, Qualifier: str = None, WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [FunctionActive.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Waiter.FunctionActive.wait)
+        [FunctionActive.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Waiter.FunctionActive.wait)
         """
 
 
 class FunctionExistsWaiter(Boto3Waiter):
     """
-    [Waiter.FunctionExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Waiter.FunctionExists)
+    [Waiter.FunctionExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Waiter.FunctionExists)
     """
 
     def wait(
         self, FunctionName: str, Qualifier: str = None, WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [FunctionExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Waiter.FunctionExists.wait)
+        [FunctionExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Waiter.FunctionExists.wait)
         """
 
 
 class FunctionUpdatedWaiter(Boto3Waiter):
     """
-    [Waiter.FunctionUpdated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Waiter.FunctionUpdated)
+    [Waiter.FunctionUpdated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Waiter.FunctionUpdated)
     """
 
     def wait(
         self, FunctionName: str, Qualifier: str = None, WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [FunctionUpdated.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/lambda.html#Lambda.Waiter.FunctionUpdated.wait)
+        [FunctionUpdated.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lambda.html#Lambda.Waiter.FunctionUpdated.wait)
         """

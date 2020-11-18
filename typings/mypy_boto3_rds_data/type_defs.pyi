@@ -10,13 +10,12 @@ Usage::
     ```
 """
 import sys
-from typing import Any, Dict, List
+from typing import IO, Any, Dict, List, Union
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -35,8 +34,8 @@ __all__ = (
     "BatchExecuteStatementResponseTypeDef",
     "BeginTransactionResponseTypeDef",
     "CommitTransactionResponseTypeDef",
-    "ArrayValueTypeDef",
     "ValueTypeDef",
+    "ArrayValueTypeDef",
     "ExecuteSqlResponseTypeDef",
     "ExecuteStatementResponseTypeDef",
     "ResultSetOptionsTypeDef",
@@ -69,7 +68,7 @@ FieldTypeDef = TypedDict(
     "FieldTypeDef",
     {
         "arrayValue": Dict[str, Any],
-        "blobValue": bytes,
+        "blobValue": Union[bytes, IO[bytes]],
         "booleanValue": bool,
         "doubleValue": float,
         "isNull": bool,
@@ -121,6 +120,23 @@ CommitTransactionResponseTypeDef = TypedDict(
     "CommitTransactionResponseTypeDef", {"transactionStatus": str}, total=False
 )
 
+ValueTypeDef = TypedDict(
+    "ValueTypeDef",
+    {
+        "arrayValues": List[Dict[str, Any]],
+        "bigIntValue": int,
+        "bitValue": bool,
+        "blobValue": Union[bytes, IO[bytes]],
+        "doubleValue": float,
+        "intValue": int,
+        "isNull": bool,
+        "realValue": float,
+        "stringValue": str,
+        "structValue": "StructValueTypeDef",
+    },
+    total=False,
+)
+
 ArrayValueTypeDef = TypedDict(
     "ArrayValueTypeDef",
     {
@@ -129,23 +145,6 @@ ArrayValueTypeDef = TypedDict(
         "doubleValues": List[float],
         "longValues": List[int],
         "stringValues": List[str],
-    },
-    total=False,
-)
-
-ValueTypeDef = TypedDict(
-    "ValueTypeDef",
-    {
-        "arrayValues": List[Dict[str, Any]],
-        "bigIntValue": int,
-        "bitValue": bool,
-        "blobValue": bytes,
-        "doubleValue": float,
-        "intValue": int,
-        "isNull": bool,
-        "realValue": float,
-        "stringValue": str,
-        "structValue": "StructValueTypeDef",
     },
     total=False,
 )

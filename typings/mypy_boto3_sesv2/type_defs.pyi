@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Dict, List
+from typing import IO, Dict, List, Union
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -31,6 +30,9 @@ __all__ = (
     "BulkEmailEntryResultTypeDef",
     "CloudWatchDestinationTypeDef",
     "CloudWatchDimensionConfigurationTypeDef",
+    "ContactListDestinationTypeDef",
+    "ContactListTypeDef",
+    "ContactTypeDef",
     "ContentTypeDef",
     "CustomVerificationEmailTemplateMetadataTypeDef",
     "DailyVolumeTypeDef",
@@ -75,6 +77,9 @@ __all__ = (
     "SuppressionOptionsTypeDef",
     "TagTypeDef",
     "TemplateTypeDef",
+    "TopicFilterTypeDef",
+    "TopicPreferenceTypeDef",
+    "TopicTypeDef",
     "TrackingOptionsTypeDef",
     "VolumeStatisticsTypeDef",
     "BulkEmailContentTypeDef",
@@ -89,6 +94,8 @@ __all__ = (
     "GetBlacklistReportsResponseTypeDef",
     "GetConfigurationSetEventDestinationsResponseTypeDef",
     "GetConfigurationSetResponseTypeDef",
+    "GetContactListResponseTypeDef",
+    "GetContactResponseTypeDef",
     "GetCustomVerificationEmailTemplateResponseTypeDef",
     "GetDedicatedIpResponseTypeDef",
     "GetDedicatedIpsResponseTypeDef",
@@ -102,6 +109,9 @@ __all__ = (
     "GetImportJobResponseTypeDef",
     "GetSuppressedDestinationResponseTypeDef",
     "ListConfigurationSetsResponseTypeDef",
+    "ListContactListsResponseTypeDef",
+    "ListContactsFilterTypeDef",
+    "ListContactsResponseTypeDef",
     "ListCustomVerificationEmailTemplatesResponseTypeDef",
     "ListDedicatedIpPoolsResponseTypeDef",
     "ListDeliverabilityTestReportsResponseTypeDef",
@@ -109,6 +119,7 @@ __all__ = (
     "ListEmailIdentitiesResponseTypeDef",
     "ListEmailTemplatesResponseTypeDef",
     "ListImportJobsResponseTypeDef",
+    "ListManagementOptionsTypeDef",
     "ListSuppressedDestinationsResponseTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "PutEmailIdentityDkimSigningAttributesResponseTypeDef",
@@ -178,6 +189,27 @@ CloudWatchDimensionConfigurationTypeDef = TypedDict(
         "DimensionValueSource": Literal["MESSAGE_TAG", "EMAIL_HEADER", "LINK_TAG"],
         "DefaultDimensionValue": str,
     },
+)
+
+ContactListDestinationTypeDef = TypedDict(
+    "ContactListDestinationTypeDef",
+    {"ContactListName": str, "ContactListImportAction": Literal["DELETE", "PUT"]},
+)
+
+ContactListTypeDef = TypedDict(
+    "ContactListTypeDef", {"ContactListName": str, "LastUpdatedTimestamp": datetime}, total=False
+)
+
+ContactTypeDef = TypedDict(
+    "ContactTypeDef",
+    {
+        "EmailAddress": str,
+        "TopicPreferences": List["TopicPreferenceTypeDef"],
+        "TopicDefaultPreferences": List["TopicPreferenceTypeDef"],
+        "UnsubscribeAll": bool,
+        "LastUpdatedTimestamp": datetime,
+    },
+    total=False,
 )
 
 _RequiredContentTypeDef = TypedDict("_RequiredContentTypeDef", {"Data": str})
@@ -325,6 +357,7 @@ _RequiredEventDestinationTypeDef = TypedDict(
                 "CLICK",
                 "RENDERING_FAILURE",
                 "DELIVERY_DELAY",
+                "SUBSCRIPTION",
             ]
         ],
     },
@@ -365,7 +398,12 @@ ImportDataSourceTypeDef = TypedDict(
 )
 
 ImportDestinationTypeDef = TypedDict(
-    "ImportDestinationTypeDef", {"SuppressionListDestination": "SuppressionListDestinationTypeDef"}
+    "ImportDestinationTypeDef",
+    {
+        "SuppressionListDestination": "SuppressionListDestinationTypeDef",
+        "ContactListDestination": "ContactListDestinationTypeDef",
+    },
+    total=False,
 )
 
 ImportJobSummaryTypeDef = TypedDict(
@@ -432,7 +470,7 @@ PlacementStatisticsTypeDef = TypedDict(
     total=False,
 )
 
-RawMessageTypeDef = TypedDict("RawMessageTypeDef", {"Data": bytes})
+RawMessageTypeDef = TypedDict("RawMessageTypeDef", {"Data": Union[bytes, IO[bytes]]})
 
 ReplacementEmailContentTypeDef = TypedDict(
     "ReplacementEmailContentTypeDef",
@@ -514,6 +552,29 @@ TemplateTypeDef = TypedDict(
     "TemplateTypeDef", {"TemplateName": str, "TemplateArn": str, "TemplateData": str}, total=False
 )
 
+TopicFilterTypeDef = TypedDict(
+    "TopicFilterTypeDef", {"TopicName": str, "UseDefaultIfPreferenceUnavailable": bool}, total=False
+)
+
+TopicPreferenceTypeDef = TypedDict(
+    "TopicPreferenceTypeDef", {"TopicName": str, "SubscriptionStatus": Literal["OPT_IN", "OPT_OUT"]}
+)
+
+_RequiredTopicTypeDef = TypedDict(
+    "_RequiredTopicTypeDef",
+    {
+        "TopicName": str,
+        "DisplayName": str,
+        "DefaultSubscriptionStatus": Literal["OPT_IN", "OPT_OUT"],
+    },
+)
+_OptionalTopicTypeDef = TypedDict("_OptionalTopicTypeDef", {"Description": str}, total=False)
+
+
+class TopicTypeDef(_RequiredTopicTypeDef, _OptionalTopicTypeDef):
+    pass
+
+
 TrackingOptionsTypeDef = TypedDict("TrackingOptionsTypeDef", {"CustomRedirectDomain": str})
 
 VolumeStatisticsTypeDef = TypedDict(
@@ -587,6 +648,7 @@ EventDestinationDefinitionTypeDef = TypedDict(
                 "CLICK",
                 "RENDERING_FAILURE",
                 "DELIVERY_DELAY",
+                "SUBSCRIPTION",
             ]
         ],
         "KinesisFirehoseDestination": "KinesisFirehoseDestinationTypeDef",
@@ -632,6 +694,34 @@ GetConfigurationSetResponseTypeDef = TypedDict(
         "SendingOptions": "SendingOptionsTypeDef",
         "Tags": List["TagTypeDef"],
         "SuppressionOptions": "SuppressionOptionsTypeDef",
+    },
+    total=False,
+)
+
+GetContactListResponseTypeDef = TypedDict(
+    "GetContactListResponseTypeDef",
+    {
+        "ContactListName": str,
+        "Topics": List["TopicTypeDef"],
+        "Description": str,
+        "CreatedTimestamp": datetime,
+        "LastUpdatedTimestamp": datetime,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+GetContactResponseTypeDef = TypedDict(
+    "GetContactResponseTypeDef",
+    {
+        "ContactListName": str,
+        "EmailAddress": str,
+        "TopicPreferences": List["TopicPreferenceTypeDef"],
+        "TopicDefaultPreferences": List["TopicPreferenceTypeDef"],
+        "UnsubscribeAll": bool,
+        "AttributesData": str,
+        "CreatedTimestamp": datetime,
+        "LastUpdatedTimestamp": datetime,
     },
     total=False,
 )
@@ -763,6 +853,24 @@ ListConfigurationSetsResponseTypeDef = TypedDict(
     total=False,
 )
 
+ListContactListsResponseTypeDef = TypedDict(
+    "ListContactListsResponseTypeDef",
+    {"ContactLists": List["ContactListTypeDef"], "NextToken": str},
+    total=False,
+)
+
+ListContactsFilterTypeDef = TypedDict(
+    "ListContactsFilterTypeDef",
+    {"FilteredStatus": Literal["OPT_IN", "OPT_OUT"], "TopicFilter": "TopicFilterTypeDef"},
+    total=False,
+)
+
+ListContactsResponseTypeDef = TypedDict(
+    "ListContactsResponseTypeDef",
+    {"Contacts": List["ContactTypeDef"], "NextToken": str},
+    total=False,
+)
+
 ListCustomVerificationEmailTemplatesResponseTypeDef = TypedDict(
     "ListCustomVerificationEmailTemplatesResponseTypeDef",
     {
@@ -827,6 +935,20 @@ ListImportJobsResponseTypeDef = TypedDict(
     {"ImportJobs": List["ImportJobSummaryTypeDef"], "NextToken": str},
     total=False,
 )
+
+_RequiredListManagementOptionsTypeDef = TypedDict(
+    "_RequiredListManagementOptionsTypeDef", {"ContactListName": str}
+)
+_OptionalListManagementOptionsTypeDef = TypedDict(
+    "_OptionalListManagementOptionsTypeDef", {"TopicName": str}, total=False
+)
+
+
+class ListManagementOptionsTypeDef(
+    _RequiredListManagementOptionsTypeDef, _OptionalListManagementOptionsTypeDef
+):
+    pass
+
 
 ListSuppressedDestinationsResponseTypeDef = TypedDict(
     "ListSuppressedDestinationsResponseTypeDef",

@@ -1,4 +1,4 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import
+# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for s3 service client
 
@@ -16,10 +16,7 @@ from datetime import datetime
 from typing import IO, Any, Callable, Dict, List, Type, Union, overload
 
 from boto3.s3.transfer import TransferConfig
-from botocore.client import BaseClient
-from botocore.exceptions import ClientError as Boto3ClientError
-from botocore.paginate import Paginator as Boto3Paginator
-from botocore.waiter import Waiter as Boto3Waiter
+from botocore.client import BaseClient, ClientMeta
 
 from mypy_boto3_s3.paginator import (
     ListMultipartUploadsPaginator,
@@ -52,12 +49,14 @@ from mypy_boto3_s3.type_defs import (
     GetBucketAnalyticsConfigurationOutputTypeDef,
     GetBucketCorsOutputTypeDef,
     GetBucketEncryptionOutputTypeDef,
+    GetBucketIntelligentTieringConfigurationOutputTypeDef,
     GetBucketInventoryConfigurationOutputTypeDef,
     GetBucketLifecycleConfigurationOutputTypeDef,
     GetBucketLifecycleOutputTypeDef,
     GetBucketLocationOutputTypeDef,
     GetBucketLoggingOutputTypeDef,
     GetBucketMetricsConfigurationOutputTypeDef,
+    GetBucketOwnershipControlsOutputTypeDef,
     GetBucketPolicyOutputTypeDef,
     GetBucketPolicyStatusOutputTypeDef,
     GetBucketReplicationOutputTypeDef,
@@ -75,9 +74,11 @@ from mypy_boto3_s3.type_defs import (
     GetPublicAccessBlockOutputTypeDef,
     HeadObjectOutputTypeDef,
     InputSerializationTypeDef,
+    IntelligentTieringConfigurationTypeDef,
     InventoryConfigurationTypeDef,
     LifecycleConfigurationTypeDef,
     ListBucketAnalyticsConfigurationsOutputTypeDef,
+    ListBucketIntelligentTieringConfigurationsOutputTypeDef,
     ListBucketInventoryConfigurationsOutputTypeDef,
     ListBucketMetricsConfigurationsOutputTypeDef,
     ListBucketsOutputTypeDef,
@@ -93,6 +94,7 @@ from mypy_boto3_s3.type_defs import (
     ObjectLockLegalHoldTypeDef,
     ObjectLockRetentionTypeDef,
     OutputSerializationTypeDef,
+    OwnershipControlsTypeDef,
     PublicAccessBlockConfigurationTypeDef,
     PutObjectAclOutputTypeDef,
     PutObjectLegalHoldOutputTypeDef,
@@ -130,34 +132,49 @@ else:
 __all__ = ("S3Client",)
 
 
+class BotocoreClientError(BaseException):
+    MSG_TEMPLATE: str
+
+    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
+        self.response: Dict[str, Any]
+        self.operation_name: str
+
+
 class Exceptions:
-    BucketAlreadyExists: Type[Boto3ClientError]
-    BucketAlreadyOwnedByYou: Type[Boto3ClientError]
-    ClientError: Type[Boto3ClientError]
-    NoSuchBucket: Type[Boto3ClientError]
-    NoSuchKey: Type[Boto3ClientError]
-    NoSuchUpload: Type[Boto3ClientError]
-    ObjectAlreadyInActiveTierError: Type[Boto3ClientError]
-    ObjectNotInActiveTierError: Type[Boto3ClientError]
+    BucketAlreadyExists: Type[BotocoreClientError]
+    BucketAlreadyOwnedByYou: Type[BotocoreClientError]
+    ClientError: Type[BotocoreClientError]
+    InvalidObjectState: Type[BotocoreClientError]
+    NoSuchBucket: Type[BotocoreClientError]
+    NoSuchKey: Type[BotocoreClientError]
+    NoSuchUpload: Type[BotocoreClientError]
+    ObjectAlreadyInActiveTierError: Type[BotocoreClientError]
+    ObjectNotInActiveTierError: Type[BotocoreClientError]
 
 
 class S3Client:
     """
-    [S3.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client)
+    [S3.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client)
     """
 
+    meta: ClientMeta
     exceptions: Exceptions
 
     def abort_multipart_upload(
-        self, Bucket: str, Key: str, UploadId: str, RequestPayer: Literal["requester"] = None
+        self,
+        Bucket: str,
+        Key: str,
+        UploadId: str,
+        RequestPayer: Literal["requester"] = None,
+        ExpectedBucketOwner: str = None,
     ) -> AbortMultipartUploadOutputTypeDef:
         """
-        [Client.abort_multipart_upload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.abort_multipart_upload)
+        [Client.abort_multipart_upload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.abort_multipart_upload)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.can_paginate)
         """
 
     def complete_multipart_upload(
@@ -167,9 +184,10 @@ class S3Client:
         UploadId: str,
         MultipartUpload: CompletedMultipartUploadTypeDef = None,
         RequestPayer: Literal["requester"] = None,
+        ExpectedBucketOwner: str = None,
     ) -> CompleteMultipartUploadOutputTypeDef:
         """
-        [Client.complete_multipart_upload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.complete_multipart_upload)
+        [Client.complete_multipart_upload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.complete_multipart_upload)
         """
 
     def copy(
@@ -183,7 +201,7 @@ class S3Client:
         Config: TransferConfig = None,
     ) -> None:
         """
-        [Client.copy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.copy)
+        [Client.copy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.copy)
         """
 
     def copy_object(
@@ -226,6 +244,7 @@ class S3Client:
             "INTELLIGENT_TIERING",
             "GLACIER",
             "DEEP_ARCHIVE",
+            "OUTPOSTS",
         ] = None,
         WebsiteRedirectLocation: str = None,
         SSECustomerAlgorithm: str = None,
@@ -241,9 +260,11 @@ class S3Client:
         ObjectLockMode: Literal["GOVERNANCE", "COMPLIANCE"] = None,
         ObjectLockRetainUntilDate: datetime = None,
         ObjectLockLegalHoldStatus: Literal["ON", "OFF"] = None,
+        ExpectedBucketOwner: str = None,
+        ExpectedSourceBucketOwner: str = None,
     ) -> CopyObjectOutputTypeDef:
         """
-        [Client.copy_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.copy_object)
+        [Client.copy_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.copy_object)
         """
 
     def create_bucket(
@@ -259,7 +280,7 @@ class S3Client:
         ObjectLockEnabledForBucket: bool = None,
     ) -> CreateBucketOutputTypeDef:
         """
-        [Client.create_bucket documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.create_bucket)
+        [Client.create_bucket documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.create_bucket)
         """
 
     def create_multipart_upload(
@@ -295,6 +316,7 @@ class S3Client:
             "INTELLIGENT_TIERING",
             "GLACIER",
             "DEEP_ARCHIVE",
+            "OUTPOSTS",
         ] = None,
         WebsiteRedirectLocation: str = None,
         SSECustomerAlgorithm: str = None,
@@ -307,64 +329,83 @@ class S3Client:
         ObjectLockMode: Literal["GOVERNANCE", "COMPLIANCE"] = None,
         ObjectLockRetainUntilDate: datetime = None,
         ObjectLockLegalHoldStatus: Literal["ON", "OFF"] = None,
+        ExpectedBucketOwner: str = None,
     ) -> CreateMultipartUploadOutputTypeDef:
         """
-        [Client.create_multipart_upload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.create_multipart_upload)
+        [Client.create_multipart_upload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.create_multipart_upload)
         """
 
-    def delete_bucket(self, Bucket: str) -> None:
+    def delete_bucket(self, Bucket: str, ExpectedBucketOwner: str = None) -> None:
         """
-        [Client.delete_bucket documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.delete_bucket)
-        """
-
-    def delete_bucket_analytics_configuration(self, Bucket: str, Id: str) -> None:
-        """
-        [Client.delete_bucket_analytics_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.delete_bucket_analytics_configuration)
+        [Client.delete_bucket documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.delete_bucket)
         """
 
-    def delete_bucket_cors(self, Bucket: str) -> None:
+    def delete_bucket_analytics_configuration(
+        self, Bucket: str, Id: str, ExpectedBucketOwner: str = None
+    ) -> None:
         """
-        [Client.delete_bucket_cors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.delete_bucket_cors)
-        """
-
-    def delete_bucket_encryption(self, Bucket: str) -> None:
-        """
-        [Client.delete_bucket_encryption documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.delete_bucket_encryption)
+        [Client.delete_bucket_analytics_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.delete_bucket_analytics_configuration)
         """
 
-    def delete_bucket_inventory_configuration(self, Bucket: str, Id: str) -> None:
+    def delete_bucket_cors(self, Bucket: str, ExpectedBucketOwner: str = None) -> None:
         """
-        [Client.delete_bucket_inventory_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.delete_bucket_inventory_configuration)
-        """
-
-    def delete_bucket_lifecycle(self, Bucket: str) -> None:
-        """
-        [Client.delete_bucket_lifecycle documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.delete_bucket_lifecycle)
+        [Client.delete_bucket_cors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.delete_bucket_cors)
         """
 
-    def delete_bucket_metrics_configuration(self, Bucket: str, Id: str) -> None:
+    def delete_bucket_encryption(self, Bucket: str, ExpectedBucketOwner: str = None) -> None:
         """
-        [Client.delete_bucket_metrics_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.delete_bucket_metrics_configuration)
-        """
-
-    def delete_bucket_policy(self, Bucket: str) -> None:
-        """
-        [Client.delete_bucket_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.delete_bucket_policy)
+        [Client.delete_bucket_encryption documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.delete_bucket_encryption)
         """
 
-    def delete_bucket_replication(self, Bucket: str) -> None:
+    def delete_bucket_intelligent_tiering_configuration(self, Bucket: str, Id: str) -> None:
         """
-        [Client.delete_bucket_replication documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.delete_bucket_replication)
-        """
-
-    def delete_bucket_tagging(self, Bucket: str) -> None:
-        """
-        [Client.delete_bucket_tagging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.delete_bucket_tagging)
+        [Client.delete_bucket_intelligent_tiering_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.delete_bucket_intelligent_tiering_configuration)
         """
 
-    def delete_bucket_website(self, Bucket: str) -> None:
+    def delete_bucket_inventory_configuration(
+        self, Bucket: str, Id: str, ExpectedBucketOwner: str = None
+    ) -> None:
         """
-        [Client.delete_bucket_website documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.delete_bucket_website)
+        [Client.delete_bucket_inventory_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.delete_bucket_inventory_configuration)
+        """
+
+    def delete_bucket_lifecycle(self, Bucket: str, ExpectedBucketOwner: str = None) -> None:
+        """
+        [Client.delete_bucket_lifecycle documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.delete_bucket_lifecycle)
+        """
+
+    def delete_bucket_metrics_configuration(
+        self, Bucket: str, Id: str, ExpectedBucketOwner: str = None
+    ) -> None:
+        """
+        [Client.delete_bucket_metrics_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.delete_bucket_metrics_configuration)
+        """
+
+    def delete_bucket_ownership_controls(
+        self, Bucket: str, ExpectedBucketOwner: str = None
+    ) -> None:
+        """
+        [Client.delete_bucket_ownership_controls documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.delete_bucket_ownership_controls)
+        """
+
+    def delete_bucket_policy(self, Bucket: str, ExpectedBucketOwner: str = None) -> None:
+        """
+        [Client.delete_bucket_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.delete_bucket_policy)
+        """
+
+    def delete_bucket_replication(self, Bucket: str, ExpectedBucketOwner: str = None) -> None:
+        """
+        [Client.delete_bucket_replication documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.delete_bucket_replication)
+        """
+
+    def delete_bucket_tagging(self, Bucket: str, ExpectedBucketOwner: str = None) -> None:
+        """
+        [Client.delete_bucket_tagging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.delete_bucket_tagging)
+        """
+
+    def delete_bucket_website(self, Bucket: str, ExpectedBucketOwner: str = None) -> None:
+        """
+        [Client.delete_bucket_website documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.delete_bucket_website)
         """
 
     def delete_object(
@@ -375,16 +416,17 @@ class S3Client:
         VersionId: str = None,
         RequestPayer: Literal["requester"] = None,
         BypassGovernanceRetention: bool = None,
+        ExpectedBucketOwner: str = None,
     ) -> DeleteObjectOutputTypeDef:
         """
-        [Client.delete_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.delete_object)
+        [Client.delete_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.delete_object)
         """
 
     def delete_object_tagging(
-        self, Bucket: str, Key: str, VersionId: str = None
+        self, Bucket: str, Key: str, VersionId: str = None, ExpectedBucketOwner: str = None
     ) -> DeleteObjectTaggingOutputTypeDef:
         """
-        [Client.delete_object_tagging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.delete_object_tagging)
+        [Client.delete_object_tagging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.delete_object_tagging)
         """
 
     def delete_objects(
@@ -394,14 +436,15 @@ class S3Client:
         MFA: str = None,
         RequestPayer: Literal["requester"] = None,
         BypassGovernanceRetention: bool = None,
+        ExpectedBucketOwner: str = None,
     ) -> DeleteObjectsOutputTypeDef:
         """
-        [Client.delete_objects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.delete_objects)
+        [Client.delete_objects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.delete_objects)
         """
 
-    def delete_public_access_block(self, Bucket: str) -> None:
+    def delete_public_access_block(self, Bucket: str, ExpectedBucketOwner: str = None) -> None:
         """
-        [Client.delete_public_access_block documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.delete_public_access_block)
+        [Client.delete_public_access_block documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.delete_public_access_block)
         """
 
     def download_file(
@@ -414,7 +457,7 @@ class S3Client:
         Config: TransferConfig = None,
     ) -> None:
         """
-        [Client.download_file documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.download_file)
+        [Client.download_file documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.download_file)
         """
 
     def download_fileobj(
@@ -427,7 +470,7 @@ class S3Client:
         Config: TransferConfig = None,
     ) -> None:
         """
-        [Client.download_fileobj documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.download_fileobj)
+        [Client.download_fileobj documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.download_fileobj)
         """
 
     def generate_presigned_post(
@@ -439,7 +482,7 @@ class S3Client:
         ExpiresIn: int = 3600,
     ) -> Dict[str, Any]:
         """
-        [Client.generate_presigned_post documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.generate_presigned_post)
+        [Client.generate_presigned_post documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.generate_presigned_post)
         """
 
     def generate_presigned_url(
@@ -450,119 +493,161 @@ class S3Client:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.generate_presigned_url)
         """
 
     def get_bucket_accelerate_configuration(
-        self, Bucket: str
+        self, Bucket: str, ExpectedBucketOwner: str = None
     ) -> GetBucketAccelerateConfigurationOutputTypeDef:
         """
-        [Client.get_bucket_accelerate_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.get_bucket_accelerate_configuration)
+        [Client.get_bucket_accelerate_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.get_bucket_accelerate_configuration)
         """
 
-    def get_bucket_acl(self, Bucket: str) -> GetBucketAclOutputTypeDef:
+    def get_bucket_acl(
+        self, Bucket: str, ExpectedBucketOwner: str = None
+    ) -> GetBucketAclOutputTypeDef:
         """
-        [Client.get_bucket_acl documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.get_bucket_acl)
+        [Client.get_bucket_acl documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.get_bucket_acl)
         """
 
     def get_bucket_analytics_configuration(
-        self, Bucket: str, Id: str
+        self, Bucket: str, Id: str, ExpectedBucketOwner: str = None
     ) -> GetBucketAnalyticsConfigurationOutputTypeDef:
         """
-        [Client.get_bucket_analytics_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.get_bucket_analytics_configuration)
+        [Client.get_bucket_analytics_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.get_bucket_analytics_configuration)
         """
 
-    def get_bucket_cors(self, Bucket: str) -> GetBucketCorsOutputTypeDef:
+    def get_bucket_cors(
+        self, Bucket: str, ExpectedBucketOwner: str = None
+    ) -> GetBucketCorsOutputTypeDef:
         """
-        [Client.get_bucket_cors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.get_bucket_cors)
+        [Client.get_bucket_cors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.get_bucket_cors)
         """
 
-    def get_bucket_encryption(self, Bucket: str) -> GetBucketEncryptionOutputTypeDef:
+    def get_bucket_encryption(
+        self, Bucket: str, ExpectedBucketOwner: str = None
+    ) -> GetBucketEncryptionOutputTypeDef:
         """
-        [Client.get_bucket_encryption documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.get_bucket_encryption)
+        [Client.get_bucket_encryption documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.get_bucket_encryption)
+        """
+
+    def get_bucket_intelligent_tiering_configuration(
+        self, Bucket: str, Id: str
+    ) -> GetBucketIntelligentTieringConfigurationOutputTypeDef:
+        """
+        [Client.get_bucket_intelligent_tiering_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.get_bucket_intelligent_tiering_configuration)
         """
 
     def get_bucket_inventory_configuration(
-        self, Bucket: str, Id: str
+        self, Bucket: str, Id: str, ExpectedBucketOwner: str = None
     ) -> GetBucketInventoryConfigurationOutputTypeDef:
         """
-        [Client.get_bucket_inventory_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.get_bucket_inventory_configuration)
+        [Client.get_bucket_inventory_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.get_bucket_inventory_configuration)
         """
 
-    def get_bucket_lifecycle(self, Bucket: str) -> GetBucketLifecycleOutputTypeDef:
+    def get_bucket_lifecycle(
+        self, Bucket: str, ExpectedBucketOwner: str = None
+    ) -> GetBucketLifecycleOutputTypeDef:
         """
-        [Client.get_bucket_lifecycle documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.get_bucket_lifecycle)
+        [Client.get_bucket_lifecycle documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.get_bucket_lifecycle)
         """
 
     def get_bucket_lifecycle_configuration(
-        self, Bucket: str
+        self, Bucket: str, ExpectedBucketOwner: str = None
     ) -> GetBucketLifecycleConfigurationOutputTypeDef:
         """
-        [Client.get_bucket_lifecycle_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.get_bucket_lifecycle_configuration)
+        [Client.get_bucket_lifecycle_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.get_bucket_lifecycle_configuration)
         """
 
-    def get_bucket_location(self, Bucket: str) -> GetBucketLocationOutputTypeDef:
+    def get_bucket_location(
+        self, Bucket: str, ExpectedBucketOwner: str = None
+    ) -> GetBucketLocationOutputTypeDef:
         """
-        [Client.get_bucket_location documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.get_bucket_location)
+        [Client.get_bucket_location documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.get_bucket_location)
         """
 
-    def get_bucket_logging(self, Bucket: str) -> GetBucketLoggingOutputTypeDef:
+    def get_bucket_logging(
+        self, Bucket: str, ExpectedBucketOwner: str = None
+    ) -> GetBucketLoggingOutputTypeDef:
         """
-        [Client.get_bucket_logging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.get_bucket_logging)
+        [Client.get_bucket_logging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.get_bucket_logging)
         """
 
     def get_bucket_metrics_configuration(
-        self, Bucket: str, Id: str
+        self, Bucket: str, Id: str, ExpectedBucketOwner: str = None
     ) -> GetBucketMetricsConfigurationOutputTypeDef:
         """
-        [Client.get_bucket_metrics_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.get_bucket_metrics_configuration)
+        [Client.get_bucket_metrics_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.get_bucket_metrics_configuration)
         """
 
-    def get_bucket_notification(self, Bucket: str) -> NotificationConfigurationDeprecatedTypeDef:
+    def get_bucket_notification(
+        self, Bucket: str, ExpectedBucketOwner: str = None
+    ) -> NotificationConfigurationDeprecatedTypeDef:
         """
-        [Client.get_bucket_notification documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.get_bucket_notification)
+        [Client.get_bucket_notification documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.get_bucket_notification)
         """
 
     def get_bucket_notification_configuration(
-        self, Bucket: str
+        self, Bucket: str, ExpectedBucketOwner: str = None
     ) -> NotificationConfigurationTypeDef:
         """
-        [Client.get_bucket_notification_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.get_bucket_notification_configuration)
+        [Client.get_bucket_notification_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.get_bucket_notification_configuration)
         """
 
-    def get_bucket_policy(self, Bucket: str) -> GetBucketPolicyOutputTypeDef:
+    def get_bucket_ownership_controls(
+        self, Bucket: str, ExpectedBucketOwner: str = None
+    ) -> GetBucketOwnershipControlsOutputTypeDef:
         """
-        [Client.get_bucket_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.get_bucket_policy)
-        """
-
-    def get_bucket_policy_status(self, Bucket: str) -> GetBucketPolicyStatusOutputTypeDef:
-        """
-        [Client.get_bucket_policy_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.get_bucket_policy_status)
+        [Client.get_bucket_ownership_controls documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.get_bucket_ownership_controls)
         """
 
-    def get_bucket_replication(self, Bucket: str) -> GetBucketReplicationOutputTypeDef:
+    def get_bucket_policy(
+        self, Bucket: str, ExpectedBucketOwner: str = None
+    ) -> GetBucketPolicyOutputTypeDef:
         """
-        [Client.get_bucket_replication documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.get_bucket_replication)
-        """
-
-    def get_bucket_request_payment(self, Bucket: str) -> GetBucketRequestPaymentOutputTypeDef:
-        """
-        [Client.get_bucket_request_payment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.get_bucket_request_payment)
+        [Client.get_bucket_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.get_bucket_policy)
         """
 
-    def get_bucket_tagging(self, Bucket: str) -> GetBucketTaggingOutputTypeDef:
+    def get_bucket_policy_status(
+        self, Bucket: str, ExpectedBucketOwner: str = None
+    ) -> GetBucketPolicyStatusOutputTypeDef:
         """
-        [Client.get_bucket_tagging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.get_bucket_tagging)
-        """
-
-    def get_bucket_versioning(self, Bucket: str) -> GetBucketVersioningOutputTypeDef:
-        """
-        [Client.get_bucket_versioning documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.get_bucket_versioning)
+        [Client.get_bucket_policy_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.get_bucket_policy_status)
         """
 
-    def get_bucket_website(self, Bucket: str) -> GetBucketWebsiteOutputTypeDef:
+    def get_bucket_replication(
+        self, Bucket: str, ExpectedBucketOwner: str = None
+    ) -> GetBucketReplicationOutputTypeDef:
         """
-        [Client.get_bucket_website documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.get_bucket_website)
+        [Client.get_bucket_replication documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.get_bucket_replication)
+        """
+
+    def get_bucket_request_payment(
+        self, Bucket: str, ExpectedBucketOwner: str = None
+    ) -> GetBucketRequestPaymentOutputTypeDef:
+        """
+        [Client.get_bucket_request_payment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.get_bucket_request_payment)
+        """
+
+    def get_bucket_tagging(
+        self, Bucket: str, ExpectedBucketOwner: str = None
+    ) -> GetBucketTaggingOutputTypeDef:
+        """
+        [Client.get_bucket_tagging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.get_bucket_tagging)
+        """
+
+    def get_bucket_versioning(
+        self, Bucket: str, ExpectedBucketOwner: str = None
+    ) -> GetBucketVersioningOutputTypeDef:
+        """
+        [Client.get_bucket_versioning documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.get_bucket_versioning)
+        """
+
+    def get_bucket_website(
+        self, Bucket: str, ExpectedBucketOwner: str = None
+    ) -> GetBucketWebsiteOutputTypeDef:
+        """
+        [Client.get_bucket_website documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.get_bucket_website)
         """
 
     def get_object(
@@ -586,9 +671,10 @@ class S3Client:
         SSECustomerKeyMD5: str = None,
         RequestPayer: Literal["requester"] = None,
         PartNumber: int = None,
+        ExpectedBucketOwner: str = None,
     ) -> GetObjectOutputTypeDef:
         """
-        [Client.get_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.get_object)
+        [Client.get_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.get_object)
         """
 
     def get_object_acl(
@@ -597,9 +683,10 @@ class S3Client:
         Key: str,
         VersionId: str = None,
         RequestPayer: Literal["requester"] = None,
+        ExpectedBucketOwner: str = None,
     ) -> GetObjectAclOutputTypeDef:
         """
-        [Client.get_object_acl documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.get_object_acl)
+        [Client.get_object_acl documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.get_object_acl)
         """
 
     def get_object_legal_hold(
@@ -608,14 +695,17 @@ class S3Client:
         Key: str,
         VersionId: str = None,
         RequestPayer: Literal["requester"] = None,
+        ExpectedBucketOwner: str = None,
     ) -> GetObjectLegalHoldOutputTypeDef:
         """
-        [Client.get_object_legal_hold documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.get_object_legal_hold)
+        [Client.get_object_legal_hold documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.get_object_legal_hold)
         """
 
-    def get_object_lock_configuration(self, Bucket: str) -> GetObjectLockConfigurationOutputTypeDef:
+    def get_object_lock_configuration(
+        self, Bucket: str, ExpectedBucketOwner: str = None
+    ) -> GetObjectLockConfigurationOutputTypeDef:
         """
-        [Client.get_object_lock_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.get_object_lock_configuration)
+        [Client.get_object_lock_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.get_object_lock_configuration)
         """
 
     def get_object_retention(
@@ -624,33 +714,40 @@ class S3Client:
         Key: str,
         VersionId: str = None,
         RequestPayer: Literal["requester"] = None,
+        ExpectedBucketOwner: str = None,
     ) -> GetObjectRetentionOutputTypeDef:
         """
-        [Client.get_object_retention documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.get_object_retention)
+        [Client.get_object_retention documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.get_object_retention)
         """
 
     def get_object_tagging(
-        self, Bucket: str, Key: str, VersionId: str = None
+        self, Bucket: str, Key: str, VersionId: str = None, ExpectedBucketOwner: str = None
     ) -> GetObjectTaggingOutputTypeDef:
         """
-        [Client.get_object_tagging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.get_object_tagging)
+        [Client.get_object_tagging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.get_object_tagging)
         """
 
     def get_object_torrent(
-        self, Bucket: str, Key: str, RequestPayer: Literal["requester"] = None
+        self,
+        Bucket: str,
+        Key: str,
+        RequestPayer: Literal["requester"] = None,
+        ExpectedBucketOwner: str = None,
     ) -> GetObjectTorrentOutputTypeDef:
         """
-        [Client.get_object_torrent documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.get_object_torrent)
+        [Client.get_object_torrent documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.get_object_torrent)
         """
 
-    def get_public_access_block(self, Bucket: str) -> GetPublicAccessBlockOutputTypeDef:
+    def get_public_access_block(
+        self, Bucket: str, ExpectedBucketOwner: str = None
+    ) -> GetPublicAccessBlockOutputTypeDef:
         """
-        [Client.get_public_access_block documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.get_public_access_block)
+        [Client.get_public_access_block documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.get_public_access_block)
         """
 
-    def head_bucket(self, Bucket: str) -> None:
+    def head_bucket(self, Bucket: str, ExpectedBucketOwner: str = None) -> None:
         """
-        [Client.head_bucket documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.head_bucket)
+        [Client.head_bucket documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.head_bucket)
         """
 
     def head_object(
@@ -668,35 +765,43 @@ class S3Client:
         SSECustomerKeyMD5: str = None,
         RequestPayer: Literal["requester"] = None,
         PartNumber: int = None,
+        ExpectedBucketOwner: str = None,
     ) -> HeadObjectOutputTypeDef:
         """
-        [Client.head_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.head_object)
+        [Client.head_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.head_object)
         """
 
     def list_bucket_analytics_configurations(
-        self, Bucket: str, ContinuationToken: str = None
+        self, Bucket: str, ContinuationToken: str = None, ExpectedBucketOwner: str = None
     ) -> ListBucketAnalyticsConfigurationsOutputTypeDef:
         """
-        [Client.list_bucket_analytics_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.list_bucket_analytics_configurations)
+        [Client.list_bucket_analytics_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.list_bucket_analytics_configurations)
+        """
+
+    def list_bucket_intelligent_tiering_configurations(
+        self, Bucket: str, ContinuationToken: str = None
+    ) -> ListBucketIntelligentTieringConfigurationsOutputTypeDef:
+        """
+        [Client.list_bucket_intelligent_tiering_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.list_bucket_intelligent_tiering_configurations)
         """
 
     def list_bucket_inventory_configurations(
-        self, Bucket: str, ContinuationToken: str = None
+        self, Bucket: str, ContinuationToken: str = None, ExpectedBucketOwner: str = None
     ) -> ListBucketInventoryConfigurationsOutputTypeDef:
         """
-        [Client.list_bucket_inventory_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.list_bucket_inventory_configurations)
+        [Client.list_bucket_inventory_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.list_bucket_inventory_configurations)
         """
 
     def list_bucket_metrics_configurations(
-        self, Bucket: str, ContinuationToken: str = None
+        self, Bucket: str, ContinuationToken: str = None, ExpectedBucketOwner: str = None
     ) -> ListBucketMetricsConfigurationsOutputTypeDef:
         """
-        [Client.list_bucket_metrics_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.list_bucket_metrics_configurations)
+        [Client.list_bucket_metrics_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.list_bucket_metrics_configurations)
         """
 
     def list_buckets(self) -> ListBucketsOutputTypeDef:
         """
-        [Client.list_buckets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.list_buckets)
+        [Client.list_buckets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.list_buckets)
         """
 
     def list_multipart_uploads(
@@ -708,9 +813,10 @@ class S3Client:
         MaxUploads: int = None,
         Prefix: str = None,
         UploadIdMarker: str = None,
+        ExpectedBucketOwner: str = None,
     ) -> ListMultipartUploadsOutputTypeDef:
         """
-        [Client.list_multipart_uploads documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.list_multipart_uploads)
+        [Client.list_multipart_uploads documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.list_multipart_uploads)
         """
 
     def list_object_versions(
@@ -722,9 +828,10 @@ class S3Client:
         MaxKeys: int = None,
         Prefix: str = None,
         VersionIdMarker: str = None,
+        ExpectedBucketOwner: str = None,
     ) -> ListObjectVersionsOutputTypeDef:
         """
-        [Client.list_object_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.list_object_versions)
+        [Client.list_object_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.list_object_versions)
         """
 
     def list_objects(
@@ -736,9 +843,10 @@ class S3Client:
         MaxKeys: int = None,
         Prefix: str = None,
         RequestPayer: Literal["requester"] = None,
+        ExpectedBucketOwner: str = None,
     ) -> ListObjectsOutputTypeDef:
         """
-        [Client.list_objects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.list_objects)
+        [Client.list_objects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.list_objects)
         """
 
     def list_objects_v2(
@@ -752,9 +860,10 @@ class S3Client:
         FetchOwner: bool = None,
         StartAfter: str = None,
         RequestPayer: Literal["requester"] = None,
+        ExpectedBucketOwner: str = None,
     ) -> ListObjectsV2OutputTypeDef:
         """
-        [Client.list_objects_v2 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.list_objects_v2)
+        [Client.list_objects_v2 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.list_objects_v2)
         """
 
     def list_parts(
@@ -765,16 +874,20 @@ class S3Client:
         MaxParts: int = None,
         PartNumberMarker: int = None,
         RequestPayer: Literal["requester"] = None,
+        ExpectedBucketOwner: str = None,
     ) -> ListPartsOutputTypeDef:
         """
-        [Client.list_parts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.list_parts)
+        [Client.list_parts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.list_parts)
         """
 
     def put_bucket_accelerate_configuration(
-        self, Bucket: str, AccelerateConfiguration: AccelerateConfigurationTypeDef
+        self,
+        Bucket: str,
+        AccelerateConfiguration: AccelerateConfigurationTypeDef,
+        ExpectedBucketOwner: str = None,
     ) -> None:
         """
-        [Client.put_bucket_accelerate_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.put_bucket_accelerate_configuration)
+        [Client.put_bucket_accelerate_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.put_bucket_accelerate_configuration)
         """
 
     def put_bucket_acl(
@@ -787,21 +900,31 @@ class S3Client:
         GrantReadACP: str = None,
         GrantWrite: str = None,
         GrantWriteACP: str = None,
+        ExpectedBucketOwner: str = None,
     ) -> None:
         """
-        [Client.put_bucket_acl documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.put_bucket_acl)
+        [Client.put_bucket_acl documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.put_bucket_acl)
         """
 
     def put_bucket_analytics_configuration(
-        self, Bucket: str, Id: str, AnalyticsConfiguration: "AnalyticsConfigurationTypeDef"
+        self,
+        Bucket: str,
+        Id: str,
+        AnalyticsConfiguration: "AnalyticsConfigurationTypeDef",
+        ExpectedBucketOwner: str = None,
     ) -> None:
         """
-        [Client.put_bucket_analytics_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.put_bucket_analytics_configuration)
+        [Client.put_bucket_analytics_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.put_bucket_analytics_configuration)
         """
 
-    def put_bucket_cors(self, Bucket: str, CORSConfiguration: CORSConfigurationTypeDef) -> None:
+    def put_bucket_cors(
+        self,
+        Bucket: str,
+        CORSConfiguration: CORSConfigurationTypeDef,
+        ExpectedBucketOwner: str = None,
+    ) -> None:
         """
-        [Client.put_bucket_cors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.put_bucket_cors)
+        [Client.put_bucket_cors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.put_bucket_cors)
         """
 
     def put_bucket_encryption(
@@ -809,65 +932,114 @@ class S3Client:
         Bucket: str,
         ServerSideEncryptionConfiguration: "ServerSideEncryptionConfigurationTypeDef",
         ContentMD5: str = None,
+        ExpectedBucketOwner: str = None,
     ) -> None:
         """
-        [Client.put_bucket_encryption documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.put_bucket_encryption)
+        [Client.put_bucket_encryption documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.put_bucket_encryption)
+        """
+
+    def put_bucket_intelligent_tiering_configuration(
+        self,
+        Bucket: str,
+        Id: str,
+        IntelligentTieringConfiguration: "IntelligentTieringConfigurationTypeDef",
+    ) -> None:
+        """
+        [Client.put_bucket_intelligent_tiering_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.put_bucket_intelligent_tiering_configuration)
         """
 
     def put_bucket_inventory_configuration(
-        self, Bucket: str, Id: str, InventoryConfiguration: "InventoryConfigurationTypeDef"
+        self,
+        Bucket: str,
+        Id: str,
+        InventoryConfiguration: "InventoryConfigurationTypeDef",
+        ExpectedBucketOwner: str = None,
     ) -> None:
         """
-        [Client.put_bucket_inventory_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.put_bucket_inventory_configuration)
+        [Client.put_bucket_inventory_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.put_bucket_inventory_configuration)
         """
 
     def put_bucket_lifecycle(
-        self, Bucket: str, LifecycleConfiguration: LifecycleConfigurationTypeDef = None
+        self,
+        Bucket: str,
+        LifecycleConfiguration: LifecycleConfigurationTypeDef = None,
+        ExpectedBucketOwner: str = None,
     ) -> None:
         """
-        [Client.put_bucket_lifecycle documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.put_bucket_lifecycle)
+        [Client.put_bucket_lifecycle documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.put_bucket_lifecycle)
         """
 
     def put_bucket_lifecycle_configuration(
-        self, Bucket: str, LifecycleConfiguration: BucketLifecycleConfigurationTypeDef = None
+        self,
+        Bucket: str,
+        LifecycleConfiguration: BucketLifecycleConfigurationTypeDef = None,
+        ExpectedBucketOwner: str = None,
     ) -> None:
         """
-        [Client.put_bucket_lifecycle_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.put_bucket_lifecycle_configuration)
+        [Client.put_bucket_lifecycle_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.put_bucket_lifecycle_configuration)
         """
 
     def put_bucket_logging(
-        self, Bucket: str, BucketLoggingStatus: BucketLoggingStatusTypeDef
+        self,
+        Bucket: str,
+        BucketLoggingStatus: BucketLoggingStatusTypeDef,
+        ExpectedBucketOwner: str = None,
     ) -> None:
         """
-        [Client.put_bucket_logging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.put_bucket_logging)
+        [Client.put_bucket_logging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.put_bucket_logging)
         """
 
     def put_bucket_metrics_configuration(
-        self, Bucket: str, Id: str, MetricsConfiguration: "MetricsConfigurationTypeDef"
+        self,
+        Bucket: str,
+        Id: str,
+        MetricsConfiguration: "MetricsConfigurationTypeDef",
+        ExpectedBucketOwner: str = None,
     ) -> None:
         """
-        [Client.put_bucket_metrics_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.put_bucket_metrics_configuration)
+        [Client.put_bucket_metrics_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.put_bucket_metrics_configuration)
         """
 
     def put_bucket_notification(
-        self, Bucket: str, NotificationConfiguration: NotificationConfigurationDeprecatedTypeDef
+        self,
+        Bucket: str,
+        NotificationConfiguration: NotificationConfigurationDeprecatedTypeDef,
+        ExpectedBucketOwner: str = None,
     ) -> None:
         """
-        [Client.put_bucket_notification documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.put_bucket_notification)
+        [Client.put_bucket_notification documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.put_bucket_notification)
         """
 
     def put_bucket_notification_configuration(
-        self, Bucket: str, NotificationConfiguration: NotificationConfigurationTypeDef
+        self,
+        Bucket: str,
+        NotificationConfiguration: NotificationConfigurationTypeDef,
+        ExpectedBucketOwner: str = None,
     ) -> None:
         """
-        [Client.put_bucket_notification_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.put_bucket_notification_configuration)
+        [Client.put_bucket_notification_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.put_bucket_notification_configuration)
+        """
+
+    def put_bucket_ownership_controls(
+        self,
+        Bucket: str,
+        OwnershipControls: "OwnershipControlsTypeDef",
+        ContentMD5: str = None,
+        ExpectedBucketOwner: str = None,
+    ) -> None:
+        """
+        [Client.put_bucket_ownership_controls documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.put_bucket_ownership_controls)
         """
 
     def put_bucket_policy(
-        self, Bucket: str, Policy: str, ConfirmRemoveSelfBucketAccess: bool = None
+        self,
+        Bucket: str,
+        Policy: str,
+        ConfirmRemoveSelfBucketAccess: bool = None,
+        ExpectedBucketOwner: str = None,
     ) -> None:
         """
-        [Client.put_bucket_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.put_bucket_policy)
+        [Client.put_bucket_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.put_bucket_policy)
         """
 
     def put_bucket_replication(
@@ -875,35 +1047,48 @@ class S3Client:
         Bucket: str,
         ReplicationConfiguration: "ReplicationConfigurationTypeDef",
         Token: str = None,
+        ExpectedBucketOwner: str = None,
     ) -> None:
         """
-        [Client.put_bucket_replication documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.put_bucket_replication)
+        [Client.put_bucket_replication documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.put_bucket_replication)
         """
 
     def put_bucket_request_payment(
-        self, Bucket: str, RequestPaymentConfiguration: RequestPaymentConfigurationTypeDef
+        self,
+        Bucket: str,
+        RequestPaymentConfiguration: RequestPaymentConfigurationTypeDef,
+        ExpectedBucketOwner: str = None,
     ) -> None:
         """
-        [Client.put_bucket_request_payment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.put_bucket_request_payment)
+        [Client.put_bucket_request_payment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.put_bucket_request_payment)
         """
 
-    def put_bucket_tagging(self, Bucket: str, Tagging: "TaggingTypeDef") -> None:
+    def put_bucket_tagging(
+        self, Bucket: str, Tagging: "TaggingTypeDef", ExpectedBucketOwner: str = None
+    ) -> None:
         """
-        [Client.put_bucket_tagging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.put_bucket_tagging)
+        [Client.put_bucket_tagging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.put_bucket_tagging)
         """
 
     def put_bucket_versioning(
-        self, Bucket: str, VersioningConfiguration: VersioningConfigurationTypeDef, MFA: str = None
+        self,
+        Bucket: str,
+        VersioningConfiguration: VersioningConfigurationTypeDef,
+        MFA: str = None,
+        ExpectedBucketOwner: str = None,
     ) -> None:
         """
-        [Client.put_bucket_versioning documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.put_bucket_versioning)
+        [Client.put_bucket_versioning documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.put_bucket_versioning)
         """
 
     def put_bucket_website(
-        self, Bucket: str, WebsiteConfiguration: WebsiteConfigurationTypeDef
+        self,
+        Bucket: str,
+        WebsiteConfiguration: WebsiteConfigurationTypeDef,
+        ExpectedBucketOwner: str = None,
     ) -> None:
         """
-        [Client.put_bucket_website documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.put_bucket_website)
+        [Client.put_bucket_website documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.put_bucket_website)
         """
 
     def put_object(
@@ -942,6 +1127,7 @@ class S3Client:
             "INTELLIGENT_TIERING",
             "GLACIER",
             "DEEP_ARCHIVE",
+            "OUTPOSTS",
         ] = None,
         WebsiteRedirectLocation: str = None,
         SSECustomerAlgorithm: str = None,
@@ -954,9 +1140,10 @@ class S3Client:
         ObjectLockMode: Literal["GOVERNANCE", "COMPLIANCE"] = None,
         ObjectLockRetainUntilDate: datetime = None,
         ObjectLockLegalHoldStatus: Literal["ON", "OFF"] = None,
+        ExpectedBucketOwner: str = None,
     ) -> PutObjectOutputTypeDef:
         """
-        [Client.put_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.put_object)
+        [Client.put_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.put_object)
         """
 
     def put_object_acl(
@@ -980,9 +1167,10 @@ class S3Client:
         GrantWriteACP: str = None,
         RequestPayer: Literal["requester"] = None,
         VersionId: str = None,
+        ExpectedBucketOwner: str = None,
     ) -> PutObjectAclOutputTypeDef:
         """
-        [Client.put_object_acl documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.put_object_acl)
+        [Client.put_object_acl documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.put_object_acl)
         """
 
     def put_object_legal_hold(
@@ -993,9 +1181,10 @@ class S3Client:
         RequestPayer: Literal["requester"] = None,
         VersionId: str = None,
         ContentMD5: str = None,
+        ExpectedBucketOwner: str = None,
     ) -> PutObjectLegalHoldOutputTypeDef:
         """
-        [Client.put_object_legal_hold documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.put_object_legal_hold)
+        [Client.put_object_legal_hold documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.put_object_legal_hold)
         """
 
     def put_object_lock_configuration(
@@ -1005,9 +1194,10 @@ class S3Client:
         RequestPayer: Literal["requester"] = None,
         Token: str = None,
         ContentMD5: str = None,
+        ExpectedBucketOwner: str = None,
     ) -> PutObjectLockConfigurationOutputTypeDef:
         """
-        [Client.put_object_lock_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.put_object_lock_configuration)
+        [Client.put_object_lock_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.put_object_lock_configuration)
         """
 
     def put_object_retention(
@@ -1019,9 +1209,10 @@ class S3Client:
         VersionId: str = None,
         BypassGovernanceRetention: bool = None,
         ContentMD5: str = None,
+        ExpectedBucketOwner: str = None,
     ) -> PutObjectRetentionOutputTypeDef:
         """
-        [Client.put_object_retention documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.put_object_retention)
+        [Client.put_object_retention documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.put_object_retention)
         """
 
     def put_object_tagging(
@@ -1031,9 +1222,10 @@ class S3Client:
         Tagging: "TaggingTypeDef",
         VersionId: str = None,
         ContentMD5: str = None,
+        ExpectedBucketOwner: str = None,
     ) -> PutObjectTaggingOutputTypeDef:
         """
-        [Client.put_object_tagging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.put_object_tagging)
+        [Client.put_object_tagging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.put_object_tagging)
         """
 
     def put_public_access_block(
@@ -1041,9 +1233,10 @@ class S3Client:
         Bucket: str,
         PublicAccessBlockConfiguration: "PublicAccessBlockConfigurationTypeDef",
         ContentMD5: str = None,
+        ExpectedBucketOwner: str = None,
     ) -> None:
         """
-        [Client.put_public_access_block documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.put_public_access_block)
+        [Client.put_public_access_block documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.put_public_access_block)
         """
 
     def restore_object(
@@ -1053,9 +1246,10 @@ class S3Client:
         VersionId: str = None,
         RestoreRequest: RestoreRequestTypeDef = None,
         RequestPayer: Literal["requester"] = None,
+        ExpectedBucketOwner: str = None,
     ) -> RestoreObjectOutputTypeDef:
         """
-        [Client.restore_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.restore_object)
+        [Client.restore_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.restore_object)
         """
 
     def select_object_content(
@@ -1071,9 +1265,10 @@ class S3Client:
         SSECustomerKeyMD5: str = None,
         RequestProgress: RequestProgressTypeDef = None,
         ScanRange: ScanRangeTypeDef = None,
+        ExpectedBucketOwner: str = None,
     ) -> SelectObjectContentOutputTypeDef:
         """
-        [Client.select_object_content documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.select_object_content)
+        [Client.select_object_content documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.select_object_content)
         """
 
     def upload_file(
@@ -1086,7 +1281,7 @@ class S3Client:
         Config: TransferConfig = None,
     ) -> None:
         """
-        [Client.upload_file documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.upload_file)
+        [Client.upload_file documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.upload_file)
         """
 
     def upload_fileobj(
@@ -1099,7 +1294,7 @@ class S3Client:
         Config: TransferConfig = None,
     ) -> None:
         """
-        [Client.upload_fileobj documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.upload_fileobj)
+        [Client.upload_fileobj documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.upload_fileobj)
         """
 
     def upload_part(
@@ -1115,9 +1310,10 @@ class S3Client:
         SSECustomerKey: str = None,
         SSECustomerKeyMD5: str = None,
         RequestPayer: Literal["requester"] = None,
+        ExpectedBucketOwner: str = None,
     ) -> UploadPartOutputTypeDef:
         """
-        [Client.upload_part documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.upload_part)
+        [Client.upload_part documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.upload_part)
         """
 
     def upload_part_copy(
@@ -1139,9 +1335,11 @@ class S3Client:
         CopySourceSSECustomerKey: str = None,
         CopySourceSSECustomerKeyMD5: str = None,
         RequestPayer: Literal["requester"] = None,
+        ExpectedBucketOwner: str = None,
+        ExpectedSourceBucketOwner: str = None,
     ) -> UploadPartCopyOutputTypeDef:
         """
-        [Client.upload_part_copy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Client.upload_part_copy)
+        [Client.upload_part_copy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Client.upload_part_copy)
         """
 
     @overload
@@ -1149,7 +1347,7 @@ class S3Client:
         self, operation_name: Literal["list_multipart_uploads"]
     ) -> ListMultipartUploadsPaginator:
         """
-        [Paginator.ListMultipartUploads documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Paginator.ListMultipartUploads)
+        [Paginator.ListMultipartUploads documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Paginator.ListMultipartUploads)
         """
 
     @overload
@@ -1157,53 +1355,47 @@ class S3Client:
         self, operation_name: Literal["list_object_versions"]
     ) -> ListObjectVersionsPaginator:
         """
-        [Paginator.ListObjectVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Paginator.ListObjectVersions)
+        [Paginator.ListObjectVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Paginator.ListObjectVersions)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_objects"]) -> ListObjectsPaginator:
         """
-        [Paginator.ListObjects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Paginator.ListObjects)
+        [Paginator.ListObjects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Paginator.ListObjects)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_objects_v2"]) -> ListObjectsV2Paginator:
         """
-        [Paginator.ListObjectsV2 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Paginator.ListObjectsV2)
+        [Paginator.ListObjectsV2 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Paginator.ListObjectsV2)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_parts"]) -> ListPartsPaginator:
         """
-        [Paginator.ListParts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Paginator.ListParts)
+        [Paginator.ListParts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Paginator.ListParts)
         """
-
-    def get_paginator(self, operation_name: str) -> Boto3Paginator:
-        pass
 
     @overload
     def get_waiter(self, waiter_name: Literal["bucket_exists"]) -> BucketExistsWaiter:
         """
-        [Waiter.BucketExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Waiter.BucketExists)
+        [Waiter.BucketExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Waiter.BucketExists)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["bucket_not_exists"]) -> BucketNotExistsWaiter:
         """
-        [Waiter.BucketNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Waiter.BucketNotExists)
+        [Waiter.BucketNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Waiter.BucketNotExists)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["object_exists"]) -> ObjectExistsWaiter:
         """
-        [Waiter.ObjectExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Waiter.ObjectExists)
+        [Waiter.ObjectExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Waiter.ObjectExists)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["object_not_exists"]) -> ObjectNotExistsWaiter:
         """
-        [Waiter.ObjectNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/s3.html#S3.Waiter.ObjectNotExists)
+        [Waiter.ObjectNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3.html#S3.Waiter.ObjectNotExists)
         """
-
-    def get_waiter(self, waiter_name: str) -> Boto3Waiter:
-        pass

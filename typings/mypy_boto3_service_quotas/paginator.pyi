@@ -60,20 +60,20 @@ __all__ = (
 
 class ListAWSDefaultServiceQuotasPaginator(Boto3Paginator):
     """
-    [Paginator.ListAWSDefaultServiceQuotas documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListAWSDefaultServiceQuotas)
+    [Paginator.ListAWSDefaultServiceQuotas documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListAWSDefaultServiceQuotas)
     """
 
     def paginate(
         self, ServiceCode: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAWSDefaultServiceQuotasResponseTypeDef]:
         """
-        [ListAWSDefaultServiceQuotas.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListAWSDefaultServiceQuotas.paginate)
+        [ListAWSDefaultServiceQuotas.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListAWSDefaultServiceQuotas.paginate)
         """
 
 
 class ListRequestedServiceQuotaChangeHistoryPaginator(Boto3Paginator):
     """
-    [Paginator.ListRequestedServiceQuotaChangeHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListRequestedServiceQuotaChangeHistory)
+    [Paginator.ListRequestedServiceQuotaChangeHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListRequestedServiceQuotaChangeHistory)
     """
 
     def paginate(
@@ -83,13 +83,13 @@ class ListRequestedServiceQuotaChangeHistoryPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListRequestedServiceQuotaChangeHistoryResponseTypeDef]:
         """
-        [ListRequestedServiceQuotaChangeHistory.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListRequestedServiceQuotaChangeHistory.paginate)
+        [ListRequestedServiceQuotaChangeHistory.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListRequestedServiceQuotaChangeHistory.paginate)
         """
 
 
 class ListRequestedServiceQuotaChangeHistoryByQuotaPaginator(Boto3Paginator):
     """
-    [Paginator.ListRequestedServiceQuotaChangeHistoryByQuota documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListRequestedServiceQuotaChangeHistoryByQuota)
+    [Paginator.ListRequestedServiceQuotaChangeHistoryByQuota documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListRequestedServiceQuotaChangeHistoryByQuota)
     """
 
     def paginate(
@@ -100,13 +100,13 @@ class ListRequestedServiceQuotaChangeHistoryByQuotaPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListRequestedServiceQuotaChangeHistoryByQuotaResponseTypeDef]:
         """
-        [ListRequestedServiceQuotaChangeHistoryByQuota.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListRequestedServiceQuotaChangeHistoryByQuota.paginate)
+        [ListRequestedServiceQuotaChangeHistoryByQuota.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListRequestedServiceQuotaChangeHistoryByQuota.paginate)
         """
 
 
 class ListServiceQuotaIncreaseRequestsInTemplatePaginator(Boto3Paginator):
     """
-    [Paginator.ListServiceQuotaIncreaseRequestsInTemplate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListServiceQuotaIncreaseRequestsInTemplate)
+    [Paginator.ListServiceQuotaIncreaseRequestsInTemplate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListServiceQuotaIncreaseRequestsInTemplate)
     """
 
     def paginate(
@@ -116,31 +116,31 @@ class ListServiceQuotaIncreaseRequestsInTemplatePaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListServiceQuotaIncreaseRequestsInTemplateResponseTypeDef]:
         """
-        [ListServiceQuotaIncreaseRequestsInTemplate.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListServiceQuotaIncreaseRequestsInTemplate.paginate)
+        [ListServiceQuotaIncreaseRequestsInTemplate.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListServiceQuotaIncreaseRequestsInTemplate.paginate)
         """
 
 
 class ListServiceQuotasPaginator(Boto3Paginator):
     """
-    [Paginator.ListServiceQuotas documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListServiceQuotas)
+    [Paginator.ListServiceQuotas documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListServiceQuotas)
     """
 
     def paginate(
         self, ServiceCode: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListServiceQuotasResponseTypeDef]:
         """
-        [ListServiceQuotas.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListServiceQuotas.paginate)
+        [ListServiceQuotas.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListServiceQuotas.paginate)
         """
 
 
 class ListServicesPaginator(Boto3Paginator):
     """
-    [Paginator.ListServices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListServices)
+    [Paginator.ListServices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListServices)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListServicesResponseTypeDef]:
         """
-        [ListServices.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListServices.paginate)
+        [ListServices.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListServices.paginate)
         """

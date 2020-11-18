@@ -37,7 +37,7 @@ __all__ = ("AlarmExistsWaiter", "CompositeAlarmExistsWaiter")
 
 class AlarmExistsWaiter(Boto3Waiter):
     """
-    [Waiter.AlarmExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudwatch.html#CloudWatch.Waiter.AlarmExists)
+    [Waiter.AlarmExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Waiter.AlarmExists)
     """
 
     def wait(
@@ -54,13 +54,13 @@ class AlarmExistsWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [AlarmExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudwatch.html#CloudWatch.Waiter.AlarmExists.wait)
+        [AlarmExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Waiter.AlarmExists.wait)
         """
 
 
 class CompositeAlarmExistsWaiter(Boto3Waiter):
     """
-    [Waiter.CompositeAlarmExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudwatch.html#CloudWatch.Waiter.CompositeAlarmExists)
+    [Waiter.CompositeAlarmExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Waiter.CompositeAlarmExists)
     """
 
     def wait(
@@ -77,5 +77,5 @@ class CompositeAlarmExistsWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [CompositeAlarmExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudwatch.html#CloudWatch.Waiter.CompositeAlarmExists.wait)
+        [CompositeAlarmExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Waiter.CompositeAlarmExists.wait)
         """

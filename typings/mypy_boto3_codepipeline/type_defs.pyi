@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Dict, List
+from typing import Any, Dict, List
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -62,6 +61,7 @@ __all__ = (
     "PipelineExecutionTypeDef",
     "PipelineMetadataTypeDef",
     "PipelineSummaryTypeDef",
+    "ResponseMetadata",
     "S3ArtifactLocationTypeDef",
     "S3LocationTypeDef",
     "SourceRevisionTypeDef",
@@ -201,6 +201,7 @@ ActionExecutionOutputTypeDef = TypedDict(
         "outputArtifacts": List["ArtifactDetailTypeDef"],
         "executionResult": "ActionExecutionResultTypeDef",
         "outputVariables": Dict[str, str],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -214,6 +215,7 @@ ActionExecutionResultTypeDef = TypedDict(
 ActionExecutionTypeDef = TypedDict(
     "ActionExecutionTypeDef",
     {
+        "actionExecutionId": str,
         "status": Literal["InProgress", "Abandoned", "Succeeded", "Failed"],
         "summary": str,
         "lastStatusChange": datetime,
@@ -473,6 +475,17 @@ PipelineSummaryTypeDef = TypedDict(
     total=False,
 )
 
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
+
 S3ArtifactLocationTypeDef = TypedDict(
     "S3ArtifactLocationTypeDef", {"bucketName": str, "objectKey": str}
 )
@@ -517,6 +530,7 @@ StageStateTypeDef = TypedDict(
     "StageStateTypeDef",
     {
         "stageName": str,
+        "inboundExecution": "StageExecutionTypeDef",
         "inboundTransitionState": "TransitionStateTypeDef",
         "actionStates": List["ActionStateTypeDef"],
         "latestExecution": "StageExecutionTypeDef",
@@ -594,7 +608,8 @@ AcknowledgeJobOutputTypeDef = TypedDict(
     {
         "status": Literal[
             "Created", "Queued", "Dispatched", "InProgress", "TimedOut", "Succeeded", "Failed"
-        ]
+        ],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -604,7 +619,8 @@ AcknowledgeThirdPartyJobOutputTypeDef = TypedDict(
     {
         "status": Literal[
             "Created", "Queued", "Dispatched", "InProgress", "TimedOut", "Succeeded", "Failed"
-        ]
+        ],
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -621,7 +637,9 @@ _RequiredCreateCustomActionTypeOutputTypeDef = TypedDict(
     "_RequiredCreateCustomActionTypeOutputTypeDef", {"actionType": "ActionTypeTypeDef"}
 )
 _OptionalCreateCustomActionTypeOutputTypeDef = TypedDict(
-    "_OptionalCreateCustomActionTypeOutputTypeDef", {"tags": List["TagTypeDef"]}, total=False
+    "_OptionalCreateCustomActionTypeOutputTypeDef",
+    {"tags": List["TagTypeDef"], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 
@@ -633,7 +651,11 @@ class CreateCustomActionTypeOutputTypeDef(
 
 CreatePipelineOutputTypeDef = TypedDict(
     "CreatePipelineOutputTypeDef",
-    {"pipeline": "PipelineDeclarationTypeDef", "tags": List["TagTypeDef"]},
+    {
+        "pipeline": "PipelineDeclarationTypeDef",
+        "tags": List["TagTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -679,18 +701,24 @@ class FailureDetailsTypeDef(_RequiredFailureDetailsTypeDef, _OptionalFailureDeta
 
 
 GetJobDetailsOutputTypeDef = TypedDict(
-    "GetJobDetailsOutputTypeDef", {"jobDetails": "JobDetailsTypeDef"}, total=False
+    "GetJobDetailsOutputTypeDef",
+    {"jobDetails": "JobDetailsTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 GetPipelineExecutionOutputTypeDef = TypedDict(
     "GetPipelineExecutionOutputTypeDef",
-    {"pipelineExecution": "PipelineExecutionTypeDef"},
+    {"pipelineExecution": "PipelineExecutionTypeDef", "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 GetPipelineOutputTypeDef = TypedDict(
     "GetPipelineOutputTypeDef",
-    {"pipeline": "PipelineDeclarationTypeDef", "metadata": "PipelineMetadataTypeDef"},
+    {
+        "pipeline": "PipelineDeclarationTypeDef",
+        "metadata": "PipelineMetadataTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -702,19 +730,24 @@ GetPipelineStateOutputTypeDef = TypedDict(
         "stageStates": List["StageStateTypeDef"],
         "created": datetime,
         "updated": datetime,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
 
 GetThirdPartyJobDetailsOutputTypeDef = TypedDict(
     "GetThirdPartyJobDetailsOutputTypeDef",
-    {"jobDetails": "ThirdPartyJobDetailsTypeDef"},
+    {"jobDetails": "ThirdPartyJobDetailsTypeDef", "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
 ListActionExecutionsOutputTypeDef = TypedDict(
     "ListActionExecutionsOutputTypeDef",
-    {"actionExecutionDetails": List["ActionExecutionDetailTypeDef"], "nextToken": str},
+    {
+        "actionExecutionDetails": List["ActionExecutionDetailTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -722,7 +755,9 @@ _RequiredListActionTypesOutputTypeDef = TypedDict(
     "_RequiredListActionTypesOutputTypeDef", {"actionTypes": List["ActionTypeTypeDef"]}
 )
 _OptionalListActionTypesOutputTypeDef = TypedDict(
-    "_OptionalListActionTypesOutputTypeDef", {"nextToken": str}, total=False
+    "_OptionalListActionTypesOutputTypeDef",
+    {"nextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 
@@ -734,23 +769,37 @@ class ListActionTypesOutputTypeDef(
 
 ListPipelineExecutionsOutputTypeDef = TypedDict(
     "ListPipelineExecutionsOutputTypeDef",
-    {"pipelineExecutionSummaries": List["PipelineExecutionSummaryTypeDef"], "nextToken": str},
+    {
+        "pipelineExecutionSummaries": List["PipelineExecutionSummaryTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListPipelinesOutputTypeDef = TypedDict(
     "ListPipelinesOutputTypeDef",
-    {"pipelines": List["PipelineSummaryTypeDef"], "nextToken": str},
+    {
+        "pipelines": List["PipelineSummaryTypeDef"],
+        "nextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
 ListTagsForResourceOutputTypeDef = TypedDict(
-    "ListTagsForResourceOutputTypeDef", {"tags": List["TagTypeDef"], "nextToken": str}, total=False
+    "ListTagsForResourceOutputTypeDef",
+    {"tags": List["TagTypeDef"], "nextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 ListWebhooksOutputTypeDef = TypedDict(
     "ListWebhooksOutputTypeDef",
-    {"webhooks": List["ListWebhookItemTypeDef"], "NextToken": str},
+    {
+        "webhooks": List["ListWebhookItemTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -759,37 +808,55 @@ PaginatorConfigTypeDef = TypedDict(
 )
 
 PollForJobsOutputTypeDef = TypedDict(
-    "PollForJobsOutputTypeDef", {"jobs": List["JobTypeDef"]}, total=False
+    "PollForJobsOutputTypeDef",
+    {"jobs": List["JobTypeDef"], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 PollForThirdPartyJobsOutputTypeDef = TypedDict(
-    "PollForThirdPartyJobsOutputTypeDef", {"jobs": List["ThirdPartyJobTypeDef"]}, total=False
+    "PollForThirdPartyJobsOutputTypeDef",
+    {"jobs": List["ThirdPartyJobTypeDef"], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 PutActionRevisionOutputTypeDef = TypedDict(
-    "PutActionRevisionOutputTypeDef", {"newRevision": bool, "pipelineExecutionId": str}, total=False
+    "PutActionRevisionOutputTypeDef",
+    {"newRevision": bool, "pipelineExecutionId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 PutApprovalResultOutputTypeDef = TypedDict(
-    "PutApprovalResultOutputTypeDef", {"approvedAt": datetime}, total=False
+    "PutApprovalResultOutputTypeDef",
+    {"approvedAt": datetime, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 PutWebhookOutputTypeDef = TypedDict(
-    "PutWebhookOutputTypeDef", {"webhook": "ListWebhookItemTypeDef"}, total=False
+    "PutWebhookOutputTypeDef",
+    {"webhook": "ListWebhookItemTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 RetryStageExecutionOutputTypeDef = TypedDict(
-    "RetryStageExecutionOutputTypeDef", {"pipelineExecutionId": str}, total=False
+    "RetryStageExecutionOutputTypeDef",
+    {"pipelineExecutionId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 StartPipelineExecutionOutputTypeDef = TypedDict(
-    "StartPipelineExecutionOutputTypeDef", {"pipelineExecutionId": str}, total=False
+    "StartPipelineExecutionOutputTypeDef",
+    {"pipelineExecutionId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 StopPipelineExecutionOutputTypeDef = TypedDict(
-    "StopPipelineExecutionOutputTypeDef", {"pipelineExecutionId": str}, total=False
+    "StopPipelineExecutionOutputTypeDef",
+    {"pipelineExecutionId": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )
 
 UpdatePipelineOutputTypeDef = TypedDict(
-    "UpdatePipelineOutputTypeDef", {"pipeline": "PipelineDeclarationTypeDef"}, total=False
+    "UpdatePipelineOutputTypeDef",
+    {"pipeline": "PipelineDeclarationTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
 )

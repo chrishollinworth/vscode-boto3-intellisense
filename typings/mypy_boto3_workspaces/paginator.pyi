@@ -68,33 +68,33 @@ __all__ = (
 
 class DescribeAccountModificationsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeAccountModifications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeAccountModifications)
+    [Paginator.DescribeAccountModifications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeAccountModifications)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeAccountModificationsResultTypeDef]:
         """
-        [DescribeAccountModifications.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeAccountModifications.paginate)
+        [DescribeAccountModifications.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeAccountModifications.paginate)
         """
 
 
 class DescribeIpGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeIpGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeIpGroups)
+    [Paginator.DescribeIpGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeIpGroups)
     """
 
     def paginate(
         self, GroupIds: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeIpGroupsResultTypeDef]:
         """
-        [DescribeIpGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeIpGroups.paginate)
+        [DescribeIpGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeIpGroups.paginate)
         """
 
 
 class DescribeWorkspaceBundlesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeWorkspaceBundles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspaceBundles)
+    [Paginator.DescribeWorkspaceBundles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspaceBundles)
     """
 
     def paginate(
@@ -104,13 +104,13 @@ class DescribeWorkspaceBundlesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeWorkspaceBundlesResultTypeDef]:
         """
-        [DescribeWorkspaceBundles.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspaceBundles.paginate)
+        [DescribeWorkspaceBundles.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspaceBundles.paginate)
         """
 
 
 class DescribeWorkspaceDirectoriesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeWorkspaceDirectories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspaceDirectories)
+    [Paginator.DescribeWorkspaceDirectories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspaceDirectories)
     """
 
     def paginate(
@@ -120,13 +120,13 @@ class DescribeWorkspaceDirectoriesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeWorkspaceDirectoriesResultTypeDef]:
         """
-        [DescribeWorkspaceDirectories.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspaceDirectories.paginate)
+        [DescribeWorkspaceDirectories.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspaceDirectories.paginate)
         """
 
 
 class DescribeWorkspaceImagesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeWorkspaceImages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspaceImages)
+    [Paginator.DescribeWorkspaceImages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspaceImages)
     """
 
     def paginate(
@@ -136,13 +136,13 @@ class DescribeWorkspaceImagesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeWorkspaceImagesResultTypeDef]:
         """
-        [DescribeWorkspaceImages.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspaceImages.paginate)
+        [DescribeWorkspaceImages.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspaceImages.paginate)
         """
 
 
 class DescribeWorkspacesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeWorkspaces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspaces)
+    [Paginator.DescribeWorkspaces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspaces)
     """
 
     def paginate(
@@ -154,31 +154,31 @@ class DescribeWorkspacesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeWorkspacesResultTypeDef]:
         """
-        [DescribeWorkspaces.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspaces.paginate)
+        [DescribeWorkspaces.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspaces.paginate)
         """
 
 
 class DescribeWorkspacesConnectionStatusPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeWorkspacesConnectionStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspacesConnectionStatus)
+    [Paginator.DescribeWorkspacesConnectionStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspacesConnectionStatus)
     """
 
     def paginate(
         self, WorkspaceIds: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeWorkspacesConnectionStatusResultTypeDef]:
         """
-        [DescribeWorkspacesConnectionStatus.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspacesConnectionStatus.paginate)
+        [DescribeWorkspacesConnectionStatus.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workspaces.html#WorkSpaces.Paginator.DescribeWorkspacesConnectionStatus.paginate)
         """
 
 
 class ListAvailableManagementCidrRangesPaginator(Boto3Paginator):
     """
-    [Paginator.ListAvailableManagementCidrRanges documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/workspaces.html#WorkSpaces.Paginator.ListAvailableManagementCidrRanges)
+    [Paginator.ListAvailableManagementCidrRanges documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workspaces.html#WorkSpaces.Paginator.ListAvailableManagementCidrRanges)
     """
 
     def paginate(
         self, ManagementCidrRangeConstraint: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAvailableManagementCidrRangesResultTypeDef]:
         """
-        [ListAvailableManagementCidrRanges.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/workspaces.html#WorkSpaces.Paginator.ListAvailableManagementCidrRanges.paginate)
+        [ListAvailableManagementCidrRanges.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workspaces.html#WorkSpaces.Paginator.ListAvailableManagementCidrRanges.paginate)
         """

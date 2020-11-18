@@ -12,7 +12,9 @@ Usage::
         ListContactFlowsPaginator,
         ListHoursOfOperationsPaginator,
         ListPhoneNumbersPaginator,
+        ListPromptsPaginator,
         ListQueuesPaginator,
+        ListRoutingProfileQueuesPaginator,
         ListRoutingProfilesPaginator,
         ListSecurityProfilesPaginator,
         ListUserHierarchyGroupsPaginator,
@@ -28,7 +30,9 @@ Usage::
     list_contact_flows_paginator: ListContactFlowsPaginator = client.get_paginator("list_contact_flows")
     list_hours_of_operations_paginator: ListHoursOfOperationsPaginator = client.get_paginator("list_hours_of_operations")
     list_phone_numbers_paginator: ListPhoneNumbersPaginator = client.get_paginator("list_phone_numbers")
+    list_prompts_paginator: ListPromptsPaginator = client.get_paginator("list_prompts")
     list_queues_paginator: ListQueuesPaginator = client.get_paginator("list_queues")
+    list_routing_profile_queues_paginator: ListRoutingProfileQueuesPaginator = client.get_paginator("list_routing_profile_queues")
     list_routing_profiles_paginator: ListRoutingProfilesPaginator = client.get_paginator("list_routing_profiles")
     list_security_profiles_paginator: ListSecurityProfilesPaginator = client.get_paginator("list_security_profiles")
     list_user_hierarchy_groups_paginator: ListUserHierarchyGroupsPaginator = client.get_paginator("list_user_hierarchy_groups")
@@ -41,7 +45,9 @@ from mypy_boto3_connect.paginator import (
     ListContactFlowsPaginator,
     ListHoursOfOperationsPaginator,
     ListPhoneNumbersPaginator,
+    ListPromptsPaginator,
     ListQueuesPaginator,
+    ListRoutingProfileQueuesPaginator,
     ListRoutingProfilesPaginator,
     ListSecurityProfilesPaginator,
     ListUserHierarchyGroupsPaginator,
@@ -58,7 +64,9 @@ __all__ = (
     "ListContactFlowsPaginator",
     "ListHoursOfOperationsPaginator",
     "ListPhoneNumbersPaginator",
+    "ListPromptsPaginator",
     "ListQueuesPaginator",
+    "ListRoutingProfileQueuesPaginator",
     "ListRoutingProfilesPaginator",
     "ListSecurityProfilesPaginator",
     "ListUserHierarchyGroupsPaginator",

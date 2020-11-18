@@ -50,46 +50,46 @@ __all__ = (
 
 class GetConnectorsPaginator(Boto3Paginator):
     """
-    [Paginator.GetConnectors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sms.html#SMS.Paginator.GetConnectors)
+    [Paginator.GetConnectors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Paginator.GetConnectors)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetConnectorsResponseTypeDef]:
         """
-        [GetConnectors.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sms.html#SMS.Paginator.GetConnectors.paginate)
+        [GetConnectors.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Paginator.GetConnectors.paginate)
         """
 
 
 class GetReplicationJobsPaginator(Boto3Paginator):
     """
-    [Paginator.GetReplicationJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sms.html#SMS.Paginator.GetReplicationJobs)
+    [Paginator.GetReplicationJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Paginator.GetReplicationJobs)
     """
 
     def paginate(
         self, replicationJobId: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetReplicationJobsResponseTypeDef]:
         """
-        [GetReplicationJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sms.html#SMS.Paginator.GetReplicationJobs.paginate)
+        [GetReplicationJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Paginator.GetReplicationJobs.paginate)
         """
 
 
 class GetReplicationRunsPaginator(Boto3Paginator):
     """
-    [Paginator.GetReplicationRuns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sms.html#SMS.Paginator.GetReplicationRuns)
+    [Paginator.GetReplicationRuns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Paginator.GetReplicationRuns)
     """
 
     def paginate(
         self, replicationJobId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetReplicationRunsResponseTypeDef]:
         """
-        [GetReplicationRuns.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sms.html#SMS.Paginator.GetReplicationRuns.paginate)
+        [GetReplicationRuns.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Paginator.GetReplicationRuns.paginate)
         """
 
 
 class GetServersPaginator(Boto3Paginator):
     """
-    [Paginator.GetServers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sms.html#SMS.Paginator.GetServers)
+    [Paginator.GetServers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Paginator.GetServers)
     """
 
     def paginate(
@@ -98,18 +98,18 @@ class GetServersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetServersResponseTypeDef]:
         """
-        [GetServers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sms.html#SMS.Paginator.GetServers.paginate)
+        [GetServers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Paginator.GetServers.paginate)
         """
 
 
 class ListAppsPaginator(Boto3Paginator):
     """
-    [Paginator.ListApps documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sms.html#SMS.Paginator.ListApps)
+    [Paginator.ListApps documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Paginator.ListApps)
     """
 
     def paginate(
         self, appIds: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAppsResponseTypeDef]:
         """
-        [ListApps.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/sms.html#SMS.Paginator.ListApps.paginate)
+        [ListApps.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Paginator.ListApps.paginate)
         """

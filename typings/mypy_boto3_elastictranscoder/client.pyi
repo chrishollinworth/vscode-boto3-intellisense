@@ -1,4 +1,4 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import
+# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for elastictranscoder service client
 
@@ -14,8 +14,7 @@ Usage::
 import sys
 from typing import Any, Dict, List, Type, overload
 
-from botocore.exceptions import ClientError as Boto3ClientError
-from botocore.paginate import Paginator as Boto3Paginator
+from botocore.client import ClientMeta
 
 from mypy_boto3_elastictranscoder.paginator import (
     ListJobsByPipelinePaginator,
@@ -58,32 +57,41 @@ else:
 __all__ = ("ElasticTranscoderClient",)
 
 
+class BotocoreClientError(BaseException):
+    MSG_TEMPLATE: str
+
+    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
+        self.response: Dict[str, Any]
+        self.operation_name: str
+
+
 class Exceptions:
-    AccessDeniedException: Type[Boto3ClientError]
-    ClientError: Type[Boto3ClientError]
-    IncompatibleVersionException: Type[Boto3ClientError]
-    InternalServiceException: Type[Boto3ClientError]
-    LimitExceededException: Type[Boto3ClientError]
-    ResourceInUseException: Type[Boto3ClientError]
-    ResourceNotFoundException: Type[Boto3ClientError]
-    ValidationException: Type[Boto3ClientError]
+    AccessDeniedException: Type[BotocoreClientError]
+    ClientError: Type[BotocoreClientError]
+    IncompatibleVersionException: Type[BotocoreClientError]
+    InternalServiceException: Type[BotocoreClientError]
+    LimitExceededException: Type[BotocoreClientError]
+    ResourceInUseException: Type[BotocoreClientError]
+    ResourceNotFoundException: Type[BotocoreClientError]
+    ValidationException: Type[BotocoreClientError]
 
 
 class ElasticTranscoderClient:
     """
-    [ElasticTranscoder.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elastictranscoder.html#ElasticTranscoder.Client)
+    [ElasticTranscoder.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elastictranscoder.html#ElasticTranscoder.Client)
     """
 
+    meta: ClientMeta
     exceptions: Exceptions
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elastictranscoder.html#ElasticTranscoder.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elastictranscoder.html#ElasticTranscoder.Client.can_paginate)
         """
 
     def cancel_job(self, Id: str) -> Dict[str, Any]:
         """
-        [Client.cancel_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elastictranscoder.html#ElasticTranscoder.Client.cancel_job)
+        [Client.cancel_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elastictranscoder.html#ElasticTranscoder.Client.cancel_job)
         """
 
     def create_job(
@@ -98,7 +106,7 @@ class ElasticTranscoderClient:
         UserMetadata: Dict[str, str] = None,
     ) -> CreateJobResponseTypeDef:
         """
-        [Client.create_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elastictranscoder.html#ElasticTranscoder.Client.create_job)
+        [Client.create_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elastictranscoder.html#ElasticTranscoder.Client.create_job)
         """
 
     def create_pipeline(
@@ -113,7 +121,7 @@ class ElasticTranscoderClient:
         ThumbnailConfig: "PipelineOutputConfigTypeDef" = None,
     ) -> CreatePipelineResponseTypeDef:
         """
-        [Client.create_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elastictranscoder.html#ElasticTranscoder.Client.create_pipeline)
+        [Client.create_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elastictranscoder.html#ElasticTranscoder.Client.create_pipeline)
         """
 
     def create_preset(
@@ -126,17 +134,17 @@ class ElasticTranscoderClient:
         Thumbnails: "ThumbnailsTypeDef" = None,
     ) -> CreatePresetResponseTypeDef:
         """
-        [Client.create_preset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elastictranscoder.html#ElasticTranscoder.Client.create_preset)
+        [Client.create_preset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elastictranscoder.html#ElasticTranscoder.Client.create_preset)
         """
 
     def delete_pipeline(self, Id: str) -> Dict[str, Any]:
         """
-        [Client.delete_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elastictranscoder.html#ElasticTranscoder.Client.delete_pipeline)
+        [Client.delete_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elastictranscoder.html#ElasticTranscoder.Client.delete_pipeline)
         """
 
     def delete_preset(self, Id: str) -> Dict[str, Any]:
         """
-        [Client.delete_preset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elastictranscoder.html#ElasticTranscoder.Client.delete_preset)
+        [Client.delete_preset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elastictranscoder.html#ElasticTranscoder.Client.delete_preset)
         """
 
     def generate_presigned_url(
@@ -147,57 +155,57 @@ class ElasticTranscoderClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elastictranscoder.html#ElasticTranscoder.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elastictranscoder.html#ElasticTranscoder.Client.generate_presigned_url)
         """
 
     def list_jobs_by_pipeline(
         self, PipelineId: str, Ascending: str = None, PageToken: str = None
     ) -> ListJobsByPipelineResponseTypeDef:
         """
-        [Client.list_jobs_by_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elastictranscoder.html#ElasticTranscoder.Client.list_jobs_by_pipeline)
+        [Client.list_jobs_by_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elastictranscoder.html#ElasticTranscoder.Client.list_jobs_by_pipeline)
         """
 
     def list_jobs_by_status(
         self, Status: str, Ascending: str = None, PageToken: str = None
     ) -> ListJobsByStatusResponseTypeDef:
         """
-        [Client.list_jobs_by_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elastictranscoder.html#ElasticTranscoder.Client.list_jobs_by_status)
+        [Client.list_jobs_by_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elastictranscoder.html#ElasticTranscoder.Client.list_jobs_by_status)
         """
 
     def list_pipelines(
         self, Ascending: str = None, PageToken: str = None
     ) -> ListPipelinesResponseTypeDef:
         """
-        [Client.list_pipelines documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elastictranscoder.html#ElasticTranscoder.Client.list_pipelines)
+        [Client.list_pipelines documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elastictranscoder.html#ElasticTranscoder.Client.list_pipelines)
         """
 
     def list_presets(
         self, Ascending: str = None, PageToken: str = None
     ) -> ListPresetsResponseTypeDef:
         """
-        [Client.list_presets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elastictranscoder.html#ElasticTranscoder.Client.list_presets)
+        [Client.list_presets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elastictranscoder.html#ElasticTranscoder.Client.list_presets)
         """
 
     def read_job(self, Id: str) -> ReadJobResponseTypeDef:
         """
-        [Client.read_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elastictranscoder.html#ElasticTranscoder.Client.read_job)
+        [Client.read_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elastictranscoder.html#ElasticTranscoder.Client.read_job)
         """
 
     def read_pipeline(self, Id: str) -> ReadPipelineResponseTypeDef:
         """
-        [Client.read_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elastictranscoder.html#ElasticTranscoder.Client.read_pipeline)
+        [Client.read_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elastictranscoder.html#ElasticTranscoder.Client.read_pipeline)
         """
 
     def read_preset(self, Id: str) -> ReadPresetResponseTypeDef:
         """
-        [Client.read_preset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elastictranscoder.html#ElasticTranscoder.Client.read_preset)
+        [Client.read_preset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elastictranscoder.html#ElasticTranscoder.Client.read_preset)
         """
 
     def test_role(
         self, Role: str, InputBucket: str, OutputBucket: str, Topics: List[str]
     ) -> TestRoleResponseTypeDef:
         """
-        [Client.test_role documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elastictranscoder.html#ElasticTranscoder.Client.test_role)
+        [Client.test_role documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elastictranscoder.html#ElasticTranscoder.Client.test_role)
         """
 
     def update_pipeline(
@@ -212,19 +220,19 @@ class ElasticTranscoderClient:
         ThumbnailConfig: "PipelineOutputConfigTypeDef" = None,
     ) -> UpdatePipelineResponseTypeDef:
         """
-        [Client.update_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elastictranscoder.html#ElasticTranscoder.Client.update_pipeline)
+        [Client.update_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elastictranscoder.html#ElasticTranscoder.Client.update_pipeline)
         """
 
     def update_pipeline_notifications(
         self, Id: str, Notifications: "NotificationsTypeDef"
     ) -> UpdatePipelineNotificationsResponseTypeDef:
         """
-        [Client.update_pipeline_notifications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elastictranscoder.html#ElasticTranscoder.Client.update_pipeline_notifications)
+        [Client.update_pipeline_notifications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elastictranscoder.html#ElasticTranscoder.Client.update_pipeline_notifications)
         """
 
     def update_pipeline_status(self, Id: str, Status: str) -> UpdatePipelineStatusResponseTypeDef:
         """
-        [Client.update_pipeline_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elastictranscoder.html#ElasticTranscoder.Client.update_pipeline_status)
+        [Client.update_pipeline_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elastictranscoder.html#ElasticTranscoder.Client.update_pipeline_status)
         """
 
     @overload
@@ -232,7 +240,7 @@ class ElasticTranscoderClient:
         self, operation_name: Literal["list_jobs_by_pipeline"]
     ) -> ListJobsByPipelinePaginator:
         """
-        [Paginator.ListJobsByPipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elastictranscoder.html#ElasticTranscoder.Paginator.ListJobsByPipeline)
+        [Paginator.ListJobsByPipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elastictranscoder.html#ElasticTranscoder.Paginator.ListJobsByPipeline)
         """
 
     @overload
@@ -240,25 +248,22 @@ class ElasticTranscoderClient:
         self, operation_name: Literal["list_jobs_by_status"]
     ) -> ListJobsByStatusPaginator:
         """
-        [Paginator.ListJobsByStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elastictranscoder.html#ElasticTranscoder.Paginator.ListJobsByStatus)
+        [Paginator.ListJobsByStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elastictranscoder.html#ElasticTranscoder.Paginator.ListJobsByStatus)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_pipelines"]) -> ListPipelinesPaginator:
         """
-        [Paginator.ListPipelines documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elastictranscoder.html#ElasticTranscoder.Paginator.ListPipelines)
+        [Paginator.ListPipelines documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elastictranscoder.html#ElasticTranscoder.Paginator.ListPipelines)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_presets"]) -> ListPresetsPaginator:
         """
-        [Paginator.ListPresets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elastictranscoder.html#ElasticTranscoder.Paginator.ListPresets)
+        [Paginator.ListPresets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elastictranscoder.html#ElasticTranscoder.Paginator.ListPresets)
         """
-
-    def get_paginator(self, operation_name: str) -> Boto3Paginator:
-        pass
 
     def get_waiter(self, waiter_name: Literal["job_complete"]) -> JobCompleteWaiter:
         """
-        [Waiter.JobComplete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/elastictranscoder.html#ElasticTranscoder.Waiter.JobComplete)
+        [Waiter.JobComplete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elastictranscoder.html#ElasticTranscoder.Waiter.JobComplete)
         """

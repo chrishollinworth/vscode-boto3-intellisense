@@ -1,4 +1,4 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import
+# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for translate service client
 
@@ -14,7 +14,7 @@ Usage::
 import sys
 from typing import Any, Dict, List, Type
 
-from botocore.exceptions import ClientError as Boto3ClientError
+from botocore.client import ClientMeta
 
 from mypy_boto3_translate.paginator import ListTerminologiesPaginator
 from mypy_boto3_translate.type_defs import (
@@ -42,43 +42,52 @@ else:
 __all__ = ("TranslateClient",)
 
 
+class BotocoreClientError(BaseException):
+    MSG_TEMPLATE: str
+
+    def __init__(self, error_response: Dict[str, Any], operation_name: str) -> None:
+        self.response: Dict[str, Any]
+        self.operation_name: str
+
+
 class Exceptions:
-    ClientError: Type[Boto3ClientError]
-    DetectedLanguageLowConfidenceException: Type[Boto3ClientError]
-    InternalServerException: Type[Boto3ClientError]
-    InvalidFilterException: Type[Boto3ClientError]
-    InvalidParameterValueException: Type[Boto3ClientError]
-    InvalidRequestException: Type[Boto3ClientError]
-    LimitExceededException: Type[Boto3ClientError]
-    ResourceNotFoundException: Type[Boto3ClientError]
-    ServiceUnavailableException: Type[Boto3ClientError]
-    TextSizeLimitExceededException: Type[Boto3ClientError]
-    TooManyRequestsException: Type[Boto3ClientError]
-    UnsupportedLanguagePairException: Type[Boto3ClientError]
+    ClientError: Type[BotocoreClientError]
+    DetectedLanguageLowConfidenceException: Type[BotocoreClientError]
+    InternalServerException: Type[BotocoreClientError]
+    InvalidFilterException: Type[BotocoreClientError]
+    InvalidParameterValueException: Type[BotocoreClientError]
+    InvalidRequestException: Type[BotocoreClientError]
+    LimitExceededException: Type[BotocoreClientError]
+    ResourceNotFoundException: Type[BotocoreClientError]
+    ServiceUnavailableException: Type[BotocoreClientError]
+    TextSizeLimitExceededException: Type[BotocoreClientError]
+    TooManyRequestsException: Type[BotocoreClientError]
+    UnsupportedLanguagePairException: Type[BotocoreClientError]
 
 
 class TranslateClient:
     """
-    [Translate.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/translate.html#Translate.Client)
+    [Translate.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/translate.html#Translate.Client)
     """
 
+    meta: ClientMeta
     exceptions: Exceptions
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/translate.html#Translate.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/translate.html#Translate.Client.can_paginate)
         """
 
     def delete_terminology(self, Name: str) -> None:
         """
-        [Client.delete_terminology documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/translate.html#Translate.Client.delete_terminology)
+        [Client.delete_terminology documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/translate.html#Translate.Client.delete_terminology)
         """
 
     def describe_text_translation_job(
         self, JobId: str
     ) -> DescribeTextTranslationJobResponseTypeDef:
         """
-        [Client.describe_text_translation_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/translate.html#Translate.Client.describe_text_translation_job)
+        [Client.describe_text_translation_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/translate.html#Translate.Client.describe_text_translation_job)
         """
 
     def generate_presigned_url(
@@ -89,14 +98,14 @@ class TranslateClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/translate.html#Translate.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/translate.html#Translate.Client.generate_presigned_url)
         """
 
     def get_terminology(
         self, Name: str, TerminologyDataFormat: Literal["CSV", "TMX"]
     ) -> GetTerminologyResponseTypeDef:
         """
-        [Client.get_terminology documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/translate.html#Translate.Client.get_terminology)
+        [Client.get_terminology documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/translate.html#Translate.Client.get_terminology)
         """
 
     def import_terminology(
@@ -108,14 +117,14 @@ class TranslateClient:
         EncryptionKey: "EncryptionKeyTypeDef" = None,
     ) -> ImportTerminologyResponseTypeDef:
         """
-        [Client.import_terminology documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/translate.html#Translate.Client.import_terminology)
+        [Client.import_terminology documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/translate.html#Translate.Client.import_terminology)
         """
 
     def list_terminologies(
         self, NextToken: str = None, MaxResults: int = None
     ) -> ListTerminologiesResponseTypeDef:
         """
-        [Client.list_terminologies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/translate.html#Translate.Client.list_terminologies)
+        [Client.list_terminologies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/translate.html#Translate.Client.list_terminologies)
         """
 
     def list_text_translation_jobs(
@@ -125,7 +134,7 @@ class TranslateClient:
         MaxResults: int = None,
     ) -> ListTextTranslationJobsResponseTypeDef:
         """
-        [Client.list_text_translation_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/translate.html#Translate.Client.list_text_translation_jobs)
+        [Client.list_text_translation_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/translate.html#Translate.Client.list_text_translation_jobs)
         """
 
     def start_text_translation_job(
@@ -140,12 +149,12 @@ class TranslateClient:
         TerminologyNames: List[str] = None,
     ) -> StartTextTranslationJobResponseTypeDef:
         """
-        [Client.start_text_translation_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/translate.html#Translate.Client.start_text_translation_job)
+        [Client.start_text_translation_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/translate.html#Translate.Client.start_text_translation_job)
         """
 
     def stop_text_translation_job(self, JobId: str) -> StopTextTranslationJobResponseTypeDef:
         """
-        [Client.stop_text_translation_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/translate.html#Translate.Client.stop_text_translation_job)
+        [Client.stop_text_translation_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/translate.html#Translate.Client.stop_text_translation_job)
         """
 
     def translate_text(
@@ -156,12 +165,12 @@ class TranslateClient:
         TerminologyNames: List[str] = None,
     ) -> TranslateTextResponseTypeDef:
         """
-        [Client.translate_text documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/translate.html#Translate.Client.translate_text)
+        [Client.translate_text documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/translate.html#Translate.Client.translate_text)
         """
 
     def get_paginator(
         self, operation_name: Literal["list_terminologies"]
     ) -> ListTerminologiesPaginator:
         """
-        [Paginator.ListTerminologies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/translate.html#Translate.Paginator.ListTerminologies)
+        [Paginator.ListTerminologies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/translate.html#Translate.Paginator.ListTerminologies)
         """

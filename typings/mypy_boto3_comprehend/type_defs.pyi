@@ -4,9 +4,9 @@ Main interface for comprehend service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_comprehend.type_defs import BatchDetectDominantLanguageItemResultTypeDef
+    from mypy_boto3_comprehend.type_defs import AugmentedManifestsListItemTypeDef
 
-    data: BatchDetectDominantLanguageItemResultTypeDef = {...}
+    data: AugmentedManifestsListItemTypeDef = {...}
     ```
 """
 import sys
@@ -17,7 +17,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -25,6 +24,7 @@ else:
 
 
 __all__ = (
+    "AugmentedManifestsListItemTypeDef",
     "BatchDetectDominantLanguageItemResultTypeDef",
     "BatchDetectEntitiesItemResultTypeDef",
     "BatchDetectKeyPhrasesItemResultTypeDef",
@@ -59,6 +59,10 @@ __all__ = (
     "KeyPhrasesDetectionJobPropertiesTypeDef",
     "OutputDataConfigTypeDef",
     "PartOfSpeechTagTypeDef",
+    "PiiEntitiesDetectionJobPropertiesTypeDef",
+    "PiiEntityTypeDef",
+    "PiiOutputDataConfigTypeDef",
+    "RedactionConfigTypeDef",
     "SentimentDetectionJobPropertiesTypeDef",
     "SentimentScoreTypeDef",
     "SyntaxTokenTypeDef",
@@ -81,11 +85,13 @@ __all__ = (
     "DescribeEntitiesDetectionJobResponseTypeDef",
     "DescribeEntityRecognizerResponseTypeDef",
     "DescribeKeyPhrasesDetectionJobResponseTypeDef",
+    "DescribePiiEntitiesDetectionJobResponseTypeDef",
     "DescribeSentimentDetectionJobResponseTypeDef",
     "DescribeTopicsDetectionJobResponseTypeDef",
     "DetectDominantLanguageResponseTypeDef",
     "DetectEntitiesResponseTypeDef",
     "DetectKeyPhrasesResponseTypeDef",
+    "DetectPiiEntitiesResponseTypeDef",
     "DetectSentimentResponseTypeDef",
     "DetectSyntaxResponseTypeDef",
     "DocumentClassificationJobFilterTypeDef",
@@ -102,22 +108,30 @@ __all__ = (
     "ListEntitiesDetectionJobsResponseTypeDef",
     "ListEntityRecognizersResponseTypeDef",
     "ListKeyPhrasesDetectionJobsResponseTypeDef",
+    "ListPiiEntitiesDetectionJobsResponseTypeDef",
     "ListSentimentDetectionJobsResponseTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "ListTopicsDetectionJobsResponseTypeDef",
     "PaginatorConfigTypeDef",
+    "PiiEntitiesDetectionJobFilterTypeDef",
     "SentimentDetectionJobFilterTypeDef",
     "StartDocumentClassificationJobResponseTypeDef",
     "StartDominantLanguageDetectionJobResponseTypeDef",
     "StartEntitiesDetectionJobResponseTypeDef",
     "StartKeyPhrasesDetectionJobResponseTypeDef",
+    "StartPiiEntitiesDetectionJobResponseTypeDef",
     "StartSentimentDetectionJobResponseTypeDef",
     "StartTopicsDetectionJobResponseTypeDef",
     "StopDominantLanguageDetectionJobResponseTypeDef",
     "StopEntitiesDetectionJobResponseTypeDef",
     "StopKeyPhrasesDetectionJobResponseTypeDef",
+    "StopPiiEntitiesDetectionJobResponseTypeDef",
     "StopSentimentDetectionJobResponseTypeDef",
     "TopicsDetectionJobFilterTypeDef",
+)
+
+AugmentedManifestsListItemTypeDef = TypedDict(
+    "AugmentedManifestsListItemTypeDef", {"S3Uri": str, "AttributeNames": List[str]}
 )
 
 BatchDetectDominantLanguageItemResultTypeDef = TypedDict(
@@ -207,20 +221,16 @@ DocumentClassificationJobPropertiesTypeDef = TypedDict(
     total=False,
 )
 
-_RequiredDocumentClassifierInputDataConfigTypeDef = TypedDict(
-    "_RequiredDocumentClassifierInputDataConfigTypeDef", {"S3Uri": str}
+DocumentClassifierInputDataConfigTypeDef = TypedDict(
+    "DocumentClassifierInputDataConfigTypeDef",
+    {
+        "DataFormat": Literal["COMPREHEND_CSV", "AUGMENTED_MANIFEST"],
+        "S3Uri": str,
+        "LabelDelimiter": str,
+        "AugmentedManifests": List["AugmentedManifestsListItemTypeDef"],
+    },
+    total=False,
 )
-_OptionalDocumentClassifierInputDataConfigTypeDef = TypedDict(
-    "_OptionalDocumentClassifierInputDataConfigTypeDef", {"LabelDelimiter": str}, total=False
-)
-
-
-class DocumentClassifierInputDataConfigTypeDef(
-    _RequiredDocumentClassifierInputDataConfigTypeDef,
-    _OptionalDocumentClassifierInputDataConfigTypeDef,
-):
-    pass
-
 
 DocumentClassifierOutputDataConfigTypeDef = TypedDict(
     "DocumentClassifierOutputDataConfigTypeDef", {"S3Uri": str, "KmsKeyId": str}, total=False
@@ -331,16 +341,16 @@ EntityRecognizerEvaluationMetricsTypeDef = TypedDict(
 
 _RequiredEntityRecognizerInputDataConfigTypeDef = TypedDict(
     "_RequiredEntityRecognizerInputDataConfigTypeDef",
-    {
-        "EntityTypes": List["EntityTypesListItemTypeDef"],
-        "Documents": "EntityRecognizerDocumentsTypeDef",
-    },
+    {"EntityTypes": List["EntityTypesListItemTypeDef"]},
 )
 _OptionalEntityRecognizerInputDataConfigTypeDef = TypedDict(
     "_OptionalEntityRecognizerInputDataConfigTypeDef",
     {
+        "DataFormat": Literal["COMPREHEND_CSV", "AUGMENTED_MANIFEST"],
+        "Documents": "EntityRecognizerDocumentsTypeDef",
         "Annotations": "EntityRecognizerAnnotationsTypeDef",
         "EntityList": "EntityRecognizerEntityListTypeDef",
+        "AugmentedManifests": List["AugmentedManifestsListItemTypeDef"],
     },
     total=False,
 )
@@ -502,6 +512,114 @@ PartOfSpeechTagTypeDef = TypedDict(
             "VERB",
         ],
         "Score": float,
+    },
+    total=False,
+)
+
+PiiEntitiesDetectionJobPropertiesTypeDef = TypedDict(
+    "PiiEntitiesDetectionJobPropertiesTypeDef",
+    {
+        "JobId": str,
+        "JobName": str,
+        "JobStatus": Literal[
+            "SUBMITTED", "IN_PROGRESS", "COMPLETED", "FAILED", "STOP_REQUESTED", "STOPPED"
+        ],
+        "Message": str,
+        "SubmitTime": datetime,
+        "EndTime": datetime,
+        "InputDataConfig": "InputDataConfigTypeDef",
+        "OutputDataConfig": "PiiOutputDataConfigTypeDef",
+        "RedactionConfig": "RedactionConfigTypeDef",
+        "LanguageCode": Literal[
+            "en", "es", "fr", "de", "it", "pt", "ar", "hi", "ja", "ko", "zh", "zh-TW"
+        ],
+        "DataAccessRoleArn": str,
+        "Mode": Literal["ONLY_REDACTION", "ONLY_OFFSETS"],
+    },
+    total=False,
+)
+
+PiiEntityTypeDef = TypedDict(
+    "PiiEntityTypeDef",
+    {
+        "Score": float,
+        "Type": Literal[
+            "BANK_ACCOUNT_NUMBER",
+            "BANK_ROUTING",
+            "CREDIT_DEBIT_NUMBER",
+            "CREDIT_DEBIT_CVV",
+            "CREDIT_DEBIT_EXPIRY",
+            "PIN",
+            "EMAIL",
+            "ADDRESS",
+            "NAME",
+            "PHONE",
+            "SSN",
+            "DATE_TIME",
+            "PASSPORT_NUMBER",
+            "DRIVER_ID",
+            "URL",
+            "AGE",
+            "USERNAME",
+            "PASSWORD",
+            "AWS_ACCESS_KEY",
+            "AWS_SECRET_KEY",
+            "IP_ADDRESS",
+            "MAC_ADDRESS",
+            "ALL",
+        ],
+        "BeginOffset": int,
+        "EndOffset": int,
+    },
+    total=False,
+)
+
+_RequiredPiiOutputDataConfigTypeDef = TypedDict(
+    "_RequiredPiiOutputDataConfigTypeDef", {"S3Uri": str}
+)
+_OptionalPiiOutputDataConfigTypeDef = TypedDict(
+    "_OptionalPiiOutputDataConfigTypeDef", {"KmsKeyId": str}, total=False
+)
+
+
+class PiiOutputDataConfigTypeDef(
+    _RequiredPiiOutputDataConfigTypeDef, _OptionalPiiOutputDataConfigTypeDef
+):
+    pass
+
+
+RedactionConfigTypeDef = TypedDict(
+    "RedactionConfigTypeDef",
+    {
+        "PiiEntityTypes": List[
+            Literal[
+                "BANK_ACCOUNT_NUMBER",
+                "BANK_ROUTING",
+                "CREDIT_DEBIT_NUMBER",
+                "CREDIT_DEBIT_CVV",
+                "CREDIT_DEBIT_EXPIRY",
+                "PIN",
+                "EMAIL",
+                "ADDRESS",
+                "NAME",
+                "PHONE",
+                "SSN",
+                "DATE_TIME",
+                "PASSPORT_NUMBER",
+                "DRIVER_ID",
+                "URL",
+                "AGE",
+                "USERNAME",
+                "PASSWORD",
+                "AWS_ACCESS_KEY",
+                "AWS_SECRET_KEY",
+                "IP_ADDRESS",
+                "MAC_ADDRESS",
+                "ALL",
+            ]
+        ],
+        "MaskMode": Literal["MASK", "REPLACE_WITH_PII_ENTITY_TYPE"],
+        "MaskCharacter": str,
     },
     total=False,
 )
@@ -680,6 +798,12 @@ DescribeKeyPhrasesDetectionJobResponseTypeDef = TypedDict(
     total=False,
 )
 
+DescribePiiEntitiesDetectionJobResponseTypeDef = TypedDict(
+    "DescribePiiEntitiesDetectionJobResponseTypeDef",
+    {"PiiEntitiesDetectionJobProperties": "PiiEntitiesDetectionJobPropertiesTypeDef"},
+    total=False,
+)
+
 DescribeSentimentDetectionJobResponseTypeDef = TypedDict(
     "DescribeSentimentDetectionJobResponseTypeDef",
     {"SentimentDetectionJobProperties": "SentimentDetectionJobPropertiesTypeDef"},
@@ -704,6 +828,10 @@ DetectEntitiesResponseTypeDef = TypedDict(
 
 DetectKeyPhrasesResponseTypeDef = TypedDict(
     "DetectKeyPhrasesResponseTypeDef", {"KeyPhrases": List["KeyPhraseTypeDef"]}, total=False
+)
+
+DetectPiiEntitiesResponseTypeDef = TypedDict(
+    "DetectPiiEntitiesResponseTypeDef", {"Entities": List["PiiEntityTypeDef"]}, total=False
 )
 
 DetectSentimentResponseTypeDef = TypedDict(
@@ -867,6 +995,15 @@ ListKeyPhrasesDetectionJobsResponseTypeDef = TypedDict(
     total=False,
 )
 
+ListPiiEntitiesDetectionJobsResponseTypeDef = TypedDict(
+    "ListPiiEntitiesDetectionJobsResponseTypeDef",
+    {
+        "PiiEntitiesDetectionJobPropertiesList": List["PiiEntitiesDetectionJobPropertiesTypeDef"],
+        "NextToken": str,
+    },
+    total=False,
+)
+
 ListSentimentDetectionJobsResponseTypeDef = TypedDict(
     "ListSentimentDetectionJobsResponseTypeDef",
     {
@@ -893,6 +1030,19 @@ ListTopicsDetectionJobsResponseTypeDef = TypedDict(
 
 PaginatorConfigTypeDef = TypedDict(
     "PaginatorConfigTypeDef", {"MaxItems": int, "PageSize": int, "StartingToken": str}, total=False
+)
+
+PiiEntitiesDetectionJobFilterTypeDef = TypedDict(
+    "PiiEntitiesDetectionJobFilterTypeDef",
+    {
+        "JobName": str,
+        "JobStatus": Literal[
+            "SUBMITTED", "IN_PROGRESS", "COMPLETED", "FAILED", "STOP_REQUESTED", "STOPPED"
+        ],
+        "SubmitTimeBefore": datetime,
+        "SubmitTimeAfter": datetime,
+    },
+    total=False,
 )
 
 SentimentDetectionJobFilterTypeDef = TypedDict(
@@ -952,6 +1102,17 @@ StartKeyPhrasesDetectionJobResponseTypeDef = TypedDict(
     total=False,
 )
 
+StartPiiEntitiesDetectionJobResponseTypeDef = TypedDict(
+    "StartPiiEntitiesDetectionJobResponseTypeDef",
+    {
+        "JobId": str,
+        "JobStatus": Literal[
+            "SUBMITTED", "IN_PROGRESS", "COMPLETED", "FAILED", "STOP_REQUESTED", "STOPPED"
+        ],
+    },
+    total=False,
+)
+
 StartSentimentDetectionJobResponseTypeDef = TypedDict(
     "StartSentimentDetectionJobResponseTypeDef",
     {
@@ -998,6 +1159,17 @@ StopEntitiesDetectionJobResponseTypeDef = TypedDict(
 
 StopKeyPhrasesDetectionJobResponseTypeDef = TypedDict(
     "StopKeyPhrasesDetectionJobResponseTypeDef",
+    {
+        "JobId": str,
+        "JobStatus": Literal[
+            "SUBMITTED", "IN_PROGRESS", "COMPLETED", "FAILED", "STOP_REQUESTED", "STOPPED"
+        ],
+    },
+    total=False,
+)
+
+StopPiiEntitiesDetectionJobResponseTypeDef = TypedDict(
+    "StopPiiEntitiesDetectionJobResponseTypeDef",
     {
         "JobId": str,
         "JobStatus": Literal[

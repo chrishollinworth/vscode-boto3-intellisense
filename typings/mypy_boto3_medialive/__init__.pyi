@@ -16,6 +16,7 @@ Usage::
         InputDeletedWaiter,
         InputDetachedWaiter,
         ListChannelsPaginator,
+        ListInputDeviceTransfersPaginator,
         ListInputDevicesPaginator,
         ListInputSecurityGroupsPaginator,
         ListInputsPaginator,
@@ -49,6 +50,7 @@ Usage::
 
     describe_schedule_paginator: DescribeSchedulePaginator = client.get_paginator("describe_schedule")
     list_channels_paginator: ListChannelsPaginator = client.get_paginator("list_channels")
+    list_input_device_transfers_paginator: ListInputDeviceTransfersPaginator = client.get_paginator("list_input_device_transfers")
     list_input_devices_paginator: ListInputDevicesPaginator = client.get_paginator("list_input_devices")
     list_input_security_groups_paginator: ListInputSecurityGroupsPaginator = client.get_paginator("list_input_security_groups")
     list_inputs_paginator: ListInputsPaginator = client.get_paginator("list_inputs")
@@ -63,6 +65,7 @@ from mypy_boto3_medialive.paginator import (
     DescribeSchedulePaginator,
     ListChannelsPaginator,
     ListInputDevicesPaginator,
+    ListInputDeviceTransfersPaginator,
     ListInputSecurityGroupsPaginator,
     ListInputsPaginator,
     ListMultiplexesPaginator,
@@ -98,6 +101,7 @@ __all__ = (
     "InputDeletedWaiter",
     "InputDetachedWaiter",
     "ListChannelsPaginator",
+    "ListInputDeviceTransfersPaginator",
     "ListInputDevicesPaginator",
     "ListInputSecurityGroupsPaginator",
     "ListInputsPaginator",

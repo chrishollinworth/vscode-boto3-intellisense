@@ -7,6 +7,7 @@ apigateway
 apigatewaymanagementapi
 apigatewayv2
 appconfig
+appflow
 application_autoscaling
 application_insights
 appmesh
@@ -17,6 +18,7 @@ autoscaling
 autoscaling_plans
 backup
 batch
+braket
 budgets
 ce
 chime
@@ -50,6 +52,7 @@ config
 connect
 connectparticipant
 cur
+databrew
 dataexchange
 datapipeline
 datasync
@@ -94,7 +97,9 @@ greengrass
 groundstation
 guardduty
 health
+honeycode
 iam
+identitystore
 imagebuilder
 importexport
 inspector
@@ -109,6 +114,7 @@ iotevents_data
 iotsecuretunneling
 iotsitewise
 iotthingsgraph
+ivs
 kafka
 kendra
 kinesis
@@ -149,6 +155,7 @@ mq
 mturk
 neptune
 networkmanager
+network_firewall
 opsworks
 opsworkscm
 organizations
@@ -169,6 +176,7 @@ ram
 rds
 rds_data
 redshift
+redshift_data
 rekognition
 resource_groups
 resourcegroupstaggingapi
@@ -178,6 +186,7 @@ route53domains
 route53resolver
 s3
 s3control
+s3outposts
 sagemaker
 sagemaker_a2i_runtime
 sagemaker_runtime
@@ -189,6 +198,7 @@ securityhub
 serverlessrepo
 service_quotas
 servicecatalog
+servicecatalog_appregistry
 servicediscovery
 ses
 sesv2
@@ -201,6 +211,7 @@ sns
 sqs
 ssm
 sso
+sso_admin
 sso_oidc
 stepfunctions
 storagegateway
@@ -209,6 +220,8 @@ support
 swf
 synthetics
 textract
+timestream_query
+timestream_write
 transcribe
 transfer
 translate

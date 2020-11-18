@@ -11,13 +11,12 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import Any, Dict, List
+from typing import IO, Any, Dict, List, Union
 
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -55,6 +54,7 @@ __all__ = (
     "DatastoreStorageTypeDef",
     "DatastoreSummaryTypeDef",
     "DatastoreTypeDef",
+    "DeltaTimeSessionWindowConfigurationTypeDef",
     "DeltaTimeTypeDef",
     "DeviceRegistryEnrichActivityTypeDef",
     "DeviceShadowEnrichActivityTypeDef",
@@ -63,6 +63,8 @@ __all__ = (
     "GlueConfigurationTypeDef",
     "IotEventsDestinationConfigurationTypeDef",
     "LambdaActivityTypeDef",
+    "LateDataRuleConfigurationTypeDef",
+    "LateDataRuleTypeDef",
     "LoggingOptionsTypeDef",
     "MathActivityTypeDef",
     "OutputFileUriValueTypeDef",
@@ -169,6 +171,7 @@ ChannelSummaryTypeDef = TypedDict(
         "status": Literal["CREATING", "ACTIVE", "DELETING"],
         "creationTime": datetime,
         "lastUpdateTime": datetime,
+        "lastMessageArrivalTime": datetime,
     },
     total=False,
 )
@@ -183,6 +186,7 @@ ChannelTypeDef = TypedDict(
         "retentionPeriod": "RetentionPeriodTypeDef",
         "creationTime": datetime,
         "lastUpdateTime": datetime,
+        "lastMessageArrivalTime": datetime,
     },
     total=False,
 )
@@ -345,6 +349,7 @@ DatasetTypeDef = TypedDict(
         "lastUpdateTime": datetime,
         "retentionPeriod": "RetentionPeriodTypeDef",
         "versioningConfiguration": "VersioningConfigurationTypeDef",
+        "lateDataRules": List["LateDataRuleTypeDef"],
     },
     total=False,
 )
@@ -383,6 +388,7 @@ DatastoreSummaryTypeDef = TypedDict(
         "status": Literal["CREATING", "ACTIVE", "DELETING"],
         "creationTime": datetime,
         "lastUpdateTime": datetime,
+        "lastMessageArrivalTime": datetime,
     },
     total=False,
 )
@@ -397,8 +403,13 @@ DatastoreTypeDef = TypedDict(
         "retentionPeriod": "RetentionPeriodTypeDef",
         "creationTime": datetime,
         "lastUpdateTime": datetime,
+        "lastMessageArrivalTime": datetime,
     },
     total=False,
+)
+
+DeltaTimeSessionWindowConfigurationTypeDef = TypedDict(
+    "DeltaTimeSessionWindowConfigurationTypeDef", {"timeoutInMinutes": int}
 )
 
 DeltaTimeTypeDef = TypedDict("DeltaTimeTypeDef", {"offsetSeconds": int, "timeExpression": str})
@@ -468,6 +479,24 @@ _OptionalLambdaActivityTypeDef = TypedDict(
 
 
 class LambdaActivityTypeDef(_RequiredLambdaActivityTypeDef, _OptionalLambdaActivityTypeDef):
+    pass
+
+
+LateDataRuleConfigurationTypeDef = TypedDict(
+    "LateDataRuleConfigurationTypeDef",
+    {"deltaTimeSessionWindowConfiguration": "DeltaTimeSessionWindowConfigurationTypeDef"},
+    total=False,
+)
+
+_RequiredLateDataRuleTypeDef = TypedDict(
+    "_RequiredLateDataRuleTypeDef", {"ruleConfiguration": "LateDataRuleConfigurationTypeDef"}
+)
+_OptionalLateDataRuleTypeDef = TypedDict(
+    "_OptionalLateDataRuleTypeDef", {"ruleName": str}, total=False
+)
+
+
+class LateDataRuleTypeDef(_RequiredLateDataRuleTypeDef, _OptionalLateDataRuleTypeDef):
     pass
 
 
@@ -736,18 +765,20 @@ ListTagsForResourceResponseTypeDef = TypedDict(
     "ListTagsForResourceResponseTypeDef", {"tags": List["TagTypeDef"]}, total=False
 )
 
-MessageTypeDef = TypedDict("MessageTypeDef", {"messageId": str, "payload": bytes})
+MessageTypeDef = TypedDict("MessageTypeDef", {"messageId": str, "payload": Union[bytes, IO[bytes]]})
 
 PaginatorConfigTypeDef = TypedDict(
     "PaginatorConfigTypeDef", {"MaxItems": int, "PageSize": int, "StartingToken": str}, total=False
 )
 
 RunPipelineActivityResponseTypeDef = TypedDict(
-    "RunPipelineActivityResponseTypeDef", {"payloads": List[bytes], "logResult": str}, total=False
+    "RunPipelineActivityResponseTypeDef",
+    {"payloads": List[Union[bytes, IO[bytes]]], "logResult": str},
+    total=False,
 )
 
 SampleChannelDataResponseTypeDef = TypedDict(
-    "SampleChannelDataResponseTypeDef", {"payloads": List[bytes]}, total=False
+    "SampleChannelDataResponseTypeDef", {"payloads": List[Union[bytes, IO[bytes]]]}, total=False
 )
 
 StartPipelineReprocessingResponseTypeDef = TypedDict(

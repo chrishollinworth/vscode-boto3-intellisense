@@ -34,32 +34,32 @@ __all__ = (
 
 class DistributionDeployedWaiter(Boto3Waiter):
     """
-    [Waiter.DistributionDeployed documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudfront.html#CloudFront.Waiter.DistributionDeployed)
+    [Waiter.DistributionDeployed documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudfront.html#CloudFront.Waiter.DistributionDeployed)
     """
 
     def wait(self, Id: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [DistributionDeployed.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudfront.html#CloudFront.Waiter.DistributionDeployed.wait)
+        [DistributionDeployed.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudfront.html#CloudFront.Waiter.DistributionDeployed.wait)
         """
 
 
 class InvalidationCompletedWaiter(Boto3Waiter):
     """
-    [Waiter.InvalidationCompleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudfront.html#CloudFront.Waiter.InvalidationCompleted)
+    [Waiter.InvalidationCompleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudfront.html#CloudFront.Waiter.InvalidationCompleted)
     """
 
     def wait(self, DistributionId: str, Id: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [InvalidationCompleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudfront.html#CloudFront.Waiter.InvalidationCompleted.wait)
+        [InvalidationCompleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudfront.html#CloudFront.Waiter.InvalidationCompleted.wait)
         """
 
 
 class StreamingDistributionDeployedWaiter(Boto3Waiter):
     """
-    [Waiter.StreamingDistributionDeployed documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudfront.html#CloudFront.Waiter.StreamingDistributionDeployed)
+    [Waiter.StreamingDistributionDeployed documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudfront.html#CloudFront.Waiter.StreamingDistributionDeployed)
     """
 
     def wait(self, Id: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [StreamingDistributionDeployed.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/cloudfront.html#CloudFront.Waiter.StreamingDistributionDeployed.wait)
+        [StreamingDistributionDeployed.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudfront.html#CloudFront.Waiter.StreamingDistributionDeployed.wait)
         """

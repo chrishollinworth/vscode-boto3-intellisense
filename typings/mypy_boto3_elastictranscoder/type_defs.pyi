@@ -10,7 +10,7 @@ Usage::
     ```
 """
 import sys
-from typing import Dict, List
+from typing import Any, Dict, List
 
 if sys.version_info >= (3, 8):
     from typing import TypedDict
@@ -43,6 +43,7 @@ __all__ = (
     "PlaylistTypeDef",
     "PresetTypeDef",
     "PresetWatermarkTypeDef",
+    "ResponseMetadata",
     "ThumbnailsTypeDef",
     "TimeSpanTypeDef",
     "TimingTypeDef",
@@ -207,6 +208,7 @@ JobOutputTypeDef = TypedDict(
         "Captions": "CaptionsTypeDef",
         "Encryption": "EncryptionTypeDef",
         "AppliedColorSpaceConversion": str,
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )
@@ -330,6 +332,17 @@ PresetWatermarkTypeDef = TypedDict(
     total=False,
 )
 
+ResponseMetadata = TypedDict(
+    "ResponseMetadata",
+    {
+        "RequestId": str,
+        "HostId": str,
+        "HTTPStatusCode": int,
+        "HTTPHeaders": Dict[str, Any],
+        "RetryAttempts": int,
+    },
+)
+
 ThumbnailsTypeDef = TypedDict(
     "ThumbnailsTypeDef",
     {
@@ -391,6 +404,7 @@ CreateJobOutputTypeDef = TypedDict(
         "Composition": List["ClipTypeDef"],
         "Captions": "CaptionsTypeDef",
         "Encryption": "EncryptionTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
 )

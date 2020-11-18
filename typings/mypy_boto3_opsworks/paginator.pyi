@@ -28,7 +28,7 @@ __all__ = ("DescribeEcsClustersPaginator",)
 
 class DescribeEcsClustersPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeEcsClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/opsworks.html#OpsWorks.Paginator.DescribeEcsClusters)
+    [Paginator.DescribeEcsClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworks.html#OpsWorks.Paginator.DescribeEcsClusters)
     """
 
     def paginate(
@@ -38,5 +38,5 @@ class DescribeEcsClustersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeEcsClustersResultTypeDef]:
         """
-        [DescribeEcsClusters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.14.47/reference/services/opsworks.html#OpsWorks.Paginator.DescribeEcsClusters.paginate)
+        [DescribeEcsClusters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworks.html#OpsWorks.Paginator.DescribeEcsClusters.paginate)
         """

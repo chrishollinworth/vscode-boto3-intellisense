@@ -17,7 +17,6 @@ if sys.version_info >= (3, 8):
     from typing import Literal
 else:
     from typing_extensions import Literal
-
 if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
@@ -378,6 +377,7 @@ DBClusterSnapshotTypeDef = TypedDict(
         "DBClusterSnapshotArn": str,
         "SourceDBClusterSnapshotArn": str,
         "IAMDatabaseAuthenticationEnabled": bool,
+        "TagList": List["TagTypeDef"],
     },
     total=False,
 )
@@ -437,6 +437,7 @@ DBClusterTypeDef = TypedDict(
         "CopyTagsToSnapshot": bool,
         "CrossAccountClone": bool,
         "DomainMemberships": List["DomainMembershipTypeDef"],
+        "TagList": List["TagTypeDef"],
         "GlobalWriteForwardingStatus": Literal[
             "enabled", "disabled", "enabling", "disabling", "unknown"
         ],
@@ -455,6 +456,7 @@ DBEngineVersionTypeDef = TypedDict(
         "DBEngineVersionDescription": str,
         "DefaultCharacterSet": "CharacterSetTypeDef",
         "SupportedCharacterSets": List["CharacterSetTypeDef"],
+        "SupportedNcharCharacterSets": List["CharacterSetTypeDef"],
         "ValidUpgradeTarget": List["UpgradeTargetTypeDef"],
         "SupportedTimezones": List["TimezoneTypeDef"],
         "ExportableLogTypes": List[str],
@@ -542,6 +544,7 @@ DBInstanceTypeDef = TypedDict(
         "Iops": int,
         "OptionGroupMemberships": List["OptionGroupMembershipTypeDef"],
         "CharacterSetName": str,
+        "NcharCharacterSetName": str,
         "SecondaryAvailabilityZone": str,
         "PubliclyAccessible": bool,
         "StatusInfos": List["DBInstanceStatusInfoTypeDef"],
@@ -571,6 +574,7 @@ DBInstanceTypeDef = TypedDict(
         "AssociatedRoles": List["DBInstanceRoleTypeDef"],
         "ListenerEndpoint": "EndpointTypeDef",
         "MaxAllocatedStorage": int,
+        "TagList": List["TagTypeDef"],
     },
     total=False,
 )
@@ -711,6 +715,7 @@ DBSnapshotTypeDef = TypedDict(
         "IAMDatabaseAuthenticationEnabled": bool,
         "ProcessorFeatures": List["ProcessorFeatureTypeDef"],
         "DbiResourceId": str,
+        "TagList": List["TagTypeDef"],
     },
     total=False,
 )
