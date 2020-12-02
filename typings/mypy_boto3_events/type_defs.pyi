@@ -456,6 +456,7 @@ DescribeRuleResponseTypeDef = TypedDict(
         "RoleArn": str,
         "ManagedBy": str,
         "EventBusName": str,
+        "CreatedBy": str,
     },
     total=False,
 )

@@ -11,7 +11,7 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import List
+from typing import Dict, List
 
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -50,6 +50,7 @@ __all__ = (
     "ListRecommendationFeedbackResponseTypeDef",
     "ListRecommendationsResponseTypeDef",
     "ListRepositoryAssociationsResponseTypeDef",
+    "ListTagsForResourceResponseTypeDef",
     "PaginatorConfigTypeDef",
     "RepositoryTypeDef",
 )
@@ -89,6 +90,7 @@ CodeReviewTypeDef = TypedDict(
         "Type": Literal["PullRequest", "RepositoryAnalysis"],
         "PullRequestId": str,
         "SourceCodeType": "SourceCodeTypeTypeDef",
+        "AssociationArn": str,
         "Metrics": "MetricsTypeDef",
     },
     total=False,
@@ -151,7 +153,7 @@ RepositoryAssociationSummaryTypeDef = TypedDict(
         "Name": str,
         "Owner": str,
         "ProviderType": Literal["CodeCommit", "GitHub", "Bitbucket", "GitHubEnterpriseServer"],
-        "State": Literal["Associated", "Associating", "Failed", "Disassociating"],
+        "State": Literal["Associated", "Associating", "Failed", "Disassociating", "Disassociated"],
     },
     total=False,
 )
@@ -165,7 +167,7 @@ RepositoryAssociationTypeDef = TypedDict(
         "Name": str,
         "Owner": str,
         "ProviderType": Literal["CodeCommit", "GitHub", "Bitbucket", "GitHubEnterpriseServer"],
-        "State": Literal["Associated", "Associating", "Failed", "Disassociating"],
+        "State": Literal["Associated", "Associating", "Failed", "Disassociating", "Disassociated"],
         "StateReason": str,
         "LastUpdatedTimeStamp": datetime,
         "CreatedTimeStamp": datetime,
@@ -192,7 +194,7 @@ ThirdPartySourceRepositoryTypeDef = TypedDict(
 
 AssociateRepositoryResponseTypeDef = TypedDict(
     "AssociateRepositoryResponseTypeDef",
-    {"RepositoryAssociation": "RepositoryAssociationTypeDef"},
+    {"RepositoryAssociation": "RepositoryAssociationTypeDef", "Tags": Dict[str, str]},
     total=False,
 )
 
@@ -216,13 +218,13 @@ DescribeRecommendationFeedbackResponseTypeDef = TypedDict(
 
 DescribeRepositoryAssociationResponseTypeDef = TypedDict(
     "DescribeRepositoryAssociationResponseTypeDef",
-    {"RepositoryAssociation": "RepositoryAssociationTypeDef"},
+    {"RepositoryAssociation": "RepositoryAssociationTypeDef", "Tags": Dict[str, str]},
     total=False,
 )
 
 DisassociateRepositoryResponseTypeDef = TypedDict(
     "DisassociateRepositoryResponseTypeDef",
-    {"RepositoryAssociation": "RepositoryAssociationTypeDef"},
+    {"RepositoryAssociation": "RepositoryAssociationTypeDef", "Tags": Dict[str, str]},
     total=False,
 )
 
@@ -254,6 +256,10 @@ ListRepositoryAssociationsResponseTypeDef = TypedDict(
         "NextToken": str,
     },
     total=False,
+)
+
+ListTagsForResourceResponseTypeDef = TypedDict(
+    "ListTagsForResourceResponseTypeDef", {"Tags": Dict[str, str]}, total=False
 )
 
 PaginatorConfigTypeDef = TypedDict(

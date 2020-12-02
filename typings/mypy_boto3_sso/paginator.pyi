@@ -34,25 +34,25 @@ __all__ = ("ListAccountRolesPaginator", "ListAccountsPaginator")
 
 class ListAccountRolesPaginator(Boto3Paginator):
     """
-    [Paginator.ListAccountRoles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sso.html#SSO.Paginator.ListAccountRoles)
+    [Paginator.ListAccountRoles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso.html#SSO.Paginator.ListAccountRoles)
     """
 
     def paginate(
         self, accessToken: str, accountId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAccountRolesResponseTypeDef]:
         """
-        [ListAccountRoles.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sso.html#SSO.Paginator.ListAccountRoles.paginate)
+        [ListAccountRoles.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso.html#SSO.Paginator.ListAccountRoles.paginate)
         """
 
 
 class ListAccountsPaginator(Boto3Paginator):
     """
-    [Paginator.ListAccounts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sso.html#SSO.Paginator.ListAccounts)
+    [Paginator.ListAccounts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso.html#SSO.Paginator.ListAccounts)
     """
 
     def paginate(
         self, accessToken: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAccountsResponseTypeDef]:
         """
-        [ListAccounts.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sso.html#SSO.Paginator.ListAccounts.paginate)
+        [ListAccounts.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso.html#SSO.Paginator.ListAccounts.paginate)
         """

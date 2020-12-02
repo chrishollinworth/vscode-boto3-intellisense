@@ -45,7 +45,7 @@ __all__ = (
 
 class ListJobsByPipelinePaginator(Boto3Paginator):
     """
-    [Paginator.ListJobsByPipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elastictranscoder.html#ElasticTranscoder.Paginator.ListJobsByPipeline)
+    [Paginator.ListJobsByPipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elastictranscoder.html#ElasticTranscoder.Paginator.ListJobsByPipeline)
     """
 
     def paginate(
@@ -55,44 +55,44 @@ class ListJobsByPipelinePaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListJobsByPipelineResponseTypeDef]:
         """
-        [ListJobsByPipeline.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elastictranscoder.html#ElasticTranscoder.Paginator.ListJobsByPipeline.paginate)
+        [ListJobsByPipeline.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elastictranscoder.html#ElasticTranscoder.Paginator.ListJobsByPipeline.paginate)
         """
 
 
 class ListJobsByStatusPaginator(Boto3Paginator):
     """
-    [Paginator.ListJobsByStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elastictranscoder.html#ElasticTranscoder.Paginator.ListJobsByStatus)
+    [Paginator.ListJobsByStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elastictranscoder.html#ElasticTranscoder.Paginator.ListJobsByStatus)
     """
 
     def paginate(
         self, Status: str, Ascending: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListJobsByStatusResponseTypeDef]:
         """
-        [ListJobsByStatus.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elastictranscoder.html#ElasticTranscoder.Paginator.ListJobsByStatus.paginate)
+        [ListJobsByStatus.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elastictranscoder.html#ElasticTranscoder.Paginator.ListJobsByStatus.paginate)
         """
 
 
 class ListPipelinesPaginator(Boto3Paginator):
     """
-    [Paginator.ListPipelines documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elastictranscoder.html#ElasticTranscoder.Paginator.ListPipelines)
+    [Paginator.ListPipelines documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elastictranscoder.html#ElasticTranscoder.Paginator.ListPipelines)
     """
 
     def paginate(
         self, Ascending: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPipelinesResponseTypeDef]:
         """
-        [ListPipelines.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elastictranscoder.html#ElasticTranscoder.Paginator.ListPipelines.paginate)
+        [ListPipelines.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elastictranscoder.html#ElasticTranscoder.Paginator.ListPipelines.paginate)
         """
 
 
 class ListPresetsPaginator(Boto3Paginator):
     """
-    [Paginator.ListPresets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elastictranscoder.html#ElasticTranscoder.Paginator.ListPresets)
+    [Paginator.ListPresets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elastictranscoder.html#ElasticTranscoder.Paginator.ListPresets)
     """
 
     def paginate(
         self, Ascending: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPresetsResponseTypeDef]:
         """
-        [ListPresets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elastictranscoder.html#ElasticTranscoder.Paginator.ListPresets.paginate)
+        [ListPresets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elastictranscoder.html#ElasticTranscoder.Paginator.ListPresets.paginate)
         """

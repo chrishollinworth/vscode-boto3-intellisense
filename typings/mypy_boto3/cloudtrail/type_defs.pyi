@@ -1,4 +1,6 @@
 from mypy_boto3_cloudtrail.type_defs import (
+    AdvancedEventSelectorTypeDef,
+    AdvancedFieldSelectorTypeDef,
     DataResourceTypeDef,
     EventSelectorTypeDef,
     EventTypeDef,
@@ -27,6 +29,8 @@ from mypy_boto3_cloudtrail.type_defs import (
 )
 
 __all__ = (
+    "AdvancedEventSelectorTypeDef",
+    "AdvancedFieldSelectorTypeDef",
     "DataResourceTypeDef",
     "EventSelectorTypeDef",
     "EventTypeDef",

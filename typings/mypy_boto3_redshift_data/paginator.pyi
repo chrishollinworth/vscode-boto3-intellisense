@@ -60,7 +60,7 @@ __all__ = (
 
 class DescribeTablePaginator(Boto3Paginator):
     """
-    [Paginator.DescribeTable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.DescribeTable)
+    [Paginator.DescribeTable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.DescribeTable)
     """
 
     def paginate(
@@ -74,26 +74,26 @@ class DescribeTablePaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeTableResponseTypeDef]:
         """
-        [DescribeTable.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.DescribeTable.paginate)
+        [DescribeTable.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.DescribeTable.paginate)
         """
 
 
 class GetStatementResultPaginator(Boto3Paginator):
     """
-    [Paginator.GetStatementResult documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.GetStatementResult)
+    [Paginator.GetStatementResult documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.GetStatementResult)
     """
 
     def paginate(
         self, Id: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetStatementResultResponseTypeDef]:
         """
-        [GetStatementResult.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.GetStatementResult.paginate)
+        [GetStatementResult.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.GetStatementResult.paginate)
         """
 
 
 class ListDatabasesPaginator(Boto3Paginator):
     """
-    [Paginator.ListDatabases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListDatabases)
+    [Paginator.ListDatabases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListDatabases)
     """
 
     def paginate(
@@ -105,13 +105,13 @@ class ListDatabasesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListDatabasesResponseTypeDef]:
         """
-        [ListDatabases.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListDatabases.paginate)
+        [ListDatabases.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListDatabases.paginate)
         """
 
 
 class ListSchemasPaginator(Boto3Paginator):
     """
-    [Paginator.ListSchemas documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListSchemas)
+    [Paginator.ListSchemas documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListSchemas)
     """
 
     def paginate(
@@ -124,13 +124,13 @@ class ListSchemasPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListSchemasResponseTypeDef]:
         """
-        [ListSchemas.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListSchemas.paginate)
+        [ListSchemas.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListSchemas.paginate)
         """
 
 
 class ListStatementsPaginator(Boto3Paginator):
     """
-    [Paginator.ListStatements documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListStatements)
+    [Paginator.ListStatements documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListStatements)
     """
 
     def paginate(
@@ -142,13 +142,13 @@ class ListStatementsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListStatementsResponseTypeDef]:
         """
-        [ListStatements.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListStatements.paginate)
+        [ListStatements.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListStatements.paginate)
         """
 
 
 class ListTablesPaginator(Boto3Paginator):
     """
-    [Paginator.ListTables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListTables)
+    [Paginator.ListTables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListTables)
     """
 
     def paginate(
@@ -162,5 +162,5 @@ class ListTablesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListTablesResponseTypeDef]:
         """
-        [ListTables.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListTables.paginate)
+        [ListTables.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListTables.paginate)
         """

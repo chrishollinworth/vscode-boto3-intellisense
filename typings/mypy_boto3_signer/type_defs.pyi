@@ -26,29 +26,36 @@ else:
 __all__ = (
     "EncryptionAlgorithmOptionsTypeDef",
     "HashAlgorithmOptionsTypeDef",
+    "PermissionTypeDef",
     "S3DestinationTypeDef",
     "S3SignedObjectTypeDef",
     "S3SourceTypeDef",
+    "SignatureValidityPeriodTypeDef",
     "SignedObjectTypeDef",
     "SigningConfigurationOverridesTypeDef",
     "SigningConfigurationTypeDef",
     "SigningImageFormatTypeDef",
+    "SigningJobRevocationRecordTypeDef",
     "SigningJobTypeDef",
     "SigningMaterialTypeDef",
     "SigningPlatformOverridesTypeDef",
     "SigningPlatformTypeDef",
+    "SigningProfileRevocationRecordTypeDef",
     "SigningProfileTypeDef",
     "SourceTypeDef",
+    "AddProfilePermissionResponseTypeDef",
     "DescribeSigningJobResponseTypeDef",
     "DestinationTypeDef",
     "GetSigningPlatformResponseTypeDef",
     "GetSigningProfileResponseTypeDef",
+    "ListProfilePermissionsResponseTypeDef",
     "ListSigningJobsResponseTypeDef",
     "ListSigningPlatformsResponseTypeDef",
     "ListSigningProfilesResponseTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "PaginatorConfigTypeDef",
     "PutSigningProfileResponseTypeDef",
+    "RemoveProfilePermissionResponseTypeDef",
     "StartSigningJobResponseTypeDef",
     "WaiterConfigTypeDef",
 )
@@ -63,6 +70,12 @@ HashAlgorithmOptionsTypeDef = TypedDict(
     {"allowedValues": List[Literal["SHA1", "SHA256"]], "defaultValue": Literal["SHA1", "SHA256"]},
 )
 
+PermissionTypeDef = TypedDict(
+    "PermissionTypeDef",
+    {"action": str, "principal": str, "statementId": str, "profileVersion": str},
+    total=False,
+)
+
 S3DestinationTypeDef = TypedDict(
     "S3DestinationTypeDef", {"bucketName": str, "prefix": str}, total=False
 )
@@ -72,6 +85,12 @@ S3SignedObjectTypeDef = TypedDict(
 )
 
 S3SourceTypeDef = TypedDict("S3SourceTypeDef", {"bucketName": str, "key": str, "version": str})
+
+SignatureValidityPeriodTypeDef = TypedDict(
+    "SignatureValidityPeriodTypeDef",
+    {"value": int, "type": Literal["DAYS", "MONTHS", "YEARS"]},
+    total=False,
+)
 
 SignedObjectTypeDef = TypedDict("SignedObjectTypeDef", {"s3": "S3SignedObjectTypeDef"}, total=False)
 
@@ -97,6 +116,12 @@ SigningImageFormatTypeDef = TypedDict(
     },
 )
 
+SigningJobRevocationRecordTypeDef = TypedDict(
+    "SigningJobRevocationRecordTypeDef",
+    {"reason": str, "revokedAt": datetime, "revokedBy": str},
+    total=False,
+)
+
 SigningJobTypeDef = TypedDict(
     "SigningJobTypeDef",
     {
@@ -106,6 +131,14 @@ SigningJobTypeDef = TypedDict(
         "signingMaterial": "SigningMaterialTypeDef",
         "createdAt": datetime,
         "status": Literal["InProgress", "Failed", "Succeeded"],
+        "isRevoked": bool,
+        "profileName": str,
+        "profileVersion": str,
+        "platformId": str,
+        "platformDisplayName": str,
+        "signatureExpiresAt": datetime,
+        "jobOwner": str,
+        "jobInvoker": str,
     },
     total=False,
 )
@@ -132,7 +165,14 @@ SigningPlatformTypeDef = TypedDict(
         "signingConfiguration": "SigningConfigurationTypeDef",
         "signingImageFormat": "SigningImageFormatTypeDef",
         "maxSizeInMB": int,
+        "revocationSupported": bool,
     },
+    total=False,
+)
+
+SigningProfileRevocationRecordTypeDef = TypedDict(
+    "SigningProfileRevocationRecordTypeDef",
+    {"revocationEffectiveFrom": datetime, "revokedAt": datetime, "revokedBy": str},
     total=False,
 )
 
@@ -140,10 +180,14 @@ SigningProfileTypeDef = TypedDict(
     "SigningProfileTypeDef",
     {
         "profileName": str,
+        "profileVersion": str,
+        "profileVersionArn": str,
         "signingMaterial": "SigningMaterialTypeDef",
+        "signatureValidityPeriod": "SignatureValidityPeriodTypeDef",
         "platformId": str,
+        "platformDisplayName": str,
         "signingParameters": Dict[str, str],
-        "status": Literal["Active", "Canceled"],
+        "status": Literal["Active", "Canceled", "Revoked"],
         "arn": str,
         "tags": Dict[str, str],
     },
@@ -152,6 +196,10 @@ SigningProfileTypeDef = TypedDict(
 
 SourceTypeDef = TypedDict("SourceTypeDef", {"s3": "S3SourceTypeDef"}, total=False)
 
+AddProfilePermissionResponseTypeDef = TypedDict(
+    "AddProfilePermissionResponseTypeDef", {"revisionId": str}, total=False
+)
+
 DescribeSigningJobResponseTypeDef = TypedDict(
     "DescribeSigningJobResponseTypeDef",
     {
@@ -159,15 +207,21 @@ DescribeSigningJobResponseTypeDef = TypedDict(
         "source": "SourceTypeDef",
         "signingMaterial": "SigningMaterialTypeDef",
         "platformId": str,
+        "platformDisplayName": str,
         "profileName": str,
+        "profileVersion": str,
         "overrides": "SigningPlatformOverridesTypeDef",
         "signingParameters": Dict[str, str],
         "createdAt": datetime,
         "completedAt": datetime,
+        "signatureExpiresAt": datetime,
         "requestedBy": str,
         "status": Literal["InProgress", "Failed", "Succeeded"],
         "statusReason": str,
+        "revocationRecord": "SigningJobRevocationRecordTypeDef",
         "signedObject": "SignedObjectTypeDef",
+        "jobOwner": str,
+        "jobInvoker": str,
     },
     total=False,
 )
@@ -185,6 +239,7 @@ GetSigningPlatformResponseTypeDef = TypedDict(
         "signingConfiguration": "SigningConfigurationTypeDef",
         "signingImageFormat": "SigningImageFormatTypeDef",
         "maxSizeInMB": int,
+        "revocationSupported": bool,
     },
     total=False,
 )
@@ -193,13 +248,30 @@ GetSigningProfileResponseTypeDef = TypedDict(
     "GetSigningProfileResponseTypeDef",
     {
         "profileName": str,
+        "profileVersion": str,
+        "profileVersionArn": str,
+        "revocationRecord": "SigningProfileRevocationRecordTypeDef",
         "signingMaterial": "SigningMaterialTypeDef",
         "platformId": str,
+        "platformDisplayName": str,
+        "signatureValidityPeriod": "SignatureValidityPeriodTypeDef",
         "overrides": "SigningPlatformOverridesTypeDef",
         "signingParameters": Dict[str, str],
-        "status": Literal["Active", "Canceled"],
+        "status": Literal["Active", "Canceled", "Revoked"],
+        "statusReason": str,
         "arn": str,
         "tags": Dict[str, str],
+    },
+    total=False,
+)
+
+ListProfilePermissionsResponseTypeDef = TypedDict(
+    "ListProfilePermissionsResponseTypeDef",
+    {
+        "revisionId": str,
+        "policySizeBytes": int,
+        "permissions": List["PermissionTypeDef"],
+        "nextToken": str,
     },
     total=False,
 )
@@ -231,11 +303,17 @@ PaginatorConfigTypeDef = TypedDict(
 )
 
 PutSigningProfileResponseTypeDef = TypedDict(
-    "PutSigningProfileResponseTypeDef", {"arn": str}, total=False
+    "PutSigningProfileResponseTypeDef",
+    {"arn": str, "profileVersion": str, "profileVersionArn": str},
+    total=False,
+)
+
+RemoveProfilePermissionResponseTypeDef = TypedDict(
+    "RemoveProfilePermissionResponseTypeDef", {"revisionId": str}, total=False
 )
 
 StartSigningJobResponseTypeDef = TypedDict(
-    "StartSigningJobResponseTypeDef", {"jobId": str}, total=False
+    "StartSigningJobResponseTypeDef", {"jobId": str, "jobOwner": str}, total=False
 )
 
 WaiterConfigTypeDef = TypedDict(

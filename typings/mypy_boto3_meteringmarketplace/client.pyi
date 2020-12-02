@@ -59,7 +59,7 @@ class Exceptions:
 
 class MarketplaceMeteringClient:
     """
-    [MarketplaceMetering.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/meteringmarketplace.html#MarketplaceMetering.Client)
+    [MarketplaceMetering.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/meteringmarketplace.html#MarketplaceMetering.Client)
     """
 
     meta: ClientMeta
@@ -69,12 +69,12 @@ class MarketplaceMeteringClient:
         self, UsageRecords: List["UsageRecordTypeDef"], ProductCode: str
     ) -> BatchMeterUsageResultTypeDef:
         """
-        [Client.batch_meter_usage documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/meteringmarketplace.html#MarketplaceMetering.Client.batch_meter_usage)
+        [Client.batch_meter_usage documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/meteringmarketplace.html#MarketplaceMetering.Client.batch_meter_usage)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/meteringmarketplace.html#MarketplaceMetering.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/meteringmarketplace.html#MarketplaceMetering.Client.can_paginate)
         """
 
     def generate_presigned_url(
@@ -85,7 +85,7 @@ class MarketplaceMeteringClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/meteringmarketplace.html#MarketplaceMetering.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/meteringmarketplace.html#MarketplaceMetering.Client.generate_presigned_url)
         """
 
     def meter_usage(
@@ -98,17 +98,17 @@ class MarketplaceMeteringClient:
         UsageAllocations: List["UsageAllocationTypeDef"] = None,
     ) -> MeterUsageResultTypeDef:
         """
-        [Client.meter_usage documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/meteringmarketplace.html#MarketplaceMetering.Client.meter_usage)
+        [Client.meter_usage documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/meteringmarketplace.html#MarketplaceMetering.Client.meter_usage)
         """
 
     def register_usage(
         self, ProductCode: str, PublicKeyVersion: int, Nonce: str = None
     ) -> RegisterUsageResultTypeDef:
         """
-        [Client.register_usage documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/meteringmarketplace.html#MarketplaceMetering.Client.register_usage)
+        [Client.register_usage documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/meteringmarketplace.html#MarketplaceMetering.Client.register_usage)
         """
 
     def resolve_customer(self, RegistrationToken: str) -> ResolveCustomerResultTypeDef:
         """
-        [Client.resolve_customer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/meteringmarketplace.html#MarketplaceMetering.Client.resolve_customer)
+        [Client.resolve_customer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/meteringmarketplace.html#MarketplaceMetering.Client.resolve_customer)
         """

@@ -38,7 +38,7 @@ class Exceptions:
 
 class SageMakerRuntimeClient:
     """
-    [SageMakerRuntime.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker-runtime.html#SageMakerRuntime.Client)
+    [SageMakerRuntime.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker-runtime.html#SageMakerRuntime.Client)
     """
 
     meta: ClientMeta
@@ -46,7 +46,7 @@ class SageMakerRuntimeClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker-runtime.html#SageMakerRuntime.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker-runtime.html#SageMakerRuntime.Client.can_paginate)
         """
 
     def generate_presigned_url(
@@ -57,7 +57,7 @@ class SageMakerRuntimeClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker-runtime.html#SageMakerRuntime.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker-runtime.html#SageMakerRuntime.Client.generate_presigned_url)
         """
 
     def invoke_endpoint(
@@ -71,5 +71,5 @@ class SageMakerRuntimeClient:
         TargetVariant: str = None,
     ) -> InvokeEndpointOutputTypeDef:
         """
-        [Client.invoke_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker-runtime.html#SageMakerRuntime.Client.invoke_endpoint)
+        [Client.invoke_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker-runtime.html#SageMakerRuntime.Client.invoke_endpoint)
         """

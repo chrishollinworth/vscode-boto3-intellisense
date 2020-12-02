@@ -117,7 +117,9 @@ _RequiredBackupTypeDef = TypedDict(
     "_RequiredBackupTypeDef",
     {
         "BackupId": str,
-        "Lifecycle": Literal["AVAILABLE", "CREATING", "TRANSFERRING", "DELETED", "FAILED"],
+        "Lifecycle": Literal[
+            "AVAILABLE", "CREATING", "TRANSFERRING", "DELETED", "FAILED", "PENDING"
+        ],
         "Type": Literal["AUTOMATIC", "USER_INITIATED", "AWS_BACKUP"],
         "CreationTime": datetime,
         "FileSystem": Dict[str, Any],
@@ -392,7 +394,9 @@ DeleteBackupResponseTypeDef = TypedDict(
     "DeleteBackupResponseTypeDef",
     {
         "BackupId": str,
-        "Lifecycle": Literal["AVAILABLE", "CREATING", "TRANSFERRING", "DELETED", "FAILED"],
+        "Lifecycle": Literal[
+            "AVAILABLE", "CREATING", "TRANSFERRING", "DELETED", "FAILED", "PENDING"
+        ],
     },
     total=False,
 )

@@ -42,6 +42,7 @@ from mypy_boto3_comprehend.type_defs import (
     DescribeEndpointResponseTypeDef,
     DescribeEntitiesDetectionJobResponseTypeDef,
     DescribeEntityRecognizerResponseTypeDef,
+    DescribeEventsDetectionJobResponseTypeDef,
     DescribeKeyPhrasesDetectionJobResponseTypeDef,
     DescribePiiEntitiesDetectionJobResponseTypeDef,
     DescribeSentimentDetectionJobResponseTypeDef,
@@ -61,6 +62,7 @@ from mypy_boto3_comprehend.type_defs import (
     EntitiesDetectionJobFilterTypeDef,
     EntityRecognizerFilterTypeDef,
     EntityRecognizerInputDataConfigTypeDef,
+    EventsDetectionJobFilterTypeDef,
     InputDataConfigTypeDef,
     KeyPhrasesDetectionJobFilterTypeDef,
     ListDocumentClassificationJobsResponseTypeDef,
@@ -69,6 +71,7 @@ from mypy_boto3_comprehend.type_defs import (
     ListEndpointsResponseTypeDef,
     ListEntitiesDetectionJobsResponseTypeDef,
     ListEntityRecognizersResponseTypeDef,
+    ListEventsDetectionJobsResponseTypeDef,
     ListKeyPhrasesDetectionJobsResponseTypeDef,
     ListPiiEntitiesDetectionJobsResponseTypeDef,
     ListSentimentDetectionJobsResponseTypeDef,
@@ -81,12 +84,14 @@ from mypy_boto3_comprehend.type_defs import (
     StartDocumentClassificationJobResponseTypeDef,
     StartDominantLanguageDetectionJobResponseTypeDef,
     StartEntitiesDetectionJobResponseTypeDef,
+    StartEventsDetectionJobResponseTypeDef,
     StartKeyPhrasesDetectionJobResponseTypeDef,
     StartPiiEntitiesDetectionJobResponseTypeDef,
     StartSentimentDetectionJobResponseTypeDef,
     StartTopicsDetectionJobResponseTypeDef,
     StopDominantLanguageDetectionJobResponseTypeDef,
     StopEntitiesDetectionJobResponseTypeDef,
+    StopEventsDetectionJobResponseTypeDef,
     StopKeyPhrasesDetectionJobResponseTypeDef,
     StopPiiEntitiesDetectionJobResponseTypeDef,
     StopSentimentDetectionJobResponseTypeDef,
@@ -134,7 +139,7 @@ class Exceptions:
 
 class ComprehendClient:
     """
-    [Comprehend.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client)
+    [Comprehend.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client)
     """
 
     meta: ClientMeta
@@ -144,7 +149,7 @@ class ComprehendClient:
         self, TextList: List[str]
     ) -> BatchDetectDominantLanguageResponseTypeDef:
         """
-        [Client.batch_detect_dominant_language documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.batch_detect_dominant_language)
+        [Client.batch_detect_dominant_language documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.batch_detect_dominant_language)
         """
 
     def batch_detect_entities(
@@ -155,7 +160,7 @@ class ComprehendClient:
         ],
     ) -> BatchDetectEntitiesResponseTypeDef:
         """
-        [Client.batch_detect_entities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.batch_detect_entities)
+        [Client.batch_detect_entities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.batch_detect_entities)
         """
 
     def batch_detect_key_phrases(
@@ -166,7 +171,7 @@ class ComprehendClient:
         ],
     ) -> BatchDetectKeyPhrasesResponseTypeDef:
         """
-        [Client.batch_detect_key_phrases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.batch_detect_key_phrases)
+        [Client.batch_detect_key_phrases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.batch_detect_key_phrases)
         """
 
     def batch_detect_sentiment(
@@ -177,24 +182,24 @@ class ComprehendClient:
         ],
     ) -> BatchDetectSentimentResponseTypeDef:
         """
-        [Client.batch_detect_sentiment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.batch_detect_sentiment)
+        [Client.batch_detect_sentiment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.batch_detect_sentiment)
         """
 
     def batch_detect_syntax(
         self, TextList: List[str], LanguageCode: Literal["en", "es", "fr", "de", "it", "pt"]
     ) -> BatchDetectSyntaxResponseTypeDef:
         """
-        [Client.batch_detect_syntax documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.batch_detect_syntax)
+        [Client.batch_detect_syntax documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.batch_detect_syntax)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.can_paginate)
         """
 
     def classify_document(self, Text: str, EndpointArn: str) -> ClassifyDocumentResponseTypeDef:
         """
-        [Client.classify_document documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.classify_document)
+        [Client.classify_document documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.classify_document)
         """
 
     def create_document_classifier(
@@ -213,7 +218,7 @@ class ComprehendClient:
         Mode: Literal["MULTI_CLASS", "MULTI_LABEL"] = None,
     ) -> CreateDocumentClassifierResponseTypeDef:
         """
-        [Client.create_document_classifier documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.create_document_classifier)
+        [Client.create_document_classifier documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.create_document_classifier)
         """
 
     def create_endpoint(
@@ -225,7 +230,7 @@ class ComprehendClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateEndpointResponseTypeDef:
         """
-        [Client.create_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.create_endpoint)
+        [Client.create_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.create_endpoint)
         """
 
     def create_entity_recognizer(
@@ -242,95 +247,102 @@ class ComprehendClient:
         VpcConfig: "VpcConfigTypeDef" = None,
     ) -> CreateEntityRecognizerResponseTypeDef:
         """
-        [Client.create_entity_recognizer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.create_entity_recognizer)
+        [Client.create_entity_recognizer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.create_entity_recognizer)
         """
 
     def delete_document_classifier(self, DocumentClassifierArn: str) -> Dict[str, Any]:
         """
-        [Client.delete_document_classifier documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.delete_document_classifier)
+        [Client.delete_document_classifier documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.delete_document_classifier)
         """
 
     def delete_endpoint(self, EndpointArn: str) -> Dict[str, Any]:
         """
-        [Client.delete_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.delete_endpoint)
+        [Client.delete_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.delete_endpoint)
         """
 
     def delete_entity_recognizer(self, EntityRecognizerArn: str) -> Dict[str, Any]:
         """
-        [Client.delete_entity_recognizer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.delete_entity_recognizer)
+        [Client.delete_entity_recognizer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.delete_entity_recognizer)
         """
 
     def describe_document_classification_job(
         self, JobId: str
     ) -> DescribeDocumentClassificationJobResponseTypeDef:
         """
-        [Client.describe_document_classification_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.describe_document_classification_job)
+        [Client.describe_document_classification_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.describe_document_classification_job)
         """
 
     def describe_document_classifier(
         self, DocumentClassifierArn: str
     ) -> DescribeDocumentClassifierResponseTypeDef:
         """
-        [Client.describe_document_classifier documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.describe_document_classifier)
+        [Client.describe_document_classifier documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.describe_document_classifier)
         """
 
     def describe_dominant_language_detection_job(
         self, JobId: str
     ) -> DescribeDominantLanguageDetectionJobResponseTypeDef:
         """
-        [Client.describe_dominant_language_detection_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.describe_dominant_language_detection_job)
+        [Client.describe_dominant_language_detection_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.describe_dominant_language_detection_job)
         """
 
     def describe_endpoint(self, EndpointArn: str) -> DescribeEndpointResponseTypeDef:
         """
-        [Client.describe_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.describe_endpoint)
+        [Client.describe_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.describe_endpoint)
         """
 
     def describe_entities_detection_job(
         self, JobId: str
     ) -> DescribeEntitiesDetectionJobResponseTypeDef:
         """
-        [Client.describe_entities_detection_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.describe_entities_detection_job)
+        [Client.describe_entities_detection_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.describe_entities_detection_job)
         """
 
     def describe_entity_recognizer(
         self, EntityRecognizerArn: str
     ) -> DescribeEntityRecognizerResponseTypeDef:
         """
-        [Client.describe_entity_recognizer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.describe_entity_recognizer)
+        [Client.describe_entity_recognizer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.describe_entity_recognizer)
+        """
+
+    def describe_events_detection_job(
+        self, JobId: str
+    ) -> DescribeEventsDetectionJobResponseTypeDef:
+        """
+        [Client.describe_events_detection_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.describe_events_detection_job)
         """
 
     def describe_key_phrases_detection_job(
         self, JobId: str
     ) -> DescribeKeyPhrasesDetectionJobResponseTypeDef:
         """
-        [Client.describe_key_phrases_detection_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.describe_key_phrases_detection_job)
+        [Client.describe_key_phrases_detection_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.describe_key_phrases_detection_job)
         """
 
     def describe_pii_entities_detection_job(
         self, JobId: str
     ) -> DescribePiiEntitiesDetectionJobResponseTypeDef:
         """
-        [Client.describe_pii_entities_detection_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.describe_pii_entities_detection_job)
+        [Client.describe_pii_entities_detection_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.describe_pii_entities_detection_job)
         """
 
     def describe_sentiment_detection_job(
         self, JobId: str
     ) -> DescribeSentimentDetectionJobResponseTypeDef:
         """
-        [Client.describe_sentiment_detection_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.describe_sentiment_detection_job)
+        [Client.describe_sentiment_detection_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.describe_sentiment_detection_job)
         """
 
     def describe_topics_detection_job(
         self, JobId: str
     ) -> DescribeTopicsDetectionJobResponseTypeDef:
         """
-        [Client.describe_topics_detection_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.describe_topics_detection_job)
+        [Client.describe_topics_detection_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.describe_topics_detection_job)
         """
 
     def detect_dominant_language(self, Text: str) -> DetectDominantLanguageResponseTypeDef:
         """
-        [Client.detect_dominant_language documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.detect_dominant_language)
+        [Client.detect_dominant_language documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.detect_dominant_language)
         """
 
     def detect_entities(
@@ -342,7 +354,7 @@ class ComprehendClient:
         EndpointArn: str = None,
     ) -> DetectEntitiesResponseTypeDef:
         """
-        [Client.detect_entities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.detect_entities)
+        [Client.detect_entities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.detect_entities)
         """
 
     def detect_key_phrases(
@@ -353,7 +365,7 @@ class ComprehendClient:
         ],
     ) -> DetectKeyPhrasesResponseTypeDef:
         """
-        [Client.detect_key_phrases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.detect_key_phrases)
+        [Client.detect_key_phrases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.detect_key_phrases)
         """
 
     def detect_pii_entities(
@@ -364,7 +376,7 @@ class ComprehendClient:
         ],
     ) -> DetectPiiEntitiesResponseTypeDef:
         """
-        [Client.detect_pii_entities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.detect_pii_entities)
+        [Client.detect_pii_entities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.detect_pii_entities)
         """
 
     def detect_sentiment(
@@ -375,14 +387,14 @@ class ComprehendClient:
         ],
     ) -> DetectSentimentResponseTypeDef:
         """
-        [Client.detect_sentiment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.detect_sentiment)
+        [Client.detect_sentiment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.detect_sentiment)
         """
 
     def detect_syntax(
         self, Text: str, LanguageCode: Literal["en", "es", "fr", "de", "it", "pt"]
     ) -> DetectSyntaxResponseTypeDef:
         """
-        [Client.detect_syntax documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.detect_syntax)
+        [Client.detect_syntax documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.detect_syntax)
         """
 
     def generate_presigned_url(
@@ -393,7 +405,7 @@ class ComprehendClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.generate_presigned_url)
         """
 
     def list_document_classification_jobs(
@@ -403,7 +415,7 @@ class ComprehendClient:
         MaxResults: int = None,
     ) -> ListDocumentClassificationJobsResponseTypeDef:
         """
-        [Client.list_document_classification_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.list_document_classification_jobs)
+        [Client.list_document_classification_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.list_document_classification_jobs)
         """
 
     def list_document_classifiers(
@@ -413,7 +425,7 @@ class ComprehendClient:
         MaxResults: int = None,
     ) -> ListDocumentClassifiersResponseTypeDef:
         """
-        [Client.list_document_classifiers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.list_document_classifiers)
+        [Client.list_document_classifiers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.list_document_classifiers)
         """
 
     def list_dominant_language_detection_jobs(
@@ -423,14 +435,14 @@ class ComprehendClient:
         MaxResults: int = None,
     ) -> ListDominantLanguageDetectionJobsResponseTypeDef:
         """
-        [Client.list_dominant_language_detection_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.list_dominant_language_detection_jobs)
+        [Client.list_dominant_language_detection_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.list_dominant_language_detection_jobs)
         """
 
     def list_endpoints(
         self, Filter: EndpointFilterTypeDef = None, NextToken: str = None, MaxResults: int = None
     ) -> ListEndpointsResponseTypeDef:
         """
-        [Client.list_endpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.list_endpoints)
+        [Client.list_endpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.list_endpoints)
         """
 
     def list_entities_detection_jobs(
@@ -440,7 +452,7 @@ class ComprehendClient:
         MaxResults: int = None,
     ) -> ListEntitiesDetectionJobsResponseTypeDef:
         """
-        [Client.list_entities_detection_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.list_entities_detection_jobs)
+        [Client.list_entities_detection_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.list_entities_detection_jobs)
         """
 
     def list_entity_recognizers(
@@ -450,7 +462,17 @@ class ComprehendClient:
         MaxResults: int = None,
     ) -> ListEntityRecognizersResponseTypeDef:
         """
-        [Client.list_entity_recognizers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.list_entity_recognizers)
+        [Client.list_entity_recognizers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.list_entity_recognizers)
+        """
+
+    def list_events_detection_jobs(
+        self,
+        Filter: EventsDetectionJobFilterTypeDef = None,
+        NextToken: str = None,
+        MaxResults: int = None,
+    ) -> ListEventsDetectionJobsResponseTypeDef:
+        """
+        [Client.list_events_detection_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.list_events_detection_jobs)
         """
 
     def list_key_phrases_detection_jobs(
@@ -460,7 +482,7 @@ class ComprehendClient:
         MaxResults: int = None,
     ) -> ListKeyPhrasesDetectionJobsResponseTypeDef:
         """
-        [Client.list_key_phrases_detection_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.list_key_phrases_detection_jobs)
+        [Client.list_key_phrases_detection_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.list_key_phrases_detection_jobs)
         """
 
     def list_pii_entities_detection_jobs(
@@ -470,7 +492,7 @@ class ComprehendClient:
         MaxResults: int = None,
     ) -> ListPiiEntitiesDetectionJobsResponseTypeDef:
         """
-        [Client.list_pii_entities_detection_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.list_pii_entities_detection_jobs)
+        [Client.list_pii_entities_detection_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.list_pii_entities_detection_jobs)
         """
 
     def list_sentiment_detection_jobs(
@@ -480,12 +502,12 @@ class ComprehendClient:
         MaxResults: int = None,
     ) -> ListSentimentDetectionJobsResponseTypeDef:
         """
-        [Client.list_sentiment_detection_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.list_sentiment_detection_jobs)
+        [Client.list_sentiment_detection_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.list_sentiment_detection_jobs)
         """
 
     def list_tags_for_resource(self, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.list_tags_for_resource)
         """
 
     def list_topics_detection_jobs(
@@ -495,7 +517,7 @@ class ComprehendClient:
         MaxResults: int = None,
     ) -> ListTopicsDetectionJobsResponseTypeDef:
         """
-        [Client.list_topics_detection_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.list_topics_detection_jobs)
+        [Client.list_topics_detection_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.list_topics_detection_jobs)
         """
 
     def start_document_classification_job(
@@ -510,7 +532,7 @@ class ComprehendClient:
         VpcConfig: "VpcConfigTypeDef" = None,
     ) -> StartDocumentClassificationJobResponseTypeDef:
         """
-        [Client.start_document_classification_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.start_document_classification_job)
+        [Client.start_document_classification_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.start_document_classification_job)
         """
 
     def start_dominant_language_detection_job(
@@ -524,7 +546,7 @@ class ComprehendClient:
         VpcConfig: "VpcConfigTypeDef" = None,
     ) -> StartDominantLanguageDetectionJobResponseTypeDef:
         """
-        [Client.start_dominant_language_detection_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.start_dominant_language_detection_job)
+        [Client.start_dominant_language_detection_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.start_dominant_language_detection_job)
         """
 
     def start_entities_detection_job(
@@ -542,7 +564,23 @@ class ComprehendClient:
         VpcConfig: "VpcConfigTypeDef" = None,
     ) -> StartEntitiesDetectionJobResponseTypeDef:
         """
-        [Client.start_entities_detection_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.start_entities_detection_job)
+        [Client.start_entities_detection_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.start_entities_detection_job)
+        """
+
+    def start_events_detection_job(
+        self,
+        InputDataConfig: "InputDataConfigTypeDef",
+        OutputDataConfig: "OutputDataConfigTypeDef",
+        DataAccessRoleArn: str,
+        LanguageCode: Literal[
+            "en", "es", "fr", "de", "it", "pt", "ar", "hi", "ja", "ko", "zh", "zh-TW"
+        ],
+        TargetEventTypes: List[str],
+        JobName: str = None,
+        ClientRequestToken: str = None,
+    ) -> StartEventsDetectionJobResponseTypeDef:
+        """
+        [Client.start_events_detection_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.start_events_detection_job)
         """
 
     def start_key_phrases_detection_job(
@@ -559,7 +597,7 @@ class ComprehendClient:
         VpcConfig: "VpcConfigTypeDef" = None,
     ) -> StartKeyPhrasesDetectionJobResponseTypeDef:
         """
-        [Client.start_key_phrases_detection_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.start_key_phrases_detection_job)
+        [Client.start_key_phrases_detection_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.start_key_phrases_detection_job)
         """
 
     def start_pii_entities_detection_job(
@@ -576,7 +614,7 @@ class ComprehendClient:
         ClientRequestToken: str = None,
     ) -> StartPiiEntitiesDetectionJobResponseTypeDef:
         """
-        [Client.start_pii_entities_detection_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.start_pii_entities_detection_job)
+        [Client.start_pii_entities_detection_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.start_pii_entities_detection_job)
         """
 
     def start_sentiment_detection_job(
@@ -593,7 +631,7 @@ class ComprehendClient:
         VpcConfig: "VpcConfigTypeDef" = None,
     ) -> StartSentimentDetectionJobResponseTypeDef:
         """
-        [Client.start_sentiment_detection_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.start_sentiment_detection_job)
+        [Client.start_sentiment_detection_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.start_sentiment_detection_job)
         """
 
     def start_topics_detection_job(
@@ -608,63 +646,68 @@ class ComprehendClient:
         VpcConfig: "VpcConfigTypeDef" = None,
     ) -> StartTopicsDetectionJobResponseTypeDef:
         """
-        [Client.start_topics_detection_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.start_topics_detection_job)
+        [Client.start_topics_detection_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.start_topics_detection_job)
         """
 
     def stop_dominant_language_detection_job(
         self, JobId: str
     ) -> StopDominantLanguageDetectionJobResponseTypeDef:
         """
-        [Client.stop_dominant_language_detection_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.stop_dominant_language_detection_job)
+        [Client.stop_dominant_language_detection_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.stop_dominant_language_detection_job)
         """
 
     def stop_entities_detection_job(self, JobId: str) -> StopEntitiesDetectionJobResponseTypeDef:
         """
-        [Client.stop_entities_detection_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.stop_entities_detection_job)
+        [Client.stop_entities_detection_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.stop_entities_detection_job)
+        """
+
+    def stop_events_detection_job(self, JobId: str) -> StopEventsDetectionJobResponseTypeDef:
+        """
+        [Client.stop_events_detection_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.stop_events_detection_job)
         """
 
     def stop_key_phrases_detection_job(
         self, JobId: str
     ) -> StopKeyPhrasesDetectionJobResponseTypeDef:
         """
-        [Client.stop_key_phrases_detection_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.stop_key_phrases_detection_job)
+        [Client.stop_key_phrases_detection_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.stop_key_phrases_detection_job)
         """
 
     def stop_pii_entities_detection_job(
         self, JobId: str
     ) -> StopPiiEntitiesDetectionJobResponseTypeDef:
         """
-        [Client.stop_pii_entities_detection_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.stop_pii_entities_detection_job)
+        [Client.stop_pii_entities_detection_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.stop_pii_entities_detection_job)
         """
 
     def stop_sentiment_detection_job(self, JobId: str) -> StopSentimentDetectionJobResponseTypeDef:
         """
-        [Client.stop_sentiment_detection_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.stop_sentiment_detection_job)
+        [Client.stop_sentiment_detection_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.stop_sentiment_detection_job)
         """
 
     def stop_training_document_classifier(self, DocumentClassifierArn: str) -> Dict[str, Any]:
         """
-        [Client.stop_training_document_classifier documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.stop_training_document_classifier)
+        [Client.stop_training_document_classifier documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.stop_training_document_classifier)
         """
 
     def stop_training_entity_recognizer(self, EntityRecognizerArn: str) -> Dict[str, Any]:
         """
-        [Client.stop_training_entity_recognizer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.stop_training_entity_recognizer)
+        [Client.stop_training_entity_recognizer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.stop_training_entity_recognizer)
         """
 
     def tag_resource(self, ResourceArn: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.tag_resource)
         """
 
     def untag_resource(self, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.untag_resource)
         """
 
     def update_endpoint(self, EndpointArn: str, DesiredInferenceUnits: int) -> Dict[str, Any]:
         """
-        [Client.update_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Client.update_endpoint)
+        [Client.update_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Client.update_endpoint)
         """
 
     @overload
@@ -672,7 +715,7 @@ class ComprehendClient:
         self, operation_name: Literal["list_document_classification_jobs"]
     ) -> ListDocumentClassificationJobsPaginator:
         """
-        [Paginator.ListDocumentClassificationJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Paginator.ListDocumentClassificationJobs)
+        [Paginator.ListDocumentClassificationJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Paginator.ListDocumentClassificationJobs)
         """
 
     @overload
@@ -680,7 +723,7 @@ class ComprehendClient:
         self, operation_name: Literal["list_document_classifiers"]
     ) -> ListDocumentClassifiersPaginator:
         """
-        [Paginator.ListDocumentClassifiers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Paginator.ListDocumentClassifiers)
+        [Paginator.ListDocumentClassifiers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Paginator.ListDocumentClassifiers)
         """
 
     @overload
@@ -688,7 +731,7 @@ class ComprehendClient:
         self, operation_name: Literal["list_dominant_language_detection_jobs"]
     ) -> ListDominantLanguageDetectionJobsPaginator:
         """
-        [Paginator.ListDominantLanguageDetectionJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Paginator.ListDominantLanguageDetectionJobs)
+        [Paginator.ListDominantLanguageDetectionJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Paginator.ListDominantLanguageDetectionJobs)
         """
 
     @overload
@@ -696,7 +739,7 @@ class ComprehendClient:
         self, operation_name: Literal["list_entities_detection_jobs"]
     ) -> ListEntitiesDetectionJobsPaginator:
         """
-        [Paginator.ListEntitiesDetectionJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Paginator.ListEntitiesDetectionJobs)
+        [Paginator.ListEntitiesDetectionJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Paginator.ListEntitiesDetectionJobs)
         """
 
     @overload
@@ -704,7 +747,7 @@ class ComprehendClient:
         self, operation_name: Literal["list_entity_recognizers"]
     ) -> ListEntityRecognizersPaginator:
         """
-        [Paginator.ListEntityRecognizers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Paginator.ListEntityRecognizers)
+        [Paginator.ListEntityRecognizers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Paginator.ListEntityRecognizers)
         """
 
     @overload
@@ -712,7 +755,7 @@ class ComprehendClient:
         self, operation_name: Literal["list_key_phrases_detection_jobs"]
     ) -> ListKeyPhrasesDetectionJobsPaginator:
         """
-        [Paginator.ListKeyPhrasesDetectionJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Paginator.ListKeyPhrasesDetectionJobs)
+        [Paginator.ListKeyPhrasesDetectionJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Paginator.ListKeyPhrasesDetectionJobs)
         """
 
     @overload
@@ -720,7 +763,7 @@ class ComprehendClient:
         self, operation_name: Literal["list_sentiment_detection_jobs"]
     ) -> ListSentimentDetectionJobsPaginator:
         """
-        [Paginator.ListSentimentDetectionJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Paginator.ListSentimentDetectionJobs)
+        [Paginator.ListSentimentDetectionJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Paginator.ListSentimentDetectionJobs)
         """
 
     @overload
@@ -728,5 +771,5 @@ class ComprehendClient:
         self, operation_name: Literal["list_topics_detection_jobs"]
     ) -> ListTopicsDetectionJobsPaginator:
         """
-        [Paginator.ListTopicsDetectionJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Paginator.ListTopicsDetectionJobs)
+        [Paginator.ListTopicsDetectionJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Paginator.ListTopicsDetectionJobs)
         """

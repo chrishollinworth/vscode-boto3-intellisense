@@ -35,6 +35,7 @@ __all__ = (
     "ContainerPropertiesTypeDef",
     "ContainerSummaryTypeDef",
     "DeviceTypeDef",
+    "Ec2ConfigurationTypeDef",
     "EvaluateOnExitTypeDef",
     "HostTypeDef",
     "JobDefinitionTypeDef",
@@ -167,6 +168,7 @@ _OptionalComputeResourceTypeDef = TypedDict(
         "bidPercentage": int,
         "spotIamFleetRole": str,
         "launchTemplate": "LaunchTemplateSpecificationTypeDef",
+        "ec2Configuration": List["Ec2ConfigurationTypeDef"],
     },
     total=False,
 )
@@ -258,6 +260,16 @@ _OptionalDeviceTypeDef = TypedDict(
 
 
 class DeviceTypeDef(_RequiredDeviceTypeDef, _OptionalDeviceTypeDef):
+    pass
+
+
+_RequiredEc2ConfigurationTypeDef = TypedDict("_RequiredEc2ConfigurationTypeDef", {"imageType": str})
+_OptionalEc2ConfigurationTypeDef = TypedDict(
+    "_OptionalEc2ConfigurationTypeDef", {"imageIdOverride": str}, total=False
+)
+
+
+class Ec2ConfigurationTypeDef(_RequiredEc2ConfigurationTypeDef, _OptionalEc2ConfigurationTypeDef):
     pass
 
 

@@ -37,38 +37,38 @@ __all__ = ("ListComplianceStatusPaginator", "ListMemberAccountsPaginator", "List
 
 class ListComplianceStatusPaginator(Boto3Paginator):
     """
-    [Paginator.ListComplianceStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/fms.html#FMS.Paginator.ListComplianceStatus)
+    [Paginator.ListComplianceStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/fms.html#FMS.Paginator.ListComplianceStatus)
     """
 
     def paginate(
         self, PolicyId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListComplianceStatusResponseTypeDef]:
         """
-        [ListComplianceStatus.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/fms.html#FMS.Paginator.ListComplianceStatus.paginate)
+        [ListComplianceStatus.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/fms.html#FMS.Paginator.ListComplianceStatus.paginate)
         """
 
 
 class ListMemberAccountsPaginator(Boto3Paginator):
     """
-    [Paginator.ListMemberAccounts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/fms.html#FMS.Paginator.ListMemberAccounts)
+    [Paginator.ListMemberAccounts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/fms.html#FMS.Paginator.ListMemberAccounts)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListMemberAccountsResponseTypeDef]:
         """
-        [ListMemberAccounts.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/fms.html#FMS.Paginator.ListMemberAccounts.paginate)
+        [ListMemberAccounts.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/fms.html#FMS.Paginator.ListMemberAccounts.paginate)
         """
 
 
 class ListPoliciesPaginator(Boto3Paginator):
     """
-    [Paginator.ListPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/fms.html#FMS.Paginator.ListPolicies)
+    [Paginator.ListPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/fms.html#FMS.Paginator.ListPolicies)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPoliciesResponseTypeDef]:
         """
-        [ListPolicies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/fms.html#FMS.Paginator.ListPolicies.paginate)
+        [ListPolicies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/fms.html#FMS.Paginator.ListPolicies.paginate)
         """

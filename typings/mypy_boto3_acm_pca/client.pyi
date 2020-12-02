@@ -87,7 +87,7 @@ class Exceptions:
 
 class ACMPCAClient:
     """
-    [ACMPCA.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm-pca.html#ACMPCA.Client)
+    [ACMPCA.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm-pca.html#ACMPCA.Client)
     """
 
     meta: ClientMeta
@@ -95,7 +95,7 @@ class ACMPCAClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm-pca.html#ACMPCA.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm-pca.html#ACMPCA.Client.can_paginate)
         """
 
     def create_certificate_authority(
@@ -107,7 +107,7 @@ class ACMPCAClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateCertificateAuthorityResponseTypeDef:
         """
-        [Client.create_certificate_authority documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm-pca.html#ACMPCA.Client.create_certificate_authority)
+        [Client.create_certificate_authority documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm-pca.html#ACMPCA.Client.create_certificate_authority)
         """
 
     def create_certificate_authority_audit_report(
@@ -117,7 +117,7 @@ class ACMPCAClient:
         AuditReportResponseFormat: Literal["JSON", "CSV"],
     ) -> CreateCertificateAuthorityAuditReportResponseTypeDef:
         """
-        [Client.create_certificate_authority_audit_report documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm-pca.html#ACMPCA.Client.create_certificate_authority_audit_report)
+        [Client.create_certificate_authority_audit_report documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm-pca.html#ACMPCA.Client.create_certificate_authority_audit_report)
         """
 
     def create_permission(
@@ -128,40 +128,40 @@ class ACMPCAClient:
         SourceAccount: str = None,
     ) -> None:
         """
-        [Client.create_permission documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm-pca.html#ACMPCA.Client.create_permission)
+        [Client.create_permission documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm-pca.html#ACMPCA.Client.create_permission)
         """
 
     def delete_certificate_authority(
         self, CertificateAuthorityArn: str, PermanentDeletionTimeInDays: int = None
     ) -> None:
         """
-        [Client.delete_certificate_authority documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm-pca.html#ACMPCA.Client.delete_certificate_authority)
+        [Client.delete_certificate_authority documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm-pca.html#ACMPCA.Client.delete_certificate_authority)
         """
 
     def delete_permission(
         self, CertificateAuthorityArn: str, Principal: str, SourceAccount: str = None
     ) -> None:
         """
-        [Client.delete_permission documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm-pca.html#ACMPCA.Client.delete_permission)
+        [Client.delete_permission documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm-pca.html#ACMPCA.Client.delete_permission)
         """
 
     def delete_policy(self, ResourceArn: str) -> None:
         """
-        [Client.delete_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm-pca.html#ACMPCA.Client.delete_policy)
+        [Client.delete_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm-pca.html#ACMPCA.Client.delete_policy)
         """
 
     def describe_certificate_authority(
         self, CertificateAuthorityArn: str
     ) -> DescribeCertificateAuthorityResponseTypeDef:
         """
-        [Client.describe_certificate_authority documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm-pca.html#ACMPCA.Client.describe_certificate_authority)
+        [Client.describe_certificate_authority documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm-pca.html#ACMPCA.Client.describe_certificate_authority)
         """
 
     def describe_certificate_authority_audit_report(
         self, CertificateAuthorityArn: str, AuditReportId: str
     ) -> DescribeCertificateAuthorityAuditReportResponseTypeDef:
         """
-        [Client.describe_certificate_authority_audit_report documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm-pca.html#ACMPCA.Client.describe_certificate_authority_audit_report)
+        [Client.describe_certificate_authority_audit_report documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm-pca.html#ACMPCA.Client.describe_certificate_authority_audit_report)
         """
 
     def generate_presigned_url(
@@ -172,33 +172,33 @@ class ACMPCAClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm-pca.html#ACMPCA.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm-pca.html#ACMPCA.Client.generate_presigned_url)
         """
 
     def get_certificate(
         self, CertificateAuthorityArn: str, CertificateArn: str
     ) -> GetCertificateResponseTypeDef:
         """
-        [Client.get_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm-pca.html#ACMPCA.Client.get_certificate)
+        [Client.get_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm-pca.html#ACMPCA.Client.get_certificate)
         """
 
     def get_certificate_authority_certificate(
         self, CertificateAuthorityArn: str
     ) -> GetCertificateAuthorityCertificateResponseTypeDef:
         """
-        [Client.get_certificate_authority_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm-pca.html#ACMPCA.Client.get_certificate_authority_certificate)
+        [Client.get_certificate_authority_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm-pca.html#ACMPCA.Client.get_certificate_authority_certificate)
         """
 
     def get_certificate_authority_csr(
         self, CertificateAuthorityArn: str
     ) -> GetCertificateAuthorityCsrResponseTypeDef:
         """
-        [Client.get_certificate_authority_csr documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm-pca.html#ACMPCA.Client.get_certificate_authority_csr)
+        [Client.get_certificate_authority_csr documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm-pca.html#ACMPCA.Client.get_certificate_authority_csr)
         """
 
     def get_policy(self, ResourceArn: str) -> GetPolicyResponseTypeDef:
         """
-        [Client.get_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm-pca.html#ACMPCA.Client.get_policy)
+        [Client.get_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm-pca.html#ACMPCA.Client.get_policy)
         """
 
     def import_certificate_authority_certificate(
@@ -208,7 +208,7 @@ class ACMPCAClient:
         CertificateChain: Union[bytes, IO[bytes]] = None,
     ) -> None:
         """
-        [Client.import_certificate_authority_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm-pca.html#ACMPCA.Client.import_certificate_authority_certificate)
+        [Client.import_certificate_authority_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm-pca.html#ACMPCA.Client.import_certificate_authority_certificate)
         """
 
     def issue_certificate(
@@ -228,7 +228,7 @@ class ACMPCAClient:
         IdempotencyToken: str = None,
     ) -> IssueCertificateResponseTypeDef:
         """
-        [Client.issue_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm-pca.html#ACMPCA.Client.issue_certificate)
+        [Client.issue_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm-pca.html#ACMPCA.Client.issue_certificate)
         """
 
     def list_certificate_authorities(
@@ -238,31 +238,31 @@ class ACMPCAClient:
         ResourceOwner: Literal["SELF", "OTHER_ACCOUNTS"] = None,
     ) -> ListCertificateAuthoritiesResponseTypeDef:
         """
-        [Client.list_certificate_authorities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm-pca.html#ACMPCA.Client.list_certificate_authorities)
+        [Client.list_certificate_authorities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm-pca.html#ACMPCA.Client.list_certificate_authorities)
         """
 
     def list_permissions(
         self, CertificateAuthorityArn: str, NextToken: str = None, MaxResults: int = None
     ) -> ListPermissionsResponseTypeDef:
         """
-        [Client.list_permissions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm-pca.html#ACMPCA.Client.list_permissions)
+        [Client.list_permissions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm-pca.html#ACMPCA.Client.list_permissions)
         """
 
     def list_tags(
         self, CertificateAuthorityArn: str, NextToken: str = None, MaxResults: int = None
     ) -> ListTagsResponseTypeDef:
         """
-        [Client.list_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm-pca.html#ACMPCA.Client.list_tags)
+        [Client.list_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm-pca.html#ACMPCA.Client.list_tags)
         """
 
     def put_policy(self, ResourceArn: str, Policy: str) -> None:
         """
-        [Client.put_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm-pca.html#ACMPCA.Client.put_policy)
+        [Client.put_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm-pca.html#ACMPCA.Client.put_policy)
         """
 
     def restore_certificate_authority(self, CertificateAuthorityArn: str) -> None:
         """
-        [Client.restore_certificate_authority documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm-pca.html#ACMPCA.Client.restore_certificate_authority)
+        [Client.restore_certificate_authority documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm-pca.html#ACMPCA.Client.restore_certificate_authority)
         """
 
     def revoke_certificate(
@@ -281,21 +281,21 @@ class ACMPCAClient:
         ],
     ) -> None:
         """
-        [Client.revoke_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm-pca.html#ACMPCA.Client.revoke_certificate)
+        [Client.revoke_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm-pca.html#ACMPCA.Client.revoke_certificate)
         """
 
     def tag_certificate_authority(
         self, CertificateAuthorityArn: str, Tags: List["TagTypeDef"]
     ) -> None:
         """
-        [Client.tag_certificate_authority documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm-pca.html#ACMPCA.Client.tag_certificate_authority)
+        [Client.tag_certificate_authority documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm-pca.html#ACMPCA.Client.tag_certificate_authority)
         """
 
     def untag_certificate_authority(
         self, CertificateAuthorityArn: str, Tags: List["TagTypeDef"]
     ) -> None:
         """
-        [Client.untag_certificate_authority documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm-pca.html#ACMPCA.Client.untag_certificate_authority)
+        [Client.untag_certificate_authority documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm-pca.html#ACMPCA.Client.untag_certificate_authority)
         """
 
     def update_certificate_authority(
@@ -307,7 +307,7 @@ class ACMPCAClient:
         ] = None,
     ) -> None:
         """
-        [Client.update_certificate_authority documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm-pca.html#ACMPCA.Client.update_certificate_authority)
+        [Client.update_certificate_authority documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm-pca.html#ACMPCA.Client.update_certificate_authority)
         """
 
     @overload
@@ -315,7 +315,7 @@ class ACMPCAClient:
         self, operation_name: Literal["list_certificate_authorities"]
     ) -> ListCertificateAuthoritiesPaginator:
         """
-        [Paginator.ListCertificateAuthorities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm-pca.html#ACMPCA.Paginator.ListCertificateAuthorities)
+        [Paginator.ListCertificateAuthorities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm-pca.html#ACMPCA.Paginator.ListCertificateAuthorities)
         """
 
     @overload
@@ -323,19 +323,19 @@ class ACMPCAClient:
         self, operation_name: Literal["list_permissions"]
     ) -> ListPermissionsPaginator:
         """
-        [Paginator.ListPermissions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm-pca.html#ACMPCA.Paginator.ListPermissions)
+        [Paginator.ListPermissions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm-pca.html#ACMPCA.Paginator.ListPermissions)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_tags"]) -> ListTagsPaginator:
         """
-        [Paginator.ListTags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm-pca.html#ACMPCA.Paginator.ListTags)
+        [Paginator.ListTags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm-pca.html#ACMPCA.Paginator.ListTags)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["audit_report_created"]) -> AuditReportCreatedWaiter:
         """
-        [Waiter.AuditReportCreated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm-pca.html#ACMPCA.Waiter.AuditReportCreated)
+        [Waiter.AuditReportCreated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm-pca.html#ACMPCA.Waiter.AuditReportCreated)
         """
 
     @overload
@@ -343,11 +343,11 @@ class ACMPCAClient:
         self, waiter_name: Literal["certificate_authority_csr_created"]
     ) -> CertificateAuthorityCSRCreatedWaiter:
         """
-        [Waiter.CertificateAuthorityCSRCreated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm-pca.html#ACMPCA.Waiter.CertificateAuthorityCSRCreated)
+        [Waiter.CertificateAuthorityCSRCreated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm-pca.html#ACMPCA.Waiter.CertificateAuthorityCSRCreated)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["certificate_issued"]) -> CertificateIssuedWaiter:
         """
-        [Waiter.CertificateIssued documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm-pca.html#ACMPCA.Waiter.CertificateIssued)
+        [Waiter.CertificateIssued documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm-pca.html#ACMPCA.Waiter.CertificateIssued)
         """

@@ -108,7 +108,7 @@ __all__ = (
 
 class GetApiKeysPaginator(Boto3Paginator):
     """
-    [Paginator.GetApiKeys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/apigateway.html#APIGateway.Paginator.GetApiKeys)
+    [Paginator.GetApiKeys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/apigateway.html#APIGateway.Paginator.GetApiKeys)
     """
 
     def paginate(
@@ -119,65 +119,65 @@ class GetApiKeysPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ApiKeysTypeDef]:
         """
-        [GetApiKeys.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/apigateway.html#APIGateway.Paginator.GetApiKeys.paginate)
+        [GetApiKeys.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/apigateway.html#APIGateway.Paginator.GetApiKeys.paginate)
         """
 
 
 class GetAuthorizersPaginator(Boto3Paginator):
     """
-    [Paginator.GetAuthorizers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/apigateway.html#APIGateway.Paginator.GetAuthorizers)
+    [Paginator.GetAuthorizers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/apigateway.html#APIGateway.Paginator.GetAuthorizers)
     """
 
     def paginate(
         self, restApiId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[AuthorizersTypeDef]:
         """
-        [GetAuthorizers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/apigateway.html#APIGateway.Paginator.GetAuthorizers.paginate)
+        [GetAuthorizers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/apigateway.html#APIGateway.Paginator.GetAuthorizers.paginate)
         """
 
 
 class GetBasePathMappingsPaginator(Boto3Paginator):
     """
-    [Paginator.GetBasePathMappings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/apigateway.html#APIGateway.Paginator.GetBasePathMappings)
+    [Paginator.GetBasePathMappings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/apigateway.html#APIGateway.Paginator.GetBasePathMappings)
     """
 
     def paginate(
         self, domainName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[BasePathMappingsTypeDef]:
         """
-        [GetBasePathMappings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/apigateway.html#APIGateway.Paginator.GetBasePathMappings.paginate)
+        [GetBasePathMappings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/apigateway.html#APIGateway.Paginator.GetBasePathMappings.paginate)
         """
 
 
 class GetClientCertificatesPaginator(Boto3Paginator):
     """
-    [Paginator.GetClientCertificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/apigateway.html#APIGateway.Paginator.GetClientCertificates)
+    [Paginator.GetClientCertificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/apigateway.html#APIGateway.Paginator.GetClientCertificates)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ClientCertificatesTypeDef]:
         """
-        [GetClientCertificates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/apigateway.html#APIGateway.Paginator.GetClientCertificates.paginate)
+        [GetClientCertificates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/apigateway.html#APIGateway.Paginator.GetClientCertificates.paginate)
         """
 
 
 class GetDeploymentsPaginator(Boto3Paginator):
     """
-    [Paginator.GetDeployments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/apigateway.html#APIGateway.Paginator.GetDeployments)
+    [Paginator.GetDeployments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/apigateway.html#APIGateway.Paginator.GetDeployments)
     """
 
     def paginate(
         self, restApiId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DeploymentsTypeDef]:
         """
-        [GetDeployments.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/apigateway.html#APIGateway.Paginator.GetDeployments.paginate)
+        [GetDeployments.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/apigateway.html#APIGateway.Paginator.GetDeployments.paginate)
         """
 
 
 class GetDocumentationPartsPaginator(Boto3Paginator):
     """
-    [Paginator.GetDocumentationParts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/apigateway.html#APIGateway.Paginator.GetDocumentationParts)
+    [Paginator.GetDocumentationParts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/apigateway.html#APIGateway.Paginator.GetDocumentationParts)
     """
 
     def paginate(
@@ -203,78 +203,78 @@ class GetDocumentationPartsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DocumentationPartsTypeDef]:
         """
-        [GetDocumentationParts.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/apigateway.html#APIGateway.Paginator.GetDocumentationParts.paginate)
+        [GetDocumentationParts.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/apigateway.html#APIGateway.Paginator.GetDocumentationParts.paginate)
         """
 
 
 class GetDocumentationVersionsPaginator(Boto3Paginator):
     """
-    [Paginator.GetDocumentationVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/apigateway.html#APIGateway.Paginator.GetDocumentationVersions)
+    [Paginator.GetDocumentationVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/apigateway.html#APIGateway.Paginator.GetDocumentationVersions)
     """
 
     def paginate(
         self, restApiId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DocumentationVersionsTypeDef]:
         """
-        [GetDocumentationVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/apigateway.html#APIGateway.Paginator.GetDocumentationVersions.paginate)
+        [GetDocumentationVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/apigateway.html#APIGateway.Paginator.GetDocumentationVersions.paginate)
         """
 
 
 class GetDomainNamesPaginator(Boto3Paginator):
     """
-    [Paginator.GetDomainNames documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/apigateway.html#APIGateway.Paginator.GetDomainNames)
+    [Paginator.GetDomainNames documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/apigateway.html#APIGateway.Paginator.GetDomainNames)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DomainNamesTypeDef]:
         """
-        [GetDomainNames.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/apigateway.html#APIGateway.Paginator.GetDomainNames.paginate)
+        [GetDomainNames.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/apigateway.html#APIGateway.Paginator.GetDomainNames.paginate)
         """
 
 
 class GetGatewayResponsesPaginator(Boto3Paginator):
     """
-    [Paginator.GetGatewayResponses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/apigateway.html#APIGateway.Paginator.GetGatewayResponses)
+    [Paginator.GetGatewayResponses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/apigateway.html#APIGateway.Paginator.GetGatewayResponses)
     """
 
     def paginate(
         self, restApiId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GatewayResponsesTypeDef]:
         """
-        [GetGatewayResponses.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/apigateway.html#APIGateway.Paginator.GetGatewayResponses.paginate)
+        [GetGatewayResponses.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/apigateway.html#APIGateway.Paginator.GetGatewayResponses.paginate)
         """
 
 
 class GetModelsPaginator(Boto3Paginator):
     """
-    [Paginator.GetModels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/apigateway.html#APIGateway.Paginator.GetModels)
+    [Paginator.GetModels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/apigateway.html#APIGateway.Paginator.GetModels)
     """
 
     def paginate(
         self, restApiId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ModelsTypeDef]:
         """
-        [GetModels.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/apigateway.html#APIGateway.Paginator.GetModels.paginate)
+        [GetModels.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/apigateway.html#APIGateway.Paginator.GetModels.paginate)
         """
 
 
 class GetRequestValidatorsPaginator(Boto3Paginator):
     """
-    [Paginator.GetRequestValidators documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/apigateway.html#APIGateway.Paginator.GetRequestValidators)
+    [Paginator.GetRequestValidators documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/apigateway.html#APIGateway.Paginator.GetRequestValidators)
     """
 
     def paginate(
         self, restApiId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[RequestValidatorsTypeDef]:
         """
-        [GetRequestValidators.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/apigateway.html#APIGateway.Paginator.GetRequestValidators.paginate)
+        [GetRequestValidators.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/apigateway.html#APIGateway.Paginator.GetRequestValidators.paginate)
         """
 
 
 class GetResourcesPaginator(Boto3Paginator):
     """
-    [Paginator.GetResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/apigateway.html#APIGateway.Paginator.GetResources)
+    [Paginator.GetResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/apigateway.html#APIGateway.Paginator.GetResources)
     """
 
     def paginate(
@@ -284,39 +284,39 @@ class GetResourcesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ResourcesTypeDef]:
         """
-        [GetResources.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/apigateway.html#APIGateway.Paginator.GetResources.paginate)
+        [GetResources.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/apigateway.html#APIGateway.Paginator.GetResources.paginate)
         """
 
 
 class GetRestApisPaginator(Boto3Paginator):
     """
-    [Paginator.GetRestApis documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/apigateway.html#APIGateway.Paginator.GetRestApis)
+    [Paginator.GetRestApis documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/apigateway.html#APIGateway.Paginator.GetRestApis)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[RestApisTypeDef]:
         """
-        [GetRestApis.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/apigateway.html#APIGateway.Paginator.GetRestApis.paginate)
+        [GetRestApis.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/apigateway.html#APIGateway.Paginator.GetRestApis.paginate)
         """
 
 
 class GetSdkTypesPaginator(Boto3Paginator):
     """
-    [Paginator.GetSdkTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/apigateway.html#APIGateway.Paginator.GetSdkTypes)
+    [Paginator.GetSdkTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/apigateway.html#APIGateway.Paginator.GetSdkTypes)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[SdkTypesTypeDef]:
         """
-        [GetSdkTypes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/apigateway.html#APIGateway.Paginator.GetSdkTypes.paginate)
+        [GetSdkTypes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/apigateway.html#APIGateway.Paginator.GetSdkTypes.paginate)
         """
 
 
 class GetUsagePaginator(Boto3Paginator):
     """
-    [Paginator.GetUsage documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/apigateway.html#APIGateway.Paginator.GetUsage)
+    [Paginator.GetUsage documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/apigateway.html#APIGateway.Paginator.GetUsage)
     """
 
     def paginate(
@@ -328,13 +328,13 @@ class GetUsagePaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[UsageTypeDef]:
         """
-        [GetUsage.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/apigateway.html#APIGateway.Paginator.GetUsage.paginate)
+        [GetUsage.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/apigateway.html#APIGateway.Paginator.GetUsage.paginate)
         """
 
 
 class GetUsagePlanKeysPaginator(Boto3Paginator):
     """
-    [Paginator.GetUsagePlanKeys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/apigateway.html#APIGateway.Paginator.GetUsagePlanKeys)
+    [Paginator.GetUsagePlanKeys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/apigateway.html#APIGateway.Paginator.GetUsagePlanKeys)
     """
 
     def paginate(
@@ -344,31 +344,31 @@ class GetUsagePlanKeysPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[UsagePlanKeysTypeDef]:
         """
-        [GetUsagePlanKeys.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/apigateway.html#APIGateway.Paginator.GetUsagePlanKeys.paginate)
+        [GetUsagePlanKeys.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/apigateway.html#APIGateway.Paginator.GetUsagePlanKeys.paginate)
         """
 
 
 class GetUsagePlansPaginator(Boto3Paginator):
     """
-    [Paginator.GetUsagePlans documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/apigateway.html#APIGateway.Paginator.GetUsagePlans)
+    [Paginator.GetUsagePlans documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/apigateway.html#APIGateway.Paginator.GetUsagePlans)
     """
 
     def paginate(
         self, keyId: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[UsagePlansTypeDef]:
         """
-        [GetUsagePlans.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/apigateway.html#APIGateway.Paginator.GetUsagePlans.paginate)
+        [GetUsagePlans.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/apigateway.html#APIGateway.Paginator.GetUsagePlans.paginate)
         """
 
 
 class GetVpcLinksPaginator(Boto3Paginator):
     """
-    [Paginator.GetVpcLinks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/apigateway.html#APIGateway.Paginator.GetVpcLinks)
+    [Paginator.GetVpcLinks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/apigateway.html#APIGateway.Paginator.GetVpcLinks)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[VpcLinksTypeDef]:
         """
-        [GetVpcLinks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/apigateway.html#APIGateway.Paginator.GetVpcLinks.paginate)
+        [GetVpcLinks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/apigateway.html#APIGateway.Paginator.GetVpcLinks.paginate)
         """

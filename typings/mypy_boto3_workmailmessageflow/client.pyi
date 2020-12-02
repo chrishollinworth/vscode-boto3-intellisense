@@ -35,7 +35,7 @@ class Exceptions:
 
 class WorkMailMessageFlowClient:
     """
-    [WorkMailMessageFlow.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workmailmessageflow.html#WorkMailMessageFlow.Client)
+    [WorkMailMessageFlow.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workmailmessageflow.html#WorkMailMessageFlow.Client)
     """
 
     meta: ClientMeta
@@ -43,7 +43,7 @@ class WorkMailMessageFlowClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workmailmessageflow.html#WorkMailMessageFlow.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workmailmessageflow.html#WorkMailMessageFlow.Client.can_paginate)
         """
 
     def generate_presigned_url(
@@ -54,10 +54,10 @@ class WorkMailMessageFlowClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workmailmessageflow.html#WorkMailMessageFlow.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workmailmessageflow.html#WorkMailMessageFlow.Client.generate_presigned_url)
         """
 
     def get_raw_message_content(self, messageId: str) -> GetRawMessageContentResponseTypeDef:
         """
-        [Client.get_raw_message_content documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workmailmessageflow.html#WorkMailMessageFlow.Client.get_raw_message_content)
+        [Client.get_raw_message_content documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workmailmessageflow.html#WorkMailMessageFlow.Client.get_raw_message_content)
         """

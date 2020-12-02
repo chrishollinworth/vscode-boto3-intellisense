@@ -74,7 +74,7 @@ __all__ = (
 
 class ListApplicationRevisionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListApplicationRevisions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codedeploy.html#CodeDeploy.Paginator.ListApplicationRevisions)
+    [Paginator.ListApplicationRevisions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codedeploy.html#CodeDeploy.Paginator.ListApplicationRevisions)
     """
 
     def paginate(
@@ -88,52 +88,52 @@ class ListApplicationRevisionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListApplicationRevisionsOutputTypeDef]:
         """
-        [ListApplicationRevisions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codedeploy.html#CodeDeploy.Paginator.ListApplicationRevisions.paginate)
+        [ListApplicationRevisions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codedeploy.html#CodeDeploy.Paginator.ListApplicationRevisions.paginate)
         """
 
 
 class ListApplicationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListApplications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codedeploy.html#CodeDeploy.Paginator.ListApplications)
+    [Paginator.ListApplications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codedeploy.html#CodeDeploy.Paginator.ListApplications)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListApplicationsOutputTypeDef]:
         """
-        [ListApplications.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codedeploy.html#CodeDeploy.Paginator.ListApplications.paginate)
+        [ListApplications.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codedeploy.html#CodeDeploy.Paginator.ListApplications.paginate)
         """
 
 
 class ListDeploymentConfigsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDeploymentConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codedeploy.html#CodeDeploy.Paginator.ListDeploymentConfigs)
+    [Paginator.ListDeploymentConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codedeploy.html#CodeDeploy.Paginator.ListDeploymentConfigs)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDeploymentConfigsOutputTypeDef]:
         """
-        [ListDeploymentConfigs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codedeploy.html#CodeDeploy.Paginator.ListDeploymentConfigs.paginate)
+        [ListDeploymentConfigs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codedeploy.html#CodeDeploy.Paginator.ListDeploymentConfigs.paginate)
         """
 
 
 class ListDeploymentGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDeploymentGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codedeploy.html#CodeDeploy.Paginator.ListDeploymentGroups)
+    [Paginator.ListDeploymentGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codedeploy.html#CodeDeploy.Paginator.ListDeploymentGroups)
     """
 
     def paginate(
         self, applicationName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDeploymentGroupsOutputTypeDef]:
         """
-        [ListDeploymentGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codedeploy.html#CodeDeploy.Paginator.ListDeploymentGroups.paginate)
+        [ListDeploymentGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codedeploy.html#CodeDeploy.Paginator.ListDeploymentGroups.paginate)
         """
 
 
 class ListDeploymentInstancesPaginator(Boto3Paginator):
     """
-    [Paginator.ListDeploymentInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codedeploy.html#CodeDeploy.Paginator.ListDeploymentInstances)
+    [Paginator.ListDeploymentInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codedeploy.html#CodeDeploy.Paginator.ListDeploymentInstances)
     """
 
     def paginate(
@@ -146,13 +146,13 @@ class ListDeploymentInstancesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListDeploymentInstancesOutputTypeDef]:
         """
-        [ListDeploymentInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codedeploy.html#CodeDeploy.Paginator.ListDeploymentInstances.paginate)
+        [ListDeploymentInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codedeploy.html#CodeDeploy.Paginator.ListDeploymentInstances.paginate)
         """
 
 
 class ListDeploymentTargetsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDeploymentTargets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codedeploy.html#CodeDeploy.Paginator.ListDeploymentTargets)
+    [Paginator.ListDeploymentTargets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codedeploy.html#CodeDeploy.Paginator.ListDeploymentTargets)
     """
 
     def paginate(
@@ -162,13 +162,13 @@ class ListDeploymentTargetsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListDeploymentTargetsOutputTypeDef]:
         """
-        [ListDeploymentTargets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codedeploy.html#CodeDeploy.Paginator.ListDeploymentTargets.paginate)
+        [ListDeploymentTargets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codedeploy.html#CodeDeploy.Paginator.ListDeploymentTargets.paginate)
         """
 
 
 class ListDeploymentsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDeployments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codedeploy.html#CodeDeploy.Paginator.ListDeployments)
+    [Paginator.ListDeployments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codedeploy.html#CodeDeploy.Paginator.ListDeployments)
     """
 
     def paginate(
@@ -192,26 +192,26 @@ class ListDeploymentsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListDeploymentsOutputTypeDef]:
         """
-        [ListDeployments.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codedeploy.html#CodeDeploy.Paginator.ListDeployments.paginate)
+        [ListDeployments.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codedeploy.html#CodeDeploy.Paginator.ListDeployments.paginate)
         """
 
 
 class ListGitHubAccountTokenNamesPaginator(Boto3Paginator):
     """
-    [Paginator.ListGitHubAccountTokenNames documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codedeploy.html#CodeDeploy.Paginator.ListGitHubAccountTokenNames)
+    [Paginator.ListGitHubAccountTokenNames documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codedeploy.html#CodeDeploy.Paginator.ListGitHubAccountTokenNames)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListGitHubAccountTokenNamesOutputTypeDef]:
         """
-        [ListGitHubAccountTokenNames.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codedeploy.html#CodeDeploy.Paginator.ListGitHubAccountTokenNames.paginate)
+        [ListGitHubAccountTokenNames.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codedeploy.html#CodeDeploy.Paginator.ListGitHubAccountTokenNames.paginate)
         """
 
 
 class ListOnPremisesInstancesPaginator(Boto3Paginator):
     """
-    [Paginator.ListOnPremisesInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codedeploy.html#CodeDeploy.Paginator.ListOnPremisesInstances)
+    [Paginator.ListOnPremisesInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codedeploy.html#CodeDeploy.Paginator.ListOnPremisesInstances)
     """
 
     def paginate(
@@ -221,5 +221,5 @@ class ListOnPremisesInstancesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListOnPremisesInstancesOutputTypeDef]:
         """
-        [ListOnPremisesInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codedeploy.html#CodeDeploy.Paginator.ListOnPremisesInstances.paginate)
+        [ListOnPremisesInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codedeploy.html#CodeDeploy.Paginator.ListOnPremisesInstances.paginate)
         """

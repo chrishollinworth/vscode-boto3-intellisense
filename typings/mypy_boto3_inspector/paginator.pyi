@@ -70,7 +70,7 @@ __all__ = (
 
 class ListAssessmentRunAgentsPaginator(Boto3Paginator):
     """
-    [Paginator.ListAssessmentRunAgents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/inspector.html#Inspector.Paginator.ListAssessmentRunAgents)
+    [Paginator.ListAssessmentRunAgents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/inspector.html#Inspector.Paginator.ListAssessmentRunAgents)
     """
 
     def paginate(
@@ -80,13 +80,13 @@ class ListAssessmentRunAgentsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListAssessmentRunAgentsResponseTypeDef]:
         """
-        [ListAssessmentRunAgents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/inspector.html#Inspector.Paginator.ListAssessmentRunAgents.paginate)
+        [ListAssessmentRunAgents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/inspector.html#Inspector.Paginator.ListAssessmentRunAgents.paginate)
         """
 
 
 class ListAssessmentRunsPaginator(Boto3Paginator):
     """
-    [Paginator.ListAssessmentRuns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/inspector.html#Inspector.Paginator.ListAssessmentRuns)
+    [Paginator.ListAssessmentRuns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/inspector.html#Inspector.Paginator.ListAssessmentRuns)
     """
 
     def paginate(
@@ -96,13 +96,13 @@ class ListAssessmentRunsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListAssessmentRunsResponseTypeDef]:
         """
-        [ListAssessmentRuns.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/inspector.html#Inspector.Paginator.ListAssessmentRuns.paginate)
+        [ListAssessmentRuns.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/inspector.html#Inspector.Paginator.ListAssessmentRuns.paginate)
         """
 
 
 class ListAssessmentTargetsPaginator(Boto3Paginator):
     """
-    [Paginator.ListAssessmentTargets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/inspector.html#Inspector.Paginator.ListAssessmentTargets)
+    [Paginator.ListAssessmentTargets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/inspector.html#Inspector.Paginator.ListAssessmentTargets)
     """
 
     def paginate(
@@ -111,13 +111,13 @@ class ListAssessmentTargetsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListAssessmentTargetsResponseTypeDef]:
         """
-        [ListAssessmentTargets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/inspector.html#Inspector.Paginator.ListAssessmentTargets.paginate)
+        [ListAssessmentTargets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/inspector.html#Inspector.Paginator.ListAssessmentTargets.paginate)
         """
 
 
 class ListAssessmentTemplatesPaginator(Boto3Paginator):
     """
-    [Paginator.ListAssessmentTemplates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/inspector.html#Inspector.Paginator.ListAssessmentTemplates)
+    [Paginator.ListAssessmentTemplates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/inspector.html#Inspector.Paginator.ListAssessmentTemplates)
     """
 
     def paginate(
@@ -127,39 +127,39 @@ class ListAssessmentTemplatesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListAssessmentTemplatesResponseTypeDef]:
         """
-        [ListAssessmentTemplates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/inspector.html#Inspector.Paginator.ListAssessmentTemplates.paginate)
+        [ListAssessmentTemplates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/inspector.html#Inspector.Paginator.ListAssessmentTemplates.paginate)
         """
 
 
 class ListEventSubscriptionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListEventSubscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/inspector.html#Inspector.Paginator.ListEventSubscriptions)
+    [Paginator.ListEventSubscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/inspector.html#Inspector.Paginator.ListEventSubscriptions)
     """
 
     def paginate(
         self, resourceArn: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListEventSubscriptionsResponseTypeDef]:
         """
-        [ListEventSubscriptions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/inspector.html#Inspector.Paginator.ListEventSubscriptions.paginate)
+        [ListEventSubscriptions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/inspector.html#Inspector.Paginator.ListEventSubscriptions.paginate)
         """
 
 
 class ListExclusionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListExclusions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/inspector.html#Inspector.Paginator.ListExclusions)
+    [Paginator.ListExclusions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/inspector.html#Inspector.Paginator.ListExclusions)
     """
 
     def paginate(
         self, assessmentRunArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListExclusionsResponseTypeDef]:
         """
-        [ListExclusions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/inspector.html#Inspector.Paginator.ListExclusions.paginate)
+        [ListExclusions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/inspector.html#Inspector.Paginator.ListExclusions.paginate)
         """
 
 
 class ListFindingsPaginator(Boto3Paginator):
     """
-    [Paginator.ListFindings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/inspector.html#Inspector.Paginator.ListFindings)
+    [Paginator.ListFindings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/inspector.html#Inspector.Paginator.ListFindings)
     """
 
     def paginate(
@@ -169,31 +169,31 @@ class ListFindingsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListFindingsResponseTypeDef]:
         """
-        [ListFindings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/inspector.html#Inspector.Paginator.ListFindings.paginate)
+        [ListFindings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/inspector.html#Inspector.Paginator.ListFindings.paginate)
         """
 
 
 class ListRulesPackagesPaginator(Boto3Paginator):
     """
-    [Paginator.ListRulesPackages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/inspector.html#Inspector.Paginator.ListRulesPackages)
+    [Paginator.ListRulesPackages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/inspector.html#Inspector.Paginator.ListRulesPackages)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRulesPackagesResponseTypeDef]:
         """
-        [ListRulesPackages.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/inspector.html#Inspector.Paginator.ListRulesPackages.paginate)
+        [ListRulesPackages.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/inspector.html#Inspector.Paginator.ListRulesPackages.paginate)
         """
 
 
 class PreviewAgentsPaginator(Boto3Paginator):
     """
-    [Paginator.PreviewAgents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/inspector.html#Inspector.Paginator.PreviewAgents)
+    [Paginator.PreviewAgents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/inspector.html#Inspector.Paginator.PreviewAgents)
     """
 
     def paginate(
         self, previewAgentsArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[PreviewAgentsResponseTypeDef]:
         """
-        [PreviewAgents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/inspector.html#Inspector.Paginator.PreviewAgents.paginate)
+        [PreviewAgents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/inspector.html#Inspector.Paginator.PreviewAgents.paginate)
         """

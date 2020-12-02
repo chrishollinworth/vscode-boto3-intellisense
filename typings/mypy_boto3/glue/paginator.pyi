@@ -9,11 +9,15 @@ from mypy_boto3_glue.paginator import (
     GetJobsPaginator,
     GetPartitionIndexesPaginator,
     GetPartitionsPaginator,
+    GetResourcePoliciesPaginator,
     GetSecurityConfigurationsPaginator,
     GetTableVersionsPaginator,
     GetTablesPaginator,
     GetTriggersPaginator,
     GetUserDefinedFunctionsPaginator,
+    ListRegistriesPaginator,
+    ListSchemaVersionsPaginator,
+    ListSchemasPaginator,
 )
 
 __all__ = (
@@ -27,9 +31,13 @@ __all__ = (
     "GetJobsPaginator",
     "GetPartitionIndexesPaginator",
     "GetPartitionsPaginator",
+    "GetResourcePoliciesPaginator",
     "GetSecurityConfigurationsPaginator",
     "GetTableVersionsPaginator",
     "GetTablesPaginator",
     "GetTriggersPaginator",
     "GetUserDefinedFunctionsPaginator",
+    "ListRegistriesPaginator",
+    "ListSchemaVersionsPaginator",
+    "ListSchemasPaginator",
 )

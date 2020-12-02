@@ -57,33 +57,33 @@ __all__ = (
 
 class ListDatasetsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDatasets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/databrew.html#GlueDataBrew.Paginator.ListDatasets)
+    [Paginator.ListDatasets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/databrew.html#GlueDataBrew.Paginator.ListDatasets)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDatasetsResponseTypeDef]:
         """
-        [ListDatasets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/databrew.html#GlueDataBrew.Paginator.ListDatasets.paginate)
+        [ListDatasets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/databrew.html#GlueDataBrew.Paginator.ListDatasets.paginate)
         """
 
 
 class ListJobRunsPaginator(Boto3Paginator):
     """
-    [Paginator.ListJobRuns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/databrew.html#GlueDataBrew.Paginator.ListJobRuns)
+    [Paginator.ListJobRuns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/databrew.html#GlueDataBrew.Paginator.ListJobRuns)
     """
 
     def paginate(
         self, Name: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListJobRunsResponseTypeDef]:
         """
-        [ListJobRuns.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/databrew.html#GlueDataBrew.Paginator.ListJobRuns.paginate)
+        [ListJobRuns.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/databrew.html#GlueDataBrew.Paginator.ListJobRuns.paginate)
         """
 
 
 class ListJobsPaginator(Boto3Paginator):
     """
-    [Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/databrew.html#GlueDataBrew.Paginator.ListJobs)
+    [Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/databrew.html#GlueDataBrew.Paginator.ListJobs)
     """
 
     def paginate(
@@ -93,57 +93,57 @@ class ListJobsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListJobsResponseTypeDef]:
         """
-        [ListJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/databrew.html#GlueDataBrew.Paginator.ListJobs.paginate)
+        [ListJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/databrew.html#GlueDataBrew.Paginator.ListJobs.paginate)
         """
 
 
 class ListProjectsPaginator(Boto3Paginator):
     """
-    [Paginator.ListProjects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/databrew.html#GlueDataBrew.Paginator.ListProjects)
+    [Paginator.ListProjects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/databrew.html#GlueDataBrew.Paginator.ListProjects)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListProjectsResponseTypeDef]:
         """
-        [ListProjects.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/databrew.html#GlueDataBrew.Paginator.ListProjects.paginate)
+        [ListProjects.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/databrew.html#GlueDataBrew.Paginator.ListProjects.paginate)
         """
 
 
 class ListRecipeVersionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListRecipeVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/databrew.html#GlueDataBrew.Paginator.ListRecipeVersions)
+    [Paginator.ListRecipeVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/databrew.html#GlueDataBrew.Paginator.ListRecipeVersions)
     """
 
     def paginate(
         self, Name: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRecipeVersionsResponseTypeDef]:
         """
-        [ListRecipeVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/databrew.html#GlueDataBrew.Paginator.ListRecipeVersions.paginate)
+        [ListRecipeVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/databrew.html#GlueDataBrew.Paginator.ListRecipeVersions.paginate)
         """
 
 
 class ListRecipesPaginator(Boto3Paginator):
     """
-    [Paginator.ListRecipes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/databrew.html#GlueDataBrew.Paginator.ListRecipes)
+    [Paginator.ListRecipes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/databrew.html#GlueDataBrew.Paginator.ListRecipes)
     """
 
     def paginate(
         self, RecipeVersion: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRecipesResponseTypeDef]:
         """
-        [ListRecipes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/databrew.html#GlueDataBrew.Paginator.ListRecipes.paginate)
+        [ListRecipes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/databrew.html#GlueDataBrew.Paginator.ListRecipes.paginate)
         """
 
 
 class ListSchedulesPaginator(Boto3Paginator):
     """
-    [Paginator.ListSchedules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/databrew.html#GlueDataBrew.Paginator.ListSchedules)
+    [Paginator.ListSchedules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/databrew.html#GlueDataBrew.Paginator.ListSchedules)
     """
 
     def paginate(
         self, JobName: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSchedulesResponseTypeDef]:
         """
-        [ListSchedules.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/databrew.html#GlueDataBrew.Paginator.ListSchedules.paginate)
+        [ListSchedules.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/databrew.html#GlueDataBrew.Paginator.ListSchedules.paginate)
         """

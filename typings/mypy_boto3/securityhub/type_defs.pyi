@@ -1,5 +1,6 @@
 from mypy_boto3_securityhub.type_defs import (
     ActionTargetTypeDef,
+    AdminAccountTypeDef,
     AvailabilityZoneTypeDef,
     AwsApiGatewayAccessLogSettingsTypeDef,
     AwsApiGatewayCanarySettingsTypeDef,
@@ -226,6 +227,7 @@ from mypy_boto3_securityhub.type_defs import (
     DeleteMembersResponseTypeDef,
     DescribeActionTargetsResponseTypeDef,
     DescribeHubResponseTypeDef,
+    DescribeOrganizationConfigurationResponseTypeDef,
     DescribeProductsResponseTypeDef,
     DescribeStandardsControlsResponseTypeDef,
     DescribeStandardsResponseTypeDef,
@@ -241,6 +243,7 @@ from mypy_boto3_securityhub.type_defs import (
     ListEnabledProductsForImportResponseTypeDef,
     ListInvitationsResponseTypeDef,
     ListMembersResponseTypeDef,
+    ListOrganizationAdminAccountsResponseTypeDef,
     ListTagsForResourceResponseTypeDef,
     NoteUpdateTypeDef,
     PaginatorConfigTypeDef,
@@ -252,6 +255,7 @@ from mypy_boto3_securityhub.type_defs import (
 
 __all__ = (
     "ActionTargetTypeDef",
+    "AdminAccountTypeDef",
     "AvailabilityZoneTypeDef",
     "AwsApiGatewayAccessLogSettingsTypeDef",
     "AwsApiGatewayCanarySettingsTypeDef",
@@ -478,6 +482,7 @@ __all__ = (
     "DeleteMembersResponseTypeDef",
     "DescribeActionTargetsResponseTypeDef",
     "DescribeHubResponseTypeDef",
+    "DescribeOrganizationConfigurationResponseTypeDef",
     "DescribeProductsResponseTypeDef",
     "DescribeStandardsControlsResponseTypeDef",
     "DescribeStandardsResponseTypeDef",
@@ -493,6 +498,7 @@ __all__ = (
     "ListEnabledProductsForImportResponseTypeDef",
     "ListInvitationsResponseTypeDef",
     "ListMembersResponseTypeDef",
+    "ListOrganizationAdminAccountsResponseTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "NoteUpdateTypeDef",
     "PaginatorConfigTypeDef",

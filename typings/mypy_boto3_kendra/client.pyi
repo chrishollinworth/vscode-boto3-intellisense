@@ -82,7 +82,7 @@ class Exceptions:
 
 class KendraClient:
     """
-    [Kendra.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kendra.html#Kendra.Client)
+    [Kendra.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kendra.html#Kendra.Client)
     """
 
     meta: ClientMeta
@@ -95,19 +95,19 @@ class KendraClient:
         DataSourceSyncJobMetricTarget: DataSourceSyncJobMetricTargetTypeDef = None,
     ) -> BatchDeleteDocumentResponseTypeDef:
         """
-        [Client.batch_delete_document documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kendra.html#Kendra.Client.batch_delete_document)
+        [Client.batch_delete_document documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kendra.html#Kendra.Client.batch_delete_document)
         """
 
     def batch_put_document(
         self, IndexId: str, Documents: List[DocumentTypeDef], RoleArn: str = None
     ) -> BatchPutDocumentResponseTypeDef:
         """
-        [Client.batch_put_document documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kendra.html#Kendra.Client.batch_put_document)
+        [Client.batch_put_document documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kendra.html#Kendra.Client.batch_put_document)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kendra.html#Kendra.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kendra.html#Kendra.Client.can_paginate)
         """
 
     def create_data_source(
@@ -132,7 +132,7 @@ class KendraClient:
         ClientToken: str = None,
     ) -> CreateDataSourceResponseTypeDef:
         """
-        [Client.create_data_source documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kendra.html#Kendra.Client.create_data_source)
+        [Client.create_data_source documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kendra.html#Kendra.Client.create_data_source)
         """
 
     def create_faq(
@@ -147,7 +147,7 @@ class KendraClient:
         ClientToken: str = None,
     ) -> CreateFaqResponseTypeDef:
         """
-        [Client.create_faq documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kendra.html#Kendra.Client.create_faq)
+        [Client.create_faq documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kendra.html#Kendra.Client.create_faq)
         """
 
     def create_index(
@@ -163,37 +163,37 @@ class KendraClient:
         UserContextPolicy: Literal["ATTRIBUTE_FILTER", "USER_TOKEN"] = None,
     ) -> CreateIndexResponseTypeDef:
         """
-        [Client.create_index documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kendra.html#Kendra.Client.create_index)
+        [Client.create_index documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kendra.html#Kendra.Client.create_index)
         """
 
     def delete_data_source(self, Id: str, IndexId: str) -> None:
         """
-        [Client.delete_data_source documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kendra.html#Kendra.Client.delete_data_source)
+        [Client.delete_data_source documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kendra.html#Kendra.Client.delete_data_source)
         """
 
     def delete_faq(self, Id: str, IndexId: str) -> None:
         """
-        [Client.delete_faq documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kendra.html#Kendra.Client.delete_faq)
+        [Client.delete_faq documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kendra.html#Kendra.Client.delete_faq)
         """
 
     def delete_index(self, Id: str) -> None:
         """
-        [Client.delete_index documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kendra.html#Kendra.Client.delete_index)
+        [Client.delete_index documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kendra.html#Kendra.Client.delete_index)
         """
 
     def describe_data_source(self, Id: str, IndexId: str) -> DescribeDataSourceResponseTypeDef:
         """
-        [Client.describe_data_source documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kendra.html#Kendra.Client.describe_data_source)
+        [Client.describe_data_source documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kendra.html#Kendra.Client.describe_data_source)
         """
 
     def describe_faq(self, Id: str, IndexId: str) -> DescribeFaqResponseTypeDef:
         """
-        [Client.describe_faq documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kendra.html#Kendra.Client.describe_faq)
+        [Client.describe_faq documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kendra.html#Kendra.Client.describe_faq)
         """
 
     def describe_index(self, Id: str) -> DescribeIndexResponseTypeDef:
         """
-        [Client.describe_index documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kendra.html#Kendra.Client.describe_index)
+        [Client.describe_index documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kendra.html#Kendra.Client.describe_index)
         """
 
     def generate_presigned_url(
@@ -204,7 +204,7 @@ class KendraClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kendra.html#Kendra.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kendra.html#Kendra.Client.generate_presigned_url)
         """
 
     def list_data_source_sync_jobs(
@@ -225,33 +225,33 @@ class KendraClient:
         ] = None,
     ) -> ListDataSourceSyncJobsResponseTypeDef:
         """
-        [Client.list_data_source_sync_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kendra.html#Kendra.Client.list_data_source_sync_jobs)
+        [Client.list_data_source_sync_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kendra.html#Kendra.Client.list_data_source_sync_jobs)
         """
 
     def list_data_sources(
         self, IndexId: str, NextToken: str = None, MaxResults: int = None
     ) -> ListDataSourcesResponseTypeDef:
         """
-        [Client.list_data_sources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kendra.html#Kendra.Client.list_data_sources)
+        [Client.list_data_sources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kendra.html#Kendra.Client.list_data_sources)
         """
 
     def list_faqs(
         self, IndexId: str, NextToken: str = None, MaxResults: int = None
     ) -> ListFaqsResponseTypeDef:
         """
-        [Client.list_faqs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kendra.html#Kendra.Client.list_faqs)
+        [Client.list_faqs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kendra.html#Kendra.Client.list_faqs)
         """
 
     def list_indices(
         self, NextToken: str = None, MaxResults: int = None
     ) -> ListIndicesResponseTypeDef:
         """
-        [Client.list_indices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kendra.html#Kendra.Client.list_indices)
+        [Client.list_indices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kendra.html#Kendra.Client.list_indices)
         """
 
     def list_tags_for_resource(self, ResourceARN: str) -> ListTagsForResourceResponseTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kendra.html#Kendra.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kendra.html#Kendra.Client.list_tags_for_resource)
         """
 
     def query(
@@ -268,19 +268,19 @@ class KendraClient:
         UserContext: UserContextTypeDef = None,
     ) -> QueryResultTypeDef:
         """
-        [Client.query documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kendra.html#Kendra.Client.query)
+        [Client.query documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kendra.html#Kendra.Client.query)
         """
 
     def start_data_source_sync_job(
         self, Id: str, IndexId: str
     ) -> StartDataSourceSyncJobResponseTypeDef:
         """
-        [Client.start_data_source_sync_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kendra.html#Kendra.Client.start_data_source_sync_job)
+        [Client.start_data_source_sync_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kendra.html#Kendra.Client.start_data_source_sync_job)
         """
 
     def stop_data_source_sync_job(self, Id: str, IndexId: str) -> None:
         """
-        [Client.stop_data_source_sync_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kendra.html#Kendra.Client.stop_data_source_sync_job)
+        [Client.stop_data_source_sync_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kendra.html#Kendra.Client.stop_data_source_sync_job)
         """
 
     def submit_feedback(
@@ -291,17 +291,17 @@ class KendraClient:
         RelevanceFeedbackItems: List[RelevanceFeedbackTypeDef] = None,
     ) -> None:
         """
-        [Client.submit_feedback documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kendra.html#Kendra.Client.submit_feedback)
+        [Client.submit_feedback documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kendra.html#Kendra.Client.submit_feedback)
         """
 
     def tag_resource(self, ResourceARN: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kendra.html#Kendra.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kendra.html#Kendra.Client.tag_resource)
         """
 
     def untag_resource(self, ResourceARN: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kendra.html#Kendra.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kendra.html#Kendra.Client.untag_resource)
         """
 
     def update_data_source(
@@ -315,7 +315,7 @@ class KendraClient:
         RoleArn: str = None,
     ) -> None:
         """
-        [Client.update_data_source documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kendra.html#Kendra.Client.update_data_source)
+        [Client.update_data_source documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kendra.html#Kendra.Client.update_data_source)
         """
 
     def update_index(
@@ -330,5 +330,5 @@ class KendraClient:
         UserContextPolicy: Literal["ATTRIBUTE_FILTER", "USER_TOKEN"] = None,
     ) -> None:
         """
-        [Client.update_index documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kendra.html#Kendra.Client.update_index)
+        [Client.update_index documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kendra.html#Kendra.Client.update_index)
         """

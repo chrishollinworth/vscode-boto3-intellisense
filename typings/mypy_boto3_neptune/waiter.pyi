@@ -30,7 +30,7 @@ __all__ = ("DBInstanceAvailableWaiter", "DBInstanceDeletedWaiter")
 
 class DBInstanceAvailableWaiter(Boto3Waiter):
     """
-    [Waiter.DBInstanceAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/neptune.html#Neptune.Waiter.DBInstanceAvailable)
+    [Waiter.DBInstanceAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/neptune.html#Neptune.Waiter.DBInstanceAvailable)
     """
 
     def wait(
@@ -42,13 +42,13 @@ class DBInstanceAvailableWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [DBInstanceAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/neptune.html#Neptune.Waiter.DBInstanceAvailable.wait)
+        [DBInstanceAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/neptune.html#Neptune.Waiter.DBInstanceAvailable.wait)
         """
 
 
 class DBInstanceDeletedWaiter(Boto3Waiter):
     """
-    [Waiter.DBInstanceDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/neptune.html#Neptune.Waiter.DBInstanceDeleted)
+    [Waiter.DBInstanceDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/neptune.html#Neptune.Waiter.DBInstanceDeleted)
     """
 
     def wait(
@@ -60,5 +60,5 @@ class DBInstanceDeletedWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [DBInstanceDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/neptune.html#Neptune.Waiter.DBInstanceDeleted.wait)
+        [DBInstanceDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/neptune.html#Neptune.Waiter.DBInstanceDeleted.wait)
         """

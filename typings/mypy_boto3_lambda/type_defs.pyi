@@ -28,6 +28,9 @@ __all__ = (
     "AccountUsageTypeDef",
     "AliasConfigurationTypeDef",
     "AliasRoutingConfigurationTypeDef",
+    "AllowedPublishersTypeDef",
+    "CodeSigningConfigTypeDef",
+    "CodeSigningPoliciesTypeDef",
     "ConcurrencyTypeDef",
     "DeadLetterConfigTypeDef",
     "DestinationConfigTypeDef",
@@ -38,6 +41,9 @@ __all__ = (
     "FunctionCodeLocationTypeDef",
     "FunctionConfigurationTypeDef",
     "FunctionEventInvokeConfigTypeDef",
+    "ImageConfigErrorTypeDef",
+    "ImageConfigResponseTypeDef",
+    "ImageConfigTypeDef",
     "LayerTypeDef",
     "LayerVersionContentOutputTypeDef",
     "LayerVersionsListItemTypeDef",
@@ -51,9 +57,12 @@ __all__ = (
     "VpcConfigResponseTypeDef",
     "AddLayerVersionPermissionResponseTypeDef",
     "AddPermissionResponseTypeDef",
+    "CreateCodeSigningConfigResponseTypeDef",
     "EnvironmentTypeDef",
     "FunctionCodeTypeDef",
     "GetAccountSettingsResponseTypeDef",
+    "GetCodeSigningConfigResponseTypeDef",
+    "GetFunctionCodeSigningConfigResponseTypeDef",
     "GetFunctionConcurrencyResponseTypeDef",
     "GetFunctionResponseTypeDef",
     "GetLayerVersionPolicyResponseTypeDef",
@@ -64,8 +73,10 @@ __all__ = (
     "InvokeAsyncResponseTypeDef",
     "LayerVersionContentInputTypeDef",
     "ListAliasesResponseTypeDef",
+    "ListCodeSigningConfigsResponseTypeDef",
     "ListEventSourceMappingsResponseTypeDef",
     "ListFunctionEventInvokeConfigsResponseTypeDef",
+    "ListFunctionsByCodeSigningConfigResponseTypeDef",
     "ListFunctionsResponseTypeDef",
     "ListLayerVersionsResponseTypeDef",
     "ListLayersResponseTypeDef",
@@ -74,8 +85,10 @@ __all__ = (
     "ListVersionsByFunctionResponseTypeDef",
     "PaginatorConfigTypeDef",
     "PublishLayerVersionResponseTypeDef",
+    "PutFunctionCodeSigningConfigResponseTypeDef",
     "PutProvisionedConcurrencyConfigResponseTypeDef",
     "TracingConfigTypeDef",
+    "UpdateCodeSigningConfigResponseTypeDef",
     "VpcConfigTypeDef",
     "WaiterConfigTypeDef",
 )
@@ -113,6 +126,37 @@ AliasRoutingConfigurationTypeDef = TypedDict(
     "AliasRoutingConfigurationTypeDef", {"AdditionalVersionWeights": Dict[str, float]}, total=False
 )
 
+AllowedPublishersTypeDef = TypedDict(
+    "AllowedPublishersTypeDef", {"SigningProfileVersionArns": List[str]}
+)
+
+_RequiredCodeSigningConfigTypeDef = TypedDict(
+    "_RequiredCodeSigningConfigTypeDef",
+    {
+        "CodeSigningConfigId": str,
+        "CodeSigningConfigArn": str,
+        "AllowedPublishers": "AllowedPublishersTypeDef",
+        "CodeSigningPolicies": "CodeSigningPoliciesTypeDef",
+        "LastModified": str,
+    },
+)
+_OptionalCodeSigningConfigTypeDef = TypedDict(
+    "_OptionalCodeSigningConfigTypeDef", {"Description": str}, total=False
+)
+
+
+class CodeSigningConfigTypeDef(
+    _RequiredCodeSigningConfigTypeDef, _OptionalCodeSigningConfigTypeDef
+):
+    pass
+
+
+CodeSigningPoliciesTypeDef = TypedDict(
+    "CodeSigningPoliciesTypeDef",
+    {"UntrustedArtifactOnDeployment": Literal["Warn", "Enforce"]},
+    total=False,
+)
+
 ConcurrencyTypeDef = TypedDict(
     "ConcurrencyTypeDef", {"ReservedConcurrentExecutions": int}, total=False
 )
@@ -139,6 +183,8 @@ EventSourceMappingConfigurationTypeDef = TypedDict(
     "EventSourceMappingConfigurationTypeDef",
     {
         "UUID": str,
+        "StartingPosition": Literal["TRIM_HORIZON", "LATEST", "AT_TIMESTAMP"],
+        "StartingPositionTimestamp": datetime,
         "BatchSize": int,
         "MaximumBatchingWindowInSeconds": int,
         "ParallelizationFactor": int,
@@ -162,7 +208,9 @@ EventSourceMappingConfigurationTypeDef = TypedDict(
 FileSystemConfigTypeDef = TypedDict("FileSystemConfigTypeDef", {"Arn": str, "LocalMountPath": str})
 
 FunctionCodeLocationTypeDef = TypedDict(
-    "FunctionCodeLocationTypeDef", {"RepositoryType": str, "Location": str}, total=False
+    "FunctionCodeLocationTypeDef",
+    {"RepositoryType": str, "Location": str, "ImageUri": str, "ResolvedImageUri": str},
+    total=False,
 )
 
 FunctionConfigurationTypeDef = TypedDict(
@@ -225,6 +273,8 @@ FunctionConfigurationTypeDef = TypedDict(
             "SubnetOutOfIPAddresses",
             "InvalidSubnet",
             "InvalidSecurityGroup",
+            "ImageDeleted",
+            "ImageAccessDenied",
         ],
         "LastUpdateStatus": Literal["Successful", "Failed", "InProgress"],
         "LastUpdateStatusReason": str,
@@ -236,8 +286,14 @@ FunctionConfigurationTypeDef = TypedDict(
             "SubnetOutOfIPAddresses",
             "InvalidSubnet",
             "InvalidSecurityGroup",
+            "ImageDeleted",
+            "ImageAccessDenied",
         ],
         "FileSystemConfigs": List["FileSystemConfigTypeDef"],
+        "PackageType": Literal["Zip", "Image"],
+        "ImageConfigResponse": "ImageConfigResponseTypeDef",
+        "SigningProfileVersionArn": str,
+        "SigningJobArn": str,
     },
     total=False,
 )
@@ -254,11 +310,38 @@ FunctionEventInvokeConfigTypeDef = TypedDict(
     total=False,
 )
 
-LayerTypeDef = TypedDict("LayerTypeDef", {"Arn": str, "CodeSize": int}, total=False)
+ImageConfigErrorTypeDef = TypedDict(
+    "ImageConfigErrorTypeDef", {"ErrorCode": str, "Message": str}, total=False
+)
+
+ImageConfigResponseTypeDef = TypedDict(
+    "ImageConfigResponseTypeDef",
+    {"ImageConfig": "ImageConfigTypeDef", "Error": "ImageConfigErrorTypeDef"},
+    total=False,
+)
+
+ImageConfigTypeDef = TypedDict(
+    "ImageConfigTypeDef",
+    {"EntryPoint": List[str], "Command": List[str], "WorkingDirectory": str},
+    total=False,
+)
+
+LayerTypeDef = TypedDict(
+    "LayerTypeDef",
+    {"Arn": str, "CodeSize": int, "SigningProfileVersionArn": str, "SigningJobArn": str},
+    total=False,
+)
 
 LayerVersionContentOutputTypeDef = TypedDict(
     "LayerVersionContentOutputTypeDef",
-    {"Location": str, "CodeSha256": str, "CodeSize": int, "ResponseMetadata": "ResponseMetadata"},
+    {
+        "Location": str,
+        "CodeSha256": str,
+        "CodeSize": int,
+        "SigningProfileVersionArn": str,
+        "SigningJobArn": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 
@@ -358,11 +441,21 @@ AddPermissionResponseTypeDef = TypedDict(
     "AddPermissionResponseTypeDef", {"Statement": str}, total=False
 )
 
+CreateCodeSigningConfigResponseTypeDef = TypedDict(
+    "CreateCodeSigningConfigResponseTypeDef", {"CodeSigningConfig": "CodeSigningConfigTypeDef"}
+)
+
 EnvironmentTypeDef = TypedDict("EnvironmentTypeDef", {"Variables": Dict[str, str]}, total=False)
 
 FunctionCodeTypeDef = TypedDict(
     "FunctionCodeTypeDef",
-    {"ZipFile": Union[bytes, IO[bytes]], "S3Bucket": str, "S3Key": str, "S3ObjectVersion": str},
+    {
+        "ZipFile": Union[bytes, IO[bytes]],
+        "S3Bucket": str,
+        "S3Key": str,
+        "S3ObjectVersion": str,
+        "ImageUri": str,
+    },
     total=False,
 )
 
@@ -370,6 +463,15 @@ GetAccountSettingsResponseTypeDef = TypedDict(
     "GetAccountSettingsResponseTypeDef",
     {"AccountLimit": "AccountLimitTypeDef", "AccountUsage": "AccountUsageTypeDef"},
     total=False,
+)
+
+GetCodeSigningConfigResponseTypeDef = TypedDict(
+    "GetCodeSigningConfigResponseTypeDef", {"CodeSigningConfig": "CodeSigningConfigTypeDef"}
+)
+
+GetFunctionCodeSigningConfigResponseTypeDef = TypedDict(
+    "GetFunctionCodeSigningConfigResponseTypeDef",
+    {"CodeSigningConfigArn": str, "FunctionName": str},
 )
 
 GetFunctionConcurrencyResponseTypeDef = TypedDict(
@@ -475,6 +577,12 @@ ListAliasesResponseTypeDef = TypedDict(
     total=False,
 )
 
+ListCodeSigningConfigsResponseTypeDef = TypedDict(
+    "ListCodeSigningConfigsResponseTypeDef",
+    {"NextMarker": str, "CodeSigningConfigs": List["CodeSigningConfigTypeDef"]},
+    total=False,
+)
+
 ListEventSourceMappingsResponseTypeDef = TypedDict(
     "ListEventSourceMappingsResponseTypeDef",
     {"NextMarker": str, "EventSourceMappings": List["EventSourceMappingConfigurationTypeDef"]},
@@ -484,6 +592,12 @@ ListEventSourceMappingsResponseTypeDef = TypedDict(
 ListFunctionEventInvokeConfigsResponseTypeDef = TypedDict(
     "ListFunctionEventInvokeConfigsResponseTypeDef",
     {"FunctionEventInvokeConfigs": List["FunctionEventInvokeConfigTypeDef"], "NextMarker": str},
+    total=False,
+)
+
+ListFunctionsByCodeSigningConfigResponseTypeDef = TypedDict(
+    "ListFunctionsByCodeSigningConfigResponseTypeDef",
+    {"NextMarker": str, "FunctionArns": List[str]},
     total=False,
 )
 
@@ -569,6 +683,11 @@ PublishLayerVersionResponseTypeDef = TypedDict(
     total=False,
 )
 
+PutFunctionCodeSigningConfigResponseTypeDef = TypedDict(
+    "PutFunctionCodeSigningConfigResponseTypeDef",
+    {"CodeSigningConfigArn": str, "FunctionName": str},
+)
+
 PutProvisionedConcurrencyConfigResponseTypeDef = TypedDict(
     "PutProvisionedConcurrencyConfigResponseTypeDef",
     {
@@ -584,6 +703,10 @@ PutProvisionedConcurrencyConfigResponseTypeDef = TypedDict(
 
 TracingConfigTypeDef = TypedDict(
     "TracingConfigTypeDef", {"Mode": Literal["Active", "PassThrough"]}, total=False
+)
+
+UpdateCodeSigningConfigResponseTypeDef = TypedDict(
+    "UpdateCodeSigningConfigResponseTypeDef", {"CodeSigningConfig": "CodeSigningConfigTypeDef"}
 )
 
 VpcConfigTypeDef = TypedDict(

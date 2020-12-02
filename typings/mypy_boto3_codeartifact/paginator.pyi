@@ -60,27 +60,27 @@ __all__ = (
 
 class ListDomainsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDomains documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Paginator.ListDomains)
+    [Paginator.ListDomains documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codeartifact.html#CodeArtifact.Paginator.ListDomains)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDomainsResultTypeDef]:
         """
-        [ListDomains.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Paginator.ListDomains.paginate)
+        [ListDomains.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codeartifact.html#CodeArtifact.Paginator.ListDomains.paginate)
         """
 
 
 class ListPackageVersionAssetsPaginator(Boto3Paginator):
     """
-    [Paginator.ListPackageVersionAssets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Paginator.ListPackageVersionAssets)
+    [Paginator.ListPackageVersionAssets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codeartifact.html#CodeArtifact.Paginator.ListPackageVersionAssets)
     """
 
     def paginate(
         self,
         domain: str,
         repository: str,
-        format: Literal["npm", "pypi", "maven"],
+        format: Literal["npm", "pypi", "maven", "nuget"],
         package: str,
         packageVersion: str,
         domainOwner: str = None,
@@ -88,20 +88,20 @@ class ListPackageVersionAssetsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListPackageVersionAssetsResultTypeDef]:
         """
-        [ListPackageVersionAssets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Paginator.ListPackageVersionAssets.paginate)
+        [ListPackageVersionAssets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codeartifact.html#CodeArtifact.Paginator.ListPackageVersionAssets.paginate)
         """
 
 
 class ListPackageVersionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListPackageVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Paginator.ListPackageVersions)
+    [Paginator.ListPackageVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codeartifact.html#CodeArtifact.Paginator.ListPackageVersions)
     """
 
     def paginate(
         self,
         domain: str,
         repository: str,
-        format: Literal["npm", "pypi", "maven"],
+        format: Literal["npm", "pypi", "maven", "nuget"],
         package: str,
         domainOwner: str = None,
         namespace: str = None,
@@ -112,13 +112,13 @@ class ListPackageVersionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListPackageVersionsResultTypeDef]:
         """
-        [ListPackageVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Paginator.ListPackageVersions.paginate)
+        [ListPackageVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codeartifact.html#CodeArtifact.Paginator.ListPackageVersions.paginate)
         """
 
 
 class ListPackagesPaginator(Boto3Paginator):
     """
-    [Paginator.ListPackages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Paginator.ListPackages)
+    [Paginator.ListPackages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codeartifact.html#CodeArtifact.Paginator.ListPackages)
     """
 
     def paginate(
@@ -126,32 +126,32 @@ class ListPackagesPaginator(Boto3Paginator):
         domain: str,
         repository: str,
         domainOwner: str = None,
-        format: Literal["npm", "pypi", "maven"] = None,
+        format: Literal["npm", "pypi", "maven", "nuget"] = None,
         namespace: str = None,
         packagePrefix: str = None,
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListPackagesResultTypeDef]:
         """
-        [ListPackages.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Paginator.ListPackages.paginate)
+        [ListPackages.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codeartifact.html#CodeArtifact.Paginator.ListPackages.paginate)
         """
 
 
 class ListRepositoriesPaginator(Boto3Paginator):
     """
-    [Paginator.ListRepositories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Paginator.ListRepositories)
+    [Paginator.ListRepositories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codeartifact.html#CodeArtifact.Paginator.ListRepositories)
     """
 
     def paginate(
         self, repositoryPrefix: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRepositoriesResultTypeDef]:
         """
-        [ListRepositories.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Paginator.ListRepositories.paginate)
+        [ListRepositories.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codeartifact.html#CodeArtifact.Paginator.ListRepositories.paginate)
         """
 
 
 class ListRepositoriesInDomainPaginator(Boto3Paginator):
     """
-    [Paginator.ListRepositoriesInDomain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Paginator.ListRepositoriesInDomain)
+    [Paginator.ListRepositoriesInDomain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codeartifact.html#CodeArtifact.Paginator.ListRepositoriesInDomain)
     """
 
     def paginate(
@@ -163,5 +163,5 @@ class ListRepositoriesInDomainPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListRepositoriesInDomainResultTypeDef]:
         """
-        [ListRepositoriesInDomain.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeartifact.html#CodeArtifact.Paginator.ListRepositoriesInDomain.paginate)
+        [ListRepositoriesInDomain.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codeartifact.html#CodeArtifact.Paginator.ListRepositoriesInDomain.paginate)
         """

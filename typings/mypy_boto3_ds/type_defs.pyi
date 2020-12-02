@@ -27,12 +27,14 @@ __all__ = (
     "AttributeTypeDef",
     "CertificateInfoTypeDef",
     "CertificateTypeDef",
+    "ClientCertAuthSettingsTypeDef",
     "ComputerTypeDef",
     "ConditionalForwarderTypeDef",
     "DirectoryConnectSettingsDescriptionTypeDef",
     "DirectoryDescriptionTypeDef",
     "DirectoryLimitsTypeDef",
     "DirectoryVpcSettingsDescriptionTypeDef",
+    "DirectoryVpcSettingsTypeDef",
     "DomainControllerTypeDef",
     "EventTopicTypeDef",
     "IpRouteInfoTypeDef",
@@ -40,6 +42,8 @@ __all__ = (
     "LogSubscriptionTypeDef",
     "OwnerDirectoryDescriptionTypeDef",
     "RadiusSettingsTypeDef",
+    "RegionDescriptionTypeDef",
+    "RegionsInfoTypeDef",
     "SchemaExtensionInfoTypeDef",
     "SharedDirectoryTypeDef",
     "SnapshotLimitsTypeDef",
@@ -63,11 +67,11 @@ __all__ = (
     "DescribeDomainControllersResultTypeDef",
     "DescribeEventTopicsResultTypeDef",
     "DescribeLDAPSSettingsResultTypeDef",
+    "DescribeRegionsResultTypeDef",
     "DescribeSharedDirectoriesResultTypeDef",
     "DescribeSnapshotsResultTypeDef",
     "DescribeTrustsResultTypeDef",
     "DirectoryConnectSettingsTypeDef",
-    "DirectoryVpcSettingsTypeDef",
     "GetDirectoryLimitsResultTypeDef",
     "GetSnapshotLimitsResultTypeDef",
     "IpRouteTypeDef",
@@ -104,6 +108,7 @@ CertificateInfoTypeDef = TypedDict(
             "DeregisterFailed",
         ],
         "ExpiryDateTime": datetime,
+        "Type": Literal["ClientCertAuth", "ClientLDAPS"],
     },
     total=False,
 )
@@ -124,8 +129,14 @@ CertificateTypeDef = TypedDict(
         "CommonName": str,
         "RegisteredDateTime": datetime,
         "ExpiryDateTime": datetime,
+        "Type": Literal["ClientCertAuth", "ClientLDAPS"],
+        "ClientCertAuthSettings": "ClientCertAuthSettingsTypeDef",
     },
     total=False,
+)
+
+ClientCertAuthSettingsTypeDef = TypedDict(
+    "ClientCertAuthSettingsTypeDef", {"OCSPUrl": str}, total=False
 )
 
 ComputerTypeDef = TypedDict(
@@ -202,6 +213,7 @@ DirectoryDescriptionTypeDef = TypedDict(
         "SsoEnabled": bool,
         "DesiredNumberOfDomainControllers": int,
         "OwnerDirectoryDescription": "OwnerDirectoryDescriptionTypeDef",
+        "RegionsInfo": "RegionsInfoTypeDef",
     },
     total=False,
 )
@@ -226,6 +238,10 @@ DirectoryVpcSettingsDescriptionTypeDef = TypedDict(
     "DirectoryVpcSettingsDescriptionTypeDef",
     {"VpcId": str, "SubnetIds": List[str], "SecurityGroupId": str, "AvailabilityZones": List[str]},
     total=False,
+)
+
+DirectoryVpcSettingsTypeDef = TypedDict(
+    "DirectoryVpcSettingsTypeDef", {"VpcId": str, "SubnetIds": List[str]}
 )
 
 DomainControllerTypeDef = TypedDict(
@@ -316,6 +332,38 @@ RadiusSettingsTypeDef = TypedDict(
         "UseSameUsername": bool,
     },
     total=False,
+)
+
+RegionDescriptionTypeDef = TypedDict(
+    "RegionDescriptionTypeDef",
+    {
+        "DirectoryId": str,
+        "RegionName": str,
+        "RegionType": Literal["Primary", "Additional"],
+        "Status": Literal[
+            "Requested",
+            "Creating",
+            "Created",
+            "Active",
+            "Inoperable",
+            "Impaired",
+            "Restoring",
+            "RestoreFailed",
+            "Deleting",
+            "Deleted",
+            "Failed",
+        ],
+        "VpcSettings": "DirectoryVpcSettingsTypeDef",
+        "DesiredNumberOfDomainControllers": int,
+        "LaunchTime": datetime,
+        "StatusLastUpdatedDateTime": datetime,
+        "LastUpdatedDateTime": datetime,
+    },
+    total=False,
+)
+
+RegionsInfoTypeDef = TypedDict(
+    "RegionsInfoTypeDef", {"PrimaryRegion": str, "AdditionalRegions": List[str]}, total=False
 )
 
 SchemaExtensionInfoTypeDef = TypedDict(
@@ -495,6 +543,12 @@ DescribeLDAPSSettingsResultTypeDef = TypedDict(
     total=False,
 )
 
+DescribeRegionsResultTypeDef = TypedDict(
+    "DescribeRegionsResultTypeDef",
+    {"RegionsDescription": List["RegionDescriptionTypeDef"], "NextToken": str},
+    total=False,
+)
+
 DescribeSharedDirectoriesResultTypeDef = TypedDict(
     "DescribeSharedDirectoriesResultTypeDef",
     {"SharedDirectories": List["SharedDirectoryTypeDef"], "NextToken": str},
@@ -514,10 +568,6 @@ DescribeTrustsResultTypeDef = TypedDict(
 DirectoryConnectSettingsTypeDef = TypedDict(
     "DirectoryConnectSettingsTypeDef",
     {"VpcId": str, "SubnetIds": List[str], "CustomerDnsIps": List[str], "CustomerUserName": str},
-)
-
-DirectoryVpcSettingsTypeDef = TypedDict(
-    "DirectoryVpcSettingsTypeDef", {"VpcId": str, "SubnetIds": List[str]}
 )
 
 GetDirectoryLimitsResultTypeDef = TypedDict(

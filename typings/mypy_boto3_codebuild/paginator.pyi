@@ -87,7 +87,7 @@ __all__ = (
 
 class DescribeCodeCoveragesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeCodeCoverages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codebuild.html#CodeBuild.Paginator.DescribeCodeCoverages)
+    [Paginator.DescribeCodeCoverages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codebuild.html#CodeBuild.Paginator.DescribeCodeCoverages)
     """
 
     def paginate(
@@ -100,13 +100,13 @@ class DescribeCodeCoveragesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeCodeCoveragesOutputTypeDef]:
         """
-        [DescribeCodeCoverages.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codebuild.html#CodeBuild.Paginator.DescribeCodeCoverages.paginate)
+        [DescribeCodeCoverages.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codebuild.html#CodeBuild.Paginator.DescribeCodeCoverages.paginate)
         """
 
 
 class DescribeTestCasesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeTestCases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codebuild.html#CodeBuild.Paginator.DescribeTestCases)
+    [Paginator.DescribeTestCases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codebuild.html#CodeBuild.Paginator.DescribeTestCases)
     """
 
     def paginate(
@@ -116,13 +116,13 @@ class DescribeTestCasesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeTestCasesOutputTypeDef]:
         """
-        [DescribeTestCases.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codebuild.html#CodeBuild.Paginator.DescribeTestCases.paginate)
+        [DescribeTestCases.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codebuild.html#CodeBuild.Paginator.DescribeTestCases.paginate)
         """
 
 
 class ListBuildBatchesPaginator(Boto3Paginator):
     """
-    [Paginator.ListBuildBatches documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codebuild.html#CodeBuild.Paginator.ListBuildBatches)
+    [Paginator.ListBuildBatches documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codebuild.html#CodeBuild.Paginator.ListBuildBatches)
     """
 
     def paginate(
@@ -132,13 +132,13 @@ class ListBuildBatchesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListBuildBatchesOutputTypeDef]:
         """
-        [ListBuildBatches.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codebuild.html#CodeBuild.Paginator.ListBuildBatches.paginate)
+        [ListBuildBatches.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codebuild.html#CodeBuild.Paginator.ListBuildBatches.paginate)
         """
 
 
 class ListBuildBatchesForProjectPaginator(Boto3Paginator):
     """
-    [Paginator.ListBuildBatchesForProject documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codebuild.html#CodeBuild.Paginator.ListBuildBatchesForProject)
+    [Paginator.ListBuildBatchesForProject documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codebuild.html#CodeBuild.Paginator.ListBuildBatchesForProject)
     """
 
     def paginate(
@@ -149,13 +149,13 @@ class ListBuildBatchesForProjectPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListBuildBatchesForProjectOutputTypeDef]:
         """
-        [ListBuildBatchesForProject.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codebuild.html#CodeBuild.Paginator.ListBuildBatchesForProject.paginate)
+        [ListBuildBatchesForProject.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codebuild.html#CodeBuild.Paginator.ListBuildBatchesForProject.paginate)
         """
 
 
 class ListBuildsPaginator(Boto3Paginator):
     """
-    [Paginator.ListBuilds documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codebuild.html#CodeBuild.Paginator.ListBuilds)
+    [Paginator.ListBuilds documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codebuild.html#CodeBuild.Paginator.ListBuilds)
     """
 
     def paginate(
@@ -164,13 +164,13 @@ class ListBuildsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListBuildsOutputTypeDef]:
         """
-        [ListBuilds.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codebuild.html#CodeBuild.Paginator.ListBuilds.paginate)
+        [ListBuilds.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codebuild.html#CodeBuild.Paginator.ListBuilds.paginate)
         """
 
 
 class ListBuildsForProjectPaginator(Boto3Paginator):
     """
-    [Paginator.ListBuildsForProject documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codebuild.html#CodeBuild.Paginator.ListBuildsForProject)
+    [Paginator.ListBuildsForProject documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codebuild.html#CodeBuild.Paginator.ListBuildsForProject)
     """
 
     def paginate(
@@ -180,13 +180,13 @@ class ListBuildsForProjectPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListBuildsForProjectOutputTypeDef]:
         """
-        [ListBuildsForProject.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codebuild.html#CodeBuild.Paginator.ListBuildsForProject.paginate)
+        [ListBuildsForProject.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codebuild.html#CodeBuild.Paginator.ListBuildsForProject.paginate)
         """
 
 
 class ListProjectsPaginator(Boto3Paginator):
     """
-    [Paginator.ListProjects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codebuild.html#CodeBuild.Paginator.ListProjects)
+    [Paginator.ListProjects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codebuild.html#CodeBuild.Paginator.ListProjects)
     """
 
     def paginate(
@@ -196,13 +196,13 @@ class ListProjectsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListProjectsOutputTypeDef]:
         """
-        [ListProjects.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codebuild.html#CodeBuild.Paginator.ListProjects.paginate)
+        [ListProjects.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codebuild.html#CodeBuild.Paginator.ListProjects.paginate)
         """
 
 
 class ListReportGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.ListReportGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codebuild.html#CodeBuild.Paginator.ListReportGroups)
+    [Paginator.ListReportGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codebuild.html#CodeBuild.Paginator.ListReportGroups)
     """
 
     def paginate(
@@ -212,13 +212,13 @@ class ListReportGroupsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListReportGroupsOutputTypeDef]:
         """
-        [ListReportGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codebuild.html#CodeBuild.Paginator.ListReportGroups.paginate)
+        [ListReportGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codebuild.html#CodeBuild.Paginator.ListReportGroups.paginate)
         """
 
 
 class ListReportsPaginator(Boto3Paginator):
     """
-    [Paginator.ListReports documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codebuild.html#CodeBuild.Paginator.ListReports)
+    [Paginator.ListReports documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codebuild.html#CodeBuild.Paginator.ListReports)
     """
 
     def paginate(
@@ -228,13 +228,13 @@ class ListReportsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListReportsOutputTypeDef]:
         """
-        [ListReports.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codebuild.html#CodeBuild.Paginator.ListReports.paginate)
+        [ListReports.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codebuild.html#CodeBuild.Paginator.ListReports.paginate)
         """
 
 
 class ListReportsForReportGroupPaginator(Boto3Paginator):
     """
-    [Paginator.ListReportsForReportGroup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codebuild.html#CodeBuild.Paginator.ListReportsForReportGroup)
+    [Paginator.ListReportsForReportGroup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codebuild.html#CodeBuild.Paginator.ListReportsForReportGroup)
     """
 
     def paginate(
@@ -245,13 +245,13 @@ class ListReportsForReportGroupPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListReportsForReportGroupOutputTypeDef]:
         """
-        [ListReportsForReportGroup.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codebuild.html#CodeBuild.Paginator.ListReportsForReportGroup.paginate)
+        [ListReportsForReportGroup.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codebuild.html#CodeBuild.Paginator.ListReportsForReportGroup.paginate)
         """
 
 
 class ListSharedProjectsPaginator(Boto3Paginator):
     """
-    [Paginator.ListSharedProjects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codebuild.html#CodeBuild.Paginator.ListSharedProjects)
+    [Paginator.ListSharedProjects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codebuild.html#CodeBuild.Paginator.ListSharedProjects)
     """
 
     def paginate(
@@ -261,13 +261,13 @@ class ListSharedProjectsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListSharedProjectsOutputTypeDef]:
         """
-        [ListSharedProjects.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codebuild.html#CodeBuild.Paginator.ListSharedProjects.paginate)
+        [ListSharedProjects.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codebuild.html#CodeBuild.Paginator.ListSharedProjects.paginate)
         """
 
 
 class ListSharedReportGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.ListSharedReportGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codebuild.html#CodeBuild.Paginator.ListSharedReportGroups)
+    [Paginator.ListSharedReportGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codebuild.html#CodeBuild.Paginator.ListSharedReportGroups)
     """
 
     def paginate(
@@ -277,5 +277,5 @@ class ListSharedReportGroupsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListSharedReportGroupsOutputTypeDef]:
         """
-        [ListSharedReportGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codebuild.html#CodeBuild.Paginator.ListSharedReportGroups.paginate)
+        [ListSharedReportGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codebuild.html#CodeBuild.Paginator.ListSharedReportGroups.paginate)
         """

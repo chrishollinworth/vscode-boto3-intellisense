@@ -11,6 +11,8 @@ from mypy_boto3_emr import (
     ListNotebookExecutionsPaginator,
     ListSecurityConfigurationsPaginator,
     ListStepsPaginator,
+    ListStudioSessionMappingsPaginator,
+    ListStudiosPaginator,
     StepCompleteWaiter,
 )
 
@@ -27,5 +29,7 @@ __all__ = (
     "ListNotebookExecutionsPaginator",
     "ListSecurityConfigurationsPaginator",
     "ListStepsPaginator",
+    "ListStudioSessionMappingsPaginator",
+    "ListStudiosPaginator",
     "StepCompleteWaiter",
 )

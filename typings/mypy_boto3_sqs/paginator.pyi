@@ -34,25 +34,25 @@ __all__ = ("ListDeadLetterSourceQueuesPaginator", "ListQueuesPaginator")
 
 class ListDeadLetterSourceQueuesPaginator(Boto3Paginator):
     """
-    [Paginator.ListDeadLetterSourceQueues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Paginator.ListDeadLetterSourceQueues)
+    [Paginator.ListDeadLetterSourceQueues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sqs.html#SQS.Paginator.ListDeadLetterSourceQueues)
     """
 
     def paginate(
         self, QueueUrl: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDeadLetterSourceQueuesResultTypeDef]:
         """
-        [ListDeadLetterSourceQueues.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Paginator.ListDeadLetterSourceQueues.paginate)
+        [ListDeadLetterSourceQueues.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sqs.html#SQS.Paginator.ListDeadLetterSourceQueues.paginate)
         """
 
 
 class ListQueuesPaginator(Boto3Paginator):
     """
-    [Paginator.ListQueues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Paginator.ListQueues)
+    [Paginator.ListQueues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sqs.html#SQS.Paginator.ListQueues)
     """
 
     def paginate(
         self, QueueNamePrefix: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListQueuesResultTypeDef]:
         """
-        [ListQueues.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Paginator.ListQueues.paginate)
+        [ListQueues.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sqs.html#SQS.Paginator.ListQueues.paginate)
         """

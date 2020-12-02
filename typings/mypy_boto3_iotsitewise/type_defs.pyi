@@ -41,6 +41,8 @@ __all__ = (
     "AttributeTypeDef",
     "BatchPutAssetPropertyErrorEntryTypeDef",
     "BatchPutAssetPropertyErrorTypeDef",
+    "ConfigurationErrorDetailsTypeDef",
+    "ConfigurationStatusTypeDef",
     "DashboardSummaryTypeDef",
     "ErrorDetailsTypeDef",
     "ExpressionVariableTypeDef",
@@ -93,6 +95,7 @@ __all__ = (
     "DescribeAssetPropertyResponseTypeDef",
     "DescribeAssetResponseTypeDef",
     "DescribeDashboardResponseTypeDef",
+    "DescribeDefaultEncryptionConfigurationResponseTypeDef",
     "DescribeGatewayCapabilityConfigurationResponseTypeDef",
     "DescribeGatewayResponseTypeDef",
     "DescribeLoggingOptionsResponseTypeDef",
@@ -114,6 +117,7 @@ __all__ = (
     "ListTagsForResourceResponseTypeDef",
     "PaginatorConfigTypeDef",
     "PutAssetPropertyValueEntryTypeDef",
+    "PutDefaultEncryptionConfigurationResponseTypeDef",
     "UpdateAssetModelResponseTypeDef",
     "UpdateAssetResponseTypeDef",
     "UpdateGatewayCapabilityConfigurationResponseTypeDef",
@@ -340,6 +344,28 @@ BatchPutAssetPropertyErrorTypeDef = TypedDict(
         "timestamps": List["TimeInNanosTypeDef"],
     },
 )
+
+ConfigurationErrorDetailsTypeDef = TypedDict(
+    "ConfigurationErrorDetailsTypeDef",
+    {"code": Literal["VALIDATION_ERROR", "INTERNAL_FAILURE"], "message": str},
+)
+
+_RequiredConfigurationStatusTypeDef = TypedDict(
+    "_RequiredConfigurationStatusTypeDef",
+    {"state": Literal["ACTIVE", "UPDATE_IN_PROGRESS", "UPDATE_FAILED"]},
+)
+_OptionalConfigurationStatusTypeDef = TypedDict(
+    "_OptionalConfigurationStatusTypeDef",
+    {"error": "ConfigurationErrorDetailsTypeDef"},
+    total=False,
+)
+
+
+class ConfigurationStatusTypeDef(
+    _RequiredConfigurationStatusTypeDef, _OptionalConfigurationStatusTypeDef
+):
+    pass
+
 
 _RequiredDashboardSummaryTypeDef = TypedDict(
     "_RequiredDashboardSummaryTypeDef", {"id": str, "name": str}
@@ -718,6 +744,27 @@ class DescribeDashboardResponseTypeDef(
     pass
 
 
+_RequiredDescribeDefaultEncryptionConfigurationResponseTypeDef = TypedDict(
+    "_RequiredDescribeDefaultEncryptionConfigurationResponseTypeDef",
+    {
+        "encryptionType": Literal["SITEWISE_DEFAULT_ENCRYPTION", "KMS_BASED_ENCRYPTION"],
+        "configurationStatus": "ConfigurationStatusTypeDef",
+    },
+)
+_OptionalDescribeDefaultEncryptionConfigurationResponseTypeDef = TypedDict(
+    "_OptionalDescribeDefaultEncryptionConfigurationResponseTypeDef",
+    {"kmsKeyArn": str},
+    total=False,
+)
+
+
+class DescribeDefaultEncryptionConfigurationResponseTypeDef(
+    _RequiredDescribeDefaultEncryptionConfigurationResponseTypeDef,
+    _OptionalDescribeDefaultEncryptionConfigurationResponseTypeDef,
+):
+    pass
+
+
 DescribeGatewayCapabilityConfigurationResponseTypeDef = TypedDict(
     "DescribeGatewayCapabilityConfigurationResponseTypeDef",
     {
@@ -993,6 +1040,25 @@ _OptionalPutAssetPropertyValueEntryTypeDef = TypedDict(
 
 class PutAssetPropertyValueEntryTypeDef(
     _RequiredPutAssetPropertyValueEntryTypeDef, _OptionalPutAssetPropertyValueEntryTypeDef
+):
+    pass
+
+
+_RequiredPutDefaultEncryptionConfigurationResponseTypeDef = TypedDict(
+    "_RequiredPutDefaultEncryptionConfigurationResponseTypeDef",
+    {
+        "encryptionType": Literal["SITEWISE_DEFAULT_ENCRYPTION", "KMS_BASED_ENCRYPTION"],
+        "configurationStatus": "ConfigurationStatusTypeDef",
+    },
+)
+_OptionalPutDefaultEncryptionConfigurationResponseTypeDef = TypedDict(
+    "_OptionalPutDefaultEncryptionConfigurationResponseTypeDef", {"kmsKeyArn": str}, total=False
+)
+
+
+class PutDefaultEncryptionConfigurationResponseTypeDef(
+    _RequiredPutDefaultEncryptionConfigurationResponseTypeDef,
+    _OptionalPutDefaultEncryptionConfigurationResponseTypeDef,
 ):
     pass
 

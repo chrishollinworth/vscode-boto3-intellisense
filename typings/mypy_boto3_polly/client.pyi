@@ -75,7 +75,7 @@ class Exceptions:
 
 class PollyClient:
     """
-    [Polly.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/polly.html#Polly.Client)
+    [Polly.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/polly.html#Polly.Client)
     """
 
     meta: ClientMeta
@@ -83,12 +83,12 @@ class PollyClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/polly.html#Polly.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/polly.html#Polly.Client.can_paginate)
         """
 
     def delete_lexicon(self, Name: str) -> Dict[str, Any]:
         """
-        [Client.delete_lexicon documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/polly.html#Polly.Client.delete_lexicon)
+        [Client.delete_lexicon documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/polly.html#Polly.Client.delete_lexicon)
         """
 
     def describe_voices(
@@ -129,7 +129,7 @@ class PollyClient:
         NextToken: str = None,
     ) -> DescribeVoicesOutputTypeDef:
         """
-        [Client.describe_voices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/polly.html#Polly.Client.describe_voices)
+        [Client.describe_voices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/polly.html#Polly.Client.describe_voices)
         """
 
     def generate_presigned_url(
@@ -140,22 +140,22 @@ class PollyClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/polly.html#Polly.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/polly.html#Polly.Client.generate_presigned_url)
         """
 
     def get_lexicon(self, Name: str) -> GetLexiconOutputTypeDef:
         """
-        [Client.get_lexicon documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/polly.html#Polly.Client.get_lexicon)
+        [Client.get_lexicon documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/polly.html#Polly.Client.get_lexicon)
         """
 
     def get_speech_synthesis_task(self, TaskId: str) -> GetSpeechSynthesisTaskOutputTypeDef:
         """
-        [Client.get_speech_synthesis_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/polly.html#Polly.Client.get_speech_synthesis_task)
+        [Client.get_speech_synthesis_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/polly.html#Polly.Client.get_speech_synthesis_task)
         """
 
     def list_lexicons(self, NextToken: str = None) -> ListLexiconsOutputTypeDef:
         """
-        [Client.list_lexicons documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/polly.html#Polly.Client.list_lexicons)
+        [Client.list_lexicons documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/polly.html#Polly.Client.list_lexicons)
         """
 
     def list_speech_synthesis_tasks(
@@ -165,12 +165,12 @@ class PollyClient:
         Status: Literal["scheduled", "inProgress", "completed", "failed"] = None,
     ) -> ListSpeechSynthesisTasksOutputTypeDef:
         """
-        [Client.list_speech_synthesis_tasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/polly.html#Polly.Client.list_speech_synthesis_tasks)
+        [Client.list_speech_synthesis_tasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/polly.html#Polly.Client.list_speech_synthesis_tasks)
         """
 
     def put_lexicon(self, Name: str, Content: str) -> Dict[str, Any]:
         """
-        [Client.put_lexicon documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/polly.html#Polly.Client.put_lexicon)
+        [Client.put_lexicon documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/polly.html#Polly.Client.put_lexicon)
         """
 
     def start_speech_synthesis_task(
@@ -282,7 +282,7 @@ class PollyClient:
         TextType: Literal["ssml", "text"] = None,
     ) -> StartSpeechSynthesisTaskOutputTypeDef:
         """
-        [Client.start_speech_synthesis_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/polly.html#Polly.Client.start_speech_synthesis_task)
+        [Client.start_speech_synthesis_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/polly.html#Polly.Client.start_speech_synthesis_task)
         """
 
     def synthesize_speech(
@@ -391,19 +391,19 @@ class PollyClient:
         TextType: Literal["ssml", "text"] = None,
     ) -> SynthesizeSpeechOutputTypeDef:
         """
-        [Client.synthesize_speech documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/polly.html#Polly.Client.synthesize_speech)
+        [Client.synthesize_speech documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/polly.html#Polly.Client.synthesize_speech)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["describe_voices"]) -> DescribeVoicesPaginator:
         """
-        [Paginator.DescribeVoices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/polly.html#Polly.Paginator.DescribeVoices)
+        [Paginator.DescribeVoices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/polly.html#Polly.Paginator.DescribeVoices)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_lexicons"]) -> ListLexiconsPaginator:
         """
-        [Paginator.ListLexicons documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/polly.html#Polly.Paginator.ListLexicons)
+        [Paginator.ListLexicons documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/polly.html#Polly.Paginator.ListLexicons)
         """
 
     @overload
@@ -411,5 +411,5 @@ class PollyClient:
         self, operation_name: Literal["list_speech_synthesis_tasks"]
     ) -> ListSpeechSynthesisTasksPaginator:
         """
-        [Paginator.ListSpeechSynthesisTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/polly.html#Polly.Paginator.ListSpeechSynthesisTasks)
+        [Paginator.ListSpeechSynthesisTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/polly.html#Polly.Paginator.ListSpeechSynthesisTasks)
         """

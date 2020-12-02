@@ -27,11 +27,15 @@ from mypy_boto3_glue.paginator import (
     GetJobsPaginator,
     GetPartitionIndexesPaginator,
     GetPartitionsPaginator,
+    GetResourcePoliciesPaginator,
     GetSecurityConfigurationsPaginator,
     GetTablesPaginator,
     GetTableVersionsPaginator,
     GetTriggersPaginator,
     GetUserDefinedFunctionsPaginator,
+    ListRegistriesPaginator,
+    ListSchemasPaginator,
+    ListSchemaVersionsPaginator,
 )
 from mypy_boto3_glue.type_defs import (
     ActionTypeDef,
@@ -51,6 +55,7 @@ from mypy_boto3_glue.type_defs import (
     BatchUpdatePartitionResponseTypeDef,
     CancelMLTaskRunResponseTypeDef,
     CatalogEntryTypeDef,
+    CheckSchemaVersionValidityResponseTypeDef,
     CodeGenEdgeTypeDef,
     CodeGenNodeTypeDef,
     ColumnStatisticsTypeDef,
@@ -63,6 +68,8 @@ from mypy_boto3_glue.type_defs import (
     CreateJobResponseTypeDef,
     CreateJsonClassifierRequestTypeDef,
     CreateMLTransformResponseTypeDef,
+    CreateRegistryResponseTypeDef,
+    CreateSchemaResponseTypeDef,
     CreateScriptResponseTypeDef,
     CreateSecurityConfigurationResponseTypeDef,
     CreateTriggerResponseTypeDef,
@@ -72,6 +79,9 @@ from mypy_boto3_glue.type_defs import (
     DataCatalogEncryptionSettingsTypeDef,
     DeleteJobResponseTypeDef,
     DeleteMLTransformResponseTypeDef,
+    DeleteRegistryResponseTypeDef,
+    DeleteSchemaResponseTypeDef,
+    DeleteSchemaVersionsResponseTypeDef,
     DeleteTriggerResponseTypeDef,
     DeleteWorkflowResponseTypeDef,
     DevEndpointCustomLibrariesTypeDef,
@@ -108,8 +118,13 @@ from mypy_boto3_glue.type_defs import (
     GetPartitionResponseTypeDef,
     GetPartitionsResponseTypeDef,
     GetPlanResponseTypeDef,
+    GetRegistryResponseTypeDef,
     GetResourcePoliciesResponseTypeDef,
     GetResourcePolicyResponseTypeDef,
+    GetSchemaByDefinitionResponseTypeDef,
+    GetSchemaResponseTypeDef,
+    GetSchemaVersionResponseTypeDef,
+    GetSchemaVersionsDiffResponseTypeDef,
     GetSecurityConfigurationResponseTypeDef,
     GetSecurityConfigurationsResponseTypeDef,
     GetTableResponseTypeDef,
@@ -128,14 +143,19 @@ from mypy_boto3_glue.type_defs import (
     GlueTableTypeDef,
     JobCommandTypeDef,
     JobUpdateTypeDef,
+    LineageConfigurationTypeDef,
     ListCrawlersResponseTypeDef,
     ListDevEndpointsResponseTypeDef,
     ListJobsResponseTypeDef,
     ListMLTransformsResponseTypeDef,
+    ListRegistriesResponseTypeDef,
+    ListSchemasResponseTypeDef,
+    ListSchemaVersionsResponseTypeDef,
     ListTriggersResponseTypeDef,
     ListWorkflowsResponseTypeDef,
     LocationTypeDef,
     MappingEntryTypeDef,
+    MetadataKeyValuePairTypeDef,
     NotificationPropertyTypeDef,
     PartitionIndexTypeDef,
     PartitionInputTypeDef,
@@ -143,10 +163,17 @@ from mypy_boto3_glue.type_defs import (
     PredicateTypeDef,
     PropertyPredicateTypeDef,
     PutResourcePolicyResponseTypeDef,
+    PutSchemaVersionMetadataResponseTypeDef,
+    QuerySchemaVersionMetadataResponseTypeDef,
     RecrawlPolicyTypeDef,
+    RegisterSchemaVersionResponseTypeDef,
+    RegistryIdTypeDef,
+    RemoveSchemaVersionMetadataResponseTypeDef,
     ResetJobBookmarkResponseTypeDef,
     ResumeWorkflowRunResponseTypeDef,
     SchemaChangePolicyTypeDef,
+    SchemaIdTypeDef,
+    SchemaVersionNumberTypeDef,
     SearchTablesResponseTypeDef,
     SegmentTypeDef,
     SortCriterionTypeDef,
@@ -173,6 +200,8 @@ from mypy_boto3_glue.type_defs import (
     UpdateJobResponseTypeDef,
     UpdateJsonClassifierRequestTypeDef,
     UpdateMLTransformResponseTypeDef,
+    UpdateRegistryResponseTypeDef,
+    UpdateSchemaResponseTypeDef,
     UpdateTriggerResponseTypeDef,
     UpdateWorkflowResponseTypeDef,
     UpdateXMLClassifierRequestTypeDef,
@@ -226,7 +255,7 @@ class Exceptions:
 
 class GlueClient:
     """
-    [Glue.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client)
+    [Glue.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client)
     """
 
     meta: ClientMeta
@@ -240,14 +269,14 @@ class GlueClient:
         CatalogId: str = None,
     ) -> BatchCreatePartitionResponseTypeDef:
         """
-        [Client.batch_create_partition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.batch_create_partition)
+        [Client.batch_create_partition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.batch_create_partition)
         """
 
     def batch_delete_connection(
         self, ConnectionNameList: List[str], CatalogId: str = None
     ) -> BatchDeleteConnectionResponseTypeDef:
         """
-        [Client.batch_delete_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.batch_delete_connection)
+        [Client.batch_delete_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.batch_delete_connection)
         """
 
     def batch_delete_partition(
@@ -258,38 +287,38 @@ class GlueClient:
         CatalogId: str = None,
     ) -> BatchDeletePartitionResponseTypeDef:
         """
-        [Client.batch_delete_partition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.batch_delete_partition)
+        [Client.batch_delete_partition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.batch_delete_partition)
         """
 
     def batch_delete_table(
         self, DatabaseName: str, TablesToDelete: List[str], CatalogId: str = None
     ) -> BatchDeleteTableResponseTypeDef:
         """
-        [Client.batch_delete_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.batch_delete_table)
+        [Client.batch_delete_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.batch_delete_table)
         """
 
     def batch_delete_table_version(
         self, DatabaseName: str, TableName: str, VersionIds: List[str], CatalogId: str = None
     ) -> BatchDeleteTableVersionResponseTypeDef:
         """
-        [Client.batch_delete_table_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.batch_delete_table_version)
+        [Client.batch_delete_table_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.batch_delete_table_version)
         """
 
     def batch_get_crawlers(self, CrawlerNames: List[str]) -> BatchGetCrawlersResponseTypeDef:
         """
-        [Client.batch_get_crawlers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.batch_get_crawlers)
+        [Client.batch_get_crawlers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.batch_get_crawlers)
         """
 
     def batch_get_dev_endpoints(
         self, DevEndpointNames: List[str]
     ) -> BatchGetDevEndpointsResponseTypeDef:
         """
-        [Client.batch_get_dev_endpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.batch_get_dev_endpoints)
+        [Client.batch_get_dev_endpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.batch_get_dev_endpoints)
         """
 
     def batch_get_jobs(self, JobNames: List[str]) -> BatchGetJobsResponseTypeDef:
         """
-        [Client.batch_get_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.batch_get_jobs)
+        [Client.batch_get_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.batch_get_jobs)
         """
 
     def batch_get_partition(
@@ -300,26 +329,26 @@ class GlueClient:
         CatalogId: str = None,
     ) -> BatchGetPartitionResponseTypeDef:
         """
-        [Client.batch_get_partition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.batch_get_partition)
+        [Client.batch_get_partition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.batch_get_partition)
         """
 
     def batch_get_triggers(self, TriggerNames: List[str]) -> BatchGetTriggersResponseTypeDef:
         """
-        [Client.batch_get_triggers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.batch_get_triggers)
+        [Client.batch_get_triggers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.batch_get_triggers)
         """
 
     def batch_get_workflows(
         self, Names: List[str], IncludeGraph: bool = None
     ) -> BatchGetWorkflowsResponseTypeDef:
         """
-        [Client.batch_get_workflows documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.batch_get_workflows)
+        [Client.batch_get_workflows documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.batch_get_workflows)
         """
 
     def batch_stop_job_run(
         self, JobName: str, JobRunIds: List[str]
     ) -> BatchStopJobRunResponseTypeDef:
         """
-        [Client.batch_stop_job_run documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.batch_stop_job_run)
+        [Client.batch_stop_job_run documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.batch_stop_job_run)
         """
 
     def batch_update_partition(
@@ -330,19 +359,26 @@ class GlueClient:
         CatalogId: str = None,
     ) -> BatchUpdatePartitionResponseTypeDef:
         """
-        [Client.batch_update_partition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.batch_update_partition)
+        [Client.batch_update_partition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.batch_update_partition)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.can_paginate)
         """
 
     def cancel_ml_task_run(
         self, TransformId: str, TaskRunId: str
     ) -> CancelMLTaskRunResponseTypeDef:
         """
-        [Client.cancel_ml_task_run documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.cancel_ml_task_run)
+        [Client.cancel_ml_task_run documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.cancel_ml_task_run)
+        """
+
+    def check_schema_version_validity(
+        self, DataFormat: Literal["AVRO"], SchemaDefinition: str
+    ) -> CheckSchemaVersionValidityResponseTypeDef:
+        """
+        [Client.check_schema_version_validity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.check_schema_version_validity)
         """
 
     def create_classifier(
@@ -353,14 +389,14 @@ class GlueClient:
         CsvClassifier: CreateCsvClassifierRequestTypeDef = None,
     ) -> Dict[str, Any]:
         """
-        [Client.create_classifier documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.create_classifier)
+        [Client.create_classifier documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.create_classifier)
         """
 
     def create_connection(
         self, ConnectionInput: ConnectionInputTypeDef, CatalogId: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.create_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.create_connection)
+        [Client.create_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.create_connection)
         """
 
     def create_crawler(
@@ -375,19 +411,20 @@ class GlueClient:
         TablePrefix: str = None,
         SchemaChangePolicy: "SchemaChangePolicyTypeDef" = None,
         RecrawlPolicy: "RecrawlPolicyTypeDef" = None,
+        LineageConfiguration: "LineageConfigurationTypeDef" = None,
         Configuration: str = None,
         CrawlerSecurityConfiguration: str = None,
         Tags: Dict[str, str] = None,
     ) -> Dict[str, Any]:
         """
-        [Client.create_crawler documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.create_crawler)
+        [Client.create_crawler documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.create_crawler)
         """
 
     def create_database(
         self, DatabaseInput: DatabaseInputTypeDef, CatalogId: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.create_database documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.create_database)
+        [Client.create_database documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.create_database)
         """
 
     def create_dev_endpoint(
@@ -409,7 +446,7 @@ class GlueClient:
         Arguments: Dict[str, str] = None,
     ) -> CreateDevEndpointResponseTypeDef:
         """
-        [Client.create_dev_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.create_dev_endpoint)
+        [Client.create_dev_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.create_dev_endpoint)
         """
 
     def create_job(
@@ -435,7 +472,7 @@ class GlueClient:
         WorkerType: Literal["Standard", "G.1X", "G.2X"] = None,
     ) -> CreateJobResponseTypeDef:
         """
-        [Client.create_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.create_job)
+        [Client.create_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.create_job)
         """
 
     def create_ml_transform(
@@ -455,7 +492,7 @@ class GlueClient:
         TransformEncryption: "TransformEncryptionTypeDef" = None,
     ) -> CreateMLTransformResponseTypeDef:
         """
-        [Client.create_ml_transform documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.create_ml_transform)
+        [Client.create_ml_transform documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.create_ml_transform)
         """
 
     def create_partition(
@@ -466,7 +503,48 @@ class GlueClient:
         CatalogId: str = None,
     ) -> Dict[str, Any]:
         """
-        [Client.create_partition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.create_partition)
+        [Client.create_partition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.create_partition)
+        """
+
+    def create_partition_index(
+        self,
+        DatabaseName: str,
+        TableName: str,
+        PartitionIndex: PartitionIndexTypeDef,
+        CatalogId: str = None,
+    ) -> Dict[str, Any]:
+        """
+        [Client.create_partition_index documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.create_partition_index)
+        """
+
+    def create_registry(
+        self, RegistryName: str, Description: str = None, Tags: Dict[str, str] = None
+    ) -> CreateRegistryResponseTypeDef:
+        """
+        [Client.create_registry documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.create_registry)
+        """
+
+    def create_schema(
+        self,
+        SchemaName: str,
+        DataFormat: Literal["AVRO"],
+        RegistryId: RegistryIdTypeDef = None,
+        Compatibility: Literal[
+            "NONE",
+            "DISABLED",
+            "BACKWARD",
+            "BACKWARD_ALL",
+            "FORWARD",
+            "FORWARD_ALL",
+            "FULL",
+            "FULL_ALL",
+        ] = None,
+        Description: str = None,
+        Tags: Dict[str, str] = None,
+        SchemaDefinition: str = None,
+    ) -> CreateSchemaResponseTypeDef:
+        """
+        [Client.create_schema documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.create_schema)
         """
 
     def create_script(
@@ -476,14 +554,14 @@ class GlueClient:
         Language: Literal["PYTHON", "SCALA"] = None,
     ) -> CreateScriptResponseTypeDef:
         """
-        [Client.create_script documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.create_script)
+        [Client.create_script documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.create_script)
         """
 
     def create_security_configuration(
         self, Name: str, EncryptionConfiguration: "EncryptionConfigurationTypeDef"
     ) -> CreateSecurityConfigurationResponseTypeDef:
         """
-        [Client.create_security_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.create_security_configuration)
+        [Client.create_security_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.create_security_configuration)
         """
 
     def create_table(
@@ -494,7 +572,7 @@ class GlueClient:
         PartitionIndexes: List[PartitionIndexTypeDef] = None,
     ) -> Dict[str, Any]:
         """
-        [Client.create_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.create_table)
+        [Client.create_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.create_table)
         """
 
     def create_trigger(
@@ -510,7 +588,7 @@ class GlueClient:
         Tags: Dict[str, str] = None,
     ) -> CreateTriggerResponseTypeDef:
         """
-        [Client.create_trigger documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.create_trigger)
+        [Client.create_trigger documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.create_trigger)
         """
 
     def create_user_defined_function(
@@ -520,7 +598,7 @@ class GlueClient:
         CatalogId: str = None,
     ) -> Dict[str, Any]:
         """
-        [Client.create_user_defined_function documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.create_user_defined_function)
+        [Client.create_user_defined_function documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.create_user_defined_function)
         """
 
     def create_workflow(
@@ -532,12 +610,12 @@ class GlueClient:
         MaxConcurrentRuns: int = None,
     ) -> CreateWorkflowResponseTypeDef:
         """
-        [Client.create_workflow documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.create_workflow)
+        [Client.create_workflow documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.create_workflow)
         """
 
     def delete_classifier(self, Name: str) -> Dict[str, Any]:
         """
-        [Client.delete_classifier documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.delete_classifier)
+        [Client.delete_classifier documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.delete_classifier)
         """
 
     def delete_column_statistics_for_partition(
@@ -549,92 +627,116 @@ class GlueClient:
         CatalogId: str = None,
     ) -> Dict[str, Any]:
         """
-        [Client.delete_column_statistics_for_partition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.delete_column_statistics_for_partition)
+        [Client.delete_column_statistics_for_partition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.delete_column_statistics_for_partition)
         """
 
     def delete_column_statistics_for_table(
         self, DatabaseName: str, TableName: str, ColumnName: str, CatalogId: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.delete_column_statistics_for_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.delete_column_statistics_for_table)
+        [Client.delete_column_statistics_for_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.delete_column_statistics_for_table)
         """
 
     def delete_connection(self, ConnectionName: str, CatalogId: str = None) -> Dict[str, Any]:
         """
-        [Client.delete_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.delete_connection)
+        [Client.delete_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.delete_connection)
         """
 
     def delete_crawler(self, Name: str) -> Dict[str, Any]:
         """
-        [Client.delete_crawler documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.delete_crawler)
+        [Client.delete_crawler documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.delete_crawler)
         """
 
     def delete_database(self, Name: str, CatalogId: str = None) -> Dict[str, Any]:
         """
-        [Client.delete_database documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.delete_database)
+        [Client.delete_database documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.delete_database)
         """
 
     def delete_dev_endpoint(self, EndpointName: str) -> Dict[str, Any]:
         """
-        [Client.delete_dev_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.delete_dev_endpoint)
+        [Client.delete_dev_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.delete_dev_endpoint)
         """
 
     def delete_job(self, JobName: str) -> DeleteJobResponseTypeDef:
         """
-        [Client.delete_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.delete_job)
+        [Client.delete_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.delete_job)
         """
 
     def delete_ml_transform(self, TransformId: str) -> DeleteMLTransformResponseTypeDef:
         """
-        [Client.delete_ml_transform documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.delete_ml_transform)
+        [Client.delete_ml_transform documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.delete_ml_transform)
         """
 
     def delete_partition(
         self, DatabaseName: str, TableName: str, PartitionValues: List[str], CatalogId: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.delete_partition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.delete_partition)
+        [Client.delete_partition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.delete_partition)
+        """
+
+    def delete_partition_index(
+        self, DatabaseName: str, TableName: str, IndexName: str, CatalogId: str = None
+    ) -> Dict[str, Any]:
+        """
+        [Client.delete_partition_index documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.delete_partition_index)
+        """
+
+    def delete_registry(self, RegistryId: RegistryIdTypeDef) -> DeleteRegistryResponseTypeDef:
+        """
+        [Client.delete_registry documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.delete_registry)
         """
 
     def delete_resource_policy(
         self, PolicyHashCondition: str = None, ResourceArn: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.delete_resource_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.delete_resource_policy)
+        [Client.delete_resource_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.delete_resource_policy)
+        """
+
+    def delete_schema(self, SchemaId: "SchemaIdTypeDef") -> DeleteSchemaResponseTypeDef:
+        """
+        [Client.delete_schema documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.delete_schema)
+        """
+
+    def delete_schema_versions(
+        self, SchemaId: "SchemaIdTypeDef", Versions: str
+    ) -> DeleteSchemaVersionsResponseTypeDef:
+        """
+        [Client.delete_schema_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.delete_schema_versions)
         """
 
     def delete_security_configuration(self, Name: str) -> Dict[str, Any]:
         """
-        [Client.delete_security_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.delete_security_configuration)
+        [Client.delete_security_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.delete_security_configuration)
         """
 
     def delete_table(self, DatabaseName: str, Name: str, CatalogId: str = None) -> Dict[str, Any]:
         """
-        [Client.delete_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.delete_table)
+        [Client.delete_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.delete_table)
         """
 
     def delete_table_version(
         self, DatabaseName: str, TableName: str, VersionId: str, CatalogId: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.delete_table_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.delete_table_version)
+        [Client.delete_table_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.delete_table_version)
         """
 
     def delete_trigger(self, Name: str) -> DeleteTriggerResponseTypeDef:
         """
-        [Client.delete_trigger documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.delete_trigger)
+        [Client.delete_trigger documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.delete_trigger)
         """
 
     def delete_user_defined_function(
         self, DatabaseName: str, FunctionName: str, CatalogId: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.delete_user_defined_function documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.delete_user_defined_function)
+        [Client.delete_user_defined_function documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.delete_user_defined_function)
         """
 
     def delete_workflow(self, Name: str) -> DeleteWorkflowResponseTypeDef:
         """
-        [Client.delete_workflow documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.delete_workflow)
+        [Client.delete_workflow documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.delete_workflow)
         """
 
     def generate_presigned_url(
@@ -645,26 +747,26 @@ class GlueClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.generate_presigned_url)
         """
 
     def get_catalog_import_status(
         self, CatalogId: str = None
     ) -> GetCatalogImportStatusResponseTypeDef:
         """
-        [Client.get_catalog_import_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_catalog_import_status)
+        [Client.get_catalog_import_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_catalog_import_status)
         """
 
     def get_classifier(self, Name: str) -> GetClassifierResponseTypeDef:
         """
-        [Client.get_classifier documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_classifier)
+        [Client.get_classifier documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_classifier)
         """
 
     def get_classifiers(
         self, MaxResults: int = None, NextToken: str = None
     ) -> GetClassifiersResponseTypeDef:
         """
-        [Client.get_classifiers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_classifiers)
+        [Client.get_classifiers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_classifiers)
         """
 
     def get_column_statistics_for_partition(
@@ -676,21 +778,21 @@ class GlueClient:
         CatalogId: str = None,
     ) -> GetColumnStatisticsForPartitionResponseTypeDef:
         """
-        [Client.get_column_statistics_for_partition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_column_statistics_for_partition)
+        [Client.get_column_statistics_for_partition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_column_statistics_for_partition)
         """
 
     def get_column_statistics_for_table(
         self, DatabaseName: str, TableName: str, ColumnNames: List[str], CatalogId: str = None
     ) -> GetColumnStatisticsForTableResponseTypeDef:
         """
-        [Client.get_column_statistics_for_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_column_statistics_for_table)
+        [Client.get_column_statistics_for_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_column_statistics_for_table)
         """
 
     def get_connection(
         self, Name: str, CatalogId: str = None, HidePassword: bool = None
     ) -> GetConnectionResponseTypeDef:
         """
-        [Client.get_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_connection)
+        [Client.get_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_connection)
         """
 
     def get_connections(
@@ -702,38 +804,38 @@ class GlueClient:
         MaxResults: int = None,
     ) -> GetConnectionsResponseTypeDef:
         """
-        [Client.get_connections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_connections)
+        [Client.get_connections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_connections)
         """
 
     def get_crawler(self, Name: str) -> GetCrawlerResponseTypeDef:
         """
-        [Client.get_crawler documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_crawler)
+        [Client.get_crawler documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_crawler)
         """
 
     def get_crawler_metrics(
         self, CrawlerNameList: List[str] = None, MaxResults: int = None, NextToken: str = None
     ) -> GetCrawlerMetricsResponseTypeDef:
         """
-        [Client.get_crawler_metrics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_crawler_metrics)
+        [Client.get_crawler_metrics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_crawler_metrics)
         """
 
     def get_crawlers(
         self, MaxResults: int = None, NextToken: str = None
     ) -> GetCrawlersResponseTypeDef:
         """
-        [Client.get_crawlers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_crawlers)
+        [Client.get_crawlers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_crawlers)
         """
 
     def get_data_catalog_encryption_settings(
         self, CatalogId: str = None
     ) -> GetDataCatalogEncryptionSettingsResponseTypeDef:
         """
-        [Client.get_data_catalog_encryption_settings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_data_catalog_encryption_settings)
+        [Client.get_data_catalog_encryption_settings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_data_catalog_encryption_settings)
         """
 
     def get_database(self, Name: str, CatalogId: str = None) -> GetDatabaseResponseTypeDef:
         """
-        [Client.get_database documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_database)
+        [Client.get_database documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_database)
         """
 
     def get_databases(
@@ -744,53 +846,53 @@ class GlueClient:
         ResourceShareType: Literal["FOREIGN", "ALL"] = None,
     ) -> GetDatabasesResponseTypeDef:
         """
-        [Client.get_databases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_databases)
+        [Client.get_databases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_databases)
         """
 
     def get_dataflow_graph(self, PythonScript: str = None) -> GetDataflowGraphResponseTypeDef:
         """
-        [Client.get_dataflow_graph documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_dataflow_graph)
+        [Client.get_dataflow_graph documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_dataflow_graph)
         """
 
     def get_dev_endpoint(self, EndpointName: str) -> GetDevEndpointResponseTypeDef:
         """
-        [Client.get_dev_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_dev_endpoint)
+        [Client.get_dev_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_dev_endpoint)
         """
 
     def get_dev_endpoints(
         self, MaxResults: int = None, NextToken: str = None
     ) -> GetDevEndpointsResponseTypeDef:
         """
-        [Client.get_dev_endpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_dev_endpoints)
+        [Client.get_dev_endpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_dev_endpoints)
         """
 
     def get_job(self, JobName: str) -> GetJobResponseTypeDef:
         """
-        [Client.get_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_job)
+        [Client.get_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_job)
         """
 
     def get_job_bookmark(self, JobName: str, RunId: str = None) -> GetJobBookmarkResponseTypeDef:
         """
-        [Client.get_job_bookmark documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_job_bookmark)
+        [Client.get_job_bookmark documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_job_bookmark)
         """
 
     def get_job_run(
         self, JobName: str, RunId: str, PredecessorsIncluded: bool = None
     ) -> GetJobRunResponseTypeDef:
         """
-        [Client.get_job_run documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_job_run)
+        [Client.get_job_run documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_job_run)
         """
 
     def get_job_runs(
         self, JobName: str, NextToken: str = None, MaxResults: int = None
     ) -> GetJobRunsResponseTypeDef:
         """
-        [Client.get_job_runs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_job_runs)
+        [Client.get_job_runs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_job_runs)
         """
 
     def get_jobs(self, NextToken: str = None, MaxResults: int = None) -> GetJobsResponseTypeDef:
         """
-        [Client.get_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_jobs)
+        [Client.get_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_jobs)
         """
 
     def get_mapping(
@@ -800,12 +902,12 @@ class GlueClient:
         Location: LocationTypeDef = None,
     ) -> GetMappingResponseTypeDef:
         """
-        [Client.get_mapping documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_mapping)
+        [Client.get_mapping documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_mapping)
         """
 
     def get_ml_task_run(self, TransformId: str, TaskRunId: str) -> GetMLTaskRunResponseTypeDef:
         """
-        [Client.get_ml_task_run documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_ml_task_run)
+        [Client.get_ml_task_run documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_ml_task_run)
         """
 
     def get_ml_task_runs(
@@ -817,12 +919,12 @@ class GlueClient:
         Sort: TaskRunSortCriteriaTypeDef = None,
     ) -> GetMLTaskRunsResponseTypeDef:
         """
-        [Client.get_ml_task_runs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_ml_task_runs)
+        [Client.get_ml_task_runs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_ml_task_runs)
         """
 
     def get_ml_transform(self, TransformId: str) -> GetMLTransformResponseTypeDef:
         """
-        [Client.get_ml_transform documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_ml_transform)
+        [Client.get_ml_transform documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_ml_transform)
         """
 
     def get_ml_transforms(
@@ -833,21 +935,21 @@ class GlueClient:
         Sort: TransformSortCriteriaTypeDef = None,
     ) -> GetMLTransformsResponseTypeDef:
         """
-        [Client.get_ml_transforms documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_ml_transforms)
+        [Client.get_ml_transforms documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_ml_transforms)
         """
 
     def get_partition(
         self, DatabaseName: str, TableName: str, PartitionValues: List[str], CatalogId: str = None
     ) -> GetPartitionResponseTypeDef:
         """
-        [Client.get_partition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_partition)
+        [Client.get_partition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_partition)
         """
 
     def get_partition_indexes(
         self, DatabaseName: str, TableName: str, CatalogId: str = None, NextToken: str = None
     ) -> GetPartitionIndexesResponseTypeDef:
         """
-        [Client.get_partition_indexes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_partition_indexes)
+        [Client.get_partition_indexes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_partition_indexes)
         """
 
     def get_partitions(
@@ -861,7 +963,7 @@ class GlueClient:
         MaxResults: int = None,
     ) -> GetPartitionsResponseTypeDef:
         """
-        [Client.get_partitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_partitions)
+        [Client.get_partitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_partitions)
         """
 
     def get_plan(
@@ -874,45 +976,83 @@ class GlueClient:
         AdditionalPlanOptionsMap: Dict[str, str] = None,
     ) -> GetPlanResponseTypeDef:
         """
-        [Client.get_plan documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_plan)
+        [Client.get_plan documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_plan)
+        """
+
+    def get_registry(self, RegistryId: RegistryIdTypeDef) -> GetRegistryResponseTypeDef:
+        """
+        [Client.get_registry documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_registry)
         """
 
     def get_resource_policies(
         self, NextToken: str = None, MaxResults: int = None
     ) -> GetResourcePoliciesResponseTypeDef:
         """
-        [Client.get_resource_policies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_resource_policies)
+        [Client.get_resource_policies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_resource_policies)
         """
 
     def get_resource_policy(self, ResourceArn: str = None) -> GetResourcePolicyResponseTypeDef:
         """
-        [Client.get_resource_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_resource_policy)
+        [Client.get_resource_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_resource_policy)
+        """
+
+    def get_schema(self, SchemaId: "SchemaIdTypeDef") -> GetSchemaResponseTypeDef:
+        """
+        [Client.get_schema documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_schema)
+        """
+
+    def get_schema_by_definition(
+        self, SchemaId: "SchemaIdTypeDef", SchemaDefinition: str
+    ) -> GetSchemaByDefinitionResponseTypeDef:
+        """
+        [Client.get_schema_by_definition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_schema_by_definition)
+        """
+
+    def get_schema_version(
+        self,
+        SchemaId: "SchemaIdTypeDef" = None,
+        SchemaVersionId: str = None,
+        SchemaVersionNumber: SchemaVersionNumberTypeDef = None,
+    ) -> GetSchemaVersionResponseTypeDef:
+        """
+        [Client.get_schema_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_schema_version)
+        """
+
+    def get_schema_versions_diff(
+        self,
+        SchemaId: "SchemaIdTypeDef",
+        FirstSchemaVersionNumber: SchemaVersionNumberTypeDef,
+        SecondSchemaVersionNumber: SchemaVersionNumberTypeDef,
+        SchemaDiffType: Literal["SYNTAX_DIFF"],
+    ) -> GetSchemaVersionsDiffResponseTypeDef:
+        """
+        [Client.get_schema_versions_diff documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_schema_versions_diff)
         """
 
     def get_security_configuration(self, Name: str) -> GetSecurityConfigurationResponseTypeDef:
         """
-        [Client.get_security_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_security_configuration)
+        [Client.get_security_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_security_configuration)
         """
 
     def get_security_configurations(
         self, MaxResults: int = None, NextToken: str = None
     ) -> GetSecurityConfigurationsResponseTypeDef:
         """
-        [Client.get_security_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_security_configurations)
+        [Client.get_security_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_security_configurations)
         """
 
     def get_table(
         self, DatabaseName: str, Name: str, CatalogId: str = None
     ) -> GetTableResponseTypeDef:
         """
-        [Client.get_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_table)
+        [Client.get_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_table)
         """
 
     def get_table_version(
         self, DatabaseName: str, TableName: str, CatalogId: str = None, VersionId: str = None
     ) -> GetTableVersionResponseTypeDef:
         """
-        [Client.get_table_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_table_version)
+        [Client.get_table_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_table_version)
         """
 
     def get_table_versions(
@@ -924,7 +1064,7 @@ class GlueClient:
         MaxResults: int = None,
     ) -> GetTableVersionsResponseTypeDef:
         """
-        [Client.get_table_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_table_versions)
+        [Client.get_table_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_table_versions)
         """
 
     def get_tables(
@@ -936,31 +1076,31 @@ class GlueClient:
         MaxResults: int = None,
     ) -> GetTablesResponseTypeDef:
         """
-        [Client.get_tables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_tables)
+        [Client.get_tables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_tables)
         """
 
     def get_tags(self, ResourceArn: str) -> GetTagsResponseTypeDef:
         """
-        [Client.get_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_tags)
+        [Client.get_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_tags)
         """
 
     def get_trigger(self, Name: str) -> GetTriggerResponseTypeDef:
         """
-        [Client.get_trigger documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_trigger)
+        [Client.get_trigger documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_trigger)
         """
 
     def get_triggers(
         self, NextToken: str = None, DependentJobName: str = None, MaxResults: int = None
     ) -> GetTriggersResponseTypeDef:
         """
-        [Client.get_triggers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_triggers)
+        [Client.get_triggers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_triggers)
         """
 
     def get_user_defined_function(
         self, DatabaseName: str, FunctionName: str, CatalogId: str = None
     ) -> GetUserDefinedFunctionResponseTypeDef:
         """
-        [Client.get_user_defined_function documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_user_defined_function)
+        [Client.get_user_defined_function documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_user_defined_function)
         """
 
     def get_user_defined_functions(
@@ -972,59 +1112,59 @@ class GlueClient:
         MaxResults: int = None,
     ) -> GetUserDefinedFunctionsResponseTypeDef:
         """
-        [Client.get_user_defined_functions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_user_defined_functions)
+        [Client.get_user_defined_functions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_user_defined_functions)
         """
 
     def get_workflow(self, Name: str, IncludeGraph: bool = None) -> GetWorkflowResponseTypeDef:
         """
-        [Client.get_workflow documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_workflow)
+        [Client.get_workflow documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_workflow)
         """
 
     def get_workflow_run(
         self, Name: str, RunId: str, IncludeGraph: bool = None
     ) -> GetWorkflowRunResponseTypeDef:
         """
-        [Client.get_workflow_run documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_workflow_run)
+        [Client.get_workflow_run documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_workflow_run)
         """
 
     def get_workflow_run_properties(
         self, Name: str, RunId: str
     ) -> GetWorkflowRunPropertiesResponseTypeDef:
         """
-        [Client.get_workflow_run_properties documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_workflow_run_properties)
+        [Client.get_workflow_run_properties documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_workflow_run_properties)
         """
 
     def get_workflow_runs(
         self, Name: str, IncludeGraph: bool = None, NextToken: str = None, MaxResults: int = None
     ) -> GetWorkflowRunsResponseTypeDef:
         """
-        [Client.get_workflow_runs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.get_workflow_runs)
+        [Client.get_workflow_runs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.get_workflow_runs)
         """
 
     def import_catalog_to_glue(self, CatalogId: str = None) -> Dict[str, Any]:
         """
-        [Client.import_catalog_to_glue documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.import_catalog_to_glue)
+        [Client.import_catalog_to_glue documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.import_catalog_to_glue)
         """
 
     def list_crawlers(
         self, MaxResults: int = None, NextToken: str = None, Tags: Dict[str, str] = None
     ) -> ListCrawlersResponseTypeDef:
         """
-        [Client.list_crawlers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.list_crawlers)
+        [Client.list_crawlers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.list_crawlers)
         """
 
     def list_dev_endpoints(
         self, NextToken: str = None, MaxResults: int = None, Tags: Dict[str, str] = None
     ) -> ListDevEndpointsResponseTypeDef:
         """
-        [Client.list_dev_endpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.list_dev_endpoints)
+        [Client.list_dev_endpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.list_dev_endpoints)
         """
 
     def list_jobs(
         self, NextToken: str = None, MaxResults: int = None, Tags: Dict[str, str] = None
     ) -> ListJobsResponseTypeDef:
         """
-        [Client.list_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.list_jobs)
+        [Client.list_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.list_jobs)
         """
 
     def list_ml_transforms(
@@ -1036,7 +1176,28 @@ class GlueClient:
         Tags: Dict[str, str] = None,
     ) -> ListMLTransformsResponseTypeDef:
         """
-        [Client.list_ml_transforms documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.list_ml_transforms)
+        [Client.list_ml_transforms documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.list_ml_transforms)
+        """
+
+    def list_registries(
+        self, MaxResults: int = None, NextToken: str = None
+    ) -> ListRegistriesResponseTypeDef:
+        """
+        [Client.list_registries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.list_registries)
+        """
+
+    def list_schema_versions(
+        self, SchemaId: "SchemaIdTypeDef", MaxResults: int = None, NextToken: str = None
+    ) -> ListSchemaVersionsResponseTypeDef:
+        """
+        [Client.list_schema_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.list_schema_versions)
+        """
+
+    def list_schemas(
+        self, RegistryId: RegistryIdTypeDef = None, MaxResults: int = None, NextToken: str = None
+    ) -> ListSchemasResponseTypeDef:
+        """
+        [Client.list_schemas documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.list_schemas)
         """
 
     def list_triggers(
@@ -1047,14 +1208,14 @@ class GlueClient:
         Tags: Dict[str, str] = None,
     ) -> ListTriggersResponseTypeDef:
         """
-        [Client.list_triggers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.list_triggers)
+        [Client.list_triggers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.list_triggers)
         """
 
     def list_workflows(
         self, NextToken: str = None, MaxResults: int = None
     ) -> ListWorkflowsResponseTypeDef:
         """
-        [Client.list_workflows documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.list_workflows)
+        [Client.list_workflows documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.list_workflows)
         """
 
     def put_data_catalog_encryption_settings(
@@ -1063,7 +1224,7 @@ class GlueClient:
         CatalogId: str = None,
     ) -> Dict[str, Any]:
         """
-        [Client.put_data_catalog_encryption_settings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.put_data_catalog_encryption_settings)
+        [Client.put_data_catalog_encryption_settings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.put_data_catalog_encryption_settings)
         """
 
     def put_resource_policy(
@@ -1075,28 +1236,70 @@ class GlueClient:
         EnableHybrid: Literal["TRUE", "FALSE"] = None,
     ) -> PutResourcePolicyResponseTypeDef:
         """
-        [Client.put_resource_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.put_resource_policy)
+        [Client.put_resource_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.put_resource_policy)
+        """
+
+    def put_schema_version_metadata(
+        self,
+        MetadataKeyValue: MetadataKeyValuePairTypeDef,
+        SchemaId: "SchemaIdTypeDef" = None,
+        SchemaVersionNumber: SchemaVersionNumberTypeDef = None,
+        SchemaVersionId: str = None,
+    ) -> PutSchemaVersionMetadataResponseTypeDef:
+        """
+        [Client.put_schema_version_metadata documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.put_schema_version_metadata)
         """
 
     def put_workflow_run_properties(
         self, Name: str, RunId: str, RunProperties: Dict[str, str]
     ) -> Dict[str, Any]:
         """
-        [Client.put_workflow_run_properties documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.put_workflow_run_properties)
+        [Client.put_workflow_run_properties documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.put_workflow_run_properties)
+        """
+
+    def query_schema_version_metadata(
+        self,
+        SchemaId: "SchemaIdTypeDef" = None,
+        SchemaVersionNumber: SchemaVersionNumberTypeDef = None,
+        SchemaVersionId: str = None,
+        MetadataList: List[MetadataKeyValuePairTypeDef] = None,
+        MaxResults: int = None,
+        NextToken: str = None,
+    ) -> QuerySchemaVersionMetadataResponseTypeDef:
+        """
+        [Client.query_schema_version_metadata documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.query_schema_version_metadata)
+        """
+
+    def register_schema_version(
+        self, SchemaId: "SchemaIdTypeDef", SchemaDefinition: str
+    ) -> RegisterSchemaVersionResponseTypeDef:
+        """
+        [Client.register_schema_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.register_schema_version)
+        """
+
+    def remove_schema_version_metadata(
+        self,
+        MetadataKeyValue: MetadataKeyValuePairTypeDef,
+        SchemaId: "SchemaIdTypeDef" = None,
+        SchemaVersionNumber: SchemaVersionNumberTypeDef = None,
+        SchemaVersionId: str = None,
+    ) -> RemoveSchemaVersionMetadataResponseTypeDef:
+        """
+        [Client.remove_schema_version_metadata documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.remove_schema_version_metadata)
         """
 
     def reset_job_bookmark(
         self, JobName: str, RunId: str = None
     ) -> ResetJobBookmarkResponseTypeDef:
         """
-        [Client.reset_job_bookmark documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.reset_job_bookmark)
+        [Client.reset_job_bookmark documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.reset_job_bookmark)
         """
 
     def resume_workflow_run(
         self, Name: str, RunId: str, NodeIds: List[str]
     ) -> ResumeWorkflowRunResponseTypeDef:
         """
-        [Client.resume_workflow_run documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.resume_workflow_run)
+        [Client.resume_workflow_run documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.resume_workflow_run)
         """
 
     def search_tables(
@@ -1110,31 +1313,31 @@ class GlueClient:
         ResourceShareType: Literal["FOREIGN", "ALL"] = None,
     ) -> SearchTablesResponseTypeDef:
         """
-        [Client.search_tables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.search_tables)
+        [Client.search_tables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.search_tables)
         """
 
     def start_crawler(self, Name: str) -> Dict[str, Any]:
         """
-        [Client.start_crawler documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.start_crawler)
+        [Client.start_crawler documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.start_crawler)
         """
 
     def start_crawler_schedule(self, CrawlerName: str) -> Dict[str, Any]:
         """
-        [Client.start_crawler_schedule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.start_crawler_schedule)
+        [Client.start_crawler_schedule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.start_crawler_schedule)
         """
 
     def start_export_labels_task_run(
         self, TransformId: str, OutputS3Path: str
     ) -> StartExportLabelsTaskRunResponseTypeDef:
         """
-        [Client.start_export_labels_task_run documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.start_export_labels_task_run)
+        [Client.start_export_labels_task_run documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.start_export_labels_task_run)
         """
 
     def start_import_labels_task_run(
         self, TransformId: str, InputS3Path: str, ReplaceAllLabels: bool = None
     ) -> StartImportLabelsTaskRunResponseTypeDef:
         """
-        [Client.start_import_labels_task_run documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.start_import_labels_task_run)
+        [Client.start_import_labels_task_run documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.start_import_labels_task_run)
         """
 
     def start_job_run(
@@ -1151,61 +1354,61 @@ class GlueClient:
         NumberOfWorkers: int = None,
     ) -> StartJobRunResponseTypeDef:
         """
-        [Client.start_job_run documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.start_job_run)
+        [Client.start_job_run documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.start_job_run)
         """
 
     def start_ml_evaluation_task_run(
         self, TransformId: str
     ) -> StartMLEvaluationTaskRunResponseTypeDef:
         """
-        [Client.start_ml_evaluation_task_run documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.start_ml_evaluation_task_run)
+        [Client.start_ml_evaluation_task_run documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.start_ml_evaluation_task_run)
         """
 
     def start_ml_labeling_set_generation_task_run(
         self, TransformId: str, OutputS3Path: str
     ) -> StartMLLabelingSetGenerationTaskRunResponseTypeDef:
         """
-        [Client.start_ml_labeling_set_generation_task_run documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.start_ml_labeling_set_generation_task_run)
+        [Client.start_ml_labeling_set_generation_task_run documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.start_ml_labeling_set_generation_task_run)
         """
 
     def start_trigger(self, Name: str) -> StartTriggerResponseTypeDef:
         """
-        [Client.start_trigger documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.start_trigger)
+        [Client.start_trigger documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.start_trigger)
         """
 
     def start_workflow_run(self, Name: str) -> StartWorkflowRunResponseTypeDef:
         """
-        [Client.start_workflow_run documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.start_workflow_run)
+        [Client.start_workflow_run documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.start_workflow_run)
         """
 
     def stop_crawler(self, Name: str) -> Dict[str, Any]:
         """
-        [Client.stop_crawler documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.stop_crawler)
+        [Client.stop_crawler documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.stop_crawler)
         """
 
     def stop_crawler_schedule(self, CrawlerName: str) -> Dict[str, Any]:
         """
-        [Client.stop_crawler_schedule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.stop_crawler_schedule)
+        [Client.stop_crawler_schedule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.stop_crawler_schedule)
         """
 
     def stop_trigger(self, Name: str) -> StopTriggerResponseTypeDef:
         """
-        [Client.stop_trigger documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.stop_trigger)
+        [Client.stop_trigger documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.stop_trigger)
         """
 
     def stop_workflow_run(self, Name: str, RunId: str) -> Dict[str, Any]:
         """
-        [Client.stop_workflow_run documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.stop_workflow_run)
+        [Client.stop_workflow_run documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.stop_workflow_run)
         """
 
     def tag_resource(self, ResourceArn: str, TagsToAdd: Dict[str, str]) -> Dict[str, Any]:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.tag_resource)
         """
 
     def untag_resource(self, ResourceArn: str, TagsToRemove: List[str]) -> Dict[str, Any]:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.untag_resource)
         """
 
     def update_classifier(
@@ -1216,7 +1419,7 @@ class GlueClient:
         CsvClassifier: UpdateCsvClassifierRequestTypeDef = None,
     ) -> Dict[str, Any]:
         """
-        [Client.update_classifier documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.update_classifier)
+        [Client.update_classifier documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.update_classifier)
         """
 
     def update_column_statistics_for_partition(
@@ -1228,7 +1431,7 @@ class GlueClient:
         CatalogId: str = None,
     ) -> UpdateColumnStatisticsForPartitionResponseTypeDef:
         """
-        [Client.update_column_statistics_for_partition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.update_column_statistics_for_partition)
+        [Client.update_column_statistics_for_partition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.update_column_statistics_for_partition)
         """
 
     def update_column_statistics_for_table(
@@ -1239,14 +1442,14 @@ class GlueClient:
         CatalogId: str = None,
     ) -> UpdateColumnStatisticsForTableResponseTypeDef:
         """
-        [Client.update_column_statistics_for_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.update_column_statistics_for_table)
+        [Client.update_column_statistics_for_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.update_column_statistics_for_table)
         """
 
     def update_connection(
         self, Name: str, ConnectionInput: ConnectionInputTypeDef, CatalogId: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.update_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.update_connection)
+        [Client.update_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.update_connection)
         """
 
     def update_crawler(
@@ -1261,23 +1464,24 @@ class GlueClient:
         TablePrefix: str = None,
         SchemaChangePolicy: "SchemaChangePolicyTypeDef" = None,
         RecrawlPolicy: "RecrawlPolicyTypeDef" = None,
+        LineageConfiguration: "LineageConfigurationTypeDef" = None,
         Configuration: str = None,
         CrawlerSecurityConfiguration: str = None,
     ) -> Dict[str, Any]:
         """
-        [Client.update_crawler documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.update_crawler)
+        [Client.update_crawler documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.update_crawler)
         """
 
     def update_crawler_schedule(self, CrawlerName: str, Schedule: str = None) -> Dict[str, Any]:
         """
-        [Client.update_crawler_schedule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.update_crawler_schedule)
+        [Client.update_crawler_schedule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.update_crawler_schedule)
         """
 
     def update_database(
         self, Name: str, DatabaseInput: DatabaseInputTypeDef, CatalogId: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.update_database documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.update_database)
+        [Client.update_database documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.update_database)
         """
 
     def update_dev_endpoint(
@@ -1292,12 +1496,12 @@ class GlueClient:
         AddArguments: Dict[str, str] = None,
     ) -> Dict[str, Any]:
         """
-        [Client.update_dev_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.update_dev_endpoint)
+        [Client.update_dev_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.update_dev_endpoint)
         """
 
     def update_job(self, JobName: str, JobUpdate: JobUpdateTypeDef) -> UpdateJobResponseTypeDef:
         """
-        [Client.update_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.update_job)
+        [Client.update_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.update_job)
         """
 
     def update_ml_transform(
@@ -1315,7 +1519,7 @@ class GlueClient:
         MaxRetries: int = None,
     ) -> UpdateMLTransformResponseTypeDef:
         """
-        [Client.update_ml_transform documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.update_ml_transform)
+        [Client.update_ml_transform documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.update_ml_transform)
         """
 
     def update_partition(
@@ -1327,7 +1531,34 @@ class GlueClient:
         CatalogId: str = None,
     ) -> Dict[str, Any]:
         """
-        [Client.update_partition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.update_partition)
+        [Client.update_partition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.update_partition)
+        """
+
+    def update_registry(
+        self, RegistryId: RegistryIdTypeDef, Description: str
+    ) -> UpdateRegistryResponseTypeDef:
+        """
+        [Client.update_registry documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.update_registry)
+        """
+
+    def update_schema(
+        self,
+        SchemaId: "SchemaIdTypeDef",
+        SchemaVersionNumber: SchemaVersionNumberTypeDef = None,
+        Compatibility: Literal[
+            "NONE",
+            "DISABLED",
+            "BACKWARD",
+            "BACKWARD_ALL",
+            "FORWARD",
+            "FORWARD_ALL",
+            "FULL",
+            "FULL_ALL",
+        ] = None,
+        Description: str = None,
+    ) -> UpdateSchemaResponseTypeDef:
+        """
+        [Client.update_schema documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.update_schema)
         """
 
     def update_table(
@@ -1338,14 +1569,14 @@ class GlueClient:
         SkipArchive: bool = None,
     ) -> Dict[str, Any]:
         """
-        [Client.update_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.update_table)
+        [Client.update_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.update_table)
         """
 
     def update_trigger(
         self, Name: str, TriggerUpdate: TriggerUpdateTypeDef
     ) -> UpdateTriggerResponseTypeDef:
         """
-        [Client.update_trigger documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.update_trigger)
+        [Client.update_trigger documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.update_trigger)
         """
 
     def update_user_defined_function(
@@ -1356,7 +1587,7 @@ class GlueClient:
         CatalogId: str = None,
     ) -> Dict[str, Any]:
         """
-        [Client.update_user_defined_function documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.update_user_defined_function)
+        [Client.update_user_defined_function documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.update_user_defined_function)
         """
 
     def update_workflow(
@@ -1367,19 +1598,19 @@ class GlueClient:
         MaxConcurrentRuns: int = None,
     ) -> UpdateWorkflowResponseTypeDef:
         """
-        [Client.update_workflow documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Client.update_workflow)
+        [Client.update_workflow documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Client.update_workflow)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_classifiers"]) -> GetClassifiersPaginator:
         """
-        [Paginator.GetClassifiers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Paginator.GetClassifiers)
+        [Paginator.GetClassifiers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Paginator.GetClassifiers)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_connections"]) -> GetConnectionsPaginator:
         """
-        [Paginator.GetConnections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Paginator.GetConnections)
+        [Paginator.GetConnections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Paginator.GetConnections)
         """
 
     @overload
@@ -1387,19 +1618,19 @@ class GlueClient:
         self, operation_name: Literal["get_crawler_metrics"]
     ) -> GetCrawlerMetricsPaginator:
         """
-        [Paginator.GetCrawlerMetrics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Paginator.GetCrawlerMetrics)
+        [Paginator.GetCrawlerMetrics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Paginator.GetCrawlerMetrics)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_crawlers"]) -> GetCrawlersPaginator:
         """
-        [Paginator.GetCrawlers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Paginator.GetCrawlers)
+        [Paginator.GetCrawlers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Paginator.GetCrawlers)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_databases"]) -> GetDatabasesPaginator:
         """
-        [Paginator.GetDatabases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Paginator.GetDatabases)
+        [Paginator.GetDatabases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Paginator.GetDatabases)
         """
 
     @overload
@@ -1407,19 +1638,19 @@ class GlueClient:
         self, operation_name: Literal["get_dev_endpoints"]
     ) -> GetDevEndpointsPaginator:
         """
-        [Paginator.GetDevEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Paginator.GetDevEndpoints)
+        [Paginator.GetDevEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Paginator.GetDevEndpoints)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_job_runs"]) -> GetJobRunsPaginator:
         """
-        [Paginator.GetJobRuns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Paginator.GetJobRuns)
+        [Paginator.GetJobRuns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Paginator.GetJobRuns)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_jobs"]) -> GetJobsPaginator:
         """
-        [Paginator.GetJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Paginator.GetJobs)
+        [Paginator.GetJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Paginator.GetJobs)
         """
 
     @overload
@@ -1427,13 +1658,21 @@ class GlueClient:
         self, operation_name: Literal["get_partition_indexes"]
     ) -> GetPartitionIndexesPaginator:
         """
-        [Paginator.GetPartitionIndexes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Paginator.GetPartitionIndexes)
+        [Paginator.GetPartitionIndexes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Paginator.GetPartitionIndexes)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_partitions"]) -> GetPartitionsPaginator:
         """
-        [Paginator.GetPartitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Paginator.GetPartitions)
+        [Paginator.GetPartitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Paginator.GetPartitions)
+        """
+
+    @overload
+    def get_paginator(
+        self, operation_name: Literal["get_resource_policies"]
+    ) -> GetResourcePoliciesPaginator:
+        """
+        [Paginator.GetResourcePolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Paginator.GetResourcePolicies)
         """
 
     @overload
@@ -1441,7 +1680,7 @@ class GlueClient:
         self, operation_name: Literal["get_security_configurations"]
     ) -> GetSecurityConfigurationsPaginator:
         """
-        [Paginator.GetSecurityConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Paginator.GetSecurityConfigurations)
+        [Paginator.GetSecurityConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Paginator.GetSecurityConfigurations)
         """
 
     @overload
@@ -1449,19 +1688,19 @@ class GlueClient:
         self, operation_name: Literal["get_table_versions"]
     ) -> GetTableVersionsPaginator:
         """
-        [Paginator.GetTableVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Paginator.GetTableVersions)
+        [Paginator.GetTableVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Paginator.GetTableVersions)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_tables"]) -> GetTablesPaginator:
         """
-        [Paginator.GetTables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Paginator.GetTables)
+        [Paginator.GetTables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Paginator.GetTables)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_triggers"]) -> GetTriggersPaginator:
         """
-        [Paginator.GetTriggers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Paginator.GetTriggers)
+        [Paginator.GetTriggers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Paginator.GetTriggers)
         """
 
     @overload
@@ -1469,5 +1708,25 @@ class GlueClient:
         self, operation_name: Literal["get_user_defined_functions"]
     ) -> GetUserDefinedFunctionsPaginator:
         """
-        [Paginator.GetUserDefinedFunctions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glue.html#Glue.Paginator.GetUserDefinedFunctions)
+        [Paginator.GetUserDefinedFunctions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Paginator.GetUserDefinedFunctions)
+        """
+
+    @overload
+    def get_paginator(self, operation_name: Literal["list_registries"]) -> ListRegistriesPaginator:
+        """
+        [Paginator.ListRegistries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Paginator.ListRegistries)
+        """
+
+    @overload
+    def get_paginator(
+        self, operation_name: Literal["list_schema_versions"]
+    ) -> ListSchemaVersionsPaginator:
+        """
+        [Paginator.ListSchemaVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Paginator.ListSchemaVersions)
+        """
+
+    @overload
+    def get_paginator(self, operation_name: Literal["list_schemas"]) -> ListSchemasPaginator:
+        """
+        [Paginator.ListSchemas documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glue.html#Glue.Paginator.ListSchemas)
         """

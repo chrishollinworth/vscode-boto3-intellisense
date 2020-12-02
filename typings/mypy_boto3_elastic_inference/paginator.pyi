@@ -32,7 +32,7 @@ __all__ = ("DescribeAcceleratorsPaginator",)
 
 class DescribeAcceleratorsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeAccelerators documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elastic-inference.html#ElasticInference.Paginator.DescribeAccelerators)
+    [Paginator.DescribeAccelerators documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elastic-inference.html#ElasticInference.Paginator.DescribeAccelerators)
     """
 
     def paginate(
@@ -42,5 +42,5 @@ class DescribeAcceleratorsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeAcceleratorsResponseTypeDef]:
         """
-        [DescribeAccelerators.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elastic-inference.html#ElasticInference.Paginator.DescribeAccelerators.paginate)
+        [DescribeAccelerators.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elastic-inference.html#ElasticInference.Paginator.DescribeAccelerators.paginate)
         """

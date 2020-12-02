@@ -27,21 +27,45 @@ __all__ = (
     "AccountSettingsTypeDef",
     "AccountTypeDef",
     "AlexaForBusinessMetadataTypeDef",
+    "AppInstanceAdminSummaryTypeDef",
+    "AppInstanceAdminTypeDef",
+    "AppInstanceRetentionSettingsTypeDef",
+    "AppInstanceStreamingConfigurationTypeDef",
+    "AppInstanceSummaryTypeDef",
+    "AppInstanceTypeDef",
+    "AppInstanceUserMembershipSummaryTypeDef",
+    "AppInstanceUserSummaryTypeDef",
+    "AppInstanceUserTypeDef",
     "AttendeeTypeDef",
     "BotTypeDef",
     "BusinessCallingSettingsTypeDef",
+    "ChannelBanSummaryTypeDef",
+    "ChannelBanTypeDef",
+    "ChannelMembershipForAppInstanceUserSummaryTypeDef",
+    "ChannelMembershipSummaryTypeDef",
+    "ChannelMembershipTypeDef",
+    "ChannelMessageSummaryTypeDef",
+    "ChannelMessageTypeDef",
+    "ChannelModeratedByAppInstanceUserSummaryTypeDef",
+    "ChannelModeratorSummaryTypeDef",
+    "ChannelModeratorTypeDef",
+    "ChannelRetentionSettingsTypeDef",
+    "ChannelSummaryTypeDef",
+    "ChannelTypeDef",
     "ConversationRetentionSettingsTypeDef",
     "CreateAttendeeErrorTypeDef",
     "DNISEmergencyCallingConfigurationTypeDef",
     "EmergencyCallingConfigurationTypeDef",
     "EventsConfigurationTypeDef",
     "GeoMatchParamsTypeDef",
+    "IdentityTypeDef",
     "InviteTypeDef",
     "LoggingConfigurationTypeDef",
     "MediaPlacementTypeDef",
     "MeetingTypeDef",
     "MemberErrorTypeDef",
     "MemberTypeDef",
+    "MessagingSessionEndpointTypeDef",
     "OrderedPhoneNumberTypeDef",
     "OriginationRouteTypeDef",
     "OriginationTypeDef",
@@ -87,9 +111,16 @@ __all__ = (
     "BatchUpdatePhoneNumberResponseTypeDef",
     "BatchUpdateUserResponseTypeDef",
     "CreateAccountResponseTypeDef",
+    "CreateAppInstanceAdminResponseTypeDef",
+    "CreateAppInstanceResponseTypeDef",
+    "CreateAppInstanceUserResponseTypeDef",
     "CreateAttendeeRequestItemTypeDef",
     "CreateAttendeeResponseTypeDef",
     "CreateBotResponseTypeDef",
+    "CreateChannelBanResponseTypeDef",
+    "CreateChannelMembershipResponseTypeDef",
+    "CreateChannelModeratorResponseTypeDef",
+    "CreateChannelResponseTypeDef",
     "CreateMeetingDialOutResponseTypeDef",
     "CreateMeetingResponseTypeDef",
     "CreateMeetingWithAttendeesResponseTypeDef",
@@ -104,15 +135,28 @@ __all__ = (
     "CreateVoiceConnectorGroupResponseTypeDef",
     "CreateVoiceConnectorResponseTypeDef",
     "CredentialTypeDef",
+    "DescribeAppInstanceAdminResponseTypeDef",
+    "DescribeAppInstanceResponseTypeDef",
+    "DescribeAppInstanceUserResponseTypeDef",
+    "DescribeChannelBanResponseTypeDef",
+    "DescribeChannelMembershipForAppInstanceUserResponseTypeDef",
+    "DescribeChannelMembershipResponseTypeDef",
+    "DescribeChannelModeratedByAppInstanceUserResponseTypeDef",
+    "DescribeChannelModeratorResponseTypeDef",
+    "DescribeChannelResponseTypeDef",
     "DisassociatePhoneNumbersFromVoiceConnectorGroupResponseTypeDef",
     "DisassociatePhoneNumbersFromVoiceConnectorResponseTypeDef",
     "GetAccountResponseTypeDef",
     "GetAccountSettingsResponseTypeDef",
+    "GetAppInstanceRetentionSettingsResponseTypeDef",
+    "GetAppInstanceStreamingConfigurationsResponseTypeDef",
     "GetAttendeeResponseTypeDef",
     "GetBotResponseTypeDef",
+    "GetChannelMessageResponseTypeDef",
     "GetEventsConfigurationResponseTypeDef",
     "GetGlobalSettingsResponseTypeDef",
     "GetMeetingResponseTypeDef",
+    "GetMessagingSessionEndpointResponseTypeDef",
     "GetPhoneNumberOrderResponseTypeDef",
     "GetPhoneNumberResponseTypeDef",
     "GetPhoneNumberSettingsResponseTypeDef",
@@ -135,9 +179,19 @@ __all__ = (
     "GetVoiceConnectorTerminationResponseTypeDef",
     "InviteUsersResponseTypeDef",
     "ListAccountsResponseTypeDef",
+    "ListAppInstanceAdminsResponseTypeDef",
+    "ListAppInstanceUsersResponseTypeDef",
+    "ListAppInstancesResponseTypeDef",
     "ListAttendeeTagsResponseTypeDef",
     "ListAttendeesResponseTypeDef",
     "ListBotsResponseTypeDef",
+    "ListChannelBansResponseTypeDef",
+    "ListChannelMembershipsForAppInstanceUserResponseTypeDef",
+    "ListChannelMembershipsResponseTypeDef",
+    "ListChannelMessagesResponseTypeDef",
+    "ListChannelModeratorsResponseTypeDef",
+    "ListChannelsModeratedByAppInstanceUserResponseTypeDef",
+    "ListChannelsResponseTypeDef",
     "ListMeetingTagsResponseTypeDef",
     "ListMeetingsResponseTypeDef",
     "ListPhoneNumberOrdersResponseTypeDef",
@@ -155,6 +209,8 @@ __all__ = (
     "MeetingNotificationConfigurationTypeDef",
     "MembershipItemTypeDef",
     "PaginatorConfigTypeDef",
+    "PutAppInstanceRetentionSettingsResponseTypeDef",
+    "PutAppInstanceStreamingConfigurationsResponseTypeDef",
     "PutEventsConfigurationResponseTypeDef",
     "PutRetentionSettingsResponseTypeDef",
     "PutSipMediaApplicationLoggingConfigurationResponseTypeDef",
@@ -164,12 +220,19 @@ __all__ = (
     "PutVoiceConnectorProxyResponseTypeDef",
     "PutVoiceConnectorStreamingConfigurationResponseTypeDef",
     "PutVoiceConnectorTerminationResponseTypeDef",
+    "RedactChannelMessageResponseTypeDef",
     "RegenerateSecurityTokenResponseTypeDef",
     "ResetPersonalPINResponseTypeDef",
     "RestorePhoneNumberResponseTypeDef",
     "SearchAvailablePhoneNumbersResponseTypeDef",
+    "SendChannelMessageResponseTypeDef",
     "UpdateAccountResponseTypeDef",
+    "UpdateAppInstanceResponseTypeDef",
+    "UpdateAppInstanceUserResponseTypeDef",
     "UpdateBotResponseTypeDef",
+    "UpdateChannelMessageResponseTypeDef",
+    "UpdateChannelReadMarkerResponseTypeDef",
+    "UpdateChannelResponseTypeDef",
     "UpdatePhoneNumberRequestItemTypeDef",
     "UpdatePhoneNumberResponseTypeDef",
     "UpdateProxySessionResponseTypeDef",
@@ -213,6 +276,67 @@ AlexaForBusinessMetadataTypeDef = TypedDict(
     total=False,
 )
 
+AppInstanceAdminSummaryTypeDef = TypedDict(
+    "AppInstanceAdminSummaryTypeDef", {"Admin": "IdentityTypeDef"}, total=False
+)
+
+AppInstanceAdminTypeDef = TypedDict(
+    "AppInstanceAdminTypeDef",
+    {"Admin": "IdentityTypeDef", "AppInstanceArn": str, "CreatedTimestamp": datetime},
+    total=False,
+)
+
+AppInstanceRetentionSettingsTypeDef = TypedDict(
+    "AppInstanceRetentionSettingsTypeDef",
+    {"ChannelRetentionSettings": "ChannelRetentionSettingsTypeDef"},
+    total=False,
+)
+
+AppInstanceStreamingConfigurationTypeDef = TypedDict(
+    "AppInstanceStreamingConfigurationTypeDef",
+    {"AppInstanceDataType": Literal["Channel", "ChannelMessage"], "ResourceArn": str},
+)
+
+AppInstanceSummaryTypeDef = TypedDict(
+    "AppInstanceSummaryTypeDef", {"AppInstanceArn": str, "Name": str, "Metadata": str}, total=False
+)
+
+AppInstanceTypeDef = TypedDict(
+    "AppInstanceTypeDef",
+    {
+        "AppInstanceArn": str,
+        "Name": str,
+        "Metadata": str,
+        "CreatedTimestamp": datetime,
+        "LastUpdatedTimestamp": datetime,
+    },
+    total=False,
+)
+
+AppInstanceUserMembershipSummaryTypeDef = TypedDict(
+    "AppInstanceUserMembershipSummaryTypeDef",
+    {"Type": Literal["DEFAULT", "HIDDEN"], "ReadMarkerTimestamp": datetime},
+    total=False,
+)
+
+AppInstanceUserSummaryTypeDef = TypedDict(
+    "AppInstanceUserSummaryTypeDef",
+    {"AppInstanceUserArn": str, "Name": str, "Metadata": str},
+    total=False,
+)
+
+AppInstanceUserTypeDef = TypedDict(
+    "AppInstanceUserTypeDef",
+    {
+        "AppInstanceUserArn": str,
+        "Name": str,
+        "CreatedTimestamp": datetime,
+        "Metadata": str,
+        "LastUpdatedTimestamp": datetime,
+    },
+    total=False,
+)
+
 AttendeeTypeDef = TypedDict(
     "AttendeeTypeDef", {"ExternalUserId": str, "AttendeeId": str, "JoinToken": str}, total=False
 )
@@ -235,6 +359,135 @@ BotTypeDef = TypedDict(
 
 BusinessCallingSettingsTypeDef = TypedDict(
     "BusinessCallingSettingsTypeDef", {"CdrBucket": str}, total=False
+)
+
+ChannelBanSummaryTypeDef = TypedDict(
+    "ChannelBanSummaryTypeDef", {"Member": "IdentityTypeDef"}, total=False
+)
+
+ChannelBanTypeDef = TypedDict(
+    "ChannelBanTypeDef",
+    {
+        "Member": "IdentityTypeDef",
+        "ChannelArn": str,
+        "CreatedTimestamp": datetime,
+        "CreatedBy": "IdentityTypeDef",
+    },
+    total=False,
+)
+
+ChannelMembershipForAppInstanceUserSummaryTypeDef = TypedDict(
+    "ChannelMembershipForAppInstanceUserSummaryTypeDef",
+    {
+        "ChannelSummary": "ChannelSummaryTypeDef",
+        "AppInstanceUserMembershipSummary": "AppInstanceUserMembershipSummaryTypeDef",
+    },
+    total=False,
+)
+
+ChannelMembershipSummaryTypeDef = TypedDict(
+    "ChannelMembershipSummaryTypeDef", {"Member": "IdentityTypeDef"}, total=False
+)
+
+ChannelMembershipTypeDef = TypedDict(
+    "ChannelMembershipTypeDef",
+    {
+        "InvitedBy": "IdentityTypeDef",
+        "Type": Literal["DEFAULT", "HIDDEN"],
+        "Member": "IdentityTypeDef",
+        "ChannelArn": str,
+        "CreatedTimestamp": datetime,
+        "LastUpdatedTimestamp": datetime,
+    },
+    total=False,
+)
+
+ChannelMessageSummaryTypeDef = TypedDict(
+    "ChannelMessageSummaryTypeDef",
+    {
+        "MessageId": str,
+        "Content": str,
+        "Metadata": str,
+        "Type": Literal["STANDARD", "CONTROL"],
+        "CreatedTimestamp": datetime,
+        "LastUpdatedTimestamp": datetime,
+        "LastEditedTimestamp": datetime,
+        "Sender": "IdentityTypeDef",
+        "Redacted": bool,
+    },
+    total=False,
+)
+
+ChannelMessageTypeDef = TypedDict(
+    "ChannelMessageTypeDef",
+    {
+        "ChannelArn": str,
+        "MessageId": str,
+        "Content": str,
+        "Metadata": str,
+        "Type": Literal["STANDARD", "CONTROL"],
+        "CreatedTimestamp": datetime,
+        "LastEditedTimestamp": datetime,
+        "LastUpdatedTimestamp": datetime,
+        "Sender": "IdentityTypeDef",
+        "Redacted": bool,
+        "Persistence": Literal["PERSISTENT", "NON_PERSISTENT"],
+    },
+    total=False,
+)
+
+ChannelModeratedByAppInstanceUserSummaryTypeDef = TypedDict(
+    "ChannelModeratedByAppInstanceUserSummaryTypeDef",
+    {"ChannelSummary": "ChannelSummaryTypeDef"},
+    total=False,
+)
+
+ChannelModeratorSummaryTypeDef = TypedDict(
+    "ChannelModeratorSummaryTypeDef", {"Moderator": "IdentityTypeDef"}, total=False
+)
+
+ChannelModeratorTypeDef = TypedDict(
+    "ChannelModeratorTypeDef",
+    {
+        "Moderator": "IdentityTypeDef",
+        "ChannelArn": str,
+        "CreatedTimestamp": datetime,
+        "CreatedBy": "IdentityTypeDef",
+    },
+    total=False,
+)
+
+ChannelRetentionSettingsTypeDef = TypedDict(
+    "ChannelRetentionSettingsTypeDef", {"RetentionDays": int}, total=False
+)
+
+ChannelSummaryTypeDef = TypedDict(
+    "ChannelSummaryTypeDef",
+    {
+        "Name": str,
+        "ChannelArn": str,
+        "Mode": Literal["UNRESTRICTED", "RESTRICTED"],
+        "Privacy": Literal["PUBLIC", "PRIVATE"],
+        "Metadata": str,
+        "LastMessageTimestamp": datetime,
+    },
+    total=False,
+)
+
+ChannelTypeDef = TypedDict(
+    "ChannelTypeDef",
+    {
+        "Name": str,
+        "ChannelArn": str,
+        "Mode": Literal["UNRESTRICTED", "RESTRICTED"],
+        "Privacy": Literal["PUBLIC", "PRIVATE"],
+        "Metadata": str,
+        "CreatedBy": "IdentityTypeDef",
+        "CreatedTimestamp": datetime,
+        "LastMessageTimestamp": datetime,
+        "LastUpdatedTimestamp": datetime,
+    },
+    total=False,
 )
 
 ConversationRetentionSettingsTypeDef = TypedDict(
@@ -276,6 +529,8 @@ EventsConfigurationTypeDef = TypedDict(
 )
 
 GeoMatchParamsTypeDef = TypedDict("GeoMatchParamsTypeDef", {"Country": str, "AreaCode": str})
+
+IdentityTypeDef = TypedDict("IdentityTypeDef", {"Arn": str, "Name": str}, total=False)
 
 InviteTypeDef = TypedDict(
     "InviteTypeDef",
@@ -353,6 +608,10 @@ MemberTypeDef = TypedDict(
         "AccountId": str,
     },
     total=False,
+)
+
+MessagingSessionEndpointTypeDef = TypedDict(
+    "MessagingSessionEndpointTypeDef", {"Url": str}, total=False
 )
 
 OrderedPhoneNumberTypeDef = TypedDict(
@@ -770,6 +1029,20 @@ CreateAccountResponseTypeDef = TypedDict(
     "CreateAccountResponseTypeDef", {"Account": "AccountTypeDef"}, total=False
 )
 
+CreateAppInstanceAdminResponseTypeDef = TypedDict(
+    "CreateAppInstanceAdminResponseTypeDef",
+    {"AppInstanceAdmin": "IdentityTypeDef", "AppInstanceArn": str},
+    total=False,
+)
+
+CreateAppInstanceResponseTypeDef = TypedDict(
+    "CreateAppInstanceResponseTypeDef", {"AppInstanceArn": str}, total=False
+)
+
+CreateAppInstanceUserResponseTypeDef = TypedDict(
+    "CreateAppInstanceUserResponseTypeDef", {"AppInstanceUserArn": str}, total=False
+)
+
 _RequiredCreateAttendeeRequestItemTypeDef = TypedDict(
     "_RequiredCreateAttendeeRequestItemTypeDef", {"ExternalUserId": str}
 )
@@ -789,6 +1062,26 @@ CreateAttendeeResponseTypeDef = TypedDict(
 )
 
 CreateBotResponseTypeDef = TypedDict("CreateBotResponseTypeDef", {"Bot": "BotTypeDef"}, total=False)
+
+CreateChannelBanResponseTypeDef = TypedDict(
+    "CreateChannelBanResponseTypeDef", {"ChannelArn": str, "Member": "IdentityTypeDef"}, total=False
+)
+
+CreateChannelMembershipResponseTypeDef = TypedDict(
+    "CreateChannelMembershipResponseTypeDef",
+    {"ChannelArn": str, "Member": "IdentityTypeDef"},
+    total=False,
+)
+
+CreateChannelModeratorResponseTypeDef = TypedDict(
+    "CreateChannelModeratorResponseTypeDef",
+    {"ChannelArn": str, "ChannelModerator": "IdentityTypeDef"},
+    total=False,
+)
+
+CreateChannelResponseTypeDef = TypedDict(
+    "CreateChannelResponseTypeDef", {"ChannelArn": str}, total=False
+)
 
 CreateMeetingDialOutResponseTypeDef = TypedDict(
     "CreateMeetingDialOutResponseTypeDef", {"TransactionId": str}, total=False
@@ -858,6 +1151,54 @@ CreateVoiceConnectorResponseTypeDef = TypedDict(
 
 CredentialTypeDef = TypedDict("CredentialTypeDef", {"Username": str, "Password": str}, total=False)
 
+DescribeAppInstanceAdminResponseTypeDef = TypedDict(
+    "DescribeAppInstanceAdminResponseTypeDef",
+    {"AppInstanceAdmin": "AppInstanceAdminTypeDef"},
+    total=False,
+)
+
+DescribeAppInstanceResponseTypeDef = TypedDict(
+    "DescribeAppInstanceResponseTypeDef", {"AppInstance": "AppInstanceTypeDef"}, total=False
+)
+
+DescribeAppInstanceUserResponseTypeDef = TypedDict(
+    "DescribeAppInstanceUserResponseTypeDef",
+    {"AppInstanceUser": "AppInstanceUserTypeDef"},
+    total=False,
+)
+
+DescribeChannelBanResponseTypeDef = TypedDict(
+    "DescribeChannelBanResponseTypeDef", {"ChannelBan": "ChannelBanTypeDef"}, total=False
+)
+
+DescribeChannelMembershipForAppInstanceUserResponseTypeDef = TypedDict(
+    "DescribeChannelMembershipForAppInstanceUserResponseTypeDef",
+    {"ChannelMembership": "ChannelMembershipForAppInstanceUserSummaryTypeDef"},
+    total=False,
+)
+
+DescribeChannelMembershipResponseTypeDef = TypedDict(
+    "DescribeChannelMembershipResponseTypeDef",
+    {"ChannelMembership": "ChannelMembershipTypeDef"},
+    total=False,
+)
+
+DescribeChannelModeratedByAppInstanceUserResponseTypeDef = TypedDict(
+    "DescribeChannelModeratedByAppInstanceUserResponseTypeDef",
+    {"Channel": "ChannelModeratedByAppInstanceUserSummaryTypeDef"},
+    total=False,
+)
+
+DescribeChannelModeratorResponseTypeDef = TypedDict(
+    "DescribeChannelModeratorResponseTypeDef",
+    {"ChannelModerator": "ChannelModeratorTypeDef"},
+    total=False,
+)
+
+DescribeChannelResponseTypeDef = TypedDict(
+    "DescribeChannelResponseTypeDef", {"Channel": "ChannelTypeDef"}, total=False
+)
+
 DisassociatePhoneNumbersFromVoiceConnectorGroupResponseTypeDef = TypedDict(
     "DisassociatePhoneNumbersFromVoiceConnectorGroupResponseTypeDef",
     {"PhoneNumberErrors": List["PhoneNumberErrorTypeDef"]},
@@ -878,11 +1219,30 @@ GetAccountSettingsResponseTypeDef = TypedDict(
     "GetAccountSettingsResponseTypeDef", {"AccountSettings": "AccountSettingsTypeDef"}, total=False
 )
 
+GetAppInstanceRetentionSettingsResponseTypeDef = TypedDict(
+    "GetAppInstanceRetentionSettingsResponseTypeDef",
+    {
+        "AppInstanceRetentionSettings": "AppInstanceRetentionSettingsTypeDef",
+        "InitiateDeletionTimestamp": datetime,
+    },
+    total=False,
+)
+
+GetAppInstanceStreamingConfigurationsResponseTypeDef = TypedDict(
+    "GetAppInstanceStreamingConfigurationsResponseTypeDef",
+    {"AppInstanceStreamingConfigurations": List["AppInstanceStreamingConfigurationTypeDef"]},
+    total=False,
+)
+
 GetAttendeeResponseTypeDef = TypedDict(
     "GetAttendeeResponseTypeDef", {"Attendee": "AttendeeTypeDef"}, total=False
 )
 
 GetBotResponseTypeDef = TypedDict("GetBotResponseTypeDef", {"Bot": "BotTypeDef"}, total=False)
+
+GetChannelMessageResponseTypeDef = TypedDict(
+    "GetChannelMessageResponseTypeDef", {"ChannelMessage": "ChannelMessageTypeDef"}, total=False
+)
 
 GetEventsConfigurationResponseTypeDef = TypedDict(
     "GetEventsConfigurationResponseTypeDef",
@@ -901,6 +1261,12 @@ GetGlobalSettingsResponseTypeDef = TypedDict(
 
 GetMeetingResponseTypeDef = TypedDict(
     "GetMeetingResponseTypeDef", {"Meeting": "MeetingTypeDef"}, total=False
+)
+
+GetMessagingSessionEndpointResponseTypeDef = TypedDict(
+    "GetMessagingSessionEndpointResponseTypeDef",
+    {"Endpoint": "MessagingSessionEndpointTypeDef"},
+    total=False,
 )
 
 GetPhoneNumberOrderResponseTypeDef = TypedDict(
@@ -1013,6 +1379,32 @@ ListAccountsResponseTypeDef = TypedDict(
     total=False,
 )
 
+ListAppInstanceAdminsResponseTypeDef = TypedDict(
+    "ListAppInstanceAdminsResponseTypeDef",
+    {
+        "AppInstanceArn": str,
+        "AppInstanceAdmins": List["AppInstanceAdminSummaryTypeDef"],
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListAppInstanceUsersResponseTypeDef = TypedDict(
+    "ListAppInstanceUsersResponseTypeDef",
+    {
+        "AppInstanceArn": str,
+        "AppInstanceUsers": List["AppInstanceUserSummaryTypeDef"],
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListAppInstancesResponseTypeDef = TypedDict(
+    "ListAppInstancesResponseTypeDef",
+    {"AppInstances": List["AppInstanceSummaryTypeDef"], "NextToken": str},
+    total=False,
+)
+
 ListAttendeeTagsResponseTypeDef = TypedDict(
     "ListAttendeeTagsResponseTypeDef", {"Tags": List["TagTypeDef"]}, total=False
 )
@@ -1025,6 +1417,59 @@ ListAttendeesResponseTypeDef = TypedDict(
 
 ListBotsResponseTypeDef = TypedDict(
     "ListBotsResponseTypeDef", {"Bots": List["BotTypeDef"], "NextToken": str}, total=False
+)
+
+ListChannelBansResponseTypeDef = TypedDict(
+    "ListChannelBansResponseTypeDef",
+    {"ChannelArn": str, "NextToken": str, "ChannelBans": List["ChannelBanSummaryTypeDef"]},
+    total=False,
+)
+
+ListChannelMembershipsForAppInstanceUserResponseTypeDef = TypedDict(
+    "ListChannelMembershipsForAppInstanceUserResponseTypeDef",
+    {
+        "ChannelMemberships": List["ChannelMembershipForAppInstanceUserSummaryTypeDef"],
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListChannelMembershipsResponseTypeDef = TypedDict(
+    "ListChannelMembershipsResponseTypeDef",
+    {
+        "ChannelArn": str,
+        "ChannelMemberships": List["ChannelMembershipSummaryTypeDef"],
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListChannelMessagesResponseTypeDef = TypedDict(
+    "ListChannelMessagesResponseTypeDef",
+    {"ChannelArn": str, "NextToken": str, "ChannelMessages": List["ChannelMessageSummaryTypeDef"]},
+    total=False,
+)
+
+ListChannelModeratorsResponseTypeDef = TypedDict(
+    "ListChannelModeratorsResponseTypeDef",
+    {
+        "ChannelArn": str,
+        "NextToken": str,
+        "ChannelModerators": List["ChannelModeratorSummaryTypeDef"],
+    },
+    total=False,
+)
+
+ListChannelsModeratedByAppInstanceUserResponseTypeDef = TypedDict(
+    "ListChannelsModeratedByAppInstanceUserResponseTypeDef",
+    {"Channels": List["ChannelModeratedByAppInstanceUserSummaryTypeDef"], "NextToken": str},
+    total=False,
+)
+
+ListChannelsResponseTypeDef = TypedDict(
+    "ListChannelsResponseTypeDef",
+    {"Channels": List["ChannelSummaryTypeDef"], "NextToken": str},
+    total=False,
 )
 
 ListMeetingTagsResponseTypeDef = TypedDict(
@@ -1115,6 +1560,21 @@ PaginatorConfigTypeDef = TypedDict(
     "PaginatorConfigTypeDef", {"MaxItems": int, "PageSize": int, "StartingToken": str}, total=False
 )
 
+PutAppInstanceRetentionSettingsResponseTypeDef = TypedDict(
+    "PutAppInstanceRetentionSettingsResponseTypeDef",
+    {
+        "AppInstanceRetentionSettings": "AppInstanceRetentionSettingsTypeDef",
+        "InitiateDeletionTimestamp": datetime,
+    },
+    total=False,
+)
+
+PutAppInstanceStreamingConfigurationsResponseTypeDef = TypedDict(
+    "PutAppInstanceStreamingConfigurationsResponseTypeDef",
+    {"AppInstanceStreamingConfigurations": List["AppInstanceStreamingConfigurationTypeDef"]},
+    total=False,
+)
+
 PutEventsConfigurationResponseTypeDef = TypedDict(
     "PutEventsConfigurationResponseTypeDef",
     {"EventsConfiguration": "EventsConfigurationTypeDef"},
@@ -1167,6 +1627,10 @@ PutVoiceConnectorTerminationResponseTypeDef = TypedDict(
     total=False,
 )
 
+RedactChannelMessageResponseTypeDef = TypedDict(
+    "RedactChannelMessageResponseTypeDef", {"ChannelArn": str, "MessageId": str}, total=False
+)
+
 RegenerateSecurityTokenResponseTypeDef = TypedDict(
     "RegenerateSecurityTokenResponseTypeDef", {"Bot": "BotTypeDef"}, total=False
 )
@@ -1183,11 +1647,35 @@ SearchAvailablePhoneNumbersResponseTypeDef = TypedDict(
     "SearchAvailablePhoneNumbersResponseTypeDef", {"E164PhoneNumbers": List[str]}, total=False
 )
 
+SendChannelMessageResponseTypeDef = TypedDict(
+    "SendChannelMessageResponseTypeDef", {"ChannelArn": str, "MessageId": str}, total=False
+)
+
 UpdateAccountResponseTypeDef = TypedDict(
     "UpdateAccountResponseTypeDef", {"Account": "AccountTypeDef"}, total=False
 )
 
+UpdateAppInstanceResponseTypeDef = TypedDict(
+    "UpdateAppInstanceResponseTypeDef", {"AppInstanceArn": str}, total=False
+)
+
+UpdateAppInstanceUserResponseTypeDef = TypedDict(
+    "UpdateAppInstanceUserResponseTypeDef", {"AppInstanceUserArn": str}, total=False
+)
+
 UpdateBotResponseTypeDef = TypedDict("UpdateBotResponseTypeDef", {"Bot": "BotTypeDef"}, total=False)
+
+UpdateChannelMessageResponseTypeDef = TypedDict(
+    "UpdateChannelMessageResponseTypeDef", {"ChannelArn": str, "MessageId": str}, total=False
+)
+
+UpdateChannelReadMarkerResponseTypeDef = TypedDict(
+    "UpdateChannelReadMarkerResponseTypeDef", {"ChannelArn": str}, total=False
+)
+
+UpdateChannelResponseTypeDef = TypedDict(
+    "UpdateChannelResponseTypeDef", {"ChannelArn": str}, total=False
+)
 
 _RequiredUpdatePhoneNumberRequestItemTypeDef = TypedDict(
     "_RequiredUpdatePhoneNumberRequestItemTypeDef", {"PhoneNumberId": str}

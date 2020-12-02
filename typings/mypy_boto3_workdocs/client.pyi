@@ -106,7 +106,7 @@ class Exceptions:
 
 class WorkDocsClient:
     """
-    [WorkDocs.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Client)
+    [WorkDocs.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Client)
     """
 
     meta: ClientMeta
@@ -116,14 +116,14 @@ class WorkDocsClient:
         self, DocumentId: str, VersionId: str, AuthenticationToken: str = None
     ) -> None:
         """
-        [Client.abort_document_version_upload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Client.abort_document_version_upload)
+        [Client.abort_document_version_upload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Client.abort_document_version_upload)
         """
 
     def activate_user(
         self, UserId: str, AuthenticationToken: str = None
     ) -> ActivateUserResponseTypeDef:
         """
-        [Client.activate_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Client.activate_user)
+        [Client.activate_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Client.activate_user)
         """
 
     def add_resource_permissions(
@@ -134,12 +134,12 @@ class WorkDocsClient:
         NotificationOptions: NotificationOptionsTypeDef = None,
     ) -> AddResourcePermissionsResponseTypeDef:
         """
-        [Client.add_resource_permissions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Client.add_resource_permissions)
+        [Client.add_resource_permissions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Client.add_resource_permissions)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Client.can_paginate)
         """
 
     def create_comment(
@@ -154,7 +154,7 @@ class WorkDocsClient:
         NotifyCollaborators: bool = None,
     ) -> CreateCommentResponseTypeDef:
         """
-        [Client.create_comment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Client.create_comment)
+        [Client.create_comment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Client.create_comment)
         """
 
     def create_custom_metadata(
@@ -165,21 +165,21 @@ class WorkDocsClient:
         VersionId: str = None,
     ) -> Dict[str, Any]:
         """
-        [Client.create_custom_metadata documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Client.create_custom_metadata)
+        [Client.create_custom_metadata documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Client.create_custom_metadata)
         """
 
     def create_folder(
         self, ParentFolderId: str, AuthenticationToken: str = None, Name: str = None
     ) -> CreateFolderResponseTypeDef:
         """
-        [Client.create_folder documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Client.create_folder)
+        [Client.create_folder documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Client.create_folder)
         """
 
     def create_labels(
         self, ResourceId: str, Labels: List[str], AuthenticationToken: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.create_labels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Client.create_labels)
+        [Client.create_labels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Client.create_labels)
         """
 
     def create_notification_subscription(
@@ -190,7 +190,7 @@ class WorkDocsClient:
         SubscriptionType: Literal["ALL"],
     ) -> CreateNotificationSubscriptionResponseTypeDef:
         """
-        [Client.create_notification_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Client.create_notification_subscription)
+        [Client.create_notification_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Client.create_notification_subscription)
         """
 
     def create_user(
@@ -206,19 +206,19 @@ class WorkDocsClient:
         AuthenticationToken: str = None,
     ) -> CreateUserResponseTypeDef:
         """
-        [Client.create_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Client.create_user)
+        [Client.create_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Client.create_user)
         """
 
     def deactivate_user(self, UserId: str, AuthenticationToken: str = None) -> None:
         """
-        [Client.deactivate_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Client.deactivate_user)
+        [Client.deactivate_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Client.deactivate_user)
         """
 
     def delete_comment(
         self, DocumentId: str, VersionId: str, CommentId: str, AuthenticationToken: str = None
     ) -> None:
         """
-        [Client.delete_comment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Client.delete_comment)
+        [Client.delete_comment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Client.delete_comment)
         """
 
     def delete_custom_metadata(
@@ -230,22 +230,22 @@ class WorkDocsClient:
         DeleteAll: bool = None,
     ) -> Dict[str, Any]:
         """
-        [Client.delete_custom_metadata documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Client.delete_custom_metadata)
+        [Client.delete_custom_metadata documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Client.delete_custom_metadata)
         """
 
     def delete_document(self, DocumentId: str, AuthenticationToken: str = None) -> None:
         """
-        [Client.delete_document documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Client.delete_document)
+        [Client.delete_document documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Client.delete_document)
         """
 
     def delete_folder(self, FolderId: str, AuthenticationToken: str = None) -> None:
         """
-        [Client.delete_folder documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Client.delete_folder)
+        [Client.delete_folder documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Client.delete_folder)
         """
 
     def delete_folder_contents(self, FolderId: str, AuthenticationToken: str = None) -> None:
         """
-        [Client.delete_folder_contents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Client.delete_folder_contents)
+        [Client.delete_folder_contents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Client.delete_folder_contents)
         """
 
     def delete_labels(
@@ -256,17 +256,17 @@ class WorkDocsClient:
         DeleteAll: bool = None,
     ) -> Dict[str, Any]:
         """
-        [Client.delete_labels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Client.delete_labels)
+        [Client.delete_labels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Client.delete_labels)
         """
 
     def delete_notification_subscription(self, SubscriptionId: str, OrganizationId: str) -> None:
         """
-        [Client.delete_notification_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Client.delete_notification_subscription)
+        [Client.delete_notification_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Client.delete_notification_subscription)
         """
 
     def delete_user(self, UserId: str, AuthenticationToken: str = None) -> None:
         """
-        [Client.delete_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Client.delete_user)
+        [Client.delete_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Client.delete_user)
         """
 
     def describe_activities(
@@ -283,7 +283,7 @@ class WorkDocsClient:
         Marker: str = None,
     ) -> DescribeActivitiesResponseTypeDef:
         """
-        [Client.describe_activities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Client.describe_activities)
+        [Client.describe_activities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Client.describe_activities)
         """
 
     def describe_comments(
@@ -295,7 +295,7 @@ class WorkDocsClient:
         Marker: str = None,
     ) -> DescribeCommentsResponseTypeDef:
         """
-        [Client.describe_comments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Client.describe_comments)
+        [Client.describe_comments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Client.describe_comments)
         """
 
     def describe_document_versions(
@@ -308,7 +308,7 @@ class WorkDocsClient:
         Fields: str = None,
     ) -> DescribeDocumentVersionsResponseTypeDef:
         """
-        [Client.describe_document_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Client.describe_document_versions)
+        [Client.describe_document_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Client.describe_document_versions)
         """
 
     def describe_folder_contents(
@@ -323,7 +323,7 @@ class WorkDocsClient:
         Include: str = None,
     ) -> DescribeFolderContentsResponseTypeDef:
         """
-        [Client.describe_folder_contents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Client.describe_folder_contents)
+        [Client.describe_folder_contents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Client.describe_folder_contents)
         """
 
     def describe_groups(
@@ -335,14 +335,14 @@ class WorkDocsClient:
         Limit: int = None,
     ) -> DescribeGroupsResponseTypeDef:
         """
-        [Client.describe_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Client.describe_groups)
+        [Client.describe_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Client.describe_groups)
         """
 
     def describe_notification_subscriptions(
         self, OrganizationId: str, Marker: str = None, Limit: int = None
     ) -> DescribeNotificationSubscriptionsResponseTypeDef:
         """
-        [Client.describe_notification_subscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Client.describe_notification_subscriptions)
+        [Client.describe_notification_subscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Client.describe_notification_subscriptions)
         """
 
     def describe_resource_permissions(
@@ -354,14 +354,14 @@ class WorkDocsClient:
         Marker: str = None,
     ) -> DescribeResourcePermissionsResponseTypeDef:
         """
-        [Client.describe_resource_permissions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Client.describe_resource_permissions)
+        [Client.describe_resource_permissions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Client.describe_resource_permissions)
         """
 
     def describe_root_folders(
         self, AuthenticationToken: str, Limit: int = None, Marker: str = None
     ) -> DescribeRootFoldersResponseTypeDef:
         """
-        [Client.describe_root_folders documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Client.describe_root_folders)
+        [Client.describe_root_folders documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Client.describe_root_folders)
         """
 
     def describe_users(
@@ -380,7 +380,7 @@ class WorkDocsClient:
         Fields: str = None,
     ) -> DescribeUsersResponseTypeDef:
         """
-        [Client.describe_users documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Client.describe_users)
+        [Client.describe_users documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Client.describe_users)
         """
 
     def generate_presigned_url(
@@ -391,19 +391,19 @@ class WorkDocsClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Client.generate_presigned_url)
         """
 
     def get_current_user(self, AuthenticationToken: str) -> GetCurrentUserResponseTypeDef:
         """
-        [Client.get_current_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Client.get_current_user)
+        [Client.get_current_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Client.get_current_user)
         """
 
     def get_document(
         self, DocumentId: str, AuthenticationToken: str = None, IncludeCustomMetadata: bool = None
     ) -> GetDocumentResponseTypeDef:
         """
-        [Client.get_document documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Client.get_document)
+        [Client.get_document documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Client.get_document)
         """
 
     def get_document_path(
@@ -415,7 +415,7 @@ class WorkDocsClient:
         Marker: str = None,
     ) -> GetDocumentPathResponseTypeDef:
         """
-        [Client.get_document_path documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Client.get_document_path)
+        [Client.get_document_path documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Client.get_document_path)
         """
 
     def get_document_version(
@@ -427,14 +427,14 @@ class WorkDocsClient:
         IncludeCustomMetadata: bool = None,
     ) -> GetDocumentVersionResponseTypeDef:
         """
-        [Client.get_document_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Client.get_document_version)
+        [Client.get_document_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Client.get_document_version)
         """
 
     def get_folder(
         self, FolderId: str, AuthenticationToken: str = None, IncludeCustomMetadata: bool = None
     ) -> GetFolderResponseTypeDef:
         """
-        [Client.get_folder documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Client.get_folder)
+        [Client.get_folder documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Client.get_folder)
         """
 
     def get_folder_path(
@@ -446,7 +446,7 @@ class WorkDocsClient:
         Marker: str = None,
     ) -> GetFolderPathResponseTypeDef:
         """
-        [Client.get_folder_path documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Client.get_folder_path)
+        [Client.get_folder_path documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Client.get_folder_path)
         """
 
     def get_resources(
@@ -458,7 +458,7 @@ class WorkDocsClient:
         Marker: str = None,
     ) -> GetResourcesResponseTypeDef:
         """
-        [Client.get_resources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Client.get_resources)
+        [Client.get_resources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Client.get_resources)
         """
 
     def initiate_document_version_upload(
@@ -473,14 +473,14 @@ class WorkDocsClient:
         DocumentSizeInBytes: int = None,
     ) -> InitiateDocumentVersionUploadResponseTypeDef:
         """
-        [Client.initiate_document_version_upload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Client.initiate_document_version_upload)
+        [Client.initiate_document_version_upload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Client.initiate_document_version_upload)
         """
 
     def remove_all_resource_permissions(
         self, ResourceId: str, AuthenticationToken: str = None
     ) -> None:
         """
-        [Client.remove_all_resource_permissions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Client.remove_all_resource_permissions)
+        [Client.remove_all_resource_permissions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Client.remove_all_resource_permissions)
         """
 
     def remove_resource_permission(
@@ -491,7 +491,7 @@ class WorkDocsClient:
         PrincipalType: Literal["USER", "GROUP", "INVITE", "ANONYMOUS", "ORGANIZATION"] = None,
     ) -> None:
         """
-        [Client.remove_resource_permission documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Client.remove_resource_permission)
+        [Client.remove_resource_permission documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Client.remove_resource_permission)
         """
 
     def update_document(
@@ -503,7 +503,7 @@ class WorkDocsClient:
         ResourceState: Literal["ACTIVE", "RESTORING", "RECYCLING", "RECYCLED"] = None,
     ) -> None:
         """
-        [Client.update_document documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Client.update_document)
+        [Client.update_document documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Client.update_document)
         """
 
     def update_document_version(
@@ -514,7 +514,7 @@ class WorkDocsClient:
         VersionStatus: Literal["ACTIVE"] = None,
     ) -> None:
         """
-        [Client.update_document_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Client.update_document_version)
+        [Client.update_document_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Client.update_document_version)
         """
 
     def update_folder(
@@ -526,7 +526,7 @@ class WorkDocsClient:
         ResourceState: Literal["ACTIVE", "RESTORING", "RECYCLING", "RECYCLED"] = None,
     ) -> None:
         """
-        [Client.update_folder documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Client.update_folder)
+        [Client.update_folder documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Client.update_folder)
         """
 
     def update_user(
@@ -544,7 +544,7 @@ class WorkDocsClient:
         GrantPoweruserPrivileges: Literal["TRUE", "FALSE"] = None,
     ) -> UpdateUserResponseTypeDef:
         """
-        [Client.update_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Client.update_user)
+        [Client.update_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Client.update_user)
         """
 
     @overload
@@ -552,7 +552,7 @@ class WorkDocsClient:
         self, operation_name: Literal["describe_activities"]
     ) -> DescribeActivitiesPaginator:
         """
-        [Paginator.DescribeActivities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Paginator.DescribeActivities)
+        [Paginator.DescribeActivities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Paginator.DescribeActivities)
         """
 
     @overload
@@ -560,7 +560,7 @@ class WorkDocsClient:
         self, operation_name: Literal["describe_comments"]
     ) -> DescribeCommentsPaginator:
         """
-        [Paginator.DescribeComments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Paginator.DescribeComments)
+        [Paginator.DescribeComments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Paginator.DescribeComments)
         """
 
     @overload
@@ -568,7 +568,7 @@ class WorkDocsClient:
         self, operation_name: Literal["describe_document_versions"]
     ) -> DescribeDocumentVersionsPaginator:
         """
-        [Paginator.DescribeDocumentVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Paginator.DescribeDocumentVersions)
+        [Paginator.DescribeDocumentVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Paginator.DescribeDocumentVersions)
         """
 
     @overload
@@ -576,13 +576,13 @@ class WorkDocsClient:
         self, operation_name: Literal["describe_folder_contents"]
     ) -> DescribeFolderContentsPaginator:
         """
-        [Paginator.DescribeFolderContents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Paginator.DescribeFolderContents)
+        [Paginator.DescribeFolderContents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Paginator.DescribeFolderContents)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["describe_groups"]) -> DescribeGroupsPaginator:
         """
-        [Paginator.DescribeGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Paginator.DescribeGroups)
+        [Paginator.DescribeGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Paginator.DescribeGroups)
         """
 
     @overload
@@ -590,7 +590,7 @@ class WorkDocsClient:
         self, operation_name: Literal["describe_notification_subscriptions"]
     ) -> DescribeNotificationSubscriptionsPaginator:
         """
-        [Paginator.DescribeNotificationSubscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Paginator.DescribeNotificationSubscriptions)
+        [Paginator.DescribeNotificationSubscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Paginator.DescribeNotificationSubscriptions)
         """
 
     @overload
@@ -598,7 +598,7 @@ class WorkDocsClient:
         self, operation_name: Literal["describe_resource_permissions"]
     ) -> DescribeResourcePermissionsPaginator:
         """
-        [Paginator.DescribeResourcePermissions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Paginator.DescribeResourcePermissions)
+        [Paginator.DescribeResourcePermissions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Paginator.DescribeResourcePermissions)
         """
 
     @overload
@@ -606,11 +606,11 @@ class WorkDocsClient:
         self, operation_name: Literal["describe_root_folders"]
     ) -> DescribeRootFoldersPaginator:
         """
-        [Paginator.DescribeRootFolders documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Paginator.DescribeRootFolders)
+        [Paginator.DescribeRootFolders documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Paginator.DescribeRootFolders)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["describe_users"]) -> DescribeUsersPaginator:
         """
-        [Paginator.DescribeUsers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/workdocs.html#WorkDocs.Paginator.DescribeUsers)
+        [Paginator.DescribeUsers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Paginator.DescribeUsers)
         """

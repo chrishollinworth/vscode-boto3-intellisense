@@ -50,7 +50,7 @@ class Exceptions:
 
 class KinesisVideoSignalingChannelsClient:
     """
-    [KinesisVideoSignalingChannels.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kinesis-video-signaling.html#KinesisVideoSignalingChannels.Client)
+    [KinesisVideoSignalingChannels.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis-video-signaling.html#KinesisVideoSignalingChannels.Client)
     """
 
     meta: ClientMeta
@@ -58,7 +58,7 @@ class KinesisVideoSignalingChannelsClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kinesis-video-signaling.html#KinesisVideoSignalingChannels.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis-video-signaling.html#KinesisVideoSignalingChannels.Client.can_paginate)
         """
 
     def generate_presigned_url(
@@ -69,7 +69,7 @@ class KinesisVideoSignalingChannelsClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kinesis-video-signaling.html#KinesisVideoSignalingChannels.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis-video-signaling.html#KinesisVideoSignalingChannels.Client.generate_presigned_url)
         """
 
     def get_ice_server_config(
@@ -80,12 +80,12 @@ class KinesisVideoSignalingChannelsClient:
         Username: str = None,
     ) -> GetIceServerConfigResponseTypeDef:
         """
-        [Client.get_ice_server_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kinesis-video-signaling.html#KinesisVideoSignalingChannels.Client.get_ice_server_config)
+        [Client.get_ice_server_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis-video-signaling.html#KinesisVideoSignalingChannels.Client.get_ice_server_config)
         """
 
     def send_alexa_offer_to_master(
         self, ChannelARN: str, SenderClientId: str, MessagePayload: str
     ) -> SendAlexaOfferToMasterResponseTypeDef:
         """
-        [Client.send_alexa_offer_to_master documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kinesis-video-signaling.html#KinesisVideoSignalingChannels.Client.send_alexa_offer_to_master)
+        [Client.send_alexa_offer_to_master documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis-video-signaling.html#KinesisVideoSignalingChannels.Client.send_alexa_offer_to_master)
         """

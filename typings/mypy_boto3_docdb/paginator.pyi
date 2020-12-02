@@ -82,7 +82,7 @@ __all__ = (
 
 class DescribeCertificatesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeCertificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/docdb.html#DocDB.Paginator.DescribeCertificates)
+    [Paginator.DescribeCertificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/docdb.html#DocDB.Paginator.DescribeCertificates)
     """
 
     def paginate(
@@ -92,13 +92,13 @@ class DescribeCertificatesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[CertificateMessageTypeDef]:
         """
-        [DescribeCertificates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/docdb.html#DocDB.Paginator.DescribeCertificates.paginate)
+        [DescribeCertificates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/docdb.html#DocDB.Paginator.DescribeCertificates.paginate)
         """
 
 
 class DescribeDBClusterParameterGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeDBClusterParameterGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/docdb.html#DocDB.Paginator.DescribeDBClusterParameterGroups)
+    [Paginator.DescribeDBClusterParameterGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/docdb.html#DocDB.Paginator.DescribeDBClusterParameterGroups)
     """
 
     def paginate(
@@ -108,13 +108,13 @@ class DescribeDBClusterParameterGroupsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DBClusterParameterGroupsMessageTypeDef]:
         """
-        [DescribeDBClusterParameterGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/docdb.html#DocDB.Paginator.DescribeDBClusterParameterGroups.paginate)
+        [DescribeDBClusterParameterGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/docdb.html#DocDB.Paginator.DescribeDBClusterParameterGroups.paginate)
         """
 
 
 class DescribeDBClusterParametersPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeDBClusterParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/docdb.html#DocDB.Paginator.DescribeDBClusterParameters)
+    [Paginator.DescribeDBClusterParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/docdb.html#DocDB.Paginator.DescribeDBClusterParameters)
     """
 
     def paginate(
@@ -125,13 +125,13 @@ class DescribeDBClusterParametersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DBClusterParameterGroupDetailsTypeDef]:
         """
-        [DescribeDBClusterParameters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/docdb.html#DocDB.Paginator.DescribeDBClusterParameters.paginate)
+        [DescribeDBClusterParameters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/docdb.html#DocDB.Paginator.DescribeDBClusterParameters.paginate)
         """
 
 
 class DescribeDBClusterSnapshotsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeDBClusterSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/docdb.html#DocDB.Paginator.DescribeDBClusterSnapshots)
+    [Paginator.DescribeDBClusterSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/docdb.html#DocDB.Paginator.DescribeDBClusterSnapshots)
     """
 
     def paginate(
@@ -145,13 +145,13 @@ class DescribeDBClusterSnapshotsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DBClusterSnapshotMessageTypeDef]:
         """
-        [DescribeDBClusterSnapshots.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/docdb.html#DocDB.Paginator.DescribeDBClusterSnapshots.paginate)
+        [DescribeDBClusterSnapshots.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/docdb.html#DocDB.Paginator.DescribeDBClusterSnapshots.paginate)
         """
 
 
 class DescribeDBClustersPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeDBClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/docdb.html#DocDB.Paginator.DescribeDBClusters)
+    [Paginator.DescribeDBClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/docdb.html#DocDB.Paginator.DescribeDBClusters)
     """
 
     def paginate(
@@ -161,13 +161,13 @@ class DescribeDBClustersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DBClusterMessageTypeDef]:
         """
-        [DescribeDBClusters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/docdb.html#DocDB.Paginator.DescribeDBClusters.paginate)
+        [DescribeDBClusters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/docdb.html#DocDB.Paginator.DescribeDBClusters.paginate)
         """
 
 
 class DescribeDBEngineVersionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeDBEngineVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/docdb.html#DocDB.Paginator.DescribeDBEngineVersions)
+    [Paginator.DescribeDBEngineVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/docdb.html#DocDB.Paginator.DescribeDBEngineVersions)
     """
 
     def paginate(
@@ -182,13 +182,13 @@ class DescribeDBEngineVersionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DBEngineVersionMessageTypeDef]:
         """
-        [DescribeDBEngineVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/docdb.html#DocDB.Paginator.DescribeDBEngineVersions.paginate)
+        [DescribeDBEngineVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/docdb.html#DocDB.Paginator.DescribeDBEngineVersions.paginate)
         """
 
 
 class DescribeDBInstancesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeDBInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/docdb.html#DocDB.Paginator.DescribeDBInstances)
+    [Paginator.DescribeDBInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/docdb.html#DocDB.Paginator.DescribeDBInstances)
     """
 
     def paginate(
@@ -198,13 +198,13 @@ class DescribeDBInstancesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DBInstanceMessageTypeDef]:
         """
-        [DescribeDBInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/docdb.html#DocDB.Paginator.DescribeDBInstances.paginate)
+        [DescribeDBInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/docdb.html#DocDB.Paginator.DescribeDBInstances.paginate)
         """
 
 
 class DescribeDBSubnetGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeDBSubnetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/docdb.html#DocDB.Paginator.DescribeDBSubnetGroups)
+    [Paginator.DescribeDBSubnetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/docdb.html#DocDB.Paginator.DescribeDBSubnetGroups)
     """
 
     def paginate(
@@ -214,13 +214,13 @@ class DescribeDBSubnetGroupsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DBSubnetGroupMessageTypeDef]:
         """
-        [DescribeDBSubnetGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/docdb.html#DocDB.Paginator.DescribeDBSubnetGroups.paginate)
+        [DescribeDBSubnetGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/docdb.html#DocDB.Paginator.DescribeDBSubnetGroups.paginate)
         """
 
 
 class DescribeEventsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/docdb.html#DocDB.Paginator.DescribeEvents)
+    [Paginator.DescribeEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/docdb.html#DocDB.Paginator.DescribeEvents)
     """
 
     def paginate(
@@ -242,13 +242,13 @@ class DescribeEventsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[EventsMessageTypeDef]:
         """
-        [DescribeEvents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/docdb.html#DocDB.Paginator.DescribeEvents.paginate)
+        [DescribeEvents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/docdb.html#DocDB.Paginator.DescribeEvents.paginate)
         """
 
 
 class DescribeOrderableDBInstanceOptionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeOrderableDBInstanceOptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/docdb.html#DocDB.Paginator.DescribeOrderableDBInstanceOptions)
+    [Paginator.DescribeOrderableDBInstanceOptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/docdb.html#DocDB.Paginator.DescribeOrderableDBInstanceOptions)
     """
 
     def paginate(
@@ -262,13 +262,13 @@ class DescribeOrderableDBInstanceOptionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[OrderableDBInstanceOptionsMessageTypeDef]:
         """
-        [DescribeOrderableDBInstanceOptions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/docdb.html#DocDB.Paginator.DescribeOrderableDBInstanceOptions.paginate)
+        [DescribeOrderableDBInstanceOptions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/docdb.html#DocDB.Paginator.DescribeOrderableDBInstanceOptions.paginate)
         """
 
 
 class DescribePendingMaintenanceActionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribePendingMaintenanceActions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/docdb.html#DocDB.Paginator.DescribePendingMaintenanceActions)
+    [Paginator.DescribePendingMaintenanceActions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/docdb.html#DocDB.Paginator.DescribePendingMaintenanceActions)
     """
 
     def paginate(
@@ -278,5 +278,5 @@ class DescribePendingMaintenanceActionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[PendingMaintenanceActionsMessageTypeDef]:
         """
-        [DescribePendingMaintenanceActions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/docdb.html#DocDB.Paginator.DescribePendingMaintenanceActions.paginate)
+        [DescribePendingMaintenanceActions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/docdb.html#DocDB.Paginator.DescribePendingMaintenanceActions.paginate)
         """

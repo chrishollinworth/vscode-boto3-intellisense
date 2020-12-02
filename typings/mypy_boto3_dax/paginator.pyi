@@ -65,33 +65,33 @@ __all__ = (
 
 class DescribeClustersPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dax.html#DAX.Paginator.DescribeClusters)
+    [Paginator.DescribeClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dax.html#DAX.Paginator.DescribeClusters)
     """
 
     def paginate(
         self, ClusterNames: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeClustersResponseTypeDef]:
         """
-        [DescribeClusters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dax.html#DAX.Paginator.DescribeClusters.paginate)
+        [DescribeClusters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dax.html#DAX.Paginator.DescribeClusters.paginate)
         """
 
 
 class DescribeDefaultParametersPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeDefaultParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dax.html#DAX.Paginator.DescribeDefaultParameters)
+    [Paginator.DescribeDefaultParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dax.html#DAX.Paginator.DescribeDefaultParameters)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeDefaultParametersResponseTypeDef]:
         """
-        [DescribeDefaultParameters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dax.html#DAX.Paginator.DescribeDefaultParameters.paginate)
+        [DescribeDefaultParameters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dax.html#DAX.Paginator.DescribeDefaultParameters.paginate)
         """
 
 
 class DescribeEventsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dax.html#DAX.Paginator.DescribeEvents)
+    [Paginator.DescribeEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dax.html#DAX.Paginator.DescribeEvents)
     """
 
     def paginate(
@@ -104,26 +104,26 @@ class DescribeEventsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeEventsResponseTypeDef]:
         """
-        [DescribeEvents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dax.html#DAX.Paginator.DescribeEvents.paginate)
+        [DescribeEvents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dax.html#DAX.Paginator.DescribeEvents.paginate)
         """
 
 
 class DescribeParameterGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeParameterGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dax.html#DAX.Paginator.DescribeParameterGroups)
+    [Paginator.DescribeParameterGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dax.html#DAX.Paginator.DescribeParameterGroups)
     """
 
     def paginate(
         self, ParameterGroupNames: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeParameterGroupsResponseTypeDef]:
         """
-        [DescribeParameterGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dax.html#DAX.Paginator.DescribeParameterGroups.paginate)
+        [DescribeParameterGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dax.html#DAX.Paginator.DescribeParameterGroups.paginate)
         """
 
 
 class DescribeParametersPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dax.html#DAX.Paginator.DescribeParameters)
+    [Paginator.DescribeParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dax.html#DAX.Paginator.DescribeParameters)
     """
 
     def paginate(
@@ -133,31 +133,31 @@ class DescribeParametersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeParametersResponseTypeDef]:
         """
-        [DescribeParameters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dax.html#DAX.Paginator.DescribeParameters.paginate)
+        [DescribeParameters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dax.html#DAX.Paginator.DescribeParameters.paginate)
         """
 
 
 class DescribeSubnetGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeSubnetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dax.html#DAX.Paginator.DescribeSubnetGroups)
+    [Paginator.DescribeSubnetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dax.html#DAX.Paginator.DescribeSubnetGroups)
     """
 
     def paginate(
         self, SubnetGroupNames: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeSubnetGroupsResponseTypeDef]:
         """
-        [DescribeSubnetGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dax.html#DAX.Paginator.DescribeSubnetGroups.paginate)
+        [DescribeSubnetGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dax.html#DAX.Paginator.DescribeSubnetGroups.paginate)
         """
 
 
 class ListTagsPaginator(Boto3Paginator):
     """
-    [Paginator.ListTags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dax.html#DAX.Paginator.ListTags)
+    [Paginator.ListTags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dax.html#DAX.Paginator.ListTags)
     """
 
     def paginate(
         self, ResourceName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTagsResponseTypeDef]:
         """
-        [ListTags.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dax.html#DAX.Paginator.ListTags.paginate)
+        [ListTags.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dax.html#DAX.Paginator.ListTags.paginate)
         """

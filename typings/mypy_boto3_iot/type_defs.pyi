@@ -1231,6 +1231,7 @@ OTAUpdateFileTypeDef = TypedDict(
     "OTAUpdateFileTypeDef",
     {
         "fileName": str,
+        "fileType": int,
         "fileVersion": str,
         "fileLocation": "FileLocationTypeDef",
         "codeSigning": "CodeSigningTypeDef",

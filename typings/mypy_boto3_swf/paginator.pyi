@@ -70,7 +70,7 @@ __all__ = (
 
 class GetWorkflowExecutionHistoryPaginator(Boto3Paginator):
     """
-    [Paginator.GetWorkflowExecutionHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/swf.html#SWF.Paginator.GetWorkflowExecutionHistory)
+    [Paginator.GetWorkflowExecutionHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/swf.html#SWF.Paginator.GetWorkflowExecutionHistory)
     """
 
     def paginate(
@@ -81,13 +81,13 @@ class GetWorkflowExecutionHistoryPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[HistoryTypeDef]:
         """
-        [GetWorkflowExecutionHistory.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/swf.html#SWF.Paginator.GetWorkflowExecutionHistory.paginate)
+        [GetWorkflowExecutionHistory.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/swf.html#SWF.Paginator.GetWorkflowExecutionHistory.paginate)
         """
 
 
 class ListActivityTypesPaginator(Boto3Paginator):
     """
-    [Paginator.ListActivityTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/swf.html#SWF.Paginator.ListActivityTypes)
+    [Paginator.ListActivityTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/swf.html#SWF.Paginator.ListActivityTypes)
     """
 
     def paginate(
@@ -99,13 +99,13 @@ class ListActivityTypesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ActivityTypeInfosTypeDef]:
         """
-        [ListActivityTypes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/swf.html#SWF.Paginator.ListActivityTypes.paginate)
+        [ListActivityTypes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/swf.html#SWF.Paginator.ListActivityTypes.paginate)
         """
 
 
 class ListClosedWorkflowExecutionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListClosedWorkflowExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/swf.html#SWF.Paginator.ListClosedWorkflowExecutions)
+    [Paginator.ListClosedWorkflowExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/swf.html#SWF.Paginator.ListClosedWorkflowExecutions)
     """
 
     def paginate(
@@ -121,13 +121,13 @@ class ListClosedWorkflowExecutionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[WorkflowExecutionInfosTypeDef]:
         """
-        [ListClosedWorkflowExecutions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/swf.html#SWF.Paginator.ListClosedWorkflowExecutions.paginate)
+        [ListClosedWorkflowExecutions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/swf.html#SWF.Paginator.ListClosedWorkflowExecutions.paginate)
         """
 
 
 class ListDomainsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDomains documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/swf.html#SWF.Paginator.ListDomains)
+    [Paginator.ListDomains documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/swf.html#SWF.Paginator.ListDomains)
     """
 
     def paginate(
@@ -137,13 +137,13 @@ class ListDomainsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DomainInfosTypeDef]:
         """
-        [ListDomains.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/swf.html#SWF.Paginator.ListDomains.paginate)
+        [ListDomains.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/swf.html#SWF.Paginator.ListDomains.paginate)
         """
 
 
 class ListOpenWorkflowExecutionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListOpenWorkflowExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/swf.html#SWF.Paginator.ListOpenWorkflowExecutions)
+    [Paginator.ListOpenWorkflowExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/swf.html#SWF.Paginator.ListOpenWorkflowExecutions)
     """
 
     def paginate(
@@ -157,13 +157,13 @@ class ListOpenWorkflowExecutionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[WorkflowExecutionInfosTypeDef]:
         """
-        [ListOpenWorkflowExecutions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/swf.html#SWF.Paginator.ListOpenWorkflowExecutions.paginate)
+        [ListOpenWorkflowExecutions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/swf.html#SWF.Paginator.ListOpenWorkflowExecutions.paginate)
         """
 
 
 class ListWorkflowTypesPaginator(Boto3Paginator):
     """
-    [Paginator.ListWorkflowTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/swf.html#SWF.Paginator.ListWorkflowTypes)
+    [Paginator.ListWorkflowTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/swf.html#SWF.Paginator.ListWorkflowTypes)
     """
 
     def paginate(
@@ -175,13 +175,13 @@ class ListWorkflowTypesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[WorkflowTypeInfosTypeDef]:
         """
-        [ListWorkflowTypes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/swf.html#SWF.Paginator.ListWorkflowTypes.paginate)
+        [ListWorkflowTypes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/swf.html#SWF.Paginator.ListWorkflowTypes.paginate)
         """
 
 
 class PollForDecisionTaskPaginator(Boto3Paginator):
     """
-    [Paginator.PollForDecisionTask documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/swf.html#SWF.Paginator.PollForDecisionTask)
+    [Paginator.PollForDecisionTask documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/swf.html#SWF.Paginator.PollForDecisionTask)
     """
 
     def paginate(
@@ -193,5 +193,5 @@ class PollForDecisionTaskPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DecisionTaskTypeDef]:
         """
-        [PollForDecisionTask.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/swf.html#SWF.Paginator.PollForDecisionTask.paginate)
+        [PollForDecisionTask.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/swf.html#SWF.Paginator.PollForDecisionTask.paginate)
         """

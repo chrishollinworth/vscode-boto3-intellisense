@@ -30,7 +30,9 @@ from mypy_boto3_dynamodb.type_defs import (
     AttributeDefinitionTypeDef,
     AttributeValueUpdateTypeDef,
     AutoScalingSettingsUpdateTypeDef,
+    BatchExecuteStatementOutputTypeDef,
     BatchGetItemOutputTypeDef,
+    BatchStatementRequestTypeDef,
     BatchWriteItemOutputTypeDef,
     ConditionTypeDef,
     CreateBackupOutputTypeDef,
@@ -46,10 +48,13 @@ from mypy_boto3_dynamodb.type_defs import (
     DescribeExportOutputTypeDef,
     DescribeGlobalTableOutputTypeDef,
     DescribeGlobalTableSettingsOutputTypeDef,
+    DescribeKinesisStreamingDestinationOutputTypeDef,
     DescribeLimitsOutputTypeDef,
     DescribeTableOutputTypeDef,
     DescribeTableReplicaAutoScalingOutputTypeDef,
     DescribeTimeToLiveOutputTypeDef,
+    ExecuteStatementOutputTypeDef,
+    ExecuteTransactionOutputTypeDef,
     ExpectedAttributeValueTypeDef,
     ExportTableToPointInTimeOutputTypeDef,
     GetItemOutputTypeDef,
@@ -59,6 +64,7 @@ from mypy_boto3_dynamodb.type_defs import (
     GlobalTableGlobalSecondaryIndexSettingsUpdateTypeDef,
     KeysAndAttributesTypeDef,
     KeySchemaElementTypeDef,
+    KinesisStreamingDestinationOutputTypeDef,
     ListBackupsOutputTypeDef,
     ListContributorInsightsOutputTypeDef,
     ListExportsOutputTypeDef,
@@ -66,6 +72,7 @@ from mypy_boto3_dynamodb.type_defs import (
     ListTablesOutputTypeDef,
     ListTagsOfResourceOutputTypeDef,
     LocalSecondaryIndexTypeDef,
+    ParameterizedStatementTypeDef,
     PointInTimeRecoverySpecificationTypeDef,
     ProvisionedThroughputTypeDef,
     PutItemOutputTypeDef,
@@ -121,6 +128,7 @@ class Exceptions:
     ClientError: Type[BotocoreClientError]
     ConditionalCheckFailedException: Type[BotocoreClientError]
     ContinuousBackupsUnavailableException: Type[BotocoreClientError]
+    DuplicateItemException: Type[BotocoreClientError]
     ExportConflictException: Type[BotocoreClientError]
     ExportNotFoundException: Type[BotocoreClientError]
     GlobalTableAlreadyExistsException: Type[BotocoreClientError]
@@ -149,11 +157,18 @@ class Exceptions:
 
 class DynamoDBClient:
     """
-    [DynamoDB.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client)
+    [DynamoDB.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client)
     """
 
     meta: ClientMeta
     exceptions: Exceptions
+
+    def batch_execute_statement(
+        self, Statements: List[BatchStatementRequestTypeDef]
+    ) -> BatchExecuteStatementOutputTypeDef:
+        """
+        [Client.batch_execute_statement documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.batch_execute_statement)
+        """
 
     def batch_get_item(
         self,
@@ -161,7 +176,7 @@ class DynamoDBClient:
         ReturnConsumedCapacity: Literal["INDEXES", "TOTAL", "NONE"] = None,
     ) -> BatchGetItemOutputTypeDef:
         """
-        [Client.batch_get_item documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client.batch_get_item)
+        [Client.batch_get_item documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.batch_get_item)
         """
 
     def batch_write_item(
@@ -171,24 +186,24 @@ class DynamoDBClient:
         ReturnItemCollectionMetrics: Literal["SIZE", "NONE"] = None,
     ) -> BatchWriteItemOutputTypeDef:
         """
-        [Client.batch_write_item documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client.batch_write_item)
+        [Client.batch_write_item documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.batch_write_item)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.can_paginate)
         """
 
     def create_backup(self, TableName: str, BackupName: str) -> CreateBackupOutputTypeDef:
         """
-        [Client.create_backup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client.create_backup)
+        [Client.create_backup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.create_backup)
         """
 
     def create_global_table(
         self, GlobalTableName: str, ReplicationGroup: List["ReplicaTypeDef"]
     ) -> CreateGlobalTableOutputTypeDef:
         """
-        [Client.create_global_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client.create_global_table)
+        [Client.create_global_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.create_global_table)
         """
 
     def create_table(
@@ -205,12 +220,12 @@ class DynamoDBClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateTableOutputTypeDef:
         """
-        [Client.create_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client.create_table)
+        [Client.create_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.create_table)
         """
 
     def delete_backup(self, BackupArn: str) -> DeleteBackupOutputTypeDef:
         """
-        [Client.delete_backup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client.delete_backup)
+        [Client.delete_backup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.delete_backup)
         """
 
     def delete_item(
@@ -263,73 +278,131 @@ class DynamoDBClient:
         ] = None,
     ) -> DeleteItemOutputTypeDef:
         """
-        [Client.delete_item documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client.delete_item)
+        [Client.delete_item documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.delete_item)
         """
 
     def delete_table(self, TableName: str) -> DeleteTableOutputTypeDef:
         """
-        [Client.delete_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client.delete_table)
+        [Client.delete_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.delete_table)
         """
 
     def describe_backup(self, BackupArn: str) -> DescribeBackupOutputTypeDef:
         """
-        [Client.describe_backup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client.describe_backup)
+        [Client.describe_backup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.describe_backup)
         """
 
     def describe_continuous_backups(self, TableName: str) -> DescribeContinuousBackupsOutputTypeDef:
         """
-        [Client.describe_continuous_backups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client.describe_continuous_backups)
+        [Client.describe_continuous_backups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.describe_continuous_backups)
         """
 
     def describe_contributor_insights(
         self, TableName: str, IndexName: str = None
     ) -> DescribeContributorInsightsOutputTypeDef:
         """
-        [Client.describe_contributor_insights documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client.describe_contributor_insights)
+        [Client.describe_contributor_insights documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.describe_contributor_insights)
         """
 
     def describe_endpoints(self) -> DescribeEndpointsResponseTypeDef:
         """
-        [Client.describe_endpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client.describe_endpoints)
+        [Client.describe_endpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.describe_endpoints)
         """
 
     def describe_export(self, ExportArn: str) -> DescribeExportOutputTypeDef:
         """
-        [Client.describe_export documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client.describe_export)
+        [Client.describe_export documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.describe_export)
         """
 
     def describe_global_table(self, GlobalTableName: str) -> DescribeGlobalTableOutputTypeDef:
         """
-        [Client.describe_global_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client.describe_global_table)
+        [Client.describe_global_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.describe_global_table)
         """
 
     def describe_global_table_settings(
         self, GlobalTableName: str
     ) -> DescribeGlobalTableSettingsOutputTypeDef:
         """
-        [Client.describe_global_table_settings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client.describe_global_table_settings)
+        [Client.describe_global_table_settings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.describe_global_table_settings)
+        """
+
+    def describe_kinesis_streaming_destination(
+        self, TableName: str
+    ) -> DescribeKinesisStreamingDestinationOutputTypeDef:
+        """
+        [Client.describe_kinesis_streaming_destination documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.describe_kinesis_streaming_destination)
         """
 
     def describe_limits(self) -> DescribeLimitsOutputTypeDef:
         """
-        [Client.describe_limits documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client.describe_limits)
+        [Client.describe_limits documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.describe_limits)
         """
 
     def describe_table(self, TableName: str) -> DescribeTableOutputTypeDef:
         """
-        [Client.describe_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client.describe_table)
+        [Client.describe_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.describe_table)
         """
 
     def describe_table_replica_auto_scaling(
         self, TableName: str
     ) -> DescribeTableReplicaAutoScalingOutputTypeDef:
         """
-        [Client.describe_table_replica_auto_scaling documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client.describe_table_replica_auto_scaling)
+        [Client.describe_table_replica_auto_scaling documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.describe_table_replica_auto_scaling)
         """
 
     def describe_time_to_live(self, TableName: str) -> DescribeTimeToLiveOutputTypeDef:
         """
-        [Client.describe_time_to_live documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client.describe_time_to_live)
+        [Client.describe_time_to_live documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.describe_time_to_live)
+        """
+
+    def disable_kinesis_streaming_destination(
+        self, TableName: str, StreamArn: str
+    ) -> KinesisStreamingDestinationOutputTypeDef:
+        """
+        [Client.disable_kinesis_streaming_destination documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.disable_kinesis_streaming_destination)
+        """
+
+    def enable_kinesis_streaming_destination(
+        self, TableName: str, StreamArn: str
+    ) -> KinesisStreamingDestinationOutputTypeDef:
+        """
+        [Client.enable_kinesis_streaming_destination documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.enable_kinesis_streaming_destination)
+        """
+
+    def execute_statement(
+        self,
+        Statement: str,
+        Parameters: List[
+            Union[
+                bytes,
+                bytearray,
+                str,
+                int,
+                Decimal,
+                bool,
+                Set[int],
+                Set[Decimal],
+                Set[str],
+                Set[bytes],
+                Set[bytearray],
+                List[Any],
+                Dict[str, Any],
+                None,
+            ]
+        ] = None,
+        ConsistentRead: bool = None,
+        NextToken: str = None,
+    ) -> ExecuteStatementOutputTypeDef:
+        """
+        [Client.execute_statement documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.execute_statement)
+        """
+
+    def execute_transaction(
+        self,
+        TransactStatements: List[ParameterizedStatementTypeDef],
+        ClientRequestToken: str = None,
+    ) -> ExecuteTransactionOutputTypeDef:
+        """
+        [Client.execute_transaction documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.execute_transaction)
         """
 
     def export_table_to_point_in_time(
@@ -345,7 +418,7 @@ class DynamoDBClient:
         ExportFormat: Literal["DYNAMODB_JSON", "ION"] = None,
     ) -> ExportTableToPointInTimeOutputTypeDef:
         """
-        [Client.export_table_to_point_in_time documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client.export_table_to_point_in_time)
+        [Client.export_table_to_point_in_time documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.export_table_to_point_in_time)
         """
 
     def generate_presigned_url(
@@ -356,7 +429,7 @@ class DynamoDBClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.generate_presigned_url)
         """
 
     def get_item(
@@ -388,7 +461,7 @@ class DynamoDBClient:
         ExpressionAttributeNames: Dict[str, str] = None,
     ) -> GetItemOutputTypeDef:
         """
-        [Client.get_item documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client.get_item)
+        [Client.get_item documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.get_item)
         """
 
     def list_backups(
@@ -401,42 +474,42 @@ class DynamoDBClient:
         BackupType: Literal["USER", "SYSTEM", "AWS_BACKUP", "ALL"] = None,
     ) -> ListBackupsOutputTypeDef:
         """
-        [Client.list_backups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client.list_backups)
+        [Client.list_backups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.list_backups)
         """
 
     def list_contributor_insights(
         self, TableName: str = None, NextToken: str = None, MaxResults: int = None
     ) -> ListContributorInsightsOutputTypeDef:
         """
-        [Client.list_contributor_insights documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client.list_contributor_insights)
+        [Client.list_contributor_insights documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.list_contributor_insights)
         """
 
     def list_exports(
         self, TableArn: str = None, MaxResults: int = None, NextToken: str = None
     ) -> ListExportsOutputTypeDef:
         """
-        [Client.list_exports documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client.list_exports)
+        [Client.list_exports documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.list_exports)
         """
 
     def list_global_tables(
         self, ExclusiveStartGlobalTableName: str = None, Limit: int = None, RegionName: str = None
     ) -> ListGlobalTablesOutputTypeDef:
         """
-        [Client.list_global_tables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client.list_global_tables)
+        [Client.list_global_tables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.list_global_tables)
         """
 
     def list_tables(
         self, ExclusiveStartTableName: str = None, Limit: int = None
     ) -> ListTablesOutputTypeDef:
         """
-        [Client.list_tables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client.list_tables)
+        [Client.list_tables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.list_tables)
         """
 
     def list_tags_of_resource(
         self, ResourceArn: str, NextToken: str = None
     ) -> ListTagsOfResourceOutputTypeDef:
         """
-        [Client.list_tags_of_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client.list_tags_of_resource)
+        [Client.list_tags_of_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.list_tags_of_resource)
         """
 
     def put_item(
@@ -489,7 +562,7 @@ class DynamoDBClient:
         ] = None,
     ) -> PutItemOutputTypeDef:
         """
-        [Client.put_item documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client.put_item)
+        [Client.put_item documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.put_item)
         """
 
     def query(
@@ -551,7 +624,7 @@ class DynamoDBClient:
         ] = None,
     ) -> QueryOutputTypeDef:
         """
-        [Client.query documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client.query)
+        [Client.query documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.query)
         """
 
     def restore_table_from_backup(
@@ -565,7 +638,7 @@ class DynamoDBClient:
         SSESpecificationOverride: SSESpecificationTypeDef = None,
     ) -> RestoreTableFromBackupOutputTypeDef:
         """
-        [Client.restore_table_from_backup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client.restore_table_from_backup)
+        [Client.restore_table_from_backup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.restore_table_from_backup)
         """
 
     def restore_table_to_point_in_time(
@@ -582,7 +655,7 @@ class DynamoDBClient:
         SSESpecificationOverride: SSESpecificationTypeDef = None,
     ) -> RestoreTableToPointInTimeOutputTypeDef:
         """
-        [Client.restore_table_to_point_in_time documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client.restore_table_to_point_in_time)
+        [Client.restore_table_to_point_in_time documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.restore_table_to_point_in_time)
         """
 
     def scan(
@@ -643,12 +716,12 @@ class DynamoDBClient:
         ConsistentRead: bool = None,
     ) -> ScanOutputTypeDef:
         """
-        [Client.scan documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client.scan)
+        [Client.scan documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.scan)
         """
 
     def tag_resource(self, ResourceArn: str, Tags: List["TagTypeDef"]) -> None:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.tag_resource)
         """
 
     def transact_get_items(
@@ -657,7 +730,7 @@ class DynamoDBClient:
         ReturnConsumedCapacity: Literal["INDEXES", "TOTAL", "NONE"] = None,
     ) -> TransactGetItemsOutputTypeDef:
         """
-        [Client.transact_get_items documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client.transact_get_items)
+        [Client.transact_get_items documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.transact_get_items)
         """
 
     def transact_write_items(
@@ -668,12 +741,12 @@ class DynamoDBClient:
         ClientRequestToken: str = None,
     ) -> TransactWriteItemsOutputTypeDef:
         """
-        [Client.transact_write_items documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client.transact_write_items)
+        [Client.transact_write_items documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.transact_write_items)
         """
 
     def untag_resource(self, ResourceArn: str, TagKeys: List[str]) -> None:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.untag_resource)
         """
 
     def update_continuous_backups(
@@ -682,7 +755,7 @@ class DynamoDBClient:
         PointInTimeRecoverySpecification: PointInTimeRecoverySpecificationTypeDef,
     ) -> UpdateContinuousBackupsOutputTypeDef:
         """
-        [Client.update_continuous_backups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client.update_continuous_backups)
+        [Client.update_continuous_backups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.update_continuous_backups)
         """
 
     def update_contributor_insights(
@@ -692,14 +765,14 @@ class DynamoDBClient:
         IndexName: str = None,
     ) -> UpdateContributorInsightsOutputTypeDef:
         """
-        [Client.update_contributor_insights documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client.update_contributor_insights)
+        [Client.update_contributor_insights documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.update_contributor_insights)
         """
 
     def update_global_table(
         self, GlobalTableName: str, ReplicaUpdates: List[ReplicaUpdateTypeDef]
     ) -> UpdateGlobalTableOutputTypeDef:
         """
-        [Client.update_global_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client.update_global_table)
+        [Client.update_global_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.update_global_table)
         """
 
     def update_global_table_settings(
@@ -714,7 +787,7 @@ class DynamoDBClient:
         ReplicaSettingsUpdate: List[ReplicaSettingsUpdateTypeDef] = None,
     ) -> UpdateGlobalTableSettingsOutputTypeDef:
         """
-        [Client.update_global_table_settings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client.update_global_table_settings)
+        [Client.update_global_table_settings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.update_global_table_settings)
         """
 
     def update_item(
@@ -769,7 +842,7 @@ class DynamoDBClient:
         ] = None,
     ) -> UpdateItemOutputTypeDef:
         """
-        [Client.update_item documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client.update_item)
+        [Client.update_item documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.update_item)
         """
 
     def update_table(
@@ -784,7 +857,7 @@ class DynamoDBClient:
         ReplicaUpdates: List[ReplicationGroupUpdateTypeDef] = None,
     ) -> UpdateTableOutputTypeDef:
         """
-        [Client.update_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client.update_table)
+        [Client.update_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.update_table)
         """
 
     def update_table_replica_auto_scaling(
@@ -795,26 +868,26 @@ class DynamoDBClient:
         ReplicaUpdates: List[ReplicaAutoScalingUpdateTypeDef] = None,
     ) -> UpdateTableReplicaAutoScalingOutputTypeDef:
         """
-        [Client.update_table_replica_auto_scaling documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client.update_table_replica_auto_scaling)
+        [Client.update_table_replica_auto_scaling documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.update_table_replica_auto_scaling)
         """
 
     def update_time_to_live(
         self, TableName: str, TimeToLiveSpecification: "TimeToLiveSpecificationTypeDef"
     ) -> UpdateTimeToLiveOutputTypeDef:
         """
-        [Client.update_time_to_live documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Client.update_time_to_live)
+        [Client.update_time_to_live documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Client.update_time_to_live)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_backups"]) -> ListBackupsPaginator:
         """
-        [Paginator.ListBackups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Paginator.ListBackups)
+        [Paginator.ListBackups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Paginator.ListBackups)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_tables"]) -> ListTablesPaginator:
         """
-        [Paginator.ListTables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Paginator.ListTables)
+        [Paginator.ListTables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Paginator.ListTables)
         """
 
     @overload
@@ -822,29 +895,29 @@ class DynamoDBClient:
         self, operation_name: Literal["list_tags_of_resource"]
     ) -> ListTagsOfResourcePaginator:
         """
-        [Paginator.ListTagsOfResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Paginator.ListTagsOfResource)
+        [Paginator.ListTagsOfResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Paginator.ListTagsOfResource)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["query"]) -> QueryPaginator:
         """
-        [Paginator.Query documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Paginator.Query)
+        [Paginator.Query documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Paginator.Query)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["scan"]) -> ScanPaginator:
         """
-        [Paginator.Scan documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Paginator.Scan)
+        [Paginator.Scan documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Paginator.Scan)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["table_exists"]) -> TableExistsWaiter:
         """
-        [Waiter.TableExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Waiter.TableExists)
+        [Waiter.TableExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Waiter.TableExists)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["table_not_exists"]) -> TableNotExistsWaiter:
         """
-        [Waiter.TableNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Waiter.TableNotExists)
+        [Waiter.TableNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Waiter.TableNotExists)
         """

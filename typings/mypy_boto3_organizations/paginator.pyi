@@ -101,46 +101,46 @@ __all__ = (
 
 class ListAWSServiceAccessForOrganizationPaginator(Boto3Paginator):
     """
-    [Paginator.ListAWSServiceAccessForOrganization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/organizations.html#Organizations.Paginator.ListAWSServiceAccessForOrganization)
+    [Paginator.ListAWSServiceAccessForOrganization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/organizations.html#Organizations.Paginator.ListAWSServiceAccessForOrganization)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAWSServiceAccessForOrganizationResponseTypeDef]:
         """
-        [ListAWSServiceAccessForOrganization.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/organizations.html#Organizations.Paginator.ListAWSServiceAccessForOrganization.paginate)
+        [ListAWSServiceAccessForOrganization.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/organizations.html#Organizations.Paginator.ListAWSServiceAccessForOrganization.paginate)
         """
 
 
 class ListAccountsPaginator(Boto3Paginator):
     """
-    [Paginator.ListAccounts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/organizations.html#Organizations.Paginator.ListAccounts)
+    [Paginator.ListAccounts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/organizations.html#Organizations.Paginator.ListAccounts)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAccountsResponseTypeDef]:
         """
-        [ListAccounts.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/organizations.html#Organizations.Paginator.ListAccounts.paginate)
+        [ListAccounts.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/organizations.html#Organizations.Paginator.ListAccounts.paginate)
         """
 
 
 class ListAccountsForParentPaginator(Boto3Paginator):
     """
-    [Paginator.ListAccountsForParent documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/organizations.html#Organizations.Paginator.ListAccountsForParent)
+    [Paginator.ListAccountsForParent documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/organizations.html#Organizations.Paginator.ListAccountsForParent)
     """
 
     def paginate(
         self, ParentId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAccountsForParentResponseTypeDef]:
         """
-        [ListAccountsForParent.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/organizations.html#Organizations.Paginator.ListAccountsForParent.paginate)
+        [ListAccountsForParent.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/organizations.html#Organizations.Paginator.ListAccountsForParent.paginate)
         """
 
 
 class ListChildrenPaginator(Boto3Paginator):
     """
-    [Paginator.ListChildren documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/organizations.html#Organizations.Paginator.ListChildren)
+    [Paginator.ListChildren documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/organizations.html#Organizations.Paginator.ListChildren)
     """
 
     def paginate(
@@ -150,13 +150,13 @@ class ListChildrenPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListChildrenResponseTypeDef]:
         """
-        [ListChildren.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/organizations.html#Organizations.Paginator.ListChildren.paginate)
+        [ListChildren.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/organizations.html#Organizations.Paginator.ListChildren.paginate)
         """
 
 
 class ListCreateAccountStatusPaginator(Boto3Paginator):
     """
-    [Paginator.ListCreateAccountStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/organizations.html#Organizations.Paginator.ListCreateAccountStatus)
+    [Paginator.ListCreateAccountStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/organizations.html#Organizations.Paginator.ListCreateAccountStatus)
     """
 
     def paginate(
@@ -165,91 +165,91 @@ class ListCreateAccountStatusPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListCreateAccountStatusResponseTypeDef]:
         """
-        [ListCreateAccountStatus.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/organizations.html#Organizations.Paginator.ListCreateAccountStatus.paginate)
+        [ListCreateAccountStatus.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/organizations.html#Organizations.Paginator.ListCreateAccountStatus.paginate)
         """
 
 
 class ListDelegatedAdministratorsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDelegatedAdministrators documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/organizations.html#Organizations.Paginator.ListDelegatedAdministrators)
+    [Paginator.ListDelegatedAdministrators documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/organizations.html#Organizations.Paginator.ListDelegatedAdministrators)
     """
 
     def paginate(
         self, ServicePrincipal: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDelegatedAdministratorsResponseTypeDef]:
         """
-        [ListDelegatedAdministrators.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/organizations.html#Organizations.Paginator.ListDelegatedAdministrators.paginate)
+        [ListDelegatedAdministrators.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/organizations.html#Organizations.Paginator.ListDelegatedAdministrators.paginate)
         """
 
 
 class ListDelegatedServicesForAccountPaginator(Boto3Paginator):
     """
-    [Paginator.ListDelegatedServicesForAccount documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/organizations.html#Organizations.Paginator.ListDelegatedServicesForAccount)
+    [Paginator.ListDelegatedServicesForAccount documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/organizations.html#Organizations.Paginator.ListDelegatedServicesForAccount)
     """
 
     def paginate(
         self, AccountId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDelegatedServicesForAccountResponseTypeDef]:
         """
-        [ListDelegatedServicesForAccount.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/organizations.html#Organizations.Paginator.ListDelegatedServicesForAccount.paginate)
+        [ListDelegatedServicesForAccount.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/organizations.html#Organizations.Paginator.ListDelegatedServicesForAccount.paginate)
         """
 
 
 class ListHandshakesForAccountPaginator(Boto3Paginator):
     """
-    [Paginator.ListHandshakesForAccount documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/organizations.html#Organizations.Paginator.ListHandshakesForAccount)
+    [Paginator.ListHandshakesForAccount documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/organizations.html#Organizations.Paginator.ListHandshakesForAccount)
     """
 
     def paginate(
         self, Filter: HandshakeFilterTypeDef = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListHandshakesForAccountResponseTypeDef]:
         """
-        [ListHandshakesForAccount.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/organizations.html#Organizations.Paginator.ListHandshakesForAccount.paginate)
+        [ListHandshakesForAccount.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/organizations.html#Organizations.Paginator.ListHandshakesForAccount.paginate)
         """
 
 
 class ListHandshakesForOrganizationPaginator(Boto3Paginator):
     """
-    [Paginator.ListHandshakesForOrganization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/organizations.html#Organizations.Paginator.ListHandshakesForOrganization)
+    [Paginator.ListHandshakesForOrganization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/organizations.html#Organizations.Paginator.ListHandshakesForOrganization)
     """
 
     def paginate(
         self, Filter: HandshakeFilterTypeDef = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListHandshakesForOrganizationResponseTypeDef]:
         """
-        [ListHandshakesForOrganization.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/organizations.html#Organizations.Paginator.ListHandshakesForOrganization.paginate)
+        [ListHandshakesForOrganization.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/organizations.html#Organizations.Paginator.ListHandshakesForOrganization.paginate)
         """
 
 
 class ListOrganizationalUnitsForParentPaginator(Boto3Paginator):
     """
-    [Paginator.ListOrganizationalUnitsForParent documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/organizations.html#Organizations.Paginator.ListOrganizationalUnitsForParent)
+    [Paginator.ListOrganizationalUnitsForParent documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/organizations.html#Organizations.Paginator.ListOrganizationalUnitsForParent)
     """
 
     def paginate(
         self, ParentId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListOrganizationalUnitsForParentResponseTypeDef]:
         """
-        [ListOrganizationalUnitsForParent.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/organizations.html#Organizations.Paginator.ListOrganizationalUnitsForParent.paginate)
+        [ListOrganizationalUnitsForParent.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/organizations.html#Organizations.Paginator.ListOrganizationalUnitsForParent.paginate)
         """
 
 
 class ListParentsPaginator(Boto3Paginator):
     """
-    [Paginator.ListParents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/organizations.html#Organizations.Paginator.ListParents)
+    [Paginator.ListParents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/organizations.html#Organizations.Paginator.ListParents)
     """
 
     def paginate(
         self, ChildId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListParentsResponseTypeDef]:
         """
-        [ListParents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/organizations.html#Organizations.Paginator.ListParents.paginate)
+        [ListParents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/organizations.html#Organizations.Paginator.ListParents.paginate)
         """
 
 
 class ListPoliciesPaginator(Boto3Paginator):
     """
-    [Paginator.ListPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/organizations.html#Organizations.Paginator.ListPolicies)
+    [Paginator.ListPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/organizations.html#Organizations.Paginator.ListPolicies)
     """
 
     def paginate(
@@ -260,13 +260,13 @@ class ListPoliciesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListPoliciesResponseTypeDef]:
         """
-        [ListPolicies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/organizations.html#Organizations.Paginator.ListPolicies.paginate)
+        [ListPolicies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/organizations.html#Organizations.Paginator.ListPolicies.paginate)
         """
 
 
 class ListPoliciesForTargetPaginator(Boto3Paginator):
     """
-    [Paginator.ListPoliciesForTarget documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/organizations.html#Organizations.Paginator.ListPoliciesForTarget)
+    [Paginator.ListPoliciesForTarget documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/organizations.html#Organizations.Paginator.ListPoliciesForTarget)
     """
 
     def paginate(
@@ -278,44 +278,44 @@ class ListPoliciesForTargetPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListPoliciesForTargetResponseTypeDef]:
         """
-        [ListPoliciesForTarget.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/organizations.html#Organizations.Paginator.ListPoliciesForTarget.paginate)
+        [ListPoliciesForTarget.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/organizations.html#Organizations.Paginator.ListPoliciesForTarget.paginate)
         """
 
 
 class ListRootsPaginator(Boto3Paginator):
     """
-    [Paginator.ListRoots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/organizations.html#Organizations.Paginator.ListRoots)
+    [Paginator.ListRoots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/organizations.html#Organizations.Paginator.ListRoots)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRootsResponseTypeDef]:
         """
-        [ListRoots.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/organizations.html#Organizations.Paginator.ListRoots.paginate)
+        [ListRoots.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/organizations.html#Organizations.Paginator.ListRoots.paginate)
         """
 
 
 class ListTagsForResourcePaginator(Boto3Paginator):
     """
-    [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/organizations.html#Organizations.Paginator.ListTagsForResource)
+    [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/organizations.html#Organizations.Paginator.ListTagsForResource)
     """
 
     def paginate(
         self, ResourceId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTagsForResourceResponseTypeDef]:
         """
-        [ListTagsForResource.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/organizations.html#Organizations.Paginator.ListTagsForResource.paginate)
+        [ListTagsForResource.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/organizations.html#Organizations.Paginator.ListTagsForResource.paginate)
         """
 
 
 class ListTargetsForPolicyPaginator(Boto3Paginator):
     """
-    [Paginator.ListTargetsForPolicy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/organizations.html#Organizations.Paginator.ListTargetsForPolicy)
+    [Paginator.ListTargetsForPolicy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/organizations.html#Organizations.Paginator.ListTargetsForPolicy)
     """
 
     def paginate(
         self, PolicyId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTargetsForPolicyResponseTypeDef]:
         """
-        [ListTargetsForPolicy.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/organizations.html#Organizations.Paginator.ListTargetsForPolicy.paginate)
+        [ListTargetsForPolicy.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/organizations.html#Organizations.Paginator.ListTargetsForPolicy.paginate)
         """

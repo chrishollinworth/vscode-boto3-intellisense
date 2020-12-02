@@ -1,5 +1,6 @@
 from mypy_boto3_timestream_query.type_defs import (
     EndpointTypeDef,
+    QueryStatusTypeDef,
     TimeSeriesDataPointTypeDef,
     TypeTypeDef,
     CancelQueryResponseTypeDef,
@@ -13,6 +14,7 @@ from mypy_boto3_timestream_query.type_defs import (
 
 __all__ = (
     "EndpointTypeDef",
+    "QueryStatusTypeDef",
     "TimeSeriesDataPointTypeDef",
     "TypeTypeDef",
     "CancelQueryResponseTypeDef",

@@ -68,7 +68,7 @@ class Exceptions:
 
 class AccessAnalyzerClient:
     """
-    [AccessAnalyzer.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/accessanalyzer.html#AccessAnalyzer.Client)
+    [AccessAnalyzer.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/accessanalyzer.html#AccessAnalyzer.Client)
     """
 
     meta: ClientMeta
@@ -76,12 +76,12 @@ class AccessAnalyzerClient:
 
     def apply_archive_rule(self, analyzerArn: str, ruleName: str, clientToken: str = None) -> None:
         """
-        [Client.apply_archive_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/accessanalyzer.html#AccessAnalyzer.Client.apply_archive_rule)
+        [Client.apply_archive_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/accessanalyzer.html#AccessAnalyzer.Client.apply_archive_rule)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/accessanalyzer.html#AccessAnalyzer.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/accessanalyzer.html#AccessAnalyzer.Client.can_paginate)
         """
 
     def create_analyzer(
@@ -93,7 +93,7 @@ class AccessAnalyzerClient:
         tags: Dict[str, str] = None,
     ) -> CreateAnalyzerResponseTypeDef:
         """
-        [Client.create_analyzer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/accessanalyzer.html#AccessAnalyzer.Client.create_analyzer)
+        [Client.create_analyzer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/accessanalyzer.html#AccessAnalyzer.Client.create_analyzer)
         """
 
     def create_archive_rule(
@@ -104,19 +104,19 @@ class AccessAnalyzerClient:
         clientToken: str = None,
     ) -> None:
         """
-        [Client.create_archive_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/accessanalyzer.html#AccessAnalyzer.Client.create_archive_rule)
+        [Client.create_archive_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/accessanalyzer.html#AccessAnalyzer.Client.create_archive_rule)
         """
 
     def delete_analyzer(self, analyzerName: str, clientToken: str = None) -> None:
         """
-        [Client.delete_analyzer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/accessanalyzer.html#AccessAnalyzer.Client.delete_analyzer)
+        [Client.delete_analyzer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/accessanalyzer.html#AccessAnalyzer.Client.delete_analyzer)
         """
 
     def delete_archive_rule(
         self, analyzerName: str, ruleName: str, clientToken: str = None
     ) -> None:
         """
-        [Client.delete_archive_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/accessanalyzer.html#AccessAnalyzer.Client.delete_archive_rule)
+        [Client.delete_archive_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/accessanalyzer.html#AccessAnalyzer.Client.delete_archive_rule)
         """
 
     def generate_presigned_url(
@@ -127,29 +127,29 @@ class AccessAnalyzerClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/accessanalyzer.html#AccessAnalyzer.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/accessanalyzer.html#AccessAnalyzer.Client.generate_presigned_url)
         """
 
     def get_analyzed_resource(
         self, analyzerArn: str, resourceArn: str
     ) -> GetAnalyzedResourceResponseTypeDef:
         """
-        [Client.get_analyzed_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/accessanalyzer.html#AccessAnalyzer.Client.get_analyzed_resource)
+        [Client.get_analyzed_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/accessanalyzer.html#AccessAnalyzer.Client.get_analyzed_resource)
         """
 
     def get_analyzer(self, analyzerName: str) -> GetAnalyzerResponseTypeDef:
         """
-        [Client.get_analyzer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/accessanalyzer.html#AccessAnalyzer.Client.get_analyzer)
+        [Client.get_analyzer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/accessanalyzer.html#AccessAnalyzer.Client.get_analyzer)
         """
 
     def get_archive_rule(self, analyzerName: str, ruleName: str) -> GetArchiveRuleResponseTypeDef:
         """
-        [Client.get_archive_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/accessanalyzer.html#AccessAnalyzer.Client.get_archive_rule)
+        [Client.get_archive_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/accessanalyzer.html#AccessAnalyzer.Client.get_archive_rule)
         """
 
     def get_finding(self, analyzerArn: str, id: str) -> GetFindingResponseTypeDef:
         """
-        [Client.get_finding documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/accessanalyzer.html#AccessAnalyzer.Client.get_finding)
+        [Client.get_finding documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/accessanalyzer.html#AccessAnalyzer.Client.get_finding)
         """
 
     def list_analyzed_resources(
@@ -167,7 +167,7 @@ class AccessAnalyzerClient:
         ] = None,
     ) -> ListAnalyzedResourcesResponseTypeDef:
         """
-        [Client.list_analyzed_resources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/accessanalyzer.html#AccessAnalyzer.Client.list_analyzed_resources)
+        [Client.list_analyzed_resources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/accessanalyzer.html#AccessAnalyzer.Client.list_analyzed_resources)
         """
 
     def list_analyzers(
@@ -177,14 +177,14 @@ class AccessAnalyzerClient:
         type: Literal["ACCOUNT", "ORGANIZATION"] = None,
     ) -> ListAnalyzersResponseTypeDef:
         """
-        [Client.list_analyzers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/accessanalyzer.html#AccessAnalyzer.Client.list_analyzers)
+        [Client.list_analyzers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/accessanalyzer.html#AccessAnalyzer.Client.list_analyzers)
         """
 
     def list_archive_rules(
         self, analyzerName: str, maxResults: int = None, nextToken: str = None
     ) -> ListArchiveRulesResponseTypeDef:
         """
-        [Client.list_archive_rules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/accessanalyzer.html#AccessAnalyzer.Client.list_archive_rules)
+        [Client.list_archive_rules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/accessanalyzer.html#AccessAnalyzer.Client.list_archive_rules)
         """
 
     def list_findings(
@@ -196,27 +196,27 @@ class AccessAnalyzerClient:
         sort: SortCriteriaTypeDef = None,
     ) -> ListFindingsResponseTypeDef:
         """
-        [Client.list_findings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/accessanalyzer.html#AccessAnalyzer.Client.list_findings)
+        [Client.list_findings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/accessanalyzer.html#AccessAnalyzer.Client.list_findings)
         """
 
     def list_tags_for_resource(self, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/accessanalyzer.html#AccessAnalyzer.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/accessanalyzer.html#AccessAnalyzer.Client.list_tags_for_resource)
         """
 
     def start_resource_scan(self, analyzerArn: str, resourceArn: str) -> None:
         """
-        [Client.start_resource_scan documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/accessanalyzer.html#AccessAnalyzer.Client.start_resource_scan)
+        [Client.start_resource_scan documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/accessanalyzer.html#AccessAnalyzer.Client.start_resource_scan)
         """
 
     def tag_resource(self, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/accessanalyzer.html#AccessAnalyzer.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/accessanalyzer.html#AccessAnalyzer.Client.tag_resource)
         """
 
     def untag_resource(self, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/accessanalyzer.html#AccessAnalyzer.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/accessanalyzer.html#AccessAnalyzer.Client.untag_resource)
         """
 
     def update_archive_rule(
@@ -227,7 +227,7 @@ class AccessAnalyzerClient:
         clientToken: str = None,
     ) -> None:
         """
-        [Client.update_archive_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/accessanalyzer.html#AccessAnalyzer.Client.update_archive_rule)
+        [Client.update_archive_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/accessanalyzer.html#AccessAnalyzer.Client.update_archive_rule)
         """
 
     def update_findings(
@@ -239,7 +239,7 @@ class AccessAnalyzerClient:
         resourceArn: str = None,
     ) -> None:
         """
-        [Client.update_findings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/accessanalyzer.html#AccessAnalyzer.Client.update_findings)
+        [Client.update_findings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/accessanalyzer.html#AccessAnalyzer.Client.update_findings)
         """
 
     @overload
@@ -247,13 +247,13 @@ class AccessAnalyzerClient:
         self, operation_name: Literal["list_analyzed_resources"]
     ) -> ListAnalyzedResourcesPaginator:
         """
-        [Paginator.ListAnalyzedResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ListAnalyzedResources)
+        [Paginator.ListAnalyzedResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ListAnalyzedResources)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_analyzers"]) -> ListAnalyzersPaginator:
         """
-        [Paginator.ListAnalyzers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ListAnalyzers)
+        [Paginator.ListAnalyzers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ListAnalyzers)
         """
 
     @overload
@@ -261,11 +261,11 @@ class AccessAnalyzerClient:
         self, operation_name: Literal["list_archive_rules"]
     ) -> ListArchiveRulesPaginator:
         """
-        [Paginator.ListArchiveRules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ListArchiveRules)
+        [Paginator.ListArchiveRules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ListArchiveRules)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_findings"]) -> ListFindingsPaginator:
         """
-        [Paginator.ListFindings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ListFindings)
+        [Paginator.ListFindings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ListFindings)
         """

@@ -45,51 +45,51 @@ __all__ = (
 
 class ListAliasesPaginator(Boto3Paginator):
     """
-    [Paginator.ListAliases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Paginator.ListAliases)
+    [Paginator.ListAliases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kms.html#KMS.Paginator.ListAliases)
     """
 
     def paginate(
         self, KeyId: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAliasesResponseTypeDef]:
         """
-        [ListAliases.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Paginator.ListAliases.paginate)
+        [ListAliases.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kms.html#KMS.Paginator.ListAliases.paginate)
         """
 
 
 class ListGrantsPaginator(Boto3Paginator):
     """
-    [Paginator.ListGrants documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Paginator.ListGrants)
+    [Paginator.ListGrants documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kms.html#KMS.Paginator.ListGrants)
     """
 
     def paginate(
         self, KeyId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListGrantsResponseTypeDef]:
         """
-        [ListGrants.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Paginator.ListGrants.paginate)
+        [ListGrants.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kms.html#KMS.Paginator.ListGrants.paginate)
         """
 
 
 class ListKeyPoliciesPaginator(Boto3Paginator):
     """
-    [Paginator.ListKeyPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Paginator.ListKeyPolicies)
+    [Paginator.ListKeyPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kms.html#KMS.Paginator.ListKeyPolicies)
     """
 
     def paginate(
         self, KeyId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListKeyPoliciesResponseTypeDef]:
         """
-        [ListKeyPolicies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Paginator.ListKeyPolicies.paginate)
+        [ListKeyPolicies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kms.html#KMS.Paginator.ListKeyPolicies.paginate)
         """
 
 
 class ListKeysPaginator(Boto3Paginator):
     """
-    [Paginator.ListKeys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Paginator.ListKeys)
+    [Paginator.ListKeys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kms.html#KMS.Paginator.ListKeys)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListKeysResponseTypeDef]:
         """
-        [ListKeys.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kms.html#KMS.Paginator.ListKeys.paginate)
+        [ListKeys.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kms.html#KMS.Paginator.ListKeys.paginate)
         """

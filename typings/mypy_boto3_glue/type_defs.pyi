@@ -25,6 +25,7 @@ else:
 
 __all__ = (
     "ActionTypeDef",
+    "BackfillErrorTypeDef",
     "BatchStopJobRunErrorTypeDef",
     "BatchStopJobRunSuccessfulSubmissionTypeDef",
     "BatchUpdatePartitionFailureEntryTypeDef",
@@ -67,6 +68,7 @@ __all__ = (
     "EncryptionAtRestTypeDef",
     "EncryptionConfigurationTypeDef",
     "ErrorDetailTypeDef",
+    "ErrorDetailsTypeDef",
     "EvaluationMetricsTypeDef",
     "ExecutionPropertyTypeDef",
     "ExportLabelsTaskRunPropertiesTypeDef",
@@ -88,10 +90,12 @@ __all__ = (
     "KeySchemaElementTypeDef",
     "LabelingSetGenerationTaskRunPropertiesTypeDef",
     "LastCrawlInfoTypeDef",
+    "LineageConfigurationTypeDef",
     "LongColumnStatisticsDataTypeDef",
     "MLTransformTypeDef",
     "MLUserDataEncryptionTypeDef",
     "MappingEntryTypeDef",
+    "MetadataInfoTypeDef",
     "MongoDBTargetTypeDef",
     "NodeTypeDef",
     "NotificationPropertyTypeDef",
@@ -106,12 +110,18 @@ __all__ = (
     "PredicateTypeDef",
     "PrincipalPermissionsTypeDef",
     "RecrawlPolicyTypeDef",
+    "RegistryListItemTypeDef",
     "ResourceUriTypeDef",
     "S3EncryptionTypeDef",
     "S3TargetTypeDef",
     "ScheduleTypeDef",
     "SchemaChangePolicyTypeDef",
     "SchemaColumnTypeDef",
+    "SchemaIdTypeDef",
+    "SchemaListItemTypeDef",
+    "SchemaReferenceTypeDef",
+    "SchemaVersionErrorItemTypeDef",
+    "SchemaVersionListItemTypeDef",
     "SecurityConfigurationTypeDef",
     "SerDeInfoTypeDef",
     "SkewedInfoTypeDef",
@@ -150,6 +160,7 @@ __all__ = (
     "BatchUpdatePartitionResponseTypeDef",
     "CancelMLTaskRunResponseTypeDef",
     "CatalogEntryTypeDef",
+    "CheckSchemaVersionValidityResponseTypeDef",
     "ConnectionInputTypeDef",
     "CreateCsvClassifierRequestTypeDef",
     "CreateDevEndpointResponseTypeDef",
@@ -157,6 +168,8 @@ __all__ = (
     "CreateJobResponseTypeDef",
     "CreateJsonClassifierRequestTypeDef",
     "CreateMLTransformResponseTypeDef",
+    "CreateRegistryResponseTypeDef",
+    "CreateSchemaResponseTypeDef",
     "CreateScriptResponseTypeDef",
     "CreateSecurityConfigurationResponseTypeDef",
     "CreateTriggerResponseTypeDef",
@@ -165,6 +178,9 @@ __all__ = (
     "DatabaseInputTypeDef",
     "DeleteJobResponseTypeDef",
     "DeleteMLTransformResponseTypeDef",
+    "DeleteRegistryResponseTypeDef",
+    "DeleteSchemaResponseTypeDef",
+    "DeleteSchemaVersionsResponseTypeDef",
     "DeleteTriggerResponseTypeDef",
     "DeleteWorkflowResponseTypeDef",
     "DevEndpointCustomLibrariesTypeDef",
@@ -199,8 +215,13 @@ __all__ = (
     "GetPartitionResponseTypeDef",
     "GetPartitionsResponseTypeDef",
     "GetPlanResponseTypeDef",
+    "GetRegistryResponseTypeDef",
     "GetResourcePoliciesResponseTypeDef",
     "GetResourcePolicyResponseTypeDef",
+    "GetSchemaByDefinitionResponseTypeDef",
+    "GetSchemaResponseTypeDef",
+    "GetSchemaVersionResponseTypeDef",
+    "GetSchemaVersionsDiffResponseTypeDef",
     "GetSecurityConfigurationResponseTypeDef",
     "GetSecurityConfigurationsResponseTypeDef",
     "GetTableResponseTypeDef",
@@ -221,15 +242,25 @@ __all__ = (
     "ListDevEndpointsResponseTypeDef",
     "ListJobsResponseTypeDef",
     "ListMLTransformsResponseTypeDef",
+    "ListRegistriesResponseTypeDef",
+    "ListSchemaVersionsResponseTypeDef",
+    "ListSchemasResponseTypeDef",
     "ListTriggersResponseTypeDef",
     "ListWorkflowsResponseTypeDef",
     "LocationTypeDef",
+    "MetadataKeyValuePairTypeDef",
     "PaginatorConfigTypeDef",
     "PartitionIndexTypeDef",
     "PropertyPredicateTypeDef",
     "PutResourcePolicyResponseTypeDef",
+    "PutSchemaVersionMetadataResponseTypeDef",
+    "QuerySchemaVersionMetadataResponseTypeDef",
+    "RegisterSchemaVersionResponseTypeDef",
+    "RegistryIdTypeDef",
+    "RemoveSchemaVersionMetadataResponseTypeDef",
     "ResetJobBookmarkResponseTypeDef",
     "ResumeWorkflowRunResponseTypeDef",
+    "SchemaVersionNumberTypeDef",
     "SearchTablesResponseTypeDef",
     "SegmentTypeDef",
     "SortCriterionTypeDef",
@@ -254,6 +285,8 @@ __all__ = (
     "UpdateJobResponseTypeDef",
     "UpdateJsonClassifierRequestTypeDef",
     "UpdateMLTransformResponseTypeDef",
+    "UpdateRegistryResponseTypeDef",
+    "UpdateSchemaResponseTypeDef",
     "UpdateTriggerResponseTypeDef",
     "UpdateWorkflowResponseTypeDef",
     "UpdateXMLClassifierRequestTypeDef",
@@ -269,6 +302,21 @@ ActionTypeDef = TypedDict(
         "SecurityConfiguration": str,
         "NotificationProperty": "NotificationPropertyTypeDef",
         "CrawlerName": str,
+    },
+    total=False,
+)
+
+BackfillErrorTypeDef = TypedDict(
+    "BackfillErrorTypeDef",
+    {
+        "Code": Literal[
+            "ENCRYPTED_PARTITION_ERROR",
+            "INTERNAL_ERROR",
+            "INVALID_PARTITION_TYPE_DATA_ERROR",
+            "MISSING_PARTITION_VALUE_ERROR",
+            "UNSUPPORTED_PARTITION_CHARACTER_ERROR",
+        ],
+        "Partitions": List["PartitionValueListTypeDef"],
     },
     total=False,
 )
@@ -557,6 +605,7 @@ CrawlerTypeDef = TypedDict(
         "Classifiers": List[str],
         "RecrawlPolicy": "RecrawlPolicyTypeDef",
         "SchemaChangePolicy": "SchemaChangePolicyTypeDef",
+        "LineageConfiguration": "LineageConfigurationTypeDef",
         "State": Literal["READY", "RUNNING", "STOPPING"],
         "TablePrefix": str,
         "Schedule": "ScheduleTypeDef",
@@ -747,6 +796,10 @@ EncryptionConfigurationTypeDef = TypedDict(
 
 ErrorDetailTypeDef = TypedDict(
     "ErrorDetailTypeDef", {"ErrorCode": str, "ErrorMessage": str}, total=False
+)
+
+ErrorDetailsTypeDef = TypedDict(
+    "ErrorDetailsTypeDef", {"ErrorCode": str, "ErrorMessage": str}, total=False
 )
 
 _RequiredEvaluationMetricsTypeDef = TypedDict(
@@ -961,6 +1014,12 @@ LastCrawlInfoTypeDef = TypedDict(
     total=False,
 )
 
+LineageConfigurationTypeDef = TypedDict(
+    "LineageConfigurationTypeDef",
+    {"CrawlerLineageSettings": Literal["ENABLE", "DISABLE"]},
+    total=False,
+)
+
 _RequiredLongColumnStatisticsDataTypeDef = TypedDict(
     "_RequiredLongColumnStatisticsDataTypeDef",
     {"NumberOfNulls": int, "NumberOfDistinctValues": int},
@@ -1032,6 +1091,10 @@ MappingEntryTypeDef = TypedDict(
     total=False,
 )
 
+MetadataInfoTypeDef = TypedDict(
+    "MetadataInfoTypeDef", {"MetadataValue": str, "CreatedTime": str}, total=False
+)
+
 MongoDBTargetTypeDef = TypedDict(
     "MongoDBTargetTypeDef", {"ConnectionName": str, "Path": str, "ScanAll": bool}, total=False
 )
@@ -1061,10 +1124,26 @@ PartitionErrorTypeDef = TypedDict(
     total=False,
 )
 
-PartitionIndexDescriptorTypeDef = TypedDict(
-    "PartitionIndexDescriptorTypeDef",
-    {"IndexName": str, "Keys": List["KeySchemaElementTypeDef"], "IndexStatus": Literal["ACTIVE"]},
+_RequiredPartitionIndexDescriptorTypeDef = TypedDict(
+    "_RequiredPartitionIndexDescriptorTypeDef",
+    {
+        "IndexName": str,
+        "Keys": List["KeySchemaElementTypeDef"],
+        "IndexStatus": Literal["CREATING", "ACTIVE", "DELETING", "FAILED"],
+    },
 )
+_OptionalPartitionIndexDescriptorTypeDef = TypedDict(
+    "_OptionalPartitionIndexDescriptorTypeDef",
+    {"BackfillErrors": List["BackfillErrorTypeDef"]},
+    total=False,
+)
+
+
+class PartitionIndexDescriptorTypeDef(
+    _RequiredPartitionIndexDescriptorTypeDef, _OptionalPartitionIndexDescriptorTypeDef
+):
+    pass
+
 
 PartitionInputTypeDef = TypedDict(
     "PartitionInputTypeDef",
@@ -1137,6 +1216,19 @@ RecrawlPolicyTypeDef = TypedDict(
     total=False,
 )
 
+RegistryListItemTypeDef = TypedDict(
+    "RegistryListItemTypeDef",
+    {
+        "RegistryName": str,
+        "RegistryArn": str,
+        "Description": str,
+        "Status": Literal["AVAILABLE", "DELETING"],
+        "CreatedTime": str,
+        "UpdatedTime": str,
+    },
+    total=False,
+)
+
 ResourceUriTypeDef = TypedDict(
     "ResourceUriTypeDef",
     {"ResourceType": Literal["JAR", "FILE", "ARCHIVE"], "Uri": str},
@@ -1169,6 +1261,48 @@ SchemaChangePolicyTypeDef = TypedDict(
 )
 
 SchemaColumnTypeDef = TypedDict("SchemaColumnTypeDef", {"Name": str, "DataType": str}, total=False)
+
+SchemaIdTypeDef = TypedDict(
+    "SchemaIdTypeDef", {"SchemaArn": str, "SchemaName": str, "RegistryName": str}, total=False
+)
+
+SchemaListItemTypeDef = TypedDict(
+    "SchemaListItemTypeDef",
+    {
+        "RegistryName": str,
+        "SchemaName": str,
+        "SchemaArn": str,
+        "Description": str,
+        "SchemaStatus": Literal["AVAILABLE", "PENDING", "DELETING"],
+        "CreatedTime": str,
+        "UpdatedTime": str,
+    },
+    total=False,
+)
+
+SchemaReferenceTypeDef = TypedDict(
+    "SchemaReferenceTypeDef",
+    {"SchemaId": "SchemaIdTypeDef", "SchemaVersionId": str, "SchemaVersionNumber": int},
+    total=False,
+)
+
+SchemaVersionErrorItemTypeDef = TypedDict(
+    "SchemaVersionErrorItemTypeDef",
+    {"VersionNumber": int, "ErrorDetails": "ErrorDetailsTypeDef"},
+    total=False,
+)
+
+SchemaVersionListItemTypeDef = TypedDict(
+    "SchemaVersionListItemTypeDef",
+    {
+        "SchemaArn": str,
+        "SchemaVersionId": str,
+        "VersionNumber": int,
+        "Status": Literal["AVAILABLE", "PENDING", "FAILURE", "DELETING"],
+        "CreatedTime": str,
+    },
+    total=False,
+)
 
 SecurityConfigurationTypeDef = TypedDict(
     "SecurityConfigurationTypeDef",
@@ -1211,6 +1345,7 @@ StorageDescriptorTypeDef = TypedDict(
         "Parameters": Dict[str, str],
         "SkewedInfo": "SkewedInfoTypeDef",
         "StoredAsSubDirectories": bool,
+        "SchemaReference": "SchemaReferenceTypeDef",
     },
     total=False,
 )
@@ -1539,6 +1674,10 @@ CancelMLTaskRunResponseTypeDef = TypedDict(
 
 CatalogEntryTypeDef = TypedDict("CatalogEntryTypeDef", {"DatabaseName": str, "TableName": str})
 
+CheckSchemaVersionValidityResponseTypeDef = TypedDict(
+    "CheckSchemaVersionValidityResponseTypeDef", {"Valid": bool, "Error": str}, total=False
+)
+
 _RequiredConnectionInputTypeDef = TypedDict(
     "_RequiredConnectionInputTypeDef",
     {
@@ -1661,6 +1800,42 @@ CreateMLTransformResponseTypeDef = TypedDict(
     "CreateMLTransformResponseTypeDef", {"TransformId": str}, total=False
 )
 
+CreateRegistryResponseTypeDef = TypedDict(
+    "CreateRegistryResponseTypeDef",
+    {"RegistryArn": str, "RegistryName": str, "Description": str, "Tags": Dict[str, str]},
+    total=False,
+)
+
+CreateSchemaResponseTypeDef = TypedDict(
+    "CreateSchemaResponseTypeDef",
+    {
+        "RegistryName": str,
+        "RegistryArn": str,
+        "SchemaName": str,
+        "SchemaArn": str,
+        "Description": str,
+        "DataFormat": Literal["AVRO"],
+        "Compatibility": Literal[
+            "NONE",
+            "DISABLED",
+            "BACKWARD",
+            "BACKWARD_ALL",
+            "FORWARD",
+            "FORWARD_ALL",
+            "FULL",
+            "FULL_ALL",
+        ],
+        "SchemaCheckpoint": int,
+        "LatestSchemaVersion": int,
+        "NextSchemaVersion": int,
+        "SchemaStatus": Literal["AVAILABLE", "PENDING", "DELETING"],
+        "Tags": Dict[str, str],
+        "SchemaVersionId": str,
+        "SchemaVersionStatus": Literal["AVAILABLE", "PENDING", "FAILURE", "DELETING"],
+    },
+    total=False,
+)
+
 CreateScriptResponseTypeDef = TypedDict(
     "CreateScriptResponseTypeDef", {"PythonScript": str, "ScalaCode": str}, total=False
 )
@@ -1713,6 +1888,24 @@ DeleteJobResponseTypeDef = TypedDict("DeleteJobResponseTypeDef", {"JobName": str
 
 DeleteMLTransformResponseTypeDef = TypedDict(
     "DeleteMLTransformResponseTypeDef", {"TransformId": str}, total=False
+)
+
+DeleteRegistryResponseTypeDef = TypedDict(
+    "DeleteRegistryResponseTypeDef",
+    {"RegistryName": str, "RegistryArn": str, "Status": Literal["AVAILABLE", "DELETING"]},
+    total=False,
+)
+
+DeleteSchemaResponseTypeDef = TypedDict(
+    "DeleteSchemaResponseTypeDef",
+    {"SchemaArn": str, "SchemaName": str, "Status": Literal["AVAILABLE", "PENDING", "DELETING"]},
+    total=False,
+)
+
+DeleteSchemaVersionsResponseTypeDef = TypedDict(
+    "DeleteSchemaVersionsResponseTypeDef",
+    {"SchemaVersionErrors": List["SchemaVersionErrorItemTypeDef"]},
+    total=False,
 )
 
 DeleteTriggerResponseTypeDef = TypedDict("DeleteTriggerResponseTypeDef", {"Name": str}, total=False)
@@ -1937,6 +2130,19 @@ GetPlanResponseTypeDef = TypedDict(
     "GetPlanResponseTypeDef", {"PythonScript": str, "ScalaCode": str}, total=False
 )
 
+GetRegistryResponseTypeDef = TypedDict(
+    "GetRegistryResponseTypeDef",
+    {
+        "RegistryName": str,
+        "RegistryArn": str,
+        "Description": str,
+        "Status": Literal["AVAILABLE", "DELETING"],
+        "CreatedTime": str,
+        "UpdatedTime": str,
+    },
+    total=False,
+)
+
 GetResourcePoliciesResponseTypeDef = TypedDict(
     "GetResourcePoliciesResponseTypeDef",
     {"GetResourcePoliciesResponseList": List["GluePolicyTypeDef"], "NextToken": str},
@@ -1947,6 +2153,65 @@ GetResourcePolicyResponseTypeDef = TypedDict(
     "GetResourcePolicyResponseTypeDef",
     {"PolicyInJson": str, "PolicyHash": str, "CreateTime": datetime, "UpdateTime": datetime},
     total=False,
+)
+
+GetSchemaByDefinitionResponseTypeDef = TypedDict(
+    "GetSchemaByDefinitionResponseTypeDef",
+    {
+        "SchemaVersionId": str,
+        "SchemaArn": str,
+        "DataFormat": Literal["AVRO"],
+        "Status": Literal["AVAILABLE", "PENDING", "FAILURE", "DELETING"],
+        "CreatedTime": str,
+    },
+    total=False,
+)
+
+GetSchemaResponseTypeDef = TypedDict(
+    "GetSchemaResponseTypeDef",
+    {
+        "RegistryName": str,
+        "RegistryArn": str,
+        "SchemaName": str,
+        "SchemaArn": str,
+        "Description": str,
+        "DataFormat": Literal["AVRO"],
+        "Compatibility": Literal[
+            "NONE",
+            "DISABLED",
+            "BACKWARD",
+            "BACKWARD_ALL",
+            "FORWARD",
+            "FORWARD_ALL",
+            "FULL",
+            "FULL_ALL",
+        ],
+        "SchemaCheckpoint": int,
+        "LatestSchemaVersion": int,
+        "NextSchemaVersion": int,
+        "SchemaStatus": Literal["AVAILABLE", "PENDING", "DELETING"],
+        "CreatedTime": str,
+        "UpdatedTime": str,
+    },
+    total=False,
+)
+
+GetSchemaVersionResponseTypeDef = TypedDict(
+    "GetSchemaVersionResponseTypeDef",
+    {
+        "SchemaVersionId": str,
+        "SchemaDefinition": str,
+        "DataFormat": Literal["AVRO"],
+        "SchemaArn": str,
+        "VersionNumber": int,
+        "Status": Literal["AVAILABLE", "PENDING", "FAILURE", "DELETING"],
+        "CreatedTime": str,
+    },
+    total=False,
+)
+
+GetSchemaVersionsDiffResponseTypeDef = TypedDict(
+    "GetSchemaVersionsDiffResponseTypeDef", {"Diff": str}, total=False
 )
 
 GetSecurityConfigurationResponseTypeDef = TypedDict(
@@ -2073,6 +2338,24 @@ class ListMLTransformsResponseTypeDef(
     pass
 
 
+ListRegistriesResponseTypeDef = TypedDict(
+    "ListRegistriesResponseTypeDef",
+    {"Registries": List["RegistryListItemTypeDef"], "NextToken": str},
+    total=False,
+)
+
+ListSchemaVersionsResponseTypeDef = TypedDict(
+    "ListSchemaVersionsResponseTypeDef",
+    {"Schemas": List["SchemaVersionListItemTypeDef"], "NextToken": str},
+    total=False,
+)
+
+ListSchemasResponseTypeDef = TypedDict(
+    "ListSchemasResponseTypeDef",
+    {"Schemas": List["SchemaListItemTypeDef"], "NextToken": str},
+    total=False,
+)
+
 ListTriggersResponseTypeDef = TypedDict(
     "ListTriggersResponseTypeDef", {"TriggerNames": List[str], "NextToken": str}, total=False
 )
@@ -2089,6 +2372,10 @@ LocationTypeDef = TypedDict(
         "DynamoDB": List["CodeGenNodeArgTypeDef"],
     },
     total=False,
+)
+
+MetadataKeyValuePairTypeDef = TypedDict(
+    "MetadataKeyValuePairTypeDef", {"MetadataKey": str, "MetadataValue": str}, total=False
 )
 
 PaginatorConfigTypeDef = TypedDict(
@@ -2113,12 +2400,66 @@ PutResourcePolicyResponseTypeDef = TypedDict(
     "PutResourcePolicyResponseTypeDef", {"PolicyHash": str}, total=False
 )
 
+PutSchemaVersionMetadataResponseTypeDef = TypedDict(
+    "PutSchemaVersionMetadataResponseTypeDef",
+    {
+        "SchemaArn": str,
+        "SchemaName": str,
+        "RegistryName": str,
+        "LatestVersion": bool,
+        "VersionNumber": int,
+        "SchemaVersionId": str,
+        "MetadataKey": str,
+        "MetadataValue": str,
+    },
+    total=False,
+)
+
+QuerySchemaVersionMetadataResponseTypeDef = TypedDict(
+    "QuerySchemaVersionMetadataResponseTypeDef",
+    {"MetadataInfoMap": Dict[str, "MetadataInfoTypeDef"], "SchemaVersionId": str, "NextToken": str},
+    total=False,
+)
+
+RegisterSchemaVersionResponseTypeDef = TypedDict(
+    "RegisterSchemaVersionResponseTypeDef",
+    {
+        "SchemaVersionId": str,
+        "VersionNumber": int,
+        "Status": Literal["AVAILABLE", "PENDING", "FAILURE", "DELETING"],
+    },
+    total=False,
+)
+
+RegistryIdTypeDef = TypedDict(
+    "RegistryIdTypeDef", {"RegistryName": str, "RegistryArn": str}, total=False
+)
+
+RemoveSchemaVersionMetadataResponseTypeDef = TypedDict(
+    "RemoveSchemaVersionMetadataResponseTypeDef",
+    {
+        "SchemaArn": str,
+        "SchemaName": str,
+        "RegistryName": str,
+        "LatestVersion": bool,
+        "VersionNumber": int,
+        "SchemaVersionId": str,
+        "MetadataKey": str,
+        "MetadataValue": str,
+    },
+    total=False,
+)
+
 ResetJobBookmarkResponseTypeDef = TypedDict(
     "ResetJobBookmarkResponseTypeDef", {"JobBookmarkEntry": "JobBookmarkEntryTypeDef"}, total=False
 )
 
 ResumeWorkflowRunResponseTypeDef = TypedDict(
     "ResumeWorkflowRunResponseTypeDef", {"RunId": str, "NodeIds": List[str]}, total=False
+)
+
+SchemaVersionNumberTypeDef = TypedDict(
+    "SchemaVersionNumberTypeDef", {"LatestVersion": bool, "VersionNumber": int}, total=False
 )
 
 SearchTablesResponseTypeDef = TypedDict(
@@ -2316,6 +2657,16 @@ class UpdateJsonClassifierRequestTypeDef(
 
 UpdateMLTransformResponseTypeDef = TypedDict(
     "UpdateMLTransformResponseTypeDef", {"TransformId": str}, total=False
+)
+
+UpdateRegistryResponseTypeDef = TypedDict(
+    "UpdateRegistryResponseTypeDef", {"RegistryName": str, "RegistryArn": str}, total=False
+)
+
+UpdateSchemaResponseTypeDef = TypedDict(
+    "UpdateSchemaResponseTypeDef",
+    {"SchemaArn": str, "SchemaName": str, "RegistryName": str},
+    total=False,
 )
 
 UpdateTriggerResponseTypeDef = TypedDict(

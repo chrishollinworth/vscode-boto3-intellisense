@@ -53,6 +53,7 @@ __all__ = (
     "DescribeBackupJobOutputTypeDef",
     "DescribeBackupVaultOutputTypeDef",
     "DescribeCopyJobOutputTypeDef",
+    "DescribeGlobalSettingsOutputTypeDef",
     "DescribeProtectedResourceOutputTypeDef",
     "DescribeRecoveryPointOutputTypeDef",
     "DescribeRegionSettingsOutputTypeDef",
@@ -300,6 +301,7 @@ RecoveryPointByBackupVaultTypeDef = TypedDict(
         "RecoveryPointArn": str,
         "BackupVaultName": str,
         "BackupVaultArn": str,
+        "SourceBackupVaultArn": str,
         "ResourceArn": str,
         "ResourceType": str,
         "CreatedBy": "RecoveryPointCreatorTypeDef",
@@ -479,6 +481,16 @@ DescribeCopyJobOutputTypeDef = TypedDict(
     total=False,
 )
 
+DescribeGlobalSettingsOutputTypeDef = TypedDict(
+    "DescribeGlobalSettingsOutputTypeDef",
+    {
+        "GlobalSettings": Dict[str, str],
+        "LastUpdateTime": datetime,
+        "ResponseMetadata": "ResponseMetadata",
+    },
+    total=False,
+)
+
 DescribeProtectedResourceOutputTypeDef = TypedDict(
     "DescribeProtectedResourceOutputTypeDef",
     {
@@ -496,6 +508,7 @@ DescribeRecoveryPointOutputTypeDef = TypedDict(
         "RecoveryPointArn": str,
         "BackupVaultName": str,
         "BackupVaultArn": str,
+        "SourceBackupVaultArn": str,
         "ResourceArn": str,
         "ResourceType": str,
         "CreatedBy": "RecoveryPointCreatorTypeDef",

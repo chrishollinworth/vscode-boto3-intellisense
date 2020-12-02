@@ -51,7 +51,7 @@ class Exceptions:
 
 class DynamoDBStreamsClient:
     """
-    [DynamoDBStreams.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodbstreams.html#DynamoDBStreams.Client)
+    [DynamoDBStreams.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodbstreams.html#DynamoDBStreams.Client)
     """
 
     meta: ClientMeta
@@ -59,14 +59,14 @@ class DynamoDBStreamsClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodbstreams.html#DynamoDBStreams.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodbstreams.html#DynamoDBStreams.Client.can_paginate)
         """
 
     def describe_stream(
         self, StreamArn: str, Limit: int = None, ExclusiveStartShardId: str = None
     ) -> DescribeStreamOutputTypeDef:
         """
-        [Client.describe_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodbstreams.html#DynamoDBStreams.Client.describe_stream)
+        [Client.describe_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodbstreams.html#DynamoDBStreams.Client.describe_stream)
         """
 
     def generate_presigned_url(
@@ -77,12 +77,12 @@ class DynamoDBStreamsClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodbstreams.html#DynamoDBStreams.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodbstreams.html#DynamoDBStreams.Client.generate_presigned_url)
         """
 
     def get_records(self, ShardIterator: str, Limit: int = None) -> GetRecordsOutputTypeDef:
         """
-        [Client.get_records documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodbstreams.html#DynamoDBStreams.Client.get_records)
+        [Client.get_records documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodbstreams.html#DynamoDBStreams.Client.get_records)
         """
 
     def get_shard_iterator(
@@ -95,12 +95,12 @@ class DynamoDBStreamsClient:
         SequenceNumber: str = None,
     ) -> GetShardIteratorOutputTypeDef:
         """
-        [Client.get_shard_iterator documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodbstreams.html#DynamoDBStreams.Client.get_shard_iterator)
+        [Client.get_shard_iterator documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodbstreams.html#DynamoDBStreams.Client.get_shard_iterator)
         """
 
     def list_streams(
         self, TableName: str = None, Limit: int = None, ExclusiveStartStreamArn: str = None
     ) -> ListStreamsOutputTypeDef:
         """
-        [Client.list_streams documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodbstreams.html#DynamoDBStreams.Client.list_streams)
+        [Client.list_streams documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodbstreams.html#DynamoDBStreams.Client.list_streams)
         """

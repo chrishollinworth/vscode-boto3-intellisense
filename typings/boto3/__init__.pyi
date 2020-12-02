@@ -10,11 +10,13 @@ from mypy_boto3.acm import ACMClient
 from mypy_boto3.acm_pca import ACMPCAClient
 from mypy_boto3.alexaforbusiness import AlexaForBusinessClient
 from mypy_boto3.amplify import AmplifyClient
+from mypy_boto3.amplifybackend import AmplifyBackendClient
 from mypy_boto3.apigateway import APIGatewayClient
 from mypy_boto3.apigatewaymanagementapi import ApiGatewayManagementApiClient
 from mypy_boto3.apigatewayv2 import ApiGatewayV2Client
 from mypy_boto3.appconfig import AppConfigClient
 from mypy_boto3.appflow import AppflowClient
+from mypy_boto3.appintegrations import AppIntegrationsClient
 from mypy_boto3.application_autoscaling import ApplicationAutoScalingClient
 from mypy_boto3.application_insights import ApplicationInsightsClient
 from mypy_boto3.appmesh import AppMeshClient
@@ -59,8 +61,10 @@ from mypy_boto3.comprehendmedical import ComprehendMedicalClient
 from mypy_boto3.compute_optimizer import ComputeOptimizerClient
 from mypy_boto3.config import ConfigServiceClient
 from mypy_boto3.connect import ConnectClient
+from mypy_boto3.connect_contact_lens import ConnectContactLensClient
 from mypy_boto3.connectparticipant import ConnectParticipantClient
 from mypy_boto3.cur import CostandUsageReportServiceClient
+from mypy_boto3.customer_profiles import CustomerProfilesClient
 from mypy_boto3.databrew import GlueDataBrewClient
 from mypy_boto3.dataexchange import DataExchangeClient
 from mypy_boto3.datapipeline import DataPipelineClient
@@ -68,6 +72,7 @@ from mypy_boto3.datasync import DataSyncClient
 from mypy_boto3.dax import DAXClient
 from mypy_boto3.detective import DetectiveClient
 from mypy_boto3.devicefarm import DeviceFarmClient
+from mypy_boto3.devops_guru import DevOpsGuruClient
 from mypy_boto3.directconnect import DirectConnectClient
 from mypy_boto3.discovery import ApplicationDiscoveryServiceClient
 from mypy_boto3.dlm import DLMClient
@@ -82,6 +87,7 @@ from mypy_boto3.ec2 import EC2Client
 from mypy_boto3.ec2 import EC2ServiceResource
 from mypy_boto3.ec2_instance_connect import EC2InstanceConnectClient
 from mypy_boto3.ecr import ECRClient
+from mypy_boto3.ecr_public import ECRPublicClient
 from mypy_boto3.ecs import ECSClient
 from mypy_boto3.efs import EFSClient
 from mypy_boto3.eks import EKSClient
@@ -145,6 +151,7 @@ from mypy_boto3.lex_runtime import LexRuntimeServiceClient
 from mypy_boto3.license_manager import LicenseManagerClient
 from mypy_boto3.lightsail import LightsailClient
 from mypy_boto3.logs import CloudWatchLogsClient
+from mypy_boto3.lookoutvision import LookoutForVisionClient
 from mypy_boto3.machinelearning import MachineLearningClient
 from mypy_boto3.macie import MacieClient
 from mypy_boto3.macie2 import Macie2Client
@@ -166,6 +173,7 @@ from mypy_boto3.migrationhub_config import MigrationHubConfigClient
 from mypy_boto3.mobile import MobileClient
 from mypy_boto3.mq import MQClient
 from mypy_boto3.mturk import MTurkClient
+from mypy_boto3.mwaa import MWAAClient
 from mypy_boto3.neptune import NeptuneClient
 from mypy_boto3.network_firewall import NetworkFirewallClient
 from mypy_boto3.networkmanager import NetworkManagerClient
@@ -204,6 +212,7 @@ from mypy_boto3.s3control import S3ControlClient
 from mypy_boto3.s3outposts import S3OutpostsClient
 from mypy_boto3.sagemaker import SageMakerClient
 from mypy_boto3.sagemaker_a2i_runtime import AugmentedAIRuntimeClient
+from mypy_boto3.sagemaker_featurestore_runtime import SageMakerFeatureStoreRuntimeClient
 from mypy_boto3.sagemaker_runtime import SageMakerRuntimeClient
 from mypy_boto3.savingsplans import SavingsPlansClient
 from mypy_boto3.schemas import SchemasClient
@@ -324,6 +333,20 @@ def client(
     pass
 @overload
 def client(
+    service_name: Literal["amplifybackend"],
+    region_name: str = None,
+    api_version: str = None,
+    use_ssl: bool = None,
+    verify: Union[str, bool] = None,
+    endpoint_url: str = None,
+    aws_access_key_id: str = None,
+    aws_secret_access_key: str = None,
+    aws_session_token: str = None,
+    config: Config = None,
+) -> AmplifyBackendClient:
+    pass
+@overload
+def client(
     service_name: Literal["apigateway"],
     region_name: str = None,
     api_version: str = None,
@@ -391,6 +414,20 @@ def client(
     aws_session_token: str = None,
     config: Config = None,
 ) -> AppflowClient:
+    pass
+@overload
+def client(
+    service_name: Literal["appintegrations"],
+    region_name: str = None,
+    api_version: str = None,
+    use_ssl: bool = None,
+    verify: Union[str, bool] = None,
+    endpoint_url: str = None,
+    aws_access_key_id: str = None,
+    aws_secret_access_key: str = None,
+    aws_session_token: str = None,
+    config: Config = None,
+) -> AppIntegrationsClient:
     pass
 @overload
 def client(
@@ -982,6 +1019,20 @@ def client(
     pass
 @overload
 def client(
+    service_name: Literal["connect-contact-lens"],
+    region_name: str = None,
+    api_version: str = None,
+    use_ssl: bool = None,
+    verify: Union[str, bool] = None,
+    endpoint_url: str = None,
+    aws_access_key_id: str = None,
+    aws_secret_access_key: str = None,
+    aws_session_token: str = None,
+    config: Config = None,
+) -> ConnectContactLensClient:
+    pass
+@overload
+def client(
     service_name: Literal["connectparticipant"],
     region_name: str = None,
     api_version: str = None,
@@ -1007,6 +1058,20 @@ def client(
     aws_session_token: str = None,
     config: Config = None,
 ) -> CostandUsageReportServiceClient:
+    pass
+@overload
+def client(
+    service_name: Literal["customer-profiles"],
+    region_name: str = None,
+    api_version: str = None,
+    use_ssl: bool = None,
+    verify: Union[str, bool] = None,
+    endpoint_url: str = None,
+    aws_access_key_id: str = None,
+    aws_secret_access_key: str = None,
+    aws_session_token: str = None,
+    config: Config = None,
+) -> CustomerProfilesClient:
     pass
 @overload
 def client(
@@ -1105,6 +1170,20 @@ def client(
     aws_session_token: str = None,
     config: Config = None,
 ) -> DeviceFarmClient:
+    pass
+@overload
+def client(
+    service_name: Literal["devops-guru"],
+    region_name: str = None,
+    api_version: str = None,
+    use_ssl: bool = None,
+    verify: Union[str, bool] = None,
+    endpoint_url: str = None,
+    aws_access_key_id: str = None,
+    aws_secret_access_key: str = None,
+    aws_session_token: str = None,
+    config: Config = None,
+) -> DevOpsGuruClient:
     pass
 @overload
 def client(
@@ -1273,6 +1352,20 @@ def client(
     aws_session_token: str = None,
     config: Config = None,
 ) -> ECRClient:
+    pass
+@overload
+def client(
+    service_name: Literal["ecr-public"],
+    region_name: str = None,
+    api_version: str = None,
+    use_ssl: bool = None,
+    verify: Union[str, bool] = None,
+    endpoint_url: str = None,
+    aws_access_key_id: str = None,
+    aws_secret_access_key: str = None,
+    aws_session_token: str = None,
+    config: Config = None,
+) -> ECRPublicClient:
     pass
 @overload
 def client(
@@ -2130,6 +2223,20 @@ def client(
     pass
 @overload
 def client(
+    service_name: Literal["lookoutvision"],
+    region_name: str = None,
+    api_version: str = None,
+    use_ssl: bool = None,
+    verify: Union[str, bool] = None,
+    endpoint_url: str = None,
+    aws_access_key_id: str = None,
+    aws_secret_access_key: str = None,
+    aws_session_token: str = None,
+    config: Config = None,
+) -> LookoutForVisionClient:
+    pass
+@overload
+def client(
     service_name: Literal["machinelearning"],
     region_name: str = None,
     api_version: str = None,
@@ -2421,6 +2528,20 @@ def client(
     aws_session_token: str = None,
     config: Config = None,
 ) -> MTurkClient:
+    pass
+@overload
+def client(
+    service_name: Literal["mwaa"],
+    region_name: str = None,
+    api_version: str = None,
+    use_ssl: bool = None,
+    verify: Union[str, bool] = None,
+    endpoint_url: str = None,
+    aws_access_key_id: str = None,
+    aws_secret_access_key: str = None,
+    aws_session_token: str = None,
+    config: Config = None,
+) -> MWAAClient:
     pass
 @overload
 def client(
@@ -2925,6 +3046,20 @@ def client(
     aws_session_token: str = None,
     config: Config = None,
 ) -> AugmentedAIRuntimeClient:
+    pass
+@overload
+def client(
+    service_name: Literal["sagemaker-featurestore-runtime"],
+    region_name: str = None,
+    api_version: str = None,
+    use_ssl: bool = None,
+    verify: Union[str, bool] = None,
+    endpoint_url: str = None,
+    aws_access_key_id: str = None,
+    aws_secret_access_key: str = None,
+    aws_session_token: str = None,
+    config: Config = None,
+) -> SageMakerFeatureStoreRuntimeClient:
     pass
 @overload
 def client(

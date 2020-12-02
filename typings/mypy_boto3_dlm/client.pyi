@@ -51,7 +51,7 @@ class Exceptions:
 
 class DLMClient:
     """
-    [DLM.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dlm.html#DLM.Client)
+    [DLM.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dlm.html#DLM.Client)
     """
 
     meta: ClientMeta
@@ -59,7 +59,7 @@ class DLMClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dlm.html#DLM.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dlm.html#DLM.Client.can_paginate)
         """
 
     def create_lifecycle_policy(
@@ -71,12 +71,12 @@ class DLMClient:
         Tags: Dict[str, str] = None,
     ) -> CreateLifecyclePolicyResponseTypeDef:
         """
-        [Client.create_lifecycle_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dlm.html#DLM.Client.create_lifecycle_policy)
+        [Client.create_lifecycle_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dlm.html#DLM.Client.create_lifecycle_policy)
         """
 
     def delete_lifecycle_policy(self, PolicyId: str) -> Dict[str, Any]:
         """
-        [Client.delete_lifecycle_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dlm.html#DLM.Client.delete_lifecycle_policy)
+        [Client.delete_lifecycle_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dlm.html#DLM.Client.delete_lifecycle_policy)
         """
 
     def generate_presigned_url(
@@ -87,7 +87,7 @@ class DLMClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dlm.html#DLM.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dlm.html#DLM.Client.generate_presigned_url)
         """
 
     def get_lifecycle_policies(
@@ -99,27 +99,27 @@ class DLMClient:
         TagsToAdd: List[str] = None,
     ) -> GetLifecyclePoliciesResponseTypeDef:
         """
-        [Client.get_lifecycle_policies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dlm.html#DLM.Client.get_lifecycle_policies)
+        [Client.get_lifecycle_policies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dlm.html#DLM.Client.get_lifecycle_policies)
         """
 
     def get_lifecycle_policy(self, PolicyId: str) -> GetLifecyclePolicyResponseTypeDef:
         """
-        [Client.get_lifecycle_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dlm.html#DLM.Client.get_lifecycle_policy)
+        [Client.get_lifecycle_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dlm.html#DLM.Client.get_lifecycle_policy)
         """
 
     def list_tags_for_resource(self, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dlm.html#DLM.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dlm.html#DLM.Client.list_tags_for_resource)
         """
 
     def tag_resource(self, ResourceArn: str, Tags: Dict[str, str]) -> Dict[str, Any]:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dlm.html#DLM.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dlm.html#DLM.Client.tag_resource)
         """
 
     def untag_resource(self, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dlm.html#DLM.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dlm.html#DLM.Client.untag_resource)
         """
 
     def update_lifecycle_policy(
@@ -131,5 +131,5 @@ class DLMClient:
         PolicyDetails: "PolicyDetailsTypeDef" = None,
     ) -> Dict[str, Any]:
         """
-        [Client.update_lifecycle_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dlm.html#DLM.Client.update_lifecycle_policy)
+        [Client.update_lifecycle_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dlm.html#DLM.Client.update_lifecycle_policy)
         """

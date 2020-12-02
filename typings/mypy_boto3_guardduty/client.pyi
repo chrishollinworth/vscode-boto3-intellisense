@@ -99,7 +99,7 @@ class Exceptions:
 
 class GuardDutyClient:
     """
-    [GuardDuty.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client)
+    [GuardDuty.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client)
     """
 
     meta: ClientMeta
@@ -109,17 +109,17 @@ class GuardDutyClient:
         self, DetectorId: str, MasterId: str, InvitationId: str
     ) -> Dict[str, Any]:
         """
-        [Client.accept_invitation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.accept_invitation)
+        [Client.accept_invitation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.accept_invitation)
         """
 
     def archive_findings(self, DetectorId: str, FindingIds: List[str]) -> Dict[str, Any]:
         """
-        [Client.archive_findings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.archive_findings)
+        [Client.archive_findings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.archive_findings)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.can_paginate)
         """
 
     def create_detector(
@@ -131,7 +131,7 @@ class GuardDutyClient:
         Tags: Dict[str, str] = None,
     ) -> CreateDetectorResponseTypeDef:
         """
-        [Client.create_detector documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.create_detector)
+        [Client.create_detector documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.create_detector)
         """
 
     def create_filter(
@@ -146,7 +146,7 @@ class GuardDutyClient:
         Tags: Dict[str, str] = None,
     ) -> CreateFilterResponseTypeDef:
         """
-        [Client.create_filter documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.create_filter)
+        [Client.create_filter documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.create_filter)
         """
 
     def create_ip_set(
@@ -160,14 +160,14 @@ class GuardDutyClient:
         Tags: Dict[str, str] = None,
     ) -> CreateIPSetResponseTypeDef:
         """
-        [Client.create_ip_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.create_ip_set)
+        [Client.create_ip_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.create_ip_set)
         """
 
     def create_members(
         self, DetectorId: str, AccountDetails: List[AccountDetailTypeDef]
     ) -> CreateMembersResponseTypeDef:
         """
-        [Client.create_members documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.create_members)
+        [Client.create_members documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.create_members)
         """
 
     def create_publishing_destination(
@@ -178,14 +178,14 @@ class GuardDutyClient:
         ClientToken: str = None,
     ) -> CreatePublishingDestinationResponseTypeDef:
         """
-        [Client.create_publishing_destination documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.create_publishing_destination)
+        [Client.create_publishing_destination documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.create_publishing_destination)
         """
 
     def create_sample_findings(
         self, DetectorId: str, FindingTypes: List[str] = None
     ) -> Dict[str, Any]:
         """
-        [Client.create_sample_findings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.create_sample_findings)
+        [Client.create_sample_findings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.create_sample_findings)
         """
 
     def create_threat_intel_set(
@@ -199,85 +199,85 @@ class GuardDutyClient:
         Tags: Dict[str, str] = None,
     ) -> CreateThreatIntelSetResponseTypeDef:
         """
-        [Client.create_threat_intel_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.create_threat_intel_set)
+        [Client.create_threat_intel_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.create_threat_intel_set)
         """
 
     def decline_invitations(self, AccountIds: List[str]) -> DeclineInvitationsResponseTypeDef:
         """
-        [Client.decline_invitations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.decline_invitations)
+        [Client.decline_invitations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.decline_invitations)
         """
 
     def delete_detector(self, DetectorId: str) -> Dict[str, Any]:
         """
-        [Client.delete_detector documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.delete_detector)
+        [Client.delete_detector documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.delete_detector)
         """
 
     def delete_filter(self, DetectorId: str, FilterName: str) -> Dict[str, Any]:
         """
-        [Client.delete_filter documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.delete_filter)
+        [Client.delete_filter documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.delete_filter)
         """
 
     def delete_invitations(self, AccountIds: List[str]) -> DeleteInvitationsResponseTypeDef:
         """
-        [Client.delete_invitations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.delete_invitations)
+        [Client.delete_invitations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.delete_invitations)
         """
 
     def delete_ip_set(self, DetectorId: str, IpSetId: str) -> Dict[str, Any]:
         """
-        [Client.delete_ip_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.delete_ip_set)
+        [Client.delete_ip_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.delete_ip_set)
         """
 
     def delete_members(
         self, DetectorId: str, AccountIds: List[str]
     ) -> DeleteMembersResponseTypeDef:
         """
-        [Client.delete_members documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.delete_members)
+        [Client.delete_members documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.delete_members)
         """
 
     def delete_publishing_destination(self, DetectorId: str, DestinationId: str) -> Dict[str, Any]:
         """
-        [Client.delete_publishing_destination documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.delete_publishing_destination)
+        [Client.delete_publishing_destination documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.delete_publishing_destination)
         """
 
     def delete_threat_intel_set(self, DetectorId: str, ThreatIntelSetId: str) -> Dict[str, Any]:
         """
-        [Client.delete_threat_intel_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.delete_threat_intel_set)
+        [Client.delete_threat_intel_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.delete_threat_intel_set)
         """
 
     def describe_organization_configuration(
         self, DetectorId: str
     ) -> DescribeOrganizationConfigurationResponseTypeDef:
         """
-        [Client.describe_organization_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.describe_organization_configuration)
+        [Client.describe_organization_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.describe_organization_configuration)
         """
 
     def describe_publishing_destination(
         self, DetectorId: str, DestinationId: str
     ) -> DescribePublishingDestinationResponseTypeDef:
         """
-        [Client.describe_publishing_destination documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.describe_publishing_destination)
+        [Client.describe_publishing_destination documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.describe_publishing_destination)
         """
 
     def disable_organization_admin_account(self, AdminAccountId: str) -> Dict[str, Any]:
         """
-        [Client.disable_organization_admin_account documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.disable_organization_admin_account)
+        [Client.disable_organization_admin_account documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.disable_organization_admin_account)
         """
 
     def disassociate_from_master_account(self, DetectorId: str) -> Dict[str, Any]:
         """
-        [Client.disassociate_from_master_account documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.disassociate_from_master_account)
+        [Client.disassociate_from_master_account documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.disassociate_from_master_account)
         """
 
     def disassociate_members(
         self, DetectorId: str, AccountIds: List[str]
     ) -> DisassociateMembersResponseTypeDef:
         """
-        [Client.disassociate_members documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.disassociate_members)
+        [Client.disassociate_members documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.disassociate_members)
         """
 
     def enable_organization_admin_account(self, AdminAccountId: str) -> Dict[str, Any]:
         """
-        [Client.enable_organization_admin_account documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.enable_organization_admin_account)
+        [Client.enable_organization_admin_account documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.enable_organization_admin_account)
         """
 
     def generate_presigned_url(
@@ -288,24 +288,24 @@ class GuardDutyClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.generate_presigned_url)
         """
 
     def get_detector(self, DetectorId: str) -> GetDetectorResponseTypeDef:
         """
-        [Client.get_detector documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.get_detector)
+        [Client.get_detector documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.get_detector)
         """
 
     def get_filter(self, DetectorId: str, FilterName: str) -> GetFilterResponseTypeDef:
         """
-        [Client.get_filter documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.get_filter)
+        [Client.get_filter documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.get_filter)
         """
 
     def get_findings(
         self, DetectorId: str, FindingIds: List[str], SortCriteria: SortCriteriaTypeDef = None
     ) -> GetFindingsResponseTypeDef:
         """
-        [Client.get_findings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.get_findings)
+        [Client.get_findings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.get_findings)
         """
 
     def get_findings_statistics(
@@ -315,41 +315,41 @@ class GuardDutyClient:
         FindingCriteria: "FindingCriteriaTypeDef" = None,
     ) -> GetFindingsStatisticsResponseTypeDef:
         """
-        [Client.get_findings_statistics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.get_findings_statistics)
+        [Client.get_findings_statistics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.get_findings_statistics)
         """
 
     def get_invitations_count(self) -> GetInvitationsCountResponseTypeDef:
         """
-        [Client.get_invitations_count documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.get_invitations_count)
+        [Client.get_invitations_count documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.get_invitations_count)
         """
 
     def get_ip_set(self, DetectorId: str, IpSetId: str) -> GetIPSetResponseTypeDef:
         """
-        [Client.get_ip_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.get_ip_set)
+        [Client.get_ip_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.get_ip_set)
         """
 
     def get_master_account(self, DetectorId: str) -> GetMasterAccountResponseTypeDef:
         """
-        [Client.get_master_account documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.get_master_account)
+        [Client.get_master_account documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.get_master_account)
         """
 
     def get_member_detectors(
         self, DetectorId: str, AccountIds: List[str]
     ) -> GetMemberDetectorsResponseTypeDef:
         """
-        [Client.get_member_detectors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.get_member_detectors)
+        [Client.get_member_detectors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.get_member_detectors)
         """
 
     def get_members(self, DetectorId: str, AccountIds: List[str]) -> GetMembersResponseTypeDef:
         """
-        [Client.get_members documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.get_members)
+        [Client.get_members documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.get_members)
         """
 
     def get_threat_intel_set(
         self, DetectorId: str, ThreatIntelSetId: str
     ) -> GetThreatIntelSetResponseTypeDef:
         """
-        [Client.get_threat_intel_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.get_threat_intel_set)
+        [Client.get_threat_intel_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.get_threat_intel_set)
         """
 
     def get_usage_statistics(
@@ -364,7 +364,7 @@ class GuardDutyClient:
         NextToken: str = None,
     ) -> GetUsageStatisticsResponseTypeDef:
         """
-        [Client.get_usage_statistics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.get_usage_statistics)
+        [Client.get_usage_statistics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.get_usage_statistics)
         """
 
     def invite_members(
@@ -375,21 +375,21 @@ class GuardDutyClient:
         Message: str = None,
     ) -> InviteMembersResponseTypeDef:
         """
-        [Client.invite_members documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.invite_members)
+        [Client.invite_members documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.invite_members)
         """
 
     def list_detectors(
         self, MaxResults: int = None, NextToken: str = None
     ) -> ListDetectorsResponseTypeDef:
         """
-        [Client.list_detectors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.list_detectors)
+        [Client.list_detectors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.list_detectors)
         """
 
     def list_filters(
         self, DetectorId: str, MaxResults: int = None, NextToken: str = None
     ) -> ListFiltersResponseTypeDef:
         """
-        [Client.list_filters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.list_filters)
+        [Client.list_filters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.list_filters)
         """
 
     def list_findings(
@@ -401,21 +401,21 @@ class GuardDutyClient:
         NextToken: str = None,
     ) -> ListFindingsResponseTypeDef:
         """
-        [Client.list_findings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.list_findings)
+        [Client.list_findings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.list_findings)
         """
 
     def list_invitations(
         self, MaxResults: int = None, NextToken: str = None
     ) -> ListInvitationsResponseTypeDef:
         """
-        [Client.list_invitations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.list_invitations)
+        [Client.list_invitations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.list_invitations)
         """
 
     def list_ip_sets(
         self, DetectorId: str, MaxResults: int = None, NextToken: str = None
     ) -> ListIPSetsResponseTypeDef:
         """
-        [Client.list_ip_sets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.list_ip_sets)
+        [Client.list_ip_sets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.list_ip_sets)
         """
 
     def list_members(
@@ -426,62 +426,62 @@ class GuardDutyClient:
         OnlyAssociated: str = None,
     ) -> ListMembersResponseTypeDef:
         """
-        [Client.list_members documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.list_members)
+        [Client.list_members documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.list_members)
         """
 
     def list_organization_admin_accounts(
         self, MaxResults: int = None, NextToken: str = None
     ) -> ListOrganizationAdminAccountsResponseTypeDef:
         """
-        [Client.list_organization_admin_accounts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.list_organization_admin_accounts)
+        [Client.list_organization_admin_accounts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.list_organization_admin_accounts)
         """
 
     def list_publishing_destinations(
         self, DetectorId: str, MaxResults: int = None, NextToken: str = None
     ) -> ListPublishingDestinationsResponseTypeDef:
         """
-        [Client.list_publishing_destinations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.list_publishing_destinations)
+        [Client.list_publishing_destinations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.list_publishing_destinations)
         """
 
     def list_tags_for_resource(self, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.list_tags_for_resource)
         """
 
     def list_threat_intel_sets(
         self, DetectorId: str, MaxResults: int = None, NextToken: str = None
     ) -> ListThreatIntelSetsResponseTypeDef:
         """
-        [Client.list_threat_intel_sets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.list_threat_intel_sets)
+        [Client.list_threat_intel_sets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.list_threat_intel_sets)
         """
 
     def start_monitoring_members(
         self, DetectorId: str, AccountIds: List[str]
     ) -> StartMonitoringMembersResponseTypeDef:
         """
-        [Client.start_monitoring_members documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.start_monitoring_members)
+        [Client.start_monitoring_members documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.start_monitoring_members)
         """
 
     def stop_monitoring_members(
         self, DetectorId: str, AccountIds: List[str]
     ) -> StopMonitoringMembersResponseTypeDef:
         """
-        [Client.stop_monitoring_members documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.stop_monitoring_members)
+        [Client.stop_monitoring_members documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.stop_monitoring_members)
         """
 
     def tag_resource(self, ResourceArn: str, Tags: Dict[str, str]) -> Dict[str, Any]:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.tag_resource)
         """
 
     def unarchive_findings(self, DetectorId: str, FindingIds: List[str]) -> Dict[str, Any]:
         """
-        [Client.unarchive_findings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.unarchive_findings)
+        [Client.unarchive_findings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.unarchive_findings)
         """
 
     def untag_resource(self, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.untag_resource)
         """
 
     def update_detector(
@@ -492,7 +492,7 @@ class GuardDutyClient:
         DataSources: DataSourceConfigurationsTypeDef = None,
     ) -> Dict[str, Any]:
         """
-        [Client.update_detector documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.update_detector)
+        [Client.update_detector documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.update_detector)
         """
 
     def update_filter(
@@ -505,7 +505,7 @@ class GuardDutyClient:
         FindingCriteria: "FindingCriteriaTypeDef" = None,
     ) -> UpdateFilterResponseTypeDef:
         """
-        [Client.update_filter documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.update_filter)
+        [Client.update_filter documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.update_filter)
         """
 
     def update_findings_feedback(
@@ -516,7 +516,7 @@ class GuardDutyClient:
         Comments: str = None,
     ) -> Dict[str, Any]:
         """
-        [Client.update_findings_feedback documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.update_findings_feedback)
+        [Client.update_findings_feedback documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.update_findings_feedback)
         """
 
     def update_ip_set(
@@ -528,7 +528,7 @@ class GuardDutyClient:
         Activate: bool = None,
     ) -> Dict[str, Any]:
         """
-        [Client.update_ip_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.update_ip_set)
+        [Client.update_ip_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.update_ip_set)
         """
 
     def update_member_detectors(
@@ -538,7 +538,7 @@ class GuardDutyClient:
         DataSources: DataSourceConfigurationsTypeDef = None,
     ) -> UpdateMemberDetectorsResponseTypeDef:
         """
-        [Client.update_member_detectors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.update_member_detectors)
+        [Client.update_member_detectors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.update_member_detectors)
         """
 
     def update_organization_configuration(
@@ -548,7 +548,7 @@ class GuardDutyClient:
         DataSources: OrganizationDataSourceConfigurationsTypeDef = None,
     ) -> Dict[str, Any]:
         """
-        [Client.update_organization_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.update_organization_configuration)
+        [Client.update_organization_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.update_organization_configuration)
         """
 
     def update_publishing_destination(
@@ -558,7 +558,7 @@ class GuardDutyClient:
         DestinationProperties: "DestinationPropertiesTypeDef" = None,
     ) -> Dict[str, Any]:
         """
-        [Client.update_publishing_destination documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.update_publishing_destination)
+        [Client.update_publishing_destination documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.update_publishing_destination)
         """
 
     def update_threat_intel_set(
@@ -570,31 +570,31 @@ class GuardDutyClient:
         Activate: bool = None,
     ) -> Dict[str, Any]:
         """
-        [Client.update_threat_intel_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Client.update_threat_intel_set)
+        [Client.update_threat_intel_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Client.update_threat_intel_set)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_detectors"]) -> ListDetectorsPaginator:
         """
-        [Paginator.ListDetectors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Paginator.ListDetectors)
+        [Paginator.ListDetectors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Paginator.ListDetectors)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_filters"]) -> ListFiltersPaginator:
         """
-        [Paginator.ListFilters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Paginator.ListFilters)
+        [Paginator.ListFilters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Paginator.ListFilters)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_findings"]) -> ListFindingsPaginator:
         """
-        [Paginator.ListFindings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Paginator.ListFindings)
+        [Paginator.ListFindings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Paginator.ListFindings)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_ip_sets"]) -> ListIPSetsPaginator:
         """
-        [Paginator.ListIPSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Paginator.ListIPSets)
+        [Paginator.ListIPSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Paginator.ListIPSets)
         """
 
     @overload
@@ -602,13 +602,13 @@ class GuardDutyClient:
         self, operation_name: Literal["list_invitations"]
     ) -> ListInvitationsPaginator:
         """
-        [Paginator.ListInvitations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Paginator.ListInvitations)
+        [Paginator.ListInvitations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Paginator.ListInvitations)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_members"]) -> ListMembersPaginator:
         """
-        [Paginator.ListMembers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Paginator.ListMembers)
+        [Paginator.ListMembers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Paginator.ListMembers)
         """
 
     @overload
@@ -616,7 +616,7 @@ class GuardDutyClient:
         self, operation_name: Literal["list_organization_admin_accounts"]
     ) -> ListOrganizationAdminAccountsPaginator:
         """
-        [Paginator.ListOrganizationAdminAccounts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Paginator.ListOrganizationAdminAccounts)
+        [Paginator.ListOrganizationAdminAccounts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Paginator.ListOrganizationAdminAccounts)
         """
 
     @overload
@@ -624,5 +624,5 @@ class GuardDutyClient:
         self, operation_name: Literal["list_threat_intel_sets"]
     ) -> ListThreatIntelSetsPaginator:
         """
-        [Paginator.ListThreatIntelSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Paginator.ListThreatIntelSets)
+        [Paginator.ListThreatIntelSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Paginator.ListThreatIntelSets)
         """

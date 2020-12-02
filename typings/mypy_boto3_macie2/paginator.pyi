@@ -73,7 +73,7 @@ __all__ = (
 
 class DescribeBucketsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeBuckets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/macie2.html#Macie2.Paginator.DescribeBuckets)
+    [Paginator.DescribeBuckets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/macie2.html#Macie2.Paginator.DescribeBuckets)
     """
 
     def paginate(
@@ -83,13 +83,13 @@ class DescribeBucketsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeBucketsResponseTypeDef]:
         """
-        [DescribeBuckets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/macie2.html#Macie2.Paginator.DescribeBuckets.paginate)
+        [DescribeBuckets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/macie2.html#Macie2.Paginator.DescribeBuckets.paginate)
         """
 
 
 class GetUsageStatisticsPaginator(Boto3Paginator):
     """
-    [Paginator.GetUsageStatistics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/macie2.html#Macie2.Paginator.GetUsageStatistics)
+    [Paginator.GetUsageStatistics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/macie2.html#Macie2.Paginator.GetUsageStatistics)
     """
 
     def paginate(
@@ -99,13 +99,13 @@ class GetUsageStatisticsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetUsageStatisticsResponseTypeDef]:
         """
-        [GetUsageStatistics.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/macie2.html#Macie2.Paginator.GetUsageStatistics.paginate)
+        [GetUsageStatistics.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/macie2.html#Macie2.Paginator.GetUsageStatistics.paginate)
         """
 
 
 class ListClassificationJobsPaginator(Boto3Paginator):
     """
-    [Paginator.ListClassificationJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/macie2.html#Macie2.Paginator.ListClassificationJobs)
+    [Paginator.ListClassificationJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/macie2.html#Macie2.Paginator.ListClassificationJobs)
     """
 
     def paginate(
@@ -115,26 +115,26 @@ class ListClassificationJobsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListClassificationJobsResponseTypeDef]:
         """
-        [ListClassificationJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/macie2.html#Macie2.Paginator.ListClassificationJobs.paginate)
+        [ListClassificationJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/macie2.html#Macie2.Paginator.ListClassificationJobs.paginate)
         """
 
 
 class ListCustomDataIdentifiersPaginator(Boto3Paginator):
     """
-    [Paginator.ListCustomDataIdentifiers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/macie2.html#Macie2.Paginator.ListCustomDataIdentifiers)
+    [Paginator.ListCustomDataIdentifiers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/macie2.html#Macie2.Paginator.ListCustomDataIdentifiers)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListCustomDataIdentifiersResponseTypeDef]:
         """
-        [ListCustomDataIdentifiers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/macie2.html#Macie2.Paginator.ListCustomDataIdentifiers.paginate)
+        [ListCustomDataIdentifiers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/macie2.html#Macie2.Paginator.ListCustomDataIdentifiers.paginate)
         """
 
 
 class ListFindingsPaginator(Boto3Paginator):
     """
-    [Paginator.ListFindings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/macie2.html#Macie2.Paginator.ListFindings)
+    [Paginator.ListFindings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/macie2.html#Macie2.Paginator.ListFindings)
     """
 
     def paginate(
@@ -144,57 +144,57 @@ class ListFindingsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListFindingsResponseTypeDef]:
         """
-        [ListFindings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/macie2.html#Macie2.Paginator.ListFindings.paginate)
+        [ListFindings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/macie2.html#Macie2.Paginator.ListFindings.paginate)
         """
 
 
 class ListFindingsFiltersPaginator(Boto3Paginator):
     """
-    [Paginator.ListFindingsFilters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/macie2.html#Macie2.Paginator.ListFindingsFilters)
+    [Paginator.ListFindingsFilters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/macie2.html#Macie2.Paginator.ListFindingsFilters)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListFindingsFiltersResponseTypeDef]:
         """
-        [ListFindingsFilters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/macie2.html#Macie2.Paginator.ListFindingsFilters.paginate)
+        [ListFindingsFilters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/macie2.html#Macie2.Paginator.ListFindingsFilters.paginate)
         """
 
 
 class ListInvitationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListInvitations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/macie2.html#Macie2.Paginator.ListInvitations)
+    [Paginator.ListInvitations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/macie2.html#Macie2.Paginator.ListInvitations)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListInvitationsResponseTypeDef]:
         """
-        [ListInvitations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/macie2.html#Macie2.Paginator.ListInvitations.paginate)
+        [ListInvitations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/macie2.html#Macie2.Paginator.ListInvitations.paginate)
         """
 
 
 class ListMembersPaginator(Boto3Paginator):
     """
-    [Paginator.ListMembers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/macie2.html#Macie2.Paginator.ListMembers)
+    [Paginator.ListMembers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/macie2.html#Macie2.Paginator.ListMembers)
     """
 
     def paginate(
         self, onlyAssociated: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListMembersResponseTypeDef]:
         """
-        [ListMembers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/macie2.html#Macie2.Paginator.ListMembers.paginate)
+        [ListMembers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/macie2.html#Macie2.Paginator.ListMembers.paginate)
         """
 
 
 class ListOrganizationAdminAccountsPaginator(Boto3Paginator):
     """
-    [Paginator.ListOrganizationAdminAccounts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/macie2.html#Macie2.Paginator.ListOrganizationAdminAccounts)
+    [Paginator.ListOrganizationAdminAccounts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/macie2.html#Macie2.Paginator.ListOrganizationAdminAccounts)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListOrganizationAdminAccountsResponseTypeDef]:
         """
-        [ListOrganizationAdminAccounts.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/macie2.html#Macie2.Paginator.ListOrganizationAdminAccounts.paginate)
+        [ListOrganizationAdminAccounts.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/macie2.html#Macie2.Paginator.ListOrganizationAdminAccounts.paginate)
         """

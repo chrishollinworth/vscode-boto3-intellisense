@@ -30,32 +30,32 @@ __all__ = ("ClusterRunningWaiter", "ClusterTerminatedWaiter", "StepCompleteWaite
 
 class ClusterRunningWaiter(Boto3Waiter):
     """
-    [Waiter.ClusterRunning documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/emr.html#EMR.Waiter.ClusterRunning)
+    [Waiter.ClusterRunning documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/emr.html#EMR.Waiter.ClusterRunning)
     """
 
     def wait(self, ClusterId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [ClusterRunning.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/emr.html#EMR.Waiter.ClusterRunning.wait)
+        [ClusterRunning.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/emr.html#EMR.Waiter.ClusterRunning.wait)
         """
 
 
 class ClusterTerminatedWaiter(Boto3Waiter):
     """
-    [Waiter.ClusterTerminated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/emr.html#EMR.Waiter.ClusterTerminated)
+    [Waiter.ClusterTerminated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/emr.html#EMR.Waiter.ClusterTerminated)
     """
 
     def wait(self, ClusterId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [ClusterTerminated.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/emr.html#EMR.Waiter.ClusterTerminated.wait)
+        [ClusterTerminated.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/emr.html#EMR.Waiter.ClusterTerminated.wait)
         """
 
 
 class StepCompleteWaiter(Boto3Waiter):
     """
-    [Waiter.StepComplete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/emr.html#EMR.Waiter.StepComplete)
+    [Waiter.StepComplete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/emr.html#EMR.Waiter.StepComplete)
     """
 
     def wait(self, ClusterId: str, StepId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [StepComplete.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/emr.html#EMR.Waiter.StepComplete.wait)
+        [StepComplete.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/emr.html#EMR.Waiter.StepComplete.wait)
         """

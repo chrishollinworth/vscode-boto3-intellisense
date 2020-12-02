@@ -86,7 +86,7 @@ class Exceptions:
 
 class SMSClient:
     """
-    [SMS.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Client)
+    [SMS.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms.html#SMS.Client)
     """
 
     meta: ClientMeta
@@ -94,7 +94,7 @@ class SMSClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms.html#SMS.Client.can_paginate)
         """
 
     def create_app(
@@ -107,7 +107,7 @@ class SMSClient:
         tags: List["TagTypeDef"] = None,
     ) -> CreateAppResponseTypeDef:
         """
-        [Client.create_app documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Client.create_app)
+        [Client.create_app documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms.html#SMS.Client.create_app)
         """
 
     def create_replication_job(
@@ -124,7 +124,7 @@ class SMSClient:
         kmsKeyId: str = None,
     ) -> CreateReplicationJobResponseTypeDef:
         """
-        [Client.create_replication_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Client.create_replication_job)
+        [Client.create_replication_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms.html#SMS.Client.create_replication_job)
         """
 
     def delete_app(
@@ -134,44 +134,44 @@ class SMSClient:
         forceTerminateApp: bool = None,
     ) -> Dict[str, Any]:
         """
-        [Client.delete_app documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Client.delete_app)
+        [Client.delete_app documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms.html#SMS.Client.delete_app)
         """
 
     def delete_app_launch_configuration(self, appId: str = None) -> Dict[str, Any]:
         """
-        [Client.delete_app_launch_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Client.delete_app_launch_configuration)
+        [Client.delete_app_launch_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms.html#SMS.Client.delete_app_launch_configuration)
         """
 
     def delete_app_replication_configuration(self, appId: str = None) -> Dict[str, Any]:
         """
-        [Client.delete_app_replication_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Client.delete_app_replication_configuration)
+        [Client.delete_app_replication_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms.html#SMS.Client.delete_app_replication_configuration)
         """
 
     def delete_app_validation_configuration(self, appId: str) -> Dict[str, Any]:
         """
-        [Client.delete_app_validation_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Client.delete_app_validation_configuration)
+        [Client.delete_app_validation_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms.html#SMS.Client.delete_app_validation_configuration)
         """
 
     def delete_replication_job(self, replicationJobId: str) -> Dict[str, Any]:
         """
-        [Client.delete_replication_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Client.delete_replication_job)
+        [Client.delete_replication_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms.html#SMS.Client.delete_replication_job)
         """
 
     def delete_server_catalog(self) -> Dict[str, Any]:
         """
-        [Client.delete_server_catalog documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Client.delete_server_catalog)
+        [Client.delete_server_catalog documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms.html#SMS.Client.delete_server_catalog)
         """
 
     def disassociate_connector(self, connectorId: str) -> Dict[str, Any]:
         """
-        [Client.disassociate_connector documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Client.disassociate_connector)
+        [Client.disassociate_connector documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms.html#SMS.Client.disassociate_connector)
         """
 
     def generate_change_set(
         self, appId: str = None, changesetFormat: Literal["JSON", "YAML"] = None
     ) -> GenerateChangeSetResponseTypeDef:
         """
-        [Client.generate_change_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Client.generate_change_set)
+        [Client.generate_change_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms.html#SMS.Client.generate_change_set)
         """
 
     def generate_presigned_url(
@@ -182,66 +182,66 @@ class SMSClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms.html#SMS.Client.generate_presigned_url)
         """
 
     def generate_template(
         self, appId: str = None, templateFormat: Literal["JSON", "YAML"] = None
     ) -> GenerateTemplateResponseTypeDef:
         """
-        [Client.generate_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Client.generate_template)
+        [Client.generate_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms.html#SMS.Client.generate_template)
         """
 
     def get_app(self, appId: str = None) -> GetAppResponseTypeDef:
         """
-        [Client.get_app documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Client.get_app)
+        [Client.get_app documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms.html#SMS.Client.get_app)
         """
 
     def get_app_launch_configuration(
         self, appId: str = None
     ) -> GetAppLaunchConfigurationResponseTypeDef:
         """
-        [Client.get_app_launch_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Client.get_app_launch_configuration)
+        [Client.get_app_launch_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms.html#SMS.Client.get_app_launch_configuration)
         """
 
     def get_app_replication_configuration(
         self, appId: str = None
     ) -> GetAppReplicationConfigurationResponseTypeDef:
         """
-        [Client.get_app_replication_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Client.get_app_replication_configuration)
+        [Client.get_app_replication_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms.html#SMS.Client.get_app_replication_configuration)
         """
 
     def get_app_validation_configuration(
         self, appId: str
     ) -> GetAppValidationConfigurationResponseTypeDef:
         """
-        [Client.get_app_validation_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Client.get_app_validation_configuration)
+        [Client.get_app_validation_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms.html#SMS.Client.get_app_validation_configuration)
         """
 
     def get_app_validation_output(self, appId: str) -> GetAppValidationOutputResponseTypeDef:
         """
-        [Client.get_app_validation_output documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Client.get_app_validation_output)
+        [Client.get_app_validation_output documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms.html#SMS.Client.get_app_validation_output)
         """
 
     def get_connectors(
         self, nextToken: str = None, maxResults: int = None
     ) -> GetConnectorsResponseTypeDef:
         """
-        [Client.get_connectors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Client.get_connectors)
+        [Client.get_connectors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms.html#SMS.Client.get_connectors)
         """
 
     def get_replication_jobs(
         self, replicationJobId: str = None, nextToken: str = None, maxResults: int = None
     ) -> GetReplicationJobsResponseTypeDef:
         """
-        [Client.get_replication_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Client.get_replication_jobs)
+        [Client.get_replication_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms.html#SMS.Client.get_replication_jobs)
         """
 
     def get_replication_runs(
         self, replicationJobId: str, nextToken: str = None, maxResults: int = None
     ) -> GetReplicationRunsResponseTypeDef:
         """
-        [Client.get_replication_runs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Client.get_replication_runs)
+        [Client.get_replication_runs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms.html#SMS.Client.get_replication_runs)
         """
 
     def get_servers(
@@ -251,36 +251,36 @@ class SMSClient:
         vmServerAddressList: List["VmServerAddressTypeDef"] = None,
     ) -> GetServersResponseTypeDef:
         """
-        [Client.get_servers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Client.get_servers)
+        [Client.get_servers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms.html#SMS.Client.get_servers)
         """
 
     def import_app_catalog(self, roleName: str = None) -> Dict[str, Any]:
         """
-        [Client.import_app_catalog documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Client.import_app_catalog)
+        [Client.import_app_catalog documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms.html#SMS.Client.import_app_catalog)
         """
 
     def import_server_catalog(self) -> Dict[str, Any]:
         """
-        [Client.import_server_catalog documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Client.import_server_catalog)
+        [Client.import_server_catalog documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms.html#SMS.Client.import_server_catalog)
         """
 
     def launch_app(self, appId: str = None) -> Dict[str, Any]:
         """
-        [Client.launch_app documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Client.launch_app)
+        [Client.launch_app documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms.html#SMS.Client.launch_app)
         """
 
     def list_apps(
         self, appIds: List[str] = None, nextToken: str = None, maxResults: int = None
     ) -> ListAppsResponseTypeDef:
         """
-        [Client.list_apps documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Client.list_apps)
+        [Client.list_apps documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms.html#SMS.Client.list_apps)
         """
 
     def notify_app_validation_output(
         self, appId: str, notificationContext: NotificationContextTypeDef = None
     ) -> Dict[str, Any]:
         """
-        [Client.notify_app_validation_output documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Client.notify_app_validation_output)
+        [Client.notify_app_validation_output documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms.html#SMS.Client.notify_app_validation_output)
         """
 
     def put_app_launch_configuration(
@@ -291,7 +291,7 @@ class SMSClient:
         serverGroupLaunchConfigurations: List["ServerGroupLaunchConfigurationTypeDef"] = None,
     ) -> Dict[str, Any]:
         """
-        [Client.put_app_launch_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Client.put_app_launch_configuration)
+        [Client.put_app_launch_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms.html#SMS.Client.put_app_launch_configuration)
         """
 
     def put_app_replication_configuration(
@@ -302,7 +302,7 @@ class SMSClient:
         ] = None,
     ) -> Dict[str, Any]:
         """
-        [Client.put_app_replication_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Client.put_app_replication_configuration)
+        [Client.put_app_replication_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms.html#SMS.Client.put_app_replication_configuration)
         """
 
     def put_app_validation_configuration(
@@ -314,36 +314,36 @@ class SMSClient:
         ] = None,
     ) -> Dict[str, Any]:
         """
-        [Client.put_app_validation_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Client.put_app_validation_configuration)
+        [Client.put_app_validation_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms.html#SMS.Client.put_app_validation_configuration)
         """
 
     def start_app_replication(self, appId: str = None) -> Dict[str, Any]:
         """
-        [Client.start_app_replication documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Client.start_app_replication)
+        [Client.start_app_replication documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms.html#SMS.Client.start_app_replication)
         """
 
     def start_on_demand_app_replication(
         self, appId: str, description: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.start_on_demand_app_replication documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Client.start_on_demand_app_replication)
+        [Client.start_on_demand_app_replication documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms.html#SMS.Client.start_on_demand_app_replication)
         """
 
     def start_on_demand_replication_run(
         self, replicationJobId: str, description: str = None
     ) -> StartOnDemandReplicationRunResponseTypeDef:
         """
-        [Client.start_on_demand_replication_run documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Client.start_on_demand_replication_run)
+        [Client.start_on_demand_replication_run documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms.html#SMS.Client.start_on_demand_replication_run)
         """
 
     def stop_app_replication(self, appId: str = None) -> Dict[str, Any]:
         """
-        [Client.stop_app_replication documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Client.stop_app_replication)
+        [Client.stop_app_replication documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms.html#SMS.Client.stop_app_replication)
         """
 
     def terminate_app(self, appId: str = None) -> Dict[str, Any]:
         """
-        [Client.terminate_app documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Client.terminate_app)
+        [Client.terminate_app documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms.html#SMS.Client.terminate_app)
         """
 
     def update_app(
@@ -356,7 +356,7 @@ class SMSClient:
         tags: List["TagTypeDef"] = None,
     ) -> UpdateAppResponseTypeDef:
         """
-        [Client.update_app documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Client.update_app)
+        [Client.update_app documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms.html#SMS.Client.update_app)
         """
 
     def update_replication_job(
@@ -372,13 +372,13 @@ class SMSClient:
         kmsKeyId: str = None,
     ) -> Dict[str, Any]:
         """
-        [Client.update_replication_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Client.update_replication_job)
+        [Client.update_replication_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms.html#SMS.Client.update_replication_job)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_connectors"]) -> GetConnectorsPaginator:
         """
-        [Paginator.GetConnectors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Paginator.GetConnectors)
+        [Paginator.GetConnectors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms.html#SMS.Paginator.GetConnectors)
         """
 
     @overload
@@ -386,7 +386,7 @@ class SMSClient:
         self, operation_name: Literal["get_replication_jobs"]
     ) -> GetReplicationJobsPaginator:
         """
-        [Paginator.GetReplicationJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Paginator.GetReplicationJobs)
+        [Paginator.GetReplicationJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms.html#SMS.Paginator.GetReplicationJobs)
         """
 
     @overload
@@ -394,17 +394,17 @@ class SMSClient:
         self, operation_name: Literal["get_replication_runs"]
     ) -> GetReplicationRunsPaginator:
         """
-        [Paginator.GetReplicationRuns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Paginator.GetReplicationRuns)
+        [Paginator.GetReplicationRuns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms.html#SMS.Paginator.GetReplicationRuns)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_servers"]) -> GetServersPaginator:
         """
-        [Paginator.GetServers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Paginator.GetServers)
+        [Paginator.GetServers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms.html#SMS.Paginator.GetServers)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_apps"]) -> ListAppsPaginator:
         """
-        [Paginator.ListApps documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sms.html#SMS.Paginator.ListApps)
+        [Paginator.ListApps documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms.html#SMS.Paginator.ListApps)
         """

@@ -82,7 +82,7 @@ class Exceptions:
 
 class MTurkClient:
     """
-    [MTurk.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Client)
+    [MTurk.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Client)
     """
 
     meta: ClientMeta
@@ -92,14 +92,14 @@ class MTurkClient:
         self, QualificationRequestId: str, IntegerValue: int = None
     ) -> Dict[str, Any]:
         """
-        [Client.accept_qualification_request documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Client.accept_qualification_request)
+        [Client.accept_qualification_request documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Client.accept_qualification_request)
         """
 
     def approve_assignment(
         self, AssignmentId: str, RequesterFeedback: str = None, OverrideRejection: bool = None
     ) -> Dict[str, Any]:
         """
-        [Client.approve_assignment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Client.approve_assignment)
+        [Client.approve_assignment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Client.approve_assignment)
         """
 
     def associate_qualification_with_worker(
@@ -110,19 +110,19 @@ class MTurkClient:
         SendNotification: bool = None,
     ) -> Dict[str, Any]:
         """
-        [Client.associate_qualification_with_worker documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Client.associate_qualification_with_worker)
+        [Client.associate_qualification_with_worker documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Client.associate_qualification_with_worker)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Client.can_paginate)
         """
 
     def create_additional_assignments_for_hit(
         self, HITId: str, NumberOfAdditionalAssignments: int, UniqueRequestToken: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.create_additional_assignments_for_hit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Client.create_additional_assignments_for_hit)
+        [Client.create_additional_assignments_for_hit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Client.create_additional_assignments_for_hit)
         """
 
     def create_hit(
@@ -145,7 +145,7 @@ class MTurkClient:
         HITLayoutParameters: List[HITLayoutParameterTypeDef] = None,
     ) -> CreateHITResponseTypeDef:
         """
-        [Client.create_hit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Client.create_hit)
+        [Client.create_hit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Client.create_hit)
         """
 
     def create_hit_type(
@@ -159,7 +159,7 @@ class MTurkClient:
         QualificationRequirements: List["QualificationRequirementTypeDef"] = None,
     ) -> CreateHITTypeResponseTypeDef:
         """
-        [Client.create_hit_type documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Client.create_hit_type)
+        [Client.create_hit_type documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Client.create_hit_type)
         """
 
     def create_hit_with_hit_type(
@@ -176,7 +176,7 @@ class MTurkClient:
         HITLayoutParameters: List[HITLayoutParameterTypeDef] = None,
     ) -> CreateHITWithHITTypeResponseTypeDef:
         """
-        [Client.create_hit_with_hit_type documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Client.create_hit_with_hit_type)
+        [Client.create_hit_with_hit_type documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Client.create_hit_with_hit_type)
         """
 
     def create_qualification_type(
@@ -193,34 +193,34 @@ class MTurkClient:
         AutoGrantedValue: int = None,
     ) -> CreateQualificationTypeResponseTypeDef:
         """
-        [Client.create_qualification_type documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Client.create_qualification_type)
+        [Client.create_qualification_type documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Client.create_qualification_type)
         """
 
     def create_worker_block(self, WorkerId: str, Reason: str) -> Dict[str, Any]:
         """
-        [Client.create_worker_block documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Client.create_worker_block)
+        [Client.create_worker_block documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Client.create_worker_block)
         """
 
     def delete_hit(self, HITId: str) -> Dict[str, Any]:
         """
-        [Client.delete_hit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Client.delete_hit)
+        [Client.delete_hit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Client.delete_hit)
         """
 
     def delete_qualification_type(self, QualificationTypeId: str) -> Dict[str, Any]:
         """
-        [Client.delete_qualification_type documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Client.delete_qualification_type)
+        [Client.delete_qualification_type documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Client.delete_qualification_type)
         """
 
     def delete_worker_block(self, WorkerId: str, Reason: str = None) -> Dict[str, Any]:
         """
-        [Client.delete_worker_block documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Client.delete_worker_block)
+        [Client.delete_worker_block documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Client.delete_worker_block)
         """
 
     def disassociate_qualification_from_worker(
         self, WorkerId: str, QualificationTypeId: str, Reason: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.disassociate_qualification_from_worker documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Client.disassociate_qualification_from_worker)
+        [Client.disassociate_qualification_from_worker documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Client.disassociate_qualification_from_worker)
         """
 
     def generate_presigned_url(
@@ -231,43 +231,43 @@ class MTurkClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Client.generate_presigned_url)
         """
 
     def get_account_balance(self) -> GetAccountBalanceResponseTypeDef:
         """
-        [Client.get_account_balance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Client.get_account_balance)
+        [Client.get_account_balance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Client.get_account_balance)
         """
 
     def get_assignment(self, AssignmentId: str) -> GetAssignmentResponseTypeDef:
         """
-        [Client.get_assignment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Client.get_assignment)
+        [Client.get_assignment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Client.get_assignment)
         """
 
     def get_file_upload_url(
         self, AssignmentId: str, QuestionIdentifier: str
     ) -> GetFileUploadURLResponseTypeDef:
         """
-        [Client.get_file_upload_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Client.get_file_upload_url)
+        [Client.get_file_upload_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Client.get_file_upload_url)
         """
 
     def get_hit(self, HITId: str) -> GetHITResponseTypeDef:
         """
-        [Client.get_hit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Client.get_hit)
+        [Client.get_hit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Client.get_hit)
         """
 
     def get_qualification_score(
         self, QualificationTypeId: str, WorkerId: str
     ) -> GetQualificationScoreResponseTypeDef:
         """
-        [Client.get_qualification_score documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Client.get_qualification_score)
+        [Client.get_qualification_score documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Client.get_qualification_score)
         """
 
     def get_qualification_type(
         self, QualificationTypeId: str
     ) -> GetQualificationTypeResponseTypeDef:
         """
-        [Client.get_qualification_type documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Client.get_qualification_type)
+        [Client.get_qualification_type documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Client.get_qualification_type)
         """
 
     def list_assignments_for_hit(
@@ -278,7 +278,7 @@ class MTurkClient:
         AssignmentStatuses: List[Literal["Submitted", "Approved", "Rejected"]] = None,
     ) -> ListAssignmentsForHITResponseTypeDef:
         """
-        [Client.list_assignments_for_hit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Client.list_assignments_for_hit)
+        [Client.list_assignments_for_hit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Client.list_assignments_for_hit)
         """
 
     def list_bonus_payments(
@@ -289,26 +289,26 @@ class MTurkClient:
         MaxResults: int = None,
     ) -> ListBonusPaymentsResponseTypeDef:
         """
-        [Client.list_bonus_payments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Client.list_bonus_payments)
+        [Client.list_bonus_payments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Client.list_bonus_payments)
         """
 
     def list_hits(self, NextToken: str = None, MaxResults: int = None) -> ListHITsResponseTypeDef:
         """
-        [Client.list_hits documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Client.list_hits)
+        [Client.list_hits documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Client.list_hits)
         """
 
     def list_hits_for_qualification_type(
         self, QualificationTypeId: str, NextToken: str = None, MaxResults: int = None
     ) -> ListHITsForQualificationTypeResponseTypeDef:
         """
-        [Client.list_hits_for_qualification_type documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Client.list_hits_for_qualification_type)
+        [Client.list_hits_for_qualification_type documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Client.list_hits_for_qualification_type)
         """
 
     def list_qualification_requests(
         self, QualificationTypeId: str = None, NextToken: str = None, MaxResults: int = None
     ) -> ListQualificationRequestsResponseTypeDef:
         """
-        [Client.list_qualification_requests documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Client.list_qualification_requests)
+        [Client.list_qualification_requests documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Client.list_qualification_requests)
         """
 
     def list_qualification_types(
@@ -320,7 +320,7 @@ class MTurkClient:
         MaxResults: int = None,
     ) -> ListQualificationTypesResponseTypeDef:
         """
-        [Client.list_qualification_types documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Client.list_qualification_types)
+        [Client.list_qualification_types documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Client.list_qualification_types)
         """
 
     def list_review_policy_results_for_hit(
@@ -333,7 +333,7 @@ class MTurkClient:
         MaxResults: int = None,
     ) -> ListReviewPolicyResultsForHITResponseTypeDef:
         """
-        [Client.list_review_policy_results_for_hit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Client.list_review_policy_results_for_hit)
+        [Client.list_review_policy_results_for_hit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Client.list_review_policy_results_for_hit)
         """
 
     def list_reviewable_hits(
@@ -344,14 +344,14 @@ class MTurkClient:
         MaxResults: int = None,
     ) -> ListReviewableHITsResponseTypeDef:
         """
-        [Client.list_reviewable_hits documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Client.list_reviewable_hits)
+        [Client.list_reviewable_hits documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Client.list_reviewable_hits)
         """
 
     def list_worker_blocks(
         self, NextToken: str = None, MaxResults: int = None
     ) -> ListWorkerBlocksResponseTypeDef:
         """
-        [Client.list_worker_blocks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Client.list_worker_blocks)
+        [Client.list_worker_blocks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Client.list_worker_blocks)
         """
 
     def list_workers_with_qualification_type(
@@ -362,26 +362,26 @@ class MTurkClient:
         MaxResults: int = None,
     ) -> ListWorkersWithQualificationTypeResponseTypeDef:
         """
-        [Client.list_workers_with_qualification_type documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Client.list_workers_with_qualification_type)
+        [Client.list_workers_with_qualification_type documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Client.list_workers_with_qualification_type)
         """
 
     def notify_workers(
         self, Subject: str, MessageText: str, WorkerIds: List[str]
     ) -> NotifyWorkersResponseTypeDef:
         """
-        [Client.notify_workers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Client.notify_workers)
+        [Client.notify_workers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Client.notify_workers)
         """
 
     def reject_assignment(self, AssignmentId: str, RequesterFeedback: str) -> Dict[str, Any]:
         """
-        [Client.reject_assignment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Client.reject_assignment)
+        [Client.reject_assignment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Client.reject_assignment)
         """
 
     def reject_qualification_request(
         self, QualificationRequestId: str, Reason: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.reject_qualification_request documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Client.reject_qualification_request)
+        [Client.reject_qualification_request documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Client.reject_qualification_request)
         """
 
     def send_bonus(
@@ -393,7 +393,7 @@ class MTurkClient:
         UniqueRequestToken: str = None,
     ) -> Dict[str, Any]:
         """
-        [Client.send_bonus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Client.send_bonus)
+        [Client.send_bonus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Client.send_bonus)
         """
 
     def send_test_event_notification(
@@ -415,22 +415,22 @@ class MTurkClient:
         ],
     ) -> Dict[str, Any]:
         """
-        [Client.send_test_event_notification documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Client.send_test_event_notification)
+        [Client.send_test_event_notification documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Client.send_test_event_notification)
         """
 
     def update_expiration_for_hit(self, HITId: str, ExpireAt: datetime) -> Dict[str, Any]:
         """
-        [Client.update_expiration_for_hit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Client.update_expiration_for_hit)
+        [Client.update_expiration_for_hit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Client.update_expiration_for_hit)
         """
 
     def update_hit_review_status(self, HITId: str, Revert: bool = None) -> Dict[str, Any]:
         """
-        [Client.update_hit_review_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Client.update_hit_review_status)
+        [Client.update_hit_review_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Client.update_hit_review_status)
         """
 
     def update_hit_type_of_hit(self, HITId: str, HITTypeId: str) -> Dict[str, Any]:
         """
-        [Client.update_hit_type_of_hit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Client.update_hit_type_of_hit)
+        [Client.update_hit_type_of_hit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Client.update_hit_type_of_hit)
         """
 
     def update_notification_settings(
@@ -440,7 +440,7 @@ class MTurkClient:
         Active: bool = None,
     ) -> Dict[str, Any]:
         """
-        [Client.update_notification_settings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Client.update_notification_settings)
+        [Client.update_notification_settings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Client.update_notification_settings)
         """
 
     def update_qualification_type(
@@ -456,7 +456,7 @@ class MTurkClient:
         AutoGrantedValue: int = None,
     ) -> UpdateQualificationTypeResponseTypeDef:
         """
-        [Client.update_qualification_type documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Client.update_qualification_type)
+        [Client.update_qualification_type documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Client.update_qualification_type)
         """
 
     @overload
@@ -464,7 +464,7 @@ class MTurkClient:
         self, operation_name: Literal["list_assignments_for_hit"]
     ) -> ListAssignmentsForHITPaginator:
         """
-        [Paginator.ListAssignmentsForHIT documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Paginator.ListAssignmentsForHIT)
+        [Paginator.ListAssignmentsForHIT documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Paginator.ListAssignmentsForHIT)
         """
 
     @overload
@@ -472,13 +472,13 @@ class MTurkClient:
         self, operation_name: Literal["list_bonus_payments"]
     ) -> ListBonusPaymentsPaginator:
         """
-        [Paginator.ListBonusPayments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Paginator.ListBonusPayments)
+        [Paginator.ListBonusPayments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Paginator.ListBonusPayments)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_hits"]) -> ListHITsPaginator:
         """
-        [Paginator.ListHITs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Paginator.ListHITs)
+        [Paginator.ListHITs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Paginator.ListHITs)
         """
 
     @overload
@@ -486,7 +486,7 @@ class MTurkClient:
         self, operation_name: Literal["list_hits_for_qualification_type"]
     ) -> ListHITsForQualificationTypePaginator:
         """
-        [Paginator.ListHITsForQualificationType documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Paginator.ListHITsForQualificationType)
+        [Paginator.ListHITsForQualificationType documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Paginator.ListHITsForQualificationType)
         """
 
     @overload
@@ -494,7 +494,7 @@ class MTurkClient:
         self, operation_name: Literal["list_qualification_requests"]
     ) -> ListQualificationRequestsPaginator:
         """
-        [Paginator.ListQualificationRequests documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Paginator.ListQualificationRequests)
+        [Paginator.ListQualificationRequests documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Paginator.ListQualificationRequests)
         """
 
     @overload
@@ -502,7 +502,7 @@ class MTurkClient:
         self, operation_name: Literal["list_qualification_types"]
     ) -> ListQualificationTypesPaginator:
         """
-        [Paginator.ListQualificationTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Paginator.ListQualificationTypes)
+        [Paginator.ListQualificationTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Paginator.ListQualificationTypes)
         """
 
     @overload
@@ -510,7 +510,7 @@ class MTurkClient:
         self, operation_name: Literal["list_reviewable_hits"]
     ) -> ListReviewableHITsPaginator:
         """
-        [Paginator.ListReviewableHITs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Paginator.ListReviewableHITs)
+        [Paginator.ListReviewableHITs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Paginator.ListReviewableHITs)
         """
 
     @overload
@@ -518,7 +518,7 @@ class MTurkClient:
         self, operation_name: Literal["list_worker_blocks"]
     ) -> ListWorkerBlocksPaginator:
         """
-        [Paginator.ListWorkerBlocks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Paginator.ListWorkerBlocks)
+        [Paginator.ListWorkerBlocks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Paginator.ListWorkerBlocks)
         """
 
     @overload
@@ -526,5 +526,5 @@ class MTurkClient:
         self, operation_name: Literal["list_workers_with_qualification_type"]
     ) -> ListWorkersWithQualificationTypePaginator:
         """
-        [Paginator.ListWorkersWithQualificationType documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mturk.html#MTurk.Paginator.ListWorkersWithQualificationType)
+        [Paginator.ListWorkersWithQualificationType documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mturk.html#MTurk.Paginator.ListWorkersWithQualificationType)
         """

@@ -69,7 +69,7 @@ class Exceptions:
 
 class TransferClient:
     """
-    [Transfer.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/transfer.html#Transfer.Client)
+    [Transfer.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/transfer.html#Transfer.Client)
     """
 
     meta: ClientMeta
@@ -77,7 +77,7 @@ class TransferClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/transfer.html#Transfer.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/transfer.html#Transfer.Client.can_paginate)
         """
 
     def create_server(
@@ -94,7 +94,7 @@ class TransferClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateServerResponseTypeDef:
         """
-        [Client.create_server documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/transfer.html#Transfer.Client.create_server)
+        [Client.create_server documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/transfer.html#Transfer.Client.create_server)
         """
 
     def create_user(
@@ -110,39 +110,39 @@ class TransferClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateUserResponseTypeDef:
         """
-        [Client.create_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/transfer.html#Transfer.Client.create_user)
+        [Client.create_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/transfer.html#Transfer.Client.create_user)
         """
 
     def delete_server(self, ServerId: str) -> None:
         """
-        [Client.delete_server documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/transfer.html#Transfer.Client.delete_server)
+        [Client.delete_server documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/transfer.html#Transfer.Client.delete_server)
         """
 
     def delete_ssh_public_key(self, ServerId: str, SshPublicKeyId: str, UserName: str) -> None:
         """
-        [Client.delete_ssh_public_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/transfer.html#Transfer.Client.delete_ssh_public_key)
+        [Client.delete_ssh_public_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/transfer.html#Transfer.Client.delete_ssh_public_key)
         """
 
     def delete_user(self, ServerId: str, UserName: str) -> None:
         """
-        [Client.delete_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/transfer.html#Transfer.Client.delete_user)
+        [Client.delete_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/transfer.html#Transfer.Client.delete_user)
         """
 
     def describe_security_policy(
         self, SecurityPolicyName: str
     ) -> DescribeSecurityPolicyResponseTypeDef:
         """
-        [Client.describe_security_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/transfer.html#Transfer.Client.describe_security_policy)
+        [Client.describe_security_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/transfer.html#Transfer.Client.describe_security_policy)
         """
 
     def describe_server(self, ServerId: str) -> DescribeServerResponseTypeDef:
         """
-        [Client.describe_server documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/transfer.html#Transfer.Client.describe_server)
+        [Client.describe_server documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/transfer.html#Transfer.Client.describe_server)
         """
 
     def describe_user(self, ServerId: str, UserName: str) -> DescribeUserResponseTypeDef:
         """
-        [Client.describe_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/transfer.html#Transfer.Client.describe_user)
+        [Client.describe_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/transfer.html#Transfer.Client.describe_user)
         """
 
     def generate_presigned_url(
@@ -153,57 +153,57 @@ class TransferClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/transfer.html#Transfer.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/transfer.html#Transfer.Client.generate_presigned_url)
         """
 
     def import_ssh_public_key(
         self, ServerId: str, SshPublicKeyBody: str, UserName: str
     ) -> ImportSshPublicKeyResponseTypeDef:
         """
-        [Client.import_ssh_public_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/transfer.html#Transfer.Client.import_ssh_public_key)
+        [Client.import_ssh_public_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/transfer.html#Transfer.Client.import_ssh_public_key)
         """
 
     def list_security_policies(
         self, MaxResults: int = None, NextToken: str = None
     ) -> ListSecurityPoliciesResponseTypeDef:
         """
-        [Client.list_security_policies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/transfer.html#Transfer.Client.list_security_policies)
+        [Client.list_security_policies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/transfer.html#Transfer.Client.list_security_policies)
         """
 
     def list_servers(
         self, MaxResults: int = None, NextToken: str = None
     ) -> ListServersResponseTypeDef:
         """
-        [Client.list_servers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/transfer.html#Transfer.Client.list_servers)
+        [Client.list_servers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/transfer.html#Transfer.Client.list_servers)
         """
 
     def list_tags_for_resource(
         self, Arn: str, MaxResults: int = None, NextToken: str = None
     ) -> ListTagsForResourceResponseTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/transfer.html#Transfer.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/transfer.html#Transfer.Client.list_tags_for_resource)
         """
 
     def list_users(
         self, ServerId: str, MaxResults: int = None, NextToken: str = None
     ) -> ListUsersResponseTypeDef:
         """
-        [Client.list_users documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/transfer.html#Transfer.Client.list_users)
+        [Client.list_users documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/transfer.html#Transfer.Client.list_users)
         """
 
     def start_server(self, ServerId: str) -> None:
         """
-        [Client.start_server documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/transfer.html#Transfer.Client.start_server)
+        [Client.start_server documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/transfer.html#Transfer.Client.start_server)
         """
 
     def stop_server(self, ServerId: str) -> None:
         """
-        [Client.stop_server documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/transfer.html#Transfer.Client.stop_server)
+        [Client.stop_server documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/transfer.html#Transfer.Client.stop_server)
         """
 
     def tag_resource(self, Arn: str, Tags: List["TagTypeDef"]) -> None:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/transfer.html#Transfer.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/transfer.html#Transfer.Client.tag_resource)
         """
 
     def test_identity_provider(
@@ -215,12 +215,12 @@ class TransferClient:
         UserPassword: str = None,
     ) -> TestIdentityProviderResponseTypeDef:
         """
-        [Client.test_identity_provider documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/transfer.html#Transfer.Client.test_identity_provider)
+        [Client.test_identity_provider documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/transfer.html#Transfer.Client.test_identity_provider)
         """
 
     def untag_resource(self, Arn: str, TagKeys: List[str]) -> None:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/transfer.html#Transfer.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/transfer.html#Transfer.Client.untag_resource)
         """
 
     def update_server(
@@ -236,7 +236,7 @@ class TransferClient:
         SecurityPolicyName: str = None,
     ) -> UpdateServerResponseTypeDef:
         """
-        [Client.update_server documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/transfer.html#Transfer.Client.update_server)
+        [Client.update_server documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/transfer.html#Transfer.Client.update_server)
         """
 
     def update_user(
@@ -250,10 +250,10 @@ class TransferClient:
         Role: str = None,
     ) -> UpdateUserResponseTypeDef:
         """
-        [Client.update_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/transfer.html#Transfer.Client.update_user)
+        [Client.update_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/transfer.html#Transfer.Client.update_user)
         """
 
     def get_paginator(self, operation_name: Literal["list_servers"]) -> ListServersPaginator:
         """
-        [Paginator.ListServers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/transfer.html#Transfer.Paginator.ListServers)
+        [Paginator.ListServers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/transfer.html#Transfer.Paginator.ListServers)
         """

@@ -36,7 +36,7 @@ __all__ = ("ListSignalingChannelsPaginator", "ListStreamsPaginator")
 
 class ListSignalingChannelsPaginator(Boto3Paginator):
     """
-    [Paginator.ListSignalingChannels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kinesisvideo.html#KinesisVideo.Paginator.ListSignalingChannels)
+    [Paginator.ListSignalingChannels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesisvideo.html#KinesisVideo.Paginator.ListSignalingChannels)
     """
 
     def paginate(
@@ -45,13 +45,13 @@ class ListSignalingChannelsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListSignalingChannelsOutputTypeDef]:
         """
-        [ListSignalingChannels.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kinesisvideo.html#KinesisVideo.Paginator.ListSignalingChannels.paginate)
+        [ListSignalingChannels.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesisvideo.html#KinesisVideo.Paginator.ListSignalingChannels.paginate)
         """
 
 
 class ListStreamsPaginator(Boto3Paginator):
     """
-    [Paginator.ListStreams documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kinesisvideo.html#KinesisVideo.Paginator.ListStreams)
+    [Paginator.ListStreams documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesisvideo.html#KinesisVideo.Paginator.ListStreams)
     """
 
     def paginate(
@@ -60,5 +60,5 @@ class ListStreamsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListStreamsOutputTypeDef]:
         """
-        [ListStreams.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kinesisvideo.html#KinesisVideo.Paginator.ListStreams.paginate)
+        [ListStreams.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesisvideo.html#KinesisVideo.Paginator.ListStreams.paginate)
         """

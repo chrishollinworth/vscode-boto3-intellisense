@@ -34,25 +34,25 @@ __all__ = ("ListApplicationSnapshotsPaginator", "ListApplicationsPaginator")
 
 class ListApplicationSnapshotsPaginator(Boto3Paginator):
     """
-    [Paginator.ListApplicationSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kinesisanalyticsv2.html#KinesisAnalyticsV2.Paginator.ListApplicationSnapshots)
+    [Paginator.ListApplicationSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesisanalyticsv2.html#KinesisAnalyticsV2.Paginator.ListApplicationSnapshots)
     """
 
     def paginate(
         self, ApplicationName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListApplicationSnapshotsResponseTypeDef]:
         """
-        [ListApplicationSnapshots.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kinesisanalyticsv2.html#KinesisAnalyticsV2.Paginator.ListApplicationSnapshots.paginate)
+        [ListApplicationSnapshots.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesisanalyticsv2.html#KinesisAnalyticsV2.Paginator.ListApplicationSnapshots.paginate)
         """
 
 
 class ListApplicationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListApplications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kinesisanalyticsv2.html#KinesisAnalyticsV2.Paginator.ListApplications)
+    [Paginator.ListApplications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesisanalyticsv2.html#KinesisAnalyticsV2.Paginator.ListApplications)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListApplicationsResponseTypeDef]:
         """
-        [ListApplications.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kinesisanalyticsv2.html#KinesisAnalyticsV2.Paginator.ListApplications.paginate)
+        [ListApplications.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesisanalyticsv2.html#KinesisAnalyticsV2.Paginator.ListApplications.paginate)
         """

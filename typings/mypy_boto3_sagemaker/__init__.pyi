@@ -9,16 +9,22 @@ Usage::
         Client,
         EndpointDeletedWaiter,
         EndpointInServiceWaiter,
+        ListActionsPaginator,
         ListAlgorithmsPaginator,
+        ListAppImageConfigsPaginator,
         ListAppsPaginator,
+        ListArtifactsPaginator,
+        ListAssociationsPaginator,
         ListAutoMLJobsPaginator,
         ListCandidatesForAutoMLJobPaginator,
         ListCodeRepositoriesPaginator,
         ListCompilationJobsPaginator,
+        ListContextsPaginator,
         ListDomainsPaginator,
         ListEndpointConfigsPaginator,
         ListEndpointsPaginator,
         ListExperimentsPaginator,
+        ListFeatureGroupsPaginator,
         ListFlowDefinitionsPaginator,
         ListHumanTaskUisPaginator,
         ListHyperParameterTuningJobsPaginator,
@@ -26,12 +32,17 @@ Usage::
         ListImagesPaginator,
         ListLabelingJobsForWorkteamPaginator,
         ListLabelingJobsPaginator,
+        ListModelPackageGroupsPaginator,
         ListModelPackagesPaginator,
         ListModelsPaginator,
         ListMonitoringExecutionsPaginator,
         ListMonitoringSchedulesPaginator,
         ListNotebookInstanceLifecycleConfigsPaginator,
         ListNotebookInstancesPaginator,
+        ListPipelineExecutionStepsPaginator,
+        ListPipelineExecutionsPaginator,
+        ListPipelineParametersForExecutionPaginator,
+        ListPipelinesPaginator,
         ListProcessingJobsPaginator,
         ListSubscribedWorkteamsPaginator,
         ListTagsPaginator,
@@ -67,16 +78,22 @@ Usage::
     training_job_completed_or_stopped_waiter: TrainingJobCompletedOrStoppedWaiter = client.get_waiter("training_job_completed_or_stopped")
     transform_job_completed_or_stopped_waiter: TransformJobCompletedOrStoppedWaiter = client.get_waiter("transform_job_completed_or_stopped")
 
+    list_actions_paginator: ListActionsPaginator = client.get_paginator("list_actions")
     list_algorithms_paginator: ListAlgorithmsPaginator = client.get_paginator("list_algorithms")
+    list_app_image_configs_paginator: ListAppImageConfigsPaginator = client.get_paginator("list_app_image_configs")
     list_apps_paginator: ListAppsPaginator = client.get_paginator("list_apps")
+    list_artifacts_paginator: ListArtifactsPaginator = client.get_paginator("list_artifacts")
+    list_associations_paginator: ListAssociationsPaginator = client.get_paginator("list_associations")
     list_auto_ml_jobs_paginator: ListAutoMLJobsPaginator = client.get_paginator("list_auto_ml_jobs")
     list_candidates_for_auto_ml_job_paginator: ListCandidatesForAutoMLJobPaginator = client.get_paginator("list_candidates_for_auto_ml_job")
     list_code_repositories_paginator: ListCodeRepositoriesPaginator = client.get_paginator("list_code_repositories")
     list_compilation_jobs_paginator: ListCompilationJobsPaginator = client.get_paginator("list_compilation_jobs")
+    list_contexts_paginator: ListContextsPaginator = client.get_paginator("list_contexts")
     list_domains_paginator: ListDomainsPaginator = client.get_paginator("list_domains")
     list_endpoint_configs_paginator: ListEndpointConfigsPaginator = client.get_paginator("list_endpoint_configs")
     list_endpoints_paginator: ListEndpointsPaginator = client.get_paginator("list_endpoints")
     list_experiments_paginator: ListExperimentsPaginator = client.get_paginator("list_experiments")
+    list_feature_groups_paginator: ListFeatureGroupsPaginator = client.get_paginator("list_feature_groups")
     list_flow_definitions_paginator: ListFlowDefinitionsPaginator = client.get_paginator("list_flow_definitions")
     list_human_task_uis_paginator: ListHumanTaskUisPaginator = client.get_paginator("list_human_task_uis")
     list_hyper_parameter_tuning_jobs_paginator: ListHyperParameterTuningJobsPaginator = client.get_paginator("list_hyper_parameter_tuning_jobs")
@@ -84,12 +101,17 @@ Usage::
     list_images_paginator: ListImagesPaginator = client.get_paginator("list_images")
     list_labeling_jobs_paginator: ListLabelingJobsPaginator = client.get_paginator("list_labeling_jobs")
     list_labeling_jobs_for_workteam_paginator: ListLabelingJobsForWorkteamPaginator = client.get_paginator("list_labeling_jobs_for_workteam")
+    list_model_package_groups_paginator: ListModelPackageGroupsPaginator = client.get_paginator("list_model_package_groups")
     list_model_packages_paginator: ListModelPackagesPaginator = client.get_paginator("list_model_packages")
     list_models_paginator: ListModelsPaginator = client.get_paginator("list_models")
     list_monitoring_executions_paginator: ListMonitoringExecutionsPaginator = client.get_paginator("list_monitoring_executions")
     list_monitoring_schedules_paginator: ListMonitoringSchedulesPaginator = client.get_paginator("list_monitoring_schedules")
     list_notebook_instance_lifecycle_configs_paginator: ListNotebookInstanceLifecycleConfigsPaginator = client.get_paginator("list_notebook_instance_lifecycle_configs")
     list_notebook_instances_paginator: ListNotebookInstancesPaginator = client.get_paginator("list_notebook_instances")
+    list_pipeline_execution_steps_paginator: ListPipelineExecutionStepsPaginator = client.get_paginator("list_pipeline_execution_steps")
+    list_pipeline_executions_paginator: ListPipelineExecutionsPaginator = client.get_paginator("list_pipeline_executions")
+    list_pipeline_parameters_for_execution_paginator: ListPipelineParametersForExecutionPaginator = client.get_paginator("list_pipeline_parameters_for_execution")
+    list_pipelines_paginator: ListPipelinesPaginator = client.get_paginator("list_pipelines")
     list_processing_jobs_paginator: ListProcessingJobsPaginator = client.get_paginator("list_processing_jobs")
     list_subscribed_workteams_paginator: ListSubscribedWorkteamsPaginator = client.get_paginator("list_subscribed_workteams")
     list_tags_paginator: ListTagsPaginator = client.get_paginator("list_tags")
@@ -106,16 +128,22 @@ Usage::
 """
 from mypy_boto3_sagemaker.client import SageMakerClient
 from mypy_boto3_sagemaker.paginator import (
+    ListActionsPaginator,
     ListAlgorithmsPaginator,
+    ListAppImageConfigsPaginator,
     ListAppsPaginator,
+    ListArtifactsPaginator,
+    ListAssociationsPaginator,
     ListAutoMLJobsPaginator,
     ListCandidatesForAutoMLJobPaginator,
     ListCodeRepositoriesPaginator,
     ListCompilationJobsPaginator,
+    ListContextsPaginator,
     ListDomainsPaginator,
     ListEndpointConfigsPaginator,
     ListEndpointsPaginator,
     ListExperimentsPaginator,
+    ListFeatureGroupsPaginator,
     ListFlowDefinitionsPaginator,
     ListHumanTaskUisPaginator,
     ListHyperParameterTuningJobsPaginator,
@@ -123,12 +151,17 @@ from mypy_boto3_sagemaker.paginator import (
     ListImageVersionsPaginator,
     ListLabelingJobsForWorkteamPaginator,
     ListLabelingJobsPaginator,
+    ListModelPackageGroupsPaginator,
     ListModelPackagesPaginator,
     ListModelsPaginator,
     ListMonitoringExecutionsPaginator,
     ListMonitoringSchedulesPaginator,
     ListNotebookInstanceLifecycleConfigsPaginator,
     ListNotebookInstancesPaginator,
+    ListPipelineExecutionsPaginator,
+    ListPipelineExecutionStepsPaginator,
+    ListPipelineParametersForExecutionPaginator,
+    ListPipelinesPaginator,
     ListProcessingJobsPaginator,
     ListSubscribedWorkteamsPaginator,
     ListTagsPaginator,
@@ -160,16 +193,22 @@ __all__ = (
     "Client",
     "EndpointDeletedWaiter",
     "EndpointInServiceWaiter",
+    "ListActionsPaginator",
     "ListAlgorithmsPaginator",
+    "ListAppImageConfigsPaginator",
     "ListAppsPaginator",
+    "ListArtifactsPaginator",
+    "ListAssociationsPaginator",
     "ListAutoMLJobsPaginator",
     "ListCandidatesForAutoMLJobPaginator",
     "ListCodeRepositoriesPaginator",
     "ListCompilationJobsPaginator",
+    "ListContextsPaginator",
     "ListDomainsPaginator",
     "ListEndpointConfigsPaginator",
     "ListEndpointsPaginator",
     "ListExperimentsPaginator",
+    "ListFeatureGroupsPaginator",
     "ListFlowDefinitionsPaginator",
     "ListHumanTaskUisPaginator",
     "ListHyperParameterTuningJobsPaginator",
@@ -177,12 +216,17 @@ __all__ = (
     "ListImagesPaginator",
     "ListLabelingJobsForWorkteamPaginator",
     "ListLabelingJobsPaginator",
+    "ListModelPackageGroupsPaginator",
     "ListModelPackagesPaginator",
     "ListModelsPaginator",
     "ListMonitoringExecutionsPaginator",
     "ListMonitoringSchedulesPaginator",
     "ListNotebookInstanceLifecycleConfigsPaginator",
     "ListNotebookInstancesPaginator",
+    "ListPipelineExecutionStepsPaginator",
+    "ListPipelineExecutionsPaginator",
+    "ListPipelineParametersForExecutionPaginator",
+    "ListPipelinesPaginator",
     "ListProcessingJobsPaginator",
     "ListSubscribedWorkteamsPaginator",
     "ListTagsPaginator",

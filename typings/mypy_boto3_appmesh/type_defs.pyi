@@ -645,13 +645,7 @@ ServiceDiscoveryTypeDef = TypedDict(
     total=False,
 )
 
-_RequiredTagRefTypeDef = TypedDict("_RequiredTagRefTypeDef", {"key": str})
-_OptionalTagRefTypeDef = TypedDict("_OptionalTagRefTypeDef", {"value": str}, total=False)
-
-
-class TagRefTypeDef(_RequiredTagRefTypeDef, _OptionalTagRefTypeDef):
-    pass
-
+TagRefTypeDef = TypedDict("TagRefTypeDef", {"key": str, "value": str})
 
 TcpRouteActionTypeDef = TypedDict(
     "TcpRouteActionTypeDef", {"weightedTargets": List["WeightedTargetTypeDef"]}

@@ -89,7 +89,7 @@ class Exceptions:
 
 class CostExplorerClient:
     """
-    [CostExplorer.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ce.html#CostExplorer.Client)
+    [CostExplorer.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ce.html#CostExplorer.Client)
     """
 
     meta: ClientMeta
@@ -97,21 +97,21 @@ class CostExplorerClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ce.html#CostExplorer.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ce.html#CostExplorer.Client.can_paginate)
         """
 
     def create_anomaly_monitor(
         self, AnomalyMonitor: "AnomalyMonitorTypeDef"
     ) -> CreateAnomalyMonitorResponseTypeDef:
         """
-        [Client.create_anomaly_monitor documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ce.html#CostExplorer.Client.create_anomaly_monitor)
+        [Client.create_anomaly_monitor documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ce.html#CostExplorer.Client.create_anomaly_monitor)
         """
 
     def create_anomaly_subscription(
         self, AnomalySubscription: "AnomalySubscriptionTypeDef"
     ) -> CreateAnomalySubscriptionResponseTypeDef:
         """
-        [Client.create_anomaly_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ce.html#CostExplorer.Client.create_anomaly_subscription)
+        [Client.create_anomaly_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ce.html#CostExplorer.Client.create_anomaly_subscription)
         """
 
     def create_cost_category_definition(
@@ -121,31 +121,31 @@ class CostExplorerClient:
         Rules: List["CostCategoryRuleTypeDef"],
     ) -> CreateCostCategoryDefinitionResponseTypeDef:
         """
-        [Client.create_cost_category_definition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ce.html#CostExplorer.Client.create_cost_category_definition)
+        [Client.create_cost_category_definition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ce.html#CostExplorer.Client.create_cost_category_definition)
         """
 
     def delete_anomaly_monitor(self, MonitorArn: str) -> Dict[str, Any]:
         """
-        [Client.delete_anomaly_monitor documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ce.html#CostExplorer.Client.delete_anomaly_monitor)
+        [Client.delete_anomaly_monitor documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ce.html#CostExplorer.Client.delete_anomaly_monitor)
         """
 
     def delete_anomaly_subscription(self, SubscriptionArn: str) -> Dict[str, Any]:
         """
-        [Client.delete_anomaly_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ce.html#CostExplorer.Client.delete_anomaly_subscription)
+        [Client.delete_anomaly_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ce.html#CostExplorer.Client.delete_anomaly_subscription)
         """
 
     def delete_cost_category_definition(
         self, CostCategoryArn: str
     ) -> DeleteCostCategoryDefinitionResponseTypeDef:
         """
-        [Client.delete_cost_category_definition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ce.html#CostExplorer.Client.delete_cost_category_definition)
+        [Client.delete_cost_category_definition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ce.html#CostExplorer.Client.delete_cost_category_definition)
         """
 
     def describe_cost_category_definition(
         self, CostCategoryArn: str, EffectiveOn: str = None
     ) -> DescribeCostCategoryDefinitionResponseTypeDef:
         """
-        [Client.describe_cost_category_definition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ce.html#CostExplorer.Client.describe_cost_category_definition)
+        [Client.describe_cost_category_definition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ce.html#CostExplorer.Client.describe_cost_category_definition)
         """
 
     def generate_presigned_url(
@@ -156,7 +156,7 @@ class CostExplorerClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ce.html#CostExplorer.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ce.html#CostExplorer.Client.generate_presigned_url)
         """
 
     def get_anomalies(
@@ -169,14 +169,14 @@ class CostExplorerClient:
         MaxResults: int = None,
     ) -> GetAnomaliesResponseTypeDef:
         """
-        [Client.get_anomalies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ce.html#CostExplorer.Client.get_anomalies)
+        [Client.get_anomalies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ce.html#CostExplorer.Client.get_anomalies)
         """
 
     def get_anomaly_monitors(
         self, MonitorArnList: List[str] = None, NextPageToken: str = None, MaxResults: int = None
     ) -> GetAnomalyMonitorsResponseTypeDef:
         """
-        [Client.get_anomaly_monitors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ce.html#CostExplorer.Client.get_anomaly_monitors)
+        [Client.get_anomaly_monitors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ce.html#CostExplorer.Client.get_anomaly_monitors)
         """
 
     def get_anomaly_subscriptions(
@@ -187,7 +187,7 @@ class CostExplorerClient:
         MaxResults: int = None,
     ) -> GetAnomalySubscriptionsResponseTypeDef:
         """
-        [Client.get_anomaly_subscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ce.html#CostExplorer.Client.get_anomaly_subscriptions)
+        [Client.get_anomaly_subscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ce.html#CostExplorer.Client.get_anomaly_subscriptions)
         """
 
     def get_cost_and_usage(
@@ -200,7 +200,7 @@ class CostExplorerClient:
         NextPageToken: str = None,
     ) -> GetCostAndUsageResponseTypeDef:
         """
-        [Client.get_cost_and_usage documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ce.html#CostExplorer.Client.get_cost_and_usage)
+        [Client.get_cost_and_usage documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ce.html#CostExplorer.Client.get_cost_and_usage)
         """
 
     def get_cost_and_usage_with_resources(
@@ -213,7 +213,7 @@ class CostExplorerClient:
         NextPageToken: str = None,
     ) -> GetCostAndUsageWithResourcesResponseTypeDef:
         """
-        [Client.get_cost_and_usage_with_resources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ce.html#CostExplorer.Client.get_cost_and_usage_with_resources)
+        [Client.get_cost_and_usage_with_resources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ce.html#CostExplorer.Client.get_cost_and_usage_with_resources)
         """
 
     def get_cost_forecast(
@@ -233,7 +233,7 @@ class CostExplorerClient:
         PredictionIntervalLevel: int = None,
     ) -> GetCostForecastResponseTypeDef:
         """
-        [Client.get_cost_forecast documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ce.html#CostExplorer.Client.get_cost_forecast)
+        [Client.get_cost_forecast documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ce.html#CostExplorer.Client.get_cost_forecast)
         """
 
     def get_dimension_values(
@@ -275,7 +275,7 @@ class CostExplorerClient:
         NextPageToken: str = None,
     ) -> GetDimensionValuesResponseTypeDef:
         """
-        [Client.get_dimension_values documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ce.html#CostExplorer.Client.get_dimension_values)
+        [Client.get_dimension_values documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ce.html#CostExplorer.Client.get_dimension_values)
         """
 
     def get_reservation_coverage(
@@ -288,7 +288,7 @@ class CostExplorerClient:
         NextPageToken: str = None,
     ) -> GetReservationCoverageResponseTypeDef:
         """
-        [Client.get_reservation_coverage documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ce.html#CostExplorer.Client.get_reservation_coverage)
+        [Client.get_reservation_coverage documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ce.html#CostExplorer.Client.get_reservation_coverage)
         """
 
     def get_reservation_purchase_recommendation(
@@ -311,7 +311,7 @@ class CostExplorerClient:
         NextPageToken: str = None,
     ) -> GetReservationPurchaseRecommendationResponseTypeDef:
         """
-        [Client.get_reservation_purchase_recommendation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ce.html#CostExplorer.Client.get_reservation_purchase_recommendation)
+        [Client.get_reservation_purchase_recommendation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ce.html#CostExplorer.Client.get_reservation_purchase_recommendation)
         """
 
     def get_reservation_utilization(
@@ -323,7 +323,7 @@ class CostExplorerClient:
         NextPageToken: str = None,
     ) -> GetReservationUtilizationResponseTypeDef:
         """
-        [Client.get_reservation_utilization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ce.html#CostExplorer.Client.get_reservation_utilization)
+        [Client.get_reservation_utilization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ce.html#CostExplorer.Client.get_reservation_utilization)
         """
 
     def get_rightsizing_recommendation(
@@ -335,7 +335,7 @@ class CostExplorerClient:
         NextPageToken: str = None,
     ) -> GetRightsizingRecommendationResponseTypeDef:
         """
-        [Client.get_rightsizing_recommendation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ce.html#CostExplorer.Client.get_rightsizing_recommendation)
+        [Client.get_rightsizing_recommendation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ce.html#CostExplorer.Client.get_rightsizing_recommendation)
         """
 
     def get_savings_plans_coverage(
@@ -349,7 +349,7 @@ class CostExplorerClient:
         MaxResults: int = None,
     ) -> GetSavingsPlansCoverageResponseTypeDef:
         """
-        [Client.get_savings_plans_coverage documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ce.html#CostExplorer.Client.get_savings_plans_coverage)
+        [Client.get_savings_plans_coverage documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ce.html#CostExplorer.Client.get_savings_plans_coverage)
         """
 
     def get_savings_plans_purchase_recommendation(
@@ -371,7 +371,7 @@ class CostExplorerClient:
         Filter: Dict[str, Any] = None,
     ) -> GetSavingsPlansPurchaseRecommendationResponseTypeDef:
         """
-        [Client.get_savings_plans_purchase_recommendation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ce.html#CostExplorer.Client.get_savings_plans_purchase_recommendation)
+        [Client.get_savings_plans_purchase_recommendation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ce.html#CostExplorer.Client.get_savings_plans_purchase_recommendation)
         """
 
     def get_savings_plans_utilization(
@@ -381,7 +381,7 @@ class CostExplorerClient:
         Filter: Dict[str, Any] = None,
     ) -> GetSavingsPlansUtilizationResponseTypeDef:
         """
-        [Client.get_savings_plans_utilization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ce.html#CostExplorer.Client.get_savings_plans_utilization)
+        [Client.get_savings_plans_utilization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ce.html#CostExplorer.Client.get_savings_plans_utilization)
         """
 
     def get_savings_plans_utilization_details(
@@ -392,7 +392,7 @@ class CostExplorerClient:
         MaxResults: int = None,
     ) -> GetSavingsPlansUtilizationDetailsResponseTypeDef:
         """
-        [Client.get_savings_plans_utilization_details documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ce.html#CostExplorer.Client.get_savings_plans_utilization_details)
+        [Client.get_savings_plans_utilization_details documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ce.html#CostExplorer.Client.get_savings_plans_utilization_details)
         """
 
     def get_tags(
@@ -403,7 +403,7 @@ class CostExplorerClient:
         NextPageToken: str = None,
     ) -> GetTagsResponseTypeDef:
         """
-        [Client.get_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ce.html#CostExplorer.Client.get_tags)
+        [Client.get_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ce.html#CostExplorer.Client.get_tags)
         """
 
     def get_usage_forecast(
@@ -423,28 +423,28 @@ class CostExplorerClient:
         PredictionIntervalLevel: int = None,
     ) -> GetUsageForecastResponseTypeDef:
         """
-        [Client.get_usage_forecast documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ce.html#CostExplorer.Client.get_usage_forecast)
+        [Client.get_usage_forecast documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ce.html#CostExplorer.Client.get_usage_forecast)
         """
 
     def list_cost_category_definitions(
         self, EffectiveOn: str = None, NextToken: str = None, MaxResults: int = None
     ) -> ListCostCategoryDefinitionsResponseTypeDef:
         """
-        [Client.list_cost_category_definitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ce.html#CostExplorer.Client.list_cost_category_definitions)
+        [Client.list_cost_category_definitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ce.html#CostExplorer.Client.list_cost_category_definitions)
         """
 
     def provide_anomaly_feedback(
         self, AnomalyId: str, Feedback: Literal["YES", "NO", "PLANNED_ACTIVITY"]
     ) -> ProvideAnomalyFeedbackResponseTypeDef:
         """
-        [Client.provide_anomaly_feedback documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ce.html#CostExplorer.Client.provide_anomaly_feedback)
+        [Client.provide_anomaly_feedback documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ce.html#CostExplorer.Client.provide_anomaly_feedback)
         """
 
     def update_anomaly_monitor(
         self, MonitorArn: str, MonitorName: str = None
     ) -> UpdateAnomalyMonitorResponseTypeDef:
         """
-        [Client.update_anomaly_monitor documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ce.html#CostExplorer.Client.update_anomaly_monitor)
+        [Client.update_anomaly_monitor documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ce.html#CostExplorer.Client.update_anomaly_monitor)
         """
 
     def update_anomaly_subscription(
@@ -457,7 +457,7 @@ class CostExplorerClient:
         SubscriptionName: str = None,
     ) -> UpdateAnomalySubscriptionResponseTypeDef:
         """
-        [Client.update_anomaly_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ce.html#CostExplorer.Client.update_anomaly_subscription)
+        [Client.update_anomaly_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ce.html#CostExplorer.Client.update_anomaly_subscription)
         """
 
     def update_cost_category_definition(
@@ -467,5 +467,5 @@ class CostExplorerClient:
         Rules: List["CostCategoryRuleTypeDef"],
     ) -> UpdateCostCategoryDefinitionResponseTypeDef:
         """
-        [Client.update_cost_category_definition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ce.html#CostExplorer.Client.update_cost_category_definition)
+        [Client.update_cost_category_definition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ce.html#CostExplorer.Client.update_cost_category_definition)
         """

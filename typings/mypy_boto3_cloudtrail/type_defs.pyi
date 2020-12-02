@@ -4,9 +4,9 @@ Main interface for cloudtrail service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_cloudtrail.type_defs import DataResourceTypeDef
+    from mypy_boto3_cloudtrail.type_defs import AdvancedEventSelectorTypeDef
 
-    data: DataResourceTypeDef = {...}
+    data: AdvancedEventSelectorTypeDef = {...}
     ```
 """
 import sys
@@ -24,6 +24,8 @@ else:
 
 
 __all__ = (
+    "AdvancedEventSelectorTypeDef",
+    "AdvancedFieldSelectorTypeDef",
     "DataResourceTypeDef",
     "EventSelectorTypeDef",
     "EventTypeDef",
@@ -50,6 +52,34 @@ __all__ = (
     "PutInsightSelectorsResponseTypeDef",
     "UpdateTrailResponseTypeDef",
 )
+
+AdvancedEventSelectorTypeDef = TypedDict(
+    "AdvancedEventSelectorTypeDef",
+    {"Name": str, "FieldSelectors": List["AdvancedFieldSelectorTypeDef"]},
+)
+
+_RequiredAdvancedFieldSelectorTypeDef = TypedDict(
+    "_RequiredAdvancedFieldSelectorTypeDef", {"Field": str}
+)
+_OptionalAdvancedFieldSelectorTypeDef = TypedDict(
+    "_OptionalAdvancedFieldSelectorTypeDef",
+    {
+        "Equals": List[str],
+        "StartsWith": List[str],
+        "EndsWith": List[str],
+        "NotEquals": List[str],
+        "NotStartsWith": List[str],
+        "NotEndsWith": List[str],
+    },
+    total=False,
+)
+
+
+class AdvancedFieldSelectorTypeDef(
+    _RequiredAdvancedFieldSelectorTypeDef, _OptionalAdvancedFieldSelectorTypeDef
+):
+    pass
+
 
 DataResourceTypeDef = TypedDict(
     "DataResourceTypeDef", {"Type": str, "Values": List[str]}, total=False
@@ -166,7 +196,11 @@ DescribeTrailsResponseTypeDef = TypedDict(
 
 GetEventSelectorsResponseTypeDef = TypedDict(
     "GetEventSelectorsResponseTypeDef",
-    {"TrailARN": str, "EventSelectors": List["EventSelectorTypeDef"]},
+    {
+        "TrailARN": str,
+        "EventSelectors": List["EventSelectorTypeDef"],
+        "AdvancedEventSelectors": List["AdvancedEventSelectorTypeDef"],
+    },
     total=False,
 )
 
@@ -247,7 +281,11 @@ PaginatorConfigTypeDef = TypedDict(
 
 PutEventSelectorsResponseTypeDef = TypedDict(
     "PutEventSelectorsResponseTypeDef",
-    {"TrailARN": str, "EventSelectors": List["EventSelectorTypeDef"]},
+    {
+        "TrailARN": str,
+        "EventSelectors": List["EventSelectorTypeDef"],
+        "AdvancedEventSelectors": List["AdvancedEventSelectorTypeDef"],
+    },
     total=False,
 )
 

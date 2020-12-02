@@ -123,6 +123,7 @@ __all__ = (
     "ApplicationConfigurationUpdateTypeDef",
     "CloudWatchLoggingOptionTypeDef",
     "CloudWatchLoggingOptionUpdateTypeDef",
+    "CreateApplicationPresignedUrlResponseTypeDef",
     "CreateApplicationResponseTypeDef",
     "DeleteApplicationCloudWatchLoggingOptionResponseTypeDef",
     "DeleteApplicationInputProcessingConfigurationResponseTypeDef",
@@ -205,7 +206,7 @@ _RequiredApplicationDetailTypeDef = TypedDict(
     {
         "ApplicationARN": str,
         "ApplicationName": str,
-        "RuntimeEnvironment": Literal["SQL-1_0", "FLINK-1_6", "FLINK-1_8"],
+        "RuntimeEnvironment": Literal["SQL-1_0", "FLINK-1_6", "FLINK-1_8", "FLINK-1_11"],
         "ApplicationStatus": Literal[
             "DELETING",
             "STARTING",
@@ -288,7 +289,7 @@ ApplicationSummaryTypeDef = TypedDict(
             "FORCE_STOPPING",
         ],
         "ApplicationVersionId": int,
-        "RuntimeEnvironment": Literal["SQL-1_0", "FLINK-1_6", "FLINK-1_8"],
+        "RuntimeEnvironment": Literal["SQL-1_0", "FLINK-1_6", "FLINK-1_8", "FLINK-1_11"],
     },
 )
 
@@ -1198,6 +1199,10 @@ class CloudWatchLoggingOptionUpdateTypeDef(
 ):
     pass
 
+
+CreateApplicationPresignedUrlResponseTypeDef = TypedDict(
+    "CreateApplicationPresignedUrlResponseTypeDef", {"AuthorizedUrl": str}, total=False
+)
 
 CreateApplicationResponseTypeDef = TypedDict(
     "CreateApplicationResponseTypeDef", {"ApplicationDetail": "ApplicationDetailTypeDef"}

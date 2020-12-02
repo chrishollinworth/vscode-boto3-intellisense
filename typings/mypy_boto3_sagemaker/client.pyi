@@ -18,16 +18,22 @@ from typing import Any, Dict, List, Type, overload
 from botocore.client import ClientMeta
 
 from mypy_boto3_sagemaker.paginator import (
+    ListActionsPaginator,
     ListAlgorithmsPaginator,
+    ListAppImageConfigsPaginator,
     ListAppsPaginator,
+    ListArtifactsPaginator,
+    ListAssociationsPaginator,
     ListAutoMLJobsPaginator,
     ListCandidatesForAutoMLJobPaginator,
     ListCodeRepositoriesPaginator,
     ListCompilationJobsPaginator,
+    ListContextsPaginator,
     ListDomainsPaginator,
     ListEndpointConfigsPaginator,
     ListEndpointsPaginator,
     ListExperimentsPaginator,
+    ListFeatureGroupsPaginator,
     ListFlowDefinitionsPaginator,
     ListHumanTaskUisPaginator,
     ListHyperParameterTuningJobsPaginator,
@@ -35,12 +41,17 @@ from mypy_boto3_sagemaker.paginator import (
     ListImageVersionsPaginator,
     ListLabelingJobsForWorkteamPaginator,
     ListLabelingJobsPaginator,
+    ListModelPackageGroupsPaginator,
     ListModelPackagesPaginator,
     ListModelsPaginator,
     ListMonitoringExecutionsPaginator,
     ListMonitoringSchedulesPaginator,
     ListNotebookInstanceLifecycleConfigsPaginator,
     ListNotebookInstancesPaginator,
+    ListPipelineExecutionsPaginator,
+    ListPipelineExecutionStepsPaginator,
+    ListPipelineParametersForExecutionPaginator,
+    ListPipelinesPaginator,
     ListProcessingJobsPaginator,
     ListSubscribedWorkteamsPaginator,
     ListTagsPaginator,
@@ -55,10 +66,13 @@ from mypy_boto3_sagemaker.paginator import (
     SearchPaginator,
 )
 from mypy_boto3_sagemaker.type_defs import (
+    ActionSourceTypeDef,
+    AddAssociationResponseTypeDef,
     AddTagsOutputTypeDef,
     AlgorithmSpecificationTypeDef,
     AlgorithmValidationSpecificationTypeDef,
     AppSpecificationTypeDef,
+    ArtifactSourceTypeDef,
     AssociateTrialComponentResponseTypeDef,
     AutoMLChannelTypeDef,
     AutoMLJobConfigTypeDef,
@@ -68,16 +82,21 @@ from mypy_boto3_sagemaker.type_defs import (
     CheckpointConfigTypeDef,
     CognitoConfigTypeDef,
     ContainerDefinitionTypeDef,
+    ContextSourceTypeDef,
+    CreateActionResponseTypeDef,
     CreateAlgorithmOutputTypeDef,
     CreateAppImageConfigResponseTypeDef,
     CreateAppResponseTypeDef,
+    CreateArtifactResponseTypeDef,
     CreateAutoMLJobResponseTypeDef,
     CreateCodeRepositoryOutputTypeDef,
     CreateCompilationJobResponseTypeDef,
+    CreateContextResponseTypeDef,
     CreateDomainResponseTypeDef,
     CreateEndpointConfigOutputTypeDef,
     CreateEndpointOutputTypeDef,
     CreateExperimentResponseTypeDef,
+    CreateFeatureGroupResponseTypeDef,
     CreateFlowDefinitionResponseTypeDef,
     CreateHumanTaskUiResponseTypeDef,
     CreateHyperParameterTuningJobResponseTypeDef,
@@ -85,13 +104,16 @@ from mypy_boto3_sagemaker.type_defs import (
     CreateImageVersionResponseTypeDef,
     CreateLabelingJobResponseTypeDef,
     CreateModelOutputTypeDef,
+    CreateModelPackageGroupOutputTypeDef,
     CreateModelPackageOutputTypeDef,
     CreateMonitoringScheduleResponseTypeDef,
     CreateNotebookInstanceLifecycleConfigOutputTypeDef,
     CreateNotebookInstanceOutputTypeDef,
+    CreatePipelineResponseTypeDef,
     CreatePresignedDomainUrlResponseTypeDef,
     CreatePresignedNotebookInstanceUrlOutputTypeDef,
     CreateProcessingJobResponseTypeDef,
+    CreateProjectOutputTypeDef,
     CreateTrainingJobResponseTypeDef,
     CreateTransformJobResponseTypeDef,
     CreateTrialComponentResponseTypeDef,
@@ -103,20 +125,30 @@ from mypy_boto3_sagemaker.type_defs import (
     DataProcessingTypeDef,
     DebugHookConfigTypeDef,
     DebugRuleConfigurationTypeDef,
+    DeleteActionResponseTypeDef,
+    DeleteArtifactResponseTypeDef,
+    DeleteAssociationResponseTypeDef,
+    DeleteContextResponseTypeDef,
     DeleteExperimentResponseTypeDef,
+    DeletePipelineResponseTypeDef,
     DeleteTrialComponentResponseTypeDef,
     DeleteTrialResponseTypeDef,
     DeleteWorkteamResponseTypeDef,
+    DeploymentConfigTypeDef,
+    DescribeActionResponseTypeDef,
     DescribeAlgorithmOutputTypeDef,
     DescribeAppImageConfigResponseTypeDef,
     DescribeAppResponseTypeDef,
+    DescribeArtifactResponseTypeDef,
     DescribeAutoMLJobResponseTypeDef,
     DescribeCodeRepositoryOutputTypeDef,
     DescribeCompilationJobResponseTypeDef,
+    DescribeContextResponseTypeDef,
     DescribeDomainResponseTypeDef,
     DescribeEndpointConfigOutputTypeDef,
     DescribeEndpointOutputTypeDef,
     DescribeExperimentResponseTypeDef,
+    DescribeFeatureGroupResponseTypeDef,
     DescribeFlowDefinitionResponseTypeDef,
     DescribeHumanTaskUiResponseTypeDef,
     DescribeHyperParameterTuningJobResponseTypeDef,
@@ -124,11 +156,16 @@ from mypy_boto3_sagemaker.type_defs import (
     DescribeImageVersionResponseTypeDef,
     DescribeLabelingJobResponseTypeDef,
     DescribeModelOutputTypeDef,
+    DescribeModelPackageGroupOutputTypeDef,
     DescribeModelPackageOutputTypeDef,
     DescribeMonitoringScheduleResponseTypeDef,
     DescribeNotebookInstanceLifecycleConfigOutputTypeDef,
     DescribeNotebookInstanceOutputTypeDef,
+    DescribePipelineDefinitionForExecutionResponseTypeDef,
+    DescribePipelineExecutionResponseTypeDef,
+    DescribePipelineResponseTypeDef,
     DescribeProcessingJobResponseTypeDef,
+    DescribeProjectOutputTypeDef,
     DescribeSubscribedWorkteamResponseTypeDef,
     DescribeTrainingJobResponseTypeDef,
     DescribeTransformJobResponseTypeDef,
@@ -140,7 +177,10 @@ from mypy_boto3_sagemaker.type_defs import (
     DesiredWeightAndCapacityTypeDef,
     DisassociateTrialComponentResponseTypeDef,
     ExperimentConfigTypeDef,
+    FeatureDefinitionTypeDef,
     FlowDefinitionOutputConfigTypeDef,
+    GetModelPackageGroupPolicyOutputTypeDef,
+    GetSagemakerServicecatalogPortfolioStatusOutputTypeDef,
     GetSearchSuggestionsResponseTypeDef,
     GitConfigForUpdateTypeDef,
     GitConfigTypeDef,
@@ -158,17 +198,22 @@ from mypy_boto3_sagemaker.type_defs import (
     LabelingJobInputConfigTypeDef,
     LabelingJobOutputConfigTypeDef,
     LabelingJobStoppingConditionsTypeDef,
+    ListActionsResponseTypeDef,
     ListAlgorithmsOutputTypeDef,
     ListAppImageConfigsResponseTypeDef,
     ListAppsResponseTypeDef,
+    ListArtifactsResponseTypeDef,
+    ListAssociationsResponseTypeDef,
     ListAutoMLJobsResponseTypeDef,
     ListCandidatesForAutoMLJobResponseTypeDef,
     ListCodeRepositoriesOutputTypeDef,
     ListCompilationJobsResponseTypeDef,
+    ListContextsResponseTypeDef,
     ListDomainsResponseTypeDef,
     ListEndpointConfigsOutputTypeDef,
     ListEndpointsOutputTypeDef,
     ListExperimentsResponseTypeDef,
+    ListFeatureGroupsResponseTypeDef,
     ListFlowDefinitionsResponseTypeDef,
     ListHumanTaskUisResponseTypeDef,
     ListHyperParameterTuningJobsResponseTypeDef,
@@ -176,13 +221,19 @@ from mypy_boto3_sagemaker.type_defs import (
     ListImageVersionsResponseTypeDef,
     ListLabelingJobsForWorkteamResponseTypeDef,
     ListLabelingJobsResponseTypeDef,
+    ListModelPackageGroupsOutputTypeDef,
     ListModelPackagesOutputTypeDef,
     ListModelsOutputTypeDef,
     ListMonitoringExecutionsResponseTypeDef,
     ListMonitoringSchedulesResponseTypeDef,
     ListNotebookInstanceLifecycleConfigsOutputTypeDef,
     ListNotebookInstancesOutputTypeDef,
+    ListPipelineExecutionsResponseTypeDef,
+    ListPipelineExecutionStepsResponseTypeDef,
+    ListPipelineParametersForExecutionResponseTypeDef,
+    ListPipelinesResponseTypeDef,
     ListProcessingJobsResponseTypeDef,
+    ListProjectsOutputTypeDef,
     ListSubscribedWorkteamsResponseTypeDef,
     ListTagsOutputTypeDef,
     ListTrainingJobsForHyperParameterTuningJobResponseTypeDef,
@@ -194,29 +245,38 @@ from mypy_boto3_sagemaker.type_defs import (
     ListWorkforcesResponseTypeDef,
     ListWorkteamsResponseTypeDef,
     MemberDefinitionTypeDef,
+    MetadataPropertiesTypeDef,
     ModelClientConfigTypeDef,
+    ModelMetricsTypeDef,
     ModelPackageValidationSpecificationTypeDef,
     MonitoringScheduleConfigTypeDef,
     NetworkConfigTypeDef,
     NotebookInstanceLifecycleHookTypeDef,
     NotificationConfigurationTypeDef,
+    OfflineStoreConfigTypeDef,
     OidcConfigTypeDef,
+    OnlineStoreConfigTypeDef,
     OutputConfigTypeDef,
     OutputDataConfigTypeDef,
+    ParameterTypeDef,
     ProcessingInputTypeDef,
     ProcessingOutputConfigTypeDef,
     ProcessingResourcesTypeDef,
     ProcessingStoppingConditionTypeDef,
     ProductionVariantTypeDef,
+    PutModelPackageGroupPolicyOutputTypeDef,
     RenderableTaskTypeDef,
     RenderUiTemplateResponseTypeDef,
     ResourceConfigTypeDef,
     ResourceSpecTypeDef,
     RetentionPolicyTypeDef,
     SearchResponseTypeDef,
+    ServiceCatalogProvisioningDetailsTypeDef,
     SourceAlgorithmSpecificationTypeDef,
     SourceIpConfigTypeDef,
+    StartPipelineExecutionResponseTypeDef,
     StoppingConditionTypeDef,
+    StopPipelineExecutionResponseTypeDef,
     SuggestionQueryTypeDef,
     TagTypeDef,
     TensorBoardOutputConfigTypeDef,
@@ -228,14 +288,20 @@ from mypy_boto3_sagemaker.type_defs import (
     TrialComponentParameterValueTypeDef,
     TrialComponentStatusTypeDef,
     UiTemplateTypeDef,
+    UpdateActionResponseTypeDef,
     UpdateAppImageConfigResponseTypeDef,
+    UpdateArtifactResponseTypeDef,
     UpdateCodeRepositoryOutputTypeDef,
+    UpdateContextResponseTypeDef,
     UpdateDomainResponseTypeDef,
     UpdateEndpointOutputTypeDef,
     UpdateEndpointWeightsAndCapacitiesOutputTypeDef,
     UpdateExperimentResponseTypeDef,
     UpdateImageResponseTypeDef,
+    UpdateModelPackageOutputTypeDef,
     UpdateMonitoringScheduleResponseTypeDef,
+    UpdatePipelineExecutionResponseTypeDef,
+    UpdatePipelineResponseTypeDef,
     UpdateTrialComponentResponseTypeDef,
     UpdateTrialResponseTypeDef,
     UpdateUserProfileResponseTypeDef,
@@ -283,27 +349,56 @@ class Exceptions:
 
 class SageMakerClient:
     """
-    [SageMaker.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client)
+    [SageMaker.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client)
     """
 
     meta: ClientMeta
     exceptions: Exceptions
 
+    def add_association(
+        self,
+        SourceArn: str,
+        DestinationArn: str,
+        AssociationType: Literal[
+            "ContributedTo", "AssociatedWith", "DerivedFrom", "Produced"
+        ] = None,
+    ) -> AddAssociationResponseTypeDef:
+        """
+        [Client.add_association documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.add_association)
+        """
+
     def add_tags(self, ResourceArn: str, Tags: List["TagTypeDef"]) -> AddTagsOutputTypeDef:
         """
-        [Client.add_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.add_tags)
+        [Client.add_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.add_tags)
         """
 
     def associate_trial_component(
         self, TrialComponentName: str, TrialName: str
     ) -> AssociateTrialComponentResponseTypeDef:
         """
-        [Client.associate_trial_component documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.associate_trial_component)
+        [Client.associate_trial_component documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.associate_trial_component)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.can_paginate)
+        """
+
+    def create_action(
+        self,
+        ActionName: str,
+        Source: "ActionSourceTypeDef",
+        ActionType: str,
+        Description: str = None,
+        Status: Literal[
+            "Unknown", "InProgress", "Completed", "Failed", "Stopping", "Stopped"
+        ] = None,
+        Properties: Dict[str, str] = None,
+        MetadataProperties: "MetadataPropertiesTypeDef" = None,
+        Tags: List["TagTypeDef"] = None,
+    ) -> CreateActionResponseTypeDef:
+        """
+        [Client.create_action documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.create_action)
         """
 
     def create_algorithm(
@@ -314,9 +409,10 @@ class SageMakerClient:
         InferenceSpecification: "InferenceSpecificationTypeDef" = None,
         ValidationSpecification: "AlgorithmValidationSpecificationTypeDef" = None,
         CertifyForMarketplace: bool = None,
+        Tags: List["TagTypeDef"] = None,
     ) -> CreateAlgorithmOutputTypeDef:
         """
-        [Client.create_algorithm documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.create_algorithm)
+        [Client.create_algorithm documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.create_algorithm)
         """
 
     def create_app(
@@ -329,7 +425,7 @@ class SageMakerClient:
         ResourceSpec: "ResourceSpecTypeDef" = None,
     ) -> CreateAppResponseTypeDef:
         """
-        [Client.create_app documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.create_app)
+        [Client.create_app documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.create_app)
         """
 
     def create_app_image_config(
@@ -339,7 +435,20 @@ class SageMakerClient:
         KernelGatewayImageConfig: "KernelGatewayImageConfigTypeDef" = None,
     ) -> CreateAppImageConfigResponseTypeDef:
         """
-        [Client.create_app_image_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.create_app_image_config)
+        [Client.create_app_image_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.create_app_image_config)
+        """
+
+    def create_artifact(
+        self,
+        Source: "ArtifactSourceTypeDef",
+        ArtifactType: str,
+        ArtifactName: str = None,
+        Properties: Dict[str, str] = None,
+        MetadataProperties: "MetadataPropertiesTypeDef" = None,
+        Tags: List["TagTypeDef"] = None,
+    ) -> CreateArtifactResponseTypeDef:
+        """
+        [Client.create_artifact documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.create_artifact)
         """
 
     def create_auto_ml_job(
@@ -357,14 +466,17 @@ class SageMakerClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateAutoMLJobResponseTypeDef:
         """
-        [Client.create_auto_ml_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.create_auto_ml_job)
+        [Client.create_auto_ml_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.create_auto_ml_job)
         """
 
     def create_code_repository(
-        self, CodeRepositoryName: str, GitConfig: "GitConfigTypeDef"
+        self,
+        CodeRepositoryName: str,
+        GitConfig: "GitConfigTypeDef",
+        Tags: List["TagTypeDef"] = None,
     ) -> CreateCodeRepositoryOutputTypeDef:
         """
-        [Client.create_code_repository documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.create_code_repository)
+        [Client.create_code_repository documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.create_code_repository)
         """
 
     def create_compilation_job(
@@ -377,7 +489,20 @@ class SageMakerClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateCompilationJobResponseTypeDef:
         """
-        [Client.create_compilation_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.create_compilation_job)
+        [Client.create_compilation_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.create_compilation_job)
+        """
+
+    def create_context(
+        self,
+        ContextName: str,
+        Source: "ContextSourceTypeDef",
+        ContextType: str,
+        Description: str = None,
+        Properties: Dict[str, str] = None,
+        Tags: List["TagTypeDef"] = None,
+    ) -> CreateContextResponseTypeDef:
+        """
+        [Client.create_context documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.create_context)
         """
 
     def create_domain(
@@ -393,14 +518,14 @@ class SageMakerClient:
         KmsKeyId: str = None,
     ) -> CreateDomainResponseTypeDef:
         """
-        [Client.create_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.create_domain)
+        [Client.create_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.create_domain)
         """
 
     def create_endpoint(
         self, EndpointName: str, EndpointConfigName: str, Tags: List["TagTypeDef"] = None
     ) -> CreateEndpointOutputTypeDef:
         """
-        [Client.create_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.create_endpoint)
+        [Client.create_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.create_endpoint)
         """
 
     def create_endpoint_config(
@@ -412,7 +537,7 @@ class SageMakerClient:
         KmsKeyId: str = None,
     ) -> CreateEndpointConfigOutputTypeDef:
         """
-        [Client.create_endpoint_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.create_endpoint_config)
+        [Client.create_endpoint_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.create_endpoint_config)
         """
 
     def create_experiment(
@@ -423,7 +548,23 @@ class SageMakerClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateExperimentResponseTypeDef:
         """
-        [Client.create_experiment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.create_experiment)
+        [Client.create_experiment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.create_experiment)
+        """
+
+    def create_feature_group(
+        self,
+        FeatureGroupName: str,
+        RecordIdentifierFeatureName: str,
+        EventTimeFeatureName: str,
+        FeatureDefinitions: List["FeatureDefinitionTypeDef"],
+        OnlineStoreConfig: "OnlineStoreConfigTypeDef" = None,
+        OfflineStoreConfig: "OfflineStoreConfigTypeDef" = None,
+        RoleArn: str = None,
+        Description: str = None,
+        Tags: List["TagTypeDef"] = None,
+    ) -> CreateFeatureGroupResponseTypeDef:
+        """
+        [Client.create_feature_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.create_feature_group)
         """
 
     def create_flow_definition(
@@ -437,14 +578,14 @@ class SageMakerClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateFlowDefinitionResponseTypeDef:
         """
-        [Client.create_flow_definition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.create_flow_definition)
+        [Client.create_flow_definition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.create_flow_definition)
         """
 
     def create_human_task_ui(
         self, HumanTaskUiName: str, UiTemplate: UiTemplateTypeDef, Tags: List["TagTypeDef"] = None
     ) -> CreateHumanTaskUiResponseTypeDef:
         """
-        [Client.create_human_task_ui documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.create_human_task_ui)
+        [Client.create_human_task_ui documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.create_human_task_ui)
         """
 
     def create_hyper_parameter_tuning_job(
@@ -457,7 +598,7 @@ class SageMakerClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateHyperParameterTuningJobResponseTypeDef:
         """
-        [Client.create_hyper_parameter_tuning_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.create_hyper_parameter_tuning_job)
+        [Client.create_hyper_parameter_tuning_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.create_hyper_parameter_tuning_job)
         """
 
     def create_image(
@@ -469,14 +610,14 @@ class SageMakerClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateImageResponseTypeDef:
         """
-        [Client.create_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.create_image)
+        [Client.create_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.create_image)
         """
 
     def create_image_version(
         self, BaseImage: str, ClientToken: str, ImageName: str
     ) -> CreateImageVersionResponseTypeDef:
         """
-        [Client.create_image_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.create_image_version)
+        [Client.create_image_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.create_image_version)
         """
 
     def create_labeling_job(
@@ -493,7 +634,7 @@ class SageMakerClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateLabelingJobResponseTypeDef:
         """
-        [Client.create_labeling_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.create_labeling_job)
+        [Client.create_labeling_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.create_labeling_job)
         """
 
     def create_model(
@@ -507,20 +648,36 @@ class SageMakerClient:
         EnableNetworkIsolation: bool = None,
     ) -> CreateModelOutputTypeDef:
         """
-        [Client.create_model documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.create_model)
+        [Client.create_model documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.create_model)
         """
 
     def create_model_package(
         self,
         ModelPackageName: str = None,
+        ModelPackageGroupName: str = None,
         ModelPackageDescription: str = None,
         InferenceSpecification: "InferenceSpecificationTypeDef" = None,
         ValidationSpecification: "ModelPackageValidationSpecificationTypeDef" = None,
         SourceAlgorithmSpecification: "SourceAlgorithmSpecificationTypeDef" = None,
         CertifyForMarketplace: bool = None,
+        Tags: List["TagTypeDef"] = None,
+        ModelApprovalStatus: Literal["Approved", "Rejected", "PendingManualApproval"] = None,
+        MetadataProperties: "MetadataPropertiesTypeDef" = None,
+        ModelMetrics: "ModelMetricsTypeDef" = None,
+        ClientToken: str = None,
     ) -> CreateModelPackageOutputTypeDef:
         """
-        [Client.create_model_package documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.create_model_package)
+        [Client.create_model_package documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.create_model_package)
+        """
+
+    def create_model_package_group(
+        self,
+        ModelPackageGroupName: str,
+        ModelPackageGroupDescription: str = None,
+        Tags: List["TagTypeDef"] = None,
+    ) -> CreateModelPackageGroupOutputTypeDef:
+        """
+        [Client.create_model_package_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.create_model_package_group)
         """
 
     def create_monitoring_schedule(
@@ -530,7 +687,7 @@ class SageMakerClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateMonitoringScheduleResponseTypeDef:
         """
-        [Client.create_monitoring_schedule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.create_monitoring_schedule)
+        [Client.create_monitoring_schedule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.create_monitoring_schedule)
         """
 
     def create_notebook_instance(
@@ -599,7 +756,7 @@ class SageMakerClient:
         RootAccess: Literal["Enabled", "Disabled"] = None,
     ) -> CreateNotebookInstanceOutputTypeDef:
         """
-        [Client.create_notebook_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.create_notebook_instance)
+        [Client.create_notebook_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.create_notebook_instance)
         """
 
     def create_notebook_instance_lifecycle_config(
@@ -609,21 +766,35 @@ class SageMakerClient:
         OnStart: List["NotebookInstanceLifecycleHookTypeDef"] = None,
     ) -> CreateNotebookInstanceLifecycleConfigOutputTypeDef:
         """
-        [Client.create_notebook_instance_lifecycle_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.create_notebook_instance_lifecycle_config)
+        [Client.create_notebook_instance_lifecycle_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.create_notebook_instance_lifecycle_config)
+        """
+
+    def create_pipeline(
+        self,
+        PipelineName: str,
+        PipelineDefinition: str,
+        ClientRequestToken: str,
+        RoleArn: str,
+        PipelineDisplayName: str = None,
+        PipelineDescription: str = None,
+        Tags: List["TagTypeDef"] = None,
+    ) -> CreatePipelineResponseTypeDef:
+        """
+        [Client.create_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.create_pipeline)
         """
 
     def create_presigned_domain_url(
         self, DomainId: str, UserProfileName: str, SessionExpirationDurationInSeconds: int = None
     ) -> CreatePresignedDomainUrlResponseTypeDef:
         """
-        [Client.create_presigned_domain_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.create_presigned_domain_url)
+        [Client.create_presigned_domain_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.create_presigned_domain_url)
         """
 
     def create_presigned_notebook_instance_url(
         self, NotebookInstanceName: str, SessionExpirationDurationInSeconds: int = None
     ) -> CreatePresignedNotebookInstanceUrlOutputTypeDef:
         """
-        [Client.create_presigned_notebook_instance_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.create_presigned_notebook_instance_url)
+        [Client.create_presigned_notebook_instance_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.create_presigned_notebook_instance_url)
         """
 
     def create_processing_job(
@@ -641,7 +812,18 @@ class SageMakerClient:
         ExperimentConfig: "ExperimentConfigTypeDef" = None,
     ) -> CreateProcessingJobResponseTypeDef:
         """
-        [Client.create_processing_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.create_processing_job)
+        [Client.create_processing_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.create_processing_job)
+        """
+
+    def create_project(
+        self,
+        ProjectName: str,
+        ServiceCatalogProvisioningDetails: "ServiceCatalogProvisioningDetailsTypeDef",
+        ProjectDescription: str = None,
+        Tags: List["TagTypeDef"] = None,
+    ) -> CreateProjectOutputTypeDef:
+        """
+        [Client.create_project documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.create_project)
         """
 
     def create_training_job(
@@ -666,7 +848,7 @@ class SageMakerClient:
         ExperimentConfig: "ExperimentConfigTypeDef" = None,
     ) -> CreateTrainingJobResponseTypeDef:
         """
-        [Client.create_training_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.create_training_job)
+        [Client.create_training_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.create_training_job)
         """
 
     def create_transform_job(
@@ -686,7 +868,7 @@ class SageMakerClient:
         ExperimentConfig: "ExperimentConfigTypeDef" = None,
     ) -> CreateTransformJobResponseTypeDef:
         """
-        [Client.create_transform_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.create_transform_job)
+        [Client.create_transform_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.create_transform_job)
         """
 
     def create_trial(
@@ -694,10 +876,11 @@ class SageMakerClient:
         TrialName: str,
         ExperimentName: str,
         DisplayName: str = None,
+        MetadataProperties: "MetadataPropertiesTypeDef" = None,
         Tags: List["TagTypeDef"] = None,
     ) -> CreateTrialResponseTypeDef:
         """
-        [Client.create_trial documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.create_trial)
+        [Client.create_trial documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.create_trial)
         """
 
     def create_trial_component(
@@ -710,10 +893,11 @@ class SageMakerClient:
         Parameters: Dict[str, "TrialComponentParameterValueTypeDef"] = None,
         InputArtifacts: Dict[str, "TrialComponentArtifactTypeDef"] = None,
         OutputArtifacts: Dict[str, "TrialComponentArtifactTypeDef"] = None,
+        MetadataProperties: "MetadataPropertiesTypeDef" = None,
         Tags: List["TagTypeDef"] = None,
     ) -> CreateTrialComponentResponseTypeDef:
         """
-        [Client.create_trial_component documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.create_trial_component)
+        [Client.create_trial_component documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.create_trial_component)
         """
 
     def create_user_profile(
@@ -726,7 +910,7 @@ class SageMakerClient:
         UserSettings: "UserSettingsTypeDef" = None,
     ) -> CreateUserProfileResponseTypeDef:
         """
-        [Client.create_user_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.create_user_profile)
+        [Client.create_user_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.create_user_profile)
         """
 
     def create_workforce(
@@ -738,7 +922,7 @@ class SageMakerClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateWorkforceResponseTypeDef:
         """
-        [Client.create_workforce documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.create_workforce)
+        [Client.create_workforce documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.create_workforce)
         """
 
     def create_workteam(
@@ -751,12 +935,17 @@ class SageMakerClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateWorkteamResponseTypeDef:
         """
-        [Client.create_workteam documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.create_workteam)
+        [Client.create_workteam documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.create_workteam)
+        """
+
+    def delete_action(self, ActionName: str) -> DeleteActionResponseTypeDef:
+        """
+        [Client.delete_action documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.delete_action)
         """
 
     def delete_algorithm(self, AlgorithmName: str) -> None:
         """
-        [Client.delete_algorithm documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.delete_algorithm)
+        [Client.delete_algorithm documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.delete_algorithm)
         """
 
     def delete_app(
@@ -767,121 +956,172 @@ class SageMakerClient:
         AppName: str,
     ) -> None:
         """
-        [Client.delete_app documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.delete_app)
+        [Client.delete_app documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.delete_app)
         """
 
     def delete_app_image_config(self, AppImageConfigName: str) -> None:
         """
-        [Client.delete_app_image_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.delete_app_image_config)
+        [Client.delete_app_image_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.delete_app_image_config)
+        """
+
+    def delete_artifact(
+        self, ArtifactArn: str = None, Source: "ArtifactSourceTypeDef" = None
+    ) -> DeleteArtifactResponseTypeDef:
+        """
+        [Client.delete_artifact documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.delete_artifact)
+        """
+
+    def delete_association(
+        self, SourceArn: str, DestinationArn: str
+    ) -> DeleteAssociationResponseTypeDef:
+        """
+        [Client.delete_association documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.delete_association)
         """
 
     def delete_code_repository(self, CodeRepositoryName: str) -> None:
         """
-        [Client.delete_code_repository documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.delete_code_repository)
+        [Client.delete_code_repository documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.delete_code_repository)
+        """
+
+    def delete_context(self, ContextName: str) -> DeleteContextResponseTypeDef:
+        """
+        [Client.delete_context documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.delete_context)
         """
 
     def delete_domain(self, DomainId: str, RetentionPolicy: RetentionPolicyTypeDef = None) -> None:
         """
-        [Client.delete_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.delete_domain)
+        [Client.delete_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.delete_domain)
         """
 
     def delete_endpoint(self, EndpointName: str) -> None:
         """
-        [Client.delete_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.delete_endpoint)
+        [Client.delete_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.delete_endpoint)
         """
 
     def delete_endpoint_config(self, EndpointConfigName: str) -> None:
         """
-        [Client.delete_endpoint_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.delete_endpoint_config)
+        [Client.delete_endpoint_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.delete_endpoint_config)
         """
 
     def delete_experiment(self, ExperimentName: str) -> DeleteExperimentResponseTypeDef:
         """
-        [Client.delete_experiment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.delete_experiment)
+        [Client.delete_experiment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.delete_experiment)
+        """
+
+    def delete_feature_group(self, FeatureGroupName: str) -> None:
+        """
+        [Client.delete_feature_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.delete_feature_group)
         """
 
     def delete_flow_definition(self, FlowDefinitionName: str) -> Dict[str, Any]:
         """
-        [Client.delete_flow_definition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.delete_flow_definition)
+        [Client.delete_flow_definition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.delete_flow_definition)
         """
 
     def delete_human_task_ui(self, HumanTaskUiName: str) -> Dict[str, Any]:
         """
-        [Client.delete_human_task_ui documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.delete_human_task_ui)
+        [Client.delete_human_task_ui documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.delete_human_task_ui)
         """
 
     def delete_image(self, ImageName: str) -> Dict[str, Any]:
         """
-        [Client.delete_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.delete_image)
+        [Client.delete_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.delete_image)
         """
 
     def delete_image_version(self, ImageName: str, Version: int) -> Dict[str, Any]:
         """
-        [Client.delete_image_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.delete_image_version)
+        [Client.delete_image_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.delete_image_version)
         """
 
     def delete_model(self, ModelName: str) -> None:
         """
-        [Client.delete_model documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.delete_model)
+        [Client.delete_model documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.delete_model)
         """
 
     def delete_model_package(self, ModelPackageName: str) -> None:
         """
-        [Client.delete_model_package documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.delete_model_package)
+        [Client.delete_model_package documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.delete_model_package)
+        """
+
+    def delete_model_package_group(self, ModelPackageGroupName: str) -> None:
+        """
+        [Client.delete_model_package_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.delete_model_package_group)
+        """
+
+    def delete_model_package_group_policy(self, ModelPackageGroupName: str) -> None:
+        """
+        [Client.delete_model_package_group_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.delete_model_package_group_policy)
         """
 
     def delete_monitoring_schedule(self, MonitoringScheduleName: str) -> None:
         """
-        [Client.delete_monitoring_schedule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.delete_monitoring_schedule)
+        [Client.delete_monitoring_schedule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.delete_monitoring_schedule)
         """
 
     def delete_notebook_instance(self, NotebookInstanceName: str) -> None:
         """
-        [Client.delete_notebook_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.delete_notebook_instance)
+        [Client.delete_notebook_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.delete_notebook_instance)
         """
 
     def delete_notebook_instance_lifecycle_config(
         self, NotebookInstanceLifecycleConfigName: str
     ) -> None:
         """
-        [Client.delete_notebook_instance_lifecycle_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.delete_notebook_instance_lifecycle_config)
+        [Client.delete_notebook_instance_lifecycle_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.delete_notebook_instance_lifecycle_config)
+        """
+
+    def delete_pipeline(
+        self, PipelineName: str, ClientRequestToken: str
+    ) -> DeletePipelineResponseTypeDef:
+        """
+        [Client.delete_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.delete_pipeline)
+        """
+
+    def delete_project(self, ProjectName: str) -> None:
+        """
+        [Client.delete_project documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.delete_project)
         """
 
     def delete_tags(self, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
-        [Client.delete_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.delete_tags)
+        [Client.delete_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.delete_tags)
         """
 
     def delete_trial(self, TrialName: str) -> DeleteTrialResponseTypeDef:
         """
-        [Client.delete_trial documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.delete_trial)
+        [Client.delete_trial documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.delete_trial)
         """
 
     def delete_trial_component(
         self, TrialComponentName: str
     ) -> DeleteTrialComponentResponseTypeDef:
         """
-        [Client.delete_trial_component documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.delete_trial_component)
+        [Client.delete_trial_component documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.delete_trial_component)
         """
 
     def delete_user_profile(self, DomainId: str, UserProfileName: str) -> None:
         """
-        [Client.delete_user_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.delete_user_profile)
+        [Client.delete_user_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.delete_user_profile)
         """
 
     def delete_workforce(self, WorkforceName: str) -> Dict[str, Any]:
         """
-        [Client.delete_workforce documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.delete_workforce)
+        [Client.delete_workforce documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.delete_workforce)
         """
 
     def delete_workteam(self, WorkteamName: str) -> DeleteWorkteamResponseTypeDef:
         """
-        [Client.delete_workteam documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.delete_workteam)
+        [Client.delete_workteam documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.delete_workteam)
+        """
+
+    def describe_action(self, ActionName: str) -> DescribeActionResponseTypeDef:
+        """
+        [Client.describe_action documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.describe_action)
         """
 
     def describe_algorithm(self, AlgorithmName: str) -> DescribeAlgorithmOutputTypeDef:
         """
-        [Client.describe_algorithm documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.describe_algorithm)
+        [Client.describe_algorithm documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.describe_algorithm)
         """
 
     def describe_app(
@@ -892,182 +1132,240 @@ class SageMakerClient:
         AppName: str,
     ) -> DescribeAppResponseTypeDef:
         """
-        [Client.describe_app documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.describe_app)
+        [Client.describe_app documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.describe_app)
         """
 
     def describe_app_image_config(
         self, AppImageConfigName: str
     ) -> DescribeAppImageConfigResponseTypeDef:
         """
-        [Client.describe_app_image_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.describe_app_image_config)
+        [Client.describe_app_image_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.describe_app_image_config)
+        """
+
+    def describe_artifact(self, ArtifactArn: str) -> DescribeArtifactResponseTypeDef:
+        """
+        [Client.describe_artifact documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.describe_artifact)
         """
 
     def describe_auto_ml_job(self, AutoMLJobName: str) -> DescribeAutoMLJobResponseTypeDef:
         """
-        [Client.describe_auto_ml_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.describe_auto_ml_job)
+        [Client.describe_auto_ml_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.describe_auto_ml_job)
         """
 
     def describe_code_repository(
         self, CodeRepositoryName: str
     ) -> DescribeCodeRepositoryOutputTypeDef:
         """
-        [Client.describe_code_repository documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.describe_code_repository)
+        [Client.describe_code_repository documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.describe_code_repository)
         """
 
     def describe_compilation_job(
         self, CompilationJobName: str
     ) -> DescribeCompilationJobResponseTypeDef:
         """
-        [Client.describe_compilation_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.describe_compilation_job)
+        [Client.describe_compilation_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.describe_compilation_job)
+        """
+
+    def describe_context(self, ContextName: str) -> DescribeContextResponseTypeDef:
+        """
+        [Client.describe_context documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.describe_context)
         """
 
     def describe_domain(self, DomainId: str) -> DescribeDomainResponseTypeDef:
         """
-        [Client.describe_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.describe_domain)
+        [Client.describe_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.describe_domain)
         """
 
     def describe_endpoint(self, EndpointName: str) -> DescribeEndpointOutputTypeDef:
         """
-        [Client.describe_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.describe_endpoint)
+        [Client.describe_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.describe_endpoint)
         """
 
     def describe_endpoint_config(
         self, EndpointConfigName: str
     ) -> DescribeEndpointConfigOutputTypeDef:
         """
-        [Client.describe_endpoint_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.describe_endpoint_config)
+        [Client.describe_endpoint_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.describe_endpoint_config)
         """
 
     def describe_experiment(self, ExperimentName: str) -> DescribeExperimentResponseTypeDef:
         """
-        [Client.describe_experiment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.describe_experiment)
+        [Client.describe_experiment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.describe_experiment)
+        """
+
+    def describe_feature_group(
+        self, FeatureGroupName: str, NextToken: str = None
+    ) -> DescribeFeatureGroupResponseTypeDef:
+        """
+        [Client.describe_feature_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.describe_feature_group)
         """
 
     def describe_flow_definition(
         self, FlowDefinitionName: str
     ) -> DescribeFlowDefinitionResponseTypeDef:
         """
-        [Client.describe_flow_definition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.describe_flow_definition)
+        [Client.describe_flow_definition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.describe_flow_definition)
         """
 
     def describe_human_task_ui(self, HumanTaskUiName: str) -> DescribeHumanTaskUiResponseTypeDef:
         """
-        [Client.describe_human_task_ui documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.describe_human_task_ui)
+        [Client.describe_human_task_ui documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.describe_human_task_ui)
         """
 
     def describe_hyper_parameter_tuning_job(
         self, HyperParameterTuningJobName: str
     ) -> DescribeHyperParameterTuningJobResponseTypeDef:
         """
-        [Client.describe_hyper_parameter_tuning_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.describe_hyper_parameter_tuning_job)
+        [Client.describe_hyper_parameter_tuning_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.describe_hyper_parameter_tuning_job)
         """
 
     def describe_image(self, ImageName: str) -> DescribeImageResponseTypeDef:
         """
-        [Client.describe_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.describe_image)
+        [Client.describe_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.describe_image)
         """
 
     def describe_image_version(
         self, ImageName: str, Version: int = None
     ) -> DescribeImageVersionResponseTypeDef:
         """
-        [Client.describe_image_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.describe_image_version)
+        [Client.describe_image_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.describe_image_version)
         """
 
     def describe_labeling_job(self, LabelingJobName: str) -> DescribeLabelingJobResponseTypeDef:
         """
-        [Client.describe_labeling_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.describe_labeling_job)
+        [Client.describe_labeling_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.describe_labeling_job)
         """
 
     def describe_model(self, ModelName: str) -> DescribeModelOutputTypeDef:
         """
-        [Client.describe_model documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.describe_model)
+        [Client.describe_model documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.describe_model)
         """
 
     def describe_model_package(self, ModelPackageName: str) -> DescribeModelPackageOutputTypeDef:
         """
-        [Client.describe_model_package documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.describe_model_package)
+        [Client.describe_model_package documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.describe_model_package)
+        """
+
+    def describe_model_package_group(
+        self, ModelPackageGroupName: str
+    ) -> DescribeModelPackageGroupOutputTypeDef:
+        """
+        [Client.describe_model_package_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.describe_model_package_group)
         """
 
     def describe_monitoring_schedule(
         self, MonitoringScheduleName: str
     ) -> DescribeMonitoringScheduleResponseTypeDef:
         """
-        [Client.describe_monitoring_schedule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.describe_monitoring_schedule)
+        [Client.describe_monitoring_schedule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.describe_monitoring_schedule)
         """
 
     def describe_notebook_instance(
         self, NotebookInstanceName: str
     ) -> DescribeNotebookInstanceOutputTypeDef:
         """
-        [Client.describe_notebook_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.describe_notebook_instance)
+        [Client.describe_notebook_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.describe_notebook_instance)
         """
 
     def describe_notebook_instance_lifecycle_config(
         self, NotebookInstanceLifecycleConfigName: str
     ) -> DescribeNotebookInstanceLifecycleConfigOutputTypeDef:
         """
-        [Client.describe_notebook_instance_lifecycle_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.describe_notebook_instance_lifecycle_config)
+        [Client.describe_notebook_instance_lifecycle_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.describe_notebook_instance_lifecycle_config)
+        """
+
+    def describe_pipeline(self, PipelineName: str) -> DescribePipelineResponseTypeDef:
+        """
+        [Client.describe_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.describe_pipeline)
+        """
+
+    def describe_pipeline_definition_for_execution(
+        self, PipelineExecutionArn: str
+    ) -> DescribePipelineDefinitionForExecutionResponseTypeDef:
+        """
+        [Client.describe_pipeline_definition_for_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.describe_pipeline_definition_for_execution)
+        """
+
+    def describe_pipeline_execution(
+        self, PipelineExecutionArn: str
+    ) -> DescribePipelineExecutionResponseTypeDef:
+        """
+        [Client.describe_pipeline_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.describe_pipeline_execution)
         """
 
     def describe_processing_job(
         self, ProcessingJobName: str
     ) -> DescribeProcessingJobResponseTypeDef:
         """
-        [Client.describe_processing_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.describe_processing_job)
+        [Client.describe_processing_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.describe_processing_job)
+        """
+
+    def describe_project(self, ProjectName: str) -> DescribeProjectOutputTypeDef:
+        """
+        [Client.describe_project documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.describe_project)
         """
 
     def describe_subscribed_workteam(
         self, WorkteamArn: str
     ) -> DescribeSubscribedWorkteamResponseTypeDef:
         """
-        [Client.describe_subscribed_workteam documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.describe_subscribed_workteam)
+        [Client.describe_subscribed_workteam documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.describe_subscribed_workteam)
         """
 
     def describe_training_job(self, TrainingJobName: str) -> DescribeTrainingJobResponseTypeDef:
         """
-        [Client.describe_training_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.describe_training_job)
+        [Client.describe_training_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.describe_training_job)
         """
 
     def describe_transform_job(self, TransformJobName: str) -> DescribeTransformJobResponseTypeDef:
         """
-        [Client.describe_transform_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.describe_transform_job)
+        [Client.describe_transform_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.describe_transform_job)
         """
 
     def describe_trial(self, TrialName: str) -> DescribeTrialResponseTypeDef:
         """
-        [Client.describe_trial documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.describe_trial)
+        [Client.describe_trial documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.describe_trial)
         """
 
     def describe_trial_component(
         self, TrialComponentName: str
     ) -> DescribeTrialComponentResponseTypeDef:
         """
-        [Client.describe_trial_component documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.describe_trial_component)
+        [Client.describe_trial_component documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.describe_trial_component)
         """
 
     def describe_user_profile(
         self, DomainId: str, UserProfileName: str
     ) -> DescribeUserProfileResponseTypeDef:
         """
-        [Client.describe_user_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.describe_user_profile)
+        [Client.describe_user_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.describe_user_profile)
         """
 
     def describe_workforce(self, WorkforceName: str) -> DescribeWorkforceResponseTypeDef:
         """
-        [Client.describe_workforce documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.describe_workforce)
+        [Client.describe_workforce documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.describe_workforce)
         """
 
     def describe_workteam(self, WorkteamName: str) -> DescribeWorkteamResponseTypeDef:
         """
-        [Client.describe_workteam documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.describe_workteam)
+        [Client.describe_workteam documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.describe_workteam)
+        """
+
+    def disable_sagemaker_servicecatalog_portfolio(self) -> Dict[str, Any]:
+        """
+        [Client.disable_sagemaker_servicecatalog_portfolio documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.disable_sagemaker_servicecatalog_portfolio)
         """
 
     def disassociate_trial_component(
         self, TrialComponentName: str, TrialName: str
     ) -> DisassociateTrialComponentResponseTypeDef:
         """
-        [Client.disassociate_trial_component documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.disassociate_trial_component)
+        [Client.disassociate_trial_component documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.disassociate_trial_component)
+        """
+
+    def enable_sagemaker_servicecatalog_portfolio(self) -> Dict[str, Any]:
+        """
+        [Client.enable_sagemaker_servicecatalog_portfolio documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.enable_sagemaker_servicecatalog_portfolio)
         """
 
     def generate_presigned_url(
@@ -1078,18 +1376,56 @@ class SageMakerClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.generate_presigned_url)
+        """
+
+    def get_model_package_group_policy(
+        self, ModelPackageGroupName: str
+    ) -> GetModelPackageGroupPolicyOutputTypeDef:
+        """
+        [Client.get_model_package_group_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.get_model_package_group_policy)
+        """
+
+    def get_sagemaker_servicecatalog_portfolio_status(
+        self,
+    ) -> GetSagemakerServicecatalogPortfolioStatusOutputTypeDef:
+        """
+        [Client.get_sagemaker_servicecatalog_portfolio_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.get_sagemaker_servicecatalog_portfolio_status)
         """
 
     def get_search_suggestions(
         self,
         Resource: Literal[
-            "TrainingJob", "Experiment", "ExperimentTrial", "ExperimentTrialComponent"
+            "TrainingJob",
+            "Experiment",
+            "ExperimentTrial",
+            "ExperimentTrialComponent",
+            "Endpoint",
+            "ModelPackage",
+            "ModelPackageGroup",
+            "Pipeline",
+            "PipelineExecution",
+            "FeatureGroup",
         ],
         SuggestionQuery: SuggestionQueryTypeDef = None,
     ) -> GetSearchSuggestionsResponseTypeDef:
         """
-        [Client.get_search_suggestions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.get_search_suggestions)
+        [Client.get_search_suggestions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.get_search_suggestions)
+        """
+
+    def list_actions(
+        self,
+        SourceUri: str = None,
+        ActionType: str = None,
+        CreatedAfter: datetime = None,
+        CreatedBefore: datetime = None,
+        SortBy: Literal["Name", "CreationTime"] = None,
+        SortOrder: Literal["Ascending", "Descending"] = None,
+        NextToken: str = None,
+        MaxResults: int = None,
+    ) -> ListActionsResponseTypeDef:
+        """
+        [Client.list_actions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.list_actions)
         """
 
     def list_algorithms(
@@ -1103,7 +1439,7 @@ class SageMakerClient:
         SortOrder: Literal["Ascending", "Descending"] = None,
     ) -> ListAlgorithmsOutputTypeDef:
         """
-        [Client.list_algorithms documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.list_algorithms)
+        [Client.list_algorithms documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.list_algorithms)
         """
 
     def list_app_image_configs(
@@ -1119,7 +1455,7 @@ class SageMakerClient:
         SortOrder: Literal["Ascending", "Descending"] = None,
     ) -> ListAppImageConfigsResponseTypeDef:
         """
-        [Client.list_app_image_configs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.list_app_image_configs)
+        [Client.list_app_image_configs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.list_app_image_configs)
         """
 
     def list_apps(
@@ -1132,7 +1468,44 @@ class SageMakerClient:
         UserProfileNameEquals: str = None,
     ) -> ListAppsResponseTypeDef:
         """
-        [Client.list_apps documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.list_apps)
+        [Client.list_apps documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.list_apps)
+        """
+
+    def list_artifacts(
+        self,
+        SourceUri: str = None,
+        ArtifactType: str = None,
+        CreatedAfter: datetime = None,
+        CreatedBefore: datetime = None,
+        SortBy: Literal["CreationTime"] = None,
+        SortOrder: Literal["Ascending", "Descending"] = None,
+        NextToken: str = None,
+        MaxResults: int = None,
+    ) -> ListArtifactsResponseTypeDef:
+        """
+        [Client.list_artifacts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.list_artifacts)
+        """
+
+    def list_associations(
+        self,
+        SourceArn: str = None,
+        DestinationArn: str = None,
+        SourceType: str = None,
+        DestinationType: str = None,
+        AssociationType: Literal[
+            "ContributedTo", "AssociatedWith", "DerivedFrom", "Produced"
+        ] = None,
+        CreatedAfter: datetime = None,
+        CreatedBefore: datetime = None,
+        SortBy: Literal[
+            "SourceArn", "DestinationArn", "SourceType", "DestinationType", "CreationTime"
+        ] = None,
+        SortOrder: Literal["Ascending", "Descending"] = None,
+        NextToken: str = None,
+        MaxResults: int = None,
+    ) -> ListAssociationsResponseTypeDef:
+        """
+        [Client.list_associations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.list_associations)
         """
 
     def list_auto_ml_jobs(
@@ -1149,7 +1522,7 @@ class SageMakerClient:
         NextToken: str = None,
     ) -> ListAutoMLJobsResponseTypeDef:
         """
-        [Client.list_auto_ml_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.list_auto_ml_jobs)
+        [Client.list_auto_ml_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.list_auto_ml_jobs)
         """
 
     def list_candidates_for_auto_ml_job(
@@ -1163,7 +1536,7 @@ class SageMakerClient:
         NextToken: str = None,
     ) -> ListCandidatesForAutoMLJobResponseTypeDef:
         """
-        [Client.list_candidates_for_auto_ml_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.list_candidates_for_auto_ml_job)
+        [Client.list_candidates_for_auto_ml_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.list_candidates_for_auto_ml_job)
         """
 
     def list_code_repositories(
@@ -1179,7 +1552,7 @@ class SageMakerClient:
         SortOrder: Literal["Ascending", "Descending"] = None,
     ) -> ListCodeRepositoriesOutputTypeDef:
         """
-        [Client.list_code_repositories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.list_code_repositories)
+        [Client.list_code_repositories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.list_code_repositories)
         """
 
     def list_compilation_jobs(
@@ -1198,14 +1571,29 @@ class SageMakerClient:
         SortOrder: Literal["Ascending", "Descending"] = None,
     ) -> ListCompilationJobsResponseTypeDef:
         """
-        [Client.list_compilation_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.list_compilation_jobs)
+        [Client.list_compilation_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.list_compilation_jobs)
+        """
+
+    def list_contexts(
+        self,
+        SourceUri: str = None,
+        ContextType: str = None,
+        CreatedAfter: datetime = None,
+        CreatedBefore: datetime = None,
+        SortBy: Literal["Name", "CreationTime"] = None,
+        SortOrder: Literal["Ascending", "Descending"] = None,
+        NextToken: str = None,
+        MaxResults: int = None,
+    ) -> ListContextsResponseTypeDef:
+        """
+        [Client.list_contexts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.list_contexts)
         """
 
     def list_domains(
         self, NextToken: str = None, MaxResults: int = None
     ) -> ListDomainsResponseTypeDef:
         """
-        [Client.list_domains documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.list_domains)
+        [Client.list_domains documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.list_domains)
         """
 
     def list_endpoint_configs(
@@ -1219,7 +1607,7 @@ class SageMakerClient:
         CreationTimeAfter: datetime = None,
     ) -> ListEndpointConfigsOutputTypeDef:
         """
-        [Client.list_endpoint_configs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.list_endpoint_configs)
+        [Client.list_endpoint_configs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.list_endpoint_configs)
         """
 
     def list_endpoints(
@@ -1245,7 +1633,7 @@ class SageMakerClient:
         ] = None,
     ) -> ListEndpointsOutputTypeDef:
         """
-        [Client.list_endpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.list_endpoints)
+        [Client.list_endpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.list_endpoints)
         """
 
     def list_experiments(
@@ -1258,7 +1646,25 @@ class SageMakerClient:
         MaxResults: int = None,
     ) -> ListExperimentsResponseTypeDef:
         """
-        [Client.list_experiments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.list_experiments)
+        [Client.list_experiments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.list_experiments)
+        """
+
+    def list_feature_groups(
+        self,
+        NameContains: str = None,
+        FeatureGroupStatusEquals: Literal[
+            "Creating", "Created", "CreateFailed", "Deleting", "DeleteFailed"
+        ] = None,
+        OfflineStoreStatusEquals: Literal["Active", "Blocked", "Disabled"] = None,
+        CreationTimeAfter: datetime = None,
+        CreationTimeBefore: datetime = None,
+        SortOrder: Literal["Ascending", "Descending"] = None,
+        SortBy: Literal["Name", "FeatureGroupStatus", "OfflineStoreStatus", "CreationTime"] = None,
+        MaxResults: int = None,
+        NextToken: str = None,
+    ) -> ListFeatureGroupsResponseTypeDef:
+        """
+        [Client.list_feature_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.list_feature_groups)
         """
 
     def list_flow_definitions(
@@ -1270,7 +1676,7 @@ class SageMakerClient:
         MaxResults: int = None,
     ) -> ListFlowDefinitionsResponseTypeDef:
         """
-        [Client.list_flow_definitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.list_flow_definitions)
+        [Client.list_flow_definitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.list_flow_definitions)
         """
 
     def list_human_task_uis(
@@ -1282,7 +1688,7 @@ class SageMakerClient:
         MaxResults: int = None,
     ) -> ListHumanTaskUisResponseTypeDef:
         """
-        [Client.list_human_task_uis documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.list_human_task_uis)
+        [Client.list_human_task_uis documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.list_human_task_uis)
         """
 
     def list_hyper_parameter_tuning_jobs(
@@ -1299,7 +1705,7 @@ class SageMakerClient:
         StatusEquals: Literal["Completed", "InProgress", "Failed", "Stopped", "Stopping"] = None,
     ) -> ListHyperParameterTuningJobsResponseTypeDef:
         """
-        [Client.list_hyper_parameter_tuning_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.list_hyper_parameter_tuning_jobs)
+        [Client.list_hyper_parameter_tuning_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.list_hyper_parameter_tuning_jobs)
         """
 
     def list_image_versions(
@@ -1315,7 +1721,7 @@ class SageMakerClient:
         SortOrder: Literal["ASCENDING", "DESCENDING"] = None,
     ) -> ListImageVersionsResponseTypeDef:
         """
-        [Client.list_image_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.list_image_versions)
+        [Client.list_image_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.list_image_versions)
         """
 
     def list_images(
@@ -1331,7 +1737,7 @@ class SageMakerClient:
         SortOrder: Literal["ASCENDING", "DESCENDING"] = None,
     ) -> ListImagesResponseTypeDef:
         """
-        [Client.list_images documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.list_images)
+        [Client.list_images documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.list_images)
         """
 
     def list_labeling_jobs(
@@ -1350,7 +1756,7 @@ class SageMakerClient:
         ] = None,
     ) -> ListLabelingJobsResponseTypeDef:
         """
-        [Client.list_labeling_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.list_labeling_jobs)
+        [Client.list_labeling_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.list_labeling_jobs)
         """
 
     def list_labeling_jobs_for_workteam(
@@ -1365,10 +1771,10 @@ class SageMakerClient:
         SortOrder: Literal["Ascending", "Descending"] = None,
     ) -> ListLabelingJobsForWorkteamResponseTypeDef:
         """
-        [Client.list_labeling_jobs_for_workteam documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.list_labeling_jobs_for_workteam)
+        [Client.list_labeling_jobs_for_workteam documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.list_labeling_jobs_for_workteam)
         """
 
-    def list_model_packages(
+    def list_model_package_groups(
         self,
         CreationTimeAfter: datetime = None,
         CreationTimeBefore: datetime = None,
@@ -1377,9 +1783,26 @@ class SageMakerClient:
         NextToken: str = None,
         SortBy: Literal["Name", "CreationTime"] = None,
         SortOrder: Literal["Ascending", "Descending"] = None,
+    ) -> ListModelPackageGroupsOutputTypeDef:
+        """
+        [Client.list_model_package_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.list_model_package_groups)
+        """
+
+    def list_model_packages(
+        self,
+        CreationTimeAfter: datetime = None,
+        CreationTimeBefore: datetime = None,
+        MaxResults: int = None,
+        NameContains: str = None,
+        ModelApprovalStatus: Literal["Approved", "Rejected", "PendingManualApproval"] = None,
+        ModelPackageGroupName: str = None,
+        ModelPackageType: Literal["Versioned", "Unversioned", "Both"] = None,
+        NextToken: str = None,
+        SortBy: Literal["Name", "CreationTime"] = None,
+        SortOrder: Literal["Ascending", "Descending"] = None,
     ) -> ListModelPackagesOutputTypeDef:
         """
-        [Client.list_model_packages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.list_model_packages)
+        [Client.list_model_packages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.list_model_packages)
         """
 
     def list_models(
@@ -1393,7 +1816,7 @@ class SageMakerClient:
         CreationTimeAfter: datetime = None,
     ) -> ListModelsOutputTypeDef:
         """
-        [Client.list_models documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.list_models)
+        [Client.list_models documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.list_models)
         """
 
     def list_monitoring_executions(
@@ -1421,7 +1844,7 @@ class SageMakerClient:
         ] = None,
     ) -> ListMonitoringExecutionsResponseTypeDef:
         """
-        [Client.list_monitoring_executions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.list_monitoring_executions)
+        [Client.list_monitoring_executions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.list_monitoring_executions)
         """
 
     def list_monitoring_schedules(
@@ -1439,7 +1862,7 @@ class SageMakerClient:
         StatusEquals: Literal["Pending", "Failed", "Scheduled", "Stopped"] = None,
     ) -> ListMonitoringSchedulesResponseTypeDef:
         """
-        [Client.list_monitoring_schedules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.list_monitoring_schedules)
+        [Client.list_monitoring_schedules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.list_monitoring_schedules)
         """
 
     def list_notebook_instance_lifecycle_configs(
@@ -1455,7 +1878,7 @@ class SageMakerClient:
         LastModifiedTimeAfter: datetime = None,
     ) -> ListNotebookInstanceLifecycleConfigsOutputTypeDef:
         """
-        [Client.list_notebook_instance_lifecycle_configs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.list_notebook_instance_lifecycle_configs)
+        [Client.list_notebook_instance_lifecycle_configs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.list_notebook_instance_lifecycle_configs)
         """
 
     def list_notebook_instances(
@@ -1477,7 +1900,53 @@ class SageMakerClient:
         AdditionalCodeRepositoryEquals: str = None,
     ) -> ListNotebookInstancesOutputTypeDef:
         """
-        [Client.list_notebook_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.list_notebook_instances)
+        [Client.list_notebook_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.list_notebook_instances)
+        """
+
+    def list_pipeline_execution_steps(
+        self,
+        PipelineExecutionArn: str = None,
+        NextToken: str = None,
+        MaxResults: int = None,
+        SortOrder: Literal["Ascending", "Descending"] = None,
+    ) -> ListPipelineExecutionStepsResponseTypeDef:
+        """
+        [Client.list_pipeline_execution_steps documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.list_pipeline_execution_steps)
+        """
+
+    def list_pipeline_executions(
+        self,
+        PipelineName: str,
+        CreatedAfter: datetime = None,
+        CreatedBefore: datetime = None,
+        SortBy: Literal["CreationTime", "PipelineExecutionArn"] = None,
+        SortOrder: Literal["Ascending", "Descending"] = None,
+        NextToken: str = None,
+        MaxResults: int = None,
+    ) -> ListPipelineExecutionsResponseTypeDef:
+        """
+        [Client.list_pipeline_executions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.list_pipeline_executions)
+        """
+
+    def list_pipeline_parameters_for_execution(
+        self, PipelineExecutionArn: str, NextToken: str = None, MaxResults: int = None
+    ) -> ListPipelineParametersForExecutionResponseTypeDef:
+        """
+        [Client.list_pipeline_parameters_for_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.list_pipeline_parameters_for_execution)
+        """
+
+    def list_pipelines(
+        self,
+        PipelineNamePrefix: str = None,
+        CreatedAfter: datetime = None,
+        CreatedBefore: datetime = None,
+        SortBy: Literal["Name", "CreationTime"] = None,
+        SortOrder: Literal["Ascending", "Descending"] = None,
+        NextToken: str = None,
+        MaxResults: int = None,
+    ) -> ListPipelinesResponseTypeDef:
+        """
+        [Client.list_pipelines documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.list_pipelines)
         """
 
     def list_processing_jobs(
@@ -1494,21 +1963,35 @@ class SageMakerClient:
         MaxResults: int = None,
     ) -> ListProcessingJobsResponseTypeDef:
         """
-        [Client.list_processing_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.list_processing_jobs)
+        [Client.list_processing_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.list_processing_jobs)
+        """
+
+    def list_projects(
+        self,
+        CreationTimeAfter: datetime = None,
+        CreationTimeBefore: datetime = None,
+        MaxResults: int = None,
+        NameContains: str = None,
+        NextToken: str = None,
+        SortBy: Literal["Name", "CreationTime"] = None,
+        SortOrder: Literal["Ascending", "Descending"] = None,
+    ) -> ListProjectsOutputTypeDef:
+        """
+        [Client.list_projects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.list_projects)
         """
 
     def list_subscribed_workteams(
         self, NameContains: str = None, NextToken: str = None, MaxResults: int = None
     ) -> ListSubscribedWorkteamsResponseTypeDef:
         """
-        [Client.list_subscribed_workteams documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.list_subscribed_workteams)
+        [Client.list_subscribed_workteams documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.list_subscribed_workteams)
         """
 
     def list_tags(
         self, ResourceArn: str, NextToken: str = None, MaxResults: int = None
     ) -> ListTagsOutputTypeDef:
         """
-        [Client.list_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.list_tags)
+        [Client.list_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.list_tags)
         """
 
     def list_training_jobs(
@@ -1525,7 +2008,7 @@ class SageMakerClient:
         SortOrder: Literal["Ascending", "Descending"] = None,
     ) -> ListTrainingJobsResponseTypeDef:
         """
-        [Client.list_training_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.list_training_jobs)
+        [Client.list_training_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.list_training_jobs)
         """
 
     def list_training_jobs_for_hyper_parameter_tuning_job(
@@ -1538,7 +2021,7 @@ class SageMakerClient:
         SortOrder: Literal["Ascending", "Descending"] = None,
     ) -> ListTrainingJobsForHyperParameterTuningJobResponseTypeDef:
         """
-        [Client.list_training_jobs_for_hyper_parameter_tuning_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.list_training_jobs_for_hyper_parameter_tuning_job)
+        [Client.list_training_jobs_for_hyper_parameter_tuning_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.list_training_jobs_for_hyper_parameter_tuning_job)
         """
 
     def list_transform_jobs(
@@ -1555,7 +2038,7 @@ class SageMakerClient:
         MaxResults: int = None,
     ) -> ListTransformJobsResponseTypeDef:
         """
-        [Client.list_transform_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.list_transform_jobs)
+        [Client.list_transform_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.list_transform_jobs)
         """
 
     def list_trial_components(
@@ -1571,7 +2054,7 @@ class SageMakerClient:
         NextToken: str = None,
     ) -> ListTrialComponentsResponseTypeDef:
         """
-        [Client.list_trial_components documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.list_trial_components)
+        [Client.list_trial_components documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.list_trial_components)
         """
 
     def list_trials(
@@ -1586,7 +2069,7 @@ class SageMakerClient:
         NextToken: str = None,
     ) -> ListTrialsResponseTypeDef:
         """
-        [Client.list_trials documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.list_trials)
+        [Client.list_trials documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.list_trials)
         """
 
     def list_user_profiles(
@@ -1599,7 +2082,7 @@ class SageMakerClient:
         UserProfileNameContains: str = None,
     ) -> ListUserProfilesResponseTypeDef:
         """
-        [Client.list_user_profiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.list_user_profiles)
+        [Client.list_user_profiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.list_user_profiles)
         """
 
     def list_workforces(
@@ -1611,7 +2094,7 @@ class SageMakerClient:
         MaxResults: int = None,
     ) -> ListWorkforcesResponseTypeDef:
         """
-        [Client.list_workforces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.list_workforces)
+        [Client.list_workforces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.list_workforces)
         """
 
     def list_workteams(
@@ -1623,7 +2106,14 @@ class SageMakerClient:
         MaxResults: int = None,
     ) -> ListWorkteamsResponseTypeDef:
         """
-        [Client.list_workteams documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.list_workteams)
+        [Client.list_workteams documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.list_workteams)
+        """
+
+    def put_model_package_group_policy(
+        self, ModelPackageGroupName: str, ResourcePolicy: str
+    ) -> PutModelPackageGroupPolicyOutputTypeDef:
+        """
+        [Client.put_model_package_group_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.put_model_package_group_policy)
         """
 
     def render_ui_template(
@@ -1634,13 +2124,22 @@ class SageMakerClient:
         HumanTaskUiArn: str = None,
     ) -> RenderUiTemplateResponseTypeDef:
         """
-        [Client.render_ui_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.render_ui_template)
+        [Client.render_ui_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.render_ui_template)
         """
 
     def search(
         self,
         Resource: Literal[
-            "TrainingJob", "Experiment", "ExperimentTrial", "ExperimentTrialComponent"
+            "TrainingJob",
+            "Experiment",
+            "ExperimentTrial",
+            "ExperimentTrialComponent",
+            "Endpoint",
+            "ModelPackage",
+            "ModelPackageGroup",
+            "Pipeline",
+            "PipelineExecution",
+            "FeatureGroup",
         ],
         SearchExpression: Dict[str, Any] = None,
         SortBy: str = None,
@@ -1649,62 +2148,95 @@ class SageMakerClient:
         MaxResults: int = None,
     ) -> SearchResponseTypeDef:
         """
-        [Client.search documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.search)
+        [Client.search documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.search)
         """
 
     def start_monitoring_schedule(self, MonitoringScheduleName: str) -> None:
         """
-        [Client.start_monitoring_schedule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.start_monitoring_schedule)
+        [Client.start_monitoring_schedule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.start_monitoring_schedule)
         """
 
     def start_notebook_instance(self, NotebookInstanceName: str) -> None:
         """
-        [Client.start_notebook_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.start_notebook_instance)
+        [Client.start_notebook_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.start_notebook_instance)
+        """
+
+    def start_pipeline_execution(
+        self,
+        PipelineName: str,
+        ClientRequestToken: str,
+        PipelineExecutionDisplayName: str = None,
+        PipelineParameters: List["ParameterTypeDef"] = None,
+        PipelineExecutionDescription: str = None,
+    ) -> StartPipelineExecutionResponseTypeDef:
+        """
+        [Client.start_pipeline_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.start_pipeline_execution)
         """
 
     def stop_auto_ml_job(self, AutoMLJobName: str) -> None:
         """
-        [Client.stop_auto_ml_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.stop_auto_ml_job)
+        [Client.stop_auto_ml_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.stop_auto_ml_job)
         """
 
     def stop_compilation_job(self, CompilationJobName: str) -> None:
         """
-        [Client.stop_compilation_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.stop_compilation_job)
+        [Client.stop_compilation_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.stop_compilation_job)
         """
 
     def stop_hyper_parameter_tuning_job(self, HyperParameterTuningJobName: str) -> None:
         """
-        [Client.stop_hyper_parameter_tuning_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.stop_hyper_parameter_tuning_job)
+        [Client.stop_hyper_parameter_tuning_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.stop_hyper_parameter_tuning_job)
         """
 
     def stop_labeling_job(self, LabelingJobName: str) -> None:
         """
-        [Client.stop_labeling_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.stop_labeling_job)
+        [Client.stop_labeling_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.stop_labeling_job)
         """
 
     def stop_monitoring_schedule(self, MonitoringScheduleName: str) -> None:
         """
-        [Client.stop_monitoring_schedule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.stop_monitoring_schedule)
+        [Client.stop_monitoring_schedule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.stop_monitoring_schedule)
         """
 
     def stop_notebook_instance(self, NotebookInstanceName: str) -> None:
         """
-        [Client.stop_notebook_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.stop_notebook_instance)
+        [Client.stop_notebook_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.stop_notebook_instance)
+        """
+
+    def stop_pipeline_execution(
+        self, PipelineExecutionArn: str, ClientRequestToken: str
+    ) -> StopPipelineExecutionResponseTypeDef:
+        """
+        [Client.stop_pipeline_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.stop_pipeline_execution)
         """
 
     def stop_processing_job(self, ProcessingJobName: str) -> None:
         """
-        [Client.stop_processing_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.stop_processing_job)
+        [Client.stop_processing_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.stop_processing_job)
         """
 
     def stop_training_job(self, TrainingJobName: str) -> None:
         """
-        [Client.stop_training_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.stop_training_job)
+        [Client.stop_training_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.stop_training_job)
         """
 
     def stop_transform_job(self, TransformJobName: str) -> None:
         """
-        [Client.stop_transform_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.stop_transform_job)
+        [Client.stop_transform_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.stop_transform_job)
+        """
+
+    def update_action(
+        self,
+        ActionName: str,
+        Description: str = None,
+        Status: Literal[
+            "Unknown", "InProgress", "Completed", "Failed", "Stopping", "Stopped"
+        ] = None,
+        Properties: Dict[str, str] = None,
+        PropertiesToRemove: List[str] = None,
+    ) -> UpdateActionResponseTypeDef:
+        """
+        [Client.update_action documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.update_action)
         """
 
     def update_app_image_config(
@@ -1713,21 +2245,43 @@ class SageMakerClient:
         KernelGatewayImageConfig: "KernelGatewayImageConfigTypeDef" = None,
     ) -> UpdateAppImageConfigResponseTypeDef:
         """
-        [Client.update_app_image_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.update_app_image_config)
+        [Client.update_app_image_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.update_app_image_config)
+        """
+
+    def update_artifact(
+        self,
+        ArtifactArn: str,
+        ArtifactName: str = None,
+        Properties: Dict[str, str] = None,
+        PropertiesToRemove: List[str] = None,
+    ) -> UpdateArtifactResponseTypeDef:
+        """
+        [Client.update_artifact documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.update_artifact)
         """
 
     def update_code_repository(
         self, CodeRepositoryName: str, GitConfig: GitConfigForUpdateTypeDef = None
     ) -> UpdateCodeRepositoryOutputTypeDef:
         """
-        [Client.update_code_repository documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.update_code_repository)
+        [Client.update_code_repository documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.update_code_repository)
+        """
+
+    def update_context(
+        self,
+        ContextName: str,
+        Description: str = None,
+        Properties: Dict[str, str] = None,
+        PropertiesToRemove: List[str] = None,
+    ) -> UpdateContextResponseTypeDef:
+        """
+        [Client.update_context documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.update_context)
         """
 
     def update_domain(
         self, DomainId: str, DefaultUserSettings: "UserSettingsTypeDef" = None
     ) -> UpdateDomainResponseTypeDef:
         """
-        [Client.update_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.update_domain)
+        [Client.update_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.update_domain)
         """
 
     def update_endpoint(
@@ -1736,23 +2290,24 @@ class SageMakerClient:
         EndpointConfigName: str,
         RetainAllVariantProperties: bool = None,
         ExcludeRetainedVariantProperties: List[VariantPropertyTypeDef] = None,
+        DeploymentConfig: "DeploymentConfigTypeDef" = None,
     ) -> UpdateEndpointOutputTypeDef:
         """
-        [Client.update_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.update_endpoint)
+        [Client.update_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.update_endpoint)
         """
 
     def update_endpoint_weights_and_capacities(
         self, EndpointName: str, DesiredWeightsAndCapacities: List[DesiredWeightAndCapacityTypeDef]
     ) -> UpdateEndpointWeightsAndCapacitiesOutputTypeDef:
         """
-        [Client.update_endpoint_weights_and_capacities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.update_endpoint_weights_and_capacities)
+        [Client.update_endpoint_weights_and_capacities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.update_endpoint_weights_and_capacities)
         """
 
     def update_experiment(
         self, ExperimentName: str, DisplayName: str = None, Description: str = None
     ) -> UpdateExperimentResponseTypeDef:
         """
-        [Client.update_experiment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.update_experiment)
+        [Client.update_experiment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.update_experiment)
         """
 
     def update_image(
@@ -1764,7 +2319,17 @@ class SageMakerClient:
         RoleArn: str = None,
     ) -> UpdateImageResponseTypeDef:
         """
-        [Client.update_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.update_image)
+        [Client.update_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.update_image)
+        """
+
+    def update_model_package(
+        self,
+        ModelPackageArn: str,
+        ModelApprovalStatus: Literal["Approved", "Rejected", "PendingManualApproval"],
+        ApprovalDescription: str = None,
+    ) -> UpdateModelPackageOutputTypeDef:
+        """
+        [Client.update_model_package documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.update_model_package)
         """
 
     def update_monitoring_schedule(
@@ -1773,7 +2338,7 @@ class SageMakerClient:
         MonitoringScheduleConfig: "MonitoringScheduleConfigTypeDef",
     ) -> UpdateMonitoringScheduleResponseTypeDef:
         """
-        [Client.update_monitoring_schedule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.update_monitoring_schedule)
+        [Client.update_monitoring_schedule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.update_monitoring_schedule)
         """
 
     def update_notebook_instance(
@@ -1841,7 +2406,7 @@ class SageMakerClient:
         RootAccess: Literal["Enabled", "Disabled"] = None,
     ) -> Dict[str, Any]:
         """
-        [Client.update_notebook_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.update_notebook_instance)
+        [Client.update_notebook_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.update_notebook_instance)
         """
 
     def update_notebook_instance_lifecycle_config(
@@ -1851,12 +2416,34 @@ class SageMakerClient:
         OnStart: List["NotebookInstanceLifecycleHookTypeDef"] = None,
     ) -> Dict[str, Any]:
         """
-        [Client.update_notebook_instance_lifecycle_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.update_notebook_instance_lifecycle_config)
+        [Client.update_notebook_instance_lifecycle_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.update_notebook_instance_lifecycle_config)
+        """
+
+    def update_pipeline(
+        self,
+        PipelineName: str,
+        PipelineDisplayName: str = None,
+        PipelineDefinition: str = None,
+        PipelineDescription: str = None,
+        RoleArn: str = None,
+    ) -> UpdatePipelineResponseTypeDef:
+        """
+        [Client.update_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.update_pipeline)
+        """
+
+    def update_pipeline_execution(
+        self,
+        PipelineExecutionArn: str,
+        PipelineExecutionDescription: str = None,
+        PipelineExecutionDisplayName: str = None,
+    ) -> UpdatePipelineExecutionResponseTypeDef:
+        """
+        [Client.update_pipeline_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.update_pipeline_execution)
         """
 
     def update_trial(self, TrialName: str, DisplayName: str = None) -> UpdateTrialResponseTypeDef:
         """
-        [Client.update_trial documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.update_trial)
+        [Client.update_trial documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.update_trial)
         """
 
     def update_trial_component(
@@ -1874,14 +2461,14 @@ class SageMakerClient:
         OutputArtifactsToRemove: List[str] = None,
     ) -> UpdateTrialComponentResponseTypeDef:
         """
-        [Client.update_trial_component documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.update_trial_component)
+        [Client.update_trial_component documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.update_trial_component)
         """
 
     def update_user_profile(
         self, DomainId: str, UserProfileName: str, UserSettings: "UserSettingsTypeDef" = None
     ) -> UpdateUserProfileResponseTypeDef:
         """
-        [Client.update_user_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.update_user_profile)
+        [Client.update_user_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.update_user_profile)
         """
 
     def update_workforce(
@@ -1891,7 +2478,7 @@ class SageMakerClient:
         OidcConfig: OidcConfigTypeDef = None,
     ) -> UpdateWorkforceResponseTypeDef:
         """
-        [Client.update_workforce documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.update_workforce)
+        [Client.update_workforce documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.update_workforce)
         """
 
     def update_workteam(
@@ -1902,19 +2489,47 @@ class SageMakerClient:
         NotificationConfiguration: "NotificationConfigurationTypeDef" = None,
     ) -> UpdateWorkteamResponseTypeDef:
         """
-        [Client.update_workteam documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Client.update_workteam)
+        [Client.update_workteam documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Client.update_workteam)
+        """
+
+    @overload
+    def get_paginator(self, operation_name: Literal["list_actions"]) -> ListActionsPaginator:
+        """
+        [Paginator.ListActions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Paginator.ListActions)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_algorithms"]) -> ListAlgorithmsPaginator:
         """
-        [Paginator.ListAlgorithms documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Paginator.ListAlgorithms)
+        [Paginator.ListAlgorithms documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Paginator.ListAlgorithms)
+        """
+
+    @overload
+    def get_paginator(
+        self, operation_name: Literal["list_app_image_configs"]
+    ) -> ListAppImageConfigsPaginator:
+        """
+        [Paginator.ListAppImageConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Paginator.ListAppImageConfigs)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_apps"]) -> ListAppsPaginator:
         """
-        [Paginator.ListApps documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Paginator.ListApps)
+        [Paginator.ListApps documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Paginator.ListApps)
+        """
+
+    @overload
+    def get_paginator(self, operation_name: Literal["list_artifacts"]) -> ListArtifactsPaginator:
+        """
+        [Paginator.ListArtifacts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Paginator.ListArtifacts)
+        """
+
+    @overload
+    def get_paginator(
+        self, operation_name: Literal["list_associations"]
+    ) -> ListAssociationsPaginator:
+        """
+        [Paginator.ListAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Paginator.ListAssociations)
         """
 
     @overload
@@ -1922,7 +2537,7 @@ class SageMakerClient:
         self, operation_name: Literal["list_auto_ml_jobs"]
     ) -> ListAutoMLJobsPaginator:
         """
-        [Paginator.ListAutoMLJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Paginator.ListAutoMLJobs)
+        [Paginator.ListAutoMLJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Paginator.ListAutoMLJobs)
         """
 
     @overload
@@ -1930,7 +2545,7 @@ class SageMakerClient:
         self, operation_name: Literal["list_candidates_for_auto_ml_job"]
     ) -> ListCandidatesForAutoMLJobPaginator:
         """
-        [Paginator.ListCandidatesForAutoMLJob documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Paginator.ListCandidatesForAutoMLJob)
+        [Paginator.ListCandidatesForAutoMLJob documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Paginator.ListCandidatesForAutoMLJob)
         """
 
     @overload
@@ -1938,7 +2553,7 @@ class SageMakerClient:
         self, operation_name: Literal["list_code_repositories"]
     ) -> ListCodeRepositoriesPaginator:
         """
-        [Paginator.ListCodeRepositories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Paginator.ListCodeRepositories)
+        [Paginator.ListCodeRepositories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Paginator.ListCodeRepositories)
         """
 
     @overload
@@ -1946,13 +2561,19 @@ class SageMakerClient:
         self, operation_name: Literal["list_compilation_jobs"]
     ) -> ListCompilationJobsPaginator:
         """
-        [Paginator.ListCompilationJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Paginator.ListCompilationJobs)
+        [Paginator.ListCompilationJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Paginator.ListCompilationJobs)
+        """
+
+    @overload
+    def get_paginator(self, operation_name: Literal["list_contexts"]) -> ListContextsPaginator:
+        """
+        [Paginator.ListContexts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Paginator.ListContexts)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_domains"]) -> ListDomainsPaginator:
         """
-        [Paginator.ListDomains documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Paginator.ListDomains)
+        [Paginator.ListDomains documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Paginator.ListDomains)
         """
 
     @overload
@@ -1960,13 +2581,13 @@ class SageMakerClient:
         self, operation_name: Literal["list_endpoint_configs"]
     ) -> ListEndpointConfigsPaginator:
         """
-        [Paginator.ListEndpointConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Paginator.ListEndpointConfigs)
+        [Paginator.ListEndpointConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Paginator.ListEndpointConfigs)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_endpoints"]) -> ListEndpointsPaginator:
         """
-        [Paginator.ListEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Paginator.ListEndpoints)
+        [Paginator.ListEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Paginator.ListEndpoints)
         """
 
     @overload
@@ -1974,7 +2595,15 @@ class SageMakerClient:
         self, operation_name: Literal["list_experiments"]
     ) -> ListExperimentsPaginator:
         """
-        [Paginator.ListExperiments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Paginator.ListExperiments)
+        [Paginator.ListExperiments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Paginator.ListExperiments)
+        """
+
+    @overload
+    def get_paginator(
+        self, operation_name: Literal["list_feature_groups"]
+    ) -> ListFeatureGroupsPaginator:
+        """
+        [Paginator.ListFeatureGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Paginator.ListFeatureGroups)
         """
 
     @overload
@@ -1982,7 +2611,7 @@ class SageMakerClient:
         self, operation_name: Literal["list_flow_definitions"]
     ) -> ListFlowDefinitionsPaginator:
         """
-        [Paginator.ListFlowDefinitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Paginator.ListFlowDefinitions)
+        [Paginator.ListFlowDefinitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Paginator.ListFlowDefinitions)
         """
 
     @overload
@@ -1990,7 +2619,7 @@ class SageMakerClient:
         self, operation_name: Literal["list_human_task_uis"]
     ) -> ListHumanTaskUisPaginator:
         """
-        [Paginator.ListHumanTaskUis documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Paginator.ListHumanTaskUis)
+        [Paginator.ListHumanTaskUis documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Paginator.ListHumanTaskUis)
         """
 
     @overload
@@ -1998,7 +2627,7 @@ class SageMakerClient:
         self, operation_name: Literal["list_hyper_parameter_tuning_jobs"]
     ) -> ListHyperParameterTuningJobsPaginator:
         """
-        [Paginator.ListHyperParameterTuningJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Paginator.ListHyperParameterTuningJobs)
+        [Paginator.ListHyperParameterTuningJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Paginator.ListHyperParameterTuningJobs)
         """
 
     @overload
@@ -2006,13 +2635,13 @@ class SageMakerClient:
         self, operation_name: Literal["list_image_versions"]
     ) -> ListImageVersionsPaginator:
         """
-        [Paginator.ListImageVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Paginator.ListImageVersions)
+        [Paginator.ListImageVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Paginator.ListImageVersions)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_images"]) -> ListImagesPaginator:
         """
-        [Paginator.ListImages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Paginator.ListImages)
+        [Paginator.ListImages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Paginator.ListImages)
         """
 
     @overload
@@ -2020,7 +2649,7 @@ class SageMakerClient:
         self, operation_name: Literal["list_labeling_jobs"]
     ) -> ListLabelingJobsPaginator:
         """
-        [Paginator.ListLabelingJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Paginator.ListLabelingJobs)
+        [Paginator.ListLabelingJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Paginator.ListLabelingJobs)
         """
 
     @overload
@@ -2028,7 +2657,15 @@ class SageMakerClient:
         self, operation_name: Literal["list_labeling_jobs_for_workteam"]
     ) -> ListLabelingJobsForWorkteamPaginator:
         """
-        [Paginator.ListLabelingJobsForWorkteam documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Paginator.ListLabelingJobsForWorkteam)
+        [Paginator.ListLabelingJobsForWorkteam documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Paginator.ListLabelingJobsForWorkteam)
+        """
+
+    @overload
+    def get_paginator(
+        self, operation_name: Literal["list_model_package_groups"]
+    ) -> ListModelPackageGroupsPaginator:
+        """
+        [Paginator.ListModelPackageGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Paginator.ListModelPackageGroups)
         """
 
     @overload
@@ -2036,13 +2673,13 @@ class SageMakerClient:
         self, operation_name: Literal["list_model_packages"]
     ) -> ListModelPackagesPaginator:
         """
-        [Paginator.ListModelPackages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Paginator.ListModelPackages)
+        [Paginator.ListModelPackages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Paginator.ListModelPackages)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_models"]) -> ListModelsPaginator:
         """
-        [Paginator.ListModels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Paginator.ListModels)
+        [Paginator.ListModels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Paginator.ListModels)
         """
 
     @overload
@@ -2050,7 +2687,7 @@ class SageMakerClient:
         self, operation_name: Literal["list_monitoring_executions"]
     ) -> ListMonitoringExecutionsPaginator:
         """
-        [Paginator.ListMonitoringExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Paginator.ListMonitoringExecutions)
+        [Paginator.ListMonitoringExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Paginator.ListMonitoringExecutions)
         """
 
     @overload
@@ -2058,7 +2695,7 @@ class SageMakerClient:
         self, operation_name: Literal["list_monitoring_schedules"]
     ) -> ListMonitoringSchedulesPaginator:
         """
-        [Paginator.ListMonitoringSchedules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Paginator.ListMonitoringSchedules)
+        [Paginator.ListMonitoringSchedules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Paginator.ListMonitoringSchedules)
         """
 
     @overload
@@ -2066,7 +2703,7 @@ class SageMakerClient:
         self, operation_name: Literal["list_notebook_instance_lifecycle_configs"]
     ) -> ListNotebookInstanceLifecycleConfigsPaginator:
         """
-        [Paginator.ListNotebookInstanceLifecycleConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Paginator.ListNotebookInstanceLifecycleConfigs)
+        [Paginator.ListNotebookInstanceLifecycleConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Paginator.ListNotebookInstanceLifecycleConfigs)
         """
 
     @overload
@@ -2074,7 +2711,37 @@ class SageMakerClient:
         self, operation_name: Literal["list_notebook_instances"]
     ) -> ListNotebookInstancesPaginator:
         """
-        [Paginator.ListNotebookInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Paginator.ListNotebookInstances)
+        [Paginator.ListNotebookInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Paginator.ListNotebookInstances)
+        """
+
+    @overload
+    def get_paginator(
+        self, operation_name: Literal["list_pipeline_execution_steps"]
+    ) -> ListPipelineExecutionStepsPaginator:
+        """
+        [Paginator.ListPipelineExecutionSteps documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Paginator.ListPipelineExecutionSteps)
+        """
+
+    @overload
+    def get_paginator(
+        self, operation_name: Literal["list_pipeline_executions"]
+    ) -> ListPipelineExecutionsPaginator:
+        """
+        [Paginator.ListPipelineExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Paginator.ListPipelineExecutions)
+        """
+
+    @overload
+    def get_paginator(
+        self, operation_name: Literal["list_pipeline_parameters_for_execution"]
+    ) -> ListPipelineParametersForExecutionPaginator:
+        """
+        [Paginator.ListPipelineParametersForExecution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Paginator.ListPipelineParametersForExecution)
+        """
+
+    @overload
+    def get_paginator(self, operation_name: Literal["list_pipelines"]) -> ListPipelinesPaginator:
+        """
+        [Paginator.ListPipelines documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Paginator.ListPipelines)
         """
 
     @overload
@@ -2082,7 +2749,7 @@ class SageMakerClient:
         self, operation_name: Literal["list_processing_jobs"]
     ) -> ListProcessingJobsPaginator:
         """
-        [Paginator.ListProcessingJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Paginator.ListProcessingJobs)
+        [Paginator.ListProcessingJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Paginator.ListProcessingJobs)
         """
 
     @overload
@@ -2090,13 +2757,13 @@ class SageMakerClient:
         self, operation_name: Literal["list_subscribed_workteams"]
     ) -> ListSubscribedWorkteamsPaginator:
         """
-        [Paginator.ListSubscribedWorkteams documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Paginator.ListSubscribedWorkteams)
+        [Paginator.ListSubscribedWorkteams documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Paginator.ListSubscribedWorkteams)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_tags"]) -> ListTagsPaginator:
         """
-        [Paginator.ListTags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Paginator.ListTags)
+        [Paginator.ListTags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Paginator.ListTags)
         """
 
     @overload
@@ -2104,7 +2771,7 @@ class SageMakerClient:
         self, operation_name: Literal["list_training_jobs"]
     ) -> ListTrainingJobsPaginator:
         """
-        [Paginator.ListTrainingJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Paginator.ListTrainingJobs)
+        [Paginator.ListTrainingJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Paginator.ListTrainingJobs)
         """
 
     @overload
@@ -2112,7 +2779,7 @@ class SageMakerClient:
         self, operation_name: Literal["list_training_jobs_for_hyper_parameter_tuning_job"]
     ) -> ListTrainingJobsForHyperParameterTuningJobPaginator:
         """
-        [Paginator.ListTrainingJobsForHyperParameterTuningJob documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Paginator.ListTrainingJobsForHyperParameterTuningJob)
+        [Paginator.ListTrainingJobsForHyperParameterTuningJob documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Paginator.ListTrainingJobsForHyperParameterTuningJob)
         """
 
     @overload
@@ -2120,7 +2787,7 @@ class SageMakerClient:
         self, operation_name: Literal["list_transform_jobs"]
     ) -> ListTransformJobsPaginator:
         """
-        [Paginator.ListTransformJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Paginator.ListTransformJobs)
+        [Paginator.ListTransformJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Paginator.ListTransformJobs)
         """
 
     @overload
@@ -2128,13 +2795,13 @@ class SageMakerClient:
         self, operation_name: Literal["list_trial_components"]
     ) -> ListTrialComponentsPaginator:
         """
-        [Paginator.ListTrialComponents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Paginator.ListTrialComponents)
+        [Paginator.ListTrialComponents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Paginator.ListTrialComponents)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_trials"]) -> ListTrialsPaginator:
         """
-        [Paginator.ListTrials documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Paginator.ListTrials)
+        [Paginator.ListTrials documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Paginator.ListTrials)
         """
 
     @overload
@@ -2142,37 +2809,37 @@ class SageMakerClient:
         self, operation_name: Literal["list_user_profiles"]
     ) -> ListUserProfilesPaginator:
         """
-        [Paginator.ListUserProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Paginator.ListUserProfiles)
+        [Paginator.ListUserProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Paginator.ListUserProfiles)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_workforces"]) -> ListWorkforcesPaginator:
         """
-        [Paginator.ListWorkforces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Paginator.ListWorkforces)
+        [Paginator.ListWorkforces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Paginator.ListWorkforces)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_workteams"]) -> ListWorkteamsPaginator:
         """
-        [Paginator.ListWorkteams documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Paginator.ListWorkteams)
+        [Paginator.ListWorkteams documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Paginator.ListWorkteams)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["search"]) -> SearchPaginator:
         """
-        [Paginator.Search documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Paginator.Search)
+        [Paginator.Search documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Paginator.Search)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["endpoint_deleted"]) -> EndpointDeletedWaiter:
         """
-        [Waiter.EndpointDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Waiter.EndpointDeleted)
+        [Waiter.EndpointDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Waiter.EndpointDeleted)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["endpoint_in_service"]) -> EndpointInServiceWaiter:
         """
-        [Waiter.EndpointInService documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Waiter.EndpointInService)
+        [Waiter.EndpointInService documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Waiter.EndpointInService)
         """
 
     @overload
@@ -2180,7 +2847,7 @@ class SageMakerClient:
         self, waiter_name: Literal["notebook_instance_deleted"]
     ) -> NotebookInstanceDeletedWaiter:
         """
-        [Waiter.NotebookInstanceDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Waiter.NotebookInstanceDeleted)
+        [Waiter.NotebookInstanceDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Waiter.NotebookInstanceDeleted)
         """
 
     @overload
@@ -2188,7 +2855,7 @@ class SageMakerClient:
         self, waiter_name: Literal["notebook_instance_in_service"]
     ) -> NotebookInstanceInServiceWaiter:
         """
-        [Waiter.NotebookInstanceInService documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Waiter.NotebookInstanceInService)
+        [Waiter.NotebookInstanceInService documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Waiter.NotebookInstanceInService)
         """
 
     @overload
@@ -2196,7 +2863,7 @@ class SageMakerClient:
         self, waiter_name: Literal["notebook_instance_stopped"]
     ) -> NotebookInstanceStoppedWaiter:
         """
-        [Waiter.NotebookInstanceStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Waiter.NotebookInstanceStopped)
+        [Waiter.NotebookInstanceStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Waiter.NotebookInstanceStopped)
         """
 
     @overload
@@ -2204,7 +2871,7 @@ class SageMakerClient:
         self, waiter_name: Literal["processing_job_completed_or_stopped"]
     ) -> ProcessingJobCompletedOrStoppedWaiter:
         """
-        [Waiter.ProcessingJobCompletedOrStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Waiter.ProcessingJobCompletedOrStopped)
+        [Waiter.ProcessingJobCompletedOrStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Waiter.ProcessingJobCompletedOrStopped)
         """
 
     @overload
@@ -2212,7 +2879,7 @@ class SageMakerClient:
         self, waiter_name: Literal["training_job_completed_or_stopped"]
     ) -> TrainingJobCompletedOrStoppedWaiter:
         """
-        [Waiter.TrainingJobCompletedOrStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Waiter.TrainingJobCompletedOrStopped)
+        [Waiter.TrainingJobCompletedOrStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Waiter.TrainingJobCompletedOrStopped)
         """
 
     @overload
@@ -2220,5 +2887,5 @@ class SageMakerClient:
         self, waiter_name: Literal["transform_job_completed_or_stopped"]
     ) -> TransformJobCompletedOrStoppedWaiter:
         """
-        [Waiter.TransformJobCompletedOrStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sagemaker.html#SageMaker.Waiter.TransformJobCompletedOrStopped)
+        [Waiter.TransformJobCompletedOrStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker.html#SageMaker.Waiter.TransformJobCompletedOrStopped)
         """

@@ -40,7 +40,7 @@ __all__ = (
 
 class ClusterAvailableWaiter(Boto3Waiter):
     """
-    [Waiter.ClusterAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Waiter.ClusterAvailable)
+    [Waiter.ClusterAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Waiter.ClusterAvailable)
     """
 
     def wait(
@@ -53,13 +53,13 @@ class ClusterAvailableWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [ClusterAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Waiter.ClusterAvailable.wait)
+        [ClusterAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Waiter.ClusterAvailable.wait)
         """
 
 
 class ClusterDeletedWaiter(Boto3Waiter):
     """
-    [Waiter.ClusterDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Waiter.ClusterDeleted)
+    [Waiter.ClusterDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Waiter.ClusterDeleted)
     """
 
     def wait(
@@ -72,13 +72,13 @@ class ClusterDeletedWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [ClusterDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Waiter.ClusterDeleted.wait)
+        [ClusterDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Waiter.ClusterDeleted.wait)
         """
 
 
 class ClusterRestoredWaiter(Boto3Waiter):
     """
-    [Waiter.ClusterRestored documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Waiter.ClusterRestored)
+    [Waiter.ClusterRestored documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Waiter.ClusterRestored)
     """
 
     def wait(
@@ -91,13 +91,13 @@ class ClusterRestoredWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [ClusterRestored.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Waiter.ClusterRestored.wait)
+        [ClusterRestored.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Waiter.ClusterRestored.wait)
         """
 
 
 class SnapshotAvailableWaiter(Boto3Waiter):
     """
-    [Waiter.SnapshotAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Waiter.SnapshotAvailable)
+    [Waiter.SnapshotAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Waiter.SnapshotAvailable)
     """
 
     def wait(
@@ -117,5 +117,5 @@ class SnapshotAvailableWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [SnapshotAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/redshift.html#Redshift.Waiter.SnapshotAvailable.wait)
+        [SnapshotAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Waiter.SnapshotAvailable.wait)
         """

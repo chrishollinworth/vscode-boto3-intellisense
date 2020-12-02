@@ -1,4 +1,6 @@
 from mypy_boto3_eks.paginator import (
+    DescribeAddonVersionsPaginator,
+    ListAddonsPaginator,
     ListClustersPaginator,
     ListFargateProfilesPaginator,
     ListNodegroupsPaginator,
@@ -6,6 +8,8 @@ from mypy_boto3_eks.paginator import (
 )
 
 __all__ = (
+    "DescribeAddonVersionsPaginator",
+    "ListAddonsPaginator",
     "ListClustersPaginator",
     "ListFargateProfilesPaginator",
     "ListNodegroupsPaginator",

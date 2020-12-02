@@ -37,38 +37,38 @@ __all__ = ("ListHapgsPaginator", "ListHsmsPaginator", "ListLunaClientsPaginator"
 
 class ListHapgsPaginator(Boto3Paginator):
     """
-    [Paginator.ListHapgs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudhsm.html#CloudHSM.Paginator.ListHapgs)
+    [Paginator.ListHapgs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudhsm.html#CloudHSM.Paginator.ListHapgs)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListHapgsResponseTypeDef]:
         """
-        [ListHapgs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudhsm.html#CloudHSM.Paginator.ListHapgs.paginate)
+        [ListHapgs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudhsm.html#CloudHSM.Paginator.ListHapgs.paginate)
         """
 
 
 class ListHsmsPaginator(Boto3Paginator):
     """
-    [Paginator.ListHsms documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudhsm.html#CloudHSM.Paginator.ListHsms)
+    [Paginator.ListHsms documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudhsm.html#CloudHSM.Paginator.ListHsms)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListHsmsResponseTypeDef]:
         """
-        [ListHsms.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudhsm.html#CloudHSM.Paginator.ListHsms.paginate)
+        [ListHsms.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudhsm.html#CloudHSM.Paginator.ListHsms.paginate)
         """
 
 
 class ListLunaClientsPaginator(Boto3Paginator):
     """
-    [Paginator.ListLunaClients documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudhsm.html#CloudHSM.Paginator.ListLunaClients)
+    [Paginator.ListLunaClients documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudhsm.html#CloudHSM.Paginator.ListLunaClients)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListLunaClientsResponseTypeDef]:
         """
-        [ListLunaClients.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudhsm.html#CloudHSM.Paginator.ListLunaClients.paginate)
+        [ListLunaClients.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudhsm.html#CloudHSM.Paginator.ListLunaClients.paginate)
         """

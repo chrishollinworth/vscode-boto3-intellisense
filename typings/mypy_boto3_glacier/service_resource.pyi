@@ -57,7 +57,7 @@ __all__ = (
 
 class ServiceResourceVaultsCollection(ResourceCollection):
     """
-    [ServiceResource.vaults documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.ServiceResource.vaults)
+    [ServiceResource.vaults documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.ServiceResource.vaults)
     """
 
     def all(self) -> "ServiceResourceVaultsCollection":
@@ -83,7 +83,7 @@ class ServiceResourceVaultsCollection(ResourceCollection):
 
 class AccountVaultsCollection(ResourceCollection):
     """
-    [Account.vaults documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Account.vaults)
+    [Account.vaults documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Account.vaults)
     """
 
     def all(self) -> "AccountVaultsCollection":
@@ -109,7 +109,7 @@ class AccountVaultsCollection(ResourceCollection):
 
 class VaultCompletedJobsCollection(ResourceCollection):
     """
-    [Vault.completed_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Vault.completed_jobs)
+    [Vault.completed_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Vault.completed_jobs)
     """
 
     def all(self) -> "VaultCompletedJobsCollection":
@@ -135,7 +135,7 @@ class VaultCompletedJobsCollection(ResourceCollection):
 
 class VaultFailedJobsCollection(ResourceCollection):
     """
-    [Vault.failed_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Vault.failed_jobs)
+    [Vault.failed_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Vault.failed_jobs)
     """
 
     def all(self) -> "VaultFailedJobsCollection":
@@ -161,7 +161,7 @@ class VaultFailedJobsCollection(ResourceCollection):
 
 class VaultJobsCollection(ResourceCollection):
     """
-    [Vault.jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Vault.jobs)
+    [Vault.jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Vault.jobs)
     """
 
     def all(self) -> "VaultJobsCollection":
@@ -187,7 +187,7 @@ class VaultJobsCollection(ResourceCollection):
 
 class VaultJobsInProgressCollection(ResourceCollection):
     """
-    [Vault.jobs_in_progress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Vault.jobs_in_progress)
+    [Vault.jobs_in_progress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Vault.jobs_in_progress)
     """
 
     def all(self) -> "VaultJobsInProgressCollection":
@@ -213,7 +213,7 @@ class VaultJobsInProgressCollection(ResourceCollection):
 
 class VaultMultipartUplaodsCollection(ResourceCollection):
     """
-    [Vault.multipart_uplaods documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Vault.multipart_uplaods)
+    [Vault.multipart_uplaods documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Vault.multipart_uplaods)
     """
 
     def all(self) -> "VaultMultipartUplaodsCollection":
@@ -239,7 +239,7 @@ class VaultMultipartUplaodsCollection(ResourceCollection):
 
 class VaultMultipartUploadsCollection(ResourceCollection):
     """
-    [Vault.multipart_uploads documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Vault.multipart_uploads)
+    [Vault.multipart_uploads documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Vault.multipart_uploads)
     """
 
     def all(self) -> "VaultMultipartUploadsCollection":
@@ -265,7 +265,7 @@ class VaultMultipartUploadsCollection(ResourceCollection):
 
 class VaultSucceededJobsCollection(ResourceCollection):
     """
-    [Vault.succeeded_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Vault.succeeded_jobs)
+    [Vault.succeeded_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Vault.succeeded_jobs)
     """
 
     def all(self) -> "VaultSucceededJobsCollection":
@@ -291,7 +291,7 @@ class VaultSucceededJobsCollection(ResourceCollection):
 
 class Job(Boto3ServiceResource):
     """
-    [Job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.ServiceResource.Job)
+    [Job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.ServiceResource.Job)
     """
 
     job_id: str
@@ -321,27 +321,27 @@ class Job(Boto3ServiceResource):
 
     def Vault(self) -> "_Vault":
         """
-        [Job.Vault documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Job.Vault)
+        [Job.Vault documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Job.Vault)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [Job.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Job.get_available_subresources)
+        [Job.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Job.get_available_subresources)
         """
 
     def get_output(self, range: str = None) -> GetJobOutputOutputTypeDef:
         """
-        [Job.get_output documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Job.get_output)
+        [Job.get_output documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Job.get_output)
         """
 
     def load(self) -> None:
         """
-        [Job.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Job.load)
+        [Job.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Job.load)
         """
 
     def reload(self) -> None:
         """
-        [Job.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Job.reload)
+        [Job.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Job.reload)
         """
 
 
@@ -350,7 +350,7 @@ _Job = Job
 
 class MultipartUpload(Boto3ServiceResource):
     """
-    [MultipartUpload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.ServiceResource.MultipartUpload)
+    [MultipartUpload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.ServiceResource.MultipartUpload)
     """
 
     multipart_upload_id: str
@@ -364,36 +364,36 @@ class MultipartUpload(Boto3ServiceResource):
 
     def Vault(self) -> "_Vault":
         """
-        [MultipartUpload.Vault documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.MultipartUpload.Vault)
+        [MultipartUpload.Vault documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.MultipartUpload.Vault)
         """
 
     def abort(self) -> None:
         """
-        [MultipartUpload.abort documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.MultipartUpload.abort)
+        [MultipartUpload.abort documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.MultipartUpload.abort)
         """
 
     def complete(
         self, archiveSize: str = None, checksum: str = None
     ) -> ArchiveCreationOutputTypeDef:
         """
-        [MultipartUpload.complete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.MultipartUpload.complete)
+        [MultipartUpload.complete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.MultipartUpload.complete)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [MultipartUpload.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.MultipartUpload.get_available_subresources)
+        [MultipartUpload.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.MultipartUpload.get_available_subresources)
         """
 
     def parts(self, marker: str = None, limit: str = None) -> ListPartsOutputTypeDef:
         """
-        [MultipartUpload.parts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.MultipartUpload.parts)
+        [MultipartUpload.parts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.MultipartUpload.parts)
         """
 
     def upload_part(
         self, checksum: str = None, range: str = None, body: Union[bytes, IO[bytes]] = None
     ) -> UploadMultipartPartOutputTypeDef:
         """
-        [MultipartUpload.upload_part documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.MultipartUpload.upload_part)
+        [MultipartUpload.upload_part documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.MultipartUpload.upload_part)
         """
 
 
@@ -402,7 +402,7 @@ _MultipartUpload = MultipartUpload
 
 class Notification(Boto3ServiceResource):
     """
-    [Notification documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.ServiceResource.Notification)
+    [Notification documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.ServiceResource.Notification)
     """
 
     sns_topic: str
@@ -412,32 +412,32 @@ class Notification(Boto3ServiceResource):
 
     def Vault(self) -> "_Vault":
         """
-        [Notification.Vault documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Notification.Vault)
+        [Notification.Vault documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Notification.Vault)
         """
 
     def delete(self) -> None:
         """
-        [Notification.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Notification.delete)
+        [Notification.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Notification.delete)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [Notification.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Notification.get_available_subresources)
+        [Notification.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Notification.get_available_subresources)
         """
 
     def load(self) -> None:
         """
-        [Notification.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Notification.load)
+        [Notification.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Notification.load)
         """
 
     def reload(self) -> None:
         """
-        [Notification.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Notification.reload)
+        [Notification.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Notification.reload)
         """
 
     def set(self, vaultNotificationConfig: "VaultNotificationConfigTypeDef" = None) -> None:
         """
-        [Notification.set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Notification.set)
+        [Notification.set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Notification.set)
         """
 
 
@@ -446,7 +446,7 @@ _Notification = Notification
 
 class Account(Boto3ServiceResource):
     """
-    [Account documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.ServiceResource.Account)
+    [Account documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.ServiceResource.Account)
     """
 
     id: str
@@ -454,17 +454,17 @@ class Account(Boto3ServiceResource):
 
     def Vault(self, name: str) -> "_Vault":
         """
-        [Account.Vault documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Account.Vault)
+        [Account.Vault documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Account.Vault)
         """
 
     def create_vault(self, vaultName: str) -> "_Vault":
         """
-        [Account.create_vault documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Account.create_vault)
+        [Account.create_vault documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Account.create_vault)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [Account.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Account.get_available_subresources)
+        [Account.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Account.get_available_subresources)
         """
 
 
@@ -473,7 +473,7 @@ _Account = Account
 
 class Archive(Boto3ServiceResource):
     """
-    [Archive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.ServiceResource.Archive)
+    [Archive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.ServiceResource.Archive)
     """
 
     account_id: str
@@ -482,22 +482,22 @@ class Archive(Boto3ServiceResource):
 
     def Vault(self) -> "_Vault":
         """
-        [Archive.Vault documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Archive.Vault)
+        [Archive.Vault documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Archive.Vault)
         """
 
     def delete(self) -> None:
         """
-        [Archive.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Archive.delete)
+        [Archive.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Archive.delete)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [Archive.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Archive.get_available_subresources)
+        [Archive.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Archive.get_available_subresources)
         """
 
     def initiate_archive_retrieval(self, jobParameters: JobParametersTypeDef = None) -> _Job:
         """
-        [Archive.initiate_archive_retrieval documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Archive.initiate_archive_retrieval)
+        [Archive.initiate_archive_retrieval documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Archive.initiate_archive_retrieval)
         """
 
 
@@ -506,7 +506,7 @@ _Archive = Archive
 
 class Vault(Boto3ServiceResource):
     """
-    [Vault documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.ServiceResource.Vault)
+    [Vault documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.ServiceResource.Vault)
     """
 
     vault_arn: str
@@ -527,64 +527,64 @@ class Vault(Boto3ServiceResource):
 
     def Account(self) -> _Account:
         """
-        [Vault.Account documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Vault.Account)
+        [Vault.Account documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Vault.Account)
         """
 
     def Archive(self, id: str) -> _Archive:
         """
-        [Vault.Archive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Vault.Archive)
+        [Vault.Archive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Vault.Archive)
         """
 
     def Job(self, id: str) -> _Job:
         """
-        [Vault.Job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Vault.Job)
+        [Vault.Job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Vault.Job)
         """
 
     def MultipartUpload(self, id: str) -> _MultipartUpload:
         """
-        [Vault.MultipartUpload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Vault.MultipartUpload)
+        [Vault.MultipartUpload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Vault.MultipartUpload)
         """
 
     def Notification(self) -> _Notification:
         """
-        [Vault.Notification documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Vault.Notification)
+        [Vault.Notification documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Vault.Notification)
         """
 
     def create(self) -> CreateVaultOutputTypeDef:
         """
-        [Vault.create documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Vault.create)
+        [Vault.create documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Vault.create)
         """
 
     def delete(self) -> None:
         """
-        [Vault.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Vault.delete)
+        [Vault.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Vault.delete)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [Vault.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Vault.get_available_subresources)
+        [Vault.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Vault.get_available_subresources)
         """
 
     def initiate_inventory_retrieval(self, jobParameters: JobParametersTypeDef = None) -> _Job:
         """
-        [Vault.initiate_inventory_retrieval documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Vault.initiate_inventory_retrieval)
+        [Vault.initiate_inventory_retrieval documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Vault.initiate_inventory_retrieval)
         """
 
     def initiate_multipart_upload(
         self, archiveDescription: str = None, partSize: str = None
     ) -> _MultipartUpload:
         """
-        [Vault.initiate_multipart_upload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Vault.initiate_multipart_upload)
+        [Vault.initiate_multipart_upload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Vault.initiate_multipart_upload)
         """
 
     def load(self) -> None:
         """
-        [Vault.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Vault.load)
+        [Vault.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Vault.load)
         """
 
     def reload(self) -> None:
         """
-        [Vault.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Vault.reload)
+        [Vault.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Vault.reload)
         """
 
     def upload_archive(
@@ -594,7 +594,7 @@ class Vault(Boto3ServiceResource):
         body: Union[bytes, IO[bytes]] = None,
     ) -> _Archive:
         """
-        [Vault.upload_archive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Vault.upload_archive)
+        [Vault.upload_archive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Vault.upload_archive)
         """
 
 
@@ -603,47 +603,47 @@ _Vault = Vault
 
 class GlacierServiceResource(Boto3ServiceResource):
     """
-    [Glacier.ServiceResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.ServiceResource)
+    [Glacier.ServiceResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.ServiceResource)
     """
 
     vaults: ServiceResourceVaultsCollection
 
     def Account(self, id: str) -> _Account:
         """
-        [ServiceResource.Account documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.ServiceResource.Account)
+        [ServiceResource.Account documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.ServiceResource.Account)
         """
 
     def Archive(self, account_id: str, vault_name: str, id: str) -> _Archive:
         """
-        [ServiceResource.Archive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.ServiceResource.Archive)
+        [ServiceResource.Archive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.ServiceResource.Archive)
         """
 
     def Job(self, account_id: str, vault_name: str, id: str) -> _Job:
         """
-        [ServiceResource.Job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.ServiceResource.Job)
+        [ServiceResource.Job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.ServiceResource.Job)
         """
 
     def MultipartUpload(self, account_id: str, vault_name: str, id: str) -> _MultipartUpload:
         """
-        [ServiceResource.MultipartUpload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.ServiceResource.MultipartUpload)
+        [ServiceResource.MultipartUpload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.ServiceResource.MultipartUpload)
         """
 
     def Notification(self, account_id: str, vault_name: str) -> _Notification:
         """
-        [ServiceResource.Notification documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.ServiceResource.Notification)
+        [ServiceResource.Notification documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.ServiceResource.Notification)
         """
 
     def Vault(self, account_id: str, name: str) -> _Vault:
         """
-        [ServiceResource.Vault documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.ServiceResource.Vault)
+        [ServiceResource.Vault documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.ServiceResource.Vault)
         """
 
     def create_vault(self, accountId: str, vaultName: str) -> _Vault:
         """
-        [ServiceResource.create_vault documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.ServiceResource.create_vault)
+        [ServiceResource.create_vault documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.ServiceResource.create_vault)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [ServiceResource.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.ServiceResource.get_available_subresources)
+        [ServiceResource.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.ServiceResource.get_available_subresources)
         """

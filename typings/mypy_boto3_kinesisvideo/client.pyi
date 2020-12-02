@@ -71,7 +71,7 @@ class Exceptions:
 
 class KinesisVideoClient:
     """
-    [KinesisVideo.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kinesisvideo.html#KinesisVideo.Client)
+    [KinesisVideo.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesisvideo.html#KinesisVideo.Client)
     """
 
     meta: ClientMeta
@@ -79,7 +79,7 @@ class KinesisVideoClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kinesisvideo.html#KinesisVideo.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesisvideo.html#KinesisVideo.Client.can_paginate)
         """
 
     def create_signaling_channel(
@@ -90,7 +90,7 @@ class KinesisVideoClient:
         Tags: List[TagTypeDef] = None,
     ) -> CreateSignalingChannelOutputTypeDef:
         """
-        [Client.create_signaling_channel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kinesisvideo.html#KinesisVideo.Client.create_signaling_channel)
+        [Client.create_signaling_channel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesisvideo.html#KinesisVideo.Client.create_signaling_channel)
         """
 
     def create_stream(
@@ -103,33 +103,33 @@ class KinesisVideoClient:
         Tags: Dict[str, str] = None,
     ) -> CreateStreamOutputTypeDef:
         """
-        [Client.create_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kinesisvideo.html#KinesisVideo.Client.create_stream)
+        [Client.create_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesisvideo.html#KinesisVideo.Client.create_stream)
         """
 
     def delete_signaling_channel(
         self, ChannelARN: str, CurrentVersion: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.delete_signaling_channel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kinesisvideo.html#KinesisVideo.Client.delete_signaling_channel)
+        [Client.delete_signaling_channel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesisvideo.html#KinesisVideo.Client.delete_signaling_channel)
         """
 
     def delete_stream(self, StreamARN: str, CurrentVersion: str = None) -> Dict[str, Any]:
         """
-        [Client.delete_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kinesisvideo.html#KinesisVideo.Client.delete_stream)
+        [Client.delete_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesisvideo.html#KinesisVideo.Client.delete_stream)
         """
 
     def describe_signaling_channel(
         self, ChannelName: str = None, ChannelARN: str = None
     ) -> DescribeSignalingChannelOutputTypeDef:
         """
-        [Client.describe_signaling_channel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kinesisvideo.html#KinesisVideo.Client.describe_signaling_channel)
+        [Client.describe_signaling_channel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesisvideo.html#KinesisVideo.Client.describe_signaling_channel)
         """
 
     def describe_stream(
         self, StreamName: str = None, StreamARN: str = None
     ) -> DescribeStreamOutputTypeDef:
         """
-        [Client.describe_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kinesisvideo.html#KinesisVideo.Client.describe_stream)
+        [Client.describe_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesisvideo.html#KinesisVideo.Client.describe_stream)
         """
 
     def generate_presigned_url(
@@ -140,7 +140,7 @@ class KinesisVideoClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kinesisvideo.html#KinesisVideo.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesisvideo.html#KinesisVideo.Client.generate_presigned_url)
         """
 
     def get_data_endpoint(
@@ -158,7 +158,7 @@ class KinesisVideoClient:
         StreamARN: str = None,
     ) -> GetDataEndpointOutputTypeDef:
         """
-        [Client.get_data_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kinesisvideo.html#KinesisVideo.Client.get_data_endpoint)
+        [Client.get_data_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesisvideo.html#KinesisVideo.Client.get_data_endpoint)
         """
 
     def get_signaling_channel_endpoint(
@@ -167,7 +167,7 @@ class KinesisVideoClient:
         SingleMasterChannelEndpointConfiguration: SingleMasterChannelEndpointConfigurationTypeDef = None,
     ) -> GetSignalingChannelEndpointOutputTypeDef:
         """
-        [Client.get_signaling_channel_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kinesisvideo.html#KinesisVideo.Client.get_signaling_channel_endpoint)
+        [Client.get_signaling_channel_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesisvideo.html#KinesisVideo.Client.get_signaling_channel_endpoint)
         """
 
     def list_signaling_channels(
@@ -177,7 +177,7 @@ class KinesisVideoClient:
         ChannelNameCondition: ChannelNameConditionTypeDef = None,
     ) -> ListSignalingChannelsOutputTypeDef:
         """
-        [Client.list_signaling_channels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kinesisvideo.html#KinesisVideo.Client.list_signaling_channels)
+        [Client.list_signaling_channels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesisvideo.html#KinesisVideo.Client.list_signaling_channels)
         """
 
     def list_streams(
@@ -187,45 +187,45 @@ class KinesisVideoClient:
         StreamNameCondition: StreamNameConditionTypeDef = None,
     ) -> ListStreamsOutputTypeDef:
         """
-        [Client.list_streams documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kinesisvideo.html#KinesisVideo.Client.list_streams)
+        [Client.list_streams documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesisvideo.html#KinesisVideo.Client.list_streams)
         """
 
     def list_tags_for_resource(
         self, ResourceARN: str, NextToken: str = None
     ) -> ListTagsForResourceOutputTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kinesisvideo.html#KinesisVideo.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesisvideo.html#KinesisVideo.Client.list_tags_for_resource)
         """
 
     def list_tags_for_stream(
         self, NextToken: str = None, StreamARN: str = None, StreamName: str = None
     ) -> ListTagsForStreamOutputTypeDef:
         """
-        [Client.list_tags_for_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kinesisvideo.html#KinesisVideo.Client.list_tags_for_stream)
+        [Client.list_tags_for_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesisvideo.html#KinesisVideo.Client.list_tags_for_stream)
         """
 
     def tag_resource(self, ResourceARN: str, Tags: List[TagTypeDef]) -> Dict[str, Any]:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kinesisvideo.html#KinesisVideo.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesisvideo.html#KinesisVideo.Client.tag_resource)
         """
 
     def tag_stream(
         self, Tags: Dict[str, str], StreamARN: str = None, StreamName: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.tag_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kinesisvideo.html#KinesisVideo.Client.tag_stream)
+        [Client.tag_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesisvideo.html#KinesisVideo.Client.tag_stream)
         """
 
     def untag_resource(self, ResourceARN: str, TagKeyList: List[str]) -> Dict[str, Any]:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kinesisvideo.html#KinesisVideo.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesisvideo.html#KinesisVideo.Client.untag_resource)
         """
 
     def untag_stream(
         self, TagKeyList: List[str], StreamARN: str = None, StreamName: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.untag_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kinesisvideo.html#KinesisVideo.Client.untag_stream)
+        [Client.untag_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesisvideo.html#KinesisVideo.Client.untag_stream)
         """
 
     def update_data_retention(
@@ -237,7 +237,7 @@ class KinesisVideoClient:
         StreamARN: str = None,
     ) -> Dict[str, Any]:
         """
-        [Client.update_data_retention documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kinesisvideo.html#KinesisVideo.Client.update_data_retention)
+        [Client.update_data_retention documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesisvideo.html#KinesisVideo.Client.update_data_retention)
         """
 
     def update_signaling_channel(
@@ -247,7 +247,7 @@ class KinesisVideoClient:
         SingleMasterConfiguration: "SingleMasterConfigurationTypeDef" = None,
     ) -> Dict[str, Any]:
         """
-        [Client.update_signaling_channel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kinesisvideo.html#KinesisVideo.Client.update_signaling_channel)
+        [Client.update_signaling_channel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesisvideo.html#KinesisVideo.Client.update_signaling_channel)
         """
 
     def update_stream(
@@ -259,7 +259,7 @@ class KinesisVideoClient:
         MediaType: str = None,
     ) -> Dict[str, Any]:
         """
-        [Client.update_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kinesisvideo.html#KinesisVideo.Client.update_stream)
+        [Client.update_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesisvideo.html#KinesisVideo.Client.update_stream)
         """
 
     @overload
@@ -267,11 +267,11 @@ class KinesisVideoClient:
         self, operation_name: Literal["list_signaling_channels"]
     ) -> ListSignalingChannelsPaginator:
         """
-        [Paginator.ListSignalingChannels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kinesisvideo.html#KinesisVideo.Paginator.ListSignalingChannels)
+        [Paginator.ListSignalingChannels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesisvideo.html#KinesisVideo.Paginator.ListSignalingChannels)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_streams"]) -> ListStreamsPaginator:
         """
-        [Paginator.ListStreams documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kinesisvideo.html#KinesisVideo.Paginator.ListStreams)
+        [Paginator.ListStreams documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesisvideo.html#KinesisVideo.Paginator.ListStreams)
         """

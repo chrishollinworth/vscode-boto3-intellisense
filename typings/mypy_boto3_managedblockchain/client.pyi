@@ -72,7 +72,7 @@ class Exceptions:
 
 class ManagedBlockchainClient:
     """
-    [ManagedBlockchain.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/managedblockchain.html#ManagedBlockchain.Client)
+    [ManagedBlockchain.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/managedblockchain.html#ManagedBlockchain.Client)
     """
 
     meta: ClientMeta
@@ -80,7 +80,7 @@ class ManagedBlockchainClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/managedblockchain.html#ManagedBlockchain.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/managedblockchain.html#ManagedBlockchain.Client.can_paginate)
         """
 
     def create_member(
@@ -91,7 +91,7 @@ class ManagedBlockchainClient:
         MemberConfiguration: MemberConfigurationTypeDef,
     ) -> CreateMemberOutputTypeDef:
         """
-        [Client.create_member documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/managedblockchain.html#ManagedBlockchain.Client.create_member)
+        [Client.create_member documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/managedblockchain.html#ManagedBlockchain.Client.create_member)
         """
 
     def create_network(
@@ -106,7 +106,7 @@ class ManagedBlockchainClient:
         FrameworkConfiguration: NetworkFrameworkConfigurationTypeDef = None,
     ) -> CreateNetworkOutputTypeDef:
         """
-        [Client.create_network documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/managedblockchain.html#ManagedBlockchain.Client.create_network)
+        [Client.create_network documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/managedblockchain.html#ManagedBlockchain.Client.create_network)
         """
 
     def create_node(
@@ -117,7 +117,7 @@ class ManagedBlockchainClient:
         NodeConfiguration: NodeConfigurationTypeDef,
     ) -> CreateNodeOutputTypeDef:
         """
-        [Client.create_node documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/managedblockchain.html#ManagedBlockchain.Client.create_node)
+        [Client.create_node documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/managedblockchain.html#ManagedBlockchain.Client.create_node)
         """
 
     def create_proposal(
@@ -129,17 +129,17 @@ class ManagedBlockchainClient:
         Description: str = None,
     ) -> CreateProposalOutputTypeDef:
         """
-        [Client.create_proposal documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/managedblockchain.html#ManagedBlockchain.Client.create_proposal)
+        [Client.create_proposal documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/managedblockchain.html#ManagedBlockchain.Client.create_proposal)
         """
 
     def delete_member(self, NetworkId: str, MemberId: str) -> Dict[str, Any]:
         """
-        [Client.delete_member documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/managedblockchain.html#ManagedBlockchain.Client.delete_member)
+        [Client.delete_member documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/managedblockchain.html#ManagedBlockchain.Client.delete_member)
         """
 
     def delete_node(self, NetworkId: str, MemberId: str, NodeId: str) -> Dict[str, Any]:
         """
-        [Client.delete_node documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/managedblockchain.html#ManagedBlockchain.Client.delete_node)
+        [Client.delete_node documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/managedblockchain.html#ManagedBlockchain.Client.delete_node)
         """
 
     def generate_presigned_url(
@@ -150,34 +150,34 @@ class ManagedBlockchainClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/managedblockchain.html#ManagedBlockchain.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/managedblockchain.html#ManagedBlockchain.Client.generate_presigned_url)
         """
 
     def get_member(self, NetworkId: str, MemberId: str) -> GetMemberOutputTypeDef:
         """
-        [Client.get_member documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/managedblockchain.html#ManagedBlockchain.Client.get_member)
+        [Client.get_member documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/managedblockchain.html#ManagedBlockchain.Client.get_member)
         """
 
     def get_network(self, NetworkId: str) -> GetNetworkOutputTypeDef:
         """
-        [Client.get_network documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/managedblockchain.html#ManagedBlockchain.Client.get_network)
+        [Client.get_network documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/managedblockchain.html#ManagedBlockchain.Client.get_network)
         """
 
     def get_node(self, NetworkId: str, MemberId: str, NodeId: str) -> GetNodeOutputTypeDef:
         """
-        [Client.get_node documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/managedblockchain.html#ManagedBlockchain.Client.get_node)
+        [Client.get_node documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/managedblockchain.html#ManagedBlockchain.Client.get_node)
         """
 
     def get_proposal(self, NetworkId: str, ProposalId: str) -> GetProposalOutputTypeDef:
         """
-        [Client.get_proposal documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/managedblockchain.html#ManagedBlockchain.Client.get_proposal)
+        [Client.get_proposal documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/managedblockchain.html#ManagedBlockchain.Client.get_proposal)
         """
 
     def list_invitations(
         self, MaxResults: int = None, NextToken: str = None
     ) -> ListInvitationsOutputTypeDef:
         """
-        [Client.list_invitations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/managedblockchain.html#ManagedBlockchain.Client.list_invitations)
+        [Client.list_invitations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/managedblockchain.html#ManagedBlockchain.Client.list_invitations)
         """
 
     def list_members(
@@ -192,7 +192,7 @@ class ManagedBlockchainClient:
         NextToken: str = None,
     ) -> ListMembersOutputTypeDef:
         """
-        [Client.list_members documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/managedblockchain.html#ManagedBlockchain.Client.list_members)
+        [Client.list_members documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/managedblockchain.html#ManagedBlockchain.Client.list_members)
         """
 
     def list_networks(
@@ -204,7 +204,7 @@ class ManagedBlockchainClient:
         NextToken: str = None,
     ) -> ListNetworksOutputTypeDef:
         """
-        [Client.list_networks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/managedblockchain.html#ManagedBlockchain.Client.list_networks)
+        [Client.list_networks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/managedblockchain.html#ManagedBlockchain.Client.list_networks)
         """
 
     def list_nodes(
@@ -218,26 +218,26 @@ class ManagedBlockchainClient:
         NextToken: str = None,
     ) -> ListNodesOutputTypeDef:
         """
-        [Client.list_nodes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/managedblockchain.html#ManagedBlockchain.Client.list_nodes)
+        [Client.list_nodes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/managedblockchain.html#ManagedBlockchain.Client.list_nodes)
         """
 
     def list_proposal_votes(
         self, NetworkId: str, ProposalId: str, MaxResults: int = None, NextToken: str = None
     ) -> ListProposalVotesOutputTypeDef:
         """
-        [Client.list_proposal_votes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/managedblockchain.html#ManagedBlockchain.Client.list_proposal_votes)
+        [Client.list_proposal_votes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/managedblockchain.html#ManagedBlockchain.Client.list_proposal_votes)
         """
 
     def list_proposals(
         self, NetworkId: str, MaxResults: int = None, NextToken: str = None
     ) -> ListProposalsOutputTypeDef:
         """
-        [Client.list_proposals documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/managedblockchain.html#ManagedBlockchain.Client.list_proposals)
+        [Client.list_proposals documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/managedblockchain.html#ManagedBlockchain.Client.list_proposals)
         """
 
     def reject_invitation(self, InvitationId: str) -> Dict[str, Any]:
         """
-        [Client.reject_invitation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/managedblockchain.html#ManagedBlockchain.Client.reject_invitation)
+        [Client.reject_invitation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/managedblockchain.html#ManagedBlockchain.Client.reject_invitation)
         """
 
     def update_member(
@@ -247,7 +247,7 @@ class ManagedBlockchainClient:
         LogPublishingConfiguration: "MemberLogPublishingConfigurationTypeDef" = None,
     ) -> Dict[str, Any]:
         """
-        [Client.update_member documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/managedblockchain.html#ManagedBlockchain.Client.update_member)
+        [Client.update_member documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/managedblockchain.html#ManagedBlockchain.Client.update_member)
         """
 
     def update_node(
@@ -258,12 +258,12 @@ class ManagedBlockchainClient:
         LogPublishingConfiguration: "NodeLogPublishingConfigurationTypeDef" = None,
     ) -> Dict[str, Any]:
         """
-        [Client.update_node documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/managedblockchain.html#ManagedBlockchain.Client.update_node)
+        [Client.update_node documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/managedblockchain.html#ManagedBlockchain.Client.update_node)
         """
 
     def vote_on_proposal(
         self, NetworkId: str, ProposalId: str, VoterMemberId: str, Vote: Literal["YES", "NO"]
     ) -> Dict[str, Any]:
         """
-        [Client.vote_on_proposal documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/managedblockchain.html#ManagedBlockchain.Client.vote_on_proposal)
+        [Client.vote_on_proposal documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/managedblockchain.html#ManagedBlockchain.Client.vote_on_proposal)
         """

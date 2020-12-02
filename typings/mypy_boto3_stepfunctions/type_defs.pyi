@@ -31,6 +31,7 @@ __all__ = (
     "ActivityStartedEventDetailsTypeDef",
     "ActivitySucceededEventDetailsTypeDef",
     "ActivityTimedOutEventDetailsTypeDef",
+    "BillingDetailsTypeDef",
     "CloudWatchEventsExecutionDataDetailsTypeDef",
     "CloudWatchLogsLogGroupTypeDef",
     "ExecutionAbortedEventDetailsTypeDef",
@@ -79,6 +80,7 @@ __all__ = (
     "ListTagsForResourceOutputTypeDef",
     "PaginatorConfigTypeDef",
     "StartExecutionOutputTypeDef",
+    "StartSyncExecutionOutputTypeDef",
     "StopExecutionOutputTypeDef",
     "UpdateStateMachineOutputTypeDef",
 )
@@ -128,6 +130,12 @@ ActivitySucceededEventDetailsTypeDef = TypedDict(
 
 ActivityTimedOutEventDetailsTypeDef = TypedDict(
     "ActivityTimedOutEventDetailsTypeDef", {"error": str, "cause": str}, total=False
+)
+
+BillingDetailsTypeDef = TypedDict(
+    "BillingDetailsTypeDef",
+    {"billedMemoryUsedInMB": int, "billedDurationInMilliseconds": int},
+    total=False,
 )
 
 CloudWatchEventsExecutionDataDetailsTypeDef = TypedDict(
@@ -755,6 +763,40 @@ _OptionalStartExecutionOutputTypeDef = TypedDict(
 
 class StartExecutionOutputTypeDef(
     _RequiredStartExecutionOutputTypeDef, _OptionalStartExecutionOutputTypeDef
+):
+    pass
+
+
+_RequiredStartSyncExecutionOutputTypeDef = TypedDict(
+    "_RequiredStartSyncExecutionOutputTypeDef",
+    {
+        "executionArn": str,
+        "startDate": datetime,
+        "stopDate": datetime,
+        "status": Literal["SUCCEEDED", "FAILED", "TIMED_OUT"],
+    },
+)
+_OptionalStartSyncExecutionOutputTypeDef = TypedDict(
+    "_OptionalStartSyncExecutionOutputTypeDef",
+    {
+        "stateMachineArn": str,
+        "name": str,
+        "error": str,
+        "cause": str,
+        "input": str,
+        "inputDetails": "CloudWatchEventsExecutionDataDetailsTypeDef",
+        "output": str,
+        "outputDetails": "CloudWatchEventsExecutionDataDetailsTypeDef",
+        "traceHeader": str,
+        "billingDetails": "BillingDetailsTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
+    },
+    total=False,
+)
+
+
+class StartSyncExecutionOutputTypeDef(
+    _RequiredStartSyncExecutionOutputTypeDef, _OptionalStartSyncExecutionOutputTypeDef
 ):
     pass
 

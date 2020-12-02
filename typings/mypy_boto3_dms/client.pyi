@@ -161,7 +161,7 @@ class Exceptions:
 
 class DatabaseMigrationServiceClient:
     """
-    [DatabaseMigrationService.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client)
+    [DatabaseMigrationService.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client)
     """
 
     meta: ClientMeta
@@ -169,26 +169,26 @@ class DatabaseMigrationServiceClient:
 
     def add_tags_to_resource(self, ResourceArn: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
-        [Client.add_tags_to_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.add_tags_to_resource)
+        [Client.add_tags_to_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.add_tags_to_resource)
         """
 
     def apply_pending_maintenance_action(
         self, ReplicationInstanceArn: str, ApplyAction: str, OptInType: str
     ) -> ApplyPendingMaintenanceActionResponseTypeDef:
         """
-        [Client.apply_pending_maintenance_action documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.apply_pending_maintenance_action)
+        [Client.apply_pending_maintenance_action documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.apply_pending_maintenance_action)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.can_paginate)
         """
 
     def cancel_replication_task_assessment_run(
         self, ReplicationTaskAssessmentRunArn: str
     ) -> CancelReplicationTaskAssessmentRunResponseTypeDef:
         """
-        [Client.cancel_replication_task_assessment_run documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.cancel_replication_task_assessment_run)
+        [Client.cancel_replication_task_assessment_run documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.cancel_replication_task_assessment_run)
         """
 
     def create_endpoint(
@@ -227,7 +227,7 @@ class DatabaseMigrationServiceClient:
         DocDbSettings: "DocDbSettingsTypeDef" = None,
     ) -> CreateEndpointResponseTypeDef:
         """
-        [Client.create_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.create_endpoint)
+        [Client.create_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.create_endpoint)
         """
 
     def create_event_subscription(
@@ -241,7 +241,7 @@ class DatabaseMigrationServiceClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateEventSubscriptionResponseTypeDef:
         """
-        [Client.create_event_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.create_event_subscription)
+        [Client.create_event_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.create_event_subscription)
         """
 
     def create_replication_instance(
@@ -263,7 +263,7 @@ class DatabaseMigrationServiceClient:
         ResourceIdentifier: str = None,
     ) -> CreateReplicationInstanceResponseTypeDef:
         """
-        [Client.create_replication_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.create_replication_instance)
+        [Client.create_replication_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.create_replication_instance)
         """
 
     def create_replication_subnet_group(
@@ -274,7 +274,7 @@ class DatabaseMigrationServiceClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateReplicationSubnetGroupResponseTypeDef:
         """
-        [Client.create_replication_subnet_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.create_replication_subnet_group)
+        [Client.create_replication_subnet_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.create_replication_subnet_group)
         """
 
     def create_replication_task(
@@ -294,64 +294,64 @@ class DatabaseMigrationServiceClient:
         ResourceIdentifier: str = None,
     ) -> CreateReplicationTaskResponseTypeDef:
         """
-        [Client.create_replication_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.create_replication_task)
+        [Client.create_replication_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.create_replication_task)
         """
 
     def delete_certificate(self, CertificateArn: str) -> DeleteCertificateResponseTypeDef:
         """
-        [Client.delete_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.delete_certificate)
+        [Client.delete_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.delete_certificate)
         """
 
     def delete_connection(
         self, EndpointArn: str, ReplicationInstanceArn: str
     ) -> DeleteConnectionResponseTypeDef:
         """
-        [Client.delete_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.delete_connection)
+        [Client.delete_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.delete_connection)
         """
 
     def delete_endpoint(self, EndpointArn: str) -> DeleteEndpointResponseTypeDef:
         """
-        [Client.delete_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.delete_endpoint)
+        [Client.delete_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.delete_endpoint)
         """
 
     def delete_event_subscription(
         self, SubscriptionName: str
     ) -> DeleteEventSubscriptionResponseTypeDef:
         """
-        [Client.delete_event_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.delete_event_subscription)
+        [Client.delete_event_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.delete_event_subscription)
         """
 
     def delete_replication_instance(
         self, ReplicationInstanceArn: str
     ) -> DeleteReplicationInstanceResponseTypeDef:
         """
-        [Client.delete_replication_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.delete_replication_instance)
+        [Client.delete_replication_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.delete_replication_instance)
         """
 
     def delete_replication_subnet_group(
         self, ReplicationSubnetGroupIdentifier: str
     ) -> Dict[str, Any]:
         """
-        [Client.delete_replication_subnet_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.delete_replication_subnet_group)
+        [Client.delete_replication_subnet_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.delete_replication_subnet_group)
         """
 
     def delete_replication_task(
         self, ReplicationTaskArn: str
     ) -> DeleteReplicationTaskResponseTypeDef:
         """
-        [Client.delete_replication_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.delete_replication_task)
+        [Client.delete_replication_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.delete_replication_task)
         """
 
     def delete_replication_task_assessment_run(
         self, ReplicationTaskAssessmentRunArn: str
     ) -> DeleteReplicationTaskAssessmentRunResponseTypeDef:
         """
-        [Client.delete_replication_task_assessment_run documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.delete_replication_task_assessment_run)
+        [Client.delete_replication_task_assessment_run documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.delete_replication_task_assessment_run)
         """
 
     def describe_account_attributes(self) -> DescribeAccountAttributesResponseTypeDef:
         """
-        [Client.describe_account_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.describe_account_attributes)
+        [Client.describe_account_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.describe_account_attributes)
         """
 
     def describe_applicable_individual_assessments(
@@ -365,42 +365,42 @@ class DatabaseMigrationServiceClient:
         Marker: str = None,
     ) -> DescribeApplicableIndividualAssessmentsResponseTypeDef:
         """
-        [Client.describe_applicable_individual_assessments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.describe_applicable_individual_assessments)
+        [Client.describe_applicable_individual_assessments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.describe_applicable_individual_assessments)
         """
 
     def describe_certificates(
         self, Filters: List[FilterTypeDef] = None, MaxRecords: int = None, Marker: str = None
     ) -> DescribeCertificatesResponseTypeDef:
         """
-        [Client.describe_certificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.describe_certificates)
+        [Client.describe_certificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.describe_certificates)
         """
 
     def describe_connections(
         self, Filters: List[FilterTypeDef] = None, MaxRecords: int = None, Marker: str = None
     ) -> DescribeConnectionsResponseTypeDef:
         """
-        [Client.describe_connections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.describe_connections)
+        [Client.describe_connections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.describe_connections)
         """
 
     def describe_endpoint_types(
         self, Filters: List[FilterTypeDef] = None, MaxRecords: int = None, Marker: str = None
     ) -> DescribeEndpointTypesResponseTypeDef:
         """
-        [Client.describe_endpoint_types documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.describe_endpoint_types)
+        [Client.describe_endpoint_types documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.describe_endpoint_types)
         """
 
     def describe_endpoints(
         self, Filters: List[FilterTypeDef] = None, MaxRecords: int = None, Marker: str = None
     ) -> DescribeEndpointsResponseTypeDef:
         """
-        [Client.describe_endpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.describe_endpoints)
+        [Client.describe_endpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.describe_endpoints)
         """
 
     def describe_event_categories(
         self, SourceType: str = None, Filters: List[FilterTypeDef] = None
     ) -> DescribeEventCategoriesResponseTypeDef:
         """
-        [Client.describe_event_categories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.describe_event_categories)
+        [Client.describe_event_categories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.describe_event_categories)
         """
 
     def describe_event_subscriptions(
@@ -411,7 +411,7 @@ class DatabaseMigrationServiceClient:
         Marker: str = None,
     ) -> DescribeEventSubscriptionsResponseTypeDef:
         """
-        [Client.describe_event_subscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.describe_event_subscriptions)
+        [Client.describe_event_subscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.describe_event_subscriptions)
         """
 
     def describe_events(
@@ -427,14 +427,14 @@ class DatabaseMigrationServiceClient:
         Marker: str = None,
     ) -> DescribeEventsResponseTypeDef:
         """
-        [Client.describe_events documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.describe_events)
+        [Client.describe_events documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.describe_events)
         """
 
     def describe_orderable_replication_instances(
         self, MaxRecords: int = None, Marker: str = None
     ) -> DescribeOrderableReplicationInstancesResponseTypeDef:
         """
-        [Client.describe_orderable_replication_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.describe_orderable_replication_instances)
+        [Client.describe_orderable_replication_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.describe_orderable_replication_instances)
         """
 
     def describe_pending_maintenance_actions(
@@ -445,56 +445,56 @@ class DatabaseMigrationServiceClient:
         MaxRecords: int = None,
     ) -> DescribePendingMaintenanceActionsResponseTypeDef:
         """
-        [Client.describe_pending_maintenance_actions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.describe_pending_maintenance_actions)
+        [Client.describe_pending_maintenance_actions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.describe_pending_maintenance_actions)
         """
 
     def describe_refresh_schemas_status(
         self, EndpointArn: str
     ) -> DescribeRefreshSchemasStatusResponseTypeDef:
         """
-        [Client.describe_refresh_schemas_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.describe_refresh_schemas_status)
+        [Client.describe_refresh_schemas_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.describe_refresh_schemas_status)
         """
 
     def describe_replication_instance_task_logs(
         self, ReplicationInstanceArn: str, MaxRecords: int = None, Marker: str = None
     ) -> DescribeReplicationInstanceTaskLogsResponseTypeDef:
         """
-        [Client.describe_replication_instance_task_logs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.describe_replication_instance_task_logs)
+        [Client.describe_replication_instance_task_logs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.describe_replication_instance_task_logs)
         """
 
     def describe_replication_instances(
         self, Filters: List[FilterTypeDef] = None, MaxRecords: int = None, Marker: str = None
     ) -> DescribeReplicationInstancesResponseTypeDef:
         """
-        [Client.describe_replication_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.describe_replication_instances)
+        [Client.describe_replication_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.describe_replication_instances)
         """
 
     def describe_replication_subnet_groups(
         self, Filters: List[FilterTypeDef] = None, MaxRecords: int = None, Marker: str = None
     ) -> DescribeReplicationSubnetGroupsResponseTypeDef:
         """
-        [Client.describe_replication_subnet_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.describe_replication_subnet_groups)
+        [Client.describe_replication_subnet_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.describe_replication_subnet_groups)
         """
 
     def describe_replication_task_assessment_results(
         self, ReplicationTaskArn: str = None, MaxRecords: int = None, Marker: str = None
     ) -> DescribeReplicationTaskAssessmentResultsResponseTypeDef:
         """
-        [Client.describe_replication_task_assessment_results documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.describe_replication_task_assessment_results)
+        [Client.describe_replication_task_assessment_results documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.describe_replication_task_assessment_results)
         """
 
     def describe_replication_task_assessment_runs(
         self, Filters: List[FilterTypeDef] = None, MaxRecords: int = None, Marker: str = None
     ) -> DescribeReplicationTaskAssessmentRunsResponseTypeDef:
         """
-        [Client.describe_replication_task_assessment_runs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.describe_replication_task_assessment_runs)
+        [Client.describe_replication_task_assessment_runs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.describe_replication_task_assessment_runs)
         """
 
     def describe_replication_task_individual_assessments(
         self, Filters: List[FilterTypeDef] = None, MaxRecords: int = None, Marker: str = None
     ) -> DescribeReplicationTaskIndividualAssessmentsResponseTypeDef:
         """
-        [Client.describe_replication_task_individual_assessments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.describe_replication_task_individual_assessments)
+        [Client.describe_replication_task_individual_assessments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.describe_replication_task_individual_assessments)
         """
 
     def describe_replication_tasks(
@@ -505,14 +505,14 @@ class DatabaseMigrationServiceClient:
         WithoutSettings: bool = None,
     ) -> DescribeReplicationTasksResponseTypeDef:
         """
-        [Client.describe_replication_tasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.describe_replication_tasks)
+        [Client.describe_replication_tasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.describe_replication_tasks)
         """
 
     def describe_schemas(
         self, EndpointArn: str, MaxRecords: int = None, Marker: str = None
     ) -> DescribeSchemasResponseTypeDef:
         """
-        [Client.describe_schemas documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.describe_schemas)
+        [Client.describe_schemas documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.describe_schemas)
         """
 
     def describe_table_statistics(
@@ -523,7 +523,7 @@ class DatabaseMigrationServiceClient:
         Filters: List[FilterTypeDef] = None,
     ) -> DescribeTableStatisticsResponseTypeDef:
         """
-        [Client.describe_table_statistics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.describe_table_statistics)
+        [Client.describe_table_statistics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.describe_table_statistics)
         """
 
     def generate_presigned_url(
@@ -534,7 +534,7 @@ class DatabaseMigrationServiceClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.generate_presigned_url)
         """
 
     def import_certificate(
@@ -545,12 +545,12 @@ class DatabaseMigrationServiceClient:
         Tags: List["TagTypeDef"] = None,
     ) -> ImportCertificateResponseTypeDef:
         """
-        [Client.import_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.import_certificate)
+        [Client.import_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.import_certificate)
         """
 
     def list_tags_for_resource(self, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.list_tags_for_resource)
         """
 
     def modify_endpoint(
@@ -587,7 +587,7 @@ class DatabaseMigrationServiceClient:
         DocDbSettings: "DocDbSettingsTypeDef" = None,
     ) -> ModifyEndpointResponseTypeDef:
         """
-        [Client.modify_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.modify_endpoint)
+        [Client.modify_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.modify_endpoint)
         """
 
     def modify_event_subscription(
@@ -599,7 +599,7 @@ class DatabaseMigrationServiceClient:
         Enabled: bool = None,
     ) -> ModifyEventSubscriptionResponseTypeDef:
         """
-        [Client.modify_event_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.modify_event_subscription)
+        [Client.modify_event_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.modify_event_subscription)
         """
 
     def modify_replication_instance(
@@ -617,7 +617,7 @@ class DatabaseMigrationServiceClient:
         ReplicationInstanceIdentifier: str = None,
     ) -> ModifyReplicationInstanceResponseTypeDef:
         """
-        [Client.modify_replication_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.modify_replication_instance)
+        [Client.modify_replication_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.modify_replication_instance)
         """
 
     def modify_replication_subnet_group(
@@ -627,7 +627,7 @@ class DatabaseMigrationServiceClient:
         ReplicationSubnetGroupDescription: str = None,
     ) -> ModifyReplicationSubnetGroupResponseTypeDef:
         """
-        [Client.modify_replication_subnet_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.modify_replication_subnet_group)
+        [Client.modify_replication_subnet_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.modify_replication_subnet_group)
         """
 
     def modify_replication_task(
@@ -643,28 +643,28 @@ class DatabaseMigrationServiceClient:
         TaskData: str = None,
     ) -> ModifyReplicationTaskResponseTypeDef:
         """
-        [Client.modify_replication_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.modify_replication_task)
+        [Client.modify_replication_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.modify_replication_task)
         """
 
     def move_replication_task(
         self, ReplicationTaskArn: str, TargetReplicationInstanceArn: str
     ) -> MoveReplicationTaskResponseTypeDef:
         """
-        [Client.move_replication_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.move_replication_task)
+        [Client.move_replication_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.move_replication_task)
         """
 
     def reboot_replication_instance(
         self, ReplicationInstanceArn: str, ForceFailover: bool = None
     ) -> RebootReplicationInstanceResponseTypeDef:
         """
-        [Client.reboot_replication_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.reboot_replication_instance)
+        [Client.reboot_replication_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.reboot_replication_instance)
         """
 
     def refresh_schemas(
         self, EndpointArn: str, ReplicationInstanceArn: str
     ) -> RefreshSchemasResponseTypeDef:
         """
-        [Client.refresh_schemas documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.refresh_schemas)
+        [Client.refresh_schemas documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.refresh_schemas)
         """
 
     def reload_tables(
@@ -674,12 +674,12 @@ class DatabaseMigrationServiceClient:
         ReloadOption: Literal["data-reload", "validate-only"] = None,
     ) -> ReloadTablesResponseTypeDef:
         """
-        [Client.reload_tables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.reload_tables)
+        [Client.reload_tables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.reload_tables)
         """
 
     def remove_tags_from_resource(self, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
-        [Client.remove_tags_from_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.remove_tags_from_resource)
+        [Client.remove_tags_from_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.remove_tags_from_resource)
         """
 
     def start_replication_task(
@@ -693,14 +693,14 @@ class DatabaseMigrationServiceClient:
         CdcStopPosition: str = None,
     ) -> StartReplicationTaskResponseTypeDef:
         """
-        [Client.start_replication_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.start_replication_task)
+        [Client.start_replication_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.start_replication_task)
         """
 
     def start_replication_task_assessment(
         self, ReplicationTaskArn: str
     ) -> StartReplicationTaskAssessmentResponseTypeDef:
         """
-        [Client.start_replication_task_assessment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.start_replication_task_assessment)
+        [Client.start_replication_task_assessment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.start_replication_task_assessment)
         """
 
     def start_replication_task_assessment_run(
@@ -716,19 +716,19 @@ class DatabaseMigrationServiceClient:
         Exclude: List[str] = None,
     ) -> StartReplicationTaskAssessmentRunResponseTypeDef:
         """
-        [Client.start_replication_task_assessment_run documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.start_replication_task_assessment_run)
+        [Client.start_replication_task_assessment_run documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.start_replication_task_assessment_run)
         """
 
     def stop_replication_task(self, ReplicationTaskArn: str) -> StopReplicationTaskResponseTypeDef:
         """
-        [Client.stop_replication_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.stop_replication_task)
+        [Client.stop_replication_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.stop_replication_task)
         """
 
     def test_connection(
         self, ReplicationInstanceArn: str, EndpointArn: str
     ) -> TestConnectionResponseTypeDef:
         """
-        [Client.test_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Client.test_connection)
+        [Client.test_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Client.test_connection)
         """
 
     @overload
@@ -736,7 +736,7 @@ class DatabaseMigrationServiceClient:
         self, operation_name: Literal["describe_certificates"]
     ) -> DescribeCertificatesPaginator:
         """
-        [Paginator.DescribeCertificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeCertificates)
+        [Paginator.DescribeCertificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeCertificates)
         """
 
     @overload
@@ -744,7 +744,7 @@ class DatabaseMigrationServiceClient:
         self, operation_name: Literal["describe_connections"]
     ) -> DescribeConnectionsPaginator:
         """
-        [Paginator.DescribeConnections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeConnections)
+        [Paginator.DescribeConnections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeConnections)
         """
 
     @overload
@@ -752,7 +752,7 @@ class DatabaseMigrationServiceClient:
         self, operation_name: Literal["describe_endpoint_types"]
     ) -> DescribeEndpointTypesPaginator:
         """
-        [Paginator.DescribeEndpointTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeEndpointTypes)
+        [Paginator.DescribeEndpointTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeEndpointTypes)
         """
 
     @overload
@@ -760,7 +760,7 @@ class DatabaseMigrationServiceClient:
         self, operation_name: Literal["describe_endpoints"]
     ) -> DescribeEndpointsPaginator:
         """
-        [Paginator.DescribeEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeEndpoints)
+        [Paginator.DescribeEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeEndpoints)
         """
 
     @overload
@@ -768,13 +768,13 @@ class DatabaseMigrationServiceClient:
         self, operation_name: Literal["describe_event_subscriptions"]
     ) -> DescribeEventSubscriptionsPaginator:
         """
-        [Paginator.DescribeEventSubscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeEventSubscriptions)
+        [Paginator.DescribeEventSubscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeEventSubscriptions)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["describe_events"]) -> DescribeEventsPaginator:
         """
-        [Paginator.DescribeEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeEvents)
+        [Paginator.DescribeEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeEvents)
         """
 
     @overload
@@ -782,7 +782,7 @@ class DatabaseMigrationServiceClient:
         self, operation_name: Literal["describe_orderable_replication_instances"]
     ) -> DescribeOrderableReplicationInstancesPaginator:
         """
-        [Paginator.DescribeOrderableReplicationInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeOrderableReplicationInstances)
+        [Paginator.DescribeOrderableReplicationInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeOrderableReplicationInstances)
         """
 
     @overload
@@ -790,7 +790,7 @@ class DatabaseMigrationServiceClient:
         self, operation_name: Literal["describe_replication_instances"]
     ) -> DescribeReplicationInstancesPaginator:
         """
-        [Paginator.DescribeReplicationInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeReplicationInstances)
+        [Paginator.DescribeReplicationInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeReplicationInstances)
         """
 
     @overload
@@ -798,7 +798,7 @@ class DatabaseMigrationServiceClient:
         self, operation_name: Literal["describe_replication_subnet_groups"]
     ) -> DescribeReplicationSubnetGroupsPaginator:
         """
-        [Paginator.DescribeReplicationSubnetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeReplicationSubnetGroups)
+        [Paginator.DescribeReplicationSubnetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeReplicationSubnetGroups)
         """
 
     @overload
@@ -806,7 +806,7 @@ class DatabaseMigrationServiceClient:
         self, operation_name: Literal["describe_replication_task_assessment_results"]
     ) -> DescribeReplicationTaskAssessmentResultsPaginator:
         """
-        [Paginator.DescribeReplicationTaskAssessmentResults documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeReplicationTaskAssessmentResults)
+        [Paginator.DescribeReplicationTaskAssessmentResults documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeReplicationTaskAssessmentResults)
         """
 
     @overload
@@ -814,7 +814,7 @@ class DatabaseMigrationServiceClient:
         self, operation_name: Literal["describe_replication_tasks"]
     ) -> DescribeReplicationTasksPaginator:
         """
-        [Paginator.DescribeReplicationTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeReplicationTasks)
+        [Paginator.DescribeReplicationTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeReplicationTasks)
         """
 
     @overload
@@ -822,7 +822,7 @@ class DatabaseMigrationServiceClient:
         self, operation_name: Literal["describe_schemas"]
     ) -> DescribeSchemasPaginator:
         """
-        [Paginator.DescribeSchemas documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeSchemas)
+        [Paginator.DescribeSchemas documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeSchemas)
         """
 
     @overload
@@ -830,13 +830,13 @@ class DatabaseMigrationServiceClient:
         self, operation_name: Literal["describe_table_statistics"]
     ) -> DescribeTableStatisticsPaginator:
         """
-        [Paginator.DescribeTableStatistics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeTableStatistics)
+        [Paginator.DescribeTableStatistics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Paginator.DescribeTableStatistics)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["endpoint_deleted"]) -> EndpointDeletedWaiter:
         """
-        [Waiter.EndpointDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Waiter.EndpointDeleted)
+        [Waiter.EndpointDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Waiter.EndpointDeleted)
         """
 
     @overload
@@ -844,7 +844,7 @@ class DatabaseMigrationServiceClient:
         self, waiter_name: Literal["replication_instance_available"]
     ) -> ReplicationInstanceAvailableWaiter:
         """
-        [Waiter.ReplicationInstanceAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationInstanceAvailable)
+        [Waiter.ReplicationInstanceAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationInstanceAvailable)
         """
 
     @overload
@@ -852,7 +852,7 @@ class DatabaseMigrationServiceClient:
         self, waiter_name: Literal["replication_instance_deleted"]
     ) -> ReplicationInstanceDeletedWaiter:
         """
-        [Waiter.ReplicationInstanceDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationInstanceDeleted)
+        [Waiter.ReplicationInstanceDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationInstanceDeleted)
         """
 
     @overload
@@ -860,7 +860,7 @@ class DatabaseMigrationServiceClient:
         self, waiter_name: Literal["replication_task_deleted"]
     ) -> ReplicationTaskDeletedWaiter:
         """
-        [Waiter.ReplicationTaskDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationTaskDeleted)
+        [Waiter.ReplicationTaskDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationTaskDeleted)
         """
 
     @overload
@@ -868,7 +868,7 @@ class DatabaseMigrationServiceClient:
         self, waiter_name: Literal["replication_task_ready"]
     ) -> ReplicationTaskReadyWaiter:
         """
-        [Waiter.ReplicationTaskReady documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationTaskReady)
+        [Waiter.ReplicationTaskReady documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationTaskReady)
         """
 
     @overload
@@ -876,7 +876,7 @@ class DatabaseMigrationServiceClient:
         self, waiter_name: Literal["replication_task_running"]
     ) -> ReplicationTaskRunningWaiter:
         """
-        [Waiter.ReplicationTaskRunning documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationTaskRunning)
+        [Waiter.ReplicationTaskRunning documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationTaskRunning)
         """
 
     @overload
@@ -884,7 +884,7 @@ class DatabaseMigrationServiceClient:
         self, waiter_name: Literal["replication_task_stopped"]
     ) -> ReplicationTaskStoppedWaiter:
         """
-        [Waiter.ReplicationTaskStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationTaskStopped)
+        [Waiter.ReplicationTaskStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Waiter.ReplicationTaskStopped)
         """
 
     @overload
@@ -892,5 +892,5 @@ class DatabaseMigrationServiceClient:
         self, waiter_name: Literal["test_connection_succeeds"]
     ) -> TestConnectionSucceedsWaiter:
         """
-        [Waiter.TestConnectionSucceeds documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dms.html#DatabaseMigrationService.Waiter.TestConnectionSucceeds)
+        [Waiter.TestConnectionSucceeds documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dms.html#DatabaseMigrationService.Waiter.TestConnectionSucceeds)
         """

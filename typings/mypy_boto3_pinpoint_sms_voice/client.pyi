@@ -45,7 +45,7 @@ class Exceptions:
 
 class PinpointSMSVoiceClient:
     """
-    [PinpointSMSVoice.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client)
+    [PinpointSMSVoice.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client)
     """
 
     meta: ClientMeta
@@ -53,12 +53,12 @@ class PinpointSMSVoiceClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.can_paginate)
         """
 
     def create_configuration_set(self, ConfigurationSetName: str = None) -> Dict[str, Any]:
         """
-        [Client.create_configuration_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.create_configuration_set)
+        [Client.create_configuration_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.create_configuration_set)
         """
 
     def create_configuration_set_event_destination(
@@ -68,19 +68,19 @@ class PinpointSMSVoiceClient:
         EventDestinationName: str = None,
     ) -> Dict[str, Any]:
         """
-        [Client.create_configuration_set_event_destination documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.create_configuration_set_event_destination)
+        [Client.create_configuration_set_event_destination documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.create_configuration_set_event_destination)
         """
 
     def delete_configuration_set(self, ConfigurationSetName: str) -> Dict[str, Any]:
         """
-        [Client.delete_configuration_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.delete_configuration_set)
+        [Client.delete_configuration_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.delete_configuration_set)
         """
 
     def delete_configuration_set_event_destination(
         self, ConfigurationSetName: str, EventDestinationName: str
     ) -> Dict[str, Any]:
         """
-        [Client.delete_configuration_set_event_destination documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.delete_configuration_set_event_destination)
+        [Client.delete_configuration_set_event_destination documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.delete_configuration_set_event_destination)
         """
 
     def generate_presigned_url(
@@ -91,14 +91,14 @@ class PinpointSMSVoiceClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.generate_presigned_url)
         """
 
     def get_configuration_set_event_destinations(
         self, ConfigurationSetName: str
     ) -> GetConfigurationSetEventDestinationsResponseTypeDef:
         """
-        [Client.get_configuration_set_event_destinations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.get_configuration_set_event_destinations)
+        [Client.get_configuration_set_event_destinations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.get_configuration_set_event_destinations)
         """
 
     def send_voice_message(
@@ -110,7 +110,7 @@ class PinpointSMSVoiceClient:
         OriginationPhoneNumber: str = None,
     ) -> SendVoiceMessageResponseTypeDef:
         """
-        [Client.send_voice_message documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.send_voice_message)
+        [Client.send_voice_message documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.send_voice_message)
         """
 
     def update_configuration_set_event_destination(
@@ -120,5 +120,5 @@ class PinpointSMSVoiceClient:
         EventDestination: EventDestinationDefinitionTypeDef = None,
     ) -> Dict[str, Any]:
         """
-        [Client.update_configuration_set_event_destination documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.update_configuration_set_event_destination)
+        [Client.update_configuration_set_event_destination documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/pinpoint-sms-voice.html#PinpointSMSVoice.Client.update_configuration_set_event_destination)
         """

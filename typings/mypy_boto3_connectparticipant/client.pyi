@@ -51,7 +51,7 @@ class Exceptions:
 
 class ConnectParticipantClient:
     """
-    [ConnectParticipant.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connectparticipant.html#ConnectParticipant.Client)
+    [ConnectParticipant.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connectparticipant.html#ConnectParticipant.Client)
     """
 
     meta: ClientMeta
@@ -59,21 +59,21 @@ class ConnectParticipantClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connectparticipant.html#ConnectParticipant.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connectparticipant.html#ConnectParticipant.Client.can_paginate)
         """
 
     def create_participant_connection(
         self, Type: List[Literal["WEBSOCKET", "CONNECTION_CREDENTIALS"]], ParticipantToken: str
     ) -> CreateParticipantConnectionResponseTypeDef:
         """
-        [Client.create_participant_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connectparticipant.html#ConnectParticipant.Client.create_participant_connection)
+        [Client.create_participant_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connectparticipant.html#ConnectParticipant.Client.create_participant_connection)
         """
 
     def disconnect_participant(
         self, ConnectionToken: str, ClientToken: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.disconnect_participant documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connectparticipant.html#ConnectParticipant.Client.disconnect_participant)
+        [Client.disconnect_participant documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connectparticipant.html#ConnectParticipant.Client.disconnect_participant)
         """
 
     def generate_presigned_url(
@@ -84,7 +84,7 @@ class ConnectParticipantClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connectparticipant.html#ConnectParticipant.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connectparticipant.html#ConnectParticipant.Client.generate_presigned_url)
         """
 
     def get_transcript(
@@ -98,19 +98,19 @@ class ConnectParticipantClient:
         StartPosition: StartPositionTypeDef = None,
     ) -> GetTranscriptResponseTypeDef:
         """
-        [Client.get_transcript documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connectparticipant.html#ConnectParticipant.Client.get_transcript)
+        [Client.get_transcript documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connectparticipant.html#ConnectParticipant.Client.get_transcript)
         """
 
     def send_event(
         self, ContentType: str, ConnectionToken: str, Content: str = None, ClientToken: str = None
     ) -> SendEventResponseTypeDef:
         """
-        [Client.send_event documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connectparticipant.html#ConnectParticipant.Client.send_event)
+        [Client.send_event documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connectparticipant.html#ConnectParticipant.Client.send_event)
         """
 
     def send_message(
         self, ContentType: str, Content: str, ConnectionToken: str, ClientToken: str = None
     ) -> SendMessageResponseTypeDef:
         """
-        [Client.send_message documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connectparticipant.html#ConnectParticipant.Client.send_message)
+        [Client.send_message documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connectparticipant.html#ConnectParticipant.Client.send_message)
         """

@@ -54,7 +54,7 @@ __all__ = (
 
 class ListAnalyzedResourcesPaginator(Boto3Paginator):
     """
-    [Paginator.ListAnalyzedResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ListAnalyzedResources)
+    [Paginator.ListAnalyzedResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ListAnalyzedResources)
     """
 
     def paginate(
@@ -71,13 +71,13 @@ class ListAnalyzedResourcesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListAnalyzedResourcesResponseTypeDef]:
         """
-        [ListAnalyzedResources.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ListAnalyzedResources.paginate)
+        [ListAnalyzedResources.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ListAnalyzedResources.paginate)
         """
 
 
 class ListAnalyzersPaginator(Boto3Paginator):
     """
-    [Paginator.ListAnalyzers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ListAnalyzers)
+    [Paginator.ListAnalyzers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ListAnalyzers)
     """
 
     def paginate(
@@ -86,26 +86,26 @@ class ListAnalyzersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListAnalyzersResponseTypeDef]:
         """
-        [ListAnalyzers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ListAnalyzers.paginate)
+        [ListAnalyzers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ListAnalyzers.paginate)
         """
 
 
 class ListArchiveRulesPaginator(Boto3Paginator):
     """
-    [Paginator.ListArchiveRules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ListArchiveRules)
+    [Paginator.ListArchiveRules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ListArchiveRules)
     """
 
     def paginate(
         self, analyzerName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListArchiveRulesResponseTypeDef]:
         """
-        [ListArchiveRules.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ListArchiveRules.paginate)
+        [ListArchiveRules.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ListArchiveRules.paginate)
         """
 
 
 class ListFindingsPaginator(Boto3Paginator):
     """
-    [Paginator.ListFindings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ListFindings)
+    [Paginator.ListFindings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ListFindings)
     """
 
     def paginate(
@@ -116,5 +116,5 @@ class ListFindingsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListFindingsResponseTypeDef]:
         """
-        [ListFindings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ListFindings.paginate)
+        [ListFindings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/accessanalyzer.html#AccessAnalyzer.Paginator.ListFindings.paginate)
         """

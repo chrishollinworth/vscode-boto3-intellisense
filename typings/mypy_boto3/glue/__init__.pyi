@@ -10,12 +10,16 @@ from mypy_boto3_glue import (
     GetJobsPaginator,
     GetPartitionIndexesPaginator,
     GetPartitionsPaginator,
+    GetResourcePoliciesPaginator,
     GetSecurityConfigurationsPaginator,
     GetTableVersionsPaginator,
     GetTablesPaginator,
     GetTriggersPaginator,
     GetUserDefinedFunctionsPaginator,
     GlueClient,
+    ListRegistriesPaginator,
+    ListSchemaVersionsPaginator,
+    ListSchemasPaginator,
 )
 
 __all__ = (
@@ -30,10 +34,14 @@ __all__ = (
     "GetJobsPaginator",
     "GetPartitionIndexesPaginator",
     "GetPartitionsPaginator",
+    "GetResourcePoliciesPaginator",
     "GetSecurityConfigurationsPaginator",
     "GetTableVersionsPaginator",
     "GetTablesPaginator",
     "GetTriggersPaginator",
     "GetUserDefinedFunctionsPaginator",
     "GlueClient",
+    "ListRegistriesPaginator",
+    "ListSchemaVersionsPaginator",
+    "ListSchemasPaginator",
 )

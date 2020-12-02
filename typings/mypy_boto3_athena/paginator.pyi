@@ -57,72 +57,72 @@ __all__ = (
 
 class GetQueryResultsPaginator(Boto3Paginator):
     """
-    [Paginator.GetQueryResults documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/athena.html#Athena.Paginator.GetQueryResults)
+    [Paginator.GetQueryResults documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/athena.html#Athena.Paginator.GetQueryResults)
     """
 
     def paginate(
         self, QueryExecutionId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetQueryResultsOutputTypeDef]:
         """
-        [GetQueryResults.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/athena.html#Athena.Paginator.GetQueryResults.paginate)
+        [GetQueryResults.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/athena.html#Athena.Paginator.GetQueryResults.paginate)
         """
 
 
 class ListDataCatalogsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDataCatalogs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/athena.html#Athena.Paginator.ListDataCatalogs)
+    [Paginator.ListDataCatalogs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/athena.html#Athena.Paginator.ListDataCatalogs)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDataCatalogsOutputTypeDef]:
         """
-        [ListDataCatalogs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/athena.html#Athena.Paginator.ListDataCatalogs.paginate)
+        [ListDataCatalogs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/athena.html#Athena.Paginator.ListDataCatalogs.paginate)
         """
 
 
 class ListDatabasesPaginator(Boto3Paginator):
     """
-    [Paginator.ListDatabases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/athena.html#Athena.Paginator.ListDatabases)
+    [Paginator.ListDatabases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/athena.html#Athena.Paginator.ListDatabases)
     """
 
     def paginate(
         self, CatalogName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDatabasesOutputTypeDef]:
         """
-        [ListDatabases.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/athena.html#Athena.Paginator.ListDatabases.paginate)
+        [ListDatabases.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/athena.html#Athena.Paginator.ListDatabases.paginate)
         """
 
 
 class ListNamedQueriesPaginator(Boto3Paginator):
     """
-    [Paginator.ListNamedQueries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/athena.html#Athena.Paginator.ListNamedQueries)
+    [Paginator.ListNamedQueries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/athena.html#Athena.Paginator.ListNamedQueries)
     """
 
     def paginate(
         self, WorkGroup: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListNamedQueriesOutputTypeDef]:
         """
-        [ListNamedQueries.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/athena.html#Athena.Paginator.ListNamedQueries.paginate)
+        [ListNamedQueries.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/athena.html#Athena.Paginator.ListNamedQueries.paginate)
         """
 
 
 class ListQueryExecutionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListQueryExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/athena.html#Athena.Paginator.ListQueryExecutions)
+    [Paginator.ListQueryExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/athena.html#Athena.Paginator.ListQueryExecutions)
     """
 
     def paginate(
         self, WorkGroup: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListQueryExecutionsOutputTypeDef]:
         """
-        [ListQueryExecutions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/athena.html#Athena.Paginator.ListQueryExecutions.paginate)
+        [ListQueryExecutions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/athena.html#Athena.Paginator.ListQueryExecutions.paginate)
         """
 
 
 class ListTableMetadataPaginator(Boto3Paginator):
     """
-    [Paginator.ListTableMetadata documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/athena.html#Athena.Paginator.ListTableMetadata)
+    [Paginator.ListTableMetadata documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/athena.html#Athena.Paginator.ListTableMetadata)
     """
 
     def paginate(
@@ -133,18 +133,18 @@ class ListTableMetadataPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListTableMetadataOutputTypeDef]:
         """
-        [ListTableMetadata.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/athena.html#Athena.Paginator.ListTableMetadata.paginate)
+        [ListTableMetadata.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/athena.html#Athena.Paginator.ListTableMetadata.paginate)
         """
 
 
 class ListTagsForResourcePaginator(Boto3Paginator):
     """
-    [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/athena.html#Athena.Paginator.ListTagsForResource)
+    [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/athena.html#Athena.Paginator.ListTagsForResource)
     """
 
     def paginate(
         self, ResourceARN: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTagsForResourceOutputTypeDef]:
         """
-        [ListTagsForResource.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/athena.html#Athena.Paginator.ListTagsForResource.paginate)
+        [ListTagsForResource.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/athena.html#Athena.Paginator.ListTagsForResource.paginate)
         """

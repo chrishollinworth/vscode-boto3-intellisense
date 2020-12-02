@@ -66,6 +66,7 @@ __all__ = (
     "IpCountryTypeDef",
     "IpGeoLocationTypeDef",
     "IpOwnerTypeDef",
+    "JobDetailsTypeDef",
     "JobScheduleFrequencyTypeDef",
     "JobScopeTermTypeDef",
     "JobScopingBlockTypeDef",
@@ -257,6 +258,7 @@ BucketMetadataTypeDef = TypedDict(
         "bucketName": str,
         "classifiableObjectCount": int,
         "classifiableSizeInBytes": int,
+        "jobDetails": "JobDetailsTypeDef",
         "lastUpdated": datetime,
         "objectCount": int,
         "objectCountByEncryptionType": "ObjectCountByEncryptionTypeTypeDef",
@@ -508,6 +510,17 @@ IpGeoLocationTypeDef = TypedDict("IpGeoLocationTypeDef", {"lat": float, "lon": f
 
 IpOwnerTypeDef = TypedDict(
     "IpOwnerTypeDef", {"asn": str, "asnOrg": str, "isp": str, "org": str}, total=False
+)
+
+JobDetailsTypeDef = TypedDict(
+    "JobDetailsTypeDef",
+    {
+        "isDefinedInJob": Literal["TRUE", "FALSE", "UNKNOWN"],
+        "isMonitoredByJob": Literal["TRUE", "FALSE", "UNKNOWN"],
+        "lastJobId": str,
+        "lastJobRunTime": datetime,
+    },
+    total=False,
 )
 
 JobScheduleFrequencyTypeDef = TypedDict(

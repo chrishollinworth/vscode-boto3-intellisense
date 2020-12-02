@@ -51,7 +51,7 @@ __all__ = (
 
 class ServiceResourceAlarmsCollection(ResourceCollection):
     """
-    [ServiceResource.alarms documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.ServiceResource.alarms)
+    [ServiceResource.alarms documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudwatch.html#CloudWatch.ServiceResource.alarms)
     """
 
     def all(self) -> "ServiceResourceAlarmsCollection":
@@ -95,7 +95,7 @@ class ServiceResourceAlarmsCollection(ResourceCollection):
 
 class ServiceResourceMetricsCollection(ResourceCollection):
     """
-    [ServiceResource.metrics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.ServiceResource.metrics)
+    [ServiceResource.metrics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudwatch.html#CloudWatch.ServiceResource.metrics)
     """
 
     def all(self) -> "ServiceResourceMetricsCollection":
@@ -126,7 +126,7 @@ class ServiceResourceMetricsCollection(ResourceCollection):
 
 class MetricAlarmsCollection(ResourceCollection):
     """
-    [Metric.alarms documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Metric.alarms)
+    [Metric.alarms documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudwatch.html#CloudWatch.Metric.alarms)
     """
 
     def all(self) -> "MetricAlarmsCollection":
@@ -194,7 +194,7 @@ class MetricAlarmsCollection(ResourceCollection):
 
 class Alarm(Boto3ServiceResource):
     """
-    [Alarm documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.ServiceResource.Alarm)
+    [Alarm documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudwatch.html#CloudWatch.ServiceResource.Alarm)
     """
 
     alarm_name: str
@@ -229,7 +229,7 @@ class Alarm(Boto3ServiceResource):
 
     def delete(self, AlarmNames: List[str]) -> None:
         """
-        [Alarm.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Alarm.delete)
+        [Alarm.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudwatch.html#CloudWatch.Alarm.delete)
         """
 
     def describe_history(
@@ -243,32 +243,32 @@ class Alarm(Boto3ServiceResource):
         ScanBy: Literal["TimestampDescending", "TimestampAscending"] = None,
     ) -> DescribeAlarmHistoryOutputTypeDef:
         """
-        [Alarm.describe_history documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Alarm.describe_history)
+        [Alarm.describe_history documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudwatch.html#CloudWatch.Alarm.describe_history)
         """
 
     def disable_actions(self, AlarmNames: List[str]) -> None:
         """
-        [Alarm.disable_actions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Alarm.disable_actions)
+        [Alarm.disable_actions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudwatch.html#CloudWatch.Alarm.disable_actions)
         """
 
     def enable_actions(self, AlarmNames: List[str]) -> None:
         """
-        [Alarm.enable_actions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Alarm.enable_actions)
+        [Alarm.enable_actions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudwatch.html#CloudWatch.Alarm.enable_actions)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [Alarm.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Alarm.get_available_subresources)
+        [Alarm.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudwatch.html#CloudWatch.Alarm.get_available_subresources)
         """
 
     def load(self) -> None:
         """
-        [Alarm.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Alarm.load)
+        [Alarm.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudwatch.html#CloudWatch.Alarm.load)
         """
 
     def reload(self) -> None:
         """
-        [Alarm.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Alarm.reload)
+        [Alarm.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudwatch.html#CloudWatch.Alarm.reload)
         """
 
     def set_state(
@@ -278,7 +278,7 @@ class Alarm(Boto3ServiceResource):
         StateReasonData: str = None,
     ) -> None:
         """
-        [Alarm.set_state documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Alarm.set_state)
+        [Alarm.set_state documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudwatch.html#CloudWatch.Alarm.set_state)
         """
 
 
@@ -287,7 +287,7 @@ _Alarm = Alarm
 
 class Metric(Boto3ServiceResource):
     """
-    [Metric documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.ServiceResource.Metric)
+    [Metric documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudwatch.html#CloudWatch.ServiceResource.Metric)
     """
 
     metric_name: str
@@ -298,7 +298,7 @@ class Metric(Boto3ServiceResource):
 
     def get_available_subresources(self) -> List[str]:
         """
-        [Metric.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Metric.get_available_subresources)
+        [Metric.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudwatch.html#CloudWatch.Metric.get_available_subresources)
         """
 
     def get_statistics(
@@ -340,12 +340,12 @@ class Metric(Boto3ServiceResource):
         ] = None,
     ) -> GetMetricStatisticsOutputTypeDef:
         """
-        [Metric.get_statistics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Metric.get_statistics)
+        [Metric.get_statistics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudwatch.html#CloudWatch.Metric.get_statistics)
         """
 
     def load(self) -> None:
         """
-        [Metric.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Metric.load)
+        [Metric.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudwatch.html#CloudWatch.Metric.load)
         """
 
     def put_alarm(
@@ -408,17 +408,17 @@ class Metric(Boto3ServiceResource):
         ThresholdMetricId: str = None,
     ) -> _Alarm:
         """
-        [Metric.put_alarm documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Metric.put_alarm)
+        [Metric.put_alarm documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudwatch.html#CloudWatch.Metric.put_alarm)
         """
 
     def put_data(self, MetricData: List[MetricDatumTypeDef]) -> None:
         """
-        [Metric.put_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Metric.put_data)
+        [Metric.put_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudwatch.html#CloudWatch.Metric.put_data)
         """
 
     def reload(self) -> None:
         """
-        [Metric.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Metric.reload)
+        [Metric.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudwatch.html#CloudWatch.Metric.reload)
         """
 
 
@@ -427,7 +427,7 @@ _Metric = Metric
 
 class CloudWatchServiceResource(Boto3ServiceResource):
     """
-    [CloudWatch.ServiceResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.ServiceResource)
+    [CloudWatch.ServiceResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudwatch.html#CloudWatch.ServiceResource)
     """
 
     alarms: ServiceResourceAlarmsCollection
@@ -435,15 +435,15 @@ class CloudWatchServiceResource(Boto3ServiceResource):
 
     def Alarm(self, name: str) -> _Alarm:
         """
-        [ServiceResource.Alarm documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.ServiceResource.Alarm)
+        [ServiceResource.Alarm documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudwatch.html#CloudWatch.ServiceResource.Alarm)
         """
 
     def Metric(self, namespace: str, name: str) -> _Metric:
         """
-        [ServiceResource.Metric documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.ServiceResource.Metric)
+        [ServiceResource.Metric documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudwatch.html#CloudWatch.ServiceResource.Metric)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [ServiceResource.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.ServiceResource.get_available_subresources)
+        [ServiceResource.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudwatch.html#CloudWatch.ServiceResource.get_available_subresources)
         """

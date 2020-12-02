@@ -6,6 +6,7 @@ from mypy_boto3_forecast import (
     ListDatasetsPaginator,
     ListForecastExportJobsPaginator,
     ListForecastsPaginator,
+    ListPredictorBacktestExportJobsPaginator,
     ListPredictorsPaginator,
 )
 
@@ -17,5 +18,6 @@ __all__ = (
     "ListDatasetsPaginator",
     "ListForecastExportJobsPaginator",
     "ListForecastsPaginator",
+    "ListPredictorBacktestExportJobsPaginator",
     "ListPredictorsPaginator",
 )

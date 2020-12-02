@@ -63,33 +63,33 @@ __all__ = (
 
 class ListDetectorsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDetectors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Paginator.ListDetectors)
+    [Paginator.ListDetectors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Paginator.ListDetectors)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDetectorsResponseTypeDef]:
         """
-        [ListDetectors.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Paginator.ListDetectors.paginate)
+        [ListDetectors.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Paginator.ListDetectors.paginate)
         """
 
 
 class ListFiltersPaginator(Boto3Paginator):
     """
-    [Paginator.ListFilters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Paginator.ListFilters)
+    [Paginator.ListFilters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Paginator.ListFilters)
     """
 
     def paginate(
         self, DetectorId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListFiltersResponseTypeDef]:
         """
-        [ListFilters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Paginator.ListFilters.paginate)
+        [ListFilters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Paginator.ListFilters.paginate)
         """
 
 
 class ListFindingsPaginator(Boto3Paginator):
     """
-    [Paginator.ListFindings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Paginator.ListFindings)
+    [Paginator.ListFindings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Paginator.ListFindings)
     """
 
     def paginate(
@@ -100,39 +100,39 @@ class ListFindingsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListFindingsResponseTypeDef]:
         """
-        [ListFindings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Paginator.ListFindings.paginate)
+        [ListFindings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Paginator.ListFindings.paginate)
         """
 
 
 class ListIPSetsPaginator(Boto3Paginator):
     """
-    [Paginator.ListIPSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Paginator.ListIPSets)
+    [Paginator.ListIPSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Paginator.ListIPSets)
     """
 
     def paginate(
         self, DetectorId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListIPSetsResponseTypeDef]:
         """
-        [ListIPSets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Paginator.ListIPSets.paginate)
+        [ListIPSets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Paginator.ListIPSets.paginate)
         """
 
 
 class ListInvitationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListInvitations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Paginator.ListInvitations)
+    [Paginator.ListInvitations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Paginator.ListInvitations)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListInvitationsResponseTypeDef]:
         """
-        [ListInvitations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Paginator.ListInvitations.paginate)
+        [ListInvitations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Paginator.ListInvitations.paginate)
         """
 
 
 class ListMembersPaginator(Boto3Paginator):
     """
-    [Paginator.ListMembers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Paginator.ListMembers)
+    [Paginator.ListMembers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Paginator.ListMembers)
     """
 
     def paginate(
@@ -142,31 +142,31 @@ class ListMembersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListMembersResponseTypeDef]:
         """
-        [ListMembers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Paginator.ListMembers.paginate)
+        [ListMembers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Paginator.ListMembers.paginate)
         """
 
 
 class ListOrganizationAdminAccountsPaginator(Boto3Paginator):
     """
-    [Paginator.ListOrganizationAdminAccounts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Paginator.ListOrganizationAdminAccounts)
+    [Paginator.ListOrganizationAdminAccounts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Paginator.ListOrganizationAdminAccounts)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListOrganizationAdminAccountsResponseTypeDef]:
         """
-        [ListOrganizationAdminAccounts.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Paginator.ListOrganizationAdminAccounts.paginate)
+        [ListOrganizationAdminAccounts.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Paginator.ListOrganizationAdminAccounts.paginate)
         """
 
 
 class ListThreatIntelSetsPaginator(Boto3Paginator):
     """
-    [Paginator.ListThreatIntelSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Paginator.ListThreatIntelSets)
+    [Paginator.ListThreatIntelSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Paginator.ListThreatIntelSets)
     """
 
     def paginate(
         self, DetectorId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListThreatIntelSetsResponseTypeDef]:
         """
-        [ListThreatIntelSets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/guardduty.html#GuardDuty.Paginator.ListThreatIntelSets.paginate)
+        [ListThreatIntelSets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/guardduty.html#GuardDuty.Paginator.ListThreatIntelSets.paginate)
         """

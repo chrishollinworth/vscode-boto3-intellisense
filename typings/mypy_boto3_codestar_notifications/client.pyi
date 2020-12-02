@@ -69,7 +69,7 @@ class Exceptions:
 
 class CodeStarNotificationsClient:
     """
-    [CodeStarNotifications.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codestar-notifications.html#CodeStarNotifications.Client)
+    [CodeStarNotifications.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar-notifications.html#CodeStarNotifications.Client)
     """
 
     meta: ClientMeta
@@ -77,7 +77,7 @@ class CodeStarNotificationsClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codestar-notifications.html#CodeStarNotifications.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar-notifications.html#CodeStarNotifications.Client.can_paginate)
         """
 
     def create_notification_rule(
@@ -92,22 +92,22 @@ class CodeStarNotificationsClient:
         Status: Literal["ENABLED", "DISABLED"] = None,
     ) -> CreateNotificationRuleResultTypeDef:
         """
-        [Client.create_notification_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codestar-notifications.html#CodeStarNotifications.Client.create_notification_rule)
+        [Client.create_notification_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar-notifications.html#CodeStarNotifications.Client.create_notification_rule)
         """
 
     def delete_notification_rule(self, Arn: str) -> DeleteNotificationRuleResultTypeDef:
         """
-        [Client.delete_notification_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codestar-notifications.html#CodeStarNotifications.Client.delete_notification_rule)
+        [Client.delete_notification_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar-notifications.html#CodeStarNotifications.Client.delete_notification_rule)
         """
 
     def delete_target(self, TargetAddress: str, ForceUnsubscribeAll: bool = None) -> Dict[str, Any]:
         """
-        [Client.delete_target documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codestar-notifications.html#CodeStarNotifications.Client.delete_target)
+        [Client.delete_target documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar-notifications.html#CodeStarNotifications.Client.delete_target)
         """
 
     def describe_notification_rule(self, Arn: str) -> DescribeNotificationRuleResultTypeDef:
         """
-        [Client.describe_notification_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codestar-notifications.html#CodeStarNotifications.Client.describe_notification_rule)
+        [Client.describe_notification_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar-notifications.html#CodeStarNotifications.Client.describe_notification_rule)
         """
 
     def generate_presigned_url(
@@ -118,7 +118,7 @@ class CodeStarNotificationsClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codestar-notifications.html#CodeStarNotifications.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar-notifications.html#CodeStarNotifications.Client.generate_presigned_url)
         """
 
     def list_event_types(
@@ -128,7 +128,7 @@ class CodeStarNotificationsClient:
         MaxResults: int = None,
     ) -> ListEventTypesResultTypeDef:
         """
-        [Client.list_event_types documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codestar-notifications.html#CodeStarNotifications.Client.list_event_types)
+        [Client.list_event_types documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar-notifications.html#CodeStarNotifications.Client.list_event_types)
         """
 
     def list_notification_rules(
@@ -138,12 +138,12 @@ class CodeStarNotificationsClient:
         MaxResults: int = None,
     ) -> ListNotificationRulesResultTypeDef:
         """
-        [Client.list_notification_rules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codestar-notifications.html#CodeStarNotifications.Client.list_notification_rules)
+        [Client.list_notification_rules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar-notifications.html#CodeStarNotifications.Client.list_notification_rules)
         """
 
     def list_tags_for_resource(self, Arn: str) -> ListTagsForResourceResultTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codestar-notifications.html#CodeStarNotifications.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar-notifications.html#CodeStarNotifications.Client.list_tags_for_resource)
         """
 
     def list_targets(
@@ -153,29 +153,29 @@ class CodeStarNotificationsClient:
         MaxResults: int = None,
     ) -> ListTargetsResultTypeDef:
         """
-        [Client.list_targets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codestar-notifications.html#CodeStarNotifications.Client.list_targets)
+        [Client.list_targets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar-notifications.html#CodeStarNotifications.Client.list_targets)
         """
 
     def subscribe(
         self, Arn: str, Target: TargetTypeDef, ClientRequestToken: str = None
     ) -> SubscribeResultTypeDef:
         """
-        [Client.subscribe documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codestar-notifications.html#CodeStarNotifications.Client.subscribe)
+        [Client.subscribe documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar-notifications.html#CodeStarNotifications.Client.subscribe)
         """
 
     def tag_resource(self, Arn: str, Tags: Dict[str, str]) -> TagResourceResultTypeDef:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codestar-notifications.html#CodeStarNotifications.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar-notifications.html#CodeStarNotifications.Client.tag_resource)
         """
 
     def unsubscribe(self, Arn: str, TargetAddress: str) -> UnsubscribeResultTypeDef:
         """
-        [Client.unsubscribe documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codestar-notifications.html#CodeStarNotifications.Client.unsubscribe)
+        [Client.unsubscribe documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar-notifications.html#CodeStarNotifications.Client.unsubscribe)
         """
 
     def untag_resource(self, Arn: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codestar-notifications.html#CodeStarNotifications.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar-notifications.html#CodeStarNotifications.Client.untag_resource)
         """
 
     def update_notification_rule(
@@ -188,13 +188,13 @@ class CodeStarNotificationsClient:
         DetailType: Literal["BASIC", "FULL"] = None,
     ) -> Dict[str, Any]:
         """
-        [Client.update_notification_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codestar-notifications.html#CodeStarNotifications.Client.update_notification_rule)
+        [Client.update_notification_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar-notifications.html#CodeStarNotifications.Client.update_notification_rule)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_event_types"]) -> ListEventTypesPaginator:
         """
-        [Paginator.ListEventTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codestar-notifications.html#CodeStarNotifications.Paginator.ListEventTypes)
+        [Paginator.ListEventTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar-notifications.html#CodeStarNotifications.Paginator.ListEventTypes)
         """
 
     @overload
@@ -202,11 +202,11 @@ class CodeStarNotificationsClient:
         self, operation_name: Literal["list_notification_rules"]
     ) -> ListNotificationRulesPaginator:
         """
-        [Paginator.ListNotificationRules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codestar-notifications.html#CodeStarNotifications.Paginator.ListNotificationRules)
+        [Paginator.ListNotificationRules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar-notifications.html#CodeStarNotifications.Paginator.ListNotificationRules)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_targets"]) -> ListTargetsPaginator:
         """
-        [Paginator.ListTargets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codestar-notifications.html#CodeStarNotifications.Paginator.ListTargets)
+        [Paginator.ListTargets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar-notifications.html#CodeStarNotifications.Paginator.ListTargets)
         """

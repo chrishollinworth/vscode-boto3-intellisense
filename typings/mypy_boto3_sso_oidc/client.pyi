@@ -50,7 +50,7 @@ class Exceptions:
 
 class SSOOIDCClient:
     """
-    [SSOOIDC.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sso-oidc.html#SSOOIDC.Client)
+    [SSOOIDC.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-oidc.html#SSOOIDC.Client)
     """
 
     meta: ClientMeta
@@ -58,7 +58,7 @@ class SSOOIDCClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sso-oidc.html#SSOOIDC.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-oidc.html#SSOOIDC.Client.can_paginate)
         """
 
     def create_token(
@@ -73,7 +73,7 @@ class SSOOIDCClient:
         redirectUri: str = None,
     ) -> CreateTokenResponseTypeDef:
         """
-        [Client.create_token documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sso-oidc.html#SSOOIDC.Client.create_token)
+        [Client.create_token documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-oidc.html#SSOOIDC.Client.create_token)
         """
 
     def generate_presigned_url(
@@ -84,19 +84,19 @@ class SSOOIDCClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sso-oidc.html#SSOOIDC.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-oidc.html#SSOOIDC.Client.generate_presigned_url)
         """
 
     def register_client(
         self, clientName: str, clientType: str, scopes: List[str] = None
     ) -> RegisterClientResponseTypeDef:
         """
-        [Client.register_client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sso-oidc.html#SSOOIDC.Client.register_client)
+        [Client.register_client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-oidc.html#SSOOIDC.Client.register_client)
         """
 
     def start_device_authorization(
         self, clientId: str, clientSecret: str, startUrl: str
     ) -> StartDeviceAuthorizationResponseTypeDef:
         """
-        [Client.start_device_authorization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sso-oidc.html#SSOOIDC.Client.start_device_authorization)
+        [Client.start_device_authorization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-oidc.html#SSOOIDC.Client.start_device_authorization)
         """

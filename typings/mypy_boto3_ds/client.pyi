@@ -30,6 +30,7 @@ from mypy_boto3_ds.paginator import (
 from mypy_boto3_ds.type_defs import (
     AcceptSharedDirectoryResultTypeDef,
     AttributeTypeDef,
+    ClientCertAuthSettingsTypeDef,
     ConnectDirectoryResultTypeDef,
     CreateAliasResultTypeDef,
     CreateComputerResultTypeDef,
@@ -46,6 +47,7 @@ from mypy_boto3_ds.type_defs import (
     DescribeDomainControllersResultTypeDef,
     DescribeEventTopicsResultTypeDef,
     DescribeLDAPSSettingsResultTypeDef,
+    DescribeRegionsResultTypeDef,
     DescribeSharedDirectoriesResultTypeDef,
     DescribeSnapshotsResultTypeDef,
     DescribeTrustsResultTypeDef,
@@ -98,6 +100,7 @@ class Exceptions:
     CertificateLimitExceededException: Type[BotocoreClientError]
     ClientError: Type[BotocoreClientError]
     ClientException: Type[BotocoreClientError]
+    DirectoryAlreadyInRegionException: Type[BotocoreClientError]
     DirectoryAlreadySharedException: Type[BotocoreClientError]
     DirectoryDoesNotExistException: Type[BotocoreClientError]
     DirectoryLimitExceededException: Type[BotocoreClientError]
@@ -108,6 +111,7 @@ class Exceptions:
     EntityDoesNotExistException: Type[BotocoreClientError]
     InsufficientPermissionsException: Type[BotocoreClientError]
     InvalidCertificateException: Type[BotocoreClientError]
+    InvalidClientAuthStatusException: Type[BotocoreClientError]
     InvalidLDAPSStatusException: Type[BotocoreClientError]
     InvalidNextTokenException: Type[BotocoreClientError]
     InvalidParameterException: Type[BotocoreClientError]
@@ -116,6 +120,7 @@ class Exceptions:
     IpRouteLimitExceededException: Type[BotocoreClientError]
     NoAvailableCertificateException: Type[BotocoreClientError]
     OrganizationsException: Type[BotocoreClientError]
+    RegionLimitExceededException: Type[BotocoreClientError]
     ServiceException: Type[BotocoreClientError]
     ShareLimitExceededException: Type[BotocoreClientError]
     SnapshotLimitExceededException: Type[BotocoreClientError]
@@ -126,7 +131,7 @@ class Exceptions:
 
 class DirectoryServiceClient:
     """
-    [DirectoryService.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client)
+    [DirectoryService.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client)
     """
 
     meta: ClientMeta
@@ -134,7 +139,7 @@ class DirectoryServiceClient:
 
     def accept_shared_directory(self, SharedDirectoryId: str) -> AcceptSharedDirectoryResultTypeDef:
         """
-        [Client.accept_shared_directory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.accept_shared_directory)
+        [Client.accept_shared_directory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.accept_shared_directory)
         """
 
     def add_ip_routes(
@@ -144,22 +149,29 @@ class DirectoryServiceClient:
         UpdateSecurityGroupForDirectoryControllers: bool = None,
     ) -> Dict[str, Any]:
         """
-        [Client.add_ip_routes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.add_ip_routes)
+        [Client.add_ip_routes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.add_ip_routes)
+        """
+
+    def add_region(
+        self, DirectoryId: str, RegionName: str, VPCSettings: "DirectoryVpcSettingsTypeDef"
+    ) -> Dict[str, Any]:
+        """
+        [Client.add_region documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.add_region)
         """
 
     def add_tags_to_resource(self, ResourceId: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
-        [Client.add_tags_to_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.add_tags_to_resource)
+        [Client.add_tags_to_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.add_tags_to_resource)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.can_paginate)
         """
 
     def cancel_schema_extension(self, DirectoryId: str, SchemaExtensionId: str) -> Dict[str, Any]:
         """
-        [Client.cancel_schema_extension documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.cancel_schema_extension)
+        [Client.cancel_schema_extension documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.cancel_schema_extension)
         """
 
     def connect_directory(
@@ -173,12 +185,12 @@ class DirectoryServiceClient:
         Tags: List["TagTypeDef"] = None,
     ) -> ConnectDirectoryResultTypeDef:
         """
-        [Client.connect_directory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.connect_directory)
+        [Client.connect_directory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.connect_directory)
         """
 
     def create_alias(self, DirectoryId: str, Alias: str) -> CreateAliasResultTypeDef:
         """
-        [Client.create_alias documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.create_alias)
+        [Client.create_alias documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.create_alias)
         """
 
     def create_computer(
@@ -190,14 +202,14 @@ class DirectoryServiceClient:
         ComputerAttributes: List["AttributeTypeDef"] = None,
     ) -> CreateComputerResultTypeDef:
         """
-        [Client.create_computer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.create_computer)
+        [Client.create_computer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.create_computer)
         """
 
     def create_conditional_forwarder(
         self, DirectoryId: str, RemoteDomainName: str, DnsIpAddrs: List[str]
     ) -> Dict[str, Any]:
         """
-        [Client.create_conditional_forwarder documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.create_conditional_forwarder)
+        [Client.create_conditional_forwarder documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.create_conditional_forwarder)
         """
 
     def create_directory(
@@ -207,35 +219,35 @@ class DirectoryServiceClient:
         Size: Literal["Small", "Large"],
         ShortName: str = None,
         Description: str = None,
-        VpcSettings: DirectoryVpcSettingsTypeDef = None,
+        VpcSettings: "DirectoryVpcSettingsTypeDef" = None,
         Tags: List["TagTypeDef"] = None,
     ) -> CreateDirectoryResultTypeDef:
         """
-        [Client.create_directory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.create_directory)
+        [Client.create_directory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.create_directory)
         """
 
     def create_log_subscription(self, DirectoryId: str, LogGroupName: str) -> Dict[str, Any]:
         """
-        [Client.create_log_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.create_log_subscription)
+        [Client.create_log_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.create_log_subscription)
         """
 
     def create_microsoft_ad(
         self,
         Name: str,
         Password: str,
-        VpcSettings: DirectoryVpcSettingsTypeDef,
+        VpcSettings: "DirectoryVpcSettingsTypeDef",
         ShortName: str = None,
         Description: str = None,
         Edition: Literal["Enterprise", "Standard"] = None,
         Tags: List["TagTypeDef"] = None,
     ) -> CreateMicrosoftADResultTypeDef:
         """
-        [Client.create_microsoft_ad documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.create_microsoft_ad)
+        [Client.create_microsoft_ad documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.create_microsoft_ad)
         """
 
     def create_snapshot(self, DirectoryId: str, Name: str = None) -> CreateSnapshotResultTypeDef:
         """
-        [Client.create_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.create_snapshot)
+        [Client.create_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.create_snapshot)
         """
 
     def create_trust(
@@ -249,67 +261,67 @@ class DirectoryServiceClient:
         SelectiveAuth: Literal["Enabled", "Disabled"] = None,
     ) -> CreateTrustResultTypeDef:
         """
-        [Client.create_trust documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.create_trust)
+        [Client.create_trust documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.create_trust)
         """
 
     def delete_conditional_forwarder(
         self, DirectoryId: str, RemoteDomainName: str
     ) -> Dict[str, Any]:
         """
-        [Client.delete_conditional_forwarder documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.delete_conditional_forwarder)
+        [Client.delete_conditional_forwarder documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.delete_conditional_forwarder)
         """
 
     def delete_directory(self, DirectoryId: str) -> DeleteDirectoryResultTypeDef:
         """
-        [Client.delete_directory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.delete_directory)
+        [Client.delete_directory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.delete_directory)
         """
 
     def delete_log_subscription(self, DirectoryId: str) -> Dict[str, Any]:
         """
-        [Client.delete_log_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.delete_log_subscription)
+        [Client.delete_log_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.delete_log_subscription)
         """
 
     def delete_snapshot(self, SnapshotId: str) -> DeleteSnapshotResultTypeDef:
         """
-        [Client.delete_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.delete_snapshot)
+        [Client.delete_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.delete_snapshot)
         """
 
     def delete_trust(
         self, TrustId: str, DeleteAssociatedConditionalForwarder: bool = None
     ) -> DeleteTrustResultTypeDef:
         """
-        [Client.delete_trust documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.delete_trust)
+        [Client.delete_trust documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.delete_trust)
         """
 
     def deregister_certificate(self, DirectoryId: str, CertificateId: str) -> Dict[str, Any]:
         """
-        [Client.deregister_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.deregister_certificate)
+        [Client.deregister_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.deregister_certificate)
         """
 
     def deregister_event_topic(self, DirectoryId: str, TopicName: str) -> Dict[str, Any]:
         """
-        [Client.deregister_event_topic documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.deregister_event_topic)
+        [Client.deregister_event_topic documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.deregister_event_topic)
         """
 
     def describe_certificate(
         self, DirectoryId: str, CertificateId: str
     ) -> DescribeCertificateResultTypeDef:
         """
-        [Client.describe_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.describe_certificate)
+        [Client.describe_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.describe_certificate)
         """
 
     def describe_conditional_forwarders(
         self, DirectoryId: str, RemoteDomainNames: List[str] = None
     ) -> DescribeConditionalForwardersResultTypeDef:
         """
-        [Client.describe_conditional_forwarders documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.describe_conditional_forwarders)
+        [Client.describe_conditional_forwarders documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.describe_conditional_forwarders)
         """
 
     def describe_directories(
         self, DirectoryIds: List[str] = None, NextToken: str = None, Limit: int = None
     ) -> DescribeDirectoriesResultTypeDef:
         """
-        [Client.describe_directories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.describe_directories)
+        [Client.describe_directories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.describe_directories)
         """
 
     def describe_domain_controllers(
@@ -320,14 +332,14 @@ class DirectoryServiceClient:
         Limit: int = None,
     ) -> DescribeDomainControllersResultTypeDef:
         """
-        [Client.describe_domain_controllers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.describe_domain_controllers)
+        [Client.describe_domain_controllers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.describe_domain_controllers)
         """
 
     def describe_event_topics(
         self, DirectoryId: str = None, TopicNames: List[str] = None
     ) -> DescribeEventTopicsResultTypeDef:
         """
-        [Client.describe_event_topics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.describe_event_topics)
+        [Client.describe_event_topics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.describe_event_topics)
         """
 
     def describe_ldaps_settings(
@@ -338,7 +350,14 @@ class DirectoryServiceClient:
         Limit: int = None,
     ) -> DescribeLDAPSSettingsResultTypeDef:
         """
-        [Client.describe_ldaps_settings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.describe_ldaps_settings)
+        [Client.describe_ldaps_settings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.describe_ldaps_settings)
+        """
+
+    def describe_regions(
+        self, DirectoryId: str, RegionName: str = None, NextToken: str = None
+    ) -> DescribeRegionsResultTypeDef:
+        """
+        [Client.describe_regions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.describe_regions)
         """
 
     def describe_shared_directories(
@@ -349,7 +368,7 @@ class DirectoryServiceClient:
         Limit: int = None,
     ) -> DescribeSharedDirectoriesResultTypeDef:
         """
-        [Client.describe_shared_directories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.describe_shared_directories)
+        [Client.describe_shared_directories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.describe_shared_directories)
         """
 
     def describe_snapshots(
@@ -360,7 +379,7 @@ class DirectoryServiceClient:
         Limit: int = None,
     ) -> DescribeSnapshotsResultTypeDef:
         """
-        [Client.describe_snapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.describe_snapshots)
+        [Client.describe_snapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.describe_snapshots)
         """
 
     def describe_trusts(
@@ -371,43 +390,57 @@ class DirectoryServiceClient:
         Limit: int = None,
     ) -> DescribeTrustsResultTypeDef:
         """
-        [Client.describe_trusts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.describe_trusts)
+        [Client.describe_trusts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.describe_trusts)
+        """
+
+    def disable_client_authentication(
+        self, DirectoryId: str, Type: Literal["SmartCard"]
+    ) -> Dict[str, Any]:
+        """
+        [Client.disable_client_authentication documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.disable_client_authentication)
         """
 
     def disable_ldaps(self, DirectoryId: str, Type: Literal["Client"]) -> Dict[str, Any]:
         """
-        [Client.disable_ldaps documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.disable_ldaps)
+        [Client.disable_ldaps documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.disable_ldaps)
         """
 
     def disable_radius(self, DirectoryId: str) -> Dict[str, Any]:
         """
-        [Client.disable_radius documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.disable_radius)
+        [Client.disable_radius documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.disable_radius)
         """
 
     def disable_sso(
         self, DirectoryId: str, UserName: str = None, Password: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.disable_sso documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.disable_sso)
+        [Client.disable_sso documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.disable_sso)
+        """
+
+    def enable_client_authentication(
+        self, DirectoryId: str, Type: Literal["SmartCard"]
+    ) -> Dict[str, Any]:
+        """
+        [Client.enable_client_authentication documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.enable_client_authentication)
         """
 
     def enable_ldaps(self, DirectoryId: str, Type: Literal["Client"]) -> Dict[str, Any]:
         """
-        [Client.enable_ldaps documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.enable_ldaps)
+        [Client.enable_ldaps documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.enable_ldaps)
         """
 
     def enable_radius(
         self, DirectoryId: str, RadiusSettings: "RadiusSettingsTypeDef"
     ) -> Dict[str, Any]:
         """
-        [Client.enable_radius documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.enable_radius)
+        [Client.enable_radius documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.enable_radius)
         """
 
     def enable_sso(
         self, DirectoryId: str, UserName: str = None, Password: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.enable_sso documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.enable_sso)
+        [Client.enable_sso documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.enable_sso)
         """
 
     def generate_presigned_url(
@@ -418,91 +451,100 @@ class DirectoryServiceClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.generate_presigned_url)
         """
 
     def get_directory_limits(self) -> GetDirectoryLimitsResultTypeDef:
         """
-        [Client.get_directory_limits documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.get_directory_limits)
+        [Client.get_directory_limits documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.get_directory_limits)
         """
 
     def get_snapshot_limits(self, DirectoryId: str) -> GetSnapshotLimitsResultTypeDef:
         """
-        [Client.get_snapshot_limits documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.get_snapshot_limits)
+        [Client.get_snapshot_limits documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.get_snapshot_limits)
         """
 
     def list_certificates(
         self, DirectoryId: str, NextToken: str = None, Limit: int = None
     ) -> ListCertificatesResultTypeDef:
         """
-        [Client.list_certificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.list_certificates)
+        [Client.list_certificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.list_certificates)
         """
 
     def list_ip_routes(
         self, DirectoryId: str, NextToken: str = None, Limit: int = None
     ) -> ListIpRoutesResultTypeDef:
         """
-        [Client.list_ip_routes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.list_ip_routes)
+        [Client.list_ip_routes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.list_ip_routes)
         """
 
     def list_log_subscriptions(
         self, DirectoryId: str = None, NextToken: str = None, Limit: int = None
     ) -> ListLogSubscriptionsResultTypeDef:
         """
-        [Client.list_log_subscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.list_log_subscriptions)
+        [Client.list_log_subscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.list_log_subscriptions)
         """
 
     def list_schema_extensions(
         self, DirectoryId: str, NextToken: str = None, Limit: int = None
     ) -> ListSchemaExtensionsResultTypeDef:
         """
-        [Client.list_schema_extensions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.list_schema_extensions)
+        [Client.list_schema_extensions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.list_schema_extensions)
         """
 
     def list_tags_for_resource(
         self, ResourceId: str, NextToken: str = None, Limit: int = None
     ) -> ListTagsForResourceResultTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.list_tags_for_resource)
         """
 
     def register_certificate(
-        self, DirectoryId: str, CertificateData: str
+        self,
+        DirectoryId: str,
+        CertificateData: str,
+        Type: Literal["ClientCertAuth", "ClientLDAPS"] = None,
+        ClientCertAuthSettings: "ClientCertAuthSettingsTypeDef" = None,
     ) -> RegisterCertificateResultTypeDef:
         """
-        [Client.register_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.register_certificate)
+        [Client.register_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.register_certificate)
         """
 
     def register_event_topic(self, DirectoryId: str, TopicName: str) -> Dict[str, Any]:
         """
-        [Client.register_event_topic documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.register_event_topic)
+        [Client.register_event_topic documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.register_event_topic)
         """
 
     def reject_shared_directory(self, SharedDirectoryId: str) -> RejectSharedDirectoryResultTypeDef:
         """
-        [Client.reject_shared_directory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.reject_shared_directory)
+        [Client.reject_shared_directory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.reject_shared_directory)
         """
 
     def remove_ip_routes(self, DirectoryId: str, CidrIps: List[str]) -> Dict[str, Any]:
         """
-        [Client.remove_ip_routes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.remove_ip_routes)
+        [Client.remove_ip_routes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.remove_ip_routes)
+        """
+
+    def remove_region(self, DirectoryId: str) -> Dict[str, Any]:
+        """
+        [Client.remove_region documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.remove_region)
         """
 
     def remove_tags_from_resource(self, ResourceId: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
-        [Client.remove_tags_from_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.remove_tags_from_resource)
+        [Client.remove_tags_from_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.remove_tags_from_resource)
         """
 
     def reset_user_password(
         self, DirectoryId: str, UserName: str, NewPassword: str
     ) -> Dict[str, Any]:
         """
-        [Client.reset_user_password documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.reset_user_password)
+        [Client.reset_user_password documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.reset_user_password)
         """
 
     def restore_from_snapshot(self, SnapshotId: str) -> Dict[str, Any]:
         """
-        [Client.restore_from_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.restore_from_snapshot)
+        [Client.restore_from_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.restore_from_snapshot)
         """
 
     def share_directory(
@@ -513,7 +555,7 @@ class DirectoryServiceClient:
         ShareNotes: str = None,
     ) -> ShareDirectoryResultTypeDef:
         """
-        [Client.share_directory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.share_directory)
+        [Client.share_directory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.share_directory)
         """
 
     def start_schema_extension(
@@ -524,47 +566,47 @@ class DirectoryServiceClient:
         Description: str,
     ) -> StartSchemaExtensionResultTypeDef:
         """
-        [Client.start_schema_extension documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.start_schema_extension)
+        [Client.start_schema_extension documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.start_schema_extension)
         """
 
     def unshare_directory(
         self, DirectoryId: str, UnshareTarget: UnshareTargetTypeDef
     ) -> UnshareDirectoryResultTypeDef:
         """
-        [Client.unshare_directory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.unshare_directory)
+        [Client.unshare_directory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.unshare_directory)
         """
 
     def update_conditional_forwarder(
         self, DirectoryId: str, RemoteDomainName: str, DnsIpAddrs: List[str]
     ) -> Dict[str, Any]:
         """
-        [Client.update_conditional_forwarder documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.update_conditional_forwarder)
+        [Client.update_conditional_forwarder documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.update_conditional_forwarder)
         """
 
     def update_number_of_domain_controllers(
         self, DirectoryId: str, DesiredNumber: int
     ) -> Dict[str, Any]:
         """
-        [Client.update_number_of_domain_controllers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.update_number_of_domain_controllers)
+        [Client.update_number_of_domain_controllers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.update_number_of_domain_controllers)
         """
 
     def update_radius(
         self, DirectoryId: str, RadiusSettings: "RadiusSettingsTypeDef"
     ) -> Dict[str, Any]:
         """
-        [Client.update_radius documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.update_radius)
+        [Client.update_radius documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.update_radius)
         """
 
     def update_trust(
         self, TrustId: str, SelectiveAuth: Literal["Enabled", "Disabled"] = None
     ) -> UpdateTrustResultTypeDef:
         """
-        [Client.update_trust documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.update_trust)
+        [Client.update_trust documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.update_trust)
         """
 
     def verify_trust(self, TrustId: str) -> VerifyTrustResultTypeDef:
         """
-        [Client.verify_trust documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Client.verify_trust)
+        [Client.verify_trust documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Client.verify_trust)
         """
 
     @overload
@@ -572,7 +614,7 @@ class DirectoryServiceClient:
         self, operation_name: Literal["describe_directories"]
     ) -> DescribeDirectoriesPaginator:
         """
-        [Paginator.DescribeDirectories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Paginator.DescribeDirectories)
+        [Paginator.DescribeDirectories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Paginator.DescribeDirectories)
         """
 
     @overload
@@ -580,7 +622,7 @@ class DirectoryServiceClient:
         self, operation_name: Literal["describe_domain_controllers"]
     ) -> DescribeDomainControllersPaginator:
         """
-        [Paginator.DescribeDomainControllers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Paginator.DescribeDomainControllers)
+        [Paginator.DescribeDomainControllers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Paginator.DescribeDomainControllers)
         """
 
     @overload
@@ -588,7 +630,7 @@ class DirectoryServiceClient:
         self, operation_name: Literal["describe_shared_directories"]
     ) -> DescribeSharedDirectoriesPaginator:
         """
-        [Paginator.DescribeSharedDirectories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Paginator.DescribeSharedDirectories)
+        [Paginator.DescribeSharedDirectories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Paginator.DescribeSharedDirectories)
         """
 
     @overload
@@ -596,19 +638,19 @@ class DirectoryServiceClient:
         self, operation_name: Literal["describe_snapshots"]
     ) -> DescribeSnapshotsPaginator:
         """
-        [Paginator.DescribeSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Paginator.DescribeSnapshots)
+        [Paginator.DescribeSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Paginator.DescribeSnapshots)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["describe_trusts"]) -> DescribeTrustsPaginator:
         """
-        [Paginator.DescribeTrusts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Paginator.DescribeTrusts)
+        [Paginator.DescribeTrusts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Paginator.DescribeTrusts)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_ip_routes"]) -> ListIpRoutesPaginator:
         """
-        [Paginator.ListIpRoutes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Paginator.ListIpRoutes)
+        [Paginator.ListIpRoutes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Paginator.ListIpRoutes)
         """
 
     @overload
@@ -616,7 +658,7 @@ class DirectoryServiceClient:
         self, operation_name: Literal["list_log_subscriptions"]
     ) -> ListLogSubscriptionsPaginator:
         """
-        [Paginator.ListLogSubscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Paginator.ListLogSubscriptions)
+        [Paginator.ListLogSubscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Paginator.ListLogSubscriptions)
         """
 
     @overload
@@ -624,7 +666,7 @@ class DirectoryServiceClient:
         self, operation_name: Literal["list_schema_extensions"]
     ) -> ListSchemaExtensionsPaginator:
         """
-        [Paginator.ListSchemaExtensions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Paginator.ListSchemaExtensions)
+        [Paginator.ListSchemaExtensions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Paginator.ListSchemaExtensions)
         """
 
     @overload
@@ -632,5 +674,5 @@ class DirectoryServiceClient:
         self, operation_name: Literal["list_tags_for_resource"]
     ) -> ListTagsForResourcePaginator:
         """
-        [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Paginator.ListTagsForResource)
+        [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Paginator.ListTagsForResource)
         """

@@ -50,7 +50,7 @@ class Exceptions:
 
 class CostandUsageReportServiceClient:
     """
-    [CostandUsageReportService.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cur.html#CostandUsageReportService.Client)
+    [CostandUsageReportService.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cur.html#CostandUsageReportService.Client)
     """
 
     meta: ClientMeta
@@ -58,21 +58,21 @@ class CostandUsageReportServiceClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cur.html#CostandUsageReportService.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cur.html#CostandUsageReportService.Client.can_paginate)
         """
 
     def delete_report_definition(
         self, ReportName: str = None
     ) -> DeleteReportDefinitionResponseTypeDef:
         """
-        [Client.delete_report_definition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cur.html#CostandUsageReportService.Client.delete_report_definition)
+        [Client.delete_report_definition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cur.html#CostandUsageReportService.Client.delete_report_definition)
         """
 
     def describe_report_definitions(
         self, MaxResults: int = None, NextToken: str = None
     ) -> DescribeReportDefinitionsResponseTypeDef:
         """
-        [Client.describe_report_definitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cur.html#CostandUsageReportService.Client.describe_report_definitions)
+        [Client.describe_report_definitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cur.html#CostandUsageReportService.Client.describe_report_definitions)
         """
 
     def generate_presigned_url(
@@ -83,24 +83,24 @@ class CostandUsageReportServiceClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cur.html#CostandUsageReportService.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cur.html#CostandUsageReportService.Client.generate_presigned_url)
         """
 
     def modify_report_definition(
         self, ReportName: str, ReportDefinition: "ReportDefinitionTypeDef"
     ) -> Dict[str, Any]:
         """
-        [Client.modify_report_definition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cur.html#CostandUsageReportService.Client.modify_report_definition)
+        [Client.modify_report_definition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cur.html#CostandUsageReportService.Client.modify_report_definition)
         """
 
     def put_report_definition(self, ReportDefinition: "ReportDefinitionTypeDef") -> Dict[str, Any]:
         """
-        [Client.put_report_definition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cur.html#CostandUsageReportService.Client.put_report_definition)
+        [Client.put_report_definition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cur.html#CostandUsageReportService.Client.put_report_definition)
         """
 
     def get_paginator(
         self, operation_name: Literal["describe_report_definitions"]
     ) -> DescribeReportDefinitionsPaginator:
         """
-        [Paginator.DescribeReportDefinitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cur.html#CostandUsageReportService.Paginator.DescribeReportDefinitions)
+        [Paginator.DescribeReportDefinitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cur.html#CostandUsageReportService.Paginator.DescribeReportDefinitions)
         """

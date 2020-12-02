@@ -4,9 +4,9 @@ Main interface for cloudhsmv2 service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_cloudhsmv2.type_defs import BackupTypeDef
+    from mypy_boto3_cloudhsmv2.type_defs import BackupRetentionPolicyTypeDef
 
-    data: BackupTypeDef = {...}
+    data: BackupRetentionPolicyTypeDef = {...}
     ```
 """
 import sys
@@ -24,6 +24,7 @@ else:
 
 
 __all__ = (
+    "BackupRetentionPolicyTypeDef",
     "BackupTypeDef",
     "CertificatesTypeDef",
     "ClusterTypeDef",
@@ -40,8 +41,14 @@ __all__ = (
     "DescribeClustersResponseTypeDef",
     "InitializeClusterResponseTypeDef",
     "ListTagsResponseTypeDef",
+    "ModifyBackupAttributesResponseTypeDef",
+    "ModifyClusterResponseTypeDef",
     "PaginatorConfigTypeDef",
     "RestoreBackupResponseTypeDef",
+)
+
+BackupRetentionPolicyTypeDef = TypedDict(
+    "BackupRetentionPolicyTypeDef", {"Type": Literal["DAYS"], "Value": str}, total=False
 )
 
 _RequiredBackupTypeDef = TypedDict("_RequiredBackupTypeDef", {"BackupId": str})
@@ -52,6 +59,7 @@ _OptionalBackupTypeDef = TypedDict(
         "ClusterId": str,
         "CreateTimestamp": datetime,
         "CopyTimestamp": datetime,
+        "NeverExpires": bool,
         "SourceRegion": str,
         "SourceBackup": str,
         "SourceCluster": str,
@@ -82,6 +90,7 @@ ClusterTypeDef = TypedDict(
     "ClusterTypeDef",
     {
         "BackupPolicy": Literal["DEFAULT"],
+        "BackupRetentionPolicy": "BackupRetentionPolicyTypeDef",
         "ClusterId": str,
         "CreateTimestamp": datetime,
         "Hsms": List["HsmTypeDef"],
@@ -203,6 +212,14 @@ _OptionalListTagsResponseTypeDef = TypedDict(
 class ListTagsResponseTypeDef(_RequiredListTagsResponseTypeDef, _OptionalListTagsResponseTypeDef):
     pass
 
+
+ModifyBackupAttributesResponseTypeDef = TypedDict(
+    "ModifyBackupAttributesResponseTypeDef", {"Backup": "BackupTypeDef"}, total=False
+)
+
+ModifyClusterResponseTypeDef = TypedDict(
+    "ModifyClusterResponseTypeDef", {"Cluster": "ClusterTypeDef"}, total=False
+)
 
 PaginatorConfigTypeDef = TypedDict(
     "PaginatorConfigTypeDef", {"MaxItems": int, "PageSize": int, "StartingToken": str}, total=False

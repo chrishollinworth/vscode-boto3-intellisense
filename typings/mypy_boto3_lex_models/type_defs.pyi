@@ -35,13 +35,17 @@ __all__ = (
     "EnumerationValueTypeDef",
     "FollowUpPromptTypeDef",
     "FulfillmentActivityTypeDef",
+    "InputContextTypeDef",
     "IntentMetadataTypeDef",
     "IntentTypeDef",
     "KendraConfigurationTypeDef",
     "LogSettingsRequestTypeDef",
     "LogSettingsResponseTypeDef",
     "MessageTypeDef",
+    "OutputContextTypeDef",
     "PromptTypeDef",
+    "SlotDefaultValueSpecTypeDef",
+    "SlotDefaultValueTypeDef",
     "SlotTypeConfigurationTypeDef",
     "SlotTypeDef",
     "SlotTypeMetadataTypeDef",
@@ -131,7 +135,18 @@ BuiltinIntentMetadataTypeDef = TypedDict(
     {
         "signature": str,
         "supportedLocales": List[
-            Literal["de-DE", "en-AU", "en-GB", "en-US", "es-ES", "es-US", "fr-FR", "fr-CA", "it-IT"]
+            Literal[
+                "de-DE",
+                "en-AU",
+                "en-GB",
+                "en-US",
+                "es-419",
+                "es-ES",
+                "es-US",
+                "fr-FR",
+                "fr-CA",
+                "it-IT",
+            ]
         ],
     },
     total=False,
@@ -144,7 +159,18 @@ BuiltinSlotTypeMetadataTypeDef = TypedDict(
     {
         "signature": str,
         "supportedLocales": List[
-            Literal["de-DE", "en-AU", "en-GB", "en-US", "es-ES", "es-US", "fr-FR", "fr-CA", "it-IT"]
+            Literal[
+                "de-DE",
+                "en-AU",
+                "en-GB",
+                "en-US",
+                "es-419",
+                "es-ES",
+                "es-US",
+                "fr-FR",
+                "fr-CA",
+                "it-IT",
+            ]
         ],
     },
     total=False,
@@ -185,6 +211,8 @@ class FulfillmentActivityTypeDef(
 ):
     pass
 
+
+InputContextTypeDef = TypedDict("InputContextTypeDef", {"name": str})
 
 IntentMetadataTypeDef = TypedDict(
     "IntentMetadataTypeDef",
@@ -256,6 +284,10 @@ class MessageTypeDef(_RequiredMessageTypeDef, _OptionalMessageTypeDef):
     pass
 
 
+OutputContextTypeDef = TypedDict(
+    "OutputContextTypeDef", {"name": str, "timeToLiveInSeconds": int, "turnsToLive": int}
+)
+
 _RequiredPromptTypeDef = TypedDict(
     "_RequiredPromptTypeDef", {"messages": List["MessageTypeDef"], "maxAttempts": int}
 )
@@ -265,6 +297,12 @@ _OptionalPromptTypeDef = TypedDict("_OptionalPromptTypeDef", {"responseCard": st
 class PromptTypeDef(_RequiredPromptTypeDef, _OptionalPromptTypeDef):
     pass
 
+
+SlotDefaultValueSpecTypeDef = TypedDict(
+    "SlotDefaultValueSpecTypeDef", {"defaultValueList": List["SlotDefaultValueTypeDef"]}
+)
+
+SlotDefaultValueTypeDef = TypedDict("SlotDefaultValueTypeDef", {"defaultValue": str})
 
 SlotTypeConfigurationTypeDef = TypedDict(
     "SlotTypeConfigurationTypeDef",
@@ -286,6 +324,7 @@ _OptionalSlotTypeDef = TypedDict(
         "sampleUtterances": List[str],
         "responseCard": str,
         "obfuscationSetting": Literal["NONE", "DEFAULT_OBFUSCATION"],
+        "defaultValueSpec": "SlotDefaultValueSpecTypeDef",
     },
     total=False,
 )
@@ -363,7 +402,16 @@ CreateBotVersionResponseTypeDef = TypedDict(
         "checksum": str,
         "version": str,
         "locale": Literal[
-            "de-DE", "en-AU", "en-GB", "en-US", "es-ES", "es-US", "fr-FR", "fr-CA", "it-IT"
+            "de-DE",
+            "en-AU",
+            "en-GB",
+            "en-US",
+            "es-419",
+            "es-ES",
+            "es-US",
+            "fr-FR",
+            "fr-CA",
+            "it-IT",
         ],
         "childDirected": bool,
         "enableModelImprovements": bool,
@@ -391,6 +439,8 @@ CreateIntentVersionResponseTypeDef = TypedDict(
         "version": str,
         "checksum": str,
         "kendraConfiguration": "KendraConfigurationTypeDef",
+        "inputContexts": List["InputContextTypeDef"],
+        "outputContexts": List["OutputContextTypeDef"],
     },
     total=False,
 )
@@ -474,7 +524,16 @@ GetBotResponseTypeDef = TypedDict(
         "checksum": str,
         "version": str,
         "locale": Literal[
-            "de-DE", "en-AU", "en-GB", "en-US", "es-ES", "es-US", "fr-FR", "fr-CA", "it-IT"
+            "de-DE",
+            "en-AU",
+            "en-GB",
+            "en-US",
+            "es-419",
+            "es-ES",
+            "es-US",
+            "fr-FR",
+            "fr-CA",
+            "it-IT",
         ],
         "childDirected": bool,
         "detectSentiment": bool,
@@ -497,7 +556,18 @@ GetBuiltinIntentResponseTypeDef = TypedDict(
     {
         "signature": str,
         "supportedLocales": List[
-            Literal["de-DE", "en-AU", "en-GB", "en-US", "es-ES", "es-US", "fr-FR", "fr-CA", "it-IT"]
+            Literal[
+                "de-DE",
+                "en-AU",
+                "en-GB",
+                "en-US",
+                "es-419",
+                "es-ES",
+                "es-US",
+                "fr-FR",
+                "fr-CA",
+                "it-IT",
+            ]
         ],
         "slots": List["BuiltinIntentSlotTypeDef"],
     },
@@ -563,6 +633,8 @@ GetIntentResponseTypeDef = TypedDict(
         "version": str,
         "checksum": str,
         "kendraConfiguration": "KendraConfigurationTypeDef",
+        "inputContexts": List["InputContextTypeDef"],
+        "outputContexts": List["OutputContextTypeDef"],
     },
     total=False,
 )
@@ -657,7 +729,16 @@ PutBotResponseTypeDef = TypedDict(
         "checksum": str,
         "version": str,
         "locale": Literal[
-            "de-DE", "en-AU", "en-GB", "en-US", "es-ES", "es-US", "fr-FR", "fr-CA", "it-IT"
+            "de-DE",
+            "en-AU",
+            "en-GB",
+            "en-US",
+            "es-419",
+            "es-ES",
+            "es-US",
+            "fr-FR",
+            "fr-CA",
+            "it-IT",
         ],
         "childDirected": bool,
         "createVersion": bool,
@@ -687,6 +768,8 @@ PutIntentResponseTypeDef = TypedDict(
         "checksum": str,
         "createVersion": bool,
         "kendraConfiguration": "KendraConfigurationTypeDef",
+        "inputContexts": List["InputContextTypeDef"],
+        "outputContexts": List["OutputContextTypeDef"],
     },
     total=False,
 )

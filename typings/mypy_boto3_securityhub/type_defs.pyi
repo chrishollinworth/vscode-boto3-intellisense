@@ -25,6 +25,7 @@ else:
 
 __all__ = (
     "ActionTargetTypeDef",
+    "AdminAccountTypeDef",
     "AvailabilityZoneTypeDef",
     "AwsApiGatewayAccessLogSettingsTypeDef",
     "AwsApiGatewayCanarySettingsTypeDef",
@@ -251,6 +252,7 @@ __all__ = (
     "DeleteMembersResponseTypeDef",
     "DescribeActionTargetsResponseTypeDef",
     "DescribeHubResponseTypeDef",
+    "DescribeOrganizationConfigurationResponseTypeDef",
     "DescribeProductsResponseTypeDef",
     "DescribeStandardsControlsResponseTypeDef",
     "DescribeStandardsResponseTypeDef",
@@ -266,6 +268,7 @@ __all__ = (
     "ListEnabledProductsForImportResponseTypeDef",
     "ListInvitationsResponseTypeDef",
     "ListMembersResponseTypeDef",
+    "ListOrganizationAdminAccountsResponseTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "NoteUpdateTypeDef",
     "PaginatorConfigTypeDef",
@@ -277,6 +280,12 @@ __all__ = (
 
 ActionTargetTypeDef = TypedDict(
     "ActionTargetTypeDef", {"ActionTargetArn": str, "Name": str, "Description": str}
+)
+
+AdminAccountTypeDef = TypedDict(
+    "AdminAccountTypeDef",
+    {"AccountId": str, "Status": Literal["ENABLED", "DISABLE_IN_PROGRESS"]},
+    total=False,
 )
 
 AvailabilityZoneTypeDef = TypedDict(
@@ -2522,9 +2531,15 @@ WorkflowTypeDef = TypedDict(
     "WorkflowTypeDef", {"Status": Literal["NEW", "NOTIFIED", "RESOLVED", "SUPPRESSED"]}, total=False
 )
 
-AccountDetailsTypeDef = TypedDict(
-    "AccountDetailsTypeDef", {"AccountId": str, "Email": str}, total=False
+_RequiredAccountDetailsTypeDef = TypedDict("_RequiredAccountDetailsTypeDef", {"AccountId": str})
+_OptionalAccountDetailsTypeDef = TypedDict(
+    "_OptionalAccountDetailsTypeDef", {"Email": str}, total=False
 )
+
+
+class AccountDetailsTypeDef(_RequiredAccountDetailsTypeDef, _OptionalAccountDetailsTypeDef):
+    pass
+
 
 BatchDisableStandardsResponseTypeDef = TypedDict(
     "BatchDisableStandardsResponseTypeDef",
@@ -2607,6 +2622,12 @@ class DescribeActionTargetsResponseTypeDef(
 DescribeHubResponseTypeDef = TypedDict(
     "DescribeHubResponseTypeDef",
     {"HubArn": str, "SubscribedAt": str, "AutoEnableControls": bool},
+    total=False,
+)
+
+DescribeOrganizationConfigurationResponseTypeDef = TypedDict(
+    "DescribeOrganizationConfigurationResponseTypeDef",
+    {"AutoEnable": bool, "MemberAccountLimitReached": bool},
     total=False,
 )
 
@@ -2710,6 +2731,12 @@ ListInvitationsResponseTypeDef = TypedDict(
 
 ListMembersResponseTypeDef = TypedDict(
     "ListMembersResponseTypeDef", {"Members": List["MemberTypeDef"], "NextToken": str}, total=False
+)
+
+ListOrganizationAdminAccountsResponseTypeDef = TypedDict(
+    "ListOrganizationAdminAccountsResponseTypeDef",
+    {"AdminAccounts": List["AdminAccountTypeDef"], "NextToken": str},
+    total=False,
 )
 
 ListTagsForResourceResponseTypeDef = TypedDict(

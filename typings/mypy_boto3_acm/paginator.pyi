@@ -39,7 +39,7 @@ __all__ = ("ListCertificatesPaginator",)
 
 class ListCertificatesPaginator(Boto3Paginator):
     """
-    [Paginator.ListCertificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm.html#ACM.Paginator.ListCertificates)
+    [Paginator.ListCertificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm.html#ACM.Paginator.ListCertificates)
     """
 
     def paginate(
@@ -59,5 +59,5 @@ class ListCertificatesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListCertificatesResponseTypeDef]:
         """
-        [ListCertificates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm.html#ACM.Paginator.ListCertificates.paginate)
+        [ListCertificates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm.html#ACM.Paginator.ListCertificates.paginate)
         """

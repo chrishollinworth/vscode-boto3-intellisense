@@ -59,8 +59,10 @@ __all__ = (
     "ProjectTypeDef",
     "RegistryCredentialTypeDef",
     "ReportExportConfigTypeDef",
+    "ReportGroupTrendStatsTypeDef",
     "ReportGroupTypeDef",
     "ReportTypeDef",
+    "ReportWithRawDataTypeDef",
     "ResolvedArtifactTypeDef",
     "ResponseMetadata",
     "S3LogsConfigTypeDef",
@@ -87,6 +89,7 @@ __all__ = (
     "DeleteSourceCredentialsOutputTypeDef",
     "DescribeCodeCoveragesOutputTypeDef",
     "DescribeTestCasesOutputTypeDef",
+    "GetReportGroupTrendOutputTypeDef",
     "GetResourcePolicyOutputTypeDef",
     "ImportSourceCredentialsOutputTypeDef",
     "ListBuildBatchesForProjectOutputTypeDef",
@@ -621,6 +624,10 @@ ReportExportConfigTypeDef = TypedDict(
     total=False,
 )
 
+ReportGroupTrendStatsTypeDef = TypedDict(
+    "ReportGroupTrendStatsTypeDef", {"average": str, "max": str, "min": str}, total=False
+)
+
 ReportGroupTypeDef = TypedDict(
     "ReportGroupTypeDef",
     {
@@ -631,6 +638,7 @@ ReportGroupTypeDef = TypedDict(
         "created": datetime,
         "lastModified": datetime,
         "tags": List["TagTypeDef"],
+        "status": Literal["ACTIVE", "DELETING"],
     },
     total=False,
 )
@@ -652,6 +660,10 @@ ReportTypeDef = TypedDict(
         "codeCoverageSummary": "CodeCoverageReportSummaryTypeDef",
     },
     total=False,
+)
+
+ReportWithRawDataTypeDef = TypedDict(
+    "ReportWithRawDataTypeDef", {"reportArn": str, "data": str}, total=False
 )
 
 ResolvedArtifactTypeDef = TypedDict(
@@ -889,6 +901,16 @@ DescribeTestCasesOutputTypeDef = TypedDict(
     {
         "nextToken": str,
         "testCases": List["TestCaseTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
+    total=False,
+)
+
+GetReportGroupTrendOutputTypeDef = TypedDict(
+    "GetReportGroupTrendOutputTypeDef",
+    {
+        "stats": "ReportGroupTrendStatsTypeDef",
+        "rawData": List["ReportWithRawDataTypeDef"],
         "ResponseMetadata": "ResponseMetadata",
     },
     total=False,

@@ -106,6 +106,7 @@ __all__ = (
     "RecordsEventTypeDef",
     "RedirectAllRequestsToTypeDef",
     "RedirectTypeDef",
+    "ReplicaModificationsTypeDef",
     "ReplicationConfigurationTypeDef",
     "ReplicationRuleAndOperatorTypeDef",
     "ReplicationRuleFilterTypeDef",
@@ -1020,6 +1021,10 @@ RedirectTypeDef = TypedDict(
     total=False,
 )
 
+ReplicaModificationsTypeDef = TypedDict(
+    "ReplicaModificationsTypeDef", {"Status": Literal["Enabled", "Disabled"]}
+)
+
 ReplicationConfigurationTypeDef = TypedDict(
     "ReplicationConfigurationTypeDef", {"Role": str, "Rules": List["ReplicationRuleTypeDef"]}
 )
@@ -1196,13 +1201,19 @@ ServerSideEncryptionConfigurationTypeDef = TypedDict(
 
 ServerSideEncryptionRuleTypeDef = TypedDict(
     "ServerSideEncryptionRuleTypeDef",
-    {"ApplyServerSideEncryptionByDefault": "ServerSideEncryptionByDefaultTypeDef"},
+    {
+        "ApplyServerSideEncryptionByDefault": "ServerSideEncryptionByDefaultTypeDef",
+        "BucketKeyEnabled": bool,
+    },
     total=False,
 )
 
 SourceSelectionCriteriaTypeDef = TypedDict(
     "SourceSelectionCriteriaTypeDef",
-    {"SseKmsEncryptedObjects": "SseKmsEncryptedObjectsTypeDef"},
+    {
+        "SseKmsEncryptedObjects": "SseKmsEncryptedObjectsTypeDef",
+        "ReplicaModifications": "ReplicaModificationsTypeDef",
+    },
     total=False,
 )
 
@@ -1381,6 +1392,7 @@ CompleteMultipartUploadOutputTypeDef = TypedDict(
         "ServerSideEncryption": Literal["AES256", "aws:kms"],
         "VersionId": str,
         "SSEKMSKeyId": str,
+        "BucketKeyEnabled": bool,
         "RequestCharged": Literal["requester"],
         "ResponseMetadata": "ResponseMetadata",
     },
@@ -1403,6 +1415,7 @@ CopyObjectOutputTypeDef = TypedDict(
         "SSECustomerKeyMD5": str,
         "SSEKMSKeyId": str,
         "SSEKMSEncryptionContext": str,
+        "BucketKeyEnabled": bool,
         "RequestCharged": Literal["requester"],
         "ResponseMetadata": "ResponseMetadata",
     },
@@ -1472,6 +1485,7 @@ CreateMultipartUploadOutputTypeDef = TypedDict(
         "SSECustomerKeyMD5": str,
         "SSEKMSKeyId": str,
         "SSEKMSEncryptionContext": str,
+        "BucketKeyEnabled": bool,
         "RequestCharged": Literal["requester"],
         "ResponseMetadata": "ResponseMetadata",
     },
@@ -1754,6 +1768,7 @@ GetObjectOutputTypeDef = TypedDict(
         "SSECustomerAlgorithm": str,
         "SSECustomerKeyMD5": str,
         "SSEKMSKeyId": str,
+        "BucketKeyEnabled": bool,
         "StorageClass": Literal[
             "STANDARD",
             "REDUCED_REDUNDANCY",
@@ -1842,6 +1857,7 @@ HeadObjectOutputTypeDef = TypedDict(
         "SSECustomerAlgorithm": str,
         "SSECustomerKeyMD5": str,
         "SSEKMSKeyId": str,
+        "BucketKeyEnabled": bool,
         "StorageClass": Literal[
             "STANDARD",
             "REDUCED_REDUNDANCY",
@@ -2088,6 +2104,7 @@ PutObjectOutputTypeDef = TypedDict(
         "SSECustomerKeyMD5": str,
         "SSEKMSKeyId": str,
         "SSEKMSEncryptionContext": str,
+        "BucketKeyEnabled": bool,
         "RequestCharged": Literal["requester"],
         "ResponseMetadata": "ResponseMetadata",
     },
@@ -2153,6 +2170,7 @@ UploadPartCopyOutputTypeDef = TypedDict(
         "SSECustomerAlgorithm": str,
         "SSECustomerKeyMD5": str,
         "SSEKMSKeyId": str,
+        "BucketKeyEnabled": bool,
         "RequestCharged": Literal["requester"],
         "ResponseMetadata": "ResponseMetadata",
     },
@@ -2167,6 +2185,7 @@ UploadPartOutputTypeDef = TypedDict(
         "SSECustomerAlgorithm": str,
         "SSECustomerKeyMD5": str,
         "SSEKMSKeyId": str,
+        "BucketKeyEnabled": bool,
         "RequestCharged": Literal["requester"],
         "ResponseMetadata": "ResponseMetadata",
     },

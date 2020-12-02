@@ -43,65 +43,65 @@ __all__ = (
 
 class AssetActiveWaiter(Boto3Waiter):
     """
-    [Waiter.AssetActive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetActive)
+    [Waiter.AssetActive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetActive)
     """
 
     def wait(self, assetId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [AssetActive.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetActive.wait)
+        [AssetActive.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetActive.wait)
         """
 
 
 class AssetModelActiveWaiter(Boto3Waiter):
     """
-    [Waiter.AssetModelActive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetModelActive)
+    [Waiter.AssetModelActive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetModelActive)
     """
 
     def wait(self, assetModelId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [AssetModelActive.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetModelActive.wait)
+        [AssetModelActive.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetModelActive.wait)
         """
 
 
 class AssetModelNotExistsWaiter(Boto3Waiter):
     """
-    [Waiter.AssetModelNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetModelNotExists)
+    [Waiter.AssetModelNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetModelNotExists)
     """
 
     def wait(self, assetModelId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [AssetModelNotExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetModelNotExists.wait)
+        [AssetModelNotExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetModelNotExists.wait)
         """
 
 
 class AssetNotExistsWaiter(Boto3Waiter):
     """
-    [Waiter.AssetNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetNotExists)
+    [Waiter.AssetNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetNotExists)
     """
 
     def wait(self, assetId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [AssetNotExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetNotExists.wait)
+        [AssetNotExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetNotExists.wait)
         """
 
 
 class PortalActiveWaiter(Boto3Waiter):
     """
-    [Waiter.PortalActive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotsitewise.html#IoTSiteWise.Waiter.PortalActive)
+    [Waiter.PortalActive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Waiter.PortalActive)
     """
 
     def wait(self, portalId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [PortalActive.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotsitewise.html#IoTSiteWise.Waiter.PortalActive.wait)
+        [PortalActive.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Waiter.PortalActive.wait)
         """
 
 
 class PortalNotExistsWaiter(Boto3Waiter):
     """
-    [Waiter.PortalNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotsitewise.html#IoTSiteWise.Waiter.PortalNotExists)
+    [Waiter.PortalNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Waiter.PortalNotExists)
     """
 
     def wait(self, portalId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [PortalNotExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotsitewise.html#IoTSiteWise.Waiter.PortalNotExists.wait)
+        [PortalNotExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Waiter.PortalNotExists.wait)
         """

@@ -105,7 +105,7 @@ class Exceptions:
 
 class AppSyncClient:
     """
-    [AppSync.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Client)
+    [AppSync.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Client)
     """
 
     meta: ClientMeta
@@ -113,7 +113,7 @@ class AppSyncClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Client.can_paginate)
         """
 
     def create_api_cache(
@@ -142,14 +142,14 @@ class AppSyncClient:
         atRestEncryptionEnabled: bool = None,
     ) -> CreateApiCacheResponseTypeDef:
         """
-        [Client.create_api_cache documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Client.create_api_cache)
+        [Client.create_api_cache documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Client.create_api_cache)
         """
 
     def create_api_key(
         self, apiId: str, description: str = None, expires: int = None
     ) -> CreateApiKeyResponseTypeDef:
         """
-        [Client.create_api_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Client.create_api_key)
+        [Client.create_api_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Client.create_api_key)
         """
 
     def create_data_source(
@@ -173,7 +173,7 @@ class AppSyncClient:
         relationalDatabaseConfig: "RelationalDatabaseDataSourceConfigTypeDef" = None,
     ) -> CreateDataSourceResponseTypeDef:
         """
-        [Client.create_data_source documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Client.create_data_source)
+        [Client.create_data_source documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Client.create_data_source)
         """
 
     def create_function(
@@ -187,7 +187,7 @@ class AppSyncClient:
         responseMappingTemplate: str = None,
     ) -> CreateFunctionResponseTypeDef:
         """
-        [Client.create_function documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Client.create_function)
+        [Client.create_function documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Client.create_function)
         """
 
     def create_graphql_api(
@@ -204,7 +204,7 @@ class AppSyncClient:
         xrayEnabled: bool = None,
     ) -> CreateGraphqlApiResponseTypeDef:
         """
-        [Client.create_graphql_api documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Client.create_graphql_api)
+        [Client.create_graphql_api documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Client.create_graphql_api)
         """
 
     def create_resolver(
@@ -221,54 +221,54 @@ class AppSyncClient:
         cachingConfig: "CachingConfigTypeDef" = None,
     ) -> CreateResolverResponseTypeDef:
         """
-        [Client.create_resolver documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Client.create_resolver)
+        [Client.create_resolver documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Client.create_resolver)
         """
 
     def create_type(
         self, apiId: str, definition: str, format: Literal["SDL", "JSON"]
     ) -> CreateTypeResponseTypeDef:
         """
-        [Client.create_type documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Client.create_type)
+        [Client.create_type documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Client.create_type)
         """
 
     def delete_api_cache(self, apiId: str) -> Dict[str, Any]:
         """
-        [Client.delete_api_cache documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Client.delete_api_cache)
+        [Client.delete_api_cache documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Client.delete_api_cache)
         """
 
     def delete_api_key(self, apiId: str, id: str) -> Dict[str, Any]:
         """
-        [Client.delete_api_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Client.delete_api_key)
+        [Client.delete_api_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Client.delete_api_key)
         """
 
     def delete_data_source(self, apiId: str, name: str) -> Dict[str, Any]:
         """
-        [Client.delete_data_source documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Client.delete_data_source)
+        [Client.delete_data_source documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Client.delete_data_source)
         """
 
     def delete_function(self, apiId: str, functionId: str) -> Dict[str, Any]:
         """
-        [Client.delete_function documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Client.delete_function)
+        [Client.delete_function documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Client.delete_function)
         """
 
     def delete_graphql_api(self, apiId: str) -> Dict[str, Any]:
         """
-        [Client.delete_graphql_api documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Client.delete_graphql_api)
+        [Client.delete_graphql_api documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Client.delete_graphql_api)
         """
 
     def delete_resolver(self, apiId: str, typeName: str, fieldName: str) -> Dict[str, Any]:
         """
-        [Client.delete_resolver documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Client.delete_resolver)
+        [Client.delete_resolver documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Client.delete_resolver)
         """
 
     def delete_type(self, apiId: str, typeName: str) -> Dict[str, Any]:
         """
-        [Client.delete_type documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Client.delete_type)
+        [Client.delete_type documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Client.delete_type)
         """
 
     def flush_api_cache(self, apiId: str) -> Dict[str, Any]:
         """
-        [Client.flush_api_cache documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Client.flush_api_cache)
+        [Client.flush_api_cache documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Client.flush_api_cache)
         """
 
     def generate_presigned_url(
@@ -279,98 +279,98 @@ class AppSyncClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Client.generate_presigned_url)
         """
 
     def get_api_cache(self, apiId: str) -> GetApiCacheResponseTypeDef:
         """
-        [Client.get_api_cache documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Client.get_api_cache)
+        [Client.get_api_cache documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Client.get_api_cache)
         """
 
     def get_data_source(self, apiId: str, name: str) -> GetDataSourceResponseTypeDef:
         """
-        [Client.get_data_source documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Client.get_data_source)
+        [Client.get_data_source documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Client.get_data_source)
         """
 
     def get_function(self, apiId: str, functionId: str) -> GetFunctionResponseTypeDef:
         """
-        [Client.get_function documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Client.get_function)
+        [Client.get_function documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Client.get_function)
         """
 
     def get_graphql_api(self, apiId: str) -> GetGraphqlApiResponseTypeDef:
         """
-        [Client.get_graphql_api documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Client.get_graphql_api)
+        [Client.get_graphql_api documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Client.get_graphql_api)
         """
 
     def get_introspection_schema(
         self, apiId: str, format: Literal["SDL", "JSON"], includeDirectives: bool = None
     ) -> GetIntrospectionSchemaResponseTypeDef:
         """
-        [Client.get_introspection_schema documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Client.get_introspection_schema)
+        [Client.get_introspection_schema documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Client.get_introspection_schema)
         """
 
     def get_resolver(self, apiId: str, typeName: str, fieldName: str) -> GetResolverResponseTypeDef:
         """
-        [Client.get_resolver documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Client.get_resolver)
+        [Client.get_resolver documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Client.get_resolver)
         """
 
     def get_schema_creation_status(self, apiId: str) -> GetSchemaCreationStatusResponseTypeDef:
         """
-        [Client.get_schema_creation_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Client.get_schema_creation_status)
+        [Client.get_schema_creation_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Client.get_schema_creation_status)
         """
 
     def get_type(
         self, apiId: str, typeName: str, format: Literal["SDL", "JSON"]
     ) -> GetTypeResponseTypeDef:
         """
-        [Client.get_type documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Client.get_type)
+        [Client.get_type documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Client.get_type)
         """
 
     def list_api_keys(
         self, apiId: str, nextToken: str = None, maxResults: int = None
     ) -> ListApiKeysResponseTypeDef:
         """
-        [Client.list_api_keys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Client.list_api_keys)
+        [Client.list_api_keys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Client.list_api_keys)
         """
 
     def list_data_sources(
         self, apiId: str, nextToken: str = None, maxResults: int = None
     ) -> ListDataSourcesResponseTypeDef:
         """
-        [Client.list_data_sources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Client.list_data_sources)
+        [Client.list_data_sources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Client.list_data_sources)
         """
 
     def list_functions(
         self, apiId: str, nextToken: str = None, maxResults: int = None
     ) -> ListFunctionsResponseTypeDef:
         """
-        [Client.list_functions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Client.list_functions)
+        [Client.list_functions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Client.list_functions)
         """
 
     def list_graphql_apis(
         self, nextToken: str = None, maxResults: int = None
     ) -> ListGraphqlApisResponseTypeDef:
         """
-        [Client.list_graphql_apis documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Client.list_graphql_apis)
+        [Client.list_graphql_apis documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Client.list_graphql_apis)
         """
 
     def list_resolvers(
         self, apiId: str, typeName: str, nextToken: str = None, maxResults: int = None
     ) -> ListResolversResponseTypeDef:
         """
-        [Client.list_resolvers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Client.list_resolvers)
+        [Client.list_resolvers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Client.list_resolvers)
         """
 
     def list_resolvers_by_function(
         self, apiId: str, functionId: str, nextToken: str = None, maxResults: int = None
     ) -> ListResolversByFunctionResponseTypeDef:
         """
-        [Client.list_resolvers_by_function documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Client.list_resolvers_by_function)
+        [Client.list_resolvers_by_function documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Client.list_resolvers_by_function)
         """
 
     def list_tags_for_resource(self, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Client.list_tags_for_resource)
         """
 
     def list_types(
@@ -381,24 +381,24 @@ class AppSyncClient:
         maxResults: int = None,
     ) -> ListTypesResponseTypeDef:
         """
-        [Client.list_types documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Client.list_types)
+        [Client.list_types documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Client.list_types)
         """
 
     def start_schema_creation(
         self, apiId: str, definition: Union[bytes, IO[bytes]]
     ) -> StartSchemaCreationResponseTypeDef:
         """
-        [Client.start_schema_creation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Client.start_schema_creation)
+        [Client.start_schema_creation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Client.start_schema_creation)
         """
 
     def tag_resource(self, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Client.tag_resource)
         """
 
     def untag_resource(self, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Client.untag_resource)
         """
 
     def update_api_cache(
@@ -425,14 +425,14 @@ class AppSyncClient:
         ],
     ) -> UpdateApiCacheResponseTypeDef:
         """
-        [Client.update_api_cache documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Client.update_api_cache)
+        [Client.update_api_cache documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Client.update_api_cache)
         """
 
     def update_api_key(
         self, apiId: str, id: str, description: str = None, expires: int = None
     ) -> UpdateApiKeyResponseTypeDef:
         """
-        [Client.update_api_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Client.update_api_key)
+        [Client.update_api_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Client.update_api_key)
         """
 
     def update_data_source(
@@ -456,7 +456,7 @@ class AppSyncClient:
         relationalDatabaseConfig: "RelationalDatabaseDataSourceConfigTypeDef" = None,
     ) -> UpdateDataSourceResponseTypeDef:
         """
-        [Client.update_data_source documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Client.update_data_source)
+        [Client.update_data_source documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Client.update_data_source)
         """
 
     def update_function(
@@ -471,7 +471,7 @@ class AppSyncClient:
         responseMappingTemplate: str = None,
     ) -> UpdateFunctionResponseTypeDef:
         """
-        [Client.update_function documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Client.update_function)
+        [Client.update_function documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Client.update_function)
         """
 
     def update_graphql_api(
@@ -488,7 +488,7 @@ class AppSyncClient:
         xrayEnabled: bool = None,
     ) -> UpdateGraphqlApiResponseTypeDef:
         """
-        [Client.update_graphql_api documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Client.update_graphql_api)
+        [Client.update_graphql_api documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Client.update_graphql_api)
         """
 
     def update_resolver(
@@ -505,20 +505,20 @@ class AppSyncClient:
         cachingConfig: "CachingConfigTypeDef" = None,
     ) -> UpdateResolverResponseTypeDef:
         """
-        [Client.update_resolver documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Client.update_resolver)
+        [Client.update_resolver documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Client.update_resolver)
         """
 
     def update_type(
         self, apiId: str, typeName: str, format: Literal["SDL", "JSON"], definition: str = None
     ) -> UpdateTypeResponseTypeDef:
         """
-        [Client.update_type documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Client.update_type)
+        [Client.update_type documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Client.update_type)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_api_keys"]) -> ListApiKeysPaginator:
         """
-        [Paginator.ListApiKeys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Paginator.ListApiKeys)
+        [Paginator.ListApiKeys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Paginator.ListApiKeys)
         """
 
     @overload
@@ -526,13 +526,13 @@ class AppSyncClient:
         self, operation_name: Literal["list_data_sources"]
     ) -> ListDataSourcesPaginator:
         """
-        [Paginator.ListDataSources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Paginator.ListDataSources)
+        [Paginator.ListDataSources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Paginator.ListDataSources)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_functions"]) -> ListFunctionsPaginator:
         """
-        [Paginator.ListFunctions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Paginator.ListFunctions)
+        [Paginator.ListFunctions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Paginator.ListFunctions)
         """
 
     @overload
@@ -540,13 +540,13 @@ class AppSyncClient:
         self, operation_name: Literal["list_graphql_apis"]
     ) -> ListGraphqlApisPaginator:
         """
-        [Paginator.ListGraphqlApis documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Paginator.ListGraphqlApis)
+        [Paginator.ListGraphqlApis documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Paginator.ListGraphqlApis)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_resolvers"]) -> ListResolversPaginator:
         """
-        [Paginator.ListResolvers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Paginator.ListResolvers)
+        [Paginator.ListResolvers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Paginator.ListResolvers)
         """
 
     @overload
@@ -554,11 +554,11 @@ class AppSyncClient:
         self, operation_name: Literal["list_resolvers_by_function"]
     ) -> ListResolversByFunctionPaginator:
         """
-        [Paginator.ListResolversByFunction documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Paginator.ListResolversByFunction)
+        [Paginator.ListResolversByFunction documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Paginator.ListResolversByFunction)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_types"]) -> ListTypesPaginator:
         """
-        [Paginator.ListTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appsync.html#AppSync.Paginator.ListTypes)
+        [Paginator.ListTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Paginator.ListTypes)
         """

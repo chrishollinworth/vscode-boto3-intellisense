@@ -37,7 +37,7 @@ __all__ = ("DescribeBackupsPaginator", "DescribeClustersPaginator", "ListTagsPag
 
 class DescribeBackupsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeBackups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudhsmv2.html#CloudHSMV2.Paginator.DescribeBackups)
+    [Paginator.DescribeBackups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudhsmv2.html#CloudHSMV2.Paginator.DescribeBackups)
     """
 
     def paginate(
@@ -47,31 +47,31 @@ class DescribeBackupsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeBackupsResponseTypeDef]:
         """
-        [DescribeBackups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudhsmv2.html#CloudHSMV2.Paginator.DescribeBackups.paginate)
+        [DescribeBackups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudhsmv2.html#CloudHSMV2.Paginator.DescribeBackups.paginate)
         """
 
 
 class DescribeClustersPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudhsmv2.html#CloudHSMV2.Paginator.DescribeClusters)
+    [Paginator.DescribeClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudhsmv2.html#CloudHSMV2.Paginator.DescribeClusters)
     """
 
     def paginate(
         self, Filters: Dict[str, List[str]] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeClustersResponseTypeDef]:
         """
-        [DescribeClusters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudhsmv2.html#CloudHSMV2.Paginator.DescribeClusters.paginate)
+        [DescribeClusters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudhsmv2.html#CloudHSMV2.Paginator.DescribeClusters.paginate)
         """
 
 
 class ListTagsPaginator(Boto3Paginator):
     """
-    [Paginator.ListTags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudhsmv2.html#CloudHSMV2.Paginator.ListTags)
+    [Paginator.ListTags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudhsmv2.html#CloudHSMV2.Paginator.ListTags)
     """
 
     def paginate(
         self, ResourceId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTagsResponseTypeDef]:
         """
-        [ListTags.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudhsmv2.html#CloudHSMV2.Paginator.ListTags.paginate)
+        [ListTags.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudhsmv2.html#CloudHSMV2.Paginator.ListTags.paginate)
         """

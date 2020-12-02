@@ -28,10 +28,10 @@ __all__ = ("IdentityExistsWaiter",)
 
 class IdentityExistsWaiter(Boto3Waiter):
     """
-    [Waiter.IdentityExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ses.html#SES.Waiter.IdentityExists)
+    [Waiter.IdentityExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ses.html#SES.Waiter.IdentityExists)
     """
 
     def wait(self, Identities: List[str], WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [IdentityExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ses.html#SES.Waiter.IdentityExists.wait)
+        [IdentityExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ses.html#SES.Waiter.IdentityExists.wait)
         """

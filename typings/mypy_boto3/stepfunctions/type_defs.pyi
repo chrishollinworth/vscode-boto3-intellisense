@@ -6,6 +6,7 @@ from mypy_boto3_stepfunctions.type_defs import (
     ActivityStartedEventDetailsTypeDef,
     ActivitySucceededEventDetailsTypeDef,
     ActivityTimedOutEventDetailsTypeDef,
+    BillingDetailsTypeDef,
     CloudWatchEventsExecutionDataDetailsTypeDef,
     CloudWatchLogsLogGroupTypeDef,
     ExecutionAbortedEventDetailsTypeDef,
@@ -54,6 +55,7 @@ from mypy_boto3_stepfunctions.type_defs import (
     ListTagsForResourceOutputTypeDef,
     PaginatorConfigTypeDef,
     StartExecutionOutputTypeDef,
+    StartSyncExecutionOutputTypeDef,
     StopExecutionOutputTypeDef,
     UpdateStateMachineOutputTypeDef,
 )
@@ -66,6 +68,7 @@ __all__ = (
     "ActivityStartedEventDetailsTypeDef",
     "ActivitySucceededEventDetailsTypeDef",
     "ActivityTimedOutEventDetailsTypeDef",
+    "BillingDetailsTypeDef",
     "CloudWatchEventsExecutionDataDetailsTypeDef",
     "CloudWatchLogsLogGroupTypeDef",
     "ExecutionAbortedEventDetailsTypeDef",
@@ -114,6 +117,7 @@ __all__ = (
     "ListTagsForResourceOutputTypeDef",
     "PaginatorConfigTypeDef",
     "StartExecutionOutputTypeDef",
+    "StartSyncExecutionOutputTypeDef",
     "StopExecutionOutputTypeDef",
     "UpdateStateMachineOutputTypeDef",
 )

@@ -76,85 +76,85 @@ __all__ = (
 
 class ListBatchInferenceJobsPaginator(Boto3Paginator):
     """
-    [Paginator.ListBatchInferenceJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/personalize.html#Personalize.Paginator.ListBatchInferenceJobs)
+    [Paginator.ListBatchInferenceJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Paginator.ListBatchInferenceJobs)
     """
 
     def paginate(
         self, solutionVersionArn: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListBatchInferenceJobsResponseTypeDef]:
         """
-        [ListBatchInferenceJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/personalize.html#Personalize.Paginator.ListBatchInferenceJobs.paginate)
+        [ListBatchInferenceJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Paginator.ListBatchInferenceJobs.paginate)
         """
 
 
 class ListCampaignsPaginator(Boto3Paginator):
     """
-    [Paginator.ListCampaigns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/personalize.html#Personalize.Paginator.ListCampaigns)
+    [Paginator.ListCampaigns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Paginator.ListCampaigns)
     """
 
     def paginate(
         self, solutionArn: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListCampaignsResponseTypeDef]:
         """
-        [ListCampaigns.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/personalize.html#Personalize.Paginator.ListCampaigns.paginate)
+        [ListCampaigns.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Paginator.ListCampaigns.paginate)
         """
 
 
 class ListDatasetGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDatasetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/personalize.html#Personalize.Paginator.ListDatasetGroups)
+    [Paginator.ListDatasetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Paginator.ListDatasetGroups)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDatasetGroupsResponseTypeDef]:
         """
-        [ListDatasetGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/personalize.html#Personalize.Paginator.ListDatasetGroups.paginate)
+        [ListDatasetGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Paginator.ListDatasetGroups.paginate)
         """
 
 
 class ListDatasetImportJobsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDatasetImportJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/personalize.html#Personalize.Paginator.ListDatasetImportJobs)
+    [Paginator.ListDatasetImportJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Paginator.ListDatasetImportJobs)
     """
 
     def paginate(
         self, datasetArn: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDatasetImportJobsResponseTypeDef]:
         """
-        [ListDatasetImportJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/personalize.html#Personalize.Paginator.ListDatasetImportJobs.paginate)
+        [ListDatasetImportJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Paginator.ListDatasetImportJobs.paginate)
         """
 
 
 class ListDatasetsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDatasets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/personalize.html#Personalize.Paginator.ListDatasets)
+    [Paginator.ListDatasets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Paginator.ListDatasets)
     """
 
     def paginate(
         self, datasetGroupArn: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDatasetsResponseTypeDef]:
         """
-        [ListDatasets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/personalize.html#Personalize.Paginator.ListDatasets.paginate)
+        [ListDatasets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Paginator.ListDatasets.paginate)
         """
 
 
 class ListEventTrackersPaginator(Boto3Paginator):
     """
-    [Paginator.ListEventTrackers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/personalize.html#Personalize.Paginator.ListEventTrackers)
+    [Paginator.ListEventTrackers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Paginator.ListEventTrackers)
     """
 
     def paginate(
         self, datasetGroupArn: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListEventTrackersResponseTypeDef]:
         """
-        [ListEventTrackers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/personalize.html#Personalize.Paginator.ListEventTrackers.paginate)
+        [ListEventTrackers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Paginator.ListEventTrackers.paginate)
         """
 
 
 class ListRecipesPaginator(Boto3Paginator):
     """
-    [Paginator.ListRecipes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/personalize.html#Personalize.Paginator.ListRecipes)
+    [Paginator.ListRecipes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Paginator.ListRecipes)
     """
 
     def paginate(
@@ -163,44 +163,44 @@ class ListRecipesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListRecipesResponseTypeDef]:
         """
-        [ListRecipes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/personalize.html#Personalize.Paginator.ListRecipes.paginate)
+        [ListRecipes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Paginator.ListRecipes.paginate)
         """
 
 
 class ListSchemasPaginator(Boto3Paginator):
     """
-    [Paginator.ListSchemas documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/personalize.html#Personalize.Paginator.ListSchemas)
+    [Paginator.ListSchemas documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Paginator.ListSchemas)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSchemasResponseTypeDef]:
         """
-        [ListSchemas.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/personalize.html#Personalize.Paginator.ListSchemas.paginate)
+        [ListSchemas.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Paginator.ListSchemas.paginate)
         """
 
 
 class ListSolutionVersionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListSolutionVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/personalize.html#Personalize.Paginator.ListSolutionVersions)
+    [Paginator.ListSolutionVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Paginator.ListSolutionVersions)
     """
 
     def paginate(
         self, solutionArn: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSolutionVersionsResponseTypeDef]:
         """
-        [ListSolutionVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/personalize.html#Personalize.Paginator.ListSolutionVersions.paginate)
+        [ListSolutionVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Paginator.ListSolutionVersions.paginate)
         """
 
 
 class ListSolutionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListSolutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/personalize.html#Personalize.Paginator.ListSolutions)
+    [Paginator.ListSolutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Paginator.ListSolutions)
     """
 
     def paginate(
         self, datasetGroupArn: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSolutionsResponseTypeDef]:
         """
-        [ListSolutions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/personalize.html#Personalize.Paginator.ListSolutions.paginate)
+        [ListSolutions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Paginator.ListSolutions.paginate)
         """

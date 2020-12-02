@@ -768,7 +768,7 @@ SavingsPlansPurchaseRecommendationDetailTypeDef = TypedDict(
 
 SavingsPlansPurchaseRecommendationMetadataTypeDef = TypedDict(
     "SavingsPlansPurchaseRecommendationMetadataTypeDef",
-    {"RecommendationId": str, "GenerationTimestamp": str},
+    {"RecommendationId": str, "GenerationTimestamp": str, "AdditionalMetadata": str},
     total=False,
 )
 

@@ -49,7 +49,7 @@ __all__ = (
 
 class ListDiscoverersPaginator(Boto3Paginator):
     """
-    [Paginator.ListDiscoverers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/schemas.html#Schemas.Paginator.ListDiscoverers)
+    [Paginator.ListDiscoverers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/schemas.html#Schemas.Paginator.ListDiscoverers)
     """
 
     def paginate(
@@ -59,13 +59,13 @@ class ListDiscoverersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListDiscoverersResponseTypeDef]:
         """
-        [ListDiscoverers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/schemas.html#Schemas.Paginator.ListDiscoverers.paginate)
+        [ListDiscoverers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/schemas.html#Schemas.Paginator.ListDiscoverers.paginate)
         """
 
 
 class ListRegistriesPaginator(Boto3Paginator):
     """
-    [Paginator.ListRegistries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/schemas.html#Schemas.Paginator.ListRegistries)
+    [Paginator.ListRegistries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/schemas.html#Schemas.Paginator.ListRegistries)
     """
 
     def paginate(
@@ -75,26 +75,26 @@ class ListRegistriesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListRegistriesResponseTypeDef]:
         """
-        [ListRegistries.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/schemas.html#Schemas.Paginator.ListRegistries.paginate)
+        [ListRegistries.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/schemas.html#Schemas.Paginator.ListRegistries.paginate)
         """
 
 
 class ListSchemaVersionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListSchemaVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/schemas.html#Schemas.Paginator.ListSchemaVersions)
+    [Paginator.ListSchemaVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/schemas.html#Schemas.Paginator.ListSchemaVersions)
     """
 
     def paginate(
         self, RegistryName: str, SchemaName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSchemaVersionsResponseTypeDef]:
         """
-        [ListSchemaVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/schemas.html#Schemas.Paginator.ListSchemaVersions.paginate)
+        [ListSchemaVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/schemas.html#Schemas.Paginator.ListSchemaVersions.paginate)
         """
 
 
 class ListSchemasPaginator(Boto3Paginator):
     """
-    [Paginator.ListSchemas documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/schemas.html#Schemas.Paginator.ListSchemas)
+    [Paginator.ListSchemas documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/schemas.html#Schemas.Paginator.ListSchemas)
     """
 
     def paginate(
@@ -104,18 +104,18 @@ class ListSchemasPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListSchemasResponseTypeDef]:
         """
-        [ListSchemas.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/schemas.html#Schemas.Paginator.ListSchemas.paginate)
+        [ListSchemas.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/schemas.html#Schemas.Paginator.ListSchemas.paginate)
         """
 
 
 class SearchSchemasPaginator(Boto3Paginator):
     """
-    [Paginator.SearchSchemas documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/schemas.html#Schemas.Paginator.SearchSchemas)
+    [Paginator.SearchSchemas documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/schemas.html#Schemas.Paginator.SearchSchemas)
     """
 
     def paginate(
         self, Keywords: str, RegistryName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[SearchSchemasResponseTypeDef]:
         """
-        [SearchSchemas.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/schemas.html#Schemas.Paginator.SearchSchemas.paginate)
+        [SearchSchemas.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/schemas.html#Schemas.Paginator.SearchSchemas.paginate)
         """

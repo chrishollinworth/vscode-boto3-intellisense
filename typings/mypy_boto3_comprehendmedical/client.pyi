@@ -74,7 +74,7 @@ class Exceptions:
 
 class ComprehendMedicalClient:
     """
-    [ComprehendMedical.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehendmedical.html#ComprehendMedical.Client)
+    [ComprehendMedical.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehendmedical.html#ComprehendMedical.Client)
     """
 
     meta: ClientMeta
@@ -82,48 +82,48 @@ class ComprehendMedicalClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehendmedical.html#ComprehendMedical.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehendmedical.html#ComprehendMedical.Client.can_paginate)
         """
 
     def describe_entities_detection_v2_job(
         self, JobId: str
     ) -> DescribeEntitiesDetectionV2JobResponseTypeDef:
         """
-        [Client.describe_entities_detection_v2_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehendmedical.html#ComprehendMedical.Client.describe_entities_detection_v2_job)
+        [Client.describe_entities_detection_v2_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehendmedical.html#ComprehendMedical.Client.describe_entities_detection_v2_job)
         """
 
     def describe_icd10_cm_inference_job(
         self, JobId: str
     ) -> DescribeICD10CMInferenceJobResponseTypeDef:
         """
-        [Client.describe_icd10_cm_inference_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehendmedical.html#ComprehendMedical.Client.describe_icd10_cm_inference_job)
+        [Client.describe_icd10_cm_inference_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehendmedical.html#ComprehendMedical.Client.describe_icd10_cm_inference_job)
         """
 
     def describe_phi_detection_job(self, JobId: str) -> DescribePHIDetectionJobResponseTypeDef:
         """
-        [Client.describe_phi_detection_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehendmedical.html#ComprehendMedical.Client.describe_phi_detection_job)
+        [Client.describe_phi_detection_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehendmedical.html#ComprehendMedical.Client.describe_phi_detection_job)
         """
 
     def describe_rx_norm_inference_job(
         self, JobId: str
     ) -> DescribeRxNormInferenceJobResponseTypeDef:
         """
-        [Client.describe_rx_norm_inference_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehendmedical.html#ComprehendMedical.Client.describe_rx_norm_inference_job)
+        [Client.describe_rx_norm_inference_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehendmedical.html#ComprehendMedical.Client.describe_rx_norm_inference_job)
         """
 
     def detect_entities(self, Text: str) -> DetectEntitiesResponseTypeDef:
         """
-        [Client.detect_entities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehendmedical.html#ComprehendMedical.Client.detect_entities)
+        [Client.detect_entities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehendmedical.html#ComprehendMedical.Client.detect_entities)
         """
 
     def detect_entities_v2(self, Text: str) -> DetectEntitiesV2ResponseTypeDef:
         """
-        [Client.detect_entities_v2 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehendmedical.html#ComprehendMedical.Client.detect_entities_v2)
+        [Client.detect_entities_v2 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehendmedical.html#ComprehendMedical.Client.detect_entities_v2)
         """
 
     def detect_phi(self, Text: str) -> DetectPHIResponseTypeDef:
         """
-        [Client.detect_phi documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehendmedical.html#ComprehendMedical.Client.detect_phi)
+        [Client.detect_phi documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehendmedical.html#ComprehendMedical.Client.detect_phi)
         """
 
     def generate_presigned_url(
@@ -134,17 +134,17 @@ class ComprehendMedicalClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehendmedical.html#ComprehendMedical.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehendmedical.html#ComprehendMedical.Client.generate_presigned_url)
         """
 
     def infer_icd10_cm(self, Text: str) -> InferICD10CMResponseTypeDef:
         """
-        [Client.infer_icd10_cm documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehendmedical.html#ComprehendMedical.Client.infer_icd10_cm)
+        [Client.infer_icd10_cm documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehendmedical.html#ComprehendMedical.Client.infer_icd10_cm)
         """
 
     def infer_rx_norm(self, Text: str) -> InferRxNormResponseTypeDef:
         """
-        [Client.infer_rx_norm documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehendmedical.html#ComprehendMedical.Client.infer_rx_norm)
+        [Client.infer_rx_norm documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehendmedical.html#ComprehendMedical.Client.infer_rx_norm)
         """
 
     def list_entities_detection_v2_jobs(
@@ -154,7 +154,7 @@ class ComprehendMedicalClient:
         MaxResults: int = None,
     ) -> ListEntitiesDetectionV2JobsResponseTypeDef:
         """
-        [Client.list_entities_detection_v2_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehendmedical.html#ComprehendMedical.Client.list_entities_detection_v2_jobs)
+        [Client.list_entities_detection_v2_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehendmedical.html#ComprehendMedical.Client.list_entities_detection_v2_jobs)
         """
 
     def list_icd10_cm_inference_jobs(
@@ -164,7 +164,7 @@ class ComprehendMedicalClient:
         MaxResults: int = None,
     ) -> ListICD10CMInferenceJobsResponseTypeDef:
         """
-        [Client.list_icd10_cm_inference_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehendmedical.html#ComprehendMedical.Client.list_icd10_cm_inference_jobs)
+        [Client.list_icd10_cm_inference_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehendmedical.html#ComprehendMedical.Client.list_icd10_cm_inference_jobs)
         """
 
     def list_phi_detection_jobs(
@@ -174,7 +174,7 @@ class ComprehendMedicalClient:
         MaxResults: int = None,
     ) -> ListPHIDetectionJobsResponseTypeDef:
         """
-        [Client.list_phi_detection_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehendmedical.html#ComprehendMedical.Client.list_phi_detection_jobs)
+        [Client.list_phi_detection_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehendmedical.html#ComprehendMedical.Client.list_phi_detection_jobs)
         """
 
     def list_rx_norm_inference_jobs(
@@ -184,7 +184,7 @@ class ComprehendMedicalClient:
         MaxResults: int = None,
     ) -> ListRxNormInferenceJobsResponseTypeDef:
         """
-        [Client.list_rx_norm_inference_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehendmedical.html#ComprehendMedical.Client.list_rx_norm_inference_jobs)
+        [Client.list_rx_norm_inference_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehendmedical.html#ComprehendMedical.Client.list_rx_norm_inference_jobs)
         """
 
     def start_entities_detection_v2_job(
@@ -198,7 +198,7 @@ class ComprehendMedicalClient:
         KMSKey: str = None,
     ) -> StartEntitiesDetectionV2JobResponseTypeDef:
         """
-        [Client.start_entities_detection_v2_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehendmedical.html#ComprehendMedical.Client.start_entities_detection_v2_job)
+        [Client.start_entities_detection_v2_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehendmedical.html#ComprehendMedical.Client.start_entities_detection_v2_job)
         """
 
     def start_icd10_cm_inference_job(
@@ -212,7 +212,7 @@ class ComprehendMedicalClient:
         KMSKey: str = None,
     ) -> StartICD10CMInferenceJobResponseTypeDef:
         """
-        [Client.start_icd10_cm_inference_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehendmedical.html#ComprehendMedical.Client.start_icd10_cm_inference_job)
+        [Client.start_icd10_cm_inference_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehendmedical.html#ComprehendMedical.Client.start_icd10_cm_inference_job)
         """
 
     def start_phi_detection_job(
@@ -226,7 +226,7 @@ class ComprehendMedicalClient:
         KMSKey: str = None,
     ) -> StartPHIDetectionJobResponseTypeDef:
         """
-        [Client.start_phi_detection_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehendmedical.html#ComprehendMedical.Client.start_phi_detection_job)
+        [Client.start_phi_detection_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehendmedical.html#ComprehendMedical.Client.start_phi_detection_job)
         """
 
     def start_rx_norm_inference_job(
@@ -240,27 +240,27 @@ class ComprehendMedicalClient:
         KMSKey: str = None,
     ) -> StartRxNormInferenceJobResponseTypeDef:
         """
-        [Client.start_rx_norm_inference_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehendmedical.html#ComprehendMedical.Client.start_rx_norm_inference_job)
+        [Client.start_rx_norm_inference_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehendmedical.html#ComprehendMedical.Client.start_rx_norm_inference_job)
         """
 
     def stop_entities_detection_v2_job(
         self, JobId: str
     ) -> StopEntitiesDetectionV2JobResponseTypeDef:
         """
-        [Client.stop_entities_detection_v2_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehendmedical.html#ComprehendMedical.Client.stop_entities_detection_v2_job)
+        [Client.stop_entities_detection_v2_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehendmedical.html#ComprehendMedical.Client.stop_entities_detection_v2_job)
         """
 
     def stop_icd10_cm_inference_job(self, JobId: str) -> StopICD10CMInferenceJobResponseTypeDef:
         """
-        [Client.stop_icd10_cm_inference_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehendmedical.html#ComprehendMedical.Client.stop_icd10_cm_inference_job)
+        [Client.stop_icd10_cm_inference_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehendmedical.html#ComprehendMedical.Client.stop_icd10_cm_inference_job)
         """
 
     def stop_phi_detection_job(self, JobId: str) -> StopPHIDetectionJobResponseTypeDef:
         """
-        [Client.stop_phi_detection_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehendmedical.html#ComprehendMedical.Client.stop_phi_detection_job)
+        [Client.stop_phi_detection_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehendmedical.html#ComprehendMedical.Client.stop_phi_detection_job)
         """
 
     def stop_rx_norm_inference_job(self, JobId: str) -> StopRxNormInferenceJobResponseTypeDef:
         """
-        [Client.stop_rx_norm_inference_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehendmedical.html#ComprehendMedical.Client.stop_rx_norm_inference_job)
+        [Client.stop_rx_norm_inference_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehendmedical.html#ComprehendMedical.Client.stop_rx_norm_inference_job)
         """

@@ -127,14 +127,14 @@ PackageDependencyTypeDef = TypedDict(
 
 PackageSummaryTypeDef = TypedDict(
     "PackageSummaryTypeDef",
-    {"format": Literal["npm", "pypi", "maven"], "namespace": str, "package": str},
+    {"format": Literal["npm", "pypi", "maven", "nuget"], "namespace": str, "package": str},
     total=False,
 )
 
 PackageVersionDescriptionTypeDef = TypedDict(
     "PackageVersionDescriptionTypeDef",
     {
-        "format": Literal["npm", "pypi", "maven"],
+        "format": Literal["npm", "pypi", "maven", "nuget"],
         "namespace": str,
         "packageName": str,
         "displayName": str,
@@ -203,7 +203,7 @@ RepositoryExternalConnectionInfoTypeDef = TypedDict(
     "RepositoryExternalConnectionInfoTypeDef",
     {
         "externalConnectionName": str,
-        "packageFormat": Literal["npm", "pypi", "maven"],
+        "packageFormat": Literal["npm", "pypi", "maven", "nuget"],
         "status": Literal["Available"],
     },
     total=False,
@@ -337,7 +337,7 @@ GetPackageVersionAssetResultTypeDef = TypedDict(
 GetPackageVersionReadmeResultTypeDef = TypedDict(
     "GetPackageVersionReadmeResultTypeDef",
     {
-        "format": Literal["npm", "pypi", "maven"],
+        "format": Literal["npm", "pypi", "maven", "nuget"],
         "namespace": str,
         "package": str,
         "version": str,
@@ -364,7 +364,7 @@ ListDomainsResultTypeDef = TypedDict(
 ListPackageVersionAssetsResultTypeDef = TypedDict(
     "ListPackageVersionAssetsResultTypeDef",
     {
-        "format": Literal["npm", "pypi", "maven"],
+        "format": Literal["npm", "pypi", "maven", "nuget"],
         "namespace": str,
         "package": str,
         "version": str,
@@ -378,7 +378,7 @@ ListPackageVersionAssetsResultTypeDef = TypedDict(
 ListPackageVersionDependenciesResultTypeDef = TypedDict(
     "ListPackageVersionDependenciesResultTypeDef",
     {
-        "format": Literal["npm", "pypi", "maven"],
+        "format": Literal["npm", "pypi", "maven", "nuget"],
         "namespace": str,
         "package": str,
         "version": str,
@@ -393,7 +393,7 @@ ListPackageVersionsResultTypeDef = TypedDict(
     "ListPackageVersionsResultTypeDef",
     {
         "defaultDisplayVersion": str,
-        "format": Literal["npm", "pypi", "maven"],
+        "format": Literal["npm", "pypi", "maven", "nuget"],
         "namespace": str,
         "package": str,
         "versions": List["PackageVersionSummaryTypeDef"],

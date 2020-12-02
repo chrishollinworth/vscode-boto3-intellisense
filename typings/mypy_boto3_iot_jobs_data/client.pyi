@@ -53,7 +53,7 @@ class Exceptions:
 
 class IoTJobsDataPlaneClient:
     """
-    [IoTJobsDataPlane.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot-jobs-data.html#IoTJobsDataPlane.Client)
+    [IoTJobsDataPlane.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot-jobs-data.html#IoTJobsDataPlane.Client)
     """
 
     meta: ClientMeta
@@ -61,7 +61,7 @@ class IoTJobsDataPlaneClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot-jobs-data.html#IoTJobsDataPlane.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot-jobs-data.html#IoTJobsDataPlane.Client.can_paginate)
         """
 
     def describe_job_execution(
@@ -72,7 +72,7 @@ class IoTJobsDataPlaneClient:
         executionNumber: int = None,
     ) -> DescribeJobExecutionResponseTypeDef:
         """
-        [Client.describe_job_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot-jobs-data.html#IoTJobsDataPlane.Client.describe_job_execution)
+        [Client.describe_job_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot-jobs-data.html#IoTJobsDataPlane.Client.describe_job_execution)
         """
 
     def generate_presigned_url(
@@ -83,19 +83,19 @@ class IoTJobsDataPlaneClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot-jobs-data.html#IoTJobsDataPlane.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot-jobs-data.html#IoTJobsDataPlane.Client.generate_presigned_url)
         """
 
     def get_pending_job_executions(self, thingName: str) -> GetPendingJobExecutionsResponseTypeDef:
         """
-        [Client.get_pending_job_executions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot-jobs-data.html#IoTJobsDataPlane.Client.get_pending_job_executions)
+        [Client.get_pending_job_executions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot-jobs-data.html#IoTJobsDataPlane.Client.get_pending_job_executions)
         """
 
     def start_next_pending_job_execution(
         self, thingName: str, statusDetails: Dict[str, str] = None, stepTimeoutInMinutes: int = None
     ) -> StartNextPendingJobExecutionResponseTypeDef:
         """
-        [Client.start_next_pending_job_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot-jobs-data.html#IoTJobsDataPlane.Client.start_next_pending_job_execution)
+        [Client.start_next_pending_job_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot-jobs-data.html#IoTJobsDataPlane.Client.start_next_pending_job_execution)
         """
 
     def update_job_execution(
@@ -120,5 +120,5 @@ class IoTJobsDataPlaneClient:
         executionNumber: int = None,
     ) -> UpdateJobExecutionResponseTypeDef:
         """
-        [Client.update_job_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot-jobs-data.html#IoTJobsDataPlane.Client.update_job_execution)
+        [Client.update_job_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot-jobs-data.html#IoTJobsDataPlane.Client.update_job_execution)
         """

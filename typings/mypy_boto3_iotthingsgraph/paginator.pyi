@@ -81,59 +81,59 @@ __all__ = (
 
 class GetFlowTemplateRevisionsPaginator(Boto3Paginator):
     """
-    [Paginator.GetFlowTemplateRevisions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.GetFlowTemplateRevisions)
+    [Paginator.GetFlowTemplateRevisions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.GetFlowTemplateRevisions)
     """
 
     def paginate(
         self, id: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetFlowTemplateRevisionsResponseTypeDef]:
         """
-        [GetFlowTemplateRevisions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.GetFlowTemplateRevisions.paginate)
+        [GetFlowTemplateRevisions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.GetFlowTemplateRevisions.paginate)
         """
 
 
 class GetSystemTemplateRevisionsPaginator(Boto3Paginator):
     """
-    [Paginator.GetSystemTemplateRevisions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.GetSystemTemplateRevisions)
+    [Paginator.GetSystemTemplateRevisions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.GetSystemTemplateRevisions)
     """
 
     def paginate(
         self, id: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetSystemTemplateRevisionsResponseTypeDef]:
         """
-        [GetSystemTemplateRevisions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.GetSystemTemplateRevisions.paginate)
+        [GetSystemTemplateRevisions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.GetSystemTemplateRevisions.paginate)
         """
 
 
 class ListFlowExecutionMessagesPaginator(Boto3Paginator):
     """
-    [Paginator.ListFlowExecutionMessages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.ListFlowExecutionMessages)
+    [Paginator.ListFlowExecutionMessages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.ListFlowExecutionMessages)
     """
 
     def paginate(
         self, flowExecutionId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListFlowExecutionMessagesResponseTypeDef]:
         """
-        [ListFlowExecutionMessages.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.ListFlowExecutionMessages.paginate)
+        [ListFlowExecutionMessages.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.ListFlowExecutionMessages.paginate)
         """
 
 
 class ListTagsForResourcePaginator(Boto3Paginator):
     """
-    [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.ListTagsForResource)
+    [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.ListTagsForResource)
     """
 
     def paginate(
         self, resourceArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTagsForResourceResponseTypeDef]:
         """
-        [ListTagsForResource.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.ListTagsForResource.paginate)
+        [ListTagsForResource.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.ListTagsForResource.paginate)
         """
 
 
 class SearchEntitiesPaginator(Boto3Paginator):
     """
-    [Paginator.SearchEntities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchEntities)
+    [Paginator.SearchEntities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchEntities)
     """
 
     def paginate(
@@ -157,13 +157,13 @@ class SearchEntitiesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[SearchEntitiesResponseTypeDef]:
         """
-        [SearchEntities.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchEntities.paginate)
+        [SearchEntities.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchEntities.paginate)
         """
 
 
 class SearchFlowExecutionsPaginator(Boto3Paginator):
     """
-    [Paginator.SearchFlowExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchFlowExecutions)
+    [Paginator.SearchFlowExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchFlowExecutions)
     """
 
     def paginate(
@@ -175,13 +175,13 @@ class SearchFlowExecutionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[SearchFlowExecutionsResponseTypeDef]:
         """
-        [SearchFlowExecutions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchFlowExecutions.paginate)
+        [SearchFlowExecutions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchFlowExecutions.paginate)
         """
 
 
 class SearchFlowTemplatesPaginator(Boto3Paginator):
     """
-    [Paginator.SearchFlowTemplates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchFlowTemplates)
+    [Paginator.SearchFlowTemplates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchFlowTemplates)
     """
 
     def paginate(
@@ -190,13 +190,13 @@ class SearchFlowTemplatesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[SearchFlowTemplatesResponseTypeDef]:
         """
-        [SearchFlowTemplates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchFlowTemplates.paginate)
+        [SearchFlowTemplates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchFlowTemplates.paginate)
         """
 
 
 class SearchSystemInstancesPaginator(Boto3Paginator):
     """
-    [Paginator.SearchSystemInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchSystemInstances)
+    [Paginator.SearchSystemInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchSystemInstances)
     """
 
     def paginate(
@@ -205,13 +205,13 @@ class SearchSystemInstancesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[SearchSystemInstancesResponseTypeDef]:
         """
-        [SearchSystemInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchSystemInstances.paginate)
+        [SearchSystemInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchSystemInstances.paginate)
         """
 
 
 class SearchSystemTemplatesPaginator(Boto3Paginator):
     """
-    [Paginator.SearchSystemTemplates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchSystemTemplates)
+    [Paginator.SearchSystemTemplates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchSystemTemplates)
     """
 
     def paginate(
@@ -220,13 +220,13 @@ class SearchSystemTemplatesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[SearchSystemTemplatesResponseTypeDef]:
         """
-        [SearchSystemTemplates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchSystemTemplates.paginate)
+        [SearchSystemTemplates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchSystemTemplates.paginate)
         """
 
 
 class SearchThingsPaginator(Boto3Paginator):
     """
-    [Paginator.SearchThings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchThings)
+    [Paginator.SearchThings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchThings)
     """
 
     def paginate(
@@ -236,5 +236,5 @@ class SearchThingsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[SearchThingsResponseTypeDef]:
         """
-        [SearchThings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchThings.paginate)
+        [SearchThings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchThings.paginate)
         """

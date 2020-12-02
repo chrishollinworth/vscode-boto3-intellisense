@@ -50,7 +50,7 @@ class Exceptions:
 
 class SSOClient:
     """
-    [SSO.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sso.html#SSO.Client)
+    [SSO.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso.html#SSO.Client)
     """
 
     meta: ClientMeta
@@ -58,7 +58,7 @@ class SSOClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sso.html#SSO.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso.html#SSO.Client.can_paginate)
         """
 
     def generate_presigned_url(
@@ -69,33 +69,33 @@ class SSOClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sso.html#SSO.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso.html#SSO.Client.generate_presigned_url)
         """
 
     def get_role_credentials(
         self, roleName: str, accountId: str, accessToken: str
     ) -> GetRoleCredentialsResponseTypeDef:
         """
-        [Client.get_role_credentials documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sso.html#SSO.Client.get_role_credentials)
+        [Client.get_role_credentials documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso.html#SSO.Client.get_role_credentials)
         """
 
     def list_account_roles(
         self, accessToken: str, accountId: str, nextToken: str = None, maxResults: int = None
     ) -> ListAccountRolesResponseTypeDef:
         """
-        [Client.list_account_roles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sso.html#SSO.Client.list_account_roles)
+        [Client.list_account_roles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso.html#SSO.Client.list_account_roles)
         """
 
     def list_accounts(
         self, accessToken: str, nextToken: str = None, maxResults: int = None
     ) -> ListAccountsResponseTypeDef:
         """
-        [Client.list_accounts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sso.html#SSO.Client.list_accounts)
+        [Client.list_accounts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso.html#SSO.Client.list_accounts)
         """
 
     def logout(self, accessToken: str) -> None:
         """
-        [Client.logout documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sso.html#SSO.Client.logout)
+        [Client.logout documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso.html#SSO.Client.logout)
         """
 
     @overload
@@ -103,11 +103,11 @@ class SSOClient:
         self, operation_name: Literal["list_account_roles"]
     ) -> ListAccountRolesPaginator:
         """
-        [Paginator.ListAccountRoles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sso.html#SSO.Paginator.ListAccountRoles)
+        [Paginator.ListAccountRoles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso.html#SSO.Paginator.ListAccountRoles)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_accounts"]) -> ListAccountsPaginator:
         """
-        [Paginator.ListAccounts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sso.html#SSO.Paginator.ListAccounts)
+        [Paginator.ListAccounts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso.html#SSO.Paginator.ListAccounts)
         """

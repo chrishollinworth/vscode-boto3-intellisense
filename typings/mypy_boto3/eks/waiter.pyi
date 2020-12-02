@@ -1,4 +1,6 @@
 from mypy_boto3_eks.waiter import (
+    AddonActiveWaiter,
+    AddonDeletedWaiter,
     ClusterActiveWaiter,
     ClusterDeletedWaiter,
     NodegroupActiveWaiter,
@@ -6,6 +8,8 @@ from mypy_boto3_eks.waiter import (
 )
 
 __all__ = (
+    "AddonActiveWaiter",
+    "AddonDeletedWaiter",
     "ClusterActiveWaiter",
     "ClusterDeletedWaiter",
     "NodegroupActiveWaiter",

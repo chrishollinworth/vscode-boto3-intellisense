@@ -31,6 +31,7 @@ from mypy_boto3_ecs.type_defs import (
     AttachmentStateChangeTypeDef,
     AttributeTypeDef,
     AutoScalingGroupProviderTypeDef,
+    AutoScalingGroupProviderUpdateTypeDef,
     CapacityProviderStrategyItemTypeDef,
     ClusterSettingTypeDef,
     ContainerDefinitionTypeDef,
@@ -92,6 +93,7 @@ from mypy_boto3_ecs.type_defs import (
     TagTypeDef,
     TaskDefinitionPlacementConstraintTypeDef,
     TaskOverrideTypeDef,
+    UpdateCapacityProviderResponseTypeDef,
     UpdateClusterSettingsResponseTypeDef,
     UpdateContainerAgentResponseTypeDef,
     UpdateContainerInstancesStateResponseTypeDef,
@@ -154,7 +156,7 @@ class Exceptions:
 
 class ECSClient:
     """
-    [ECS.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client)
+    [ECS.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client)
     """
 
     meta: ClientMeta
@@ -162,7 +164,7 @@ class ECSClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.can_paginate)
         """
 
     def create_capacity_provider(
@@ -172,7 +174,7 @@ class ECSClient:
         tags: List["TagTypeDef"] = None,
     ) -> CreateCapacityProviderResponseTypeDef:
         """
-        [Client.create_capacity_provider documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.create_capacity_provider)
+        [Client.create_capacity_provider documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.create_capacity_provider)
         """
 
     def create_cluster(
@@ -184,7 +186,7 @@ class ECSClient:
         defaultCapacityProviderStrategy: List["CapacityProviderStrategyItemTypeDef"] = None,
     ) -> CreateClusterResponseTypeDef:
         """
-        [Client.create_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.create_cluster)
+        [Client.create_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.create_cluster)
         """
 
     def create_service(
@@ -212,7 +214,7 @@ class ECSClient:
         propagateTags: Literal["TASK_DEFINITION", "SERVICE"] = None,
     ) -> CreateServiceResponseTypeDef:
         """
-        [Client.create_service documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.create_service)
+        [Client.create_service documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.create_service)
         """
 
     def create_task_set(
@@ -232,7 +234,7 @@ class ECSClient:
         tags: List["TagTypeDef"] = None,
     ) -> CreateTaskSetResponseTypeDef:
         """
-        [Client.create_task_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.create_task_set)
+        [Client.create_task_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.create_task_set)
         """
 
     def delete_account_setting(
@@ -247,54 +249,54 @@ class ECSClient:
         principalArn: str = None,
     ) -> DeleteAccountSettingResponseTypeDef:
         """
-        [Client.delete_account_setting documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.delete_account_setting)
+        [Client.delete_account_setting documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.delete_account_setting)
         """
 
     def delete_attributes(
         self, attributes: List["AttributeTypeDef"], cluster: str = None
     ) -> DeleteAttributesResponseTypeDef:
         """
-        [Client.delete_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.delete_attributes)
+        [Client.delete_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.delete_attributes)
         """
 
     def delete_capacity_provider(
         self, capacityProvider: str
     ) -> DeleteCapacityProviderResponseTypeDef:
         """
-        [Client.delete_capacity_provider documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.delete_capacity_provider)
+        [Client.delete_capacity_provider documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.delete_capacity_provider)
         """
 
     def delete_cluster(self, cluster: str) -> DeleteClusterResponseTypeDef:
         """
-        [Client.delete_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.delete_cluster)
+        [Client.delete_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.delete_cluster)
         """
 
     def delete_service(
         self, service: str, cluster: str = None, force: bool = None
     ) -> DeleteServiceResponseTypeDef:
         """
-        [Client.delete_service documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.delete_service)
+        [Client.delete_service documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.delete_service)
         """
 
     def delete_task_set(
         self, cluster: str, service: str, taskSet: str, force: bool = None
     ) -> DeleteTaskSetResponseTypeDef:
         """
-        [Client.delete_task_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.delete_task_set)
+        [Client.delete_task_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.delete_task_set)
         """
 
     def deregister_container_instance(
         self, containerInstance: str, cluster: str = None, force: bool = None
     ) -> DeregisterContainerInstanceResponseTypeDef:
         """
-        [Client.deregister_container_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.deregister_container_instance)
+        [Client.deregister_container_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.deregister_container_instance)
         """
 
     def deregister_task_definition(
         self, taskDefinition: str
     ) -> DeregisterTaskDefinitionResponseTypeDef:
         """
-        [Client.deregister_task_definition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.deregister_task_definition)
+        [Client.deregister_task_definition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.deregister_task_definition)
         """
 
     def describe_capacity_providers(
@@ -305,7 +307,7 @@ class ECSClient:
         nextToken: str = None,
     ) -> DescribeCapacityProvidersResponseTypeDef:
         """
-        [Client.describe_capacity_providers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.describe_capacity_providers)
+        [Client.describe_capacity_providers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.describe_capacity_providers)
         """
 
     def describe_clusters(
@@ -314,7 +316,7 @@ class ECSClient:
         include: List[Literal["ATTACHMENTS", "SETTINGS", "STATISTICS", "TAGS"]] = None,
     ) -> DescribeClustersResponseTypeDef:
         """
-        [Client.describe_clusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.describe_clusters)
+        [Client.describe_clusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.describe_clusters)
         """
 
     def describe_container_instances(
@@ -324,21 +326,21 @@ class ECSClient:
         include: List[Literal["TAGS"]] = None,
     ) -> DescribeContainerInstancesResponseTypeDef:
         """
-        [Client.describe_container_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.describe_container_instances)
+        [Client.describe_container_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.describe_container_instances)
         """
 
     def describe_services(
         self, services: List[str], cluster: str = None, include: List[Literal["TAGS"]] = None
     ) -> DescribeServicesResponseTypeDef:
         """
-        [Client.describe_services documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.describe_services)
+        [Client.describe_services documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.describe_services)
         """
 
     def describe_task_definition(
         self, taskDefinition: str, include: List[Literal["TAGS"]] = None
     ) -> DescribeTaskDefinitionResponseTypeDef:
         """
-        [Client.describe_task_definition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.describe_task_definition)
+        [Client.describe_task_definition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.describe_task_definition)
         """
 
     def describe_task_sets(
@@ -349,21 +351,21 @@ class ECSClient:
         include: List[Literal["TAGS"]] = None,
     ) -> DescribeTaskSetsResponseTypeDef:
         """
-        [Client.describe_task_sets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.describe_task_sets)
+        [Client.describe_task_sets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.describe_task_sets)
         """
 
     def describe_tasks(
         self, tasks: List[str], cluster: str = None, include: List[Literal["TAGS"]] = None
     ) -> DescribeTasksResponseTypeDef:
         """
-        [Client.describe_tasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.describe_tasks)
+        [Client.describe_tasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.describe_tasks)
         """
 
     def discover_poll_endpoint(
         self, containerInstance: str = None, cluster: str = None
     ) -> DiscoverPollEndpointResponseTypeDef:
         """
-        [Client.discover_poll_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.discover_poll_endpoint)
+        [Client.discover_poll_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.discover_poll_endpoint)
         """
 
     def generate_presigned_url(
@@ -374,7 +376,7 @@ class ECSClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.generate_presigned_url)
         """
 
     def list_account_settings(
@@ -393,7 +395,7 @@ class ECSClient:
         maxResults: int = None,
     ) -> ListAccountSettingsResponseTypeDef:
         """
-        [Client.list_account_settings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.list_account_settings)
+        [Client.list_account_settings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.list_account_settings)
         """
 
     def list_attributes(
@@ -406,14 +408,14 @@ class ECSClient:
         maxResults: int = None,
     ) -> ListAttributesResponseTypeDef:
         """
-        [Client.list_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.list_attributes)
+        [Client.list_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.list_attributes)
         """
 
     def list_clusters(
         self, nextToken: str = None, maxResults: int = None
     ) -> ListClustersResponseTypeDef:
         """
-        [Client.list_clusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.list_clusters)
+        [Client.list_clusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.list_clusters)
         """
 
     def list_container_instances(
@@ -427,7 +429,7 @@ class ECSClient:
         ] = None,
     ) -> ListContainerInstancesResponseTypeDef:
         """
-        [Client.list_container_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.list_container_instances)
+        [Client.list_container_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.list_container_instances)
         """
 
     def list_services(
@@ -439,12 +441,12 @@ class ECSClient:
         schedulingStrategy: Literal["REPLICA", "DAEMON"] = None,
     ) -> ListServicesResponseTypeDef:
         """
-        [Client.list_services documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.list_services)
+        [Client.list_services documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.list_services)
         """
 
     def list_tags_for_resource(self, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.list_tags_for_resource)
         """
 
     def list_task_definition_families(
@@ -455,7 +457,7 @@ class ECSClient:
         maxResults: int = None,
     ) -> ListTaskDefinitionFamiliesResponseTypeDef:
         """
-        [Client.list_task_definition_families documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.list_task_definition_families)
+        [Client.list_task_definition_families documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.list_task_definition_families)
         """
 
     def list_task_definitions(
@@ -467,7 +469,7 @@ class ECSClient:
         maxResults: int = None,
     ) -> ListTaskDefinitionsResponseTypeDef:
         """
-        [Client.list_task_definitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.list_task_definitions)
+        [Client.list_task_definitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.list_task_definitions)
         """
 
     def list_tasks(
@@ -483,7 +485,7 @@ class ECSClient:
         launchType: Literal["EC2", "FARGATE"] = None,
     ) -> ListTasksResponseTypeDef:
         """
-        [Client.list_tasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.list_tasks)
+        [Client.list_tasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.list_tasks)
         """
 
     def put_account_setting(
@@ -499,7 +501,7 @@ class ECSClient:
         principalArn: str = None,
     ) -> PutAccountSettingResponseTypeDef:
         """
-        [Client.put_account_setting documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.put_account_setting)
+        [Client.put_account_setting documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.put_account_setting)
         """
 
     def put_account_setting_default(
@@ -514,14 +516,14 @@ class ECSClient:
         value: str,
     ) -> PutAccountSettingDefaultResponseTypeDef:
         """
-        [Client.put_account_setting_default documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.put_account_setting_default)
+        [Client.put_account_setting_default documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.put_account_setting_default)
         """
 
     def put_attributes(
         self, attributes: List["AttributeTypeDef"], cluster: str = None
     ) -> PutAttributesResponseTypeDef:
         """
-        [Client.put_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.put_attributes)
+        [Client.put_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.put_attributes)
         """
 
     def put_cluster_capacity_providers(
@@ -531,7 +533,7 @@ class ECSClient:
         defaultCapacityProviderStrategy: List["CapacityProviderStrategyItemTypeDef"],
     ) -> PutClusterCapacityProvidersResponseTypeDef:
         """
-        [Client.put_cluster_capacity_providers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.put_cluster_capacity_providers)
+        [Client.put_cluster_capacity_providers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.put_cluster_capacity_providers)
         """
 
     def register_container_instance(
@@ -547,7 +549,7 @@ class ECSClient:
         tags: List["TagTypeDef"] = None,
     ) -> RegisterContainerInstanceResponseTypeDef:
         """
-        [Client.register_container_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.register_container_instance)
+        [Client.register_container_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.register_container_instance)
         """
 
     def register_task_definition(
@@ -569,7 +571,7 @@ class ECSClient:
         inferenceAccelerators: List["InferenceAcceleratorTypeDef"] = None,
     ) -> RegisterTaskDefinitionResponseTypeDef:
         """
-        [Client.register_task_definition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.register_task_definition)
+        [Client.register_task_definition documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.register_task_definition)
         """
 
     def run_task(
@@ -592,7 +594,7 @@ class ECSClient:
         tags: List["TagTypeDef"] = None,
     ) -> RunTaskResponseTypeDef:
         """
-        [Client.run_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.run_task)
+        [Client.run_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.run_task)
         """
 
     def start_task(
@@ -610,21 +612,21 @@ class ECSClient:
         tags: List["TagTypeDef"] = None,
     ) -> StartTaskResponseTypeDef:
         """
-        [Client.start_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.start_task)
+        [Client.start_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.start_task)
         """
 
     def stop_task(
         self, task: str, cluster: str = None, reason: str = None
     ) -> StopTaskResponseTypeDef:
         """
-        [Client.stop_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.stop_task)
+        [Client.stop_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.stop_task)
         """
 
     def submit_attachment_state_changes(
         self, attachments: List[AttachmentStateChangeTypeDef], cluster: str = None
     ) -> SubmitAttachmentStateChangesResponseTypeDef:
         """
-        [Client.submit_attachment_state_changes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.submit_attachment_state_changes)
+        [Client.submit_attachment_state_changes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.submit_attachment_state_changes)
         """
 
     def submit_container_state_change(
@@ -639,7 +641,7 @@ class ECSClient:
         networkBindings: List["NetworkBindingTypeDef"] = None,
     ) -> SubmitContainerStateChangeResponseTypeDef:
         """
-        [Client.submit_container_state_change documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.submit_container_state_change)
+        [Client.submit_container_state_change documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.submit_container_state_change)
         """
 
     def submit_task_state_change(
@@ -655,31 +657,38 @@ class ECSClient:
         executionStoppedAt: datetime = None,
     ) -> SubmitTaskStateChangeResponseTypeDef:
         """
-        [Client.submit_task_state_change documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.submit_task_state_change)
+        [Client.submit_task_state_change documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.submit_task_state_change)
         """
 
     def tag_resource(self, resourceArn: str, tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.tag_resource)
         """
 
     def untag_resource(self, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.untag_resource)
+        """
+
+    def update_capacity_provider(
+        self, name: str, autoScalingGroupProvider: AutoScalingGroupProviderUpdateTypeDef
+    ) -> UpdateCapacityProviderResponseTypeDef:
+        """
+        [Client.update_capacity_provider documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.update_capacity_provider)
         """
 
     def update_cluster_settings(
         self, cluster: str, settings: List["ClusterSettingTypeDef"]
     ) -> UpdateClusterSettingsResponseTypeDef:
         """
-        [Client.update_cluster_settings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.update_cluster_settings)
+        [Client.update_cluster_settings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.update_cluster_settings)
         """
 
     def update_container_agent(
         self, containerInstance: str, cluster: str = None
     ) -> UpdateContainerAgentResponseTypeDef:
         """
-        [Client.update_container_agent documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.update_container_agent)
+        [Client.update_container_agent documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.update_container_agent)
         """
 
     def update_container_instances_state(
@@ -691,7 +700,7 @@ class ECSClient:
         cluster: str = None,
     ) -> UpdateContainerInstancesStateResponseTypeDef:
         """
-        [Client.update_container_instances_state documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.update_container_instances_state)
+        [Client.update_container_instances_state documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.update_container_instances_state)
         """
 
     def update_service(
@@ -710,21 +719,21 @@ class ECSClient:
         healthCheckGracePeriodSeconds: int = None,
     ) -> UpdateServiceResponseTypeDef:
         """
-        [Client.update_service documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.update_service)
+        [Client.update_service documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.update_service)
         """
 
     def update_service_primary_task_set(
         self, cluster: str, service: str, primaryTaskSet: str
     ) -> UpdateServicePrimaryTaskSetResponseTypeDef:
         """
-        [Client.update_service_primary_task_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.update_service_primary_task_set)
+        [Client.update_service_primary_task_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.update_service_primary_task_set)
         """
 
     def update_task_set(
         self, cluster: str, service: str, taskSet: str, scale: "ScaleTypeDef"
     ) -> UpdateTaskSetResponseTypeDef:
         """
-        [Client.update_task_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Client.update_task_set)
+        [Client.update_task_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Client.update_task_set)
         """
 
     @overload
@@ -732,19 +741,19 @@ class ECSClient:
         self, operation_name: Literal["list_account_settings"]
     ) -> ListAccountSettingsPaginator:
         """
-        [Paginator.ListAccountSettings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Paginator.ListAccountSettings)
+        [Paginator.ListAccountSettings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Paginator.ListAccountSettings)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_attributes"]) -> ListAttributesPaginator:
         """
-        [Paginator.ListAttributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Paginator.ListAttributes)
+        [Paginator.ListAttributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Paginator.ListAttributes)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_clusters"]) -> ListClustersPaginator:
         """
-        [Paginator.ListClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Paginator.ListClusters)
+        [Paginator.ListClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Paginator.ListClusters)
         """
 
     @overload
@@ -752,13 +761,13 @@ class ECSClient:
         self, operation_name: Literal["list_container_instances"]
     ) -> ListContainerInstancesPaginator:
         """
-        [Paginator.ListContainerInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Paginator.ListContainerInstances)
+        [Paginator.ListContainerInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Paginator.ListContainerInstances)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_services"]) -> ListServicesPaginator:
         """
-        [Paginator.ListServices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Paginator.ListServices)
+        [Paginator.ListServices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Paginator.ListServices)
         """
 
     @overload
@@ -766,7 +775,7 @@ class ECSClient:
         self, operation_name: Literal["list_task_definition_families"]
     ) -> ListTaskDefinitionFamiliesPaginator:
         """
-        [Paginator.ListTaskDefinitionFamilies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Paginator.ListTaskDefinitionFamilies)
+        [Paginator.ListTaskDefinitionFamilies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Paginator.ListTaskDefinitionFamilies)
         """
 
     @overload
@@ -774,35 +783,35 @@ class ECSClient:
         self, operation_name: Literal["list_task_definitions"]
     ) -> ListTaskDefinitionsPaginator:
         """
-        [Paginator.ListTaskDefinitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Paginator.ListTaskDefinitions)
+        [Paginator.ListTaskDefinitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Paginator.ListTaskDefinitions)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_tasks"]) -> ListTasksPaginator:
         """
-        [Paginator.ListTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Paginator.ListTasks)
+        [Paginator.ListTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Paginator.ListTasks)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["services_inactive"]) -> ServicesInactiveWaiter:
         """
-        [Waiter.ServicesInactive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Waiter.ServicesInactive)
+        [Waiter.ServicesInactive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Waiter.ServicesInactive)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["services_stable"]) -> ServicesStableWaiter:
         """
-        [Waiter.ServicesStable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Waiter.ServicesStable)
+        [Waiter.ServicesStable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Waiter.ServicesStable)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["tasks_running"]) -> TasksRunningWaiter:
         """
-        [Waiter.TasksRunning documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Waiter.TasksRunning)
+        [Waiter.TasksRunning documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Waiter.TasksRunning)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["tasks_stopped"]) -> TasksStoppedWaiter:
         """
-        [Waiter.TasksStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Waiter.TasksStopped)
+        [Waiter.TasksStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Waiter.TasksStopped)
         """

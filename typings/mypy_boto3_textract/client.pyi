@@ -67,7 +67,7 @@ class Exceptions:
 
 class TextractClient:
     """
-    [Textract.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/textract.html#Textract.Client)
+    [Textract.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/textract.html#Textract.Client)
     """
 
     meta: ClientMeta
@@ -80,17 +80,17 @@ class TextractClient:
         HumanLoopConfig: HumanLoopConfigTypeDef = None,
     ) -> AnalyzeDocumentResponseTypeDef:
         """
-        [Client.analyze_document documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/textract.html#Textract.Client.analyze_document)
+        [Client.analyze_document documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/textract.html#Textract.Client.analyze_document)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/textract.html#Textract.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/textract.html#Textract.Client.can_paginate)
         """
 
     def detect_document_text(self, Document: DocumentTypeDef) -> DetectDocumentTextResponseTypeDef:
         """
-        [Client.detect_document_text documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/textract.html#Textract.Client.detect_document_text)
+        [Client.detect_document_text documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/textract.html#Textract.Client.detect_document_text)
         """
 
     def generate_presigned_url(
@@ -101,21 +101,21 @@ class TextractClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/textract.html#Textract.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/textract.html#Textract.Client.generate_presigned_url)
         """
 
     def get_document_analysis(
         self, JobId: str, MaxResults: int = None, NextToken: str = None
     ) -> GetDocumentAnalysisResponseTypeDef:
         """
-        [Client.get_document_analysis documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/textract.html#Textract.Client.get_document_analysis)
+        [Client.get_document_analysis documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/textract.html#Textract.Client.get_document_analysis)
         """
 
     def get_document_text_detection(
         self, JobId: str, MaxResults: int = None, NextToken: str = None
     ) -> GetDocumentTextDetectionResponseTypeDef:
         """
-        [Client.get_document_text_detection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/textract.html#Textract.Client.get_document_text_detection)
+        [Client.get_document_text_detection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/textract.html#Textract.Client.get_document_text_detection)
         """
 
     def start_document_analysis(
@@ -129,7 +129,7 @@ class TextractClient:
         KMSKeyId: str = None,
     ) -> StartDocumentAnalysisResponseTypeDef:
         """
-        [Client.start_document_analysis documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/textract.html#Textract.Client.start_document_analysis)
+        [Client.start_document_analysis documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/textract.html#Textract.Client.start_document_analysis)
         """
 
     def start_document_text_detection(
@@ -142,5 +142,5 @@ class TextractClient:
         KMSKeyId: str = None,
     ) -> StartDocumentTextDetectionResponseTypeDef:
         """
-        [Client.start_document_text_detection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/textract.html#Textract.Client.start_document_text_detection)
+        [Client.start_document_text_detection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/textract.html#Textract.Client.start_document_text_detection)
         """

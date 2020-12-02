@@ -52,7 +52,7 @@ __all__ = (
 
 class GetExecutionHistoryPaginator(Boto3Paginator):
     """
-    [Paginator.GetExecutionHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/stepfunctions.html#SFN.Paginator.GetExecutionHistory)
+    [Paginator.GetExecutionHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/stepfunctions.html#SFN.Paginator.GetExecutionHistory)
     """
 
     def paginate(
@@ -63,26 +63,26 @@ class GetExecutionHistoryPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetExecutionHistoryOutputTypeDef]:
         """
-        [GetExecutionHistory.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/stepfunctions.html#SFN.Paginator.GetExecutionHistory.paginate)
+        [GetExecutionHistory.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/stepfunctions.html#SFN.Paginator.GetExecutionHistory.paginate)
         """
 
 
 class ListActivitiesPaginator(Boto3Paginator):
     """
-    [Paginator.ListActivities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/stepfunctions.html#SFN.Paginator.ListActivities)
+    [Paginator.ListActivities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/stepfunctions.html#SFN.Paginator.ListActivities)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListActivitiesOutputTypeDef]:
         """
-        [ListActivities.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/stepfunctions.html#SFN.Paginator.ListActivities.paginate)
+        [ListActivities.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/stepfunctions.html#SFN.Paginator.ListActivities.paginate)
         """
 
 
 class ListExecutionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/stepfunctions.html#SFN.Paginator.ListExecutions)
+    [Paginator.ListExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/stepfunctions.html#SFN.Paginator.ListExecutions)
     """
 
     def paginate(
@@ -92,18 +92,18 @@ class ListExecutionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListExecutionsOutputTypeDef]:
         """
-        [ListExecutions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/stepfunctions.html#SFN.Paginator.ListExecutions.paginate)
+        [ListExecutions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/stepfunctions.html#SFN.Paginator.ListExecutions.paginate)
         """
 
 
 class ListStateMachinesPaginator(Boto3Paginator):
     """
-    [Paginator.ListStateMachines documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/stepfunctions.html#SFN.Paginator.ListStateMachines)
+    [Paginator.ListStateMachines documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/stepfunctions.html#SFN.Paginator.ListStateMachines)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListStateMachinesOutputTypeDef]:
         """
-        [ListStateMachines.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/stepfunctions.html#SFN.Paginator.ListStateMachines.paginate)
+        [ListStateMachines.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/stepfunctions.html#SFN.Paginator.ListStateMachines.paginate)
         """

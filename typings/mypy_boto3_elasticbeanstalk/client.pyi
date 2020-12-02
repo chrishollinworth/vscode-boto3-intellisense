@@ -114,7 +114,7 @@ class Exceptions:
 
 class ElasticBeanstalkClient:
     """
-    [ElasticBeanstalk.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client)
+    [ElasticBeanstalk.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client)
     """
 
     meta: ClientMeta
@@ -124,38 +124,38 @@ class ElasticBeanstalkClient:
         self, EnvironmentId: str = None, EnvironmentName: str = None
     ) -> None:
         """
-        [Client.abort_environment_update documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.abort_environment_update)
+        [Client.abort_environment_update documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.abort_environment_update)
         """
 
     def apply_environment_managed_action(
         self, ActionId: str, EnvironmentName: str = None, EnvironmentId: str = None
     ) -> ApplyEnvironmentManagedActionResultTypeDef:
         """
-        [Client.apply_environment_managed_action documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.apply_environment_managed_action)
+        [Client.apply_environment_managed_action documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.apply_environment_managed_action)
         """
 
     def associate_environment_operations_role(
         self, EnvironmentName: str, OperationsRole: str
     ) -> None:
         """
-        [Client.associate_environment_operations_role documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.associate_environment_operations_role)
+        [Client.associate_environment_operations_role documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.associate_environment_operations_role)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.can_paginate)
         """
 
     def check_dns_availability(self, CNAMEPrefix: str) -> CheckDNSAvailabilityResultMessageTypeDef:
         """
-        [Client.check_dns_availability documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.check_dns_availability)
+        [Client.check_dns_availability documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.check_dns_availability)
         """
 
     def compose_environments(
         self, ApplicationName: str = None, GroupName: str = None, VersionLabels: List[str] = None
     ) -> EnvironmentDescriptionsMessageTypeDef:
         """
-        [Client.compose_environments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.compose_environments)
+        [Client.compose_environments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.compose_environments)
         """
 
     def create_application(
@@ -166,7 +166,7 @@ class ElasticBeanstalkClient:
         Tags: List["TagTypeDef"] = None,
     ) -> ApplicationDescriptionMessageTypeDef:
         """
-        [Client.create_application documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.create_application)
+        [Client.create_application documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.create_application)
         """
 
     def create_application_version(
@@ -182,7 +182,7 @@ class ElasticBeanstalkClient:
         Tags: List["TagTypeDef"] = None,
     ) -> ApplicationVersionDescriptionMessageTypeDef:
         """
-        [Client.create_application_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.create_application_version)
+        [Client.create_application_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.create_application_version)
         """
 
     def create_configuration_template(
@@ -198,7 +198,7 @@ class ElasticBeanstalkClient:
         Tags: List["TagTypeDef"] = None,
     ) -> "ConfigurationSettingsDescriptionTypeDef":
         """
-        [Client.create_configuration_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.create_configuration_template)
+        [Client.create_configuration_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.create_configuration_template)
         """
 
     def create_environment(
@@ -219,7 +219,7 @@ class ElasticBeanstalkClient:
         OperationsRole: str = None,
     ) -> "EnvironmentDescriptionTypeDef":
         """
-        [Client.create_environment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.create_environment)
+        [Client.create_environment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.create_environment)
         """
 
     def create_platform_version(
@@ -232,46 +232,46 @@ class ElasticBeanstalkClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreatePlatformVersionResultTypeDef:
         """
-        [Client.create_platform_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.create_platform_version)
+        [Client.create_platform_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.create_platform_version)
         """
 
     def create_storage_location(self) -> CreateStorageLocationResultMessageTypeDef:
         """
-        [Client.create_storage_location documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.create_storage_location)
+        [Client.create_storage_location documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.create_storage_location)
         """
 
     def delete_application(self, ApplicationName: str, TerminateEnvByForce: bool = None) -> None:
         """
-        [Client.delete_application documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.delete_application)
+        [Client.delete_application documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.delete_application)
         """
 
     def delete_application_version(
         self, ApplicationName: str, VersionLabel: str, DeleteSourceBundle: bool = None
     ) -> None:
         """
-        [Client.delete_application_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.delete_application_version)
+        [Client.delete_application_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.delete_application_version)
         """
 
     def delete_configuration_template(self, ApplicationName: str, TemplateName: str) -> None:
         """
-        [Client.delete_configuration_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.delete_configuration_template)
+        [Client.delete_configuration_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.delete_configuration_template)
         """
 
     def delete_environment_configuration(self, ApplicationName: str, EnvironmentName: str) -> None:
         """
-        [Client.delete_environment_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.delete_environment_configuration)
+        [Client.delete_environment_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.delete_environment_configuration)
         """
 
     def delete_platform_version(
         self, PlatformArn: str = None
     ) -> DeletePlatformVersionResultTypeDef:
         """
-        [Client.delete_platform_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.delete_platform_version)
+        [Client.delete_platform_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.delete_platform_version)
         """
 
     def describe_account_attributes(self) -> DescribeAccountAttributesResultTypeDef:
         """
-        [Client.describe_account_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.describe_account_attributes)
+        [Client.describe_account_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.describe_account_attributes)
         """
 
     def describe_application_versions(
@@ -282,14 +282,14 @@ class ElasticBeanstalkClient:
         NextToken: str = None,
     ) -> ApplicationVersionDescriptionsMessageTypeDef:
         """
-        [Client.describe_application_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.describe_application_versions)
+        [Client.describe_application_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.describe_application_versions)
         """
 
     def describe_applications(
         self, ApplicationNames: List[str] = None
     ) -> ApplicationDescriptionsMessageTypeDef:
         """
-        [Client.describe_applications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.describe_applications)
+        [Client.describe_applications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.describe_applications)
         """
 
     def describe_configuration_options(
@@ -302,14 +302,14 @@ class ElasticBeanstalkClient:
         Options: List[OptionSpecificationTypeDef] = None,
     ) -> ConfigurationOptionsDescriptionTypeDef:
         """
-        [Client.describe_configuration_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.describe_configuration_options)
+        [Client.describe_configuration_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.describe_configuration_options)
         """
 
     def describe_configuration_settings(
         self, ApplicationName: str, TemplateName: str = None, EnvironmentName: str = None
     ) -> ConfigurationSettingsDescriptionsTypeDef:
         """
-        [Client.describe_configuration_settings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.describe_configuration_settings)
+        [Client.describe_configuration_settings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.describe_configuration_settings)
         """
 
     def describe_environment_health(
@@ -330,7 +330,7 @@ class ElasticBeanstalkClient:
         ] = None,
     ) -> DescribeEnvironmentHealthResultTypeDef:
         """
-        [Client.describe_environment_health documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.describe_environment_health)
+        [Client.describe_environment_health documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.describe_environment_health)
         """
 
     def describe_environment_managed_action_history(
@@ -341,7 +341,7 @@ class ElasticBeanstalkClient:
         MaxItems: int = None,
     ) -> DescribeEnvironmentManagedActionHistoryResultTypeDef:
         """
-        [Client.describe_environment_managed_action_history documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.describe_environment_managed_action_history)
+        [Client.describe_environment_managed_action_history documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.describe_environment_managed_action_history)
         """
 
     def describe_environment_managed_actions(
@@ -351,14 +351,14 @@ class ElasticBeanstalkClient:
         Status: Literal["Scheduled", "Pending", "Running", "Unknown"] = None,
     ) -> DescribeEnvironmentManagedActionsResultTypeDef:
         """
-        [Client.describe_environment_managed_actions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.describe_environment_managed_actions)
+        [Client.describe_environment_managed_actions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.describe_environment_managed_actions)
         """
 
     def describe_environment_resources(
         self, EnvironmentId: str = None, EnvironmentName: str = None
     ) -> EnvironmentResourceDescriptionsMessageTypeDef:
         """
-        [Client.describe_environment_resources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.describe_environment_resources)
+        [Client.describe_environment_resources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.describe_environment_resources)
         """
 
     def describe_environments(
@@ -373,7 +373,7 @@ class ElasticBeanstalkClient:
         NextToken: str = None,
     ) -> EnvironmentDescriptionsMessageTypeDef:
         """
-        [Client.describe_environments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.describe_environments)
+        [Client.describe_environments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.describe_environments)
         """
 
     def describe_events(
@@ -392,7 +392,7 @@ class ElasticBeanstalkClient:
         NextToken: str = None,
     ) -> EventDescriptionsMessageTypeDef:
         """
-        [Client.describe_events documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.describe_events)
+        [Client.describe_events documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.describe_events)
         """
 
     def describe_instances_health(
@@ -417,19 +417,19 @@ class ElasticBeanstalkClient:
         NextToken: str = None,
     ) -> DescribeInstancesHealthResultTypeDef:
         """
-        [Client.describe_instances_health documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.describe_instances_health)
+        [Client.describe_instances_health documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.describe_instances_health)
         """
 
     def describe_platform_version(
         self, PlatformArn: str = None
     ) -> DescribePlatformVersionResultTypeDef:
         """
-        [Client.describe_platform_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.describe_platform_version)
+        [Client.describe_platform_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.describe_platform_version)
         """
 
     def disassociate_environment_operations_role(self, EnvironmentName: str) -> None:
         """
-        [Client.disassociate_environment_operations_role documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.disassociate_environment_operations_role)
+        [Client.disassociate_environment_operations_role documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.disassociate_environment_operations_role)
         """
 
     def generate_presigned_url(
@@ -440,12 +440,12 @@ class ElasticBeanstalkClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.generate_presigned_url)
         """
 
     def list_available_solution_stacks(self) -> ListAvailableSolutionStacksResultMessageTypeDef:
         """
-        [Client.list_available_solution_stacks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.list_available_solution_stacks)
+        [Client.list_available_solution_stacks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.list_available_solution_stacks)
         """
 
     def list_platform_branches(
@@ -455,7 +455,7 @@ class ElasticBeanstalkClient:
         NextToken: str = None,
     ) -> ListPlatformBranchesResultTypeDef:
         """
-        [Client.list_platform_branches documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.list_platform_branches)
+        [Client.list_platform_branches documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.list_platform_branches)
         """
 
     def list_platform_versions(
@@ -465,17 +465,17 @@ class ElasticBeanstalkClient:
         NextToken: str = None,
     ) -> ListPlatformVersionsResultTypeDef:
         """
-        [Client.list_platform_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.list_platform_versions)
+        [Client.list_platform_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.list_platform_versions)
         """
 
     def list_tags_for_resource(self, ResourceArn: str) -> ResourceTagsDescriptionMessageTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.list_tags_for_resource)
         """
 
     def rebuild_environment(self, EnvironmentId: str = None, EnvironmentName: str = None) -> None:
         """
-        [Client.rebuild_environment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.rebuild_environment)
+        [Client.rebuild_environment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.rebuild_environment)
         """
 
     def request_environment_info(
@@ -485,12 +485,12 @@ class ElasticBeanstalkClient:
         EnvironmentName: str = None,
     ) -> None:
         """
-        [Client.request_environment_info documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.request_environment_info)
+        [Client.request_environment_info documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.request_environment_info)
         """
 
     def restart_app_server(self, EnvironmentId: str = None, EnvironmentName: str = None) -> None:
         """
-        [Client.restart_app_server documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.restart_app_server)
+        [Client.restart_app_server documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.restart_app_server)
         """
 
     def retrieve_environment_info(
@@ -500,7 +500,7 @@ class ElasticBeanstalkClient:
         EnvironmentName: str = None,
     ) -> RetrieveEnvironmentInfoResultMessageTypeDef:
         """
-        [Client.retrieve_environment_info documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.retrieve_environment_info)
+        [Client.retrieve_environment_info documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.retrieve_environment_info)
         """
 
     def swap_environment_cnames(
@@ -511,7 +511,7 @@ class ElasticBeanstalkClient:
         DestinationEnvironmentName: str = None,
     ) -> None:
         """
-        [Client.swap_environment_cnames documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.swap_environment_cnames)
+        [Client.swap_environment_cnames documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.swap_environment_cnames)
         """
 
     def terminate_environment(
@@ -522,14 +522,14 @@ class ElasticBeanstalkClient:
         ForceTerminate: bool = None,
     ) -> "EnvironmentDescriptionTypeDef":
         """
-        [Client.terminate_environment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.terminate_environment)
+        [Client.terminate_environment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.terminate_environment)
         """
 
     def update_application(
         self, ApplicationName: str, Description: str = None
     ) -> ApplicationDescriptionMessageTypeDef:
         """
-        [Client.update_application documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.update_application)
+        [Client.update_application documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.update_application)
         """
 
     def update_application_resource_lifecycle(
@@ -538,14 +538,14 @@ class ElasticBeanstalkClient:
         ResourceLifecycleConfig: "ApplicationResourceLifecycleConfigTypeDef",
     ) -> ApplicationResourceLifecycleDescriptionMessageTypeDef:
         """
-        [Client.update_application_resource_lifecycle documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.update_application_resource_lifecycle)
+        [Client.update_application_resource_lifecycle documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.update_application_resource_lifecycle)
         """
 
     def update_application_version(
         self, ApplicationName: str, VersionLabel: str, Description: str = None
     ) -> ApplicationVersionDescriptionMessageTypeDef:
         """
-        [Client.update_application_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.update_application_version)
+        [Client.update_application_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.update_application_version)
         """
 
     def update_configuration_template(
@@ -557,7 +557,7 @@ class ElasticBeanstalkClient:
         OptionsToRemove: List[OptionSpecificationTypeDef] = None,
     ) -> "ConfigurationSettingsDescriptionTypeDef":
         """
-        [Client.update_configuration_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.update_configuration_template)
+        [Client.update_configuration_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.update_configuration_template)
         """
 
     def update_environment(
@@ -576,14 +576,14 @@ class ElasticBeanstalkClient:
         OptionsToRemove: List[OptionSpecificationTypeDef] = None,
     ) -> "EnvironmentDescriptionTypeDef":
         """
-        [Client.update_environment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.update_environment)
+        [Client.update_environment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.update_environment)
         """
 
     def update_tags_for_resource(
         self, ResourceArn: str, TagsToAdd: List["TagTypeDef"] = None, TagsToRemove: List[str] = None
     ) -> None:
         """
-        [Client.update_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.update_tags_for_resource)
+        [Client.update_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.update_tags_for_resource)
         """
 
     def validate_configuration_settings(
@@ -594,7 +594,7 @@ class ElasticBeanstalkClient:
         EnvironmentName: str = None,
     ) -> ConfigurationSettingsValidationMessagesTypeDef:
         """
-        [Client.validate_configuration_settings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.validate_configuration_settings)
+        [Client.validate_configuration_settings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Client.validate_configuration_settings)
         """
 
     @overload
@@ -602,7 +602,7 @@ class ElasticBeanstalkClient:
         self, operation_name: Literal["describe_application_versions"]
     ) -> DescribeApplicationVersionsPaginator:
         """
-        [Paginator.DescribeApplicationVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Paginator.DescribeApplicationVersions)
+        [Paginator.DescribeApplicationVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Paginator.DescribeApplicationVersions)
         """
 
     @overload
@@ -610,7 +610,7 @@ class ElasticBeanstalkClient:
         self, operation_name: Literal["describe_environment_managed_action_history"]
     ) -> DescribeEnvironmentManagedActionHistoryPaginator:
         """
-        [Paginator.DescribeEnvironmentManagedActionHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Paginator.DescribeEnvironmentManagedActionHistory)
+        [Paginator.DescribeEnvironmentManagedActionHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Paginator.DescribeEnvironmentManagedActionHistory)
         """
 
     @overload
@@ -618,13 +618,13 @@ class ElasticBeanstalkClient:
         self, operation_name: Literal["describe_environments"]
     ) -> DescribeEnvironmentsPaginator:
         """
-        [Paginator.DescribeEnvironments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Paginator.DescribeEnvironments)
+        [Paginator.DescribeEnvironments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Paginator.DescribeEnvironments)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["describe_events"]) -> DescribeEventsPaginator:
         """
-        [Paginator.DescribeEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Paginator.DescribeEvents)
+        [Paginator.DescribeEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Paginator.DescribeEvents)
         """
 
     @overload
@@ -632,13 +632,13 @@ class ElasticBeanstalkClient:
         self, operation_name: Literal["list_platform_versions"]
     ) -> ListPlatformVersionsPaginator:
         """
-        [Paginator.ListPlatformVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Paginator.ListPlatformVersions)
+        [Paginator.ListPlatformVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Paginator.ListPlatformVersions)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["environment_exists"]) -> EnvironmentExistsWaiter:
         """
-        [Waiter.EnvironmentExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Waiter.EnvironmentExists)
+        [Waiter.EnvironmentExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Waiter.EnvironmentExists)
         """
 
     @overload
@@ -646,11 +646,11 @@ class ElasticBeanstalkClient:
         self, waiter_name: Literal["environment_terminated"]
     ) -> EnvironmentTerminatedWaiter:
         """
-        [Waiter.EnvironmentTerminated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Waiter.EnvironmentTerminated)
+        [Waiter.EnvironmentTerminated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Waiter.EnvironmentTerminated)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["environment_updated"]) -> EnvironmentUpdatedWaiter:
         """
-        [Waiter.EnvironmentUpdated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Waiter.EnvironmentUpdated)
+        [Waiter.EnvironmentUpdated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Waiter.EnvironmentUpdated)
         """

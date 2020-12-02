@@ -98,6 +98,8 @@ __all__ = (
     "TrendmicroSourcePropertiesTypeDef",
     "TriggerConfigTypeDef",
     "TriggerPropertiesTypeDef",
+    "UpsolverDestinationPropertiesTypeDef",
+    "UpsolverS3OutputFormatConfigTypeDef",
     "VeevaConnectorProfileCredentialsTypeDef",
     "VeevaConnectorProfilePropertiesTypeDef",
     "VeevaSourcePropertiesTypeDef",
@@ -156,6 +158,7 @@ ConnectorConfigurationTypeDef = TypedDict(
                 "Amplitude",
                 "Veeva",
                 "EventBridge",
+                "Upsolver",
             ]
         ],
         "supportedSchedulingFrequencies": List[
@@ -221,6 +224,7 @@ ConnectorMetadataTypeDef = TypedDict(
         "Veeva": Dict[str, Any],
         "Zendesk": "ZendeskMetadataTypeDef",
         "EventBridge": Dict[str, Any],
+        "Upsolver": Dict[str, Any],
     },
     total=False,
 )
@@ -534,6 +538,7 @@ ConnectorProfileTypeDef = TypedDict(
             "Amplitude",
             "Veeva",
             "EventBridge",
+            "Upsolver",
         ],
         "connectionMode": Literal["Public", "Private"],
         "credentialsArn": str,
@@ -562,6 +567,7 @@ DestinationConnectorPropertiesTypeDef = TypedDict(
         "Salesforce": "SalesforceDestinationPropertiesTypeDef",
         "Snowflake": "SnowflakeDestinationPropertiesTypeDef",
         "EventBridge": "EventBridgeDestinationPropertiesTypeDef",
+        "Upsolver": "UpsolverDestinationPropertiesTypeDef",
     },
     total=False,
 )
@@ -599,6 +605,7 @@ _RequiredDestinationFlowConfigTypeDef = TypedDict(
             "Amplitude",
             "Veeva",
             "EventBridge",
+            "Upsolver",
         ],
         "destinationConnectorProperties": "DestinationConnectorPropertiesTypeDef",
     },
@@ -749,6 +756,7 @@ FlowDefinitionTypeDef = TypedDict(
             "Amplitude",
             "Veeva",
             "EventBridge",
+            "Upsolver",
         ],
         "destinationConnectorType": Literal[
             "Salesforce",
@@ -768,6 +776,7 @@ FlowDefinitionTypeDef = TypedDict(
             "Amplitude",
             "Veeva",
             "EventBridge",
+            "Upsolver",
         ],
         "triggerType": Literal["Scheduled", "Event", "OnDemand"],
         "createdAt": datetime,
@@ -1136,6 +1145,7 @@ _RequiredSourceFlowConfigTypeDef = TypedDict(
             "Amplitude",
             "Veeva",
             "EventBridge",
+            "Upsolver",
         ],
         "sourceConnectorProperties": "SourceConnectorPropertiesTypeDef",
     },
@@ -1216,6 +1226,40 @@ class TriggerConfigTypeDef(_RequiredTriggerConfigTypeDef, _OptionalTriggerConfig
 TriggerPropertiesTypeDef = TypedDict(
     "TriggerPropertiesTypeDef", {"Scheduled": "ScheduledTriggerPropertiesTypeDef"}, total=False
 )
+
+_RequiredUpsolverDestinationPropertiesTypeDef = TypedDict(
+    "_RequiredUpsolverDestinationPropertiesTypeDef",
+    {"bucketName": str, "s3OutputFormatConfig": "UpsolverS3OutputFormatConfigTypeDef"},
+)
+_OptionalUpsolverDestinationPropertiesTypeDef = TypedDict(
+    "_OptionalUpsolverDestinationPropertiesTypeDef", {"bucketPrefix": str}, total=False
+)
+
+
+class UpsolverDestinationPropertiesTypeDef(
+    _RequiredUpsolverDestinationPropertiesTypeDef, _OptionalUpsolverDestinationPropertiesTypeDef
+):
+    pass
+
+
+_RequiredUpsolverS3OutputFormatConfigTypeDef = TypedDict(
+    "_RequiredUpsolverS3OutputFormatConfigTypeDef", {"prefixConfig": "PrefixConfigTypeDef"}
+)
+_OptionalUpsolverS3OutputFormatConfigTypeDef = TypedDict(
+    "_OptionalUpsolverS3OutputFormatConfigTypeDef",
+    {
+        "fileType": Literal["CSV", "JSON", "PARQUET"],
+        "aggregationConfig": "AggregationConfigTypeDef",
+    },
+    total=False,
+)
+
+
+class UpsolverS3OutputFormatConfigTypeDef(
+    _RequiredUpsolverS3OutputFormatConfigTypeDef, _OptionalUpsolverS3OutputFormatConfigTypeDef
+):
+    pass
+
 
 VeevaConnectorProfileCredentialsTypeDef = TypedDict(
     "VeevaConnectorProfileCredentialsTypeDef", {"username": str, "password": str}
@@ -1308,6 +1352,7 @@ DescribeConnectorsResponseTypeDef = TypedDict(
                 "Amplitude",
                 "Veeva",
                 "EventBridge",
+                "Upsolver",
             ],
             "ConnectorConfigurationTypeDef",
         ],

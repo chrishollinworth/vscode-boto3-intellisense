@@ -1,8 +1,10 @@
 from mypy_boto3_lambda.paginator import (
     ListAliasesPaginator,
+    ListCodeSigningConfigsPaginator,
     ListEventSourceMappingsPaginator,
     ListFunctionEventInvokeConfigsPaginator,
     ListFunctionsPaginator,
+    ListFunctionsByCodeSigningConfigPaginator,
     ListLayerVersionsPaginator,
     ListLayersPaginator,
     ListProvisionedConcurrencyConfigsPaginator,
@@ -11,9 +13,11 @@ from mypy_boto3_lambda.paginator import (
 
 __all__ = (
     "ListAliasesPaginator",
+    "ListCodeSigningConfigsPaginator",
     "ListEventSourceMappingsPaginator",
     "ListFunctionEventInvokeConfigsPaginator",
     "ListFunctionsPaginator",
+    "ListFunctionsByCodeSigningConfigPaginator",
     "ListLayerVersionsPaginator",
     "ListLayersPaginator",
     "ListProvisionedConcurrencyConfigsPaginator",

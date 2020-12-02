@@ -10,14 +10,23 @@ Usage::
     from mypy_boto3_connect import ConnectClient
     from mypy_boto3_connect.paginator import (
         GetMetricDataPaginator,
+        ListApprovedOriginsPaginator,
         ListContactFlowsPaginator,
         ListHoursOfOperationsPaginator,
+        ListInstanceAttributesPaginator,
+        ListInstanceStorageConfigsPaginator,
+        ListInstancesPaginator,
+        ListIntegrationAssociationsPaginator,
+        ListLambdaFunctionsPaginator,
+        ListLexBotsPaginator,
         ListPhoneNumbersPaginator,
         ListPromptsPaginator,
         ListQueuesPaginator,
         ListRoutingProfileQueuesPaginator,
         ListRoutingProfilesPaginator,
+        ListSecurityKeysPaginator,
         ListSecurityProfilesPaginator,
+        ListUseCasesPaginator,
         ListUserHierarchyGroupsPaginator,
         ListUsersPaginator,
     )
@@ -25,14 +34,23 @@ Usage::
     client: ConnectClient = boto3.client("connect")
 
     get_metric_data_paginator: GetMetricDataPaginator = client.get_paginator("get_metric_data")
+    list_approved_origins_paginator: ListApprovedOriginsPaginator = client.get_paginator("list_approved_origins")
     list_contact_flows_paginator: ListContactFlowsPaginator = client.get_paginator("list_contact_flows")
     list_hours_of_operations_paginator: ListHoursOfOperationsPaginator = client.get_paginator("list_hours_of_operations")
+    list_instance_attributes_paginator: ListInstanceAttributesPaginator = client.get_paginator("list_instance_attributes")
+    list_instance_storage_configs_paginator: ListInstanceStorageConfigsPaginator = client.get_paginator("list_instance_storage_configs")
+    list_instances_paginator: ListInstancesPaginator = client.get_paginator("list_instances")
+    list_integration_associations_paginator: ListIntegrationAssociationsPaginator = client.get_paginator("list_integration_associations")
+    list_lambda_functions_paginator: ListLambdaFunctionsPaginator = client.get_paginator("list_lambda_functions")
+    list_lex_bots_paginator: ListLexBotsPaginator = client.get_paginator("list_lex_bots")
     list_phone_numbers_paginator: ListPhoneNumbersPaginator = client.get_paginator("list_phone_numbers")
     list_prompts_paginator: ListPromptsPaginator = client.get_paginator("list_prompts")
     list_queues_paginator: ListQueuesPaginator = client.get_paginator("list_queues")
     list_routing_profile_queues_paginator: ListRoutingProfileQueuesPaginator = client.get_paginator("list_routing_profile_queues")
     list_routing_profiles_paginator: ListRoutingProfilesPaginator = client.get_paginator("list_routing_profiles")
+    list_security_keys_paginator: ListSecurityKeysPaginator = client.get_paginator("list_security_keys")
     list_security_profiles_paginator: ListSecurityProfilesPaginator = client.get_paginator("list_security_profiles")
+    list_use_cases_paginator: ListUseCasesPaginator = client.get_paginator("list_use_cases")
     list_user_hierarchy_groups_paginator: ListUserHierarchyGroupsPaginator = client.get_paginator("list_user_hierarchy_groups")
     list_users_paginator: ListUsersPaginator = client.get_paginator("list_users")
     ```
@@ -47,14 +65,23 @@ from mypy_boto3_connect.type_defs import (
     FiltersTypeDef,
     GetMetricDataResponseTypeDef,
     HistoricalMetricTypeDef,
+    ListApprovedOriginsResponseTypeDef,
     ListContactFlowsResponseTypeDef,
     ListHoursOfOperationsResponseTypeDef,
+    ListInstanceAttributesResponseTypeDef,
+    ListInstancesResponseTypeDef,
+    ListInstanceStorageConfigsResponseTypeDef,
+    ListIntegrationAssociationsResponseTypeDef,
+    ListLambdaFunctionsResponseTypeDef,
+    ListLexBotsResponseTypeDef,
     ListPhoneNumbersResponseTypeDef,
     ListPromptsResponseTypeDef,
     ListQueuesResponseTypeDef,
     ListRoutingProfileQueuesResponseTypeDef,
     ListRoutingProfilesResponseTypeDef,
+    ListSecurityKeysResponseTypeDef,
     ListSecurityProfilesResponseTypeDef,
+    ListUseCasesResponseTypeDef,
     ListUserHierarchyGroupsResponseTypeDef,
     ListUsersResponseTypeDef,
     PaginatorConfigTypeDef,
@@ -68,14 +95,23 @@ else:
 
 __all__ = (
     "GetMetricDataPaginator",
+    "ListApprovedOriginsPaginator",
     "ListContactFlowsPaginator",
     "ListHoursOfOperationsPaginator",
+    "ListInstanceAttributesPaginator",
+    "ListInstanceStorageConfigsPaginator",
+    "ListInstancesPaginator",
+    "ListIntegrationAssociationsPaginator",
+    "ListLambdaFunctionsPaginator",
+    "ListLexBotsPaginator",
     "ListPhoneNumbersPaginator",
     "ListPromptsPaginator",
     "ListQueuesPaginator",
     "ListRoutingProfileQueuesPaginator",
     "ListRoutingProfilesPaginator",
+    "ListSecurityKeysPaginator",
     "ListSecurityProfilesPaginator",
+    "ListUseCasesPaginator",
     "ListUserHierarchyGroupsPaginator",
     "ListUsersPaginator",
 )
@@ -83,7 +119,7 @@ __all__ = (
 
 class GetMetricDataPaginator(Boto3Paginator):
     """
-    [Paginator.GetMetricData documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Paginator.GetMetricData)
+    [Paginator.GetMetricData documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connect.html#Connect.Paginator.GetMetricData)
     """
 
     def paginate(
@@ -97,13 +133,26 @@ class GetMetricDataPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetMetricDataResponseTypeDef]:
         """
-        [GetMetricData.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Paginator.GetMetricData.paginate)
+        [GetMetricData.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connect.html#Connect.Paginator.GetMetricData.paginate)
+        """
+
+
+class ListApprovedOriginsPaginator(Boto3Paginator):
+    """
+    [Paginator.ListApprovedOrigins documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connect.html#Connect.Paginator.ListApprovedOrigins)
+    """
+
+    def paginate(
+        self, InstanceId: str, PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[ListApprovedOriginsResponseTypeDef]:
+        """
+        [ListApprovedOrigins.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connect.html#Connect.Paginator.ListApprovedOrigins.paginate)
         """
 
 
 class ListContactFlowsPaginator(Boto3Paginator):
     """
-    [Paginator.ListContactFlows documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Paginator.ListContactFlows)
+    [Paginator.ListContactFlows documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connect.html#Connect.Paginator.ListContactFlows)
     """
 
     def paginate(
@@ -125,26 +174,114 @@ class ListContactFlowsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListContactFlowsResponseTypeDef]:
         """
-        [ListContactFlows.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Paginator.ListContactFlows.paginate)
+        [ListContactFlows.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connect.html#Connect.Paginator.ListContactFlows.paginate)
         """
 
 
 class ListHoursOfOperationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListHoursOfOperations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Paginator.ListHoursOfOperations)
+    [Paginator.ListHoursOfOperations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connect.html#Connect.Paginator.ListHoursOfOperations)
     """
 
     def paginate(
         self, InstanceId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListHoursOfOperationsResponseTypeDef]:
         """
-        [ListHoursOfOperations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Paginator.ListHoursOfOperations.paginate)
+        [ListHoursOfOperations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connect.html#Connect.Paginator.ListHoursOfOperations.paginate)
+        """
+
+
+class ListInstanceAttributesPaginator(Boto3Paginator):
+    """
+    [Paginator.ListInstanceAttributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connect.html#Connect.Paginator.ListInstanceAttributes)
+    """
+
+    def paginate(
+        self, InstanceId: str, PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[ListInstanceAttributesResponseTypeDef]:
+        """
+        [ListInstanceAttributes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connect.html#Connect.Paginator.ListInstanceAttributes.paginate)
+        """
+
+
+class ListInstanceStorageConfigsPaginator(Boto3Paginator):
+    """
+    [Paginator.ListInstanceStorageConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connect.html#Connect.Paginator.ListInstanceStorageConfigs)
+    """
+
+    def paginate(
+        self,
+        InstanceId: str,
+        ResourceType: Literal[
+            "CHAT_TRANSCRIPTS",
+            "CALL_RECORDINGS",
+            "SCHEDULED_REPORTS",
+            "MEDIA_STREAMS",
+            "CONTACT_TRACE_RECORDS",
+            "AGENT_EVENTS",
+        ],
+        PaginationConfig: PaginatorConfigTypeDef = None,
+    ) -> Iterator[ListInstanceStorageConfigsResponseTypeDef]:
+        """
+        [ListInstanceStorageConfigs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connect.html#Connect.Paginator.ListInstanceStorageConfigs.paginate)
+        """
+
+
+class ListInstancesPaginator(Boto3Paginator):
+    """
+    [Paginator.ListInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connect.html#Connect.Paginator.ListInstances)
+    """
+
+    def paginate(
+        self, PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[ListInstancesResponseTypeDef]:
+        """
+        [ListInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connect.html#Connect.Paginator.ListInstances.paginate)
+        """
+
+
+class ListIntegrationAssociationsPaginator(Boto3Paginator):
+    """
+    [Paginator.ListIntegrationAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connect.html#Connect.Paginator.ListIntegrationAssociations)
+    """
+
+    def paginate(
+        self, InstanceId: str, PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[ListIntegrationAssociationsResponseTypeDef]:
+        """
+        [ListIntegrationAssociations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connect.html#Connect.Paginator.ListIntegrationAssociations.paginate)
+        """
+
+
+class ListLambdaFunctionsPaginator(Boto3Paginator):
+    """
+    [Paginator.ListLambdaFunctions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connect.html#Connect.Paginator.ListLambdaFunctions)
+    """
+
+    def paginate(
+        self, InstanceId: str, PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[ListLambdaFunctionsResponseTypeDef]:
+        """
+        [ListLambdaFunctions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connect.html#Connect.Paginator.ListLambdaFunctions.paginate)
+        """
+
+
+class ListLexBotsPaginator(Boto3Paginator):
+    """
+    [Paginator.ListLexBots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connect.html#Connect.Paginator.ListLexBots)
+    """
+
+    def paginate(
+        self, InstanceId: str, PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[ListLexBotsResponseTypeDef]:
+        """
+        [ListLexBots.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connect.html#Connect.Paginator.ListLexBots.paginate)
         """
 
 
 class ListPhoneNumbersPaginator(Boto3Paginator):
     """
-    [Paginator.ListPhoneNumbers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Paginator.ListPhoneNumbers)
+    [Paginator.ListPhoneNumbers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connect.html#Connect.Paginator.ListPhoneNumbers)
     """
 
     def paginate(
@@ -395,26 +532,26 @@ class ListPhoneNumbersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListPhoneNumbersResponseTypeDef]:
         """
-        [ListPhoneNumbers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Paginator.ListPhoneNumbers.paginate)
+        [ListPhoneNumbers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connect.html#Connect.Paginator.ListPhoneNumbers.paginate)
         """
 
 
 class ListPromptsPaginator(Boto3Paginator):
     """
-    [Paginator.ListPrompts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Paginator.ListPrompts)
+    [Paginator.ListPrompts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connect.html#Connect.Paginator.ListPrompts)
     """
 
     def paginate(
         self, InstanceId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPromptsResponseTypeDef]:
         """
-        [ListPrompts.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Paginator.ListPrompts.paginate)
+        [ListPrompts.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connect.html#Connect.Paginator.ListPrompts.paginate)
         """
 
 
 class ListQueuesPaginator(Boto3Paginator):
     """
-    [Paginator.ListQueues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Paginator.ListQueues)
+    [Paginator.ListQueues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connect.html#Connect.Paginator.ListQueues)
     """
 
     def paginate(
@@ -424,13 +561,13 @@ class ListQueuesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListQueuesResponseTypeDef]:
         """
-        [ListQueues.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Paginator.ListQueues.paginate)
+        [ListQueues.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connect.html#Connect.Paginator.ListQueues.paginate)
         """
 
 
 class ListRoutingProfileQueuesPaginator(Boto3Paginator):
     """
-    [Paginator.ListRoutingProfileQueues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Paginator.ListRoutingProfileQueues)
+    [Paginator.ListRoutingProfileQueues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connect.html#Connect.Paginator.ListRoutingProfileQueues)
     """
 
     def paginate(
@@ -440,57 +577,86 @@ class ListRoutingProfileQueuesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListRoutingProfileQueuesResponseTypeDef]:
         """
-        [ListRoutingProfileQueues.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Paginator.ListRoutingProfileQueues.paginate)
+        [ListRoutingProfileQueues.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connect.html#Connect.Paginator.ListRoutingProfileQueues.paginate)
         """
 
 
 class ListRoutingProfilesPaginator(Boto3Paginator):
     """
-    [Paginator.ListRoutingProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Paginator.ListRoutingProfiles)
+    [Paginator.ListRoutingProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connect.html#Connect.Paginator.ListRoutingProfiles)
     """
 
     def paginate(
         self, InstanceId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRoutingProfilesResponseTypeDef]:
         """
-        [ListRoutingProfiles.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Paginator.ListRoutingProfiles.paginate)
+        [ListRoutingProfiles.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connect.html#Connect.Paginator.ListRoutingProfiles.paginate)
+        """
+
+
+class ListSecurityKeysPaginator(Boto3Paginator):
+    """
+    [Paginator.ListSecurityKeys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connect.html#Connect.Paginator.ListSecurityKeys)
+    """
+
+    def paginate(
+        self, InstanceId: str, PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[ListSecurityKeysResponseTypeDef]:
+        """
+        [ListSecurityKeys.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connect.html#Connect.Paginator.ListSecurityKeys.paginate)
         """
 
 
 class ListSecurityProfilesPaginator(Boto3Paginator):
     """
-    [Paginator.ListSecurityProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Paginator.ListSecurityProfiles)
+    [Paginator.ListSecurityProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connect.html#Connect.Paginator.ListSecurityProfiles)
     """
 
     def paginate(
         self, InstanceId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSecurityProfilesResponseTypeDef]:
         """
-        [ListSecurityProfiles.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Paginator.ListSecurityProfiles.paginate)
+        [ListSecurityProfiles.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connect.html#Connect.Paginator.ListSecurityProfiles.paginate)
+        """
+
+
+class ListUseCasesPaginator(Boto3Paginator):
+    """
+    [Paginator.ListUseCases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connect.html#Connect.Paginator.ListUseCases)
+    """
+
+    def paginate(
+        self,
+        InstanceId: str,
+        IntegrationAssociationId: str,
+        PaginationConfig: PaginatorConfigTypeDef = None,
+    ) -> Iterator[ListUseCasesResponseTypeDef]:
+        """
+        [ListUseCases.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connect.html#Connect.Paginator.ListUseCases.paginate)
         """
 
 
 class ListUserHierarchyGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.ListUserHierarchyGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Paginator.ListUserHierarchyGroups)
+    [Paginator.ListUserHierarchyGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connect.html#Connect.Paginator.ListUserHierarchyGroups)
     """
 
     def paginate(
         self, InstanceId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListUserHierarchyGroupsResponseTypeDef]:
         """
-        [ListUserHierarchyGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Paginator.ListUserHierarchyGroups.paginate)
+        [ListUserHierarchyGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connect.html#Connect.Paginator.ListUserHierarchyGroups.paginate)
         """
 
 
 class ListUsersPaginator(Boto3Paginator):
     """
-    [Paginator.ListUsers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Paginator.ListUsers)
+    [Paginator.ListUsers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connect.html#Connect.Paginator.ListUsers)
     """
 
     def paginate(
         self, InstanceId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListUsersResponseTypeDef]:
         """
-        [ListUsers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/connect.html#Connect.Paginator.ListUsers.paginate)
+        [ListUsers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connect.html#Connect.Paginator.ListUsers.paginate)
         """

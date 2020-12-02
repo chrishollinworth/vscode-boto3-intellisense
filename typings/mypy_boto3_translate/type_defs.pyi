@@ -29,13 +29,20 @@ __all__ = (
     "InputDataConfigTypeDef",
     "JobDetailsTypeDef",
     "OutputDataConfigTypeDef",
+    "ParallelDataConfigTypeDef",
+    "ParallelDataDataLocationTypeDef",
+    "ParallelDataPropertiesTypeDef",
     "TermTypeDef",
     "TerminologyDataLocationTypeDef",
     "TerminologyPropertiesTypeDef",
     "TextTranslationJobPropertiesTypeDef",
+    "CreateParallelDataResponseTypeDef",
+    "DeleteParallelDataResponseTypeDef",
     "DescribeTextTranslationJobResponseTypeDef",
+    "GetParallelDataResponseTypeDef",
     "GetTerminologyResponseTypeDef",
     "ImportTerminologyResponseTypeDef",
+    "ListParallelDataResponseTypeDef",
     "ListTerminologiesResponseTypeDef",
     "ListTextTranslationJobsResponseTypeDef",
     "PaginatorConfigTypeDef",
@@ -44,6 +51,7 @@ __all__ = (
     "TerminologyDataTypeDef",
     "TextTranslationJobFilterTypeDef",
     "TranslateTextResponseTypeDef",
+    "UpdateParallelDataResponseTypeDef",
 )
 
 AppliedTerminologyTypeDef = TypedDict(
@@ -61,6 +69,40 @@ JobDetailsTypeDef = TypedDict(
 )
 
 OutputDataConfigTypeDef = TypedDict("OutputDataConfigTypeDef", {"S3Uri": str})
+
+ParallelDataConfigTypeDef = TypedDict(
+    "ParallelDataConfigTypeDef", {"S3Uri": str, "Format": Literal["TSV", "CSV", "TMX"]}
+)
+
+ParallelDataDataLocationTypeDef = TypedDict(
+    "ParallelDataDataLocationTypeDef", {"RepositoryType": str, "Location": str}
+)
+
+ParallelDataPropertiesTypeDef = TypedDict(
+    "ParallelDataPropertiesTypeDef",
+    {
+        "Name": str,
+        "Arn": str,
+        "Description": str,
+        "Status": Literal["CREATING", "UPDATING", "ACTIVE", "DELETING", "FAILED"],
+        "SourceLanguageCode": str,
+        "TargetLanguageCodes": List[str],
+        "ParallelDataConfig": "ParallelDataConfigTypeDef",
+        "Message": str,
+        "ImportedDataSize": int,
+        "ImportedRecordCount": int,
+        "FailedRecordCount": int,
+        "SkippedRecordCount": int,
+        "EncryptionKey": "EncryptionKeyTypeDef",
+        "CreatedAt": datetime,
+        "LastUpdatedAt": datetime,
+        "LatestUpdateAttemptStatus": Literal[
+            "CREATING", "UPDATING", "ACTIVE", "DELETING", "FAILED"
+        ],
+        "LatestUpdateAttemptAt": datetime,
+    },
+    total=False,
+)
 
 TermTypeDef = TypedDict("TermTypeDef", {"SourceText": str, "TargetText": str}, total=False)
 
@@ -103,6 +145,7 @@ TextTranslationJobPropertiesTypeDef = TypedDict(
         "SourceLanguageCode": str,
         "TargetLanguageCodes": List[str],
         "TerminologyNames": List[str],
+        "ParallelDataNames": List[str],
         "Message": str,
         "SubmittedTime": datetime,
         "EndTime": datetime,
@@ -113,9 +156,32 @@ TextTranslationJobPropertiesTypeDef = TypedDict(
     total=False,
 )
 
+CreateParallelDataResponseTypeDef = TypedDict(
+    "CreateParallelDataResponseTypeDef",
+    {"Name": str, "Status": Literal["CREATING", "UPDATING", "ACTIVE", "DELETING", "FAILED"]},
+    total=False,
+)
+
+DeleteParallelDataResponseTypeDef = TypedDict(
+    "DeleteParallelDataResponseTypeDef",
+    {"Name": str, "Status": Literal["CREATING", "UPDATING", "ACTIVE", "DELETING", "FAILED"]},
+    total=False,
+)
+
 DescribeTextTranslationJobResponseTypeDef = TypedDict(
     "DescribeTextTranslationJobResponseTypeDef",
     {"TextTranslationJobProperties": "TextTranslationJobPropertiesTypeDef"},
+    total=False,
+)
+
+GetParallelDataResponseTypeDef = TypedDict(
+    "GetParallelDataResponseTypeDef",
+    {
+        "ParallelDataProperties": "ParallelDataPropertiesTypeDef",
+        "DataLocation": "ParallelDataDataLocationTypeDef",
+        "AuxiliaryDataLocation": "ParallelDataDataLocationTypeDef",
+        "LatestUpdateAttemptAuxiliaryDataLocation": "ParallelDataDataLocationTypeDef",
+    },
     total=False,
 )
 
@@ -131,6 +197,12 @@ GetTerminologyResponseTypeDef = TypedDict(
 ImportTerminologyResponseTypeDef = TypedDict(
     "ImportTerminologyResponseTypeDef",
     {"TerminologyProperties": "TerminologyPropertiesTypeDef"},
+    total=False,
+)
+
+ListParallelDataResponseTypeDef = TypedDict(
+    "ListParallelDataResponseTypeDef",
+    {"ParallelDataPropertiesList": List["ParallelDataPropertiesTypeDef"], "NextToken": str},
     total=False,
 )
 
@@ -225,3 +297,17 @@ class TranslateTextResponseTypeDef(
     _RequiredTranslateTextResponseTypeDef, _OptionalTranslateTextResponseTypeDef
 ):
     pass
+
+
+UpdateParallelDataResponseTypeDef = TypedDict(
+    "UpdateParallelDataResponseTypeDef",
+    {
+        "Name": str,
+        "Status": Literal["CREATING", "UPDATING", "ACTIVE", "DELETING", "FAILED"],
+        "LatestUpdateAttemptStatus": Literal[
+            "CREATING", "UPDATING", "ACTIVE", "DELETING", "FAILED"
+        ],
+        "LatestUpdateAttemptAt": datetime,
+    },
+    total=False,
+)

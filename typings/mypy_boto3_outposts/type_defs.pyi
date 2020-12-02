@@ -44,6 +44,7 @@ OutpostTypeDef = TypedDict(
         "LifeCycleStatus": str,
         "AvailabilityZone": str,
         "AvailabilityZoneId": str,
+        "Tags": Dict[str, str],
     },
     total=False,
 )
@@ -60,7 +61,9 @@ ResponseMetadata = TypedDict(
 )
 
 SiteTypeDef = TypedDict(
-    "SiteTypeDef", {"SiteId": str, "AccountId": str, "Name": str, "Description": str}, total=False
+    "SiteTypeDef",
+    {"SiteId": str, "AccountId": str, "Name": str, "Description": str, "Tags": Dict[str, str]},
+    total=False,
 )
 
 CreateOutpostOutputTypeDef = TypedDict(

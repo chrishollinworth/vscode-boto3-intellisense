@@ -1,4 +1,5 @@
 from mypy_boto3_cloudhsmv2.type_defs import (
+    BackupRetentionPolicyTypeDef,
     BackupTypeDef,
     CertificatesTypeDef,
     ClusterTypeDef,
@@ -15,11 +16,14 @@ from mypy_boto3_cloudhsmv2.type_defs import (
     DescribeClustersResponseTypeDef,
     InitializeClusterResponseTypeDef,
     ListTagsResponseTypeDef,
+    ModifyBackupAttributesResponseTypeDef,
+    ModifyClusterResponseTypeDef,
     PaginatorConfigTypeDef,
     RestoreBackupResponseTypeDef,
 )
 
 __all__ = (
+    "BackupRetentionPolicyTypeDef",
     "BackupTypeDef",
     "CertificatesTypeDef",
     "ClusterTypeDef",
@@ -36,6 +40,8 @@ __all__ = (
     "DescribeClustersResponseTypeDef",
     "InitializeClusterResponseTypeDef",
     "ListTagsResponseTypeDef",
+    "ModifyBackupAttributesResponseTypeDef",
+    "ModifyClusterResponseTypeDef",
     "PaginatorConfigTypeDef",
     "RestoreBackupResponseTypeDef",
 )

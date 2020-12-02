@@ -36,7 +36,7 @@ __all__ = ("SearchDevicesPaginator", "SearchQuantumTasksPaginator")
 
 class SearchDevicesPaginator(Boto3Paginator):
     """
-    [Paginator.SearchDevices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/braket.html#Braket.Paginator.SearchDevices)
+    [Paginator.SearchDevices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/braket.html#Braket.Paginator.SearchDevices)
     """
 
     def paginate(
@@ -45,13 +45,13 @@ class SearchDevicesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[SearchDevicesResponseTypeDef]:
         """
-        [SearchDevices.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/braket.html#Braket.Paginator.SearchDevices.paginate)
+        [SearchDevices.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/braket.html#Braket.Paginator.SearchDevices.paginate)
         """
 
 
 class SearchQuantumTasksPaginator(Boto3Paginator):
     """
-    [Paginator.SearchQuantumTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/braket.html#Braket.Paginator.SearchQuantumTasks)
+    [Paginator.SearchQuantumTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/braket.html#Braket.Paginator.SearchQuantumTasks)
     """
 
     def paginate(
@@ -60,5 +60,5 @@ class SearchQuantumTasksPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[SearchQuantumTasksResponseTypeDef]:
         """
-        [SearchQuantumTasks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/braket.html#Braket.Paginator.SearchQuantumTasks.paginate)
+        [SearchQuantumTasks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/braket.html#Braket.Paginator.SearchQuantumTasks.paginate)
         """

@@ -4,9 +4,9 @@ Main interface for connect service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_connect.type_defs import ContactFlowSummaryTypeDef
+    from mypy_boto3_connect.type_defs import AttributeTypeDef
 
-    data: ContactFlowSummaryTypeDef = {...}
+    data: AttributeTypeDef = {...}
     ```
 """
 import sys
@@ -24,6 +24,7 @@ else:
 
 
 __all__ = (
+    "AttributeTypeDef",
     "ContactFlowSummaryTypeDef",
     "ContactFlowTypeDef",
     "CredentialsTypeDef",
@@ -31,6 +32,7 @@ __all__ = (
     "CurrentMetricResultTypeDef",
     "CurrentMetricTypeDef",
     "DimensionsTypeDef",
+    "EncryptionConfigTypeDef",
     "HierarchyGroupSummaryTypeDef",
     "HierarchyGroupTypeDef",
     "HierarchyLevelTypeDef",
@@ -41,6 +43,15 @@ __all__ = (
     "HistoricalMetricResultTypeDef",
     "HistoricalMetricTypeDef",
     "HoursOfOperationSummaryTypeDef",
+    "InstanceStatusReasonTypeDef",
+    "InstanceStorageConfigTypeDef",
+    "InstanceSummaryTypeDef",
+    "InstanceTypeDef",
+    "IntegrationAssociationSummaryTypeDef",
+    "KinesisFirehoseConfigTypeDef",
+    "KinesisStreamConfigTypeDef",
+    "KinesisVideoStreamConfigTypeDef",
+    "LexBotTypeDef",
     "MediaConcurrencyTypeDef",
     "PhoneNumberSummaryTypeDef",
     "PromptSummaryTypeDef",
@@ -50,18 +61,29 @@ __all__ = (
     "RoutingProfileQueueReferenceTypeDef",
     "RoutingProfileSummaryTypeDef",
     "RoutingProfileTypeDef",
+    "S3ConfigTypeDef",
+    "SecurityKeyTypeDef",
     "SecurityProfileSummaryTypeDef",
     "ThresholdTypeDef",
+    "UseCaseTypeDef",
     "UserIdentityInfoTypeDef",
     "UserPhoneConfigTypeDef",
     "UserSummaryTypeDef",
     "UserTypeDef",
+    "AssociateInstanceStorageConfigResponseTypeDef",
+    "AssociateSecurityKeyResponseTypeDef",
     "ChatMessageTypeDef",
     "CreateContactFlowResponseTypeDef",
+    "CreateInstanceResponseTypeDef",
+    "CreateIntegrationAssociationResponseTypeDef",
     "CreateRoutingProfileResponseTypeDef",
+    "CreateUseCaseResponseTypeDef",
     "CreateUserHierarchyGroupResponseTypeDef",
     "CreateUserResponseTypeDef",
     "DescribeContactFlowResponseTypeDef",
+    "DescribeInstanceAttributeResponseTypeDef",
+    "DescribeInstanceResponseTypeDef",
+    "DescribeInstanceStorageConfigResponseTypeDef",
     "DescribeRoutingProfileResponseTypeDef",
     "DescribeUserHierarchyGroupResponseTypeDef",
     "DescribeUserHierarchyStructureResponseTypeDef",
@@ -72,23 +94,51 @@ __all__ = (
     "GetFederationTokenResponseTypeDef",
     "GetMetricDataResponseTypeDef",
     "HierarchyStructureUpdateTypeDef",
+    "ListApprovedOriginsResponseTypeDef",
     "ListContactFlowsResponseTypeDef",
     "ListHoursOfOperationsResponseTypeDef",
+    "ListInstanceAttributesResponseTypeDef",
+    "ListInstanceStorageConfigsResponseTypeDef",
+    "ListInstancesResponseTypeDef",
+    "ListIntegrationAssociationsResponseTypeDef",
+    "ListLambdaFunctionsResponseTypeDef",
+    "ListLexBotsResponseTypeDef",
     "ListPhoneNumbersResponseTypeDef",
     "ListPromptsResponseTypeDef",
     "ListQueuesResponseTypeDef",
     "ListRoutingProfileQueuesResponseTypeDef",
     "ListRoutingProfilesResponseTypeDef",
+    "ListSecurityKeysResponseTypeDef",
     "ListSecurityProfilesResponseTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "ListUseCasesResponseTypeDef",
     "ListUserHierarchyGroupsResponseTypeDef",
     "ListUsersResponseTypeDef",
     "PaginatorConfigTypeDef",
     "ParticipantDetailsTypeDef",
+    "ReferenceTypeDef",
     "RoutingProfileQueueConfigTypeDef",
     "StartChatContactResponseTypeDef",
     "StartOutboundVoiceContactResponseTypeDef",
+    "StartTaskContactResponseTypeDef",
     "VoiceRecordingConfigurationTypeDef",
+)
+
+AttributeTypeDef = TypedDict(
+    "AttributeTypeDef",
+    {
+        "AttributeType": Literal[
+            "INBOUND_CALLS",
+            "OUTBOUND_CALLS",
+            "CONTACTFLOW_LOGS",
+            "CONTACT_LENS",
+            "AUTO_RESOLVE_BEST_VOICES",
+            "USE_CUSTOM_TTS_VOICES",
+            "EARLY_MEDIA",
+        ],
+        "Value": str,
+    },
+    total=False,
 )
 
 ContactFlowSummaryTypeDef = TypedDict(
@@ -182,8 +232,12 @@ CurrentMetricTypeDef = TypedDict(
 
 DimensionsTypeDef = TypedDict(
     "DimensionsTypeDef",
-    {"Queue": "QueueReferenceTypeDef", "Channel": Literal["VOICE", "CHAT"]},
+    {"Queue": "QueueReferenceTypeDef", "Channel": Literal["VOICE", "CHAT", "TASK"]},
     total=False,
+)
+
+EncryptionConfigTypeDef = TypedDict(
+    "EncryptionConfigTypeDef", {"EncryptionType": Literal["KMS"], "KeyId": str}
 )
 
 HierarchyGroupSummaryTypeDef = TypedDict(
@@ -279,8 +333,94 @@ HoursOfOperationSummaryTypeDef = TypedDict(
     "HoursOfOperationSummaryTypeDef", {"Id": str, "Arn": str, "Name": str}, total=False
 )
 
+InstanceStatusReasonTypeDef = TypedDict(
+    "InstanceStatusReasonTypeDef", {"Message": str}, total=False
+)
+
+_RequiredInstanceStorageConfigTypeDef = TypedDict(
+    "_RequiredInstanceStorageConfigTypeDef",
+    {"StorageType": Literal["S3", "KINESIS_VIDEO_STREAM", "KINESIS_STREAM", "KINESIS_FIREHOSE"]},
+)
+_OptionalInstanceStorageConfigTypeDef = TypedDict(
+    "_OptionalInstanceStorageConfigTypeDef",
+    {
+        "AssociationId": str,
+        "S3Config": "S3ConfigTypeDef",
+        "KinesisVideoStreamConfig": "KinesisVideoStreamConfigTypeDef",
+        "KinesisStreamConfig": "KinesisStreamConfigTypeDef",
+        "KinesisFirehoseConfig": "KinesisFirehoseConfigTypeDef",
+    },
+    total=False,
+)
+
+
+class InstanceStorageConfigTypeDef(
+    _RequiredInstanceStorageConfigTypeDef, _OptionalInstanceStorageConfigTypeDef
+):
+    pass
+
+
+InstanceSummaryTypeDef = TypedDict(
+    "InstanceSummaryTypeDef",
+    {
+        "Id": str,
+        "Arn": str,
+        "IdentityManagementType": Literal["SAML", "CONNECT_MANAGED", "EXISTING_DIRECTORY"],
+        "InstanceAlias": str,
+        "CreatedTime": datetime,
+        "ServiceRole": str,
+        "InstanceStatus": Literal["CREATION_IN_PROGRESS", "ACTIVE", "CREATION_FAILED"],
+        "InboundCallsEnabled": bool,
+        "OutboundCallsEnabled": bool,
+    },
+    total=False,
+)
+
+InstanceTypeDef = TypedDict(
+    "InstanceTypeDef",
+    {
+        "Id": str,
+        "Arn": str,
+        "IdentityManagementType": Literal["SAML", "CONNECT_MANAGED", "EXISTING_DIRECTORY"],
+        "InstanceAlias": str,
+        "CreatedTime": datetime,
+        "ServiceRole": str,
+        "InstanceStatus": Literal["CREATION_IN_PROGRESS", "ACTIVE", "CREATION_FAILED"],
+        "StatusReason": "InstanceStatusReasonTypeDef",
+        "InboundCallsEnabled": bool,
+        "OutboundCallsEnabled": bool,
+    },
+    total=False,
+)
+
+IntegrationAssociationSummaryTypeDef = TypedDict(
+    "IntegrationAssociationSummaryTypeDef",
+    {
+        "IntegrationAssociationId": str,
+        "IntegrationAssociationArn": str,
+        "InstanceId": str,
+        "IntegrationType": Literal["EVENT"],
+        "IntegrationArn": str,
+        "SourceApplicationUrl": str,
+        "SourceApplicationName": str,
+        "SourceType": Literal["SALESFORCE", "ZENDESK"],
+    },
+    total=False,
+)
+
+KinesisFirehoseConfigTypeDef = TypedDict("KinesisFirehoseConfigTypeDef", {"FirehoseArn": str})
+
+KinesisStreamConfigTypeDef = TypedDict("KinesisStreamConfigTypeDef", {"StreamArn": str})
+
+KinesisVideoStreamConfigTypeDef = TypedDict(
+    "KinesisVideoStreamConfigTypeDef",
+    {"Prefix": str, "RetentionPeriodHours": int, "EncryptionConfig": "EncryptionConfigTypeDef"},
+)
+
+LexBotTypeDef = TypedDict("LexBotTypeDef", {"Name": str, "LexRegion": str}, total=False)
+
 MediaConcurrencyTypeDef = TypedDict(
-    "MediaConcurrencyTypeDef", {"Channel": Literal["VOICE", "CHAT"], "Concurrency": int}
+    "MediaConcurrencyTypeDef", {"Channel": Literal["VOICE", "CHAT", "TASK"], "Concurrency": int}
 )
 
 PhoneNumberSummaryTypeDef = TypedDict(
@@ -553,12 +693,13 @@ RoutingProfileQueueConfigSummaryTypeDef = TypedDict(
         "QueueName": str,
         "Priority": int,
         "Delay": int,
-        "Channel": Literal["VOICE", "CHAT"],
+        "Channel": Literal["VOICE", "CHAT", "TASK"],
     },
 )
 
 RoutingProfileQueueReferenceTypeDef = TypedDict(
-    "RoutingProfileQueueReferenceTypeDef", {"QueueId": str, "Channel": Literal["VOICE", "CHAT"]}
+    "RoutingProfileQueueReferenceTypeDef",
+    {"QueueId": str, "Channel": Literal["VOICE", "CHAT", "TASK"]},
 )
 
 RoutingProfileSummaryTypeDef = TypedDict(
@@ -580,12 +721,34 @@ RoutingProfileTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredS3ConfigTypeDef = TypedDict(
+    "_RequiredS3ConfigTypeDef", {"BucketName": str, "BucketPrefix": str}
+)
+_OptionalS3ConfigTypeDef = TypedDict(
+    "_OptionalS3ConfigTypeDef", {"EncryptionConfig": "EncryptionConfigTypeDef"}, total=False
+)
+
+
+class S3ConfigTypeDef(_RequiredS3ConfigTypeDef, _OptionalS3ConfigTypeDef):
+    pass
+
+
+SecurityKeyTypeDef = TypedDict(
+    "SecurityKeyTypeDef", {"AssociationId": str, "Key": str, "CreationTime": datetime}, total=False
+)
+
 SecurityProfileSummaryTypeDef = TypedDict(
     "SecurityProfileSummaryTypeDef", {"Id": str, "Arn": str, "Name": str}, total=False
 )
 
 ThresholdTypeDef = TypedDict(
     "ThresholdTypeDef", {"Comparison": Literal["LT"], "ThresholdValue": float}, total=False
+)
+
+UseCaseTypeDef = TypedDict(
+    "UseCaseTypeDef",
+    {"UseCaseId": str, "UseCaseArn": str, "UseCaseType": Literal["RULES_EVALUATION"]},
+    total=False,
 )
 
 UserIdentityInfoTypeDef = TypedDict(
@@ -627,16 +790,38 @@ UserTypeDef = TypedDict(
     total=False,
 )
 
+AssociateInstanceStorageConfigResponseTypeDef = TypedDict(
+    "AssociateInstanceStorageConfigResponseTypeDef", {"AssociationId": str}, total=False
+)
+
+AssociateSecurityKeyResponseTypeDef = TypedDict(
+    "AssociateSecurityKeyResponseTypeDef", {"AssociationId": str}, total=False
+)
+
 ChatMessageTypeDef = TypedDict("ChatMessageTypeDef", {"ContentType": str, "Content": str})
 
 CreateContactFlowResponseTypeDef = TypedDict(
     "CreateContactFlowResponseTypeDef", {"ContactFlowId": str, "ContactFlowArn": str}, total=False
 )
 
+CreateInstanceResponseTypeDef = TypedDict(
+    "CreateInstanceResponseTypeDef", {"Id": str, "Arn": str}, total=False
+)
+
+CreateIntegrationAssociationResponseTypeDef = TypedDict(
+    "CreateIntegrationAssociationResponseTypeDef",
+    {"IntegrationAssociationId": str, "IntegrationAssociationArn": str},
+    total=False,
+)
+
 CreateRoutingProfileResponseTypeDef = TypedDict(
     "CreateRoutingProfileResponseTypeDef",
     {"RoutingProfileArn": str, "RoutingProfileId": str},
     total=False,
+)
+
+CreateUseCaseResponseTypeDef = TypedDict(
+    "CreateUseCaseResponseTypeDef", {"UseCaseId": str, "UseCaseArn": str}, total=False
 )
 
 CreateUserHierarchyGroupResponseTypeDef = TypedDict(
@@ -651,6 +836,20 @@ CreateUserResponseTypeDef = TypedDict(
 
 DescribeContactFlowResponseTypeDef = TypedDict(
     "DescribeContactFlowResponseTypeDef", {"ContactFlow": "ContactFlowTypeDef"}, total=False
+)
+
+DescribeInstanceAttributeResponseTypeDef = TypedDict(
+    "DescribeInstanceAttributeResponseTypeDef", {"Attribute": "AttributeTypeDef"}, total=False
+)
+
+DescribeInstanceResponseTypeDef = TypedDict(
+    "DescribeInstanceResponseTypeDef", {"Instance": "InstanceTypeDef"}, total=False
+)
+
+DescribeInstanceStorageConfigResponseTypeDef = TypedDict(
+    "DescribeInstanceStorageConfigResponseTypeDef",
+    {"StorageConfig": "InstanceStorageConfigTypeDef"},
+    total=False,
 )
 
 DescribeRoutingProfileResponseTypeDef = TypedDict(
@@ -676,7 +875,9 @@ DescribeUserResponseTypeDef = TypedDict(
 )
 
 FiltersTypeDef = TypedDict(
-    "FiltersTypeDef", {"Queues": List[str], "Channels": List[Literal["VOICE", "CHAT"]]}, total=False
+    "FiltersTypeDef",
+    {"Queues": List[str], "Channels": List[Literal["VOICE", "CHAT", "TASK"]]},
+    total=False,
 )
 
 GetContactAttributesResponseTypeDef = TypedDict(
@@ -715,6 +916,10 @@ HierarchyStructureUpdateTypeDef = TypedDict(
     total=False,
 )
 
+ListApprovedOriginsResponseTypeDef = TypedDict(
+    "ListApprovedOriginsResponseTypeDef", {"Origins": List[str], "NextToken": str}, total=False
+)
+
 ListContactFlowsResponseTypeDef = TypedDict(
     "ListContactFlowsResponseTypeDef",
     {"ContactFlowSummaryList": List["ContactFlowSummaryTypeDef"], "NextToken": str},
@@ -725,6 +930,43 @@ ListHoursOfOperationsResponseTypeDef = TypedDict(
     "ListHoursOfOperationsResponseTypeDef",
     {"HoursOfOperationSummaryList": List["HoursOfOperationSummaryTypeDef"], "NextToken": str},
     total=False,
+)
+
+ListInstanceAttributesResponseTypeDef = TypedDict(
+    "ListInstanceAttributesResponseTypeDef",
+    {"Attributes": List["AttributeTypeDef"], "NextToken": str},
+    total=False,
+)
+
+ListInstanceStorageConfigsResponseTypeDef = TypedDict(
+    "ListInstanceStorageConfigsResponseTypeDef",
+    {"StorageConfigs": List["InstanceStorageConfigTypeDef"], "NextToken": str},
+    total=False,
+)
+
+ListInstancesResponseTypeDef = TypedDict(
+    "ListInstancesResponseTypeDef",
+    {"InstanceSummaryList": List["InstanceSummaryTypeDef"], "NextToken": str},
+    total=False,
+)
+
+ListIntegrationAssociationsResponseTypeDef = TypedDict(
+    "ListIntegrationAssociationsResponseTypeDef",
+    {
+        "IntegrationAssociationSummaryList": List["IntegrationAssociationSummaryTypeDef"],
+        "NextToken": str,
+    },
+    total=False,
+)
+
+ListLambdaFunctionsResponseTypeDef = TypedDict(
+    "ListLambdaFunctionsResponseTypeDef",
+    {"LambdaFunctions": List[str], "NextToken": str},
+    total=False,
+)
+
+ListLexBotsResponseTypeDef = TypedDict(
+    "ListLexBotsResponseTypeDef", {"LexBots": List["LexBotTypeDef"], "NextToken": str}, total=False
 )
 
 ListPhoneNumbersResponseTypeDef = TypedDict(
@@ -760,6 +1002,12 @@ ListRoutingProfilesResponseTypeDef = TypedDict(
     total=False,
 )
 
+ListSecurityKeysResponseTypeDef = TypedDict(
+    "ListSecurityKeysResponseTypeDef",
+    {"SecurityKeys": List["SecurityKeyTypeDef"], "NextToken": str},
+    total=False,
+)
+
 ListSecurityProfilesResponseTypeDef = TypedDict(
     "ListSecurityProfilesResponseTypeDef",
     {"SecurityProfileSummaryList": List["SecurityProfileSummaryTypeDef"], "NextToken": str},
@@ -768,6 +1016,12 @@ ListSecurityProfilesResponseTypeDef = TypedDict(
 
 ListTagsForResourceResponseTypeDef = TypedDict(
     "ListTagsForResourceResponseTypeDef", {"tags": Dict[str, str]}, total=False
+)
+
+ListUseCasesResponseTypeDef = TypedDict(
+    "ListUseCasesResponseTypeDef",
+    {"UseCaseSummaryList": List["UseCaseTypeDef"], "NextToken": str},
+    total=False,
 )
 
 ListUserHierarchyGroupsResponseTypeDef = TypedDict(
@@ -788,6 +1042,8 @@ PaginatorConfigTypeDef = TypedDict(
 
 ParticipantDetailsTypeDef = TypedDict("ParticipantDetailsTypeDef", {"DisplayName": str})
 
+ReferenceTypeDef = TypedDict("ReferenceTypeDef", {"Value": str, "Type": Literal["URL"]})
+
 RoutingProfileQueueConfigTypeDef = TypedDict(
     "RoutingProfileQueueConfigTypeDef",
     {"QueueReference": "RoutingProfileQueueReferenceTypeDef", "Priority": int, "Delay": int},
@@ -801,6 +1057,10 @@ StartChatContactResponseTypeDef = TypedDict(
 
 StartOutboundVoiceContactResponseTypeDef = TypedDict(
     "StartOutboundVoiceContactResponseTypeDef", {"ContactId": str}, total=False
+)
+
+StartTaskContactResponseTypeDef = TypedDict(
+    "StartTaskContactResponseTypeDef", {"ContactId": str}, total=False
 )
 
 VoiceRecordingConfigurationTypeDef = TypedDict(

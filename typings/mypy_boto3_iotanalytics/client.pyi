@@ -90,7 +90,7 @@ class Exceptions:
 
 class IoTAnalyticsClient:
     """
-    [IoTAnalytics.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotanalytics.html#IoTAnalytics.Client)
+    [IoTAnalytics.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotanalytics.html#IoTAnalytics.Client)
     """
 
     meta: ClientMeta
@@ -100,19 +100,19 @@ class IoTAnalyticsClient:
         self, channelName: str, messages: List[MessageTypeDef]
     ) -> BatchPutMessageResponseTypeDef:
         """
-        [Client.batch_put_message documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotanalytics.html#IoTAnalytics.Client.batch_put_message)
+        [Client.batch_put_message documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotanalytics.html#IoTAnalytics.Client.batch_put_message)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotanalytics.html#IoTAnalytics.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotanalytics.html#IoTAnalytics.Client.can_paginate)
         """
 
     def cancel_pipeline_reprocessing(
         self, pipelineName: str, reprocessingId: str
     ) -> Dict[str, Any]:
         """
-        [Client.cancel_pipeline_reprocessing documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotanalytics.html#IoTAnalytics.Client.cancel_pipeline_reprocessing)
+        [Client.cancel_pipeline_reprocessing documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotanalytics.html#IoTAnalytics.Client.cancel_pipeline_reprocessing)
         """
 
     def create_channel(
@@ -123,7 +123,7 @@ class IoTAnalyticsClient:
         tags: List["TagTypeDef"] = None,
     ) -> CreateChannelResponseTypeDef:
         """
-        [Client.create_channel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotanalytics.html#IoTAnalytics.Client.create_channel)
+        [Client.create_channel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotanalytics.html#IoTAnalytics.Client.create_channel)
         """
 
     def create_dataset(
@@ -138,14 +138,14 @@ class IoTAnalyticsClient:
         lateDataRules: List["LateDataRuleTypeDef"] = None,
     ) -> CreateDatasetResponseTypeDef:
         """
-        [Client.create_dataset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotanalytics.html#IoTAnalytics.Client.create_dataset)
+        [Client.create_dataset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotanalytics.html#IoTAnalytics.Client.create_dataset)
         """
 
     def create_dataset_content(
         self, datasetName: str, versionId: str = None
     ) -> CreateDatasetContentResponseTypeDef:
         """
-        [Client.create_dataset_content documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotanalytics.html#IoTAnalytics.Client.create_dataset_content)
+        [Client.create_dataset_content documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotanalytics.html#IoTAnalytics.Client.create_dataset_content)
         """
 
     def create_datastore(
@@ -156,7 +156,7 @@ class IoTAnalyticsClient:
         tags: List["TagTypeDef"] = None,
     ) -> CreateDatastoreResponseTypeDef:
         """
-        [Client.create_datastore documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotanalytics.html#IoTAnalytics.Client.create_datastore)
+        [Client.create_datastore documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotanalytics.html#IoTAnalytics.Client.create_datastore)
         """
 
     def create_pipeline(
@@ -166,61 +166,61 @@ class IoTAnalyticsClient:
         tags: List["TagTypeDef"] = None,
     ) -> CreatePipelineResponseTypeDef:
         """
-        [Client.create_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotanalytics.html#IoTAnalytics.Client.create_pipeline)
+        [Client.create_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotanalytics.html#IoTAnalytics.Client.create_pipeline)
         """
 
     def delete_channel(self, channelName: str) -> None:
         """
-        [Client.delete_channel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotanalytics.html#IoTAnalytics.Client.delete_channel)
+        [Client.delete_channel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotanalytics.html#IoTAnalytics.Client.delete_channel)
         """
 
     def delete_dataset(self, datasetName: str) -> None:
         """
-        [Client.delete_dataset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotanalytics.html#IoTAnalytics.Client.delete_dataset)
+        [Client.delete_dataset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotanalytics.html#IoTAnalytics.Client.delete_dataset)
         """
 
     def delete_dataset_content(self, datasetName: str, versionId: str = None) -> None:
         """
-        [Client.delete_dataset_content documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotanalytics.html#IoTAnalytics.Client.delete_dataset_content)
+        [Client.delete_dataset_content documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotanalytics.html#IoTAnalytics.Client.delete_dataset_content)
         """
 
     def delete_datastore(self, datastoreName: str) -> None:
         """
-        [Client.delete_datastore documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotanalytics.html#IoTAnalytics.Client.delete_datastore)
+        [Client.delete_datastore documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotanalytics.html#IoTAnalytics.Client.delete_datastore)
         """
 
     def delete_pipeline(self, pipelineName: str) -> None:
         """
-        [Client.delete_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotanalytics.html#IoTAnalytics.Client.delete_pipeline)
+        [Client.delete_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotanalytics.html#IoTAnalytics.Client.delete_pipeline)
         """
 
     def describe_channel(
         self, channelName: str, includeStatistics: bool = None
     ) -> DescribeChannelResponseTypeDef:
         """
-        [Client.describe_channel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotanalytics.html#IoTAnalytics.Client.describe_channel)
+        [Client.describe_channel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotanalytics.html#IoTAnalytics.Client.describe_channel)
         """
 
     def describe_dataset(self, datasetName: str) -> DescribeDatasetResponseTypeDef:
         """
-        [Client.describe_dataset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotanalytics.html#IoTAnalytics.Client.describe_dataset)
+        [Client.describe_dataset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotanalytics.html#IoTAnalytics.Client.describe_dataset)
         """
 
     def describe_datastore(
         self, datastoreName: str, includeStatistics: bool = None
     ) -> DescribeDatastoreResponseTypeDef:
         """
-        [Client.describe_datastore documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotanalytics.html#IoTAnalytics.Client.describe_datastore)
+        [Client.describe_datastore documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotanalytics.html#IoTAnalytics.Client.describe_datastore)
         """
 
     def describe_logging_options(self) -> DescribeLoggingOptionsResponseTypeDef:
         """
-        [Client.describe_logging_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotanalytics.html#IoTAnalytics.Client.describe_logging_options)
+        [Client.describe_logging_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotanalytics.html#IoTAnalytics.Client.describe_logging_options)
         """
 
     def describe_pipeline(self, pipelineName: str) -> DescribePipelineResponseTypeDef:
         """
-        [Client.describe_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotanalytics.html#IoTAnalytics.Client.describe_pipeline)
+        [Client.describe_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotanalytics.html#IoTAnalytics.Client.describe_pipeline)
         """
 
     def generate_presigned_url(
@@ -231,21 +231,21 @@ class IoTAnalyticsClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotanalytics.html#IoTAnalytics.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotanalytics.html#IoTAnalytics.Client.generate_presigned_url)
         """
 
     def get_dataset_content(
         self, datasetName: str, versionId: str = None
     ) -> GetDatasetContentResponseTypeDef:
         """
-        [Client.get_dataset_content documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotanalytics.html#IoTAnalytics.Client.get_dataset_content)
+        [Client.get_dataset_content documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotanalytics.html#IoTAnalytics.Client.get_dataset_content)
         """
 
     def list_channels(
         self, nextToken: str = None, maxResults: int = None
     ) -> ListChannelsResponseTypeDef:
         """
-        [Client.list_channels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotanalytics.html#IoTAnalytics.Client.list_channels)
+        [Client.list_channels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotanalytics.html#IoTAnalytics.Client.list_channels)
         """
 
     def list_dataset_contents(
@@ -257,45 +257,45 @@ class IoTAnalyticsClient:
         scheduledBefore: datetime = None,
     ) -> ListDatasetContentsResponseTypeDef:
         """
-        [Client.list_dataset_contents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotanalytics.html#IoTAnalytics.Client.list_dataset_contents)
+        [Client.list_dataset_contents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotanalytics.html#IoTAnalytics.Client.list_dataset_contents)
         """
 
     def list_datasets(
         self, nextToken: str = None, maxResults: int = None
     ) -> ListDatasetsResponseTypeDef:
         """
-        [Client.list_datasets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotanalytics.html#IoTAnalytics.Client.list_datasets)
+        [Client.list_datasets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotanalytics.html#IoTAnalytics.Client.list_datasets)
         """
 
     def list_datastores(
         self, nextToken: str = None, maxResults: int = None
     ) -> ListDatastoresResponseTypeDef:
         """
-        [Client.list_datastores documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotanalytics.html#IoTAnalytics.Client.list_datastores)
+        [Client.list_datastores documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotanalytics.html#IoTAnalytics.Client.list_datastores)
         """
 
     def list_pipelines(
         self, nextToken: str = None, maxResults: int = None
     ) -> ListPipelinesResponseTypeDef:
         """
-        [Client.list_pipelines documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotanalytics.html#IoTAnalytics.Client.list_pipelines)
+        [Client.list_pipelines documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotanalytics.html#IoTAnalytics.Client.list_pipelines)
         """
 
     def list_tags_for_resource(self, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotanalytics.html#IoTAnalytics.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotanalytics.html#IoTAnalytics.Client.list_tags_for_resource)
         """
 
     def put_logging_options(self, loggingOptions: "LoggingOptionsTypeDef") -> None:
         """
-        [Client.put_logging_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotanalytics.html#IoTAnalytics.Client.put_logging_options)
+        [Client.put_logging_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotanalytics.html#IoTAnalytics.Client.put_logging_options)
         """
 
     def run_pipeline_activity(
         self, pipelineActivity: "PipelineActivityTypeDef", payloads: List[Union[bytes, IO[bytes]]]
     ) -> RunPipelineActivityResponseTypeDef:
         """
-        [Client.run_pipeline_activity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotanalytics.html#IoTAnalytics.Client.run_pipeline_activity)
+        [Client.run_pipeline_activity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotanalytics.html#IoTAnalytics.Client.run_pipeline_activity)
         """
 
     def sample_channel_data(
@@ -306,24 +306,24 @@ class IoTAnalyticsClient:
         endTime: datetime = None,
     ) -> SampleChannelDataResponseTypeDef:
         """
-        [Client.sample_channel_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotanalytics.html#IoTAnalytics.Client.sample_channel_data)
+        [Client.sample_channel_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotanalytics.html#IoTAnalytics.Client.sample_channel_data)
         """
 
     def start_pipeline_reprocessing(
         self, pipelineName: str, startTime: datetime = None, endTime: datetime = None
     ) -> StartPipelineReprocessingResponseTypeDef:
         """
-        [Client.start_pipeline_reprocessing documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotanalytics.html#IoTAnalytics.Client.start_pipeline_reprocessing)
+        [Client.start_pipeline_reprocessing documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotanalytics.html#IoTAnalytics.Client.start_pipeline_reprocessing)
         """
 
     def tag_resource(self, resourceArn: str, tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotanalytics.html#IoTAnalytics.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotanalytics.html#IoTAnalytics.Client.tag_resource)
         """
 
     def untag_resource(self, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotanalytics.html#IoTAnalytics.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotanalytics.html#IoTAnalytics.Client.untag_resource)
         """
 
     def update_channel(
@@ -333,7 +333,7 @@ class IoTAnalyticsClient:
         retentionPeriod: "RetentionPeriodTypeDef" = None,
     ) -> None:
         """
-        [Client.update_channel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotanalytics.html#IoTAnalytics.Client.update_channel)
+        [Client.update_channel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotanalytics.html#IoTAnalytics.Client.update_channel)
         """
 
     def update_dataset(
@@ -347,7 +347,7 @@ class IoTAnalyticsClient:
         lateDataRules: List["LateDataRuleTypeDef"] = None,
     ) -> None:
         """
-        [Client.update_dataset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotanalytics.html#IoTAnalytics.Client.update_dataset)
+        [Client.update_dataset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotanalytics.html#IoTAnalytics.Client.update_dataset)
         """
 
     def update_datastore(
@@ -357,20 +357,20 @@ class IoTAnalyticsClient:
         datastoreStorage: "DatastoreStorageTypeDef" = None,
     ) -> None:
         """
-        [Client.update_datastore documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotanalytics.html#IoTAnalytics.Client.update_datastore)
+        [Client.update_datastore documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotanalytics.html#IoTAnalytics.Client.update_datastore)
         """
 
     def update_pipeline(
         self, pipelineName: str, pipelineActivities: List["PipelineActivityTypeDef"]
     ) -> None:
         """
-        [Client.update_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotanalytics.html#IoTAnalytics.Client.update_pipeline)
+        [Client.update_pipeline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotanalytics.html#IoTAnalytics.Client.update_pipeline)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_channels"]) -> ListChannelsPaginator:
         """
-        [Paginator.ListChannels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListChannels)
+        [Paginator.ListChannels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListChannels)
         """
 
     @overload
@@ -378,23 +378,23 @@ class IoTAnalyticsClient:
         self, operation_name: Literal["list_dataset_contents"]
     ) -> ListDatasetContentsPaginator:
         """
-        [Paginator.ListDatasetContents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListDatasetContents)
+        [Paginator.ListDatasetContents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListDatasetContents)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_datasets"]) -> ListDatasetsPaginator:
         """
-        [Paginator.ListDatasets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListDatasets)
+        [Paginator.ListDatasets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListDatasets)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_datastores"]) -> ListDatastoresPaginator:
         """
-        [Paginator.ListDatastores documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListDatastores)
+        [Paginator.ListDatastores documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListDatastores)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_pipelines"]) -> ListPipelinesPaginator:
         """
-        [Paginator.ListPipelines documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListPipelines)
+        [Paginator.ListPipelines documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotanalytics.html#IoTAnalytics.Paginator.ListPipelines)
         """

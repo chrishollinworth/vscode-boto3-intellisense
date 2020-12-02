@@ -105,246 +105,246 @@ __all__ = (
 
 class ListBulkDeploymentDetailedReportsPaginator(Boto3Paginator):
     """
-    [Paginator.ListBulkDeploymentDetailedReports documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/greengrass.html#Greengrass.Paginator.ListBulkDeploymentDetailedReports)
+    [Paginator.ListBulkDeploymentDetailedReports documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/greengrass.html#Greengrass.Paginator.ListBulkDeploymentDetailedReports)
     """
 
     def paginate(
         self, BulkDeploymentId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListBulkDeploymentDetailedReportsResponseTypeDef]:
         """
-        [ListBulkDeploymentDetailedReports.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/greengrass.html#Greengrass.Paginator.ListBulkDeploymentDetailedReports.paginate)
+        [ListBulkDeploymentDetailedReports.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/greengrass.html#Greengrass.Paginator.ListBulkDeploymentDetailedReports.paginate)
         """
 
 
 class ListBulkDeploymentsPaginator(Boto3Paginator):
     """
-    [Paginator.ListBulkDeployments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/greengrass.html#Greengrass.Paginator.ListBulkDeployments)
+    [Paginator.ListBulkDeployments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/greengrass.html#Greengrass.Paginator.ListBulkDeployments)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListBulkDeploymentsResponseTypeDef]:
         """
-        [ListBulkDeployments.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/greengrass.html#Greengrass.Paginator.ListBulkDeployments.paginate)
+        [ListBulkDeployments.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/greengrass.html#Greengrass.Paginator.ListBulkDeployments.paginate)
         """
 
 
 class ListConnectorDefinitionVersionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListConnectorDefinitionVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/greengrass.html#Greengrass.Paginator.ListConnectorDefinitionVersions)
+    [Paginator.ListConnectorDefinitionVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/greengrass.html#Greengrass.Paginator.ListConnectorDefinitionVersions)
     """
 
     def paginate(
         self, ConnectorDefinitionId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListConnectorDefinitionVersionsResponseTypeDef]:
         """
-        [ListConnectorDefinitionVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/greengrass.html#Greengrass.Paginator.ListConnectorDefinitionVersions.paginate)
+        [ListConnectorDefinitionVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/greengrass.html#Greengrass.Paginator.ListConnectorDefinitionVersions.paginate)
         """
 
 
 class ListConnectorDefinitionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListConnectorDefinitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/greengrass.html#Greengrass.Paginator.ListConnectorDefinitions)
+    [Paginator.ListConnectorDefinitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/greengrass.html#Greengrass.Paginator.ListConnectorDefinitions)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListConnectorDefinitionsResponseTypeDef]:
         """
-        [ListConnectorDefinitions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/greengrass.html#Greengrass.Paginator.ListConnectorDefinitions.paginate)
+        [ListConnectorDefinitions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/greengrass.html#Greengrass.Paginator.ListConnectorDefinitions.paginate)
         """
 
 
 class ListCoreDefinitionVersionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListCoreDefinitionVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/greengrass.html#Greengrass.Paginator.ListCoreDefinitionVersions)
+    [Paginator.ListCoreDefinitionVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/greengrass.html#Greengrass.Paginator.ListCoreDefinitionVersions)
     """
 
     def paginate(
         self, CoreDefinitionId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListCoreDefinitionVersionsResponseTypeDef]:
         """
-        [ListCoreDefinitionVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/greengrass.html#Greengrass.Paginator.ListCoreDefinitionVersions.paginate)
+        [ListCoreDefinitionVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/greengrass.html#Greengrass.Paginator.ListCoreDefinitionVersions.paginate)
         """
 
 
 class ListCoreDefinitionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListCoreDefinitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/greengrass.html#Greengrass.Paginator.ListCoreDefinitions)
+    [Paginator.ListCoreDefinitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/greengrass.html#Greengrass.Paginator.ListCoreDefinitions)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListCoreDefinitionsResponseTypeDef]:
         """
-        [ListCoreDefinitions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/greengrass.html#Greengrass.Paginator.ListCoreDefinitions.paginate)
+        [ListCoreDefinitions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/greengrass.html#Greengrass.Paginator.ListCoreDefinitions.paginate)
         """
 
 
 class ListDeploymentsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDeployments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/greengrass.html#Greengrass.Paginator.ListDeployments)
+    [Paginator.ListDeployments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/greengrass.html#Greengrass.Paginator.ListDeployments)
     """
 
     def paginate(
         self, GroupId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDeploymentsResponseTypeDef]:
         """
-        [ListDeployments.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/greengrass.html#Greengrass.Paginator.ListDeployments.paginate)
+        [ListDeployments.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/greengrass.html#Greengrass.Paginator.ListDeployments.paginate)
         """
 
 
 class ListDeviceDefinitionVersionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDeviceDefinitionVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/greengrass.html#Greengrass.Paginator.ListDeviceDefinitionVersions)
+    [Paginator.ListDeviceDefinitionVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/greengrass.html#Greengrass.Paginator.ListDeviceDefinitionVersions)
     """
 
     def paginate(
         self, DeviceDefinitionId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDeviceDefinitionVersionsResponseTypeDef]:
         """
-        [ListDeviceDefinitionVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/greengrass.html#Greengrass.Paginator.ListDeviceDefinitionVersions.paginate)
+        [ListDeviceDefinitionVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/greengrass.html#Greengrass.Paginator.ListDeviceDefinitionVersions.paginate)
         """
 
 
 class ListDeviceDefinitionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDeviceDefinitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/greengrass.html#Greengrass.Paginator.ListDeviceDefinitions)
+    [Paginator.ListDeviceDefinitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/greengrass.html#Greengrass.Paginator.ListDeviceDefinitions)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDeviceDefinitionsResponseTypeDef]:
         """
-        [ListDeviceDefinitions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/greengrass.html#Greengrass.Paginator.ListDeviceDefinitions.paginate)
+        [ListDeviceDefinitions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/greengrass.html#Greengrass.Paginator.ListDeviceDefinitions.paginate)
         """
 
 
 class ListFunctionDefinitionVersionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListFunctionDefinitionVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/greengrass.html#Greengrass.Paginator.ListFunctionDefinitionVersions)
+    [Paginator.ListFunctionDefinitionVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/greengrass.html#Greengrass.Paginator.ListFunctionDefinitionVersions)
     """
 
     def paginate(
         self, FunctionDefinitionId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListFunctionDefinitionVersionsResponseTypeDef]:
         """
-        [ListFunctionDefinitionVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/greengrass.html#Greengrass.Paginator.ListFunctionDefinitionVersions.paginate)
+        [ListFunctionDefinitionVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/greengrass.html#Greengrass.Paginator.ListFunctionDefinitionVersions.paginate)
         """
 
 
 class ListFunctionDefinitionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListFunctionDefinitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/greengrass.html#Greengrass.Paginator.ListFunctionDefinitions)
+    [Paginator.ListFunctionDefinitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/greengrass.html#Greengrass.Paginator.ListFunctionDefinitions)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListFunctionDefinitionsResponseTypeDef]:
         """
-        [ListFunctionDefinitions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/greengrass.html#Greengrass.Paginator.ListFunctionDefinitions.paginate)
+        [ListFunctionDefinitions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/greengrass.html#Greengrass.Paginator.ListFunctionDefinitions.paginate)
         """
 
 
 class ListGroupVersionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListGroupVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/greengrass.html#Greengrass.Paginator.ListGroupVersions)
+    [Paginator.ListGroupVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/greengrass.html#Greengrass.Paginator.ListGroupVersions)
     """
 
     def paginate(
         self, GroupId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListGroupVersionsResponseTypeDef]:
         """
-        [ListGroupVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/greengrass.html#Greengrass.Paginator.ListGroupVersions.paginate)
+        [ListGroupVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/greengrass.html#Greengrass.Paginator.ListGroupVersions.paginate)
         """
 
 
 class ListGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.ListGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/greengrass.html#Greengrass.Paginator.ListGroups)
+    [Paginator.ListGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/greengrass.html#Greengrass.Paginator.ListGroups)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListGroupsResponseTypeDef]:
         """
-        [ListGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/greengrass.html#Greengrass.Paginator.ListGroups.paginate)
+        [ListGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/greengrass.html#Greengrass.Paginator.ListGroups.paginate)
         """
 
 
 class ListLoggerDefinitionVersionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListLoggerDefinitionVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/greengrass.html#Greengrass.Paginator.ListLoggerDefinitionVersions)
+    [Paginator.ListLoggerDefinitionVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/greengrass.html#Greengrass.Paginator.ListLoggerDefinitionVersions)
     """
 
     def paginate(
         self, LoggerDefinitionId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListLoggerDefinitionVersionsResponseTypeDef]:
         """
-        [ListLoggerDefinitionVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/greengrass.html#Greengrass.Paginator.ListLoggerDefinitionVersions.paginate)
+        [ListLoggerDefinitionVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/greengrass.html#Greengrass.Paginator.ListLoggerDefinitionVersions.paginate)
         """
 
 
 class ListLoggerDefinitionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListLoggerDefinitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/greengrass.html#Greengrass.Paginator.ListLoggerDefinitions)
+    [Paginator.ListLoggerDefinitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/greengrass.html#Greengrass.Paginator.ListLoggerDefinitions)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListLoggerDefinitionsResponseTypeDef]:
         """
-        [ListLoggerDefinitions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/greengrass.html#Greengrass.Paginator.ListLoggerDefinitions.paginate)
+        [ListLoggerDefinitions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/greengrass.html#Greengrass.Paginator.ListLoggerDefinitions.paginate)
         """
 
 
 class ListResourceDefinitionVersionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListResourceDefinitionVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/greengrass.html#Greengrass.Paginator.ListResourceDefinitionVersions)
+    [Paginator.ListResourceDefinitionVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/greengrass.html#Greengrass.Paginator.ListResourceDefinitionVersions)
     """
 
     def paginate(
         self, ResourceDefinitionId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListResourceDefinitionVersionsResponseTypeDef]:
         """
-        [ListResourceDefinitionVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/greengrass.html#Greengrass.Paginator.ListResourceDefinitionVersions.paginate)
+        [ListResourceDefinitionVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/greengrass.html#Greengrass.Paginator.ListResourceDefinitionVersions.paginate)
         """
 
 
 class ListResourceDefinitionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListResourceDefinitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/greengrass.html#Greengrass.Paginator.ListResourceDefinitions)
+    [Paginator.ListResourceDefinitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/greengrass.html#Greengrass.Paginator.ListResourceDefinitions)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListResourceDefinitionsResponseTypeDef]:
         """
-        [ListResourceDefinitions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/greengrass.html#Greengrass.Paginator.ListResourceDefinitions.paginate)
+        [ListResourceDefinitions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/greengrass.html#Greengrass.Paginator.ListResourceDefinitions.paginate)
         """
 
 
 class ListSubscriptionDefinitionVersionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListSubscriptionDefinitionVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/greengrass.html#Greengrass.Paginator.ListSubscriptionDefinitionVersions)
+    [Paginator.ListSubscriptionDefinitionVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/greengrass.html#Greengrass.Paginator.ListSubscriptionDefinitionVersions)
     """
 
     def paginate(
         self, SubscriptionDefinitionId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSubscriptionDefinitionVersionsResponseTypeDef]:
         """
-        [ListSubscriptionDefinitionVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/greengrass.html#Greengrass.Paginator.ListSubscriptionDefinitionVersions.paginate)
+        [ListSubscriptionDefinitionVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/greengrass.html#Greengrass.Paginator.ListSubscriptionDefinitionVersions.paginate)
         """
 
 
 class ListSubscriptionDefinitionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListSubscriptionDefinitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/greengrass.html#Greengrass.Paginator.ListSubscriptionDefinitions)
+    [Paginator.ListSubscriptionDefinitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/greengrass.html#Greengrass.Paginator.ListSubscriptionDefinitions)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSubscriptionDefinitionsResponseTypeDef]:
         """
-        [ListSubscriptionDefinitions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/greengrass.html#Greengrass.Paginator.ListSubscriptionDefinitions.paginate)
+        [ListSubscriptionDefinitions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/greengrass.html#Greengrass.Paginator.ListSubscriptionDefinitions.paginate)
         """

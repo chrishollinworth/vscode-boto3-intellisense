@@ -99,7 +99,7 @@ class Exceptions:
 
 class DirectConnectClient:
     """
-    [DirectConnect.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client)
+    [DirectConnect.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client)
     """
 
     meta: ClientMeta
@@ -113,14 +113,14 @@ class DirectConnectClient:
         overrideAllowedPrefixesToDirectConnectGateway: List["RouteFilterPrefixTypeDef"] = None,
     ) -> AcceptDirectConnectGatewayAssociationProposalResultTypeDef:
         """
-        [Client.accept_direct_connect_gateway_association_proposal documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.accept_direct_connect_gateway_association_proposal)
+        [Client.accept_direct_connect_gateway_association_proposal documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.accept_direct_connect_gateway_association_proposal)
         """
 
     def allocate_connection_on_interconnect(
         self, bandwidth: str, connectionName: str, ownerAccount: str, interconnectId: str, vlan: int
     ) -> "ConnectionTypeDef":
         """
-        [Client.allocate_connection_on_interconnect documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.allocate_connection_on_interconnect)
+        [Client.allocate_connection_on_interconnect documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.allocate_connection_on_interconnect)
         """
 
     def allocate_hosted_connection(
@@ -133,7 +133,7 @@ class DirectConnectClient:
         tags: List["TagTypeDef"] = None,
     ) -> "ConnectionTypeDef":
         """
-        [Client.allocate_hosted_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.allocate_hosted_connection)
+        [Client.allocate_hosted_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.allocate_hosted_connection)
         """
 
     def allocate_private_virtual_interface(
@@ -143,7 +143,7 @@ class DirectConnectClient:
         newPrivateVirtualInterfaceAllocation: NewPrivateVirtualInterfaceAllocationTypeDef,
     ) -> "VirtualInterfaceTypeDef":
         """
-        [Client.allocate_private_virtual_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.allocate_private_virtual_interface)
+        [Client.allocate_private_virtual_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.allocate_private_virtual_interface)
         """
 
     def allocate_public_virtual_interface(
@@ -153,7 +153,7 @@ class DirectConnectClient:
         newPublicVirtualInterfaceAllocation: NewPublicVirtualInterfaceAllocationTypeDef,
     ) -> "VirtualInterfaceTypeDef":
         """
-        [Client.allocate_public_virtual_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.allocate_public_virtual_interface)
+        [Client.allocate_public_virtual_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.allocate_public_virtual_interface)
         """
 
     def allocate_transit_virtual_interface(
@@ -163,36 +163,36 @@ class DirectConnectClient:
         newTransitVirtualInterfaceAllocation: NewTransitVirtualInterfaceAllocationTypeDef,
     ) -> AllocateTransitVirtualInterfaceResultTypeDef:
         """
-        [Client.allocate_transit_virtual_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.allocate_transit_virtual_interface)
+        [Client.allocate_transit_virtual_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.allocate_transit_virtual_interface)
         """
 
     def associate_connection_with_lag(self, connectionId: str, lagId: str) -> "ConnectionTypeDef":
         """
-        [Client.associate_connection_with_lag documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.associate_connection_with_lag)
+        [Client.associate_connection_with_lag documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.associate_connection_with_lag)
         """
 
     def associate_hosted_connection(
         self, connectionId: str, parentConnectionId: str
     ) -> "ConnectionTypeDef":
         """
-        [Client.associate_hosted_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.associate_hosted_connection)
+        [Client.associate_hosted_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.associate_hosted_connection)
         """
 
     def associate_virtual_interface(
         self, virtualInterfaceId: str, connectionId: str
     ) -> "VirtualInterfaceTypeDef":
         """
-        [Client.associate_virtual_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.associate_virtual_interface)
+        [Client.associate_virtual_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.associate_virtual_interface)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.can_paginate)
         """
 
     def confirm_connection(self, connectionId: str) -> ConfirmConnectionResponseTypeDef:
         """
-        [Client.confirm_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.confirm_connection)
+        [Client.confirm_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.confirm_connection)
         """
 
     def confirm_private_virtual_interface(
@@ -202,28 +202,28 @@ class DirectConnectClient:
         directConnectGatewayId: str = None,
     ) -> ConfirmPrivateVirtualInterfaceResponseTypeDef:
         """
-        [Client.confirm_private_virtual_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.confirm_private_virtual_interface)
+        [Client.confirm_private_virtual_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.confirm_private_virtual_interface)
         """
 
     def confirm_public_virtual_interface(
         self, virtualInterfaceId: str
     ) -> ConfirmPublicVirtualInterfaceResponseTypeDef:
         """
-        [Client.confirm_public_virtual_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.confirm_public_virtual_interface)
+        [Client.confirm_public_virtual_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.confirm_public_virtual_interface)
         """
 
     def confirm_transit_virtual_interface(
         self, virtualInterfaceId: str, directConnectGatewayId: str
     ) -> ConfirmTransitVirtualInterfaceResponseTypeDef:
         """
-        [Client.confirm_transit_virtual_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.confirm_transit_virtual_interface)
+        [Client.confirm_transit_virtual_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.confirm_transit_virtual_interface)
         """
 
     def create_bgp_peer(
         self, virtualInterfaceId: str = None, newBGPPeer: NewBGPPeerTypeDef = None
     ) -> CreateBGPPeerResponseTypeDef:
         """
-        [Client.create_bgp_peer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.create_bgp_peer)
+        [Client.create_bgp_peer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.create_bgp_peer)
         """
 
     def create_connection(
@@ -236,14 +236,14 @@ class DirectConnectClient:
         providerName: str = None,
     ) -> "ConnectionTypeDef":
         """
-        [Client.create_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.create_connection)
+        [Client.create_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.create_connection)
         """
 
     def create_direct_connect_gateway(
         self, directConnectGatewayName: str, amazonSideAsn: int = None
     ) -> CreateDirectConnectGatewayResultTypeDef:
         """
-        [Client.create_direct_connect_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.create_direct_connect_gateway)
+        [Client.create_direct_connect_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.create_direct_connect_gateway)
         """
 
     def create_direct_connect_gateway_association(
@@ -254,7 +254,7 @@ class DirectConnectClient:
         virtualGatewayId: str = None,
     ) -> CreateDirectConnectGatewayAssociationResultTypeDef:
         """
-        [Client.create_direct_connect_gateway_association documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.create_direct_connect_gateway_association)
+        [Client.create_direct_connect_gateway_association documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.create_direct_connect_gateway_association)
         """
 
     def create_direct_connect_gateway_association_proposal(
@@ -266,7 +266,7 @@ class DirectConnectClient:
         removeAllowedPrefixesToDirectConnectGateway: List["RouteFilterPrefixTypeDef"] = None,
     ) -> CreateDirectConnectGatewayAssociationProposalResultTypeDef:
         """
-        [Client.create_direct_connect_gateway_association_proposal documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.create_direct_connect_gateway_association_proposal)
+        [Client.create_direct_connect_gateway_association_proposal documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.create_direct_connect_gateway_association_proposal)
         """
 
     def create_interconnect(
@@ -279,7 +279,7 @@ class DirectConnectClient:
         providerName: str = None,
     ) -> "InterconnectTypeDef":
         """
-        [Client.create_interconnect documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.create_interconnect)
+        [Client.create_interconnect documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.create_interconnect)
         """
 
     def create_lag(
@@ -294,28 +294,28 @@ class DirectConnectClient:
         providerName: str = None,
     ) -> "LagTypeDef":
         """
-        [Client.create_lag documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.create_lag)
+        [Client.create_lag documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.create_lag)
         """
 
     def create_private_virtual_interface(
         self, connectionId: str, newPrivateVirtualInterface: NewPrivateVirtualInterfaceTypeDef
     ) -> "VirtualInterfaceTypeDef":
         """
-        [Client.create_private_virtual_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.create_private_virtual_interface)
+        [Client.create_private_virtual_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.create_private_virtual_interface)
         """
 
     def create_public_virtual_interface(
         self, connectionId: str, newPublicVirtualInterface: NewPublicVirtualInterfaceTypeDef
     ) -> "VirtualInterfaceTypeDef":
         """
-        [Client.create_public_virtual_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.create_public_virtual_interface)
+        [Client.create_public_virtual_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.create_public_virtual_interface)
         """
 
     def create_transit_virtual_interface(
         self, connectionId: str, newTransitVirtualInterface: NewTransitVirtualInterfaceTypeDef
     ) -> CreateTransitVirtualInterfaceResultTypeDef:
         """
-        [Client.create_transit_virtual_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.create_transit_virtual_interface)
+        [Client.create_transit_virtual_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.create_transit_virtual_interface)
         """
 
     def delete_bgp_peer(
@@ -326,19 +326,19 @@ class DirectConnectClient:
         bgpPeerId: str = None,
     ) -> DeleteBGPPeerResponseTypeDef:
         """
-        [Client.delete_bgp_peer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.delete_bgp_peer)
+        [Client.delete_bgp_peer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.delete_bgp_peer)
         """
 
     def delete_connection(self, connectionId: str) -> "ConnectionTypeDef":
         """
-        [Client.delete_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.delete_connection)
+        [Client.delete_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.delete_connection)
         """
 
     def delete_direct_connect_gateway(
         self, directConnectGatewayId: str
     ) -> DeleteDirectConnectGatewayResultTypeDef:
         """
-        [Client.delete_direct_connect_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.delete_direct_connect_gateway)
+        [Client.delete_direct_connect_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.delete_direct_connect_gateway)
         """
 
     def delete_direct_connect_gateway_association(
@@ -348,31 +348,31 @@ class DirectConnectClient:
         virtualGatewayId: str = None,
     ) -> DeleteDirectConnectGatewayAssociationResultTypeDef:
         """
-        [Client.delete_direct_connect_gateway_association documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.delete_direct_connect_gateway_association)
+        [Client.delete_direct_connect_gateway_association documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.delete_direct_connect_gateway_association)
         """
 
     def delete_direct_connect_gateway_association_proposal(
         self, proposalId: str
     ) -> DeleteDirectConnectGatewayAssociationProposalResultTypeDef:
         """
-        [Client.delete_direct_connect_gateway_association_proposal documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.delete_direct_connect_gateway_association_proposal)
+        [Client.delete_direct_connect_gateway_association_proposal documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.delete_direct_connect_gateway_association_proposal)
         """
 
     def delete_interconnect(self, interconnectId: str) -> DeleteInterconnectResponseTypeDef:
         """
-        [Client.delete_interconnect documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.delete_interconnect)
+        [Client.delete_interconnect documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.delete_interconnect)
         """
 
     def delete_lag(self, lagId: str) -> "LagTypeDef":
         """
-        [Client.delete_lag documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.delete_lag)
+        [Client.delete_lag documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.delete_lag)
         """
 
     def delete_virtual_interface(
         self, virtualInterfaceId: str
     ) -> DeleteVirtualInterfaceResponseTypeDef:
         """
-        [Client.delete_virtual_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.delete_virtual_interface)
+        [Client.delete_virtual_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.delete_virtual_interface)
         """
 
     def describe_connection_loa(
@@ -382,17 +382,17 @@ class DirectConnectClient:
         loaContentType: Literal["application/pdf"] = None,
     ) -> DescribeConnectionLoaResponseTypeDef:
         """
-        [Client.describe_connection_loa documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.describe_connection_loa)
+        [Client.describe_connection_loa documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.describe_connection_loa)
         """
 
     def describe_connections(self, connectionId: str = None) -> ConnectionsTypeDef:
         """
-        [Client.describe_connections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.describe_connections)
+        [Client.describe_connections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.describe_connections)
         """
 
     def describe_connections_on_interconnect(self, interconnectId: str) -> ConnectionsTypeDef:
         """
-        [Client.describe_connections_on_interconnect documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.describe_connections_on_interconnect)
+        [Client.describe_connections_on_interconnect documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.describe_connections_on_interconnect)
         """
 
     def describe_direct_connect_gateway_association_proposals(
@@ -404,7 +404,7 @@ class DirectConnectClient:
         nextToken: str = None,
     ) -> DescribeDirectConnectGatewayAssociationProposalsResultTypeDef:
         """
-        [Client.describe_direct_connect_gateway_association_proposals documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.describe_direct_connect_gateway_association_proposals)
+        [Client.describe_direct_connect_gateway_association_proposals documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.describe_direct_connect_gateway_association_proposals)
         """
 
     def describe_direct_connect_gateway_associations(
@@ -417,7 +417,7 @@ class DirectConnectClient:
         virtualGatewayId: str = None,
     ) -> DescribeDirectConnectGatewayAssociationsResultTypeDef:
         """
-        [Client.describe_direct_connect_gateway_associations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.describe_direct_connect_gateway_associations)
+        [Client.describe_direct_connect_gateway_associations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.describe_direct_connect_gateway_associations)
         """
 
     def describe_direct_connect_gateway_attachments(
@@ -428,19 +428,19 @@ class DirectConnectClient:
         nextToken: str = None,
     ) -> DescribeDirectConnectGatewayAttachmentsResultTypeDef:
         """
-        [Client.describe_direct_connect_gateway_attachments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.describe_direct_connect_gateway_attachments)
+        [Client.describe_direct_connect_gateway_attachments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.describe_direct_connect_gateway_attachments)
         """
 
     def describe_direct_connect_gateways(
         self, directConnectGatewayId: str = None, maxResults: int = None, nextToken: str = None
     ) -> DescribeDirectConnectGatewaysResultTypeDef:
         """
-        [Client.describe_direct_connect_gateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.describe_direct_connect_gateways)
+        [Client.describe_direct_connect_gateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.describe_direct_connect_gateways)
         """
 
     def describe_hosted_connections(self, connectionId: str) -> ConnectionsTypeDef:
         """
-        [Client.describe_hosted_connections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.describe_hosted_connections)
+        [Client.describe_hosted_connections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.describe_hosted_connections)
         """
 
     def describe_interconnect_loa(
@@ -450,17 +450,17 @@ class DirectConnectClient:
         loaContentType: Literal["application/pdf"] = None,
     ) -> DescribeInterconnectLoaResponseTypeDef:
         """
-        [Client.describe_interconnect_loa documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.describe_interconnect_loa)
+        [Client.describe_interconnect_loa documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.describe_interconnect_loa)
         """
 
     def describe_interconnects(self, interconnectId: str = None) -> InterconnectsTypeDef:
         """
-        [Client.describe_interconnects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.describe_interconnects)
+        [Client.describe_interconnects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.describe_interconnects)
         """
 
     def describe_lags(self, lagId: str = None) -> LagsTypeDef:
         """
-        [Client.describe_lags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.describe_lags)
+        [Client.describe_lags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.describe_lags)
         """
 
     def describe_loa(
@@ -470,36 +470,36 @@ class DirectConnectClient:
         loaContentType: Literal["application/pdf"] = None,
     ) -> "LoaTypeDef":
         """
-        [Client.describe_loa documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.describe_loa)
+        [Client.describe_loa documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.describe_loa)
         """
 
     def describe_locations(self) -> LocationsTypeDef:
         """
-        [Client.describe_locations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.describe_locations)
+        [Client.describe_locations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.describe_locations)
         """
 
     def describe_tags(self, resourceArns: List[str]) -> DescribeTagsResponseTypeDef:
         """
-        [Client.describe_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.describe_tags)
+        [Client.describe_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.describe_tags)
         """
 
     def describe_virtual_gateways(self) -> VirtualGatewaysTypeDef:
         """
-        [Client.describe_virtual_gateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.describe_virtual_gateways)
+        [Client.describe_virtual_gateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.describe_virtual_gateways)
         """
 
     def describe_virtual_interfaces(
         self, connectionId: str = None, virtualInterfaceId: str = None
     ) -> VirtualInterfacesTypeDef:
         """
-        [Client.describe_virtual_interfaces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.describe_virtual_interfaces)
+        [Client.describe_virtual_interfaces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.describe_virtual_interfaces)
         """
 
     def disassociate_connection_from_lag(
         self, connectionId: str, lagId: str
     ) -> "ConnectionTypeDef":
         """
-        [Client.disassociate_connection_from_lag documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.disassociate_connection_from_lag)
+        [Client.disassociate_connection_from_lag documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.disassociate_connection_from_lag)
         """
 
     def generate_presigned_url(
@@ -510,7 +510,7 @@ class DirectConnectClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.generate_presigned_url)
         """
 
     def list_virtual_interface_test_history(
@@ -523,29 +523,29 @@ class DirectConnectClient:
         nextToken: str = None,
     ) -> ListVirtualInterfaceTestHistoryResponseTypeDef:
         """
-        [Client.list_virtual_interface_test_history documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.list_virtual_interface_test_history)
+        [Client.list_virtual_interface_test_history documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.list_virtual_interface_test_history)
         """
 
     def start_bgp_failover_test(
         self, virtualInterfaceId: str, bgpPeers: List[str] = None, testDurationInMinutes: int = None
     ) -> StartBgpFailoverTestResponseTypeDef:
         """
-        [Client.start_bgp_failover_test documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.start_bgp_failover_test)
+        [Client.start_bgp_failover_test documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.start_bgp_failover_test)
         """
 
     def stop_bgp_failover_test(self, virtualInterfaceId: str) -> StopBgpFailoverTestResponseTypeDef:
         """
-        [Client.stop_bgp_failover_test documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.stop_bgp_failover_test)
+        [Client.stop_bgp_failover_test documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.stop_bgp_failover_test)
         """
 
     def tag_resource(self, resourceArn: str, tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.tag_resource)
         """
 
     def untag_resource(self, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.untag_resource)
         """
 
     def update_direct_connect_gateway_association(
@@ -555,19 +555,19 @@ class DirectConnectClient:
         removeAllowedPrefixesToDirectConnectGateway: List["RouteFilterPrefixTypeDef"] = None,
     ) -> UpdateDirectConnectGatewayAssociationResultTypeDef:
         """
-        [Client.update_direct_connect_gateway_association documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.update_direct_connect_gateway_association)
+        [Client.update_direct_connect_gateway_association documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.update_direct_connect_gateway_association)
         """
 
     def update_lag(self, lagId: str, lagName: str = None, minimumLinks: int = None) -> "LagTypeDef":
         """
-        [Client.update_lag documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.update_lag)
+        [Client.update_lag documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.update_lag)
         """
 
     def update_virtual_interface_attributes(
         self, virtualInterfaceId: str, mtu: int = None
     ) -> "VirtualInterfaceTypeDef":
         """
-        [Client.update_virtual_interface_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Client.update_virtual_interface_attributes)
+        [Client.update_virtual_interface_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Client.update_virtual_interface_attributes)
         """
 
     @overload
@@ -575,7 +575,7 @@ class DirectConnectClient:
         self, operation_name: Literal["describe_direct_connect_gateway_associations"]
     ) -> DescribeDirectConnectGatewayAssociationsPaginator:
         """
-        [Paginator.DescribeDirectConnectGatewayAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Paginator.DescribeDirectConnectGatewayAssociations)
+        [Paginator.DescribeDirectConnectGatewayAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Paginator.DescribeDirectConnectGatewayAssociations)
         """
 
     @overload
@@ -583,7 +583,7 @@ class DirectConnectClient:
         self, operation_name: Literal["describe_direct_connect_gateway_attachments"]
     ) -> DescribeDirectConnectGatewayAttachmentsPaginator:
         """
-        [Paginator.DescribeDirectConnectGatewayAttachments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Paginator.DescribeDirectConnectGatewayAttachments)
+        [Paginator.DescribeDirectConnectGatewayAttachments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Paginator.DescribeDirectConnectGatewayAttachments)
         """
 
     @overload
@@ -591,5 +591,5 @@ class DirectConnectClient:
         self, operation_name: Literal["describe_direct_connect_gateways"]
     ) -> DescribeDirectConnectGatewaysPaginator:
         """
-        [Paginator.DescribeDirectConnectGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Paginator.DescribeDirectConnectGateways)
+        [Paginator.DescribeDirectConnectGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Paginator.DescribeDirectConnectGateways)
         """

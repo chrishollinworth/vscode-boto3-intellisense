@@ -45,6 +45,7 @@ __all__ = (
     "IntegerParameterRangeTypeDef",
     "MetricsTypeDef",
     "ParameterRangesTypeDef",
+    "PredictorBacktestExportJobSummaryTypeDef",
     "PredictorExecutionDetailsTypeDef",
     "PredictorExecutionTypeDef",
     "PredictorSummaryTypeDef",
@@ -62,12 +63,14 @@ __all__ = (
     "CreateDatasetResponseTypeDef",
     "CreateForecastExportJobResponseTypeDef",
     "CreateForecastResponseTypeDef",
+    "CreatePredictorBacktestExportJobResponseTypeDef",
     "CreatePredictorResponseTypeDef",
     "DescribeDatasetGroupResponseTypeDef",
     "DescribeDatasetImportJobResponseTypeDef",
     "DescribeDatasetResponseTypeDef",
     "DescribeForecastExportJobResponseTypeDef",
     "DescribeForecastResponseTypeDef",
+    "DescribePredictorBacktestExportJobResponseTypeDef",
     "DescribePredictorResponseTypeDef",
     "FilterTypeDef",
     "GetAccuracyMetricsResponseTypeDef",
@@ -76,6 +79,7 @@ __all__ = (
     "ListDatasetsResponseTypeDef",
     "ListForecastExportJobsResponseTypeDef",
     "ListForecastsResponseTypeDef",
+    "ListPredictorBacktestExportJobsResponseTypeDef",
     "ListPredictorsResponseTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "PaginatorConfigTypeDef",
@@ -298,6 +302,20 @@ ParameterRangesTypeDef = TypedDict(
     total=False,
 )
 
+PredictorBacktestExportJobSummaryTypeDef = TypedDict(
+    "PredictorBacktestExportJobSummaryTypeDef",
+    {
+        "PredictorBacktestExportJobArn": str,
+        "PredictorBacktestExportJobName": str,
+        "Destination": "DataDestinationTypeDef",
+        "Status": str,
+        "Message": str,
+        "CreationTime": datetime,
+        "LastModificationTime": datetime,
+    },
+    total=False,
+)
+
 PredictorExecutionDetailsTypeDef = TypedDict(
     "PredictorExecutionDetailsTypeDef",
     {"PredictorExecutions": List["PredictorExecutionTypeDef"]},
@@ -403,6 +421,12 @@ CreateForecastResponseTypeDef = TypedDict(
     "CreateForecastResponseTypeDef", {"ForecastArn": str}, total=False
 )
 
+CreatePredictorBacktestExportJobResponseTypeDef = TypedDict(
+    "CreatePredictorBacktestExportJobResponseTypeDef",
+    {"PredictorBacktestExportJobArn": str},
+    total=False,
+)
+
 CreatePredictorResponseTypeDef = TypedDict(
     "CreatePredictorResponseTypeDef", {"PredictorArn": str}, total=False
 )
@@ -503,6 +527,21 @@ DescribeForecastResponseTypeDef = TypedDict(
     total=False,
 )
 
+DescribePredictorBacktestExportJobResponseTypeDef = TypedDict(
+    "DescribePredictorBacktestExportJobResponseTypeDef",
+    {
+        "PredictorBacktestExportJobArn": str,
+        "PredictorBacktestExportJobName": str,
+        "PredictorArn": str,
+        "Destination": "DataDestinationTypeDef",
+        "Message": str,
+        "Status": str,
+        "CreationTime": datetime,
+        "LastModificationTime": datetime,
+    },
+    total=False,
+)
+
 DescribePredictorResponseTypeDef = TypedDict(
     "DescribePredictorResponseTypeDef",
     {
@@ -567,6 +606,15 @@ ListForecastExportJobsResponseTypeDef = TypedDict(
 ListForecastsResponseTypeDef = TypedDict(
     "ListForecastsResponseTypeDef",
     {"Forecasts": List["ForecastSummaryTypeDef"], "NextToken": str},
+    total=False,
+)
+
+ListPredictorBacktestExportJobsResponseTypeDef = TypedDict(
+    "ListPredictorBacktestExportJobsResponseTypeDef",
+    {
+        "PredictorBacktestExportJobs": List["PredictorBacktestExportJobSummaryTypeDef"],
+        "NextToken": str,
+    },
     total=False,
 )
 

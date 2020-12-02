@@ -32,7 +32,7 @@ __all__ = ("ListFragmentsPaginator",)
 
 class ListFragmentsPaginator(Boto3Paginator):
     """
-    [Paginator.ListFragments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kinesis-video-archived-media.html#KinesisVideoArchivedMedia.Paginator.ListFragments)
+    [Paginator.ListFragments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis-video-archived-media.html#KinesisVideoArchivedMedia.Paginator.ListFragments)
     """
 
     def paginate(
@@ -42,5 +42,5 @@ class ListFragmentsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListFragmentsOutputTypeDef]:
         """
-        [ListFragments.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/kinesis-video-archived-media.html#KinesisVideoArchivedMedia.Paginator.ListFragments.paginate)
+        [ListFragments.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis-video-archived-media.html#KinesisVideoArchivedMedia.Paginator.ListFragments.paginate)
         """

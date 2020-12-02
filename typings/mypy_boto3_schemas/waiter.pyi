@@ -26,7 +26,7 @@ __all__ = ("CodeBindingExistsWaiter",)
 
 class CodeBindingExistsWaiter(Boto3Waiter):
     """
-    [Waiter.CodeBindingExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/schemas.html#Schemas.Waiter.CodeBindingExists)
+    [Waiter.CodeBindingExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/schemas.html#Schemas.Waiter.CodeBindingExists)
     """
 
     def wait(
@@ -38,5 +38,5 @@ class CodeBindingExistsWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [CodeBindingExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/schemas.html#Schemas.Waiter.CodeBindingExists.wait)
+        [CodeBindingExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/schemas.html#Schemas.Waiter.CodeBindingExists.wait)
         """

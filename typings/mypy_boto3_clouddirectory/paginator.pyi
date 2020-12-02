@@ -117,7 +117,7 @@ __all__ = (
 
 class ListAppliedSchemaArnsPaginator(Boto3Paginator):
     """
-    [Paginator.ListAppliedSchemaArns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListAppliedSchemaArns)
+    [Paginator.ListAppliedSchemaArns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListAppliedSchemaArns)
     """
 
     def paginate(
@@ -127,13 +127,13 @@ class ListAppliedSchemaArnsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListAppliedSchemaArnsResponseTypeDef]:
         """
-        [ListAppliedSchemaArns.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListAppliedSchemaArns.paginate)
+        [ListAppliedSchemaArns.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListAppliedSchemaArns.paginate)
         """
 
 
 class ListAttachedIndicesPaginator(Boto3Paginator):
     """
-    [Paginator.ListAttachedIndices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListAttachedIndices)
+    [Paginator.ListAttachedIndices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListAttachedIndices)
     """
 
     def paginate(
@@ -144,26 +144,26 @@ class ListAttachedIndicesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListAttachedIndicesResponseTypeDef]:
         """
-        [ListAttachedIndices.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListAttachedIndices.paginate)
+        [ListAttachedIndices.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListAttachedIndices.paginate)
         """
 
 
 class ListDevelopmentSchemaArnsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDevelopmentSchemaArns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListDevelopmentSchemaArns)
+    [Paginator.ListDevelopmentSchemaArns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListDevelopmentSchemaArns)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDevelopmentSchemaArnsResponseTypeDef]:
         """
-        [ListDevelopmentSchemaArns.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListDevelopmentSchemaArns.paginate)
+        [ListDevelopmentSchemaArns.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListDevelopmentSchemaArns.paginate)
         """
 
 
 class ListDirectoriesPaginator(Boto3Paginator):
     """
-    [Paginator.ListDirectories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListDirectories)
+    [Paginator.ListDirectories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListDirectories)
     """
 
     def paginate(
@@ -172,39 +172,39 @@ class ListDirectoriesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListDirectoriesResponseTypeDef]:
         """
-        [ListDirectories.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListDirectories.paginate)
+        [ListDirectories.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListDirectories.paginate)
         """
 
 
 class ListFacetAttributesPaginator(Boto3Paginator):
     """
-    [Paginator.ListFacetAttributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListFacetAttributes)
+    [Paginator.ListFacetAttributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListFacetAttributes)
     """
 
     def paginate(
         self, SchemaArn: str, Name: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListFacetAttributesResponseTypeDef]:
         """
-        [ListFacetAttributes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListFacetAttributes.paginate)
+        [ListFacetAttributes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListFacetAttributes.paginate)
         """
 
 
 class ListFacetNamesPaginator(Boto3Paginator):
     """
-    [Paginator.ListFacetNames documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListFacetNames)
+    [Paginator.ListFacetNames documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListFacetNames)
     """
 
     def paginate(
         self, SchemaArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListFacetNamesResponseTypeDef]:
         """
-        [ListFacetNames.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListFacetNames.paginate)
+        [ListFacetNames.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListFacetNames.paginate)
         """
 
 
 class ListIncomingTypedLinksPaginator(Boto3Paginator):
     """
-    [Paginator.ListIncomingTypedLinks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListIncomingTypedLinks)
+    [Paginator.ListIncomingTypedLinks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListIncomingTypedLinks)
     """
 
     def paginate(
@@ -217,13 +217,13 @@ class ListIncomingTypedLinksPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListIncomingTypedLinksResponseTypeDef]:
         """
-        [ListIncomingTypedLinks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListIncomingTypedLinks.paginate)
+        [ListIncomingTypedLinks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListIncomingTypedLinks.paginate)
         """
 
 
 class ListIndexPaginator(Boto3Paginator):
     """
-    [Paginator.ListIndex documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListIndex)
+    [Paginator.ListIndex documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListIndex)
     """
 
     def paginate(
@@ -235,26 +235,26 @@ class ListIndexPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListIndexResponseTypeDef]:
         """
-        [ListIndex.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListIndex.paginate)
+        [ListIndex.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListIndex.paginate)
         """
 
 
 class ListManagedSchemaArnsPaginator(Boto3Paginator):
     """
-    [Paginator.ListManagedSchemaArns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListManagedSchemaArns)
+    [Paginator.ListManagedSchemaArns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListManagedSchemaArns)
     """
 
     def paginate(
         self, SchemaArn: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListManagedSchemaArnsResponseTypeDef]:
         """
-        [ListManagedSchemaArns.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListManagedSchemaArns.paginate)
+        [ListManagedSchemaArns.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListManagedSchemaArns.paginate)
         """
 
 
 class ListObjectAttributesPaginator(Boto3Paginator):
     """
-    [Paginator.ListObjectAttributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListObjectAttributes)
+    [Paginator.ListObjectAttributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListObjectAttributes)
     """
 
     def paginate(
@@ -266,13 +266,13 @@ class ListObjectAttributesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListObjectAttributesResponseTypeDef]:
         """
-        [ListObjectAttributes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListObjectAttributes.paginate)
+        [ListObjectAttributes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListObjectAttributes.paginate)
         """
 
 
 class ListObjectParentPathsPaginator(Boto3Paginator):
     """
-    [Paginator.ListObjectParentPaths documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListObjectParentPaths)
+    [Paginator.ListObjectParentPaths documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListObjectParentPaths)
     """
 
     def paginate(
@@ -282,13 +282,13 @@ class ListObjectParentPathsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListObjectParentPathsResponseTypeDef]:
         """
-        [ListObjectParentPaths.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListObjectParentPaths.paginate)
+        [ListObjectParentPaths.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListObjectParentPaths.paginate)
         """
 
 
 class ListObjectPoliciesPaginator(Boto3Paginator):
     """
-    [Paginator.ListObjectPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListObjectPolicies)
+    [Paginator.ListObjectPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListObjectPolicies)
     """
 
     def paginate(
@@ -299,13 +299,13 @@ class ListObjectPoliciesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListObjectPoliciesResponseTypeDef]:
         """
-        [ListObjectPolicies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListObjectPolicies.paginate)
+        [ListObjectPolicies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListObjectPolicies.paginate)
         """
 
 
 class ListOutgoingTypedLinksPaginator(Boto3Paginator):
     """
-    [Paginator.ListOutgoingTypedLinks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListOutgoingTypedLinks)
+    [Paginator.ListOutgoingTypedLinks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListOutgoingTypedLinks)
     """
 
     def paginate(
@@ -318,13 +318,13 @@ class ListOutgoingTypedLinksPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListOutgoingTypedLinksResponseTypeDef]:
         """
-        [ListOutgoingTypedLinks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListOutgoingTypedLinks.paginate)
+        [ListOutgoingTypedLinks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListOutgoingTypedLinks.paginate)
         """
 
 
 class ListPolicyAttachmentsPaginator(Boto3Paginator):
     """
-    [Paginator.ListPolicyAttachments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListPolicyAttachments)
+    [Paginator.ListPolicyAttachments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListPolicyAttachments)
     """
 
     def paginate(
@@ -335,65 +335,65 @@ class ListPolicyAttachmentsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListPolicyAttachmentsResponseTypeDef]:
         """
-        [ListPolicyAttachments.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListPolicyAttachments.paginate)
+        [ListPolicyAttachments.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListPolicyAttachments.paginate)
         """
 
 
 class ListPublishedSchemaArnsPaginator(Boto3Paginator):
     """
-    [Paginator.ListPublishedSchemaArns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListPublishedSchemaArns)
+    [Paginator.ListPublishedSchemaArns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListPublishedSchemaArns)
     """
 
     def paginate(
         self, SchemaArn: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPublishedSchemaArnsResponseTypeDef]:
         """
-        [ListPublishedSchemaArns.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListPublishedSchemaArns.paginate)
+        [ListPublishedSchemaArns.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListPublishedSchemaArns.paginate)
         """
 
 
 class ListTagsForResourcePaginator(Boto3Paginator):
     """
-    [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListTagsForResource)
+    [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListTagsForResource)
     """
 
     def paginate(
         self, ResourceArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTagsForResourceResponseTypeDef]:
         """
-        [ListTagsForResource.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListTagsForResource.paginate)
+        [ListTagsForResource.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListTagsForResource.paginate)
         """
 
 
 class ListTypedLinkFacetAttributesPaginator(Boto3Paginator):
     """
-    [Paginator.ListTypedLinkFacetAttributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListTypedLinkFacetAttributes)
+    [Paginator.ListTypedLinkFacetAttributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListTypedLinkFacetAttributes)
     """
 
     def paginate(
         self, SchemaArn: str, Name: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTypedLinkFacetAttributesResponseTypeDef]:
         """
-        [ListTypedLinkFacetAttributes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListTypedLinkFacetAttributes.paginate)
+        [ListTypedLinkFacetAttributes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListTypedLinkFacetAttributes.paginate)
         """
 
 
 class ListTypedLinkFacetNamesPaginator(Boto3Paginator):
     """
-    [Paginator.ListTypedLinkFacetNames documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListTypedLinkFacetNames)
+    [Paginator.ListTypedLinkFacetNames documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListTypedLinkFacetNames)
     """
 
     def paginate(
         self, SchemaArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTypedLinkFacetNamesResponseTypeDef]:
         """
-        [ListTypedLinkFacetNames.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListTypedLinkFacetNames.paginate)
+        [ListTypedLinkFacetNames.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListTypedLinkFacetNames.paginate)
         """
 
 
 class LookupPolicyPaginator(Boto3Paginator):
     """
-    [Paginator.LookupPolicy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/clouddirectory.html#CloudDirectory.Paginator.LookupPolicy)
+    [Paginator.LookupPolicy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.LookupPolicy)
     """
 
     def paginate(
@@ -403,5 +403,5 @@ class LookupPolicyPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[LookupPolicyResponseTypeDef]:
         """
-        [LookupPolicy.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/clouddirectory.html#CloudDirectory.Paginator.LookupPolicy.paginate)
+        [LookupPolicy.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.LookupPolicy.paginate)
         """

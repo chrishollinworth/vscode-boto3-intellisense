@@ -1,8 +1,11 @@
 from mypy_boto3_sso_admin.type_defs import (
+    AccessControlAttributeTypeDef,
+    AccessControlAttributeValueTypeDef,
     AccountAssignmentOperationStatusMetadataTypeDef,
     AccountAssignmentOperationStatusTypeDef,
     AccountAssignmentTypeDef,
     AttachedManagedPolicyTypeDef,
+    InstanceAccessControlAttributeConfigurationTypeDef,
     InstanceMetadataTypeDef,
     PermissionSetProvisioningStatusMetadataTypeDef,
     PermissionSetProvisioningStatusTypeDef,
@@ -13,6 +16,7 @@ from mypy_boto3_sso_admin.type_defs import (
     DeleteAccountAssignmentResponseTypeDef,
     DescribeAccountAssignmentCreationStatusResponseTypeDef,
     DescribeAccountAssignmentDeletionStatusResponseTypeDef,
+    DescribeInstanceAccessControlAttributeConfigurationResponseTypeDef,
     DescribePermissionSetProvisioningStatusResponseTypeDef,
     DescribePermissionSetResponseTypeDef,
     GetInlinePolicyForPermissionSetResponseTypeDef,
@@ -32,10 +36,13 @@ from mypy_boto3_sso_admin.type_defs import (
 )
 
 __all__ = (
+    "AccessControlAttributeTypeDef",
+    "AccessControlAttributeValueTypeDef",
     "AccountAssignmentOperationStatusMetadataTypeDef",
     "AccountAssignmentOperationStatusTypeDef",
     "AccountAssignmentTypeDef",
     "AttachedManagedPolicyTypeDef",
+    "InstanceAccessControlAttributeConfigurationTypeDef",
     "InstanceMetadataTypeDef",
     "PermissionSetProvisioningStatusMetadataTypeDef",
     "PermissionSetProvisioningStatusTypeDef",
@@ -46,6 +53,7 @@ __all__ = (
     "DeleteAccountAssignmentResponseTypeDef",
     "DescribeAccountAssignmentCreationStatusResponseTypeDef",
     "DescribeAccountAssignmentDeletionStatusResponseTypeDef",
+    "DescribeInstanceAccessControlAttributeConfigurationResponseTypeDef",
     "DescribePermissionSetProvisioningStatusResponseTypeDef",
     "DescribePermissionSetResponseTypeDef",
     "GetInlinePolicyForPermissionSetResponseTypeDef",

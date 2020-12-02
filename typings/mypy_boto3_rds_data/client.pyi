@@ -49,7 +49,7 @@ class Exceptions:
 
 class RDSDataServiceClient:
     """
-    [RDSDataService.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds-data.html#RDSDataService.Client)
+    [RDSDataService.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds-data.html#RDSDataService.Client)
     """
 
     meta: ClientMeta
@@ -66,26 +66,26 @@ class RDSDataServiceClient:
         transactionId: str = None,
     ) -> BatchExecuteStatementResponseTypeDef:
         """
-        [Client.batch_execute_statement documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds-data.html#RDSDataService.Client.batch_execute_statement)
+        [Client.batch_execute_statement documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds-data.html#RDSDataService.Client.batch_execute_statement)
         """
 
     def begin_transaction(
         self, resourceArn: str, secretArn: str, database: str = None, schema: str = None
     ) -> BeginTransactionResponseTypeDef:
         """
-        [Client.begin_transaction documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds-data.html#RDSDataService.Client.begin_transaction)
+        [Client.begin_transaction documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds-data.html#RDSDataService.Client.begin_transaction)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds-data.html#RDSDataService.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds-data.html#RDSDataService.Client.can_paginate)
         """
 
     def commit_transaction(
         self, resourceArn: str, secretArn: str, transactionId: str
     ) -> CommitTransactionResponseTypeDef:
         """
-        [Client.commit_transaction documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds-data.html#RDSDataService.Client.commit_transaction)
+        [Client.commit_transaction documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds-data.html#RDSDataService.Client.commit_transaction)
         """
 
     def execute_sql(
@@ -97,7 +97,7 @@ class RDSDataServiceClient:
         schema: str = None,
     ) -> ExecuteSqlResponseTypeDef:
         """
-        [Client.execute_sql documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds-data.html#RDSDataService.Client.execute_sql)
+        [Client.execute_sql documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds-data.html#RDSDataService.Client.execute_sql)
         """
 
     def execute_statement(
@@ -114,7 +114,7 @@ class RDSDataServiceClient:
         transactionId: str = None,
     ) -> ExecuteStatementResponseTypeDef:
         """
-        [Client.execute_statement documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds-data.html#RDSDataService.Client.execute_statement)
+        [Client.execute_statement documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds-data.html#RDSDataService.Client.execute_statement)
         """
 
     def generate_presigned_url(
@@ -125,12 +125,12 @@ class RDSDataServiceClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds-data.html#RDSDataService.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds-data.html#RDSDataService.Client.generate_presigned_url)
         """
 
     def rollback_transaction(
         self, resourceArn: str, secretArn: str, transactionId: str
     ) -> RollbackTransactionResponseTypeDef:
         """
-        [Client.rollback_transaction documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds-data.html#RDSDataService.Client.rollback_transaction)
+        [Client.rollback_transaction documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds-data.html#RDSDataService.Client.rollback_transaction)
         """

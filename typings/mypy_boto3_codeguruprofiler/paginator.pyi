@@ -39,7 +39,7 @@ __all__ = ("ListProfileTimesPaginator",)
 
 class ListProfileTimesPaginator(Boto3Paginator):
     """
-    [Paginator.ListProfileTimes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeguruprofiler.html#CodeGuruProfiler.Paginator.ListProfileTimes)
+    [Paginator.ListProfileTimes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codeguruprofiler.html#CodeGuruProfiler.Paginator.ListProfileTimes)
     """
 
     def paginate(
@@ -52,5 +52,5 @@ class ListProfileTimesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListProfileTimesResponseTypeDef]:
         """
-        [ListProfileTimes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeguruprofiler.html#CodeGuruProfiler.Paginator.ListProfileTimes.paginate)
+        [ListProfileTimes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codeguruprofiler.html#CodeGuruProfiler.Paginator.ListProfileTimes.paginate)
         """

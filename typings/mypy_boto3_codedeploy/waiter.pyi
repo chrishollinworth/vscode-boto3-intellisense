@@ -26,10 +26,10 @@ __all__ = ("DeploymentSuccessfulWaiter",)
 
 class DeploymentSuccessfulWaiter(Boto3Waiter):
     """
-    [Waiter.DeploymentSuccessful documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codedeploy.html#CodeDeploy.Waiter.DeploymentSuccessful)
+    [Waiter.DeploymentSuccessful documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codedeploy.html#CodeDeploy.Waiter.DeploymentSuccessful)
     """
 
     def wait(self, deploymentId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [DeploymentSuccessful.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codedeploy.html#CodeDeploy.Waiter.DeploymentSuccessful.wait)
+        [DeploymentSuccessful.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codedeploy.html#CodeDeploy.Waiter.DeploymentSuccessful.wait)
         """

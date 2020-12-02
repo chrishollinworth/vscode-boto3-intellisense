@@ -4,9 +4,9 @@ Main interface for sso-admin service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_sso_admin.type_defs import AccountAssignmentOperationStatusMetadataTypeDef
+    from mypy_boto3_sso_admin.type_defs import AccessControlAttributeTypeDef
 
-    data: AccountAssignmentOperationStatusMetadataTypeDef = {...}
+    data: AccessControlAttributeTypeDef = {...}
     ```
 """
 import sys
@@ -24,10 +24,13 @@ else:
 
 
 __all__ = (
+    "AccessControlAttributeTypeDef",
+    "AccessControlAttributeValueTypeDef",
     "AccountAssignmentOperationStatusMetadataTypeDef",
     "AccountAssignmentOperationStatusTypeDef",
     "AccountAssignmentTypeDef",
     "AttachedManagedPolicyTypeDef",
+    "InstanceAccessControlAttributeConfigurationTypeDef",
     "InstanceMetadataTypeDef",
     "PermissionSetProvisioningStatusMetadataTypeDef",
     "PermissionSetProvisioningStatusTypeDef",
@@ -38,6 +41,7 @@ __all__ = (
     "DeleteAccountAssignmentResponseTypeDef",
     "DescribeAccountAssignmentCreationStatusResponseTypeDef",
     "DescribeAccountAssignmentDeletionStatusResponseTypeDef",
+    "DescribeInstanceAccessControlAttributeConfigurationResponseTypeDef",
     "DescribePermissionSetProvisioningStatusResponseTypeDef",
     "DescribePermissionSetResponseTypeDef",
     "GetInlinePolicyForPermissionSetResponseTypeDef",
@@ -54,6 +58,14 @@ __all__ = (
     "OperationStatusFilterTypeDef",
     "PaginatorConfigTypeDef",
     "ProvisionPermissionSetResponseTypeDef",
+)
+
+AccessControlAttributeTypeDef = TypedDict(
+    "AccessControlAttributeTypeDef", {"Key": str, "Value": "AccessControlAttributeValueTypeDef"}
+)
+
+AccessControlAttributeValueTypeDef = TypedDict(
+    "AccessControlAttributeValueTypeDef", {"Source": List[str]}
 )
 
 AccountAssignmentOperationStatusMetadataTypeDef = TypedDict(
@@ -95,6 +107,11 @@ AccountAssignmentTypeDef = TypedDict(
 
 AttachedManagedPolicyTypeDef = TypedDict(
     "AttachedManagedPolicyTypeDef", {"Name": str, "Arn": str}, total=False
+)
+
+InstanceAccessControlAttributeConfigurationTypeDef = TypedDict(
+    "InstanceAccessControlAttributeConfigurationTypeDef",
+    {"AccessControlAttributes": List["AccessControlAttributeTypeDef"]},
 )
 
 InstanceMetadataTypeDef = TypedDict(
@@ -164,6 +181,16 @@ DescribeAccountAssignmentCreationStatusResponseTypeDef = TypedDict(
 DescribeAccountAssignmentDeletionStatusResponseTypeDef = TypedDict(
     "DescribeAccountAssignmentDeletionStatusResponseTypeDef",
     {"AccountAssignmentDeletionStatus": "AccountAssignmentOperationStatusTypeDef"},
+    total=False,
+)
+
+DescribeInstanceAccessControlAttributeConfigurationResponseTypeDef = TypedDict(
+    "DescribeInstanceAccessControlAttributeConfigurationResponseTypeDef",
+    {
+        "Status": Literal["ENABLED", "CREATION_IN_PROGRESS", "CREATION_FAILED"],
+        "StatusReason": str,
+        "InstanceAccessControlAttributeConfiguration": "InstanceAccessControlAttributeConfigurationTypeDef",
+    },
     total=False,
 )
 

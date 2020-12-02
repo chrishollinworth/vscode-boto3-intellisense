@@ -1546,7 +1546,11 @@ CmafGroupSettingsTypeDef = TypedDict(
 
 CmfcSettingsTypeDef = TypedDict(
     "CmfcSettingsTypeDef",
-    {"Scte35Esam": Literal["INSERT", "NONE"], "Scte35Source": Literal["PASSTHROUGH", "NONE"]},
+    {
+        "AudioDuration": Literal["DEFAULT_CODEC_DURATION", "MATCH_VIDEO_DURATION"],
+        "Scte35Esam": Literal["INSERT", "NONE"],
+        "Scte35Source": Literal["PASSTHROUGH", "NONE"],
+    },
     total=False,
 )
 
@@ -1609,6 +1613,7 @@ DashIsoGroupSettingsTypeDef = TypedDict(
         "FragmentLength": int,
         "HbbtvCompliance": Literal["HBBTV_1_5", "NONE"],
         "MinBufferTime": int,
+        "MinFinalSegmentLength": float,
         "MpdProfile": Literal["MAIN_PROFILE", "ON_DEMAND_PROFILE"],
         "SegmentControl": Literal["SINGLE_FILE", "SEGMENTED_FILES"],
         "SegmentLength": int,
@@ -2502,6 +2507,7 @@ M2tsSettingsTypeDef = TypedDict(
     "M2tsSettingsTypeDef",
     {
         "AudioBufferModel": Literal["DVB", "ATSC"],
+        "AudioDuration": Literal["DEFAULT_CODEC_DURATION", "MATCH_VIDEO_DURATION"],
         "AudioFramesPerPes": int,
         "AudioPids": List[int],
         "Bitrate": int,
@@ -2546,6 +2552,7 @@ M2tsSettingsTypeDef = TypedDict(
 M3u8SettingsTypeDef = TypedDict(
     "M3u8SettingsTypeDef",
     {
+        "AudioDuration": Literal["DEFAULT_CODEC_DURATION", "MATCH_VIDEO_DURATION"],
         "AudioFramesPerPes": int,
         "AudioPids": List[int],
         "NielsenId3": Literal["INSERT", "NONE"],
@@ -2620,6 +2627,7 @@ Mp3SettingsTypeDef = TypedDict(
 Mp4SettingsTypeDef = TypedDict(
     "Mp4SettingsTypeDef",
     {
+        "AudioDuration": Literal["DEFAULT_CODEC_DURATION", "MATCH_VIDEO_DURATION"],
         "CslgAtom": Literal["INCLUDE", "EXCLUDE"],
         "CttsVersion": int,
         "FreeSpaceBox": Literal["INCLUDE", "EXCLUDE"],
@@ -2632,6 +2640,8 @@ Mp4SettingsTypeDef = TypedDict(
 MpdSettingsTypeDef = TypedDict(
     "MpdSettingsTypeDef",
     {
+        "AccessibilityCaptionHints": Literal["INCLUDE", "EXCLUDE"],
+        "AudioDuration": Literal["DEFAULT_CODEC_DURATION", "MATCH_VIDEO_DURATION"],
         "CaptionContainerType": Literal["RAW", "FRAGMENTED_MP4"],
         "Scte35Esam": Literal["INSERT", "NONE"],
         "Scte35Source": Literal["PASSTHROUGH", "NONE"],

@@ -230,7 +230,7 @@ __all__ = (
 
 class ListActiveViolationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListActiveViolations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListActiveViolations)
+    [Paginator.ListActiveViolations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListActiveViolations)
     """
 
     def paginate(
@@ -240,26 +240,26 @@ class ListActiveViolationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListActiveViolationsResponseTypeDef]:
         """
-        [ListActiveViolations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListActiveViolations.paginate)
+        [ListActiveViolations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListActiveViolations.paginate)
         """
 
 
 class ListAttachedPoliciesPaginator(Boto3Paginator):
     """
-    [Paginator.ListAttachedPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListAttachedPolicies)
+    [Paginator.ListAttachedPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListAttachedPolicies)
     """
 
     def paginate(
         self, target: str, recursive: bool = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAttachedPoliciesResponseTypeDef]:
         """
-        [ListAttachedPolicies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListAttachedPolicies.paginate)
+        [ListAttachedPolicies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListAttachedPolicies.paginate)
         """
 
 
 class ListAuditFindingsPaginator(Boto3Paginator):
     """
-    [Paginator.ListAuditFindings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListAuditFindings)
+    [Paginator.ListAuditFindings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListAuditFindings)
     """
 
     def paginate(
@@ -273,13 +273,13 @@ class ListAuditFindingsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListAuditFindingsResponseTypeDef]:
         """
-        [ListAuditFindings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListAuditFindings.paginate)
+        [ListAuditFindings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListAuditFindings.paginate)
         """
 
 
 class ListAuditMitigationActionsExecutionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListAuditMitigationActionsExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListAuditMitigationActionsExecutions)
+    [Paginator.ListAuditMitigationActionsExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListAuditMitigationActionsExecutions)
     """
 
     def paginate(
@@ -292,13 +292,13 @@ class ListAuditMitigationActionsExecutionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListAuditMitigationActionsExecutionsResponseTypeDef]:
         """
-        [ListAuditMitigationActionsExecutions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListAuditMitigationActionsExecutions.paginate)
+        [ListAuditMitigationActionsExecutions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListAuditMitigationActionsExecutions.paginate)
         """
 
 
 class ListAuditMitigationActionsTasksPaginator(Boto3Paginator):
     """
-    [Paginator.ListAuditMitigationActionsTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListAuditMitigationActionsTasks)
+    [Paginator.ListAuditMitigationActionsTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListAuditMitigationActionsTasks)
     """
 
     def paginate(
@@ -311,13 +311,13 @@ class ListAuditMitigationActionsTasksPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListAuditMitigationActionsTasksResponseTypeDef]:
         """
-        [ListAuditMitigationActionsTasks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListAuditMitigationActionsTasks.paginate)
+        [ListAuditMitigationActionsTasks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListAuditMitigationActionsTasks.paginate)
         """
 
 
 class ListAuditSuppressionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListAuditSuppressions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListAuditSuppressions)
+    [Paginator.ListAuditSuppressions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListAuditSuppressions)
     """
 
     def paginate(
@@ -328,13 +328,13 @@ class ListAuditSuppressionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListAuditSuppressionsResponseTypeDef]:
         """
-        [ListAuditSuppressions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListAuditSuppressions.paginate)
+        [ListAuditSuppressions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListAuditSuppressions.paginate)
         """
 
 
 class ListAuditTasksPaginator(Boto3Paginator):
     """
-    [Paginator.ListAuditTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListAuditTasks)
+    [Paginator.ListAuditTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListAuditTasks)
     """
 
     def paginate(
@@ -346,13 +346,13 @@ class ListAuditTasksPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListAuditTasksResponseTypeDef]:
         """
-        [ListAuditTasks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListAuditTasks.paginate)
+        [ListAuditTasks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListAuditTasks.paginate)
         """
 
 
 class ListAuthorizersPaginator(Boto3Paginator):
     """
-    [Paginator.ListAuthorizers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListAuthorizers)
+    [Paginator.ListAuthorizers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListAuthorizers)
     """
 
     def paginate(
@@ -362,52 +362,52 @@ class ListAuthorizersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListAuthorizersResponseTypeDef]:
         """
-        [ListAuthorizers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListAuthorizers.paginate)
+        [ListAuthorizers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListAuthorizers.paginate)
         """
 
 
 class ListBillingGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.ListBillingGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListBillingGroups)
+    [Paginator.ListBillingGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListBillingGroups)
     """
 
     def paginate(
         self, namePrefixFilter: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListBillingGroupsResponseTypeDef]:
         """
-        [ListBillingGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListBillingGroups.paginate)
+        [ListBillingGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListBillingGroups.paginate)
         """
 
 
 class ListCACertificatesPaginator(Boto3Paginator):
     """
-    [Paginator.ListCACertificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListCACertificates)
+    [Paginator.ListCACertificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListCACertificates)
     """
 
     def paginate(
         self, ascendingOrder: bool = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListCACertificatesResponseTypeDef]:
         """
-        [ListCACertificates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListCACertificates.paginate)
+        [ListCACertificates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListCACertificates.paginate)
         """
 
 
 class ListCertificatesPaginator(Boto3Paginator):
     """
-    [Paginator.ListCertificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListCertificates)
+    [Paginator.ListCertificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListCertificates)
     """
 
     def paginate(
         self, ascendingOrder: bool = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListCertificatesResponseTypeDef]:
         """
-        [ListCertificates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListCertificates.paginate)
+        [ListCertificates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListCertificates.paginate)
         """
 
 
 class ListCertificatesByCAPaginator(Boto3Paginator):
     """
-    [Paginator.ListCertificatesByCA documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListCertificatesByCA)
+    [Paginator.ListCertificatesByCA documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListCertificatesByCA)
     """
 
     def paginate(
@@ -417,26 +417,26 @@ class ListCertificatesByCAPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListCertificatesByCAResponseTypeDef]:
         """
-        [ListCertificatesByCA.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListCertificatesByCA.paginate)
+        [ListCertificatesByCA.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListCertificatesByCA.paginate)
         """
 
 
 class ListDimensionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDimensions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListDimensions)
+    [Paginator.ListDimensions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListDimensions)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDimensionsResponseTypeDef]:
         """
-        [ListDimensions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListDimensions.paginate)
+        [ListDimensions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListDimensions.paginate)
         """
 
 
 class ListDomainConfigurationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDomainConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListDomainConfigurations)
+    [Paginator.ListDomainConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListDomainConfigurations)
     """
 
     def paginate(
@@ -445,26 +445,26 @@ class ListDomainConfigurationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListDomainConfigurationsResponseTypeDef]:
         """
-        [ListDomainConfigurations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListDomainConfigurations.paginate)
+        [ListDomainConfigurations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListDomainConfigurations.paginate)
         """
 
 
 class ListIndicesPaginator(Boto3Paginator):
     """
-    [Paginator.ListIndices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListIndices)
+    [Paginator.ListIndices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListIndices)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListIndicesResponseTypeDef]:
         """
-        [ListIndices.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListIndices.paginate)
+        [ListIndices.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListIndices.paginate)
         """
 
 
 class ListJobExecutionsForJobPaginator(Boto3Paginator):
     """
-    [Paginator.ListJobExecutionsForJob documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListJobExecutionsForJob)
+    [Paginator.ListJobExecutionsForJob documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListJobExecutionsForJob)
     """
 
     def paginate(
@@ -483,13 +483,13 @@ class ListJobExecutionsForJobPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListJobExecutionsForJobResponseTypeDef]:
         """
-        [ListJobExecutionsForJob.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListJobExecutionsForJob.paginate)
+        [ListJobExecutionsForJob.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListJobExecutionsForJob.paginate)
         """
 
 
 class ListJobExecutionsForThingPaginator(Boto3Paginator):
     """
-    [Paginator.ListJobExecutionsForThing documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListJobExecutionsForThing)
+    [Paginator.ListJobExecutionsForThing documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListJobExecutionsForThing)
     """
 
     def paginate(
@@ -509,13 +509,13 @@ class ListJobExecutionsForThingPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListJobExecutionsForThingResponseTypeDef]:
         """
-        [ListJobExecutionsForThing.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListJobExecutionsForThing.paginate)
+        [ListJobExecutionsForThing.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListJobExecutionsForThing.paginate)
         """
 
 
 class ListJobsPaginator(Boto3Paginator):
     """
-    [Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListJobs)
+    [Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListJobs)
     """
 
     def paginate(
@@ -528,13 +528,13 @@ class ListJobsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListJobsResponseTypeDef]:
         """
-        [ListJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListJobs.paginate)
+        [ListJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListJobs.paginate)
         """
 
 
 class ListMitigationActionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListMitigationActions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListMitigationActions)
+    [Paginator.ListMitigationActions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListMitigationActions)
     """
 
     def paginate(
@@ -550,13 +550,13 @@ class ListMitigationActionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListMitigationActionsResponseTypeDef]:
         """
-        [ListMitigationActions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListMitigationActions.paginate)
+        [ListMitigationActions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListMitigationActions.paginate)
         """
 
 
 class ListOTAUpdatesPaginator(Boto3Paginator):
     """
-    [Paginator.ListOTAUpdates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListOTAUpdates)
+    [Paginator.ListOTAUpdates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListOTAUpdates)
     """
 
     def paginate(
@@ -567,39 +567,39 @@ class ListOTAUpdatesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListOTAUpdatesResponseTypeDef]:
         """
-        [ListOTAUpdates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListOTAUpdates.paginate)
+        [ListOTAUpdates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListOTAUpdates.paginate)
         """
 
 
 class ListOutgoingCertificatesPaginator(Boto3Paginator):
     """
-    [Paginator.ListOutgoingCertificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListOutgoingCertificates)
+    [Paginator.ListOutgoingCertificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListOutgoingCertificates)
     """
 
     def paginate(
         self, ascendingOrder: bool = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListOutgoingCertificatesResponseTypeDef]:
         """
-        [ListOutgoingCertificates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListOutgoingCertificates.paginate)
+        [ListOutgoingCertificates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListOutgoingCertificates.paginate)
         """
 
 
 class ListPoliciesPaginator(Boto3Paginator):
     """
-    [Paginator.ListPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListPolicies)
+    [Paginator.ListPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListPolicies)
     """
 
     def paginate(
         self, ascendingOrder: bool = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPoliciesResponseTypeDef]:
         """
-        [ListPolicies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListPolicies.paginate)
+        [ListPolicies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListPolicies.paginate)
         """
 
 
 class ListPolicyPrincipalsPaginator(Boto3Paginator):
     """
-    [Paginator.ListPolicyPrincipals documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListPolicyPrincipals)
+    [Paginator.ListPolicyPrincipals documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListPolicyPrincipals)
     """
 
     def paginate(
@@ -609,13 +609,13 @@ class ListPolicyPrincipalsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListPolicyPrincipalsResponseTypeDef]:
         """
-        [ListPolicyPrincipals.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListPolicyPrincipals.paginate)
+        [ListPolicyPrincipals.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListPolicyPrincipals.paginate)
         """
 
 
 class ListPrincipalPoliciesPaginator(Boto3Paginator):
     """
-    [Paginator.ListPrincipalPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListPrincipalPolicies)
+    [Paginator.ListPrincipalPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListPrincipalPolicies)
     """
 
     def paginate(
@@ -625,91 +625,91 @@ class ListPrincipalPoliciesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListPrincipalPoliciesResponseTypeDef]:
         """
-        [ListPrincipalPolicies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListPrincipalPolicies.paginate)
+        [ListPrincipalPolicies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListPrincipalPolicies.paginate)
         """
 
 
 class ListPrincipalThingsPaginator(Boto3Paginator):
     """
-    [Paginator.ListPrincipalThings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListPrincipalThings)
+    [Paginator.ListPrincipalThings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListPrincipalThings)
     """
 
     def paginate(
         self, principal: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPrincipalThingsResponseTypeDef]:
         """
-        [ListPrincipalThings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListPrincipalThings.paginate)
+        [ListPrincipalThings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListPrincipalThings.paginate)
         """
 
 
 class ListProvisioningTemplateVersionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListProvisioningTemplateVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListProvisioningTemplateVersions)
+    [Paginator.ListProvisioningTemplateVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListProvisioningTemplateVersions)
     """
 
     def paginate(
         self, templateName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListProvisioningTemplateVersionsResponseTypeDef]:
         """
-        [ListProvisioningTemplateVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListProvisioningTemplateVersions.paginate)
+        [ListProvisioningTemplateVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListProvisioningTemplateVersions.paginate)
         """
 
 
 class ListProvisioningTemplatesPaginator(Boto3Paginator):
     """
-    [Paginator.ListProvisioningTemplates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListProvisioningTemplates)
+    [Paginator.ListProvisioningTemplates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListProvisioningTemplates)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListProvisioningTemplatesResponseTypeDef]:
         """
-        [ListProvisioningTemplates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListProvisioningTemplates.paginate)
+        [ListProvisioningTemplates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListProvisioningTemplates.paginate)
         """
 
 
 class ListRoleAliasesPaginator(Boto3Paginator):
     """
-    [Paginator.ListRoleAliases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListRoleAliases)
+    [Paginator.ListRoleAliases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListRoleAliases)
     """
 
     def paginate(
         self, ascendingOrder: bool = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRoleAliasesResponseTypeDef]:
         """
-        [ListRoleAliases.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListRoleAliases.paginate)
+        [ListRoleAliases.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListRoleAliases.paginate)
         """
 
 
 class ListScheduledAuditsPaginator(Boto3Paginator):
     """
-    [Paginator.ListScheduledAudits documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListScheduledAudits)
+    [Paginator.ListScheduledAudits documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListScheduledAudits)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListScheduledAuditsResponseTypeDef]:
         """
-        [ListScheduledAudits.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListScheduledAudits.paginate)
+        [ListScheduledAudits.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListScheduledAudits.paginate)
         """
 
 
 class ListSecurityProfilesPaginator(Boto3Paginator):
     """
-    [Paginator.ListSecurityProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListSecurityProfiles)
+    [Paginator.ListSecurityProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListSecurityProfiles)
     """
 
     def paginate(
         self, dimensionName: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSecurityProfilesResponseTypeDef]:
         """
-        [ListSecurityProfiles.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListSecurityProfiles.paginate)
+        [ListSecurityProfiles.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListSecurityProfiles.paginate)
         """
 
 
 class ListSecurityProfilesForTargetPaginator(Boto3Paginator):
     """
-    [Paginator.ListSecurityProfilesForTarget documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListSecurityProfilesForTarget)
+    [Paginator.ListSecurityProfilesForTarget documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListSecurityProfilesForTarget)
     """
 
     def paginate(
@@ -719,65 +719,65 @@ class ListSecurityProfilesForTargetPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListSecurityProfilesForTargetResponseTypeDef]:
         """
-        [ListSecurityProfilesForTarget.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListSecurityProfilesForTarget.paginate)
+        [ListSecurityProfilesForTarget.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListSecurityProfilesForTarget.paginate)
         """
 
 
 class ListStreamsPaginator(Boto3Paginator):
     """
-    [Paginator.ListStreams documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListStreams)
+    [Paginator.ListStreams documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListStreams)
     """
 
     def paginate(
         self, ascendingOrder: bool = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListStreamsResponseTypeDef]:
         """
-        [ListStreams.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListStreams.paginate)
+        [ListStreams.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListStreams.paginate)
         """
 
 
 class ListTagsForResourcePaginator(Boto3Paginator):
     """
-    [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListTagsForResource)
+    [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListTagsForResource)
     """
 
     def paginate(
         self, resourceArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTagsForResourceResponseTypeDef]:
         """
-        [ListTagsForResource.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListTagsForResource.paginate)
+        [ListTagsForResource.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListTagsForResource.paginate)
         """
 
 
 class ListTargetsForPolicyPaginator(Boto3Paginator):
     """
-    [Paginator.ListTargetsForPolicy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListTargetsForPolicy)
+    [Paginator.ListTargetsForPolicy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListTargetsForPolicy)
     """
 
     def paginate(
         self, policyName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTargetsForPolicyResponseTypeDef]:
         """
-        [ListTargetsForPolicy.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListTargetsForPolicy.paginate)
+        [ListTargetsForPolicy.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListTargetsForPolicy.paginate)
         """
 
 
 class ListTargetsForSecurityProfilePaginator(Boto3Paginator):
     """
-    [Paginator.ListTargetsForSecurityProfile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListTargetsForSecurityProfile)
+    [Paginator.ListTargetsForSecurityProfile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListTargetsForSecurityProfile)
     """
 
     def paginate(
         self, securityProfileName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTargetsForSecurityProfileResponseTypeDef]:
         """
-        [ListTargetsForSecurityProfile.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListTargetsForSecurityProfile.paginate)
+        [ListTargetsForSecurityProfile.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListTargetsForSecurityProfile.paginate)
         """
 
 
 class ListThingGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.ListThingGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListThingGroups)
+    [Paginator.ListThingGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListThingGroups)
     """
 
     def paginate(
@@ -788,39 +788,39 @@ class ListThingGroupsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListThingGroupsResponseTypeDef]:
         """
-        [ListThingGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListThingGroups.paginate)
+        [ListThingGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListThingGroups.paginate)
         """
 
 
 class ListThingGroupsForThingPaginator(Boto3Paginator):
     """
-    [Paginator.ListThingGroupsForThing documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListThingGroupsForThing)
+    [Paginator.ListThingGroupsForThing documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListThingGroupsForThing)
     """
 
     def paginate(
         self, thingName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListThingGroupsForThingResponseTypeDef]:
         """
-        [ListThingGroupsForThing.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListThingGroupsForThing.paginate)
+        [ListThingGroupsForThing.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListThingGroupsForThing.paginate)
         """
 
 
 class ListThingPrincipalsPaginator(Boto3Paginator):
     """
-    [Paginator.ListThingPrincipals documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListThingPrincipals)
+    [Paginator.ListThingPrincipals documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListThingPrincipals)
     """
 
     def paginate(
         self, thingName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListThingPrincipalsResponseTypeDef]:
         """
-        [ListThingPrincipals.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListThingPrincipals.paginate)
+        [ListThingPrincipals.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListThingPrincipals.paginate)
         """
 
 
 class ListThingRegistrationTaskReportsPaginator(Boto3Paginator):
     """
-    [Paginator.ListThingRegistrationTaskReports documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListThingRegistrationTaskReports)
+    [Paginator.ListThingRegistrationTaskReports documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListThingRegistrationTaskReports)
     """
 
     def paginate(
@@ -830,13 +830,13 @@ class ListThingRegistrationTaskReportsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListThingRegistrationTaskReportsResponseTypeDef]:
         """
-        [ListThingRegistrationTaskReports.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListThingRegistrationTaskReports.paginate)
+        [ListThingRegistrationTaskReports.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListThingRegistrationTaskReports.paginate)
         """
 
 
 class ListThingRegistrationTasksPaginator(Boto3Paginator):
     """
-    [Paginator.ListThingRegistrationTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListThingRegistrationTasks)
+    [Paginator.ListThingRegistrationTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListThingRegistrationTasks)
     """
 
     def paginate(
@@ -845,26 +845,26 @@ class ListThingRegistrationTasksPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListThingRegistrationTasksResponseTypeDef]:
         """
-        [ListThingRegistrationTasks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListThingRegistrationTasks.paginate)
+        [ListThingRegistrationTasks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListThingRegistrationTasks.paginate)
         """
 
 
 class ListThingTypesPaginator(Boto3Paginator):
     """
-    [Paginator.ListThingTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListThingTypes)
+    [Paginator.ListThingTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListThingTypes)
     """
 
     def paginate(
         self, thingTypeName: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListThingTypesResponseTypeDef]:
         """
-        [ListThingTypes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListThingTypes.paginate)
+        [ListThingTypes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListThingTypes.paginate)
         """
 
 
 class ListThingsPaginator(Boto3Paginator):
     """
-    [Paginator.ListThings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListThings)
+    [Paginator.ListThings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListThings)
     """
 
     def paginate(
@@ -875,26 +875,26 @@ class ListThingsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListThingsResponseTypeDef]:
         """
-        [ListThings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListThings.paginate)
+        [ListThings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListThings.paginate)
         """
 
 
 class ListThingsInBillingGroupPaginator(Boto3Paginator):
     """
-    [Paginator.ListThingsInBillingGroup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListThingsInBillingGroup)
+    [Paginator.ListThingsInBillingGroup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListThingsInBillingGroup)
     """
 
     def paginate(
         self, billingGroupName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListThingsInBillingGroupResponseTypeDef]:
         """
-        [ListThingsInBillingGroup.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListThingsInBillingGroup.paginate)
+        [ListThingsInBillingGroup.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListThingsInBillingGroup.paginate)
         """
 
 
 class ListThingsInThingGroupPaginator(Boto3Paginator):
     """
-    [Paginator.ListThingsInThingGroup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListThingsInThingGroup)
+    [Paginator.ListThingsInThingGroup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListThingsInThingGroup)
     """
 
     def paginate(
@@ -904,26 +904,26 @@ class ListThingsInThingGroupPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListThingsInThingGroupResponseTypeDef]:
         """
-        [ListThingsInThingGroup.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListThingsInThingGroup.paginate)
+        [ListThingsInThingGroup.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListThingsInThingGroup.paginate)
         """
 
 
 class ListTopicRuleDestinationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListTopicRuleDestinations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListTopicRuleDestinations)
+    [Paginator.ListTopicRuleDestinations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListTopicRuleDestinations)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTopicRuleDestinationsResponseTypeDef]:
         """
-        [ListTopicRuleDestinations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListTopicRuleDestinations.paginate)
+        [ListTopicRuleDestinations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListTopicRuleDestinations.paginate)
         """
 
 
 class ListTopicRulesPaginator(Boto3Paginator):
     """
-    [Paginator.ListTopicRules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListTopicRules)
+    [Paginator.ListTopicRules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListTopicRules)
     """
 
     def paginate(
@@ -933,13 +933,13 @@ class ListTopicRulesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListTopicRulesResponseTypeDef]:
         """
-        [ListTopicRules.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListTopicRules.paginate)
+        [ListTopicRules.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListTopicRules.paginate)
         """
 
 
 class ListV2LoggingLevelsPaginator(Boto3Paginator):
     """
-    [Paginator.ListV2LoggingLevels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListV2LoggingLevels)
+    [Paginator.ListV2LoggingLevels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListV2LoggingLevels)
     """
 
     def paginate(
@@ -948,13 +948,13 @@ class ListV2LoggingLevelsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListV2LoggingLevelsResponseTypeDef]:
         """
-        [ListV2LoggingLevels.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListV2LoggingLevels.paginate)
+        [ListV2LoggingLevels.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListV2LoggingLevels.paginate)
         """
 
 
 class ListViolationEventsPaginator(Boto3Paginator):
     """
-    [Paginator.ListViolationEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListViolationEvents)
+    [Paginator.ListViolationEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListViolationEvents)
     """
 
     def paginate(
@@ -966,5 +966,5 @@ class ListViolationEventsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListViolationEventsResponseTypeDef]:
         """
-        [ListViolationEvents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot.html#IoT.Paginator.ListViolationEvents.paginate)
+        [ListViolationEvents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot.html#IoT.Paginator.ListViolationEvents.paginate)
         """

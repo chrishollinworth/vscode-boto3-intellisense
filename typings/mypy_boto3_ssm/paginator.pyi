@@ -232,7 +232,7 @@ __all__ = (
 
 class DescribeActivationsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeActivations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeActivations)
+    [Paginator.DescribeActivations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeActivations)
     """
 
     def paginate(
@@ -241,13 +241,13 @@ class DescribeActivationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeActivationsResultTypeDef]:
         """
-        [DescribeActivations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeActivations.paginate)
+        [DescribeActivations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeActivations.paginate)
         """
 
 
 class DescribeAssociationExecutionTargetsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeAssociationExecutionTargets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeAssociationExecutionTargets)
+    [Paginator.DescribeAssociationExecutionTargets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeAssociationExecutionTargets)
     """
 
     def paginate(
@@ -258,13 +258,13 @@ class DescribeAssociationExecutionTargetsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeAssociationExecutionTargetsResultTypeDef]:
         """
-        [DescribeAssociationExecutionTargets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeAssociationExecutionTargets.paginate)
+        [DescribeAssociationExecutionTargets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeAssociationExecutionTargets.paginate)
         """
 
 
 class DescribeAssociationExecutionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeAssociationExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeAssociationExecutions)
+    [Paginator.DescribeAssociationExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeAssociationExecutions)
     """
 
     def paginate(
@@ -274,13 +274,13 @@ class DescribeAssociationExecutionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeAssociationExecutionsResultTypeDef]:
         """
-        [DescribeAssociationExecutions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeAssociationExecutions.paginate)
+        [DescribeAssociationExecutions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeAssociationExecutions.paginate)
         """
 
 
 class DescribeAutomationExecutionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeAutomationExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeAutomationExecutions)
+    [Paginator.DescribeAutomationExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeAutomationExecutions)
     """
 
     def paginate(
@@ -289,13 +289,13 @@ class DescribeAutomationExecutionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeAutomationExecutionsResultTypeDef]:
         """
-        [DescribeAutomationExecutions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeAutomationExecutions.paginate)
+        [DescribeAutomationExecutions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeAutomationExecutions.paginate)
         """
 
 
 class DescribeAutomationStepExecutionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeAutomationStepExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeAutomationStepExecutions)
+    [Paginator.DescribeAutomationStepExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeAutomationStepExecutions)
     """
 
     def paginate(
@@ -306,13 +306,13 @@ class DescribeAutomationStepExecutionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeAutomationStepExecutionsResultTypeDef]:
         """
-        [DescribeAutomationStepExecutions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeAutomationStepExecutions.paginate)
+        [DescribeAutomationStepExecutions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeAutomationStepExecutions.paginate)
         """
 
 
 class DescribeAvailablePatchesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeAvailablePatches documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeAvailablePatches)
+    [Paginator.DescribeAvailablePatches documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeAvailablePatches)
     """
 
     def paginate(
@@ -321,52 +321,52 @@ class DescribeAvailablePatchesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeAvailablePatchesResultTypeDef]:
         """
-        [DescribeAvailablePatches.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeAvailablePatches.paginate)
+        [DescribeAvailablePatches.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeAvailablePatches.paginate)
         """
 
 
 class DescribeEffectiveInstanceAssociationsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeEffectiveInstanceAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeEffectiveInstanceAssociations)
+    [Paginator.DescribeEffectiveInstanceAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeEffectiveInstanceAssociations)
     """
 
     def paginate(
         self, InstanceId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeEffectiveInstanceAssociationsResultTypeDef]:
         """
-        [DescribeEffectiveInstanceAssociations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeEffectiveInstanceAssociations.paginate)
+        [DescribeEffectiveInstanceAssociations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeEffectiveInstanceAssociations.paginate)
         """
 
 
 class DescribeEffectivePatchesForPatchBaselinePaginator(Boto3Paginator):
     """
-    [Paginator.DescribeEffectivePatchesForPatchBaseline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeEffectivePatchesForPatchBaseline)
+    [Paginator.DescribeEffectivePatchesForPatchBaseline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeEffectivePatchesForPatchBaseline)
     """
 
     def paginate(
         self, BaselineId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeEffectivePatchesForPatchBaselineResultTypeDef]:
         """
-        [DescribeEffectivePatchesForPatchBaseline.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeEffectivePatchesForPatchBaseline.paginate)
+        [DescribeEffectivePatchesForPatchBaseline.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeEffectivePatchesForPatchBaseline.paginate)
         """
 
 
 class DescribeInstanceAssociationsStatusPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeInstanceAssociationsStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeInstanceAssociationsStatus)
+    [Paginator.DescribeInstanceAssociationsStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeInstanceAssociationsStatus)
     """
 
     def paginate(
         self, InstanceId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeInstanceAssociationsStatusResultTypeDef]:
         """
-        [DescribeInstanceAssociationsStatus.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeInstanceAssociationsStatus.paginate)
+        [DescribeInstanceAssociationsStatus.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeInstanceAssociationsStatus.paginate)
         """
 
 
 class DescribeInstanceInformationPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeInstanceInformation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeInstanceInformation)
+    [Paginator.DescribeInstanceInformation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeInstanceInformation)
     """
 
     def paginate(
@@ -376,26 +376,26 @@ class DescribeInstanceInformationPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeInstanceInformationResultTypeDef]:
         """
-        [DescribeInstanceInformation.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeInstanceInformation.paginate)
+        [DescribeInstanceInformation.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeInstanceInformation.paginate)
         """
 
 
 class DescribeInstancePatchStatesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeInstancePatchStates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeInstancePatchStates)
+    [Paginator.DescribeInstancePatchStates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeInstancePatchStates)
     """
 
     def paginate(
         self, InstanceIds: List[str], PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeInstancePatchStatesResultTypeDef]:
         """
-        [DescribeInstancePatchStates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeInstancePatchStates.paginate)
+        [DescribeInstancePatchStates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeInstancePatchStates.paginate)
         """
 
 
 class DescribeInstancePatchStatesForPatchGroupPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeInstancePatchStatesForPatchGroup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeInstancePatchStatesForPatchGroup)
+    [Paginator.DescribeInstancePatchStatesForPatchGroup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeInstancePatchStatesForPatchGroup)
     """
 
     def paginate(
@@ -405,13 +405,13 @@ class DescribeInstancePatchStatesForPatchGroupPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeInstancePatchStatesForPatchGroupResultTypeDef]:
         """
-        [DescribeInstancePatchStatesForPatchGroup.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeInstancePatchStatesForPatchGroup.paginate)
+        [DescribeInstancePatchStatesForPatchGroup.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeInstancePatchStatesForPatchGroup.paginate)
         """
 
 
 class DescribeInstancePatchesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeInstancePatches documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeInstancePatches)
+    [Paginator.DescribeInstancePatches documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeInstancePatches)
     """
 
     def paginate(
@@ -421,26 +421,26 @@ class DescribeInstancePatchesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeInstancePatchesResultTypeDef]:
         """
-        [DescribeInstancePatches.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeInstancePatches.paginate)
+        [DescribeInstancePatches.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeInstancePatches.paginate)
         """
 
 
 class DescribeInventoryDeletionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeInventoryDeletions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeInventoryDeletions)
+    [Paginator.DescribeInventoryDeletions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeInventoryDeletions)
     """
 
     def paginate(
         self, DeletionId: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeInventoryDeletionsResultTypeDef]:
         """
-        [DescribeInventoryDeletions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeInventoryDeletions.paginate)
+        [DescribeInventoryDeletions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeInventoryDeletions.paginate)
         """
 
 
 class DescribeMaintenanceWindowExecutionTaskInvocationsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeMaintenanceWindowExecutionTaskInvocations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowExecutionTaskInvocations)
+    [Paginator.DescribeMaintenanceWindowExecutionTaskInvocations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowExecutionTaskInvocations)
     """
 
     def paginate(
@@ -451,13 +451,13 @@ class DescribeMaintenanceWindowExecutionTaskInvocationsPaginator(Boto3Paginator)
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeMaintenanceWindowExecutionTaskInvocationsResultTypeDef]:
         """
-        [DescribeMaintenanceWindowExecutionTaskInvocations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowExecutionTaskInvocations.paginate)
+        [DescribeMaintenanceWindowExecutionTaskInvocations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowExecutionTaskInvocations.paginate)
         """
 
 
 class DescribeMaintenanceWindowExecutionTasksPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeMaintenanceWindowExecutionTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowExecutionTasks)
+    [Paginator.DescribeMaintenanceWindowExecutionTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowExecutionTasks)
     """
 
     def paginate(
@@ -467,13 +467,13 @@ class DescribeMaintenanceWindowExecutionTasksPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeMaintenanceWindowExecutionTasksResultTypeDef]:
         """
-        [DescribeMaintenanceWindowExecutionTasks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowExecutionTasks.paginate)
+        [DescribeMaintenanceWindowExecutionTasks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowExecutionTasks.paginate)
         """
 
 
 class DescribeMaintenanceWindowExecutionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeMaintenanceWindowExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowExecutions)
+    [Paginator.DescribeMaintenanceWindowExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowExecutions)
     """
 
     def paginate(
@@ -483,13 +483,13 @@ class DescribeMaintenanceWindowExecutionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeMaintenanceWindowExecutionsResultTypeDef]:
         """
-        [DescribeMaintenanceWindowExecutions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowExecutions.paginate)
+        [DescribeMaintenanceWindowExecutions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowExecutions.paginate)
         """
 
 
 class DescribeMaintenanceWindowSchedulePaginator(Boto3Paginator):
     """
-    [Paginator.DescribeMaintenanceWindowSchedule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowSchedule)
+    [Paginator.DescribeMaintenanceWindowSchedule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowSchedule)
     """
 
     def paginate(
@@ -501,13 +501,13 @@ class DescribeMaintenanceWindowSchedulePaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeMaintenanceWindowScheduleResultTypeDef]:
         """
-        [DescribeMaintenanceWindowSchedule.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowSchedule.paginate)
+        [DescribeMaintenanceWindowSchedule.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowSchedule.paginate)
         """
 
 
 class DescribeMaintenanceWindowTargetsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeMaintenanceWindowTargets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowTargets)
+    [Paginator.DescribeMaintenanceWindowTargets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowTargets)
     """
 
     def paginate(
@@ -517,13 +517,13 @@ class DescribeMaintenanceWindowTargetsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeMaintenanceWindowTargetsResultTypeDef]:
         """
-        [DescribeMaintenanceWindowTargets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowTargets.paginate)
+        [DescribeMaintenanceWindowTargets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowTargets.paginate)
         """
 
 
 class DescribeMaintenanceWindowTasksPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeMaintenanceWindowTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowTasks)
+    [Paginator.DescribeMaintenanceWindowTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowTasks)
     """
 
     def paginate(
@@ -533,13 +533,13 @@ class DescribeMaintenanceWindowTasksPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeMaintenanceWindowTasksResultTypeDef]:
         """
-        [DescribeMaintenanceWindowTasks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowTasks.paginate)
+        [DescribeMaintenanceWindowTasks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowTasks.paginate)
         """
 
 
 class DescribeMaintenanceWindowsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeMaintenanceWindows documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindows)
+    [Paginator.DescribeMaintenanceWindows documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindows)
     """
 
     def paginate(
@@ -548,13 +548,13 @@ class DescribeMaintenanceWindowsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeMaintenanceWindowsResultTypeDef]:
         """
-        [DescribeMaintenanceWindows.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindows.paginate)
+        [DescribeMaintenanceWindows.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindows.paginate)
         """
 
 
 class DescribeMaintenanceWindowsForTargetPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeMaintenanceWindowsForTarget documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowsForTarget)
+    [Paginator.DescribeMaintenanceWindowsForTarget documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowsForTarget)
     """
 
     def paginate(
@@ -564,13 +564,13 @@ class DescribeMaintenanceWindowsForTargetPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeMaintenanceWindowsForTargetResultTypeDef]:
         """
-        [DescribeMaintenanceWindowsForTarget.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowsForTarget.paginate)
+        [DescribeMaintenanceWindowsForTarget.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeMaintenanceWindowsForTarget.paginate)
         """
 
 
 class DescribeOpsItemsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeOpsItems documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeOpsItems)
+    [Paginator.DescribeOpsItems documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeOpsItems)
     """
 
     def paginate(
@@ -579,13 +579,13 @@ class DescribeOpsItemsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeOpsItemsResponseTypeDef]:
         """
-        [DescribeOpsItems.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeOpsItems.paginate)
+        [DescribeOpsItems.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeOpsItems.paginate)
         """
 
 
 class DescribeParametersPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeParameters)
+    [Paginator.DescribeParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeParameters)
     """
 
     def paginate(
@@ -595,13 +595,13 @@ class DescribeParametersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeParametersResultTypeDef]:
         """
-        [DescribeParameters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeParameters.paginate)
+        [DescribeParameters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeParameters.paginate)
         """
 
 
 class DescribePatchBaselinesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribePatchBaselines documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribePatchBaselines)
+    [Paginator.DescribePatchBaselines documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribePatchBaselines)
     """
 
     def paginate(
@@ -610,13 +610,13 @@ class DescribePatchBaselinesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribePatchBaselinesResultTypeDef]:
         """
-        [DescribePatchBaselines.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribePatchBaselines.paginate)
+        [DescribePatchBaselines.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribePatchBaselines.paginate)
         """
 
 
 class DescribePatchGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribePatchGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribePatchGroups)
+    [Paginator.DescribePatchGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribePatchGroups)
     """
 
     def paginate(
@@ -625,13 +625,13 @@ class DescribePatchGroupsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribePatchGroupsResultTypeDef]:
         """
-        [DescribePatchGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribePatchGroups.paginate)
+        [DescribePatchGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribePatchGroups.paginate)
         """
 
 
 class DescribePatchPropertiesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribePatchProperties documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribePatchProperties)
+    [Paginator.DescribePatchProperties documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribePatchProperties)
     """
 
     def paginate(
@@ -654,13 +654,13 @@ class DescribePatchPropertiesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribePatchPropertiesResultTypeDef]:
         """
-        [DescribePatchProperties.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribePatchProperties.paginate)
+        [DescribePatchProperties.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribePatchProperties.paginate)
         """
 
 
 class DescribeSessionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeSessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeSessions)
+    [Paginator.DescribeSessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeSessions)
     """
 
     def paginate(
@@ -670,13 +670,13 @@ class DescribeSessionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeSessionsResponseTypeDef]:
         """
-        [DescribeSessions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.DescribeSessions.paginate)
+        [DescribeSessions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.DescribeSessions.paginate)
         """
 
 
 class GetInventoryPaginator(Boto3Paginator):
     """
-    [Paginator.GetInventory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.GetInventory)
+    [Paginator.GetInventory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.GetInventory)
     """
 
     def paginate(
@@ -687,13 +687,13 @@ class GetInventoryPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetInventoryResultTypeDef]:
         """
-        [GetInventory.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.GetInventory.paginate)
+        [GetInventory.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.GetInventory.paginate)
         """
 
 
 class GetInventorySchemaPaginator(Boto3Paginator):
     """
-    [Paginator.GetInventorySchema documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.GetInventorySchema)
+    [Paginator.GetInventorySchema documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.GetInventorySchema)
     """
 
     def paginate(
@@ -704,13 +704,13 @@ class GetInventorySchemaPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetInventorySchemaResultTypeDef]:
         """
-        [GetInventorySchema.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.GetInventorySchema.paginate)
+        [GetInventorySchema.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.GetInventorySchema.paginate)
         """
 
 
 class GetOpsSummaryPaginator(Boto3Paginator):
     """
-    [Paginator.GetOpsSummary documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.GetOpsSummary)
+    [Paginator.GetOpsSummary documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.GetOpsSummary)
     """
 
     def paginate(
@@ -722,13 +722,13 @@ class GetOpsSummaryPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetOpsSummaryResultTypeDef]:
         """
-        [GetOpsSummary.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.GetOpsSummary.paginate)
+        [GetOpsSummary.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.GetOpsSummary.paginate)
         """
 
 
 class GetParameterHistoryPaginator(Boto3Paginator):
     """
-    [Paginator.GetParameterHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.GetParameterHistory)
+    [Paginator.GetParameterHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.GetParameterHistory)
     """
 
     def paginate(
@@ -738,13 +738,13 @@ class GetParameterHistoryPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetParameterHistoryResultTypeDef]:
         """
-        [GetParameterHistory.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.GetParameterHistory.paginate)
+        [GetParameterHistory.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.GetParameterHistory.paginate)
         """
 
 
 class GetParametersByPathPaginator(Boto3Paginator):
     """
-    [Paginator.GetParametersByPath documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.GetParametersByPath)
+    [Paginator.GetParametersByPath documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.GetParametersByPath)
     """
 
     def paginate(
@@ -756,26 +756,26 @@ class GetParametersByPathPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetParametersByPathResultTypeDef]:
         """
-        [GetParametersByPath.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.GetParametersByPath.paginate)
+        [GetParametersByPath.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.GetParametersByPath.paginate)
         """
 
 
 class ListAssociationVersionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListAssociationVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.ListAssociationVersions)
+    [Paginator.ListAssociationVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.ListAssociationVersions)
     """
 
     def paginate(
         self, AssociationId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAssociationVersionsResultTypeDef]:
         """
-        [ListAssociationVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.ListAssociationVersions.paginate)
+        [ListAssociationVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.ListAssociationVersions.paginate)
         """
 
 
 class ListAssociationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.ListAssociations)
+    [Paginator.ListAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.ListAssociations)
     """
 
     def paginate(
@@ -784,13 +784,13 @@ class ListAssociationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListAssociationsResultTypeDef]:
         """
-        [ListAssociations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.ListAssociations.paginate)
+        [ListAssociations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.ListAssociations.paginate)
         """
 
 
 class ListCommandInvocationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListCommandInvocations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.ListCommandInvocations)
+    [Paginator.ListCommandInvocations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.ListCommandInvocations)
     """
 
     def paginate(
@@ -802,13 +802,13 @@ class ListCommandInvocationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListCommandInvocationsResultTypeDef]:
         """
-        [ListCommandInvocations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.ListCommandInvocations.paginate)
+        [ListCommandInvocations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.ListCommandInvocations.paginate)
         """
 
 
 class ListCommandsPaginator(Boto3Paginator):
     """
-    [Paginator.ListCommands documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.ListCommands)
+    [Paginator.ListCommands documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.ListCommands)
     """
 
     def paginate(
@@ -819,13 +819,13 @@ class ListCommandsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListCommandsResultTypeDef]:
         """
-        [ListCommands.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.ListCommands.paginate)
+        [ListCommands.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.ListCommands.paginate)
         """
 
 
 class ListComplianceItemsPaginator(Boto3Paginator):
     """
-    [Paginator.ListComplianceItems documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.ListComplianceItems)
+    [Paginator.ListComplianceItems documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.ListComplianceItems)
     """
 
     def paginate(
@@ -836,13 +836,13 @@ class ListComplianceItemsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListComplianceItemsResultTypeDef]:
         """
-        [ListComplianceItems.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.ListComplianceItems.paginate)
+        [ListComplianceItems.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.ListComplianceItems.paginate)
         """
 
 
 class ListComplianceSummariesPaginator(Boto3Paginator):
     """
-    [Paginator.ListComplianceSummaries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.ListComplianceSummaries)
+    [Paginator.ListComplianceSummaries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.ListComplianceSummaries)
     """
 
     def paginate(
@@ -851,26 +851,26 @@ class ListComplianceSummariesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListComplianceSummariesResultTypeDef]:
         """
-        [ListComplianceSummaries.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.ListComplianceSummaries.paginate)
+        [ListComplianceSummaries.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.ListComplianceSummaries.paginate)
         """
 
 
 class ListDocumentVersionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDocumentVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.ListDocumentVersions)
+    [Paginator.ListDocumentVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.ListDocumentVersions)
     """
 
     def paginate(
         self, Name: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDocumentVersionsResultTypeDef]:
         """
-        [ListDocumentVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.ListDocumentVersions.paginate)
+        [ListDocumentVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.ListDocumentVersions.paginate)
         """
 
 
 class ListDocumentsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDocuments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.ListDocuments)
+    [Paginator.ListDocuments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.ListDocuments)
     """
 
     def paginate(
@@ -880,13 +880,13 @@ class ListDocumentsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListDocumentsResultTypeDef]:
         """
-        [ListDocuments.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.ListDocuments.paginate)
+        [ListDocuments.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.ListDocuments.paginate)
         """
 
 
 class ListResourceComplianceSummariesPaginator(Boto3Paginator):
     """
-    [Paginator.ListResourceComplianceSummaries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.ListResourceComplianceSummaries)
+    [Paginator.ListResourceComplianceSummaries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.ListResourceComplianceSummaries)
     """
 
     def paginate(
@@ -895,18 +895,18 @@ class ListResourceComplianceSummariesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListResourceComplianceSummariesResultTypeDef]:
         """
-        [ListResourceComplianceSummaries.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.ListResourceComplianceSummaries.paginate)
+        [ListResourceComplianceSummaries.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.ListResourceComplianceSummaries.paginate)
         """
 
 
 class ListResourceDataSyncPaginator(Boto3Paginator):
     """
-    [Paginator.ListResourceDataSync documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.ListResourceDataSync)
+    [Paginator.ListResourceDataSync documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.ListResourceDataSync)
     """
 
     def paginate(
         self, SyncType: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListResourceDataSyncResultTypeDef]:
         """
-        [ListResourceDataSync.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ssm.html#SSM.Paginator.ListResourceDataSync.paginate)
+        [ListResourceDataSync.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ssm.html#SSM.Paginator.ListResourceDataSync.paginate)
         """

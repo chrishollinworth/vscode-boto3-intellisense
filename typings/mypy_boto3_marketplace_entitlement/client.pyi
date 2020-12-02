@@ -45,7 +45,7 @@ class Exceptions:
 
 class MarketplaceEntitlementServiceClient:
     """
-    [MarketplaceEntitlementService.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/marketplace-entitlement.html#MarketplaceEntitlementService.Client)
+    [MarketplaceEntitlementService.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/marketplace-entitlement.html#MarketplaceEntitlementService.Client)
     """
 
     meta: ClientMeta
@@ -53,7 +53,7 @@ class MarketplaceEntitlementServiceClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/marketplace-entitlement.html#MarketplaceEntitlementService.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/marketplace-entitlement.html#MarketplaceEntitlementService.Client.can_paginate)
         """
 
     def generate_presigned_url(
@@ -64,7 +64,7 @@ class MarketplaceEntitlementServiceClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/marketplace-entitlement.html#MarketplaceEntitlementService.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/marketplace-entitlement.html#MarketplaceEntitlementService.Client.generate_presigned_url)
         """
 
     def get_entitlements(
@@ -75,12 +75,12 @@ class MarketplaceEntitlementServiceClient:
         MaxResults: int = None,
     ) -> GetEntitlementsResultTypeDef:
         """
-        [Client.get_entitlements documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/marketplace-entitlement.html#MarketplaceEntitlementService.Client.get_entitlements)
+        [Client.get_entitlements documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/marketplace-entitlement.html#MarketplaceEntitlementService.Client.get_entitlements)
         """
 
     def get_paginator(
         self, operation_name: Literal["get_entitlements"]
     ) -> GetEntitlementsPaginator:
         """
-        [Paginator.GetEntitlements documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/marketplace-entitlement.html#MarketplaceEntitlementService.Paginator.GetEntitlements)
+        [Paginator.GetEntitlements documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/marketplace-entitlement.html#MarketplaceEntitlementService.Paginator.GetEntitlements)
         """

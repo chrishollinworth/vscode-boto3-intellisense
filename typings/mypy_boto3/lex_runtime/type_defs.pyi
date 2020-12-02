@@ -1,4 +1,6 @@
 from mypy_boto3_lex_runtime.type_defs import (
+    ActiveContextTimeToLiveTypeDef,
+    ActiveContextTypeDef,
     ButtonTypeDef,
     DialogActionTypeDef,
     GenericAttachmentTypeDef,
@@ -15,6 +17,8 @@ from mypy_boto3_lex_runtime.type_defs import (
 )
 
 __all__ = (
+    "ActiveContextTimeToLiveTypeDef",
+    "ActiveContextTypeDef",
     "ButtonTypeDef",
     "DialogActionTypeDef",
     "GenericAttachmentTypeDef",

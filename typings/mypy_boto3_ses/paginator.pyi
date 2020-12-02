@@ -56,33 +56,33 @@ __all__ = (
 
 class ListConfigurationSetsPaginator(Boto3Paginator):
     """
-    [Paginator.ListConfigurationSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ses.html#SES.Paginator.ListConfigurationSets)
+    [Paginator.ListConfigurationSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ses.html#SES.Paginator.ListConfigurationSets)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListConfigurationSetsResponseTypeDef]:
         """
-        [ListConfigurationSets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ses.html#SES.Paginator.ListConfigurationSets.paginate)
+        [ListConfigurationSets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ses.html#SES.Paginator.ListConfigurationSets.paginate)
         """
 
 
 class ListCustomVerificationEmailTemplatesPaginator(Boto3Paginator):
     """
-    [Paginator.ListCustomVerificationEmailTemplates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ses.html#SES.Paginator.ListCustomVerificationEmailTemplates)
+    [Paginator.ListCustomVerificationEmailTemplates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ses.html#SES.Paginator.ListCustomVerificationEmailTemplates)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListCustomVerificationEmailTemplatesResponseTypeDef]:
         """
-        [ListCustomVerificationEmailTemplates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ses.html#SES.Paginator.ListCustomVerificationEmailTemplates.paginate)
+        [ListCustomVerificationEmailTemplates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ses.html#SES.Paginator.ListCustomVerificationEmailTemplates.paginate)
         """
 
 
 class ListIdentitiesPaginator(Boto3Paginator):
     """
-    [Paginator.ListIdentities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ses.html#SES.Paginator.ListIdentities)
+    [Paginator.ListIdentities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ses.html#SES.Paginator.ListIdentities)
     """
 
     def paginate(
@@ -91,31 +91,31 @@ class ListIdentitiesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListIdentitiesResponseTypeDef]:
         """
-        [ListIdentities.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ses.html#SES.Paginator.ListIdentities.paginate)
+        [ListIdentities.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ses.html#SES.Paginator.ListIdentities.paginate)
         """
 
 
 class ListReceiptRuleSetsPaginator(Boto3Paginator):
     """
-    [Paginator.ListReceiptRuleSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ses.html#SES.Paginator.ListReceiptRuleSets)
+    [Paginator.ListReceiptRuleSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ses.html#SES.Paginator.ListReceiptRuleSets)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListReceiptRuleSetsResponseTypeDef]:
         """
-        [ListReceiptRuleSets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ses.html#SES.Paginator.ListReceiptRuleSets.paginate)
+        [ListReceiptRuleSets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ses.html#SES.Paginator.ListReceiptRuleSets.paginate)
         """
 
 
 class ListTemplatesPaginator(Boto3Paginator):
     """
-    [Paginator.ListTemplates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ses.html#SES.Paginator.ListTemplates)
+    [Paginator.ListTemplates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ses.html#SES.Paginator.ListTemplates)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTemplatesResponseTypeDef]:
         """
-        [ListTemplates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ses.html#SES.Paginator.ListTemplates.paginate)
+        [ListTemplates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ses.html#SES.Paginator.ListTemplates.paginate)
         """

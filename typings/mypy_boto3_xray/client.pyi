@@ -88,7 +88,7 @@ class Exceptions:
 
 class XRayClient:
     """
-    [XRay.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Client)
+    [XRay.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Client)
     """
 
     meta: ClientMeta
@@ -98,12 +98,12 @@ class XRayClient:
         self, TraceIds: List[str], NextToken: str = None
     ) -> BatchGetTracesResultTypeDef:
         """
-        [Client.batch_get_traces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Client.batch_get_traces)
+        [Client.batch_get_traces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Client.batch_get_traces)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Client.can_paginate)
         """
 
     def create_group(
@@ -114,26 +114,26 @@ class XRayClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateGroupResultTypeDef:
         """
-        [Client.create_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Client.create_group)
+        [Client.create_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Client.create_group)
         """
 
     def create_sampling_rule(
         self, SamplingRule: "SamplingRuleTypeDef", Tags: List["TagTypeDef"] = None
     ) -> CreateSamplingRuleResultTypeDef:
         """
-        [Client.create_sampling_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Client.create_sampling_rule)
+        [Client.create_sampling_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Client.create_sampling_rule)
         """
 
     def delete_group(self, GroupName: str = None, GroupARN: str = None) -> Dict[str, Any]:
         """
-        [Client.delete_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Client.delete_group)
+        [Client.delete_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Client.delete_group)
         """
 
     def delete_sampling_rule(
         self, RuleName: str = None, RuleARN: str = None
     ) -> DeleteSamplingRuleResultTypeDef:
         """
-        [Client.delete_sampling_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Client.delete_sampling_rule)
+        [Client.delete_sampling_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Client.delete_sampling_rule)
         """
 
     def generate_presigned_url(
@@ -144,41 +144,41 @@ class XRayClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Client.generate_presigned_url)
         """
 
     def get_encryption_config(self) -> GetEncryptionConfigResultTypeDef:
         """
-        [Client.get_encryption_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Client.get_encryption_config)
+        [Client.get_encryption_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Client.get_encryption_config)
         """
 
     def get_group(self, GroupName: str = None, GroupARN: str = None) -> GetGroupResultTypeDef:
         """
-        [Client.get_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Client.get_group)
+        [Client.get_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Client.get_group)
         """
 
     def get_groups(self, NextToken: str = None) -> GetGroupsResultTypeDef:
         """
-        [Client.get_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Client.get_groups)
+        [Client.get_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Client.get_groups)
         """
 
     def get_insight(self, InsightId: str) -> GetInsightResultTypeDef:
         """
-        [Client.get_insight documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Client.get_insight)
+        [Client.get_insight documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Client.get_insight)
         """
 
     def get_insight_events(
         self, InsightId: str, MaxResults: int = None, NextToken: str = None
     ) -> GetInsightEventsResultTypeDef:
         """
-        [Client.get_insight_events documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Client.get_insight_events)
+        [Client.get_insight_events documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Client.get_insight_events)
         """
 
     def get_insight_impact_graph(
         self, InsightId: str, StartTime: datetime, EndTime: datetime, NextToken: str = None
     ) -> GetInsightImpactGraphResultTypeDef:
         """
-        [Client.get_insight_impact_graph documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Client.get_insight_impact_graph)
+        [Client.get_insight_impact_graph documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Client.get_insight_impact_graph)
         """
 
     def get_insight_summaries(
@@ -192,26 +192,26 @@ class XRayClient:
         NextToken: str = None,
     ) -> GetInsightSummariesResultTypeDef:
         """
-        [Client.get_insight_summaries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Client.get_insight_summaries)
+        [Client.get_insight_summaries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Client.get_insight_summaries)
         """
 
     def get_sampling_rules(self, NextToken: str = None) -> GetSamplingRulesResultTypeDef:
         """
-        [Client.get_sampling_rules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Client.get_sampling_rules)
+        [Client.get_sampling_rules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Client.get_sampling_rules)
         """
 
     def get_sampling_statistic_summaries(
         self, NextToken: str = None
     ) -> GetSamplingStatisticSummariesResultTypeDef:
         """
-        [Client.get_sampling_statistic_summaries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Client.get_sampling_statistic_summaries)
+        [Client.get_sampling_statistic_summaries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Client.get_sampling_statistic_summaries)
         """
 
     def get_sampling_targets(
         self, SamplingStatisticsDocuments: List[SamplingStatisticsDocumentTypeDef]
     ) -> GetSamplingTargetsResultTypeDef:
         """
-        [Client.get_sampling_targets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Client.get_sampling_targets)
+        [Client.get_sampling_targets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Client.get_sampling_targets)
         """
 
     def get_service_graph(
@@ -223,7 +223,7 @@ class XRayClient:
         NextToken: str = None,
     ) -> GetServiceGraphResultTypeDef:
         """
-        [Client.get_service_graph documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Client.get_service_graph)
+        [Client.get_service_graph documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Client.get_service_graph)
         """
 
     def get_time_series_service_statistics(
@@ -238,14 +238,14 @@ class XRayClient:
         NextToken: str = None,
     ) -> GetTimeSeriesServiceStatisticsResultTypeDef:
         """
-        [Client.get_time_series_service_statistics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Client.get_time_series_service_statistics)
+        [Client.get_time_series_service_statistics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Client.get_time_series_service_statistics)
         """
 
     def get_trace_graph(
         self, TraceIds: List[str], NextToken: str = None
     ) -> GetTraceGraphResultTypeDef:
         """
-        [Client.get_trace_graph documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Client.get_trace_graph)
+        [Client.get_trace_graph documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Client.get_trace_graph)
         """
 
     def get_trace_summaries(
@@ -259,21 +259,21 @@ class XRayClient:
         NextToken: str = None,
     ) -> GetTraceSummariesResultTypeDef:
         """
-        [Client.get_trace_summaries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Client.get_trace_summaries)
+        [Client.get_trace_summaries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Client.get_trace_summaries)
         """
 
     def list_tags_for_resource(
         self, ResourceARN: str, NextToken: str = None
     ) -> ListTagsForResourceResponseTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Client.list_tags_for_resource)
         """
 
     def put_encryption_config(
         self, Type: Literal["NONE", "KMS"], KeyId: str = None
     ) -> PutEncryptionConfigResultTypeDef:
         """
-        [Client.put_encryption_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Client.put_encryption_config)
+        [Client.put_encryption_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Client.put_encryption_config)
         """
 
     def put_telemetry_records(
@@ -284,22 +284,22 @@ class XRayClient:
         ResourceARN: str = None,
     ) -> Dict[str, Any]:
         """
-        [Client.put_telemetry_records documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Client.put_telemetry_records)
+        [Client.put_telemetry_records documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Client.put_telemetry_records)
         """
 
     def put_trace_segments(self, TraceSegmentDocuments: List[str]) -> PutTraceSegmentsResultTypeDef:
         """
-        [Client.put_trace_segments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Client.put_trace_segments)
+        [Client.put_trace_segments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Client.put_trace_segments)
         """
 
     def tag_resource(self, ResourceARN: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Client.tag_resource)
         """
 
     def untag_resource(self, ResourceARN: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Client.untag_resource)
         """
 
     def update_group(
@@ -310,26 +310,26 @@ class XRayClient:
         InsightsConfiguration: "InsightsConfigurationTypeDef" = None,
     ) -> UpdateGroupResultTypeDef:
         """
-        [Client.update_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Client.update_group)
+        [Client.update_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Client.update_group)
         """
 
     def update_sampling_rule(
         self, SamplingRuleUpdate: SamplingRuleUpdateTypeDef
     ) -> UpdateSamplingRuleResultTypeDef:
         """
-        [Client.update_sampling_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Client.update_sampling_rule)
+        [Client.update_sampling_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Client.update_sampling_rule)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["batch_get_traces"]) -> BatchGetTracesPaginator:
         """
-        [Paginator.BatchGetTraces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Paginator.BatchGetTraces)
+        [Paginator.BatchGetTraces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Paginator.BatchGetTraces)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_groups"]) -> GetGroupsPaginator:
         """
-        [Paginator.GetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Paginator.GetGroups)
+        [Paginator.GetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Paginator.GetGroups)
         """
 
     @overload
@@ -337,7 +337,7 @@ class XRayClient:
         self, operation_name: Literal["get_sampling_rules"]
     ) -> GetSamplingRulesPaginator:
         """
-        [Paginator.GetSamplingRules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Paginator.GetSamplingRules)
+        [Paginator.GetSamplingRules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Paginator.GetSamplingRules)
         """
 
     @overload
@@ -345,7 +345,7 @@ class XRayClient:
         self, operation_name: Literal["get_sampling_statistic_summaries"]
     ) -> GetSamplingStatisticSummariesPaginator:
         """
-        [Paginator.GetSamplingStatisticSummaries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Paginator.GetSamplingStatisticSummaries)
+        [Paginator.GetSamplingStatisticSummaries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Paginator.GetSamplingStatisticSummaries)
         """
 
     @overload
@@ -353,7 +353,7 @@ class XRayClient:
         self, operation_name: Literal["get_service_graph"]
     ) -> GetServiceGraphPaginator:
         """
-        [Paginator.GetServiceGraph documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Paginator.GetServiceGraph)
+        [Paginator.GetServiceGraph documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Paginator.GetServiceGraph)
         """
 
     @overload
@@ -361,13 +361,13 @@ class XRayClient:
         self, operation_name: Literal["get_time_series_service_statistics"]
     ) -> GetTimeSeriesServiceStatisticsPaginator:
         """
-        [Paginator.GetTimeSeriesServiceStatistics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Paginator.GetTimeSeriesServiceStatistics)
+        [Paginator.GetTimeSeriesServiceStatistics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Paginator.GetTimeSeriesServiceStatistics)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_trace_graph"]) -> GetTraceGraphPaginator:
         """
-        [Paginator.GetTraceGraph documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Paginator.GetTraceGraph)
+        [Paginator.GetTraceGraph documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Paginator.GetTraceGraph)
         """
 
     @overload
@@ -375,5 +375,5 @@ class XRayClient:
         self, operation_name: Literal["get_trace_summaries"]
     ) -> GetTraceSummariesPaginator:
         """
-        [Paginator.GetTraceSummaries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Paginator.GetTraceSummaries)
+        [Paginator.GetTraceSummaries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Paginator.GetTraceSummaries)
         """

@@ -69,7 +69,7 @@ __all__ = (
 
 class ListDocumentClassificationJobsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDocumentClassificationJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Paginator.ListDocumentClassificationJobs)
+    [Paginator.ListDocumentClassificationJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Paginator.ListDocumentClassificationJobs)
     """
 
     def paginate(
@@ -78,13 +78,13 @@ class ListDocumentClassificationJobsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListDocumentClassificationJobsResponseTypeDef]:
         """
-        [ListDocumentClassificationJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Paginator.ListDocumentClassificationJobs.paginate)
+        [ListDocumentClassificationJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Paginator.ListDocumentClassificationJobs.paginate)
         """
 
 
 class ListDocumentClassifiersPaginator(Boto3Paginator):
     """
-    [Paginator.ListDocumentClassifiers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Paginator.ListDocumentClassifiers)
+    [Paginator.ListDocumentClassifiers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Paginator.ListDocumentClassifiers)
     """
 
     def paginate(
@@ -93,13 +93,13 @@ class ListDocumentClassifiersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListDocumentClassifiersResponseTypeDef]:
         """
-        [ListDocumentClassifiers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Paginator.ListDocumentClassifiers.paginate)
+        [ListDocumentClassifiers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Paginator.ListDocumentClassifiers.paginate)
         """
 
 
 class ListDominantLanguageDetectionJobsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDominantLanguageDetectionJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Paginator.ListDominantLanguageDetectionJobs)
+    [Paginator.ListDominantLanguageDetectionJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Paginator.ListDominantLanguageDetectionJobs)
     """
 
     def paginate(
@@ -108,13 +108,13 @@ class ListDominantLanguageDetectionJobsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListDominantLanguageDetectionJobsResponseTypeDef]:
         """
-        [ListDominantLanguageDetectionJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Paginator.ListDominantLanguageDetectionJobs.paginate)
+        [ListDominantLanguageDetectionJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Paginator.ListDominantLanguageDetectionJobs.paginate)
         """
 
 
 class ListEntitiesDetectionJobsPaginator(Boto3Paginator):
     """
-    [Paginator.ListEntitiesDetectionJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Paginator.ListEntitiesDetectionJobs)
+    [Paginator.ListEntitiesDetectionJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Paginator.ListEntitiesDetectionJobs)
     """
 
     def paginate(
@@ -123,13 +123,13 @@ class ListEntitiesDetectionJobsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListEntitiesDetectionJobsResponseTypeDef]:
         """
-        [ListEntitiesDetectionJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Paginator.ListEntitiesDetectionJobs.paginate)
+        [ListEntitiesDetectionJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Paginator.ListEntitiesDetectionJobs.paginate)
         """
 
 
 class ListEntityRecognizersPaginator(Boto3Paginator):
     """
-    [Paginator.ListEntityRecognizers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Paginator.ListEntityRecognizers)
+    [Paginator.ListEntityRecognizers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Paginator.ListEntityRecognizers)
     """
 
     def paginate(
@@ -138,13 +138,13 @@ class ListEntityRecognizersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListEntityRecognizersResponseTypeDef]:
         """
-        [ListEntityRecognizers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Paginator.ListEntityRecognizers.paginate)
+        [ListEntityRecognizers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Paginator.ListEntityRecognizers.paginate)
         """
 
 
 class ListKeyPhrasesDetectionJobsPaginator(Boto3Paginator):
     """
-    [Paginator.ListKeyPhrasesDetectionJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Paginator.ListKeyPhrasesDetectionJobs)
+    [Paginator.ListKeyPhrasesDetectionJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Paginator.ListKeyPhrasesDetectionJobs)
     """
 
     def paginate(
@@ -153,13 +153,13 @@ class ListKeyPhrasesDetectionJobsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListKeyPhrasesDetectionJobsResponseTypeDef]:
         """
-        [ListKeyPhrasesDetectionJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Paginator.ListKeyPhrasesDetectionJobs.paginate)
+        [ListKeyPhrasesDetectionJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Paginator.ListKeyPhrasesDetectionJobs.paginate)
         """
 
 
 class ListSentimentDetectionJobsPaginator(Boto3Paginator):
     """
-    [Paginator.ListSentimentDetectionJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Paginator.ListSentimentDetectionJobs)
+    [Paginator.ListSentimentDetectionJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Paginator.ListSentimentDetectionJobs)
     """
 
     def paginate(
@@ -168,13 +168,13 @@ class ListSentimentDetectionJobsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListSentimentDetectionJobsResponseTypeDef]:
         """
-        [ListSentimentDetectionJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Paginator.ListSentimentDetectionJobs.paginate)
+        [ListSentimentDetectionJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Paginator.ListSentimentDetectionJobs.paginate)
         """
 
 
 class ListTopicsDetectionJobsPaginator(Boto3Paginator):
     """
-    [Paginator.ListTopicsDetectionJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Paginator.ListTopicsDetectionJobs)
+    [Paginator.ListTopicsDetectionJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Paginator.ListTopicsDetectionJobs)
     """
 
     def paginate(
@@ -183,5 +183,5 @@ class ListTopicsDetectionJobsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListTopicsDetectionJobsResponseTypeDef]:
         """
-        [ListTopicsDetectionJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/comprehend.html#Comprehend.Paginator.ListTopicsDetectionJobs.paginate)
+        [ListTopicsDetectionJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/comprehend.html#Comprehend.Paginator.ListTopicsDetectionJobs.paginate)
         """

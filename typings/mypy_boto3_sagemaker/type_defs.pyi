@@ -4,9 +4,9 @@ Main interface for sagemaker service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_sagemaker.type_defs import AlgorithmSpecificationTypeDef
+    from mypy_boto3_sagemaker.type_defs import ActionSourceTypeDef
 
-    data: AlgorithmSpecificationTypeDef = {...}
+    data: ActionSourceTypeDef = {...}
     ```
 """
 import sys
@@ -24,6 +24,9 @@ else:
 
 
 __all__ = (
+    "ActionSourceTypeDef",
+    "ActionSummaryTypeDef",
+    "AlarmTypeDef",
     "AlgorithmSpecificationTypeDef",
     "AlgorithmStatusDetailsTypeDef",
     "AlgorithmStatusItemTypeDef",
@@ -34,6 +37,11 @@ __all__ = (
     "AppDetailsTypeDef",
     "AppImageConfigDetailsTypeDef",
     "AppSpecificationTypeDef",
+    "ArtifactSourceTypeDef",
+    "ArtifactSourceTypeTypeDef",
+    "ArtifactSummaryTypeDef",
+    "AssociationSummaryTypeDef",
+    "AthenaDatasetDefinitionTypeDef",
     "AutoMLCandidateStepTypeDef",
     "AutoMLCandidateTypeDef",
     "AutoMLChannelTypeDef",
@@ -47,6 +55,11 @@ __all__ = (
     "AutoMLOutputDataConfigTypeDef",
     "AutoMLS3DataSourceTypeDef",
     "AutoMLSecurityConfigTypeDef",
+    "AutoRollbackConfigTypeDef",
+    "BiasTypeDef",
+    "BlueGreenUpdatePolicyTypeDef",
+    "CacheHitResultTypeDef",
+    "CapacitySizeTypeDef",
     "CaptureContentTypeHeaderTypeDef",
     "CaptureOptionTypeDef",
     "CategoricalParameterRangeSpecificationTypeDef",
@@ -59,26 +72,37 @@ __all__ = (
     "CognitoMemberDefinitionTypeDef",
     "CollectionConfigurationTypeDef",
     "CompilationJobSummaryTypeDef",
+    "ConditionStepMetadataTypeDef",
     "ContainerDefinitionTypeDef",
+    "ContextSourceTypeDef",
+    "ContextSummaryTypeDef",
     "ContinuousParameterRangeSpecificationTypeDef",
     "ContinuousParameterRangeTypeDef",
     "CustomImageTypeDef",
     "DataCaptureConfigSummaryTypeDef",
     "DataCaptureConfigTypeDef",
+    "DataCatalogConfigTypeDef",
     "DataProcessingTypeDef",
     "DataSourceTypeDef",
+    "DatasetDefinitionTypeDef",
     "DebugHookConfigTypeDef",
     "DebugRuleConfigurationTypeDef",
     "DebugRuleEvaluationStatusTypeDef",
     "DeployedImageTypeDef",
+    "DeploymentConfigTypeDef",
     "DomainDetailsTypeDef",
     "EndpointConfigSummaryTypeDef",
     "EndpointInputTypeDef",
     "EndpointSummaryTypeDef",
+    "EndpointTypeDef",
     "ExperimentConfigTypeDef",
     "ExperimentSourceTypeDef",
     "ExperimentSummaryTypeDef",
     "ExperimentTypeDef",
+    "ExplainabilityTypeDef",
+    "FeatureDefinitionTypeDef",
+    "FeatureGroupSummaryTypeDef",
+    "FeatureGroupTypeDef",
     "FileSystemConfigTypeDef",
     "FileSystemDataSourceTypeDef",
     "FilterTypeDef",
@@ -127,16 +151,26 @@ __all__ = (
     "LabelingJobStoppingConditionsTypeDef",
     "LabelingJobSummaryTypeDef",
     "MemberDefinitionTypeDef",
+    "MetadataPropertiesTypeDef",
     "MetricDataTypeDef",
     "MetricDefinitionTypeDef",
+    "MetricsSourceTypeDef",
     "ModelArtifactsTypeDef",
     "ModelClientConfigTypeDef",
+    "ModelDataQualityTypeDef",
+    "ModelDigestsTypeDef",
+    "ModelMetricsTypeDef",
     "ModelPackageContainerDefinitionTypeDef",
+    "ModelPackageGroupSummaryTypeDef",
+    "ModelPackageGroupTypeDef",
     "ModelPackageStatusDetailsTypeDef",
     "ModelPackageStatusItemTypeDef",
     "ModelPackageSummaryTypeDef",
+    "ModelPackageTypeDef",
     "ModelPackageValidationProfileTypeDef",
     "ModelPackageValidationSpecificationTypeDef",
+    "ModelQualityTypeDef",
+    "ModelStepMetadataTypeDef",
     "ModelSummaryTypeDef",
     "MonitoringAppSpecificationTypeDef",
     "MonitoringBaselineConfigTypeDef",
@@ -151,6 +185,7 @@ __all__ = (
     "MonitoringS3OutputTypeDef",
     "MonitoringScheduleConfigTypeDef",
     "MonitoringScheduleSummaryTypeDef",
+    "MonitoringScheduleTypeDef",
     "MonitoringStatisticsResourceTypeDef",
     "MonitoringStoppingConditionTypeDef",
     "NestedFiltersTypeDef",
@@ -160,16 +195,29 @@ __all__ = (
     "NotebookInstanceSummaryTypeDef",
     "NotificationConfigurationTypeDef",
     "ObjectiveStatusCountersTypeDef",
+    "OfflineStoreConfigTypeDef",
+    "OfflineStoreStatusTypeDef",
     "OidcConfigForResponseTypeDef",
     "OidcMemberDefinitionTypeDef",
+    "OnlineStoreConfigTypeDef",
+    "OnlineStoreSecurityConfigTypeDef",
     "OutputConfigTypeDef",
     "OutputDataConfigTypeDef",
     "ParameterRangeTypeDef",
     "ParameterRangesTypeDef",
+    "ParameterTypeDef",
     "ParentHyperParameterTuningJobTypeDef",
     "ParentTypeDef",
+    "PipelineExecutionStepMetadataTypeDef",
+    "PipelineExecutionStepTypeDef",
+    "PipelineExecutionSummaryTypeDef",
+    "PipelineExecutionTypeDef",
+    "PipelineSummaryTypeDef",
+    "PipelineTypeDef",
     "ProcessingClusterConfigTypeDef",
+    "ProcessingFeatureStoreOutputTypeDef",
     "ProcessingInputTypeDef",
+    "ProcessingJobStepMetadataTypeDef",
     "ProcessingJobSummaryTypeDef",
     "ProcessingJobTypeDef",
     "ProcessingOutputConfigTypeDef",
@@ -180,9 +228,13 @@ __all__ = (
     "ProcessingStoppingConditionTypeDef",
     "ProductionVariantSummaryTypeDef",
     "ProductionVariantTypeDef",
+    "ProjectSummaryTypeDef",
     "PropertyNameQueryTypeDef",
     "PropertyNameSuggestionTypeDef",
+    "ProvisioningParameterTypeDef",
     "PublicWorkforceTaskPriceTypeDef",
+    "RedshiftDatasetDefinitionTypeDef",
+    "RegisterModelStepMetadataTypeDef",
     "RenderingErrorTypeDef",
     "ResolvedAttributesTypeDef",
     "ResourceConfigTypeDef",
@@ -190,9 +242,12 @@ __all__ = (
     "ResourceSpecTypeDef",
     "ResponseMetadata",
     "S3DataSourceTypeDef",
+    "S3StorageConfigTypeDef",
     "ScheduleConfigTypeDef",
     "SearchRecordTypeDef",
     "SecondaryStatusTransitionTypeDef",
+    "ServiceCatalogProvisionedProductDetailsTypeDef",
+    "ServiceCatalogProvisioningDetailsTypeDef",
     "SharingSettingsTypeDef",
     "ShuffleConfigTypeDef",
     "SourceAlgorithmSpecificationTypeDef",
@@ -204,14 +259,17 @@ __all__ = (
     "TargetPlatformTypeDef",
     "TensorBoardAppSettingsTypeDef",
     "TensorBoardOutputConfigTypeDef",
+    "TrafficRoutingConfigTypeDef",
     "TrainingJobDefinitionTypeDef",
     "TrainingJobStatusCountersTypeDef",
+    "TrainingJobStepMetadataTypeDef",
     "TrainingJobSummaryTypeDef",
     "TrainingJobTypeDef",
     "TrainingSpecificationTypeDef",
     "TransformDataSourceTypeDef",
     "TransformInputTypeDef",
     "TransformJobDefinitionTypeDef",
+    "TransformJobStepMetadataTypeDef",
     "TransformJobSummaryTypeDef",
     "TransformJobTypeDef",
     "TransformOutputTypeDef",
@@ -239,18 +297,23 @@ __all__ = (
     "VpcConfigTypeDef",
     "WorkforceTypeDef",
     "WorkteamTypeDef",
+    "AddAssociationResponseTypeDef",
     "AddTagsOutputTypeDef",
     "AssociateTrialComponentResponseTypeDef",
+    "CreateActionResponseTypeDef",
     "CreateAlgorithmOutputTypeDef",
     "CreateAppImageConfigResponseTypeDef",
     "CreateAppResponseTypeDef",
+    "CreateArtifactResponseTypeDef",
     "CreateAutoMLJobResponseTypeDef",
     "CreateCodeRepositoryOutputTypeDef",
     "CreateCompilationJobResponseTypeDef",
+    "CreateContextResponseTypeDef",
     "CreateDomainResponseTypeDef",
     "CreateEndpointConfigOutputTypeDef",
     "CreateEndpointOutputTypeDef",
     "CreateExperimentResponseTypeDef",
+    "CreateFeatureGroupResponseTypeDef",
     "CreateFlowDefinitionResponseTypeDef",
     "CreateHumanTaskUiResponseTypeDef",
     "CreateHyperParameterTuningJobResponseTypeDef",
@@ -258,13 +321,16 @@ __all__ = (
     "CreateImageVersionResponseTypeDef",
     "CreateLabelingJobResponseTypeDef",
     "CreateModelOutputTypeDef",
+    "CreateModelPackageGroupOutputTypeDef",
     "CreateModelPackageOutputTypeDef",
     "CreateMonitoringScheduleResponseTypeDef",
     "CreateNotebookInstanceLifecycleConfigOutputTypeDef",
     "CreateNotebookInstanceOutputTypeDef",
+    "CreatePipelineResponseTypeDef",
     "CreatePresignedDomainUrlResponseTypeDef",
     "CreatePresignedNotebookInstanceUrlOutputTypeDef",
     "CreateProcessingJobResponseTypeDef",
+    "CreateProjectOutputTypeDef",
     "CreateTrainingJobResponseTypeDef",
     "CreateTransformJobResponseTypeDef",
     "CreateTrialComponentResponseTypeDef",
@@ -272,20 +338,29 @@ __all__ = (
     "CreateUserProfileResponseTypeDef",
     "CreateWorkforceResponseTypeDef",
     "CreateWorkteamResponseTypeDef",
+    "DeleteActionResponseTypeDef",
+    "DeleteArtifactResponseTypeDef",
+    "DeleteAssociationResponseTypeDef",
+    "DeleteContextResponseTypeDef",
     "DeleteExperimentResponseTypeDef",
+    "DeletePipelineResponseTypeDef",
     "DeleteTrialComponentResponseTypeDef",
     "DeleteTrialResponseTypeDef",
     "DeleteWorkteamResponseTypeDef",
+    "DescribeActionResponseTypeDef",
     "DescribeAlgorithmOutputTypeDef",
     "DescribeAppImageConfigResponseTypeDef",
     "DescribeAppResponseTypeDef",
+    "DescribeArtifactResponseTypeDef",
     "DescribeAutoMLJobResponseTypeDef",
     "DescribeCodeRepositoryOutputTypeDef",
     "DescribeCompilationJobResponseTypeDef",
+    "DescribeContextResponseTypeDef",
     "DescribeDomainResponseTypeDef",
     "DescribeEndpointConfigOutputTypeDef",
     "DescribeEndpointOutputTypeDef",
     "DescribeExperimentResponseTypeDef",
+    "DescribeFeatureGroupResponseTypeDef",
     "DescribeFlowDefinitionResponseTypeDef",
     "DescribeHumanTaskUiResponseTypeDef",
     "DescribeHyperParameterTuningJobResponseTypeDef",
@@ -293,11 +368,16 @@ __all__ = (
     "DescribeImageVersionResponseTypeDef",
     "DescribeLabelingJobResponseTypeDef",
     "DescribeModelOutputTypeDef",
+    "DescribeModelPackageGroupOutputTypeDef",
     "DescribeModelPackageOutputTypeDef",
     "DescribeMonitoringScheduleResponseTypeDef",
     "DescribeNotebookInstanceLifecycleConfigOutputTypeDef",
     "DescribeNotebookInstanceOutputTypeDef",
+    "DescribePipelineDefinitionForExecutionResponseTypeDef",
+    "DescribePipelineExecutionResponseTypeDef",
+    "DescribePipelineResponseTypeDef",
     "DescribeProcessingJobResponseTypeDef",
+    "DescribeProjectOutputTypeDef",
     "DescribeSubscribedWorkteamResponseTypeDef",
     "DescribeTrainingJobResponseTypeDef",
     "DescribeTransformJobResponseTypeDef",
@@ -309,19 +389,26 @@ __all__ = (
     "DesiredWeightAndCapacityTypeDef",
     "SearchExpressionTypeDef",
     "DisassociateTrialComponentResponseTypeDef",
+    "GetModelPackageGroupPolicyOutputTypeDef",
+    "GetSagemakerServicecatalogPortfolioStatusOutputTypeDef",
     "GetSearchSuggestionsResponseTypeDef",
     "GitConfigForUpdateTypeDef",
+    "ListActionsResponseTypeDef",
     "ListAlgorithmsOutputTypeDef",
     "ListAppImageConfigsResponseTypeDef",
     "ListAppsResponseTypeDef",
+    "ListArtifactsResponseTypeDef",
+    "ListAssociationsResponseTypeDef",
     "ListAutoMLJobsResponseTypeDef",
     "ListCandidatesForAutoMLJobResponseTypeDef",
     "ListCodeRepositoriesOutputTypeDef",
     "ListCompilationJobsResponseTypeDef",
+    "ListContextsResponseTypeDef",
     "ListDomainsResponseTypeDef",
     "ListEndpointConfigsOutputTypeDef",
     "ListEndpointsOutputTypeDef",
     "ListExperimentsResponseTypeDef",
+    "ListFeatureGroupsResponseTypeDef",
     "ListFlowDefinitionsResponseTypeDef",
     "ListHumanTaskUisResponseTypeDef",
     "ListHyperParameterTuningJobsResponseTypeDef",
@@ -329,13 +416,19 @@ __all__ = (
     "ListImagesResponseTypeDef",
     "ListLabelingJobsForWorkteamResponseTypeDef",
     "ListLabelingJobsResponseTypeDef",
+    "ListModelPackageGroupsOutputTypeDef",
     "ListModelPackagesOutputTypeDef",
     "ListModelsOutputTypeDef",
     "ListMonitoringExecutionsResponseTypeDef",
     "ListMonitoringSchedulesResponseTypeDef",
     "ListNotebookInstanceLifecycleConfigsOutputTypeDef",
     "ListNotebookInstancesOutputTypeDef",
+    "ListPipelineExecutionStepsResponseTypeDef",
+    "ListPipelineExecutionsResponseTypeDef",
+    "ListPipelineParametersForExecutionResponseTypeDef",
+    "ListPipelinesResponseTypeDef",
     "ListProcessingJobsResponseTypeDef",
+    "ListProjectsOutputTypeDef",
     "ListSubscribedWorkteamsResponseTypeDef",
     "ListTagsOutputTypeDef",
     "ListTrainingJobsForHyperParameterTuningJobResponseTypeDef",
@@ -348,20 +441,29 @@ __all__ = (
     "ListWorkteamsResponseTypeDef",
     "OidcConfigTypeDef",
     "PaginatorConfigTypeDef",
+    "PutModelPackageGroupPolicyOutputTypeDef",
     "RenderUiTemplateResponseTypeDef",
     "RenderableTaskTypeDef",
     "RetentionPolicyTypeDef",
     "SearchResponseTypeDef",
+    "StartPipelineExecutionResponseTypeDef",
+    "StopPipelineExecutionResponseTypeDef",
     "SuggestionQueryTypeDef",
     "UiTemplateTypeDef",
+    "UpdateActionResponseTypeDef",
     "UpdateAppImageConfigResponseTypeDef",
+    "UpdateArtifactResponseTypeDef",
     "UpdateCodeRepositoryOutputTypeDef",
+    "UpdateContextResponseTypeDef",
     "UpdateDomainResponseTypeDef",
     "UpdateEndpointOutputTypeDef",
     "UpdateEndpointWeightsAndCapacitiesOutputTypeDef",
     "UpdateExperimentResponseTypeDef",
     "UpdateImageResponseTypeDef",
+    "UpdateModelPackageOutputTypeDef",
     "UpdateMonitoringScheduleResponseTypeDef",
+    "UpdatePipelineExecutionResponseTypeDef",
+    "UpdatePipelineResponseTypeDef",
     "UpdateTrialComponentResponseTypeDef",
     "UpdateTrialResponseTypeDef",
     "UpdateUserProfileResponseTypeDef",
@@ -370,6 +472,32 @@ __all__ = (
     "VariantPropertyTypeDef",
     "WaiterConfigTypeDef",
 )
+
+_RequiredActionSourceTypeDef = TypedDict("_RequiredActionSourceTypeDef", {"SourceUri": str})
+_OptionalActionSourceTypeDef = TypedDict(
+    "_OptionalActionSourceTypeDef", {"SourceType": str, "SourceId": str}, total=False
+)
+
+
+class ActionSourceTypeDef(_RequiredActionSourceTypeDef, _OptionalActionSourceTypeDef):
+    pass
+
+
+ActionSummaryTypeDef = TypedDict(
+    "ActionSummaryTypeDef",
+    {
+        "ActionArn": str,
+        "ActionName": str,
+        "Source": "ActionSourceTypeDef",
+        "ActionType": str,
+        "Status": Literal["Unknown", "InProgress", "Completed", "Failed", "Stopping", "Stopped"],
+        "CreationTime": datetime,
+        "LastModifiedTime": datetime,
+    },
+    total=False,
+)
+
+AlarmTypeDef = TypedDict("AlarmTypeDef", {"AlarmName": str}, total=False)
 
 _RequiredAlgorithmSpecificationTypeDef = TypedDict(
     "_RequiredAlgorithmSpecificationTypeDef", {"TrainingInputMode": Literal["Pipe", "File"]}
@@ -494,6 +622,75 @@ _OptionalAppSpecificationTypeDef = TypedDict(
 
 
 class AppSpecificationTypeDef(_RequiredAppSpecificationTypeDef, _OptionalAppSpecificationTypeDef):
+    pass
+
+
+_RequiredArtifactSourceTypeDef = TypedDict("_RequiredArtifactSourceTypeDef", {"SourceUri": str})
+_OptionalArtifactSourceTypeDef = TypedDict(
+    "_OptionalArtifactSourceTypeDef",
+    {"SourceTypes": List["ArtifactSourceTypeTypeDef"]},
+    total=False,
+)
+
+
+class ArtifactSourceTypeDef(_RequiredArtifactSourceTypeDef, _OptionalArtifactSourceTypeDef):
+    pass
+
+
+ArtifactSourceTypeTypeDef = TypedDict(
+    "ArtifactSourceTypeTypeDef",
+    {"SourceIdType": Literal["MD5Hash", "S3ETag", "S3Version", "Custom"], "Value": str},
+)
+
+ArtifactSummaryTypeDef = TypedDict(
+    "ArtifactSummaryTypeDef",
+    {
+        "ArtifactArn": str,
+        "ArtifactName": str,
+        "Source": "ArtifactSourceTypeDef",
+        "ArtifactType": str,
+        "CreationTime": datetime,
+        "LastModifiedTime": datetime,
+    },
+    total=False,
+)
+
+AssociationSummaryTypeDef = TypedDict(
+    "AssociationSummaryTypeDef",
+    {
+        "SourceArn": str,
+        "DestinationArn": str,
+        "SourceType": str,
+        "DestinationType": str,
+        "AssociationType": Literal["ContributedTo", "AssociatedWith", "DerivedFrom", "Produced"],
+        "SourceName": str,
+        "DestinationName": str,
+        "CreationTime": datetime,
+        "CreatedBy": "UserContextTypeDef",
+    },
+    total=False,
+)
+
+_RequiredAthenaDatasetDefinitionTypeDef = TypedDict(
+    "_RequiredAthenaDatasetDefinitionTypeDef",
+    {
+        "Catalog": str,
+        "Database": str,
+        "QueryString": str,
+        "OutputS3Uri": str,
+        "OutputFormat": Literal["PARQUET", "ORC", "AVRO", "JSON", "TEXTFILE"],
+    },
+)
+_OptionalAthenaDatasetDefinitionTypeDef = TypedDict(
+    "_OptionalAthenaDatasetDefinitionTypeDef",
+    {"WorkGroup": str, "KmsKeyId": str, "OutputCompression": Literal["GZIP", "SNAPPY", "ZLIB"]},
+    total=False,
+)
+
+
+class AthenaDatasetDefinitionTypeDef(
+    _RequiredAthenaDatasetDefinitionTypeDef, _OptionalAthenaDatasetDefinitionTypeDef
+):
     pass
 
 
@@ -656,6 +853,37 @@ AutoMLSecurityConfigTypeDef = TypedDict(
     total=False,
 )
 
+AutoRollbackConfigTypeDef = TypedDict(
+    "AutoRollbackConfigTypeDef", {"Alarms": List["AlarmTypeDef"]}, total=False
+)
+
+BiasTypeDef = TypedDict("BiasTypeDef", {"Report": "MetricsSourceTypeDef"}, total=False)
+
+_RequiredBlueGreenUpdatePolicyTypeDef = TypedDict(
+    "_RequiredBlueGreenUpdatePolicyTypeDef",
+    {"TrafficRoutingConfiguration": "TrafficRoutingConfigTypeDef"},
+)
+_OptionalBlueGreenUpdatePolicyTypeDef = TypedDict(
+    "_OptionalBlueGreenUpdatePolicyTypeDef",
+    {"TerminationWaitInSeconds": int, "MaximumExecutionTimeoutInSeconds": int},
+    total=False,
+)
+
+
+class BlueGreenUpdatePolicyTypeDef(
+    _RequiredBlueGreenUpdatePolicyTypeDef, _OptionalBlueGreenUpdatePolicyTypeDef
+):
+    pass
+
+
+CacheHitResultTypeDef = TypedDict(
+    "CacheHitResultTypeDef", {"SourcePipelineExecutionArn": str}, total=False
+)
+
+CapacitySizeTypeDef = TypedDict(
+    "CapacitySizeTypeDef", {"Type": Literal["INSTANCE_COUNT", "CAPACITY_PERCENT"], "Value": int}
+)
+
 CaptureContentTypeHeaderTypeDef = TypedDict(
     "CaptureContentTypeHeaderTypeDef",
     {"CsvContentTypes": List[str], "JsonContentTypes": List[str]},
@@ -805,6 +1033,7 @@ _OptionalCompilationJobSummaryTypeDef = TypedDict(
             "x86_win32",
             "x86_win64",
             "coreml",
+            "jacinto_tda4vm",
         ],
         "CompilationTargetPlatformOs": Literal["ANDROID", "LINUX"],
         "CompilationTargetPlatformArch": Literal[
@@ -823,6 +1052,10 @@ class CompilationJobSummaryTypeDef(
     pass
 
 
+ConditionStepMetadataTypeDef = TypedDict(
+    "ConditionStepMetadataTypeDef", {"Outcome": Literal["True", "False"]}, total=False
+)
+
 ContainerDefinitionTypeDef = TypedDict(
     "ContainerDefinitionTypeDef",
     {
@@ -833,6 +1066,29 @@ ContainerDefinitionTypeDef = TypedDict(
         "ModelDataUrl": str,
         "Environment": Dict[str, str],
         "ModelPackageName": str,
+    },
+    total=False,
+)
+
+_RequiredContextSourceTypeDef = TypedDict("_RequiredContextSourceTypeDef", {"SourceUri": str})
+_OptionalContextSourceTypeDef = TypedDict(
+    "_OptionalContextSourceTypeDef", {"SourceType": str, "SourceId": str}, total=False
+)
+
+
+class ContextSourceTypeDef(_RequiredContextSourceTypeDef, _OptionalContextSourceTypeDef):
+    pass
+
+
+ContextSummaryTypeDef = TypedDict(
+    "ContextSummaryTypeDef",
+    {
+        "ContextArn": str,
+        "ContextName": str,
+        "Source": "ContextSourceTypeDef",
+        "ContextType": str,
+        "CreationTime": datetime,
+        "LastModifiedTime": datetime,
     },
     total=False,
 )
@@ -905,6 +1161,10 @@ class DataCaptureConfigTypeDef(
     pass
 
 
+DataCatalogConfigTypeDef = TypedDict(
+    "DataCatalogConfigTypeDef", {"TableName": str, "Catalog": str, "Database": str}
+)
+
 DataProcessingTypeDef = TypedDict(
     "DataProcessingTypeDef",
     {"InputFilter": str, "OutputFilter": str, "JoinSource": Literal["Input", "None"]},
@@ -914,6 +1174,18 @@ DataProcessingTypeDef = TypedDict(
 DataSourceTypeDef = TypedDict(
     "DataSourceTypeDef",
     {"S3DataSource": "S3DataSourceTypeDef", "FileSystemDataSource": "FileSystemDataSourceTypeDef"},
+    total=False,
+)
+
+DatasetDefinitionTypeDef = TypedDict(
+    "DatasetDefinitionTypeDef",
+    {
+        "AthenaDatasetDefinition": "AthenaDatasetDefinitionTypeDef",
+        "RedshiftDatasetDefinition": "RedshiftDatasetDefinitionTypeDef",
+        "LocalPath": str,
+        "DataDistributionType": Literal["FullyReplicated", "ShardedByS3Key"],
+        "InputMode": Literal["Pipe", "File"],
+    },
     total=False,
 )
 
@@ -1017,6 +1289,20 @@ DeployedImageTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredDeploymentConfigTypeDef = TypedDict(
+    "_RequiredDeploymentConfigTypeDef", {"BlueGreenUpdatePolicy": "BlueGreenUpdatePolicyTypeDef"}
+)
+_OptionalDeploymentConfigTypeDef = TypedDict(
+    "_OptionalDeploymentConfigTypeDef",
+    {"AutoRollbackConfiguration": "AutoRollbackConfigTypeDef"},
+    total=False,
+)
+
+
+class DeploymentConfigTypeDef(_RequiredDeploymentConfigTypeDef, _OptionalDeploymentConfigTypeDef):
+    pass
+
+
 DomainDetailsTypeDef = TypedDict(
     "DomainDetailsTypeDef",
     {
@@ -1081,6 +1367,43 @@ EndpointSummaryTypeDef = TypedDict(
     },
 )
 
+_RequiredEndpointTypeDef = TypedDict(
+    "_RequiredEndpointTypeDef",
+    {
+        "EndpointName": str,
+        "EndpointArn": str,
+        "EndpointConfigName": str,
+        "EndpointStatus": Literal[
+            "OutOfService",
+            "Creating",
+            "Updating",
+            "SystemUpdating",
+            "RollingBack",
+            "InService",
+            "Deleting",
+            "Failed",
+        ],
+        "CreationTime": datetime,
+        "LastModifiedTime": datetime,
+    },
+)
+_OptionalEndpointTypeDef = TypedDict(
+    "_OptionalEndpointTypeDef",
+    {
+        "ProductionVariants": List["ProductionVariantSummaryTypeDef"],
+        "DataCaptureConfig": "DataCaptureConfigSummaryTypeDef",
+        "FailureReason": str,
+        "MonitoringSchedules": List["MonitoringScheduleTypeDef"],
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+
+class EndpointTypeDef(_RequiredEndpointTypeDef, _OptionalEndpointTypeDef):
+    pass
+
+
 ExperimentConfigTypeDef = TypedDict(
     "ExperimentConfigTypeDef",
     {"ExperimentName": str, "TrialName": str, "TrialComponentDisplayName": str},
@@ -1122,6 +1445,61 @@ ExperimentTypeDef = TypedDict(
         "CreatedBy": "UserContextTypeDef",
         "LastModifiedTime": datetime,
         "LastModifiedBy": "UserContextTypeDef",
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+ExplainabilityTypeDef = TypedDict(
+    "ExplainabilityTypeDef", {"Report": "MetricsSourceTypeDef"}, total=False
+)
+
+FeatureDefinitionTypeDef = TypedDict(
+    "FeatureDefinitionTypeDef",
+    {"FeatureName": str, "FeatureType": Literal["Integral", "Fractional", "String"]},
+    total=False,
+)
+
+_RequiredFeatureGroupSummaryTypeDef = TypedDict(
+    "_RequiredFeatureGroupSummaryTypeDef",
+    {"FeatureGroupName": str, "FeatureGroupArn": str, "CreationTime": datetime},
+)
+_OptionalFeatureGroupSummaryTypeDef = TypedDict(
+    "_OptionalFeatureGroupSummaryTypeDef",
+    {
+        "FeatureGroupStatus": Literal[
+            "Creating", "Created", "CreateFailed", "Deleting", "DeleteFailed"
+        ],
+        "OfflineStoreStatus": "OfflineStoreStatusTypeDef",
+    },
+    total=False,
+)
+
+
+class FeatureGroupSummaryTypeDef(
+    _RequiredFeatureGroupSummaryTypeDef, _OptionalFeatureGroupSummaryTypeDef
+):
+    pass
+
+
+FeatureGroupTypeDef = TypedDict(
+    "FeatureGroupTypeDef",
+    {
+        "FeatureGroupArn": str,
+        "FeatureGroupName": str,
+        "RecordIdentifierFeatureName": str,
+        "EventTimeFeatureName": str,
+        "FeatureDefinitions": List["FeatureDefinitionTypeDef"],
+        "CreationTime": datetime,
+        "OnlineStoreConfig": "OnlineStoreConfigTypeDef",
+        "OfflineStoreConfig": "OfflineStoreConfigTypeDef",
+        "RoleArn": str,
+        "FeatureGroupStatus": Literal[
+            "Creating", "Created", "CreateFailed", "Deleting", "DeleteFailed"
+        ],
+        "OfflineStoreStatus": "OfflineStoreStatusTypeDef",
+        "FailureReason": str,
+        "Description": str,
         "Tags": List["TagTypeDef"],
     },
     total=False,
@@ -1558,10 +1936,17 @@ class ImageVersionTypeDef(_RequiredImageVersionTypeDef, _OptionalImageVersionTyp
     pass
 
 
-InferenceSpecificationTypeDef = TypedDict(
-    "InferenceSpecificationTypeDef",
+_RequiredInferenceSpecificationTypeDef = TypedDict(
+    "_RequiredInferenceSpecificationTypeDef",
     {
         "Containers": List["ModelPackageContainerDefinitionTypeDef"],
+        "SupportedContentTypes": List[str],
+        "SupportedResponseMIMETypes": List[str],
+    },
+)
+_OptionalInferenceSpecificationTypeDef = TypedDict(
+    "_OptionalInferenceSpecificationTypeDef",
+    {
         "SupportedTransformInstanceTypes": List[
             Literal[
                 "ml.m4.xlarge",
@@ -1662,10 +2047,16 @@ InferenceSpecificationTypeDef = TypedDict(
                 "ml.inf1.24xlarge",
             ]
         ],
-        "SupportedContentTypes": List[str],
-        "SupportedResponseMIMETypes": List[str],
     },
+    total=False,
 )
+
+
+class InferenceSpecificationTypeDef(
+    _RequiredInferenceSpecificationTypeDef, _OptionalInferenceSpecificationTypeDef
+):
+    pass
+
 
 InputConfigTypeDef = TypedDict(
     "InputConfigTypeDef",
@@ -1673,7 +2064,15 @@ InputConfigTypeDef = TypedDict(
         "S3Uri": str,
         "DataInputConfig": str,
         "Framework": Literal[
-            "TENSORFLOW", "KERAS", "MXNET", "ONNX", "PYTORCH", "XGBOOST", "TFLITE", "DARKNET"
+            "TENSORFLOW",
+            "KERAS",
+            "MXNET",
+            "ONNX",
+            "PYTORCH",
+            "XGBOOST",
+            "TFLITE",
+            "DARKNET",
+            "SKLEARN",
         ],
     },
 )
@@ -1913,17 +2312,54 @@ MemberDefinitionTypeDef = TypedDict(
     total=False,
 )
 
+MetadataPropertiesTypeDef = TypedDict(
+    "MetadataPropertiesTypeDef",
+    {"CommitId": str, "Repository": str, "GeneratedBy": str, "ProjectId": str},
+    total=False,
+)
+
 MetricDataTypeDef = TypedDict(
     "MetricDataTypeDef", {"MetricName": str, "Value": float, "Timestamp": datetime}, total=False
 )
 
 MetricDefinitionTypeDef = TypedDict("MetricDefinitionTypeDef", {"Name": str, "Regex": str})
 
+_RequiredMetricsSourceTypeDef = TypedDict(
+    "_RequiredMetricsSourceTypeDef", {"ContentType": str, "S3Uri": str}
+)
+_OptionalMetricsSourceTypeDef = TypedDict(
+    "_OptionalMetricsSourceTypeDef", {"ContentDigest": str}, total=False
+)
+
+
+class MetricsSourceTypeDef(_RequiredMetricsSourceTypeDef, _OptionalMetricsSourceTypeDef):
+    pass
+
+
 ModelArtifactsTypeDef = TypedDict("ModelArtifactsTypeDef", {"S3ModelArtifacts": str})
 
 ModelClientConfigTypeDef = TypedDict(
     "ModelClientConfigTypeDef",
     {"InvocationsTimeoutInSeconds": int, "InvocationsMaxRetries": int},
+    total=False,
+)
+
+ModelDataQualityTypeDef = TypedDict(
+    "ModelDataQualityTypeDef",
+    {"Statistics": "MetricsSourceTypeDef", "Constraints": "MetricsSourceTypeDef"},
+    total=False,
+)
+
+ModelDigestsTypeDef = TypedDict("ModelDigestsTypeDef", {"ArtifactDigest": str}, total=False)
+
+ModelMetricsTypeDef = TypedDict(
+    "ModelMetricsTypeDef",
+    {
+        "ModelQuality": "ModelQualityTypeDef",
+        "ModelDataQuality": "ModelDataQualityTypeDef",
+        "Bias": "BiasTypeDef",
+        "Explainability": "ExplainabilityTypeDef",
+    },
     total=False,
 )
 
@@ -1942,6 +2378,44 @@ class ModelPackageContainerDefinitionTypeDef(
 ):
     pass
 
+
+_RequiredModelPackageGroupSummaryTypeDef = TypedDict(
+    "_RequiredModelPackageGroupSummaryTypeDef",
+    {
+        "ModelPackageGroupName": str,
+        "ModelPackageGroupArn": str,
+        "CreationTime": datetime,
+        "ModelPackageGroupStatus": Literal[
+            "Pending", "InProgress", "Completed", "Failed", "Deleting", "DeleteFailed"
+        ],
+    },
+)
+_OptionalModelPackageGroupSummaryTypeDef = TypedDict(
+    "_OptionalModelPackageGroupSummaryTypeDef", {"ModelPackageGroupDescription": str}, total=False
+)
+
+
+class ModelPackageGroupSummaryTypeDef(
+    _RequiredModelPackageGroupSummaryTypeDef, _OptionalModelPackageGroupSummaryTypeDef
+):
+    pass
+
+
+ModelPackageGroupTypeDef = TypedDict(
+    "ModelPackageGroupTypeDef",
+    {
+        "ModelPackageGroupName": str,
+        "ModelPackageGroupArn": str,
+        "ModelPackageGroupDescription": str,
+        "CreationTime": datetime,
+        "CreatedBy": "UserContextTypeDef",
+        "ModelPackageGroupStatus": Literal[
+            "Pending", "InProgress", "Completed", "Failed", "Deleting", "DeleteFailed"
+        ],
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
 
 _RequiredModelPackageStatusDetailsTypeDef = TypedDict(
     "_RequiredModelPackageStatusDetailsTypeDef",
@@ -1985,7 +2459,14 @@ _RequiredModelPackageSummaryTypeDef = TypedDict(
     },
 )
 _OptionalModelPackageSummaryTypeDef = TypedDict(
-    "_OptionalModelPackageSummaryTypeDef", {"ModelPackageDescription": str}, total=False
+    "_OptionalModelPackageSummaryTypeDef",
+    {
+        "ModelPackageGroupName": str,
+        "ModelPackageVersion": int,
+        "ModelPackageDescription": str,
+        "ModelApprovalStatus": Literal["Approved", "Rejected", "PendingManualApproval"],
+    },
+    total=False,
 )
 
 
@@ -1994,6 +2475,33 @@ class ModelPackageSummaryTypeDef(
 ):
     pass
 
+
+ModelPackageTypeDef = TypedDict(
+    "ModelPackageTypeDef",
+    {
+        "ModelPackageName": str,
+        "ModelPackageGroupName": str,
+        "ModelPackageVersion": int,
+        "ModelPackageArn": str,
+        "ModelPackageDescription": str,
+        "CreationTime": datetime,
+        "InferenceSpecification": "InferenceSpecificationTypeDef",
+        "SourceAlgorithmSpecification": "SourceAlgorithmSpecificationTypeDef",
+        "ValidationSpecification": "ModelPackageValidationSpecificationTypeDef",
+        "ModelPackageStatus": Literal["Pending", "InProgress", "Completed", "Failed", "Deleting"],
+        "ModelPackageStatusDetails": "ModelPackageStatusDetailsTypeDef",
+        "CertifyForMarketplace": bool,
+        "ModelApprovalStatus": Literal["Approved", "Rejected", "PendingManualApproval"],
+        "CreatedBy": "UserContextTypeDef",
+        "MetadataProperties": "MetadataPropertiesTypeDef",
+        "ModelMetrics": "ModelMetricsTypeDef",
+        "LastModifiedTime": datetime,
+        "LastModifiedBy": "UserContextTypeDef",
+        "ApprovalDescription": str,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
 
 ModelPackageValidationProfileTypeDef = TypedDict(
     "ModelPackageValidationProfileTypeDef",
@@ -2004,6 +2512,14 @@ ModelPackageValidationSpecificationTypeDef = TypedDict(
     "ModelPackageValidationSpecificationTypeDef",
     {"ValidationRole": str, "ValidationProfiles": List["ModelPackageValidationProfileTypeDef"]},
 )
+
+ModelQualityTypeDef = TypedDict(
+    "ModelQualityTypeDef",
+    {"Statistics": "MetricsSourceTypeDef", "Constraints": "MetricsSourceTypeDef"},
+    total=False,
+)
+
+ModelStepMetadataTypeDef = TypedDict("ModelStepMetadataTypeDef", {"Arn": str}, total=False)
 
 ModelSummaryTypeDef = TypedDict(
     "ModelSummaryTypeDef", {"ModelName": str, "ModelArn": str, "CreationTime": datetime}
@@ -2210,22 +2726,14 @@ class MonitoringS3OutputTypeDef(
     pass
 
 
-_RequiredMonitoringScheduleConfigTypeDef = TypedDict(
-    "_RequiredMonitoringScheduleConfigTypeDef",
-    {"MonitoringJobDefinition": "MonitoringJobDefinitionTypeDef"},
-)
-_OptionalMonitoringScheduleConfigTypeDef = TypedDict(
-    "_OptionalMonitoringScheduleConfigTypeDef",
-    {"ScheduleConfig": "ScheduleConfigTypeDef"},
+MonitoringScheduleConfigTypeDef = TypedDict(
+    "MonitoringScheduleConfigTypeDef",
+    {
+        "ScheduleConfig": "ScheduleConfigTypeDef",
+        "MonitoringJobDefinition": "MonitoringJobDefinitionTypeDef",
+    },
     total=False,
 )
-
-
-class MonitoringScheduleConfigTypeDef(
-    _RequiredMonitoringScheduleConfigTypeDef, _OptionalMonitoringScheduleConfigTypeDef
-):
-    pass
-
 
 _RequiredMonitoringScheduleSummaryTypeDef = TypedDict(
     "_RequiredMonitoringScheduleSummaryTypeDef",
@@ -2247,6 +2755,23 @@ class MonitoringScheduleSummaryTypeDef(
 ):
     pass
 
+
+MonitoringScheduleTypeDef = TypedDict(
+    "MonitoringScheduleTypeDef",
+    {
+        "MonitoringScheduleArn": str,
+        "MonitoringScheduleName": str,
+        "MonitoringScheduleStatus": Literal["Pending", "Failed", "Scheduled", "Stopped"],
+        "FailureReason": str,
+        "CreationTime": datetime,
+        "LastModifiedTime": datetime,
+        "MonitoringScheduleConfig": "MonitoringScheduleConfigTypeDef",
+        "EndpointName": str,
+        "LastMonitoringExecutionSummary": "MonitoringExecutionSummaryTypeDef",
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
 
 MonitoringStatisticsResourceTypeDef = TypedDict(
     "MonitoringStatisticsResourceTypeDef", {"S3Uri": str}, total=False
@@ -2367,6 +2892,36 @@ ObjectiveStatusCountersTypeDef = TypedDict(
     "ObjectiveStatusCountersTypeDef", {"Succeeded": int, "Pending": int, "Failed": int}, total=False
 )
 
+_RequiredOfflineStoreConfigTypeDef = TypedDict(
+    "_RequiredOfflineStoreConfigTypeDef", {"S3StorageConfig": "S3StorageConfigTypeDef"}
+)
+_OptionalOfflineStoreConfigTypeDef = TypedDict(
+    "_OptionalOfflineStoreConfigTypeDef",
+    {"DisableGlueTableCreation": bool, "DataCatalogConfig": "DataCatalogConfigTypeDef"},
+    total=False,
+)
+
+
+class OfflineStoreConfigTypeDef(
+    _RequiredOfflineStoreConfigTypeDef, _OptionalOfflineStoreConfigTypeDef
+):
+    pass
+
+
+_RequiredOfflineStoreStatusTypeDef = TypedDict(
+    "_RequiredOfflineStoreStatusTypeDef", {"Status": Literal["Active", "Blocked", "Disabled"]}
+)
+_OptionalOfflineStoreStatusTypeDef = TypedDict(
+    "_OptionalOfflineStoreStatusTypeDef", {"BlockedReason": str}, total=False
+)
+
+
+class OfflineStoreStatusTypeDef(
+    _RequiredOfflineStoreStatusTypeDef, _OptionalOfflineStoreStatusTypeDef
+):
+    pass
+
+
 OidcConfigForResponseTypeDef = TypedDict(
     "OidcConfigForResponseTypeDef",
     {
@@ -2382,6 +2937,16 @@ OidcConfigForResponseTypeDef = TypedDict(
 )
 
 OidcMemberDefinitionTypeDef = TypedDict("OidcMemberDefinitionTypeDef", {"Groups": List[str]})
+
+OnlineStoreConfigTypeDef = TypedDict(
+    "OnlineStoreConfigTypeDef",
+    {"SecurityConfig": "OnlineStoreSecurityConfigTypeDef", "EnableOnlineStore": bool},
+    total=False,
+)
+
+OnlineStoreSecurityConfigTypeDef = TypedDict(
+    "OnlineStoreSecurityConfigTypeDef", {"KmsKeyId": str}, total=False
+)
 
 _RequiredOutputConfigTypeDef = TypedDict("_RequiredOutputConfigTypeDef", {"S3OutputLocation": str})
 _OptionalOutputConfigTypeDef = TypedDict(
@@ -2415,9 +2980,11 @@ _OptionalOutputConfigTypeDef = TypedDict(
             "x86_win32",
             "x86_win64",
             "coreml",
+            "jacinto_tda4vm",
         ],
         "TargetPlatform": "TargetPlatformTypeDef",
         "CompilerOptions": str,
+        "KmsKeyId": str,
     },
     total=False,
 )
@@ -2459,11 +3026,109 @@ ParameterRangesTypeDef = TypedDict(
     total=False,
 )
 
+ParameterTypeDef = TypedDict("ParameterTypeDef", {"Name": str, "Value": str})
+
 ParentHyperParameterTuningJobTypeDef = TypedDict(
     "ParentHyperParameterTuningJobTypeDef", {"HyperParameterTuningJobName": str}, total=False
 )
 
 ParentTypeDef = TypedDict("ParentTypeDef", {"TrialName": str, "ExperimentName": str}, total=False)
+
+PipelineExecutionStepMetadataTypeDef = TypedDict(
+    "PipelineExecutionStepMetadataTypeDef",
+    {
+        "TrainingJob": "TrainingJobStepMetadataTypeDef",
+        "ProcessingJob": "ProcessingJobStepMetadataTypeDef",
+        "TransformJob": "TransformJobStepMetadataTypeDef",
+        "Model": "ModelStepMetadataTypeDef",
+        "RegisterModel": "RegisterModelStepMetadataTypeDef",
+        "Condition": "ConditionStepMetadataTypeDef",
+    },
+    total=False,
+)
+
+PipelineExecutionStepTypeDef = TypedDict(
+    "PipelineExecutionStepTypeDef",
+    {
+        "StepName": str,
+        "StartTime": datetime,
+        "EndTime": datetime,
+        "StepStatus": Literal[
+            "Starting", "Executing", "Stopping", "Stopped", "Failed", "Succeeded"
+        ],
+        "CacheHitResult": "CacheHitResultTypeDef",
+        "FailureReason": str,
+        "Metadata": "PipelineExecutionStepMetadataTypeDef",
+    },
+    total=False,
+)
+
+PipelineExecutionSummaryTypeDef = TypedDict(
+    "PipelineExecutionSummaryTypeDef",
+    {
+        "PipelineExecutionArn": str,
+        "StartTime": datetime,
+        "PipelineExecutionStatus": Literal[
+            "Executing", "Stopping", "Stopped", "Failed", "Succeeded"
+        ],
+        "PipelineExecutionDescription": str,
+        "PipelineExecutionDisplayName": str,
+    },
+    total=False,
+)
+
+PipelineExecutionTypeDef = TypedDict(
+    "PipelineExecutionTypeDef",
+    {
+        "PipelineArn": str,
+        "PipelineExecutionArn": str,
+        "PipelineExecutionDisplayName": str,
+        "PipelineExecutionStatus": Literal[
+            "Executing", "Stopping", "Stopped", "Failed", "Succeeded"
+        ],
+        "PipelineExecutionDescription": str,
+        "CreationTime": datetime,
+        "LastModifiedTime": datetime,
+        "CreatedBy": "UserContextTypeDef",
+        "LastModifiedBy": "UserContextTypeDef",
+        "PipelineParameters": List["ParameterTypeDef"],
+    },
+    total=False,
+)
+
+PipelineSummaryTypeDef = TypedDict(
+    "PipelineSummaryTypeDef",
+    {
+        "PipelineArn": str,
+        "PipelineName": str,
+        "PipelineDisplayName": str,
+        "PipelineDescription": str,
+        "RoleArn": str,
+        "CreationTime": datetime,
+        "LastModifiedTime": datetime,
+        "LastExecutionTime": datetime,
+    },
+    total=False,
+)
+
+PipelineTypeDef = TypedDict(
+    "PipelineTypeDef",
+    {
+        "PipelineArn": str,
+        "PipelineName": str,
+        "PipelineDisplayName": str,
+        "PipelineDescription": str,
+        "RoleArn": str,
+        "PipelineStatus": Literal["Active"],
+        "CreationTime": datetime,
+        "LastModifiedTime": datetime,
+        "LastRunTime": datetime,
+        "CreatedBy": "UserContextTypeDef",
+        "LastModifiedBy": "UserContextTypeDef",
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
 
 _RequiredProcessingClusterConfigTypeDef = TypedDict(
     "_RequiredProcessingClusterConfigTypeDef",
@@ -2523,8 +3188,40 @@ class ProcessingClusterConfigTypeDef(
     pass
 
 
-ProcessingInputTypeDef = TypedDict(
-    "ProcessingInputTypeDef", {"InputName": str, "S3Input": "ProcessingS3InputTypeDef"}
+_RequiredProcessingFeatureStoreOutputTypeDef = TypedDict(
+    "_RequiredProcessingFeatureStoreOutputTypeDef", {"FeatureGroupName": str}
+)
+_OptionalProcessingFeatureStoreOutputTypeDef = TypedDict(
+    "_OptionalProcessingFeatureStoreOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+
+class ProcessingFeatureStoreOutputTypeDef(
+    _RequiredProcessingFeatureStoreOutputTypeDef, _OptionalProcessingFeatureStoreOutputTypeDef
+):
+    pass
+
+
+_RequiredProcessingInputTypeDef = TypedDict("_RequiredProcessingInputTypeDef", {"InputName": str})
+_OptionalProcessingInputTypeDef = TypedDict(
+    "_OptionalProcessingInputTypeDef",
+    {
+        "AppManaged": bool,
+        "S3Input": "ProcessingS3InputTypeDef",
+        "DatasetDefinition": "DatasetDefinitionTypeDef",
+    },
+    total=False,
+)
+
+
+class ProcessingInputTypeDef(_RequiredProcessingInputTypeDef, _OptionalProcessingInputTypeDef):
+    pass
+
+
+ProcessingJobStepMetadataTypeDef = TypedDict(
+    "ProcessingJobStepMetadataTypeDef", {"Arn": str}, total=False
 )
 
 _RequiredProcessingJobSummaryTypeDef = TypedDict(
@@ -2598,10 +3295,17 @@ class ProcessingOutputConfigTypeDef(
 
 
 _RequiredProcessingOutputTypeDef = TypedDict(
-    "_RequiredProcessingOutputTypeDef", {"OutputName": str, "S3Output": "ProcessingS3OutputTypeDef"}
+    "_RequiredProcessingOutputTypeDef", {"OutputName": str}
 )
 _OptionalProcessingOutputTypeDef = TypedDict(
-    "_OptionalProcessingOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
+    "_OptionalProcessingOutputTypeDef",
+    {
+        "S3Output": "ProcessingS3OutputTypeDef",
+        "FeatureStoreOutput": "ProcessingFeatureStoreOutputTypeDef",
+        "AppManaged": bool,
+        "ResponseMetadata": "ResponseMetadata",
+    },
+    total=False,
 )
 
 
@@ -2615,16 +3319,13 @@ ProcessingResourcesTypeDef = TypedDict(
 
 _RequiredProcessingS3InputTypeDef = TypedDict(
     "_RequiredProcessingS3InputTypeDef",
-    {
-        "S3Uri": str,
-        "LocalPath": str,
-        "S3DataType": Literal["ManifestFile", "S3Prefix"],
-        "S3InputMode": Literal["Pipe", "File"],
-    },
+    {"S3Uri": str, "S3DataType": Literal["ManifestFile", "S3Prefix"]},
 )
 _OptionalProcessingS3InputTypeDef = TypedDict(
     "_OptionalProcessingS3InputTypeDef",
     {
+        "LocalPath": str,
+        "S3InputMode": Literal["Pipe", "File"],
         "S3DataDistributionType": Literal["FullyReplicated", "ShardedByS3Key"],
         "S3CompressionType": Literal["None", "Gzip"],
     },
@@ -2778,14 +3479,74 @@ class ProductionVariantTypeDef(
     pass
 
 
+_RequiredProjectSummaryTypeDef = TypedDict(
+    "_RequiredProjectSummaryTypeDef",
+    {
+        "ProjectName": str,
+        "ProjectArn": str,
+        "ProjectId": str,
+        "CreationTime": datetime,
+        "ProjectStatus": Literal[
+            "Pending",
+            "CreateInProgress",
+            "CreateCompleted",
+            "CreateFailed",
+            "DeleteInProgress",
+            "DeleteFailed",
+            "DeleteCompleted",
+        ],
+    },
+)
+_OptionalProjectSummaryTypeDef = TypedDict(
+    "_OptionalProjectSummaryTypeDef", {"ProjectDescription": str}, total=False
+)
+
+
+class ProjectSummaryTypeDef(_RequiredProjectSummaryTypeDef, _OptionalProjectSummaryTypeDef):
+    pass
+
+
 PropertyNameQueryTypeDef = TypedDict("PropertyNameQueryTypeDef", {"PropertyNameHint": str})
 
 PropertyNameSuggestionTypeDef = TypedDict(
     "PropertyNameSuggestionTypeDef", {"PropertyName": str}, total=False
 )
 
+ProvisioningParameterTypeDef = TypedDict(
+    "ProvisioningParameterTypeDef", {"Key": str, "Value": str}, total=False
+)
+
 PublicWorkforceTaskPriceTypeDef = TypedDict(
     "PublicWorkforceTaskPriceTypeDef", {"AmountInUsd": "USDTypeDef"}, total=False
+)
+
+_RequiredRedshiftDatasetDefinitionTypeDef = TypedDict(
+    "_RequiredRedshiftDatasetDefinitionTypeDef",
+    {
+        "ClusterId": str,
+        "Database": str,
+        "DbUser": str,
+        "QueryString": str,
+        "ClusterRoleArn": str,
+        "OutputS3Uri": str,
+        "OutputFormat": Literal["PARQUET", "CSV"],
+    },
+)
+_OptionalRedshiftDatasetDefinitionTypeDef = TypedDict(
+    "_OptionalRedshiftDatasetDefinitionTypeDef",
+    {"KmsKeyId": str, "OutputCompression": Literal["None", "GZIP", "BZIP2", "ZSTD", "SNAPPY"]},
+    total=False,
+)
+
+
+class RedshiftDatasetDefinitionTypeDef(
+    _RequiredRedshiftDatasetDefinitionTypeDef, _OptionalRedshiftDatasetDefinitionTypeDef
+):
+    pass
+
+
+RegisterModelStepMetadataTypeDef = TypedDict(
+    "RegisterModelStepMetadataTypeDef", {"Arn": str}, total=False
 )
 
 RenderingErrorTypeDef = TypedDict("RenderingErrorTypeDef", {"Code": str, "Message": str})
@@ -2933,6 +3694,16 @@ class S3DataSourceTypeDef(_RequiredS3DataSourceTypeDef, _OptionalS3DataSourceTyp
     pass
 
 
+_RequiredS3StorageConfigTypeDef = TypedDict("_RequiredS3StorageConfigTypeDef", {"S3Uri": str})
+_OptionalS3StorageConfigTypeDef = TypedDict(
+    "_OptionalS3StorageConfigTypeDef", {"KmsKeyId": str}, total=False
+)
+
+
+class S3StorageConfigTypeDef(_RequiredS3StorageConfigTypeDef, _OptionalS3StorageConfigTypeDef):
+    pass
+
+
 ScheduleConfigTypeDef = TypedDict("ScheduleConfigTypeDef", {"ScheduleExpression": str})
 
 SearchRecordTypeDef = TypedDict(
@@ -2942,6 +3713,12 @@ SearchRecordTypeDef = TypedDict(
         "Experiment": "ExperimentTypeDef",
         "Trial": "TrialTypeDef",
         "TrialComponent": "TrialComponentTypeDef",
+        "Endpoint": "EndpointTypeDef",
+        "ModelPackage": "ModelPackageTypeDef",
+        "ModelPackageGroup": "ModelPackageGroupTypeDef",
+        "Pipeline": "PipelineTypeDef",
+        "PipelineExecution": "PipelineExecutionTypeDef",
+        "FeatureGroup": "FeatureGroupTypeDef",
     },
     total=False,
 )
@@ -2964,6 +3741,7 @@ _RequiredSecondaryStatusTransitionTypeDef = TypedDict(
             "Failed",
             "Interrupted",
             "MaxWaitTimeExceeded",
+            "Updating",
         ],
         "StartTime": datetime,
     },
@@ -2977,6 +3755,30 @@ _OptionalSecondaryStatusTransitionTypeDef = TypedDict(
 
 class SecondaryStatusTransitionTypeDef(
     _RequiredSecondaryStatusTransitionTypeDef, _OptionalSecondaryStatusTransitionTypeDef
+):
+    pass
+
+
+ServiceCatalogProvisionedProductDetailsTypeDef = TypedDict(
+    "ServiceCatalogProvisionedProductDetailsTypeDef",
+    {"ProvisionedProductId": str, "ProvisionedProductStatusMessage": str},
+    total=False,
+)
+
+_RequiredServiceCatalogProvisioningDetailsTypeDef = TypedDict(
+    "_RequiredServiceCatalogProvisioningDetailsTypeDef",
+    {"ProductId": str, "ProvisioningArtifactId": str},
+)
+_OptionalServiceCatalogProvisioningDetailsTypeDef = TypedDict(
+    "_OptionalServiceCatalogProvisioningDetailsTypeDef",
+    {"PathId": str, "ProvisioningParameters": List["ProvisioningParameterTypeDef"]},
+    total=False,
+)
+
+
+class ServiceCatalogProvisioningDetailsTypeDef(
+    _RequiredServiceCatalogProvisioningDetailsTypeDef,
+    _OptionalServiceCatalogProvisioningDetailsTypeDef,
 ):
     pass
 
@@ -3071,6 +3873,21 @@ class TensorBoardOutputConfigTypeDef(
     pass
 
 
+_RequiredTrafficRoutingConfigTypeDef = TypedDict(
+    "_RequiredTrafficRoutingConfigTypeDef",
+    {"Type": Literal["ALL_AT_ONCE", "CANARY"], "WaitIntervalInSeconds": int},
+)
+_OptionalTrafficRoutingConfigTypeDef = TypedDict(
+    "_OptionalTrafficRoutingConfigTypeDef", {"CanarySize": "CapacitySizeTypeDef"}, total=False
+)
+
+
+class TrafficRoutingConfigTypeDef(
+    _RequiredTrafficRoutingConfigTypeDef, _OptionalTrafficRoutingConfigTypeDef
+):
+    pass
+
+
 _RequiredTrainingJobDefinitionTypeDef = TypedDict(
     "_RequiredTrainingJobDefinitionTypeDef",
     {
@@ -3102,6 +3919,10 @@ TrainingJobStatusCountersTypeDef = TypedDict(
         "Stopped": int,
     },
     total=False,
+)
+
+TrainingJobStepMetadataTypeDef = TypedDict(
+    "TrainingJobStepMetadataTypeDef", {"Arn": str}, total=False
 )
 
 _RequiredTrainingJobSummaryTypeDef = TypedDict(
@@ -3151,6 +3972,7 @@ TrainingJobTypeDef = TypedDict(
             "Failed",
             "Interrupted",
             "MaxWaitTimeExceeded",
+            "Updating",
         ],
         "FailureReason": str,
         "HyperParameters": Dict[str, str],
@@ -3299,6 +4121,10 @@ class TransformJobDefinitionTypeDef(
 ):
     pass
 
+
+TransformJobStepMetadataTypeDef = TypedDict(
+    "TransformJobStepMetadataTypeDef", {"Arn": str}, total=False
+)
 
 _RequiredTransformJobSummaryTypeDef = TypedDict(
     "_RequiredTransformJobSummaryTypeDef",
@@ -3535,6 +4361,7 @@ TrialComponentTypeDef = TypedDict(
         "InputArtifacts": Dict[str, "TrialComponentArtifactTypeDef"],
         "OutputArtifacts": Dict[str, "TrialComponentArtifactTypeDef"],
         "Metrics": List["TrialComponentMetricSummaryTypeDef"],
+        "MetadataProperties": "MetadataPropertiesTypeDef",
         "SourceDetail": "TrialComponentSourceDetailTypeDef",
         "Tags": List["TagTypeDef"],
         "Parents": List["ParentTypeDef"],
@@ -3577,6 +4404,7 @@ TrialTypeDef = TypedDict(
         "CreatedBy": "UserContextTypeDef",
         "LastModifiedTime": datetime,
         "LastModifiedBy": "UserContextTypeDef",
+        "MetadataProperties": "MetadataPropertiesTypeDef",
         "Tags": List["TagTypeDef"],
         "TrialComponentSummaries": List["TrialComponentSimpleSummaryTypeDef"],
     },
@@ -3690,6 +4518,10 @@ class WorkteamTypeDef(_RequiredWorkteamTypeDef, _OptionalWorkteamTypeDef):
     pass
 
 
+AddAssociationResponseTypeDef = TypedDict(
+    "AddAssociationResponseTypeDef", {"SourceArn": str, "DestinationArn": str}, total=False
+)
+
 AddTagsOutputTypeDef = TypedDict(
     "AddTagsOutputTypeDef",
     {"Tags": List["TagTypeDef"], "ResponseMetadata": "ResponseMetadata"},
@@ -3700,6 +4532,10 @@ AssociateTrialComponentResponseTypeDef = TypedDict(
     "AssociateTrialComponentResponseTypeDef",
     {"TrialComponentArn": str, "TrialArn": str},
     total=False,
+)
+
+CreateActionResponseTypeDef = TypedDict(
+    "CreateActionResponseTypeDef", {"ActionArn": str}, total=False
 )
 
 _RequiredCreateAlgorithmOutputTypeDef = TypedDict(
@@ -3722,6 +4558,10 @@ CreateAppImageConfigResponseTypeDef = TypedDict(
 
 CreateAppResponseTypeDef = TypedDict("CreateAppResponseTypeDef", {"AppArn": str}, total=False)
 
+CreateArtifactResponseTypeDef = TypedDict(
+    "CreateArtifactResponseTypeDef", {"ArtifactArn": str}, total=False
+)
+
 CreateAutoMLJobResponseTypeDef = TypedDict("CreateAutoMLJobResponseTypeDef", {"AutoMLJobArn": str})
 
 _RequiredCreateCodeRepositoryOutputTypeDef = TypedDict(
@@ -3742,6 +4582,10 @@ class CreateCodeRepositoryOutputTypeDef(
 
 CreateCompilationJobResponseTypeDef = TypedDict(
     "CreateCompilationJobResponseTypeDef", {"CompilationJobArn": str}
+)
+
+CreateContextResponseTypeDef = TypedDict(
+    "CreateContextResponseTypeDef", {"ContextArn": str}, total=False
 )
 
 CreateDomainResponseTypeDef = TypedDict(
@@ -3782,6 +4626,10 @@ CreateExperimentResponseTypeDef = TypedDict(
     "CreateExperimentResponseTypeDef", {"ExperimentArn": str}, total=False
 )
 
+CreateFeatureGroupResponseTypeDef = TypedDict(
+    "CreateFeatureGroupResponseTypeDef", {"FeatureGroupArn": str}
+)
+
 CreateFlowDefinitionResponseTypeDef = TypedDict(
     "CreateFlowDefinitionResponseTypeDef", {"FlowDefinitionArn": str}
 )
@@ -3818,6 +4666,22 @@ class CreateModelOutputTypeDef(
     pass
 
 
+_RequiredCreateModelPackageGroupOutputTypeDef = TypedDict(
+    "_RequiredCreateModelPackageGroupOutputTypeDef", {"ModelPackageGroupArn": str}
+)
+_OptionalCreateModelPackageGroupOutputTypeDef = TypedDict(
+    "_OptionalCreateModelPackageGroupOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+
+class CreateModelPackageGroupOutputTypeDef(
+    _RequiredCreateModelPackageGroupOutputTypeDef, _OptionalCreateModelPackageGroupOutputTypeDef
+):
+    pass
+
+
 _RequiredCreateModelPackageOutputTypeDef = TypedDict(
     "_RequiredCreateModelPackageOutputTypeDef", {"ModelPackageArn": str}
 )
@@ -3850,6 +4714,10 @@ CreateNotebookInstanceOutputTypeDef = TypedDict(
     total=False,
 )
 
+CreatePipelineResponseTypeDef = TypedDict(
+    "CreatePipelineResponseTypeDef", {"PipelineArn": str}, total=False
+)
+
 CreatePresignedDomainUrlResponseTypeDef = TypedDict(
     "CreatePresignedDomainUrlResponseTypeDef", {"AuthorizedUrl": str}, total=False
 )
@@ -3863,6 +4731,20 @@ CreatePresignedNotebookInstanceUrlOutputTypeDef = TypedDict(
 CreateProcessingJobResponseTypeDef = TypedDict(
     "CreateProcessingJobResponseTypeDef", {"ProcessingJobArn": str}
 )
+
+_RequiredCreateProjectOutputTypeDef = TypedDict(
+    "_RequiredCreateProjectOutputTypeDef", {"ProjectArn": str, "ProjectId": str}
+)
+_OptionalCreateProjectOutputTypeDef = TypedDict(
+    "_OptionalCreateProjectOutputTypeDef", {"ResponseMetadata": "ResponseMetadata"}, total=False
+)
+
+
+class CreateProjectOutputTypeDef(
+    _RequiredCreateProjectOutputTypeDef, _OptionalCreateProjectOutputTypeDef
+):
+    pass
+
 
 CreateTrainingJobResponseTypeDef = TypedDict(
     "CreateTrainingJobResponseTypeDef", {"TrainingJobArn": str}
@@ -3888,8 +4770,28 @@ CreateWorkteamResponseTypeDef = TypedDict(
     "CreateWorkteamResponseTypeDef", {"WorkteamArn": str}, total=False
 )
 
+DeleteActionResponseTypeDef = TypedDict(
+    "DeleteActionResponseTypeDef", {"ActionArn": str}, total=False
+)
+
+DeleteArtifactResponseTypeDef = TypedDict(
+    "DeleteArtifactResponseTypeDef", {"ArtifactArn": str}, total=False
+)
+
+DeleteAssociationResponseTypeDef = TypedDict(
+    "DeleteAssociationResponseTypeDef", {"SourceArn": str, "DestinationArn": str}, total=False
+)
+
+DeleteContextResponseTypeDef = TypedDict(
+    "DeleteContextResponseTypeDef", {"ContextArn": str}, total=False
+)
+
 DeleteExperimentResponseTypeDef = TypedDict(
     "DeleteExperimentResponseTypeDef", {"ExperimentArn": str}, total=False
+)
+
+DeletePipelineResponseTypeDef = TypedDict(
+    "DeletePipelineResponseTypeDef", {"PipelineArn": str}, total=False
 )
 
 DeleteTrialComponentResponseTypeDef = TypedDict(
@@ -3899,6 +4801,25 @@ DeleteTrialComponentResponseTypeDef = TypedDict(
 DeleteTrialResponseTypeDef = TypedDict("DeleteTrialResponseTypeDef", {"TrialArn": str}, total=False)
 
 DeleteWorkteamResponseTypeDef = TypedDict("DeleteWorkteamResponseTypeDef", {"Success": bool})
+
+DescribeActionResponseTypeDef = TypedDict(
+    "DescribeActionResponseTypeDef",
+    {
+        "ActionName": str,
+        "ActionArn": str,
+        "Source": "ActionSourceTypeDef",
+        "ActionType": str,
+        "Description": str,
+        "Status": Literal["Unknown", "InProgress", "Completed", "Failed", "Stopping", "Stopped"],
+        "Properties": Dict[str, str],
+        "CreationTime": datetime,
+        "CreatedBy": "UserContextTypeDef",
+        "LastModifiedTime": datetime,
+        "LastModifiedBy": "UserContextTypeDef",
+        "MetadataProperties": "MetadataPropertiesTypeDef",
+    },
+    total=False,
+)
 
 _RequiredDescribeAlgorithmOutputTypeDef = TypedDict(
     "_RequiredDescribeAlgorithmOutputTypeDef",
@@ -3957,6 +4878,23 @@ DescribeAppResponseTypeDef = TypedDict(
         "CreationTime": datetime,
         "FailureReason": str,
         "ResourceSpec": "ResourceSpecTypeDef",
+    },
+    total=False,
+)
+
+DescribeArtifactResponseTypeDef = TypedDict(
+    "DescribeArtifactResponseTypeDef",
+    {
+        "ArtifactName": str,
+        "ArtifactArn": str,
+        "Source": "ArtifactSourceTypeDef",
+        "ArtifactType": str,
+        "Properties": Dict[str, str],
+        "CreationTime": datetime,
+        "CreatedBy": "UserContextTypeDef",
+        "LastModifiedTime": datetime,
+        "LastModifiedBy": "UserContextTypeDef",
+        "MetadataProperties": "MetadataPropertiesTypeDef",
     },
     total=False,
 )
@@ -4051,7 +4989,11 @@ _RequiredDescribeCompilationJobResponseTypeDef = TypedDict(
 )
 _OptionalDescribeCompilationJobResponseTypeDef = TypedDict(
     "_OptionalDescribeCompilationJobResponseTypeDef",
-    {"CompilationStartTime": datetime, "CompilationEndTime": datetime},
+    {
+        "CompilationStartTime": datetime,
+        "CompilationEndTime": datetime,
+        "ModelDigests": "ModelDigestsTypeDef",
+    },
     total=False,
 )
 
@@ -4061,6 +5003,23 @@ class DescribeCompilationJobResponseTypeDef(
 ):
     pass
 
+
+DescribeContextResponseTypeDef = TypedDict(
+    "DescribeContextResponseTypeDef",
+    {
+        "ContextName": str,
+        "ContextArn": str,
+        "Source": "ContextSourceTypeDef",
+        "ContextType": str,
+        "Description": str,
+        "Properties": Dict[str, str],
+        "CreationTime": datetime,
+        "CreatedBy": "UserContextTypeDef",
+        "LastModifiedTime": datetime,
+        "LastModifiedBy": "UserContextTypeDef",
+    },
+    total=False,
+)
 
 DescribeDomainResponseTypeDef = TypedDict(
     "DescribeDomainResponseTypeDef",
@@ -4146,6 +5105,7 @@ _OptionalDescribeEndpointOutputTypeDef = TypedDict(
         "ProductionVariants": List["ProductionVariantSummaryTypeDef"],
         "DataCaptureConfig": "DataCaptureConfigSummaryTypeDef",
         "FailureReason": str,
+        "LastDeploymentConfig": "DeploymentConfigTypeDef",
         "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
@@ -4173,6 +5133,41 @@ DescribeExperimentResponseTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredDescribeFeatureGroupResponseTypeDef = TypedDict(
+    "_RequiredDescribeFeatureGroupResponseTypeDef",
+    {
+        "FeatureGroupArn": str,
+        "FeatureGroupName": str,
+        "RecordIdentifierFeatureName": str,
+        "EventTimeFeatureName": str,
+        "FeatureDefinitions": List["FeatureDefinitionTypeDef"],
+        "CreationTime": datetime,
+        "NextToken": str,
+    },
+)
+_OptionalDescribeFeatureGroupResponseTypeDef = TypedDict(
+    "_OptionalDescribeFeatureGroupResponseTypeDef",
+    {
+        "OnlineStoreConfig": "OnlineStoreConfigTypeDef",
+        "OfflineStoreConfig": "OfflineStoreConfigTypeDef",
+        "RoleArn": str,
+        "FeatureGroupStatus": Literal[
+            "Creating", "Created", "CreateFailed", "Deleting", "DeleteFailed"
+        ],
+        "OfflineStoreStatus": "OfflineStoreStatusTypeDef",
+        "FailureReason": str,
+        "Description": str,
+    },
+    total=False,
+)
+
+
+class DescribeFeatureGroupResponseTypeDef(
+    _RequiredDescribeFeatureGroupResponseTypeDef, _OptionalDescribeFeatureGroupResponseTypeDef
+):
+    pass
+
 
 _RequiredDescribeFlowDefinitionResponseTypeDef = TypedDict(
     "_RequiredDescribeFlowDefinitionResponseTypeDef",
@@ -4366,6 +5361,31 @@ class DescribeModelOutputTypeDef(
     pass
 
 
+_RequiredDescribeModelPackageGroupOutputTypeDef = TypedDict(
+    "_RequiredDescribeModelPackageGroupOutputTypeDef",
+    {
+        "ModelPackageGroupName": str,
+        "ModelPackageGroupArn": str,
+        "CreationTime": datetime,
+        "CreatedBy": "UserContextTypeDef",
+        "ModelPackageGroupStatus": Literal[
+            "Pending", "InProgress", "Completed", "Failed", "Deleting", "DeleteFailed"
+        ],
+    },
+)
+_OptionalDescribeModelPackageGroupOutputTypeDef = TypedDict(
+    "_OptionalDescribeModelPackageGroupOutputTypeDef",
+    {"ModelPackageGroupDescription": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+
+class DescribeModelPackageGroupOutputTypeDef(
+    _RequiredDescribeModelPackageGroupOutputTypeDef, _OptionalDescribeModelPackageGroupOutputTypeDef
+):
+    pass
+
+
 _RequiredDescribeModelPackageOutputTypeDef = TypedDict(
     "_RequiredDescribeModelPackageOutputTypeDef",
     {
@@ -4379,11 +5399,20 @@ _RequiredDescribeModelPackageOutputTypeDef = TypedDict(
 _OptionalDescribeModelPackageOutputTypeDef = TypedDict(
     "_OptionalDescribeModelPackageOutputTypeDef",
     {
+        "ModelPackageGroupName": str,
+        "ModelPackageVersion": int,
         "ModelPackageDescription": str,
         "InferenceSpecification": "InferenceSpecificationTypeDef",
         "SourceAlgorithmSpecification": "SourceAlgorithmSpecificationTypeDef",
         "ValidationSpecification": "ModelPackageValidationSpecificationTypeDef",
         "CertifyForMarketplace": bool,
+        "ModelApprovalStatus": Literal["Approved", "Rejected", "PendingManualApproval"],
+        "CreatedBy": "UserContextTypeDef",
+        "MetadataProperties": "MetadataPropertiesTypeDef",
+        "ModelMetrics": "ModelMetricsTypeDef",
+        "LastModifiedTime": datetime,
+        "LastModifiedBy": "UserContextTypeDef",
+        "ApprovalDescription": str,
         "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
@@ -4517,6 +5546,49 @@ DescribeNotebookInstanceOutputTypeDef = TypedDict(
     total=False,
 )
 
+DescribePipelineDefinitionForExecutionResponseTypeDef = TypedDict(
+    "DescribePipelineDefinitionForExecutionResponseTypeDef",
+    {"PipelineDefinition": str, "CreationTime": datetime},
+    total=False,
+)
+
+DescribePipelineExecutionResponseTypeDef = TypedDict(
+    "DescribePipelineExecutionResponseTypeDef",
+    {
+        "PipelineArn": str,
+        "PipelineExecutionArn": str,
+        "PipelineExecutionDisplayName": str,
+        "PipelineExecutionStatus": Literal[
+            "Executing", "Stopping", "Stopped", "Failed", "Succeeded"
+        ],
+        "PipelineExecutionDescription": str,
+        "CreationTime": datetime,
+        "LastModifiedTime": datetime,
+        "CreatedBy": "UserContextTypeDef",
+        "LastModifiedBy": "UserContextTypeDef",
+    },
+    total=False,
+)
+
+DescribePipelineResponseTypeDef = TypedDict(
+    "DescribePipelineResponseTypeDef",
+    {
+        "PipelineArn": str,
+        "PipelineName": str,
+        "PipelineDisplayName": str,
+        "PipelineDefinition": str,
+        "PipelineDescription": str,
+        "RoleArn": str,
+        "PipelineStatus": Literal["Active"],
+        "CreationTime": datetime,
+        "LastModifiedTime": datetime,
+        "LastRunTime": datetime,
+        "CreatedBy": "UserContextTypeDef",
+        "LastModifiedBy": "UserContextTypeDef",
+    },
+    total=False,
+)
+
 _RequiredDescribeProcessingJobResponseTypeDef = TypedDict(
     "_RequiredDescribeProcessingJobResponseTypeDef",
     {
@@ -4557,6 +5629,43 @@ class DescribeProcessingJobResponseTypeDef(
     pass
 
 
+_RequiredDescribeProjectOutputTypeDef = TypedDict(
+    "_RequiredDescribeProjectOutputTypeDef",
+    {
+        "ProjectArn": str,
+        "ProjectName": str,
+        "ProjectId": str,
+        "ServiceCatalogProvisioningDetails": "ServiceCatalogProvisioningDetailsTypeDef",
+        "ProjectStatus": Literal[
+            "Pending",
+            "CreateInProgress",
+            "CreateCompleted",
+            "CreateFailed",
+            "DeleteInProgress",
+            "DeleteFailed",
+            "DeleteCompleted",
+        ],
+        "CreationTime": datetime,
+    },
+)
+_OptionalDescribeProjectOutputTypeDef = TypedDict(
+    "_OptionalDescribeProjectOutputTypeDef",
+    {
+        "ProjectDescription": str,
+        "ServiceCatalogProvisionedProductDetails": "ServiceCatalogProvisionedProductDetailsTypeDef",
+        "CreatedBy": "UserContextTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
+    },
+    total=False,
+)
+
+
+class DescribeProjectOutputTypeDef(
+    _RequiredDescribeProjectOutputTypeDef, _OptionalDescribeProjectOutputTypeDef
+):
+    pass
+
+
 DescribeSubscribedWorkteamResponseTypeDef = TypedDict(
     "DescribeSubscribedWorkteamResponseTypeDef", {"SubscribedWorkteam": "SubscribedWorkteamTypeDef"}
 )
@@ -4583,6 +5692,7 @@ _RequiredDescribeTrainingJobResponseTypeDef = TypedDict(
             "Failed",
             "Interrupted",
             "MaxWaitTimeExceeded",
+            "Updating",
         ],
         "AlgorithmSpecification": "AlgorithmSpecificationTypeDef",
         "ResourceConfig": "ResourceConfigTypeDef",
@@ -4685,6 +5795,7 @@ DescribeTrialComponentResponseTypeDef = TypedDict(
         "Parameters": Dict[str, "TrialComponentParameterValueTypeDef"],
         "InputArtifacts": Dict[str, "TrialComponentArtifactTypeDef"],
         "OutputArtifacts": Dict[str, "TrialComponentArtifactTypeDef"],
+        "MetadataProperties": "MetadataPropertiesTypeDef",
         "Metrics": List["TrialComponentMetricSummaryTypeDef"],
     },
     total=False,
@@ -4702,6 +5813,7 @@ DescribeTrialResponseTypeDef = TypedDict(
         "CreatedBy": "UserContextTypeDef",
         "LastModifiedTime": datetime,
         "LastModifiedBy": "UserContextTypeDef",
+        "MetadataProperties": "MetadataPropertiesTypeDef",
     },
     total=False,
 )
@@ -4773,6 +5885,29 @@ DisassociateTrialComponentResponseTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredGetModelPackageGroupPolicyOutputTypeDef = TypedDict(
+    "_RequiredGetModelPackageGroupPolicyOutputTypeDef", {"ResourcePolicy": str}
+)
+_OptionalGetModelPackageGroupPolicyOutputTypeDef = TypedDict(
+    "_OptionalGetModelPackageGroupPolicyOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+
+class GetModelPackageGroupPolicyOutputTypeDef(
+    _RequiredGetModelPackageGroupPolicyOutputTypeDef,
+    _OptionalGetModelPackageGroupPolicyOutputTypeDef,
+):
+    pass
+
+
+GetSagemakerServicecatalogPortfolioStatusOutputTypeDef = TypedDict(
+    "GetSagemakerServicecatalogPortfolioStatusOutputTypeDef",
+    {"Status": Literal["Enabled", "Disabled"], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
 GetSearchSuggestionsResponseTypeDef = TypedDict(
     "GetSearchSuggestionsResponseTypeDef",
     {"PropertyNameSuggestions": List["PropertyNameSuggestionTypeDef"]},
@@ -4780,6 +5915,12 @@ GetSearchSuggestionsResponseTypeDef = TypedDict(
 )
 
 GitConfigForUpdateTypeDef = TypedDict("GitConfigForUpdateTypeDef", {"SecretArn": str}, total=False)
+
+ListActionsResponseTypeDef = TypedDict(
+    "ListActionsResponseTypeDef",
+    {"ActionSummaries": List["ActionSummaryTypeDef"], "NextToken": str},
+    total=False,
+)
 
 _RequiredListAlgorithmsOutputTypeDef = TypedDict(
     "_RequiredListAlgorithmsOutputTypeDef",
@@ -4806,6 +5947,18 @@ ListAppImageConfigsResponseTypeDef = TypedDict(
 
 ListAppsResponseTypeDef = TypedDict(
     "ListAppsResponseTypeDef", {"Apps": List["AppDetailsTypeDef"], "NextToken": str}, total=False
+)
+
+ListArtifactsResponseTypeDef = TypedDict(
+    "ListArtifactsResponseTypeDef",
+    {"ArtifactSummaries": List["ArtifactSummaryTypeDef"], "NextToken": str},
+    total=False,
+)
+
+ListAssociationsResponseTypeDef = TypedDict(
+    "ListAssociationsResponseTypeDef",
+    {"AssociationSummaries": List["AssociationSummaryTypeDef"], "NextToken": str},
+    total=False,
 )
 
 _RequiredListAutoMLJobsResponseTypeDef = TypedDict(
@@ -4871,6 +6024,12 @@ class ListCompilationJobsResponseTypeDef(
     pass
 
 
+ListContextsResponseTypeDef = TypedDict(
+    "ListContextsResponseTypeDef",
+    {"ContextSummaries": List["ContextSummaryTypeDef"], "NextToken": str},
+    total=False,
+)
+
 ListDomainsResponseTypeDef = TypedDict(
     "ListDomainsResponseTypeDef",
     {"Domains": List["DomainDetailsTypeDef"], "NextToken": str},
@@ -4914,6 +6073,11 @@ ListExperimentsResponseTypeDef = TypedDict(
     "ListExperimentsResponseTypeDef",
     {"ExperimentSummaries": List["ExperimentSummaryTypeDef"], "NextToken": str},
     total=False,
+)
+
+ListFeatureGroupsResponseTypeDef = TypedDict(
+    "ListFeatureGroupsResponseTypeDef",
+    {"FeatureGroupSummaries": List["FeatureGroupSummaryTypeDef"], "NextToken": str},
 )
 
 _RequiredListFlowDefinitionsResponseTypeDef = TypedDict(
@@ -4993,6 +6157,23 @@ ListLabelingJobsResponseTypeDef = TypedDict(
     {"LabelingJobSummaryList": List["LabelingJobSummaryTypeDef"], "NextToken": str},
     total=False,
 )
+
+_RequiredListModelPackageGroupsOutputTypeDef = TypedDict(
+    "_RequiredListModelPackageGroupsOutputTypeDef",
+    {"ModelPackageGroupSummaryList": List["ModelPackageGroupSummaryTypeDef"]},
+)
+_OptionalListModelPackageGroupsOutputTypeDef = TypedDict(
+    "_OptionalListModelPackageGroupsOutputTypeDef",
+    {"NextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+
+class ListModelPackageGroupsOutputTypeDef(
+    _RequiredListModelPackageGroupsOutputTypeDef, _OptionalListModelPackageGroupsOutputTypeDef
+):
+    pass
+
 
 _RequiredListModelPackagesOutputTypeDef = TypedDict(
     "_RequiredListModelPackagesOutputTypeDef",
@@ -5076,6 +6257,30 @@ ListNotebookInstancesOutputTypeDef = TypedDict(
     total=False,
 )
 
+ListPipelineExecutionStepsResponseTypeDef = TypedDict(
+    "ListPipelineExecutionStepsResponseTypeDef",
+    {"PipelineExecutionSteps": List["PipelineExecutionStepTypeDef"], "NextToken": str},
+    total=False,
+)
+
+ListPipelineExecutionsResponseTypeDef = TypedDict(
+    "ListPipelineExecutionsResponseTypeDef",
+    {"PipelineExecutionSummaries": List["PipelineExecutionSummaryTypeDef"], "NextToken": str},
+    total=False,
+)
+
+ListPipelineParametersForExecutionResponseTypeDef = TypedDict(
+    "ListPipelineParametersForExecutionResponseTypeDef",
+    {"PipelineParameters": List["ParameterTypeDef"], "NextToken": str},
+    total=False,
+)
+
+ListPipelinesResponseTypeDef = TypedDict(
+    "ListPipelinesResponseTypeDef",
+    {"PipelineSummaries": List["PipelineSummaryTypeDef"], "NextToken": str},
+    total=False,
+)
+
 _RequiredListProcessingJobsResponseTypeDef = TypedDict(
     "_RequiredListProcessingJobsResponseTypeDef",
     {"ProcessingJobSummaries": List["ProcessingJobSummaryTypeDef"]},
@@ -5087,6 +6292,22 @@ _OptionalListProcessingJobsResponseTypeDef = TypedDict(
 
 class ListProcessingJobsResponseTypeDef(
     _RequiredListProcessingJobsResponseTypeDef, _OptionalListProcessingJobsResponseTypeDef
+):
+    pass
+
+
+_RequiredListProjectsOutputTypeDef = TypedDict(
+    "_RequiredListProjectsOutputTypeDef", {"ProjectSummaryList": List["ProjectSummaryTypeDef"]}
+)
+_OptionalListProjectsOutputTypeDef = TypedDict(
+    "_OptionalListProjectsOutputTypeDef",
+    {"NextToken": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+
+class ListProjectsOutputTypeDef(
+    _RequiredListProjectsOutputTypeDef, _OptionalListProjectsOutputTypeDef
 ):
     pass
 
@@ -5224,6 +6445,23 @@ PaginatorConfigTypeDef = TypedDict(
     "PaginatorConfigTypeDef", {"MaxItems": int, "PageSize": int, "StartingToken": str}, total=False
 )
 
+_RequiredPutModelPackageGroupPolicyOutputTypeDef = TypedDict(
+    "_RequiredPutModelPackageGroupPolicyOutputTypeDef", {"ModelPackageGroupArn": str}
+)
+_OptionalPutModelPackageGroupPolicyOutputTypeDef = TypedDict(
+    "_OptionalPutModelPackageGroupPolicyOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+
+class PutModelPackageGroupPolicyOutputTypeDef(
+    _RequiredPutModelPackageGroupPolicyOutputTypeDef,
+    _OptionalPutModelPackageGroupPolicyOutputTypeDef,
+):
+    pass
+
+
 RenderUiTemplateResponseTypeDef = TypedDict(
     "RenderUiTemplateResponseTypeDef",
     {"RenderedContent": str, "Errors": List["RenderingErrorTypeDef"]},
@@ -5239,14 +6477,30 @@ SearchResponseTypeDef = TypedDict(
     "SearchResponseTypeDef", {"Results": List["SearchRecordTypeDef"], "NextToken": str}, total=False
 )
 
+StartPipelineExecutionResponseTypeDef = TypedDict(
+    "StartPipelineExecutionResponseTypeDef", {"PipelineExecutionArn": str}, total=False
+)
+
+StopPipelineExecutionResponseTypeDef = TypedDict(
+    "StopPipelineExecutionResponseTypeDef", {"PipelineExecutionArn": str}, total=False
+)
+
 SuggestionQueryTypeDef = TypedDict(
     "SuggestionQueryTypeDef", {"PropertyNameQuery": "PropertyNameQueryTypeDef"}, total=False
 )
 
 UiTemplateTypeDef = TypedDict("UiTemplateTypeDef", {"Content": str})
 
+UpdateActionResponseTypeDef = TypedDict(
+    "UpdateActionResponseTypeDef", {"ActionArn": str}, total=False
+)
+
 UpdateAppImageConfigResponseTypeDef = TypedDict(
     "UpdateAppImageConfigResponseTypeDef", {"AppImageConfigArn": str}, total=False
+)
+
+UpdateArtifactResponseTypeDef = TypedDict(
+    "UpdateArtifactResponseTypeDef", {"ArtifactArn": str}, total=False
 )
 
 _RequiredUpdateCodeRepositoryOutputTypeDef = TypedDict(
@@ -5264,6 +6518,10 @@ class UpdateCodeRepositoryOutputTypeDef(
 ):
     pass
 
+
+UpdateContextResponseTypeDef = TypedDict(
+    "UpdateContextResponseTypeDef", {"ContextArn": str}, total=False
+)
 
 UpdateDomainResponseTypeDef = TypedDict(
     "UpdateDomainResponseTypeDef", {"DomainArn": str}, total=False
@@ -5306,8 +6564,32 @@ UpdateExperimentResponseTypeDef = TypedDict(
 
 UpdateImageResponseTypeDef = TypedDict("UpdateImageResponseTypeDef", {"ImageArn": str}, total=False)
 
+_RequiredUpdateModelPackageOutputTypeDef = TypedDict(
+    "_RequiredUpdateModelPackageOutputTypeDef", {"ModelPackageArn": str}
+)
+_OptionalUpdateModelPackageOutputTypeDef = TypedDict(
+    "_OptionalUpdateModelPackageOutputTypeDef",
+    {"ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+
+class UpdateModelPackageOutputTypeDef(
+    _RequiredUpdateModelPackageOutputTypeDef, _OptionalUpdateModelPackageOutputTypeDef
+):
+    pass
+
+
 UpdateMonitoringScheduleResponseTypeDef = TypedDict(
     "UpdateMonitoringScheduleResponseTypeDef", {"MonitoringScheduleArn": str}
+)
+
+UpdatePipelineExecutionResponseTypeDef = TypedDict(
+    "UpdatePipelineExecutionResponseTypeDef", {"PipelineExecutionArn": str}, total=False
+)
+
+UpdatePipelineResponseTypeDef = TypedDict(
+    "UpdatePipelineResponseTypeDef", {"PipelineArn": str}, total=False
 )
 
 UpdateTrialComponentResponseTypeDef = TypedDict(

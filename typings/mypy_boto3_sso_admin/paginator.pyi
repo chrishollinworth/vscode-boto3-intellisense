@@ -77,7 +77,7 @@ __all__ = (
 
 class ListAccountAssignmentCreationStatusPaginator(Boto3Paginator):
     """
-    [Paginator.ListAccountAssignmentCreationStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountAssignmentCreationStatus)
+    [Paginator.ListAccountAssignmentCreationStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountAssignmentCreationStatus)
     """
 
     def paginate(
@@ -87,13 +87,13 @@ class ListAccountAssignmentCreationStatusPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListAccountAssignmentCreationStatusResponseTypeDef]:
         """
-        [ListAccountAssignmentCreationStatus.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountAssignmentCreationStatus.paginate)
+        [ListAccountAssignmentCreationStatus.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountAssignmentCreationStatus.paginate)
         """
 
 
 class ListAccountAssignmentDeletionStatusPaginator(Boto3Paginator):
     """
-    [Paginator.ListAccountAssignmentDeletionStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountAssignmentDeletionStatus)
+    [Paginator.ListAccountAssignmentDeletionStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountAssignmentDeletionStatus)
     """
 
     def paginate(
@@ -103,13 +103,13 @@ class ListAccountAssignmentDeletionStatusPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListAccountAssignmentDeletionStatusResponseTypeDef]:
         """
-        [ListAccountAssignmentDeletionStatus.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountAssignmentDeletionStatus.paginate)
+        [ListAccountAssignmentDeletionStatus.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountAssignmentDeletionStatus.paginate)
         """
 
 
 class ListAccountAssignmentsPaginator(Boto3Paginator):
     """
-    [Paginator.ListAccountAssignments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountAssignments)
+    [Paginator.ListAccountAssignments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountAssignments)
     """
 
     def paginate(
@@ -120,13 +120,13 @@ class ListAccountAssignmentsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListAccountAssignmentsResponseTypeDef]:
         """
-        [ListAccountAssignments.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountAssignments.paginate)
+        [ListAccountAssignments.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountAssignments.paginate)
         """
 
 
 class ListAccountsForProvisionedPermissionSetPaginator(Boto3Paginator):
     """
-    [Paginator.ListAccountsForProvisionedPermissionSet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountsForProvisionedPermissionSet)
+    [Paginator.ListAccountsForProvisionedPermissionSet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountsForProvisionedPermissionSet)
     """
 
     def paginate(
@@ -139,26 +139,26 @@ class ListAccountsForProvisionedPermissionSetPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListAccountsForProvisionedPermissionSetResponseTypeDef]:
         """
-        [ListAccountsForProvisionedPermissionSet.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountsForProvisionedPermissionSet.paginate)
+        [ListAccountsForProvisionedPermissionSet.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountsForProvisionedPermissionSet.paginate)
         """
 
 
 class ListInstancesPaginator(Boto3Paginator):
     """
-    [Paginator.ListInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sso-admin.html#SSOAdmin.Paginator.ListInstances)
+    [Paginator.ListInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Paginator.ListInstances)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListInstancesResponseTypeDef]:
         """
-        [ListInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sso-admin.html#SSOAdmin.Paginator.ListInstances.paginate)
+        [ListInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Paginator.ListInstances.paginate)
         """
 
 
 class ListManagedPoliciesInPermissionSetPaginator(Boto3Paginator):
     """
-    [Paginator.ListManagedPoliciesInPermissionSet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sso-admin.html#SSOAdmin.Paginator.ListManagedPoliciesInPermissionSet)
+    [Paginator.ListManagedPoliciesInPermissionSet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Paginator.ListManagedPoliciesInPermissionSet)
     """
 
     def paginate(
@@ -168,13 +168,13 @@ class ListManagedPoliciesInPermissionSetPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListManagedPoliciesInPermissionSetResponseTypeDef]:
         """
-        [ListManagedPoliciesInPermissionSet.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sso-admin.html#SSOAdmin.Paginator.ListManagedPoliciesInPermissionSet.paginate)
+        [ListManagedPoliciesInPermissionSet.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Paginator.ListManagedPoliciesInPermissionSet.paginate)
         """
 
 
 class ListPermissionSetProvisioningStatusPaginator(Boto3Paginator):
     """
-    [Paginator.ListPermissionSetProvisioningStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sso-admin.html#SSOAdmin.Paginator.ListPermissionSetProvisioningStatus)
+    [Paginator.ListPermissionSetProvisioningStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Paginator.ListPermissionSetProvisioningStatus)
     """
 
     def paginate(
@@ -184,26 +184,26 @@ class ListPermissionSetProvisioningStatusPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListPermissionSetProvisioningStatusResponseTypeDef]:
         """
-        [ListPermissionSetProvisioningStatus.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sso-admin.html#SSOAdmin.Paginator.ListPermissionSetProvisioningStatus.paginate)
+        [ListPermissionSetProvisioningStatus.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Paginator.ListPermissionSetProvisioningStatus.paginate)
         """
 
 
 class ListPermissionSetsPaginator(Boto3Paginator):
     """
-    [Paginator.ListPermissionSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sso-admin.html#SSOAdmin.Paginator.ListPermissionSets)
+    [Paginator.ListPermissionSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Paginator.ListPermissionSets)
     """
 
     def paginate(
         self, InstanceArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPermissionSetsResponseTypeDef]:
         """
-        [ListPermissionSets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sso-admin.html#SSOAdmin.Paginator.ListPermissionSets.paginate)
+        [ListPermissionSets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Paginator.ListPermissionSets.paginate)
         """
 
 
 class ListPermissionSetsProvisionedToAccountPaginator(Boto3Paginator):
     """
-    [Paginator.ListPermissionSetsProvisionedToAccount documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sso-admin.html#SSOAdmin.Paginator.ListPermissionSetsProvisionedToAccount)
+    [Paginator.ListPermissionSetsProvisionedToAccount documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Paginator.ListPermissionSetsProvisionedToAccount)
     """
 
     def paginate(
@@ -216,18 +216,18 @@ class ListPermissionSetsProvisionedToAccountPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListPermissionSetsProvisionedToAccountResponseTypeDef]:
         """
-        [ListPermissionSetsProvisionedToAccount.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sso-admin.html#SSOAdmin.Paginator.ListPermissionSetsProvisionedToAccount.paginate)
+        [ListPermissionSetsProvisionedToAccount.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Paginator.ListPermissionSetsProvisionedToAccount.paginate)
         """
 
 
 class ListTagsForResourcePaginator(Boto3Paginator):
     """
-    [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sso-admin.html#SSOAdmin.Paginator.ListTagsForResource)
+    [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Paginator.ListTagsForResource)
     """
 
     def paginate(
         self, InstanceArn: str, ResourceArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTagsForResourceResponseTypeDef]:
         """
-        [ListTagsForResource.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sso-admin.html#SSOAdmin.Paginator.ListTagsForResource.paginate)
+        [ListTagsForResource.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Paginator.ListTagsForResource.paginate)
         """

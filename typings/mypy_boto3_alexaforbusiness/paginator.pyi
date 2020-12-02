@@ -90,33 +90,33 @@ __all__ = (
 
 class ListBusinessReportSchedulesPaginator(Boto3Paginator):
     """
-    [Paginator.ListBusinessReportSchedules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListBusinessReportSchedules)
+    [Paginator.ListBusinessReportSchedules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListBusinessReportSchedules)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListBusinessReportSchedulesResponseTypeDef]:
         """
-        [ListBusinessReportSchedules.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListBusinessReportSchedules.paginate)
+        [ListBusinessReportSchedules.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListBusinessReportSchedules.paginate)
         """
 
 
 class ListConferenceProvidersPaginator(Boto3Paginator):
     """
-    [Paginator.ListConferenceProviders documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListConferenceProviders)
+    [Paginator.ListConferenceProviders documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListConferenceProviders)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListConferenceProvidersResponseTypeDef]:
         """
-        [ListConferenceProviders.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListConferenceProviders.paginate)
+        [ListConferenceProviders.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListConferenceProviders.paginate)
         """
 
 
 class ListDeviceEventsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDeviceEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListDeviceEvents)
+    [Paginator.ListDeviceEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListDeviceEvents)
     """
 
     def paginate(
@@ -126,13 +126,13 @@ class ListDeviceEventsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListDeviceEventsResponseTypeDef]:
         """
-        [ListDeviceEvents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListDeviceEvents.paginate)
+        [ListDeviceEvents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListDeviceEvents.paginate)
         """
 
 
 class ListSkillsPaginator(Boto3Paginator):
     """
-    [Paginator.ListSkills documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListSkills)
+    [Paginator.ListSkills documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListSkills)
     """
 
     def paginate(
@@ -143,65 +143,65 @@ class ListSkillsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListSkillsResponseTypeDef]:
         """
-        [ListSkills.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListSkills.paginate)
+        [ListSkills.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListSkills.paginate)
         """
 
 
 class ListSkillsStoreCategoriesPaginator(Boto3Paginator):
     """
-    [Paginator.ListSkillsStoreCategories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListSkillsStoreCategories)
+    [Paginator.ListSkillsStoreCategories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListSkillsStoreCategories)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSkillsStoreCategoriesResponseTypeDef]:
         """
-        [ListSkillsStoreCategories.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListSkillsStoreCategories.paginate)
+        [ListSkillsStoreCategories.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListSkillsStoreCategories.paginate)
         """
 
 
 class ListSkillsStoreSkillsByCategoryPaginator(Boto3Paginator):
     """
-    [Paginator.ListSkillsStoreSkillsByCategory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListSkillsStoreSkillsByCategory)
+    [Paginator.ListSkillsStoreSkillsByCategory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListSkillsStoreSkillsByCategory)
     """
 
     def paginate(
         self, CategoryId: int, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSkillsStoreSkillsByCategoryResponseTypeDef]:
         """
-        [ListSkillsStoreSkillsByCategory.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListSkillsStoreSkillsByCategory.paginate)
+        [ListSkillsStoreSkillsByCategory.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListSkillsStoreSkillsByCategory.paginate)
         """
 
 
 class ListSmartHomeAppliancesPaginator(Boto3Paginator):
     """
-    [Paginator.ListSmartHomeAppliances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListSmartHomeAppliances)
+    [Paginator.ListSmartHomeAppliances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListSmartHomeAppliances)
     """
 
     def paginate(
         self, RoomArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSmartHomeAppliancesResponseTypeDef]:
         """
-        [ListSmartHomeAppliances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListSmartHomeAppliances.paginate)
+        [ListSmartHomeAppliances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListSmartHomeAppliances.paginate)
         """
 
 
 class ListTagsPaginator(Boto3Paginator):
     """
-    [Paginator.ListTags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListTags)
+    [Paginator.ListTags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListTags)
     """
 
     def paginate(
         self, Arn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTagsResponseTypeDef]:
         """
-        [ListTags.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListTags.paginate)
+        [ListTags.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.ListTags.paginate)
         """
 
 
 class SearchDevicesPaginator(Boto3Paginator):
     """
-    [Paginator.SearchDevices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.SearchDevices)
+    [Paginator.SearchDevices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.SearchDevices)
     """
 
     def paginate(
@@ -211,13 +211,13 @@ class SearchDevicesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[SearchDevicesResponseTypeDef]:
         """
-        [SearchDevices.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.SearchDevices.paginate)
+        [SearchDevices.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.SearchDevices.paginate)
         """
 
 
 class SearchProfilesPaginator(Boto3Paginator):
     """
-    [Paginator.SearchProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.SearchProfiles)
+    [Paginator.SearchProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.SearchProfiles)
     """
 
     def paginate(
@@ -227,13 +227,13 @@ class SearchProfilesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[SearchProfilesResponseTypeDef]:
         """
-        [SearchProfiles.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.SearchProfiles.paginate)
+        [SearchProfiles.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.SearchProfiles.paginate)
         """
 
 
 class SearchRoomsPaginator(Boto3Paginator):
     """
-    [Paginator.SearchRooms documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.SearchRooms)
+    [Paginator.SearchRooms documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.SearchRooms)
     """
 
     def paginate(
@@ -243,13 +243,13 @@ class SearchRoomsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[SearchRoomsResponseTypeDef]:
         """
-        [SearchRooms.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.SearchRooms.paginate)
+        [SearchRooms.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.SearchRooms.paginate)
         """
 
 
 class SearchSkillGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.SearchSkillGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.SearchSkillGroups)
+    [Paginator.SearchSkillGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.SearchSkillGroups)
     """
 
     def paginate(
@@ -259,13 +259,13 @@ class SearchSkillGroupsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[SearchSkillGroupsResponseTypeDef]:
         """
-        [SearchSkillGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.SearchSkillGroups.paginate)
+        [SearchSkillGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.SearchSkillGroups.paginate)
         """
 
 
 class SearchUsersPaginator(Boto3Paginator):
     """
-    [Paginator.SearchUsers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.SearchUsers)
+    [Paginator.SearchUsers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.SearchUsers)
     """
 
     def paginate(
@@ -275,5 +275,5 @@ class SearchUsersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[SearchUsersResponseTypeDef]:
         """
-        [SearchUsers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.SearchUsers.paginate)
+        [SearchUsers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/alexaforbusiness.html#AlexaForBusiness.Paginator.SearchUsers.paginate)
         """

@@ -45,7 +45,7 @@ __all__ = (
 
 class ListJobsPaginator(Boto3Paginator):
     """
-    [Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Paginator.ListJobs)
+    [Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Paginator.ListJobs)
     """
 
     def paginate(
@@ -57,26 +57,26 @@ class ListJobsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListJobsOutputTypeDef]:
         """
-        [ListJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Paginator.ListJobs.paginate)
+        [ListJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Paginator.ListJobs.paginate)
         """
 
 
 class ListMultipartUploadsPaginator(Boto3Paginator):
     """
-    [Paginator.ListMultipartUploads documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Paginator.ListMultipartUploads)
+    [Paginator.ListMultipartUploads documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Paginator.ListMultipartUploads)
     """
 
     def paginate(
         self, accountId: str, vaultName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListMultipartUploadsOutputTypeDef]:
         """
-        [ListMultipartUploads.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Paginator.ListMultipartUploads.paginate)
+        [ListMultipartUploads.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Paginator.ListMultipartUploads.paginate)
         """
 
 
 class ListPartsPaginator(Boto3Paginator):
     """
-    [Paginator.ListParts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Paginator.ListParts)
+    [Paginator.ListParts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Paginator.ListParts)
     """
 
     def paginate(
@@ -87,18 +87,18 @@ class ListPartsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListPartsOutputTypeDef]:
         """
-        [ListParts.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Paginator.ListParts.paginate)
+        [ListParts.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Paginator.ListParts.paginate)
         """
 
 
 class ListVaultsPaginator(Boto3Paginator):
     """
-    [Paginator.ListVaults documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Paginator.ListVaults)
+    [Paginator.ListVaults documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Paginator.ListVaults)
     """
 
     def paginate(
         self, accountId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListVaultsOutputTypeDef]:
         """
-        [ListVaults.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/glacier.html#Glacier.Paginator.ListVaults.paginate)
+        [ListVaults.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Paginator.ListVaults.paginate)
         """

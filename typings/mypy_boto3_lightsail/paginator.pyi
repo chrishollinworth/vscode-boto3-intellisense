@@ -109,202 +109,202 @@ __all__ = (
 
 class GetActiveNamesPaginator(Boto3Paginator):
     """
-    [Paginator.GetActiveNames documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lightsail.html#Lightsail.Paginator.GetActiveNames)
+    [Paginator.GetActiveNames documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetActiveNames)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetActiveNamesResultTypeDef]:
         """
-        [GetActiveNames.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lightsail.html#Lightsail.Paginator.GetActiveNames.paginate)
+        [GetActiveNames.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetActiveNames.paginate)
         """
 
 
 class GetBlueprintsPaginator(Boto3Paginator):
     """
-    [Paginator.GetBlueprints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lightsail.html#Lightsail.Paginator.GetBlueprints)
+    [Paginator.GetBlueprints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetBlueprints)
     """
 
     def paginate(
         self, includeInactive: bool = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetBlueprintsResultTypeDef]:
         """
-        [GetBlueprints.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lightsail.html#Lightsail.Paginator.GetBlueprints.paginate)
+        [GetBlueprints.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetBlueprints.paginate)
         """
 
 
 class GetBundlesPaginator(Boto3Paginator):
     """
-    [Paginator.GetBundles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lightsail.html#Lightsail.Paginator.GetBundles)
+    [Paginator.GetBundles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetBundles)
     """
 
     def paginate(
         self, includeInactive: bool = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetBundlesResultTypeDef]:
         """
-        [GetBundles.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lightsail.html#Lightsail.Paginator.GetBundles.paginate)
+        [GetBundles.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetBundles.paginate)
         """
 
 
 class GetCloudFormationStackRecordsPaginator(Boto3Paginator):
     """
-    [Paginator.GetCloudFormationStackRecords documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lightsail.html#Lightsail.Paginator.GetCloudFormationStackRecords)
+    [Paginator.GetCloudFormationStackRecords documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetCloudFormationStackRecords)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetCloudFormationStackRecordsResultTypeDef]:
         """
-        [GetCloudFormationStackRecords.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lightsail.html#Lightsail.Paginator.GetCloudFormationStackRecords.paginate)
+        [GetCloudFormationStackRecords.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetCloudFormationStackRecords.paginate)
         """
 
 
 class GetDiskSnapshotsPaginator(Boto3Paginator):
     """
-    [Paginator.GetDiskSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lightsail.html#Lightsail.Paginator.GetDiskSnapshots)
+    [Paginator.GetDiskSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetDiskSnapshots)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetDiskSnapshotsResultTypeDef]:
         """
-        [GetDiskSnapshots.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lightsail.html#Lightsail.Paginator.GetDiskSnapshots.paginate)
+        [GetDiskSnapshots.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetDiskSnapshots.paginate)
         """
 
 
 class GetDisksPaginator(Boto3Paginator):
     """
-    [Paginator.GetDisks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lightsail.html#Lightsail.Paginator.GetDisks)
+    [Paginator.GetDisks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetDisks)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetDisksResultTypeDef]:
         """
-        [GetDisks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lightsail.html#Lightsail.Paginator.GetDisks.paginate)
+        [GetDisks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetDisks.paginate)
         """
 
 
 class GetDomainsPaginator(Boto3Paginator):
     """
-    [Paginator.GetDomains documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lightsail.html#Lightsail.Paginator.GetDomains)
+    [Paginator.GetDomains documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetDomains)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetDomainsResultTypeDef]:
         """
-        [GetDomains.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lightsail.html#Lightsail.Paginator.GetDomains.paginate)
+        [GetDomains.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetDomains.paginate)
         """
 
 
 class GetExportSnapshotRecordsPaginator(Boto3Paginator):
     """
-    [Paginator.GetExportSnapshotRecords documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lightsail.html#Lightsail.Paginator.GetExportSnapshotRecords)
+    [Paginator.GetExportSnapshotRecords documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetExportSnapshotRecords)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetExportSnapshotRecordsResultTypeDef]:
         """
-        [GetExportSnapshotRecords.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lightsail.html#Lightsail.Paginator.GetExportSnapshotRecords.paginate)
+        [GetExportSnapshotRecords.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetExportSnapshotRecords.paginate)
         """
 
 
 class GetInstanceSnapshotsPaginator(Boto3Paginator):
     """
-    [Paginator.GetInstanceSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lightsail.html#Lightsail.Paginator.GetInstanceSnapshots)
+    [Paginator.GetInstanceSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetInstanceSnapshots)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetInstanceSnapshotsResultTypeDef]:
         """
-        [GetInstanceSnapshots.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lightsail.html#Lightsail.Paginator.GetInstanceSnapshots.paginate)
+        [GetInstanceSnapshots.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetInstanceSnapshots.paginate)
         """
 
 
 class GetInstancesPaginator(Boto3Paginator):
     """
-    [Paginator.GetInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lightsail.html#Lightsail.Paginator.GetInstances)
+    [Paginator.GetInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetInstances)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetInstancesResultTypeDef]:
         """
-        [GetInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lightsail.html#Lightsail.Paginator.GetInstances.paginate)
+        [GetInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetInstances.paginate)
         """
 
 
 class GetKeyPairsPaginator(Boto3Paginator):
     """
-    [Paginator.GetKeyPairs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lightsail.html#Lightsail.Paginator.GetKeyPairs)
+    [Paginator.GetKeyPairs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetKeyPairs)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetKeyPairsResultTypeDef]:
         """
-        [GetKeyPairs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lightsail.html#Lightsail.Paginator.GetKeyPairs.paginate)
+        [GetKeyPairs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetKeyPairs.paginate)
         """
 
 
 class GetLoadBalancersPaginator(Boto3Paginator):
     """
-    [Paginator.GetLoadBalancers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lightsail.html#Lightsail.Paginator.GetLoadBalancers)
+    [Paginator.GetLoadBalancers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetLoadBalancers)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetLoadBalancersResultTypeDef]:
         """
-        [GetLoadBalancers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lightsail.html#Lightsail.Paginator.GetLoadBalancers.paginate)
+        [GetLoadBalancers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetLoadBalancers.paginate)
         """
 
 
 class GetOperationsPaginator(Boto3Paginator):
     """
-    [Paginator.GetOperations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lightsail.html#Lightsail.Paginator.GetOperations)
+    [Paginator.GetOperations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetOperations)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetOperationsResultTypeDef]:
         """
-        [GetOperations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lightsail.html#Lightsail.Paginator.GetOperations.paginate)
+        [GetOperations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetOperations.paginate)
         """
 
 
 class GetRelationalDatabaseBlueprintsPaginator(Boto3Paginator):
     """
-    [Paginator.GetRelationalDatabaseBlueprints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseBlueprints)
+    [Paginator.GetRelationalDatabaseBlueprints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseBlueprints)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetRelationalDatabaseBlueprintsResultTypeDef]:
         """
-        [GetRelationalDatabaseBlueprints.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseBlueprints.paginate)
+        [GetRelationalDatabaseBlueprints.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseBlueprints.paginate)
         """
 
 
 class GetRelationalDatabaseBundlesPaginator(Boto3Paginator):
     """
-    [Paginator.GetRelationalDatabaseBundles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseBundles)
+    [Paginator.GetRelationalDatabaseBundles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseBundles)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetRelationalDatabaseBundlesResultTypeDef]:
         """
-        [GetRelationalDatabaseBundles.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseBundles.paginate)
+        [GetRelationalDatabaseBundles.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseBundles.paginate)
         """
 
 
 class GetRelationalDatabaseEventsPaginator(Boto3Paginator):
     """
-    [Paginator.GetRelationalDatabaseEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseEvents)
+    [Paginator.GetRelationalDatabaseEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseEvents)
     """
 
     def paginate(
@@ -314,57 +314,57 @@ class GetRelationalDatabaseEventsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetRelationalDatabaseEventsResultTypeDef]:
         """
-        [GetRelationalDatabaseEvents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseEvents.paginate)
+        [GetRelationalDatabaseEvents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseEvents.paginate)
         """
 
 
 class GetRelationalDatabaseParametersPaginator(Boto3Paginator):
     """
-    [Paginator.GetRelationalDatabaseParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseParameters)
+    [Paginator.GetRelationalDatabaseParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseParameters)
     """
 
     def paginate(
         self, relationalDatabaseName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetRelationalDatabaseParametersResultTypeDef]:
         """
-        [GetRelationalDatabaseParameters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseParameters.paginate)
+        [GetRelationalDatabaseParameters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseParameters.paginate)
         """
 
 
 class GetRelationalDatabaseSnapshotsPaginator(Boto3Paginator):
     """
-    [Paginator.GetRelationalDatabaseSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseSnapshots)
+    [Paginator.GetRelationalDatabaseSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseSnapshots)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetRelationalDatabaseSnapshotsResultTypeDef]:
         """
-        [GetRelationalDatabaseSnapshots.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseSnapshots.paginate)
+        [GetRelationalDatabaseSnapshots.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseSnapshots.paginate)
         """
 
 
 class GetRelationalDatabasesPaginator(Boto3Paginator):
     """
-    [Paginator.GetRelationalDatabases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabases)
+    [Paginator.GetRelationalDatabases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabases)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetRelationalDatabasesResultTypeDef]:
         """
-        [GetRelationalDatabases.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabases.paginate)
+        [GetRelationalDatabases.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabases.paginate)
         """
 
 
 class GetStaticIpsPaginator(Boto3Paginator):
     """
-    [Paginator.GetStaticIps documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lightsail.html#Lightsail.Paginator.GetStaticIps)
+    [Paginator.GetStaticIps documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetStaticIps)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetStaticIpsResultTypeDef]:
         """
-        [GetStaticIps.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/lightsail.html#Lightsail.Paginator.GetStaticIps.paginate)
+        [GetStaticIps.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetStaticIps.paginate)
         """

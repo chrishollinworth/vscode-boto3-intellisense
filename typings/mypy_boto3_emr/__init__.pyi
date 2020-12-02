@@ -18,6 +18,8 @@ Usage::
         ListNotebookExecutionsPaginator,
         ListSecurityConfigurationsPaginator,
         ListStepsPaginator,
+        ListStudioSessionMappingsPaginator,
+        ListStudiosPaginator,
         StepCompleteWaiter,
     )
 
@@ -38,6 +40,8 @@ Usage::
     list_notebook_executions_paginator: ListNotebookExecutionsPaginator = client.get_paginator("list_notebook_executions")
     list_security_configurations_paginator: ListSecurityConfigurationsPaginator = client.get_paginator("list_security_configurations")
     list_steps_paginator: ListStepsPaginator = client.get_paginator("list_steps")
+    list_studio_session_mappings_paginator: ListStudioSessionMappingsPaginator = client.get_paginator("list_studio_session_mappings")
+    list_studios_paginator: ListStudiosPaginator = client.get_paginator("list_studios")
     ```
 """
 from mypy_boto3_emr.client import EMRClient
@@ -50,6 +54,8 @@ from mypy_boto3_emr.paginator import (
     ListNotebookExecutionsPaginator,
     ListSecurityConfigurationsPaginator,
     ListStepsPaginator,
+    ListStudioSessionMappingsPaginator,
+    ListStudiosPaginator,
 )
 from mypy_boto3_emr.waiter import ClusterRunningWaiter, ClusterTerminatedWaiter, StepCompleteWaiter
 
@@ -69,5 +75,7 @@ __all__ = (
     "ListNotebookExecutionsPaginator",
     "ListSecurityConfigurationsPaginator",
     "ListStepsPaginator",
+    "ListStudioSessionMappingsPaginator",
+    "ListStudiosPaginator",
     "StepCompleteWaiter",
 )

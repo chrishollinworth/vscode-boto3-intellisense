@@ -56,7 +56,7 @@ __all__ = (
 
 class DescribeEndpointsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediaconvert.html#MediaConvert.Paginator.DescribeEndpoints)
+    [Paginator.DescribeEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediaconvert.html#MediaConvert.Paginator.DescribeEndpoints)
     """
 
     def paginate(
@@ -65,13 +65,13 @@ class DescribeEndpointsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeEndpointsResponseTypeDef]:
         """
-        [DescribeEndpoints.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediaconvert.html#MediaConvert.Paginator.DescribeEndpoints.paginate)
+        [DescribeEndpoints.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediaconvert.html#MediaConvert.Paginator.DescribeEndpoints.paginate)
         """
 
 
 class ListJobTemplatesPaginator(Boto3Paginator):
     """
-    [Paginator.ListJobTemplates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediaconvert.html#MediaConvert.Paginator.ListJobTemplates)
+    [Paginator.ListJobTemplates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediaconvert.html#MediaConvert.Paginator.ListJobTemplates)
     """
 
     def paginate(
@@ -82,13 +82,13 @@ class ListJobTemplatesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListJobTemplatesResponseTypeDef]:
         """
-        [ListJobTemplates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediaconvert.html#MediaConvert.Paginator.ListJobTemplates.paginate)
+        [ListJobTemplates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediaconvert.html#MediaConvert.Paginator.ListJobTemplates.paginate)
         """
 
 
 class ListJobsPaginator(Boto3Paginator):
     """
-    [Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediaconvert.html#MediaConvert.Paginator.ListJobs)
+    [Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediaconvert.html#MediaConvert.Paginator.ListJobs)
     """
 
     def paginate(
@@ -99,13 +99,13 @@ class ListJobsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListJobsResponseTypeDef]:
         """
-        [ListJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediaconvert.html#MediaConvert.Paginator.ListJobs.paginate)
+        [ListJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediaconvert.html#MediaConvert.Paginator.ListJobs.paginate)
         """
 
 
 class ListPresetsPaginator(Boto3Paginator):
     """
-    [Paginator.ListPresets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediaconvert.html#MediaConvert.Paginator.ListPresets)
+    [Paginator.ListPresets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediaconvert.html#MediaConvert.Paginator.ListPresets)
     """
 
     def paginate(
@@ -116,13 +116,13 @@ class ListPresetsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListPresetsResponseTypeDef]:
         """
-        [ListPresets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediaconvert.html#MediaConvert.Paginator.ListPresets.paginate)
+        [ListPresets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediaconvert.html#MediaConvert.Paginator.ListPresets.paginate)
         """
 
 
 class ListQueuesPaginator(Boto3Paginator):
     """
-    [Paginator.ListQueues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediaconvert.html#MediaConvert.Paginator.ListQueues)
+    [Paginator.ListQueues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediaconvert.html#MediaConvert.Paginator.ListQueues)
     """
 
     def paginate(
@@ -132,5 +132,5 @@ class ListQueuesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListQueuesResponseTypeDef]:
         """
-        [ListQueues.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediaconvert.html#MediaConvert.Paginator.ListQueues.paginate)
+        [ListQueues.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediaconvert.html#MediaConvert.Paginator.ListQueues.paginate)
         """

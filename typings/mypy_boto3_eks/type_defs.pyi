@@ -4,9 +4,9 @@ Main interface for eks service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_eks.type_defs import AutoScalingGroupTypeDef
+    from mypy_boto3_eks.type_defs import AddonHealthTypeDef
 
-    data: AutoScalingGroupTypeDef = {...}
+    data: AddonHealthTypeDef = {...}
     ```
 """
 import sys
@@ -24,9 +24,15 @@ else:
 
 
 __all__ = (
+    "AddonHealthTypeDef",
+    "AddonInfoTypeDef",
+    "AddonIssueTypeDef",
+    "AddonTypeDef",
+    "AddonVersionInfoTypeDef",
     "AutoScalingGroupTypeDef",
     "CertificateTypeDef",
     "ClusterTypeDef",
+    "CompatibilityTypeDef",
     "EncryptionConfigTypeDef",
     "ErrorDetailTypeDef",
     "FargateProfileSelectorTypeDef",
@@ -47,23 +53,29 @@ __all__ = (
     "UpdateParamTypeDef",
     "UpdateTypeDef",
     "VpcConfigResponseTypeDef",
+    "CreateAddonResponseTypeDef",
     "CreateClusterResponseTypeDef",
     "CreateFargateProfileResponseTypeDef",
     "CreateNodegroupResponseTypeDef",
+    "DeleteAddonResponseTypeDef",
     "DeleteClusterResponseTypeDef",
     "DeleteFargateProfileResponseTypeDef",
     "DeleteNodegroupResponseTypeDef",
+    "DescribeAddonResponseTypeDef",
+    "DescribeAddonVersionsResponseTypeDef",
     "DescribeClusterResponseTypeDef",
     "DescribeFargateProfileResponseTypeDef",
     "DescribeNodegroupResponseTypeDef",
     "DescribeUpdateResponseTypeDef",
     "KubernetesNetworkConfigRequestTypeDef",
+    "ListAddonsResponseTypeDef",
     "ListClustersResponseTypeDef",
     "ListFargateProfilesResponseTypeDef",
     "ListNodegroupsResponseTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "ListUpdatesResponseTypeDef",
     "PaginatorConfigTypeDef",
+    "UpdateAddonResponseTypeDef",
     "UpdateClusterConfigResponseTypeDef",
     "UpdateClusterVersionResponseTypeDef",
     "UpdateLabelsPayloadTypeDef",
@@ -71,6 +83,67 @@ __all__ = (
     "UpdateNodegroupVersionResponseTypeDef",
     "VpcConfigRequestTypeDef",
     "WaiterConfigTypeDef",
+)
+
+AddonHealthTypeDef = TypedDict(
+    "AddonHealthTypeDef", {"issues": List["AddonIssueTypeDef"]}, total=False
+)
+
+AddonInfoTypeDef = TypedDict(
+    "AddonInfoTypeDef",
+    {"addonName": str, "type": str, "addonVersions": List["AddonVersionInfoTypeDef"]},
+    total=False,
+)
+
+AddonIssueTypeDef = TypedDict(
+    "AddonIssueTypeDef",
+    {
+        "code": Literal[
+            "AccessDenied",
+            "InternalFailure",
+            "ClusterUnreachable",
+            "InsufficientNumberOfReplicas",
+            "ConfigurationConflict",
+        ],
+        "message": str,
+        "resourceIds": List[str],
+    },
+    total=False,
+)
+
+AddonTypeDef = TypedDict(
+    "AddonTypeDef",
+    {
+        "addonName": str,
+        "clusterName": str,
+        "status": Literal[
+            "CREATING",
+            "ACTIVE",
+            "CREATE_FAILED",
+            "UPDATING",
+            "DELETING",
+            "DELETE_FAILED",
+            "DEGRADED",
+        ],
+        "addonVersion": str,
+        "health": "AddonHealthTypeDef",
+        "addonArn": str,
+        "createdAt": datetime,
+        "modifiedAt": datetime,
+        "serviceAccountRoleArn": str,
+        "tags": Dict[str, str],
+    },
+    total=False,
+)
+
+AddonVersionInfoTypeDef = TypedDict(
+    "AddonVersionInfoTypeDef",
+    {
+        "addonVersion": str,
+        "architecture": List[str],
+        "compatibilities": List["CompatibilityTypeDef"],
+    },
+    total=False,
 )
 
 AutoScalingGroupTypeDef = TypedDict("AutoScalingGroupTypeDef", {"name": str}, total=False)
@@ -100,6 +173,12 @@ ClusterTypeDef = TypedDict(
     total=False,
 )
 
+CompatibilityTypeDef = TypedDict(
+    "CompatibilityTypeDef",
+    {"clusterVersion": str, "platformVersions": List[str], "defaultVersion": bool},
+    total=False,
+)
+
 EncryptionConfigTypeDef = TypedDict(
     "EncryptionConfigTypeDef", {"resources": List[str], "provider": "ProviderTypeDef"}, total=False
 )
@@ -120,6 +199,8 @@ ErrorDetailTypeDef = TypedDict(
             "PodEvictionFailure",
             "InsufficientFreeAddresses",
             "ClusterUnreachable",
+            "InsufficientNumberOfReplicas",
+            "ConfigurationConflict",
         ],
         "errorMessage": str,
         "resourceIds": List[str],
@@ -234,6 +315,7 @@ NodegroupTypeDef = TypedDict(
             "DELETE_FAILED",
             "DEGRADED",
         ],
+        "capacityType": Literal["ON_DEMAND", "SPOT"],
         "scalingConfig": "NodegroupScalingConfigTypeDef",
         "instanceTypes": List[str],
         "subnets": List[str],
@@ -274,6 +356,9 @@ UpdateParamTypeDef = TypedDict(
             "MinSize",
             "ReleaseVersion",
             "PublicAccessCidrs",
+            "AddonVersion",
+            "ServiceAccountRoleArn",
+            "ResolveConflicts",
         ],
         "value": str,
     },
@@ -285,7 +370,9 @@ UpdateTypeDef = TypedDict(
     {
         "id": str,
         "status": Literal["InProgress", "Failed", "Cancelled", "Successful"],
-        "type": Literal["VersionUpdate", "EndpointAccessUpdate", "LoggingUpdate", "ConfigUpdate"],
+        "type": Literal[
+            "VersionUpdate", "EndpointAccessUpdate", "LoggingUpdate", "ConfigUpdate", "AddonUpdate"
+        ],
         "params": List["UpdateParamTypeDef"],
         "createdAt": datetime,
         "errors": List["ErrorDetailTypeDef"],
@@ -307,6 +394,10 @@ VpcConfigResponseTypeDef = TypedDict(
     total=False,
 )
 
+CreateAddonResponseTypeDef = TypedDict(
+    "CreateAddonResponseTypeDef", {"addon": "AddonTypeDef"}, total=False
+)
+
 CreateClusterResponseTypeDef = TypedDict(
     "CreateClusterResponseTypeDef", {"cluster": "ClusterTypeDef"}, total=False
 )
@@ -319,6 +410,10 @@ CreateNodegroupResponseTypeDef = TypedDict(
     "CreateNodegroupResponseTypeDef", {"nodegroup": "NodegroupTypeDef"}, total=False
 )
 
+DeleteAddonResponseTypeDef = TypedDict(
+    "DeleteAddonResponseTypeDef", {"addon": "AddonTypeDef"}, total=False
+)
+
 DeleteClusterResponseTypeDef = TypedDict(
     "DeleteClusterResponseTypeDef", {"cluster": "ClusterTypeDef"}, total=False
 )
@@ -329,6 +424,16 @@ DeleteFargateProfileResponseTypeDef = TypedDict(
 
 DeleteNodegroupResponseTypeDef = TypedDict(
     "DeleteNodegroupResponseTypeDef", {"nodegroup": "NodegroupTypeDef"}, total=False
+)
+
+DescribeAddonResponseTypeDef = TypedDict(
+    "DescribeAddonResponseTypeDef", {"addon": "AddonTypeDef"}, total=False
+)
+
+DescribeAddonVersionsResponseTypeDef = TypedDict(
+    "DescribeAddonVersionsResponseTypeDef",
+    {"addons": List["AddonInfoTypeDef"], "nextToken": str},
+    total=False,
 )
 
 DescribeClusterResponseTypeDef = TypedDict(
@@ -351,6 +456,10 @@ DescribeUpdateResponseTypeDef = TypedDict(
 
 KubernetesNetworkConfigRequestTypeDef = TypedDict(
     "KubernetesNetworkConfigRequestTypeDef", {"serviceIpv4Cidr": str}, total=False
+)
+
+ListAddonsResponseTypeDef = TypedDict(
+    "ListAddonsResponseTypeDef", {"addons": List[str], "nextToken": str}, total=False
 )
 
 ListClustersResponseTypeDef = TypedDict(
@@ -377,6 +486,10 @@ ListUpdatesResponseTypeDef = TypedDict(
 
 PaginatorConfigTypeDef = TypedDict(
     "PaginatorConfigTypeDef", {"MaxItems": int, "PageSize": int, "StartingToken": str}, total=False
+)
+
+UpdateAddonResponseTypeDef = TypedDict(
+    "UpdateAddonResponseTypeDef", {"update": "UpdateTypeDef"}, total=False
 )
 
 UpdateClusterConfigResponseTypeDef = TypedDict(

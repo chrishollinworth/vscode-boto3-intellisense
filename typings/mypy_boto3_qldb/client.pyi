@@ -68,7 +68,7 @@ class Exceptions:
 
 class QLDBClient:
     """
-    [QLDB.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/qldb.html#QLDB.Client)
+    [QLDB.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/qldb.html#QLDB.Client)
     """
 
     meta: ClientMeta
@@ -76,14 +76,14 @@ class QLDBClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/qldb.html#QLDB.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/qldb.html#QLDB.Client.can_paginate)
         """
 
     def cancel_journal_kinesis_stream(
         self, LedgerName: str, StreamId: str
     ) -> CancelJournalKinesisStreamResponseTypeDef:
         """
-        [Client.cancel_journal_kinesis_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/qldb.html#QLDB.Client.cancel_journal_kinesis_stream)
+        [Client.cancel_journal_kinesis_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/qldb.html#QLDB.Client.cancel_journal_kinesis_stream)
         """
 
     def create_ledger(
@@ -94,31 +94,31 @@ class QLDBClient:
         DeletionProtection: bool = None,
     ) -> CreateLedgerResponseTypeDef:
         """
-        [Client.create_ledger documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/qldb.html#QLDB.Client.create_ledger)
+        [Client.create_ledger documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/qldb.html#QLDB.Client.create_ledger)
         """
 
     def delete_ledger(self, Name: str) -> None:
         """
-        [Client.delete_ledger documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/qldb.html#QLDB.Client.delete_ledger)
+        [Client.delete_ledger documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/qldb.html#QLDB.Client.delete_ledger)
         """
 
     def describe_journal_kinesis_stream(
         self, LedgerName: str, StreamId: str
     ) -> DescribeJournalKinesisStreamResponseTypeDef:
         """
-        [Client.describe_journal_kinesis_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/qldb.html#QLDB.Client.describe_journal_kinesis_stream)
+        [Client.describe_journal_kinesis_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/qldb.html#QLDB.Client.describe_journal_kinesis_stream)
         """
 
     def describe_journal_s3_export(
         self, Name: str, ExportId: str
     ) -> DescribeJournalS3ExportResponseTypeDef:
         """
-        [Client.describe_journal_s3_export documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/qldb.html#QLDB.Client.describe_journal_s3_export)
+        [Client.describe_journal_s3_export documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/qldb.html#QLDB.Client.describe_journal_s3_export)
         """
 
     def describe_ledger(self, Name: str) -> DescribeLedgerResponseTypeDef:
         """
-        [Client.describe_ledger documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/qldb.html#QLDB.Client.describe_ledger)
+        [Client.describe_ledger documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/qldb.html#QLDB.Client.describe_ledger)
         """
 
     def export_journal_to_s3(
@@ -130,7 +130,7 @@ class QLDBClient:
         RoleArn: str,
     ) -> ExportJournalToS3ResponseTypeDef:
         """
-        [Client.export_journal_to_s3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/qldb.html#QLDB.Client.export_journal_to_s3)
+        [Client.export_journal_to_s3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/qldb.html#QLDB.Client.export_journal_to_s3)
         """
 
     def generate_presigned_url(
@@ -141,7 +141,7 @@ class QLDBClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/qldb.html#QLDB.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/qldb.html#QLDB.Client.generate_presigned_url)
         """
 
     def get_block(
@@ -151,12 +151,12 @@ class QLDBClient:
         DigestTipAddress: "ValueHolderTypeDef" = None,
     ) -> GetBlockResponseTypeDef:
         """
-        [Client.get_block documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/qldb.html#QLDB.Client.get_block)
+        [Client.get_block documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/qldb.html#QLDB.Client.get_block)
         """
 
     def get_digest(self, Name: str) -> GetDigestResponseTypeDef:
         """
-        [Client.get_digest documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/qldb.html#QLDB.Client.get_digest)
+        [Client.get_digest documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/qldb.html#QLDB.Client.get_digest)
         """
 
     def get_revision(
@@ -167,40 +167,40 @@ class QLDBClient:
         DigestTipAddress: "ValueHolderTypeDef" = None,
     ) -> GetRevisionResponseTypeDef:
         """
-        [Client.get_revision documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/qldb.html#QLDB.Client.get_revision)
+        [Client.get_revision documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/qldb.html#QLDB.Client.get_revision)
         """
 
     def list_journal_kinesis_streams_for_ledger(
         self, LedgerName: str, MaxResults: int = None, NextToken: str = None
     ) -> ListJournalKinesisStreamsForLedgerResponseTypeDef:
         """
-        [Client.list_journal_kinesis_streams_for_ledger documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/qldb.html#QLDB.Client.list_journal_kinesis_streams_for_ledger)
+        [Client.list_journal_kinesis_streams_for_ledger documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/qldb.html#QLDB.Client.list_journal_kinesis_streams_for_ledger)
         """
 
     def list_journal_s3_exports(
         self, MaxResults: int = None, NextToken: str = None
     ) -> ListJournalS3ExportsResponseTypeDef:
         """
-        [Client.list_journal_s3_exports documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/qldb.html#QLDB.Client.list_journal_s3_exports)
+        [Client.list_journal_s3_exports documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/qldb.html#QLDB.Client.list_journal_s3_exports)
         """
 
     def list_journal_s3_exports_for_ledger(
         self, Name: str, MaxResults: int = None, NextToken: str = None
     ) -> ListJournalS3ExportsForLedgerResponseTypeDef:
         """
-        [Client.list_journal_s3_exports_for_ledger documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/qldb.html#QLDB.Client.list_journal_s3_exports_for_ledger)
+        [Client.list_journal_s3_exports_for_ledger documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/qldb.html#QLDB.Client.list_journal_s3_exports_for_ledger)
         """
 
     def list_ledgers(
         self, MaxResults: int = None, NextToken: str = None
     ) -> ListLedgersResponseTypeDef:
         """
-        [Client.list_ledgers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/qldb.html#QLDB.Client.list_ledgers)
+        [Client.list_ledgers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/qldb.html#QLDB.Client.list_ledgers)
         """
 
     def list_tags_for_resource(self, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/qldb.html#QLDB.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/qldb.html#QLDB.Client.list_tags_for_resource)
         """
 
     def stream_journal_to_kinesis(
@@ -214,22 +214,22 @@ class QLDBClient:
         ExclusiveEndTime: datetime = None,
     ) -> StreamJournalToKinesisResponseTypeDef:
         """
-        [Client.stream_journal_to_kinesis documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/qldb.html#QLDB.Client.stream_journal_to_kinesis)
+        [Client.stream_journal_to_kinesis documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/qldb.html#QLDB.Client.stream_journal_to_kinesis)
         """
 
     def tag_resource(self, ResourceArn: str, Tags: Dict[str, str]) -> Dict[str, Any]:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/qldb.html#QLDB.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/qldb.html#QLDB.Client.tag_resource)
         """
 
     def untag_resource(self, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/qldb.html#QLDB.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/qldb.html#QLDB.Client.untag_resource)
         """
 
     def update_ledger(
         self, Name: str, DeletionProtection: bool = None
     ) -> UpdateLedgerResponseTypeDef:
         """
-        [Client.update_ledger documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/qldb.html#QLDB.Client.update_ledger)
+        [Client.update_ledger documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/qldb.html#QLDB.Client.update_ledger)
         """

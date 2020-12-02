@@ -23,6 +23,7 @@ rm -rf ./../typings/boto3
 mkdir -p ./../typings/boto3
 cp buildstubs_env/lib/python*/site-packages/mypy_boto3/boto3_init_gen.py ./../typings/boto3/__init__.pyi
 
+cd ./../scripts
 cat services.txt | while IFS=$' \t\n\r' read -r line || [[ -n "$line" ]]; do 
     
     if [ "$line" != "lambda" ]; then 

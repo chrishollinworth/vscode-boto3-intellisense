@@ -103,7 +103,7 @@ __all__ = (
 
 class ListAcceptedPortfolioSharesPaginator(Boto3Paginator):
     """
-    [Paginator.ListAcceptedPortfolioShares documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListAcceptedPortfolioShares)
+    [Paginator.ListAcceptedPortfolioShares documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListAcceptedPortfolioShares)
     """
 
     def paginate(
@@ -113,13 +113,13 @@ class ListAcceptedPortfolioSharesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListAcceptedPortfolioSharesOutputTypeDef]:
         """
-        [ListAcceptedPortfolioShares.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListAcceptedPortfolioShares.paginate)
+        [ListAcceptedPortfolioShares.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListAcceptedPortfolioShares.paginate)
         """
 
 
 class ListConstraintsForPortfolioPaginator(Boto3Paginator):
     """
-    [Paginator.ListConstraintsForPortfolio documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListConstraintsForPortfolio)
+    [Paginator.ListConstraintsForPortfolio documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListConstraintsForPortfolio)
     """
 
     def paginate(
@@ -130,13 +130,13 @@ class ListConstraintsForPortfolioPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListConstraintsForPortfolioOutputTypeDef]:
         """
-        [ListConstraintsForPortfolio.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListConstraintsForPortfolio.paginate)
+        [ListConstraintsForPortfolio.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListConstraintsForPortfolio.paginate)
         """
 
 
 class ListLaunchPathsPaginator(Boto3Paginator):
     """
-    [Paginator.ListLaunchPaths documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListLaunchPaths)
+    [Paginator.ListLaunchPaths documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListLaunchPaths)
     """
 
     def paginate(
@@ -146,13 +146,13 @@ class ListLaunchPathsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListLaunchPathsOutputTypeDef]:
         """
-        [ListLaunchPaths.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListLaunchPaths.paginate)
+        [ListLaunchPaths.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListLaunchPaths.paginate)
         """
 
 
 class ListOrganizationPortfolioAccessPaginator(Boto3Paginator):
     """
-    [Paginator.ListOrganizationPortfolioAccess documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListOrganizationPortfolioAccess)
+    [Paginator.ListOrganizationPortfolioAccess documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListOrganizationPortfolioAccess)
     """
 
     def paginate(
@@ -163,26 +163,26 @@ class ListOrganizationPortfolioAccessPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListOrganizationPortfolioAccessOutputTypeDef]:
         """
-        [ListOrganizationPortfolioAccess.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListOrganizationPortfolioAccess.paginate)
+        [ListOrganizationPortfolioAccess.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListOrganizationPortfolioAccess.paginate)
         """
 
 
 class ListPortfoliosPaginator(Boto3Paginator):
     """
-    [Paginator.ListPortfolios documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListPortfolios)
+    [Paginator.ListPortfolios documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListPortfolios)
     """
 
     def paginate(
         self, AcceptLanguage: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPortfoliosOutputTypeDef]:
         """
-        [ListPortfolios.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListPortfolios.paginate)
+        [ListPortfolios.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListPortfolios.paginate)
         """
 
 
 class ListPortfoliosForProductPaginator(Boto3Paginator):
     """
-    [Paginator.ListPortfoliosForProduct documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListPortfoliosForProduct)
+    [Paginator.ListPortfoliosForProduct documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListPortfoliosForProduct)
     """
 
     def paginate(
@@ -192,13 +192,13 @@ class ListPortfoliosForProductPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListPortfoliosForProductOutputTypeDef]:
         """
-        [ListPortfoliosForProduct.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListPortfoliosForProduct.paginate)
+        [ListPortfoliosForProduct.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListPortfoliosForProduct.paginate)
         """
 
 
 class ListPrincipalsForPortfolioPaginator(Boto3Paginator):
     """
-    [Paginator.ListPrincipalsForPortfolio documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListPrincipalsForPortfolio)
+    [Paginator.ListPrincipalsForPortfolio documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListPrincipalsForPortfolio)
     """
 
     def paginate(
@@ -208,13 +208,13 @@ class ListPrincipalsForPortfolioPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListPrincipalsForPortfolioOutputTypeDef]:
         """
-        [ListPrincipalsForPortfolio.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListPrincipalsForPortfolio.paginate)
+        [ListPrincipalsForPortfolio.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListPrincipalsForPortfolio.paginate)
         """
 
 
 class ListProvisionedProductPlansPaginator(Boto3Paginator):
     """
-    [Paginator.ListProvisionedProductPlans documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListProvisionedProductPlans)
+    [Paginator.ListProvisionedProductPlans documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListProvisionedProductPlans)
     """
 
     def paginate(
@@ -225,13 +225,13 @@ class ListProvisionedProductPlansPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListProvisionedProductPlansOutputTypeDef]:
         """
-        [ListProvisionedProductPlans.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListProvisionedProductPlans.paginate)
+        [ListProvisionedProductPlans.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListProvisionedProductPlans.paginate)
         """
 
 
 class ListProvisioningArtifactsForServiceActionPaginator(Boto3Paginator):
     """
-    [Paginator.ListProvisioningArtifactsForServiceAction documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListProvisioningArtifactsForServiceAction)
+    [Paginator.ListProvisioningArtifactsForServiceAction documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListProvisioningArtifactsForServiceAction)
     """
 
     def paginate(
@@ -241,13 +241,13 @@ class ListProvisioningArtifactsForServiceActionPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListProvisioningArtifactsForServiceActionOutputTypeDef]:
         """
-        [ListProvisioningArtifactsForServiceAction.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListProvisioningArtifactsForServiceAction.paginate)
+        [ListProvisioningArtifactsForServiceAction.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListProvisioningArtifactsForServiceAction.paginate)
         """
 
 
 class ListRecordHistoryPaginator(Boto3Paginator):
     """
-    [Paginator.ListRecordHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListRecordHistory)
+    [Paginator.ListRecordHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListRecordHistory)
     """
 
     def paginate(
@@ -258,13 +258,13 @@ class ListRecordHistoryPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListRecordHistoryOutputTypeDef]:
         """
-        [ListRecordHistory.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListRecordHistory.paginate)
+        [ListRecordHistory.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListRecordHistory.paginate)
         """
 
 
 class ListResourcesForTagOptionPaginator(Boto3Paginator):
     """
-    [Paginator.ListResourcesForTagOption documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListResourcesForTagOption)
+    [Paginator.ListResourcesForTagOption documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListResourcesForTagOption)
     """
 
     def paginate(
@@ -274,26 +274,26 @@ class ListResourcesForTagOptionPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListResourcesForTagOptionOutputTypeDef]:
         """
-        [ListResourcesForTagOption.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListResourcesForTagOption.paginate)
+        [ListResourcesForTagOption.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListResourcesForTagOption.paginate)
         """
 
 
 class ListServiceActionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListServiceActions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListServiceActions)
+    [Paginator.ListServiceActions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListServiceActions)
     """
 
     def paginate(
         self, AcceptLanguage: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListServiceActionsOutputTypeDef]:
         """
-        [ListServiceActions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListServiceActions.paginate)
+        [ListServiceActions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListServiceActions.paginate)
         """
 
 
 class ListServiceActionsForProvisioningArtifactPaginator(Boto3Paginator):
     """
-    [Paginator.ListServiceActionsForProvisioningArtifact documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListServiceActionsForProvisioningArtifact)
+    [Paginator.ListServiceActionsForProvisioningArtifact documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListServiceActionsForProvisioningArtifact)
     """
 
     def paginate(
@@ -304,13 +304,13 @@ class ListServiceActionsForProvisioningArtifactPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListServiceActionsForProvisioningArtifactOutputTypeDef]:
         """
-        [ListServiceActionsForProvisioningArtifact.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListServiceActionsForProvisioningArtifact.paginate)
+        [ListServiceActionsForProvisioningArtifact.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListServiceActionsForProvisioningArtifact.paginate)
         """
 
 
 class ListTagOptionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListTagOptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListTagOptions)
+    [Paginator.ListTagOptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListTagOptions)
     """
 
     def paginate(
@@ -319,13 +319,13 @@ class ListTagOptionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListTagOptionsOutputTypeDef]:
         """
-        [ListTagOptions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListTagOptions.paginate)
+        [ListTagOptions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ListTagOptions.paginate)
         """
 
 
 class ScanProvisionedProductsPaginator(Boto3Paginator):
     """
-    [Paginator.ScanProvisionedProducts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ScanProvisionedProducts)
+    [Paginator.ScanProvisionedProducts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ScanProvisionedProducts)
     """
 
     def paginate(
@@ -335,13 +335,13 @@ class ScanProvisionedProductsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ScanProvisionedProductsOutputTypeDef]:
         """
-        [ScanProvisionedProducts.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ScanProvisionedProducts.paginate)
+        [ScanProvisionedProducts.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/servicecatalog.html#ServiceCatalog.Paginator.ScanProvisionedProducts.paginate)
         """
 
 
 class SearchProductsAsAdminPaginator(Boto3Paginator):
     """
-    [Paginator.SearchProductsAsAdmin documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicecatalog.html#ServiceCatalog.Paginator.SearchProductsAsAdmin)
+    [Paginator.SearchProductsAsAdmin documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/servicecatalog.html#ServiceCatalog.Paginator.SearchProductsAsAdmin)
     """
 
     def paginate(
@@ -357,5 +357,5 @@ class SearchProductsAsAdminPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[SearchProductsAsAdminOutputTypeDef]:
         """
-        [SearchProductsAsAdmin.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicecatalog.html#ServiceCatalog.Paginator.SearchProductsAsAdmin.paginate)
+        [SearchProductsAsAdmin.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/servicecatalog.html#ServiceCatalog.Paginator.SearchProductsAsAdmin.paginate)
         """

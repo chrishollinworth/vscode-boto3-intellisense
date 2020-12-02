@@ -59,7 +59,7 @@ __all__ = (
 
 class ListBackupsPaginator(Boto3Paginator):
     """
-    [Paginator.ListBackups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Paginator.ListBackups)
+    [Paginator.ListBackups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Paginator.ListBackups)
     """
 
     def paginate(
@@ -71,39 +71,39 @@ class ListBackupsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListBackupsOutputTypeDef]:
         """
-        [ListBackups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Paginator.ListBackups.paginate)
+        [ListBackups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Paginator.ListBackups.paginate)
         """
 
 
 class ListTablesPaginator(Boto3Paginator):
     """
-    [Paginator.ListTables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Paginator.ListTables)
+    [Paginator.ListTables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Paginator.ListTables)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTablesOutputTypeDef]:
         """
-        [ListTables.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Paginator.ListTables.paginate)
+        [ListTables.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Paginator.ListTables.paginate)
         """
 
 
 class ListTagsOfResourcePaginator(Boto3Paginator):
     """
-    [Paginator.ListTagsOfResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Paginator.ListTagsOfResource)
+    [Paginator.ListTagsOfResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Paginator.ListTagsOfResource)
     """
 
     def paginate(
         self, ResourceArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTagsOfResourceOutputTypeDef]:
         """
-        [ListTagsOfResource.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Paginator.ListTagsOfResource.paginate)
+        [ListTagsOfResource.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Paginator.ListTagsOfResource.paginate)
         """
 
 
 class QueryPaginator(Boto3Paginator):
     """
-    [Paginator.Query documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Paginator.Query)
+    [Paginator.Query documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Paginator.Query)
     """
 
     def paginate(
@@ -146,13 +146,13 @@ class QueryPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[QueryOutputTypeDef]:
         """
-        [Query.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Paginator.Query.paginate)
+        [Query.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Paginator.Query.paginate)
         """
 
 
 class ScanPaginator(Boto3Paginator):
     """
-    [Paginator.Scan documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Paginator.Scan)
+    [Paginator.Scan documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Paginator.Scan)
     """
 
     def paginate(
@@ -194,5 +194,5 @@ class ScanPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ScanOutputTypeDef]:
         """
-        [Scan.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dynamodb.html#DynamoDB.Paginator.Scan.paginate)
+        [Scan.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Paginator.Scan.paginate)
         """

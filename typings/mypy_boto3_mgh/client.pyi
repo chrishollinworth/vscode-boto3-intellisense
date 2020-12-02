@@ -71,7 +71,7 @@ class Exceptions:
 
 class MigrationHubClient:
     """
-    [MigrationHub.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mgh.html#MigrationHub.Client)
+    [MigrationHub.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mgh.html#MigrationHub.Client)
     """
 
     meta: ClientMeta
@@ -85,7 +85,7 @@ class MigrationHubClient:
         DryRun: bool = None,
     ) -> Dict[str, Any]:
         """
-        [Client.associate_created_artifact documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mgh.html#MigrationHub.Client.associate_created_artifact)
+        [Client.associate_created_artifact documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mgh.html#MigrationHub.Client.associate_created_artifact)
         """
 
     def associate_discovered_resource(
@@ -96,40 +96,40 @@ class MigrationHubClient:
         DryRun: bool = None,
     ) -> Dict[str, Any]:
         """
-        [Client.associate_discovered_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mgh.html#MigrationHub.Client.associate_discovered_resource)
+        [Client.associate_discovered_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mgh.html#MigrationHub.Client.associate_discovered_resource)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mgh.html#MigrationHub.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mgh.html#MigrationHub.Client.can_paginate)
         """
 
     def create_progress_update_stream(
         self, ProgressUpdateStreamName: str, DryRun: bool = None
     ) -> Dict[str, Any]:
         """
-        [Client.create_progress_update_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mgh.html#MigrationHub.Client.create_progress_update_stream)
+        [Client.create_progress_update_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mgh.html#MigrationHub.Client.create_progress_update_stream)
         """
 
     def delete_progress_update_stream(
         self, ProgressUpdateStreamName: str, DryRun: bool = None
     ) -> Dict[str, Any]:
         """
-        [Client.delete_progress_update_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mgh.html#MigrationHub.Client.delete_progress_update_stream)
+        [Client.delete_progress_update_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mgh.html#MigrationHub.Client.delete_progress_update_stream)
         """
 
     def describe_application_state(
         self, ApplicationId: str
     ) -> DescribeApplicationStateResultTypeDef:
         """
-        [Client.describe_application_state documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mgh.html#MigrationHub.Client.describe_application_state)
+        [Client.describe_application_state documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mgh.html#MigrationHub.Client.describe_application_state)
         """
 
     def describe_migration_task(
         self, ProgressUpdateStream: str, MigrationTaskName: str
     ) -> DescribeMigrationTaskResultTypeDef:
         """
-        [Client.describe_migration_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mgh.html#MigrationHub.Client.describe_migration_task)
+        [Client.describe_migration_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mgh.html#MigrationHub.Client.describe_migration_task)
         """
 
     def disassociate_created_artifact(
@@ -140,7 +140,7 @@ class MigrationHubClient:
         DryRun: bool = None,
     ) -> Dict[str, Any]:
         """
-        [Client.disassociate_created_artifact documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mgh.html#MigrationHub.Client.disassociate_created_artifact)
+        [Client.disassociate_created_artifact documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mgh.html#MigrationHub.Client.disassociate_created_artifact)
         """
 
     def disassociate_discovered_resource(
@@ -151,7 +151,7 @@ class MigrationHubClient:
         DryRun: bool = None,
     ) -> Dict[str, Any]:
         """
-        [Client.disassociate_discovered_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mgh.html#MigrationHub.Client.disassociate_discovered_resource)
+        [Client.disassociate_discovered_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mgh.html#MigrationHub.Client.disassociate_discovered_resource)
         """
 
     def generate_presigned_url(
@@ -162,21 +162,21 @@ class MigrationHubClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mgh.html#MigrationHub.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mgh.html#MigrationHub.Client.generate_presigned_url)
         """
 
     def import_migration_task(
         self, ProgressUpdateStream: str, MigrationTaskName: str, DryRun: bool = None
     ) -> Dict[str, Any]:
         """
-        [Client.import_migration_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mgh.html#MigrationHub.Client.import_migration_task)
+        [Client.import_migration_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mgh.html#MigrationHub.Client.import_migration_task)
         """
 
     def list_application_states(
         self, ApplicationIds: List[str] = None, NextToken: str = None, MaxResults: int = None
     ) -> ListApplicationStatesResultTypeDef:
         """
-        [Client.list_application_states documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mgh.html#MigrationHub.Client.list_application_states)
+        [Client.list_application_states documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mgh.html#MigrationHub.Client.list_application_states)
         """
 
     def list_created_artifacts(
@@ -187,7 +187,7 @@ class MigrationHubClient:
         MaxResults: int = None,
     ) -> ListCreatedArtifactsResultTypeDef:
         """
-        [Client.list_created_artifacts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mgh.html#MigrationHub.Client.list_created_artifacts)
+        [Client.list_created_artifacts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mgh.html#MigrationHub.Client.list_created_artifacts)
         """
 
     def list_discovered_resources(
@@ -198,21 +198,21 @@ class MigrationHubClient:
         MaxResults: int = None,
     ) -> ListDiscoveredResourcesResultTypeDef:
         """
-        [Client.list_discovered_resources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mgh.html#MigrationHub.Client.list_discovered_resources)
+        [Client.list_discovered_resources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mgh.html#MigrationHub.Client.list_discovered_resources)
         """
 
     def list_migration_tasks(
         self, NextToken: str = None, MaxResults: int = None, ResourceName: str = None
     ) -> ListMigrationTasksResultTypeDef:
         """
-        [Client.list_migration_tasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mgh.html#MigrationHub.Client.list_migration_tasks)
+        [Client.list_migration_tasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mgh.html#MigrationHub.Client.list_migration_tasks)
         """
 
     def list_progress_update_streams(
         self, NextToken: str = None, MaxResults: int = None
     ) -> ListProgressUpdateStreamsResultTypeDef:
         """
-        [Client.list_progress_update_streams documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mgh.html#MigrationHub.Client.list_progress_update_streams)
+        [Client.list_progress_update_streams documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mgh.html#MigrationHub.Client.list_progress_update_streams)
         """
 
     def notify_application_state(
@@ -223,7 +223,7 @@ class MigrationHubClient:
         DryRun: bool = None,
     ) -> Dict[str, Any]:
         """
-        [Client.notify_application_state documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mgh.html#MigrationHub.Client.notify_application_state)
+        [Client.notify_application_state documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mgh.html#MigrationHub.Client.notify_application_state)
         """
 
     def notify_migration_task_state(
@@ -236,7 +236,7 @@ class MigrationHubClient:
         DryRun: bool = None,
     ) -> Dict[str, Any]:
         """
-        [Client.notify_migration_task_state documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mgh.html#MigrationHub.Client.notify_migration_task_state)
+        [Client.notify_migration_task_state documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mgh.html#MigrationHub.Client.notify_migration_task_state)
         """
 
     def put_resource_attributes(
@@ -247,7 +247,7 @@ class MigrationHubClient:
         DryRun: bool = None,
     ) -> Dict[str, Any]:
         """
-        [Client.put_resource_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mgh.html#MigrationHub.Client.put_resource_attributes)
+        [Client.put_resource_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mgh.html#MigrationHub.Client.put_resource_attributes)
         """
 
     @overload
@@ -255,7 +255,7 @@ class MigrationHubClient:
         self, operation_name: Literal["list_application_states"]
     ) -> ListApplicationStatesPaginator:
         """
-        [Paginator.ListApplicationStates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mgh.html#MigrationHub.Paginator.ListApplicationStates)
+        [Paginator.ListApplicationStates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mgh.html#MigrationHub.Paginator.ListApplicationStates)
         """
 
     @overload
@@ -263,7 +263,7 @@ class MigrationHubClient:
         self, operation_name: Literal["list_created_artifacts"]
     ) -> ListCreatedArtifactsPaginator:
         """
-        [Paginator.ListCreatedArtifacts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mgh.html#MigrationHub.Paginator.ListCreatedArtifacts)
+        [Paginator.ListCreatedArtifacts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mgh.html#MigrationHub.Paginator.ListCreatedArtifacts)
         """
 
     @overload
@@ -271,7 +271,7 @@ class MigrationHubClient:
         self, operation_name: Literal["list_discovered_resources"]
     ) -> ListDiscoveredResourcesPaginator:
         """
-        [Paginator.ListDiscoveredResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mgh.html#MigrationHub.Paginator.ListDiscoveredResources)
+        [Paginator.ListDiscoveredResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mgh.html#MigrationHub.Paginator.ListDiscoveredResources)
         """
 
     @overload
@@ -279,7 +279,7 @@ class MigrationHubClient:
         self, operation_name: Literal["list_migration_tasks"]
     ) -> ListMigrationTasksPaginator:
         """
-        [Paginator.ListMigrationTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mgh.html#MigrationHub.Paginator.ListMigrationTasks)
+        [Paginator.ListMigrationTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mgh.html#MigrationHub.Paginator.ListMigrationTasks)
         """
 
     @overload
@@ -287,5 +287,5 @@ class MigrationHubClient:
         self, operation_name: Literal["list_progress_update_streams"]
     ) -> ListProgressUpdateStreamsPaginator:
         """
-        [Paginator.ListProgressUpdateStreams documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mgh.html#MigrationHub.Paginator.ListProgressUpdateStreams)
+        [Paginator.ListProgressUpdateStreams documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mgh.html#MigrationHub.Paginator.ListProgressUpdateStreams)
         """

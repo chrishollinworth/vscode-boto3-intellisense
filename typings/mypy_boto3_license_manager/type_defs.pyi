@@ -77,6 +77,7 @@ LicenseConfigurationAssociationTypeDef = TypedDict(
         ],
         "ResourceOwnerId": str,
         "AssociationTime": datetime,
+        "AmiAssociationScope": str,
     },
     total=False,
 )
@@ -135,9 +136,19 @@ LicenseOperationFailureTypeDef = TypedDict(
     total=False,
 )
 
-LicenseSpecificationTypeDef = TypedDict(
-    "LicenseSpecificationTypeDef", {"LicenseConfigurationArn": str}
+_RequiredLicenseSpecificationTypeDef = TypedDict(
+    "_RequiredLicenseSpecificationTypeDef", {"LicenseConfigurationArn": str}
 )
+_OptionalLicenseSpecificationTypeDef = TypedDict(
+    "_OptionalLicenseSpecificationTypeDef", {"AmiAssociationScope": str}, total=False
+)
+
+
+class LicenseSpecificationTypeDef(
+    _RequiredLicenseSpecificationTypeDef, _OptionalLicenseSpecificationTypeDef
+):
+    pass
+
 
 ManagedResourceSummaryTypeDef = TypedDict(
     "ManagedResourceSummaryTypeDef",

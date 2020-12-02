@@ -28,12 +28,12 @@ __all__ = ("ListEndpointsPaginator",)
 
 class ListEndpointsPaginator(Boto3Paginator):
     """
-    [Paginator.ListEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3outposts.html#S3Outposts.Paginator.ListEndpoints)
+    [Paginator.ListEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3outposts.html#S3Outposts.Paginator.ListEndpoints)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListEndpointsResultTypeDef]:
         """
-        [ListEndpoints.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/s3outposts.html#S3Outposts.Paginator.ListEndpoints.paginate)
+        [ListEndpoints.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3outposts.html#S3Outposts.Paginator.ListEndpoints.paginate)
         """

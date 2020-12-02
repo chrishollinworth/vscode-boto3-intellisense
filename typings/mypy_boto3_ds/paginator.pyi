@@ -65,20 +65,20 @@ __all__ = (
 
 class DescribeDirectoriesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeDirectories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Paginator.DescribeDirectories)
+    [Paginator.DescribeDirectories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Paginator.DescribeDirectories)
     """
 
     def paginate(
         self, DirectoryIds: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeDirectoriesResultTypeDef]:
         """
-        [DescribeDirectories.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Paginator.DescribeDirectories.paginate)
+        [DescribeDirectories.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Paginator.DescribeDirectories.paginate)
         """
 
 
 class DescribeDomainControllersPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeDomainControllers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Paginator.DescribeDomainControllers)
+    [Paginator.DescribeDomainControllers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Paginator.DescribeDomainControllers)
     """
 
     def paginate(
@@ -88,13 +88,13 @@ class DescribeDomainControllersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeDomainControllersResultTypeDef]:
         """
-        [DescribeDomainControllers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Paginator.DescribeDomainControllers.paginate)
+        [DescribeDomainControllers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Paginator.DescribeDomainControllers.paginate)
         """
 
 
 class DescribeSharedDirectoriesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeSharedDirectories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Paginator.DescribeSharedDirectories)
+    [Paginator.DescribeSharedDirectories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Paginator.DescribeSharedDirectories)
     """
 
     def paginate(
@@ -104,13 +104,13 @@ class DescribeSharedDirectoriesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeSharedDirectoriesResultTypeDef]:
         """
-        [DescribeSharedDirectories.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Paginator.DescribeSharedDirectories.paginate)
+        [DescribeSharedDirectories.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Paginator.DescribeSharedDirectories.paginate)
         """
 
 
 class DescribeSnapshotsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Paginator.DescribeSnapshots)
+    [Paginator.DescribeSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Paginator.DescribeSnapshots)
     """
 
     def paginate(
@@ -120,13 +120,13 @@ class DescribeSnapshotsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeSnapshotsResultTypeDef]:
         """
-        [DescribeSnapshots.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Paginator.DescribeSnapshots.paginate)
+        [DescribeSnapshots.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Paginator.DescribeSnapshots.paginate)
         """
 
 
 class DescribeTrustsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeTrusts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Paginator.DescribeTrusts)
+    [Paginator.DescribeTrusts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Paginator.DescribeTrusts)
     """
 
     def paginate(
@@ -136,57 +136,57 @@ class DescribeTrustsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeTrustsResultTypeDef]:
         """
-        [DescribeTrusts.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Paginator.DescribeTrusts.paginate)
+        [DescribeTrusts.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Paginator.DescribeTrusts.paginate)
         """
 
 
 class ListIpRoutesPaginator(Boto3Paginator):
     """
-    [Paginator.ListIpRoutes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Paginator.ListIpRoutes)
+    [Paginator.ListIpRoutes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Paginator.ListIpRoutes)
     """
 
     def paginate(
         self, DirectoryId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListIpRoutesResultTypeDef]:
         """
-        [ListIpRoutes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Paginator.ListIpRoutes.paginate)
+        [ListIpRoutes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Paginator.ListIpRoutes.paginate)
         """
 
 
 class ListLogSubscriptionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListLogSubscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Paginator.ListLogSubscriptions)
+    [Paginator.ListLogSubscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Paginator.ListLogSubscriptions)
     """
 
     def paginate(
         self, DirectoryId: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListLogSubscriptionsResultTypeDef]:
         """
-        [ListLogSubscriptions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Paginator.ListLogSubscriptions.paginate)
+        [ListLogSubscriptions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Paginator.ListLogSubscriptions.paginate)
         """
 
 
 class ListSchemaExtensionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListSchemaExtensions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Paginator.ListSchemaExtensions)
+    [Paginator.ListSchemaExtensions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Paginator.ListSchemaExtensions)
     """
 
     def paginate(
         self, DirectoryId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSchemaExtensionsResultTypeDef]:
         """
-        [ListSchemaExtensions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Paginator.ListSchemaExtensions.paginate)
+        [ListSchemaExtensions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Paginator.ListSchemaExtensions.paginate)
         """
 
 
 class ListTagsForResourcePaginator(Boto3Paginator):
     """
-    [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Paginator.ListTagsForResource)
+    [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Paginator.ListTagsForResource)
     """
 
     def paginate(
         self, ResourceId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTagsForResourceResultTypeDef]:
         """
-        [ListTagsForResource.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ds.html#DirectoryService.Paginator.ListTagsForResource.paginate)
+        [ListTagsForResource.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ds.html#DirectoryService.Paginator.ListTagsForResource.paginate)
         """

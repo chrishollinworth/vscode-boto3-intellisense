@@ -70,59 +70,59 @@ __all__ = (
 
 class BatchGetTracesPaginator(Boto3Paginator):
     """
-    [Paginator.BatchGetTraces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Paginator.BatchGetTraces)
+    [Paginator.BatchGetTraces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Paginator.BatchGetTraces)
     """
 
     def paginate(
         self, TraceIds: List[str], PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[BatchGetTracesResultTypeDef]:
         """
-        [BatchGetTraces.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Paginator.BatchGetTraces.paginate)
+        [BatchGetTraces.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Paginator.BatchGetTraces.paginate)
         """
 
 
 class GetGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.GetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Paginator.GetGroups)
+    [Paginator.GetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Paginator.GetGroups)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetGroupsResultTypeDef]:
         """
-        [GetGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Paginator.GetGroups.paginate)
+        [GetGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Paginator.GetGroups.paginate)
         """
 
 
 class GetSamplingRulesPaginator(Boto3Paginator):
     """
-    [Paginator.GetSamplingRules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Paginator.GetSamplingRules)
+    [Paginator.GetSamplingRules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Paginator.GetSamplingRules)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetSamplingRulesResultTypeDef]:
         """
-        [GetSamplingRules.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Paginator.GetSamplingRules.paginate)
+        [GetSamplingRules.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Paginator.GetSamplingRules.paginate)
         """
 
 
 class GetSamplingStatisticSummariesPaginator(Boto3Paginator):
     """
-    [Paginator.GetSamplingStatisticSummaries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Paginator.GetSamplingStatisticSummaries)
+    [Paginator.GetSamplingStatisticSummaries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Paginator.GetSamplingStatisticSummaries)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetSamplingStatisticSummariesResultTypeDef]:
         """
-        [GetSamplingStatisticSummaries.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Paginator.GetSamplingStatisticSummaries.paginate)
+        [GetSamplingStatisticSummaries.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Paginator.GetSamplingStatisticSummaries.paginate)
         """
 
 
 class GetServiceGraphPaginator(Boto3Paginator):
     """
-    [Paginator.GetServiceGraph documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Paginator.GetServiceGraph)
+    [Paginator.GetServiceGraph documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Paginator.GetServiceGraph)
     """
 
     def paginate(
@@ -134,13 +134,13 @@ class GetServiceGraphPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetServiceGraphResultTypeDef]:
         """
-        [GetServiceGraph.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Paginator.GetServiceGraph.paginate)
+        [GetServiceGraph.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Paginator.GetServiceGraph.paginate)
         """
 
 
 class GetTimeSeriesServiceStatisticsPaginator(Boto3Paginator):
     """
-    [Paginator.GetTimeSeriesServiceStatistics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Paginator.GetTimeSeriesServiceStatistics)
+    [Paginator.GetTimeSeriesServiceStatistics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Paginator.GetTimeSeriesServiceStatistics)
     """
 
     def paginate(
@@ -155,26 +155,26 @@ class GetTimeSeriesServiceStatisticsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetTimeSeriesServiceStatisticsResultTypeDef]:
         """
-        [GetTimeSeriesServiceStatistics.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Paginator.GetTimeSeriesServiceStatistics.paginate)
+        [GetTimeSeriesServiceStatistics.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Paginator.GetTimeSeriesServiceStatistics.paginate)
         """
 
 
 class GetTraceGraphPaginator(Boto3Paginator):
     """
-    [Paginator.GetTraceGraph documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Paginator.GetTraceGraph)
+    [Paginator.GetTraceGraph documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Paginator.GetTraceGraph)
     """
 
     def paginate(
         self, TraceIds: List[str], PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetTraceGraphResultTypeDef]:
         """
-        [GetTraceGraph.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Paginator.GetTraceGraph.paginate)
+        [GetTraceGraph.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Paginator.GetTraceGraph.paginate)
         """
 
 
 class GetTraceSummariesPaginator(Boto3Paginator):
     """
-    [Paginator.GetTraceSummaries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Paginator.GetTraceSummaries)
+    [Paginator.GetTraceSummaries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Paginator.GetTraceSummaries)
     """
 
     def paginate(
@@ -188,5 +188,5 @@ class GetTraceSummariesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetTraceSummariesResultTypeDef]:
         """
-        [GetTraceSummaries.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/xray.html#XRay.Paginator.GetTraceSummaries.paginate)
+        [GetTraceSummaries.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/xray.html#XRay.Paginator.GetTraceSummaries.paginate)
         """

@@ -49,7 +49,7 @@ class Exceptions:
 
 class IoTDataPlaneClient:
     """
-    [IoTDataPlane.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot-data.html#IoTDataPlane.Client)
+    [IoTDataPlane.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot-data.html#IoTDataPlane.Client)
     """
 
     meta: ClientMeta
@@ -57,14 +57,14 @@ class IoTDataPlaneClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot-data.html#IoTDataPlane.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot-data.html#IoTDataPlane.Client.can_paginate)
         """
 
     def delete_thing_shadow(
         self, thingName: str, shadowName: str = None
     ) -> DeleteThingShadowResponseTypeDef:
         """
-        [Client.delete_thing_shadow documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot-data.html#IoTDataPlane.Client.delete_thing_shadow)
+        [Client.delete_thing_shadow documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot-data.html#IoTDataPlane.Client.delete_thing_shadow)
         """
 
     def generate_presigned_url(
@@ -75,31 +75,31 @@ class IoTDataPlaneClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot-data.html#IoTDataPlane.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot-data.html#IoTDataPlane.Client.generate_presigned_url)
         """
 
     def get_thing_shadow(
         self, thingName: str, shadowName: str = None
     ) -> GetThingShadowResponseTypeDef:
         """
-        [Client.get_thing_shadow documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot-data.html#IoTDataPlane.Client.get_thing_shadow)
+        [Client.get_thing_shadow documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot-data.html#IoTDataPlane.Client.get_thing_shadow)
         """
 
     def list_named_shadows_for_thing(
         self, thingName: str, nextToken: str = None, pageSize: int = None
     ) -> ListNamedShadowsForThingResponseTypeDef:
         """
-        [Client.list_named_shadows_for_thing documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot-data.html#IoTDataPlane.Client.list_named_shadows_for_thing)
+        [Client.list_named_shadows_for_thing documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot-data.html#IoTDataPlane.Client.list_named_shadows_for_thing)
         """
 
     def publish(self, topic: str, qos: int = None, payload: Union[bytes, IO[bytes]] = None) -> None:
         """
-        [Client.publish documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot-data.html#IoTDataPlane.Client.publish)
+        [Client.publish documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot-data.html#IoTDataPlane.Client.publish)
         """
 
     def update_thing_shadow(
         self, thingName: str, payload: Union[bytes, IO[bytes]], shadowName: str = None
     ) -> UpdateThingShadowResponseTypeDef:
         """
-        [Client.update_thing_shadow documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/iot-data.html#IoTDataPlane.Client.update_thing_shadow)
+        [Client.update_thing_shadow documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot-data.html#IoTDataPlane.Client.update_thing_shadow)
         """

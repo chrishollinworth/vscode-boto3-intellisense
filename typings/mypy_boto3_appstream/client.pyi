@@ -107,7 +107,7 @@ class Exceptions:
 
 class AppStreamClient:
     """
-    [AppStream.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client)
+    [AppStream.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client)
     """
 
     meta: ClientMeta
@@ -115,26 +115,26 @@ class AppStreamClient:
 
     def associate_fleet(self, FleetName: str, StackName: str) -> Dict[str, Any]:
         """
-        [Client.associate_fleet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.associate_fleet)
+        [Client.associate_fleet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.associate_fleet)
         """
 
     def batch_associate_user_stack(
         self, UserStackAssociations: List["UserStackAssociationTypeDef"]
     ) -> BatchAssociateUserStackResultTypeDef:
         """
-        [Client.batch_associate_user_stack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.batch_associate_user_stack)
+        [Client.batch_associate_user_stack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.batch_associate_user_stack)
         """
 
     def batch_disassociate_user_stack(
         self, UserStackAssociations: List["UserStackAssociationTypeDef"]
     ) -> BatchDisassociateUserStackResultTypeDef:
         """
-        [Client.batch_disassociate_user_stack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.batch_disassociate_user_stack)
+        [Client.batch_disassociate_user_stack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.batch_disassociate_user_stack)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.can_paginate)
         """
 
     def copy_image(
@@ -145,7 +145,7 @@ class AppStreamClient:
         DestinationImageDescription: str = None,
     ) -> CopyImageResponseTypeDef:
         """
-        [Client.copy_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.copy_image)
+        [Client.copy_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.copy_image)
         """
 
     def create_directory_config(
@@ -155,7 +155,7 @@ class AppStreamClient:
         ServiceAccountCredentials: "ServiceAccountCredentialsTypeDef" = None,
     ) -> CreateDirectoryConfigResultTypeDef:
         """
-        [Client.create_directory_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.create_directory_config)
+        [Client.create_directory_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.create_directory_config)
         """
 
     def create_fleet(
@@ -179,7 +179,7 @@ class AppStreamClient:
         StreamView: Literal["APP", "DESKTOP"] = None,
     ) -> CreateFleetResultTypeDef:
         """
-        [Client.create_fleet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.create_fleet)
+        [Client.create_fleet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.create_fleet)
         """
 
     def create_image_builder(
@@ -199,14 +199,14 @@ class AppStreamClient:
         AccessEndpoints: List["AccessEndpointTypeDef"] = None,
     ) -> CreateImageBuilderResultTypeDef:
         """
-        [Client.create_image_builder documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.create_image_builder)
+        [Client.create_image_builder documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.create_image_builder)
         """
 
     def create_image_builder_streaming_url(
         self, Name: str, Validity: int = None
     ) -> CreateImageBuilderStreamingURLResultTypeDef:
         """
-        [Client.create_image_builder_streaming_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.create_image_builder_streaming_url)
+        [Client.create_image_builder_streaming_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.create_image_builder_streaming_url)
         """
 
     def create_stack(
@@ -224,7 +224,7 @@ class AppStreamClient:
         EmbedHostDomains: List[str] = None,
     ) -> CreateStackResultTypeDef:
         """
-        [Client.create_stack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.create_stack)
+        [Client.create_stack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.create_stack)
         """
 
     def create_streaming_url(
@@ -237,12 +237,12 @@ class AppStreamClient:
         SessionContext: str = None,
     ) -> CreateStreamingURLResultTypeDef:
         """
-        [Client.create_streaming_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.create_streaming_url)
+        [Client.create_streaming_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.create_streaming_url)
         """
 
     def create_usage_report_subscription(self) -> CreateUsageReportSubscriptionResultTypeDef:
         """
-        [Client.create_usage_report_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.create_usage_report_subscription)
+        [Client.create_usage_report_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.create_usage_report_subscription)
         """
 
     def create_user(
@@ -254,70 +254,70 @@ class AppStreamClient:
         LastName: str = None,
     ) -> Dict[str, Any]:
         """
-        [Client.create_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.create_user)
+        [Client.create_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.create_user)
         """
 
     def delete_directory_config(self, DirectoryName: str) -> Dict[str, Any]:
         """
-        [Client.delete_directory_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.delete_directory_config)
+        [Client.delete_directory_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.delete_directory_config)
         """
 
     def delete_fleet(self, Name: str) -> Dict[str, Any]:
         """
-        [Client.delete_fleet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.delete_fleet)
+        [Client.delete_fleet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.delete_fleet)
         """
 
     def delete_image(self, Name: str) -> DeleteImageResultTypeDef:
         """
-        [Client.delete_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.delete_image)
+        [Client.delete_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.delete_image)
         """
 
     def delete_image_builder(self, Name: str) -> DeleteImageBuilderResultTypeDef:
         """
-        [Client.delete_image_builder documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.delete_image_builder)
+        [Client.delete_image_builder documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.delete_image_builder)
         """
 
     def delete_image_permissions(self, Name: str, SharedAccountId: str) -> Dict[str, Any]:
         """
-        [Client.delete_image_permissions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.delete_image_permissions)
+        [Client.delete_image_permissions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.delete_image_permissions)
         """
 
     def delete_stack(self, Name: str) -> Dict[str, Any]:
         """
-        [Client.delete_stack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.delete_stack)
+        [Client.delete_stack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.delete_stack)
         """
 
     def delete_usage_report_subscription(self) -> Dict[str, Any]:
         """
-        [Client.delete_usage_report_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.delete_usage_report_subscription)
+        [Client.delete_usage_report_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.delete_usage_report_subscription)
         """
 
     def delete_user(
         self, UserName: str, AuthenticationType: Literal["API", "SAML", "USERPOOL"]
     ) -> Dict[str, Any]:
         """
-        [Client.delete_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.delete_user)
+        [Client.delete_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.delete_user)
         """
 
     def describe_directory_configs(
         self, DirectoryNames: List[str] = None, MaxResults: int = None, NextToken: str = None
     ) -> DescribeDirectoryConfigsResultTypeDef:
         """
-        [Client.describe_directory_configs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.describe_directory_configs)
+        [Client.describe_directory_configs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.describe_directory_configs)
         """
 
     def describe_fleets(
         self, Names: List[str] = None, NextToken: str = None
     ) -> DescribeFleetsResultTypeDef:
         """
-        [Client.describe_fleets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.describe_fleets)
+        [Client.describe_fleets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.describe_fleets)
         """
 
     def describe_image_builders(
         self, Names: List[str] = None, MaxResults: int = None, NextToken: str = None
     ) -> DescribeImageBuildersResultTypeDef:
         """
-        [Client.describe_image_builders documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.describe_image_builders)
+        [Client.describe_image_builders documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.describe_image_builders)
         """
 
     def describe_image_permissions(
@@ -328,7 +328,7 @@ class AppStreamClient:
         NextToken: str = None,
     ) -> DescribeImagePermissionsResultTypeDef:
         """
-        [Client.describe_image_permissions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.describe_image_permissions)
+        [Client.describe_image_permissions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.describe_image_permissions)
         """
 
     def describe_images(
@@ -340,7 +340,7 @@ class AppStreamClient:
         MaxResults: int = None,
     ) -> DescribeImagesResultTypeDef:
         """
-        [Client.describe_images documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.describe_images)
+        [Client.describe_images documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.describe_images)
         """
 
     def describe_sessions(
@@ -353,21 +353,21 @@ class AppStreamClient:
         AuthenticationType: Literal["API", "SAML", "USERPOOL"] = None,
     ) -> DescribeSessionsResultTypeDef:
         """
-        [Client.describe_sessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.describe_sessions)
+        [Client.describe_sessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.describe_sessions)
         """
 
     def describe_stacks(
         self, Names: List[str] = None, NextToken: str = None
     ) -> DescribeStacksResultTypeDef:
         """
-        [Client.describe_stacks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.describe_stacks)
+        [Client.describe_stacks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.describe_stacks)
         """
 
     def describe_usage_report_subscriptions(
         self, MaxResults: int = None, NextToken: str = None
     ) -> DescribeUsageReportSubscriptionsResultTypeDef:
         """
-        [Client.describe_usage_report_subscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.describe_usage_report_subscriptions)
+        [Client.describe_usage_report_subscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.describe_usage_report_subscriptions)
         """
 
     def describe_user_stack_associations(
@@ -379,7 +379,7 @@ class AppStreamClient:
         NextToken: str = None,
     ) -> DescribeUserStackAssociationsResultTypeDef:
         """
-        [Client.describe_user_stack_associations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.describe_user_stack_associations)
+        [Client.describe_user_stack_associations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.describe_user_stack_associations)
         """
 
     def describe_users(
@@ -389,31 +389,31 @@ class AppStreamClient:
         NextToken: str = None,
     ) -> DescribeUsersResultTypeDef:
         """
-        [Client.describe_users documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.describe_users)
+        [Client.describe_users documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.describe_users)
         """
 
     def disable_user(
         self, UserName: str, AuthenticationType: Literal["API", "SAML", "USERPOOL"]
     ) -> Dict[str, Any]:
         """
-        [Client.disable_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.disable_user)
+        [Client.disable_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.disable_user)
         """
 
     def disassociate_fleet(self, FleetName: str, StackName: str) -> Dict[str, Any]:
         """
-        [Client.disassociate_fleet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.disassociate_fleet)
+        [Client.disassociate_fleet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.disassociate_fleet)
         """
 
     def enable_user(
         self, UserName: str, AuthenticationType: Literal["API", "SAML", "USERPOOL"]
     ) -> Dict[str, Any]:
         """
-        [Client.enable_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.enable_user)
+        [Client.enable_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.enable_user)
         """
 
     def expire_session(self, SessionId: str) -> Dict[str, Any]:
         """
-        [Client.expire_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.expire_session)
+        [Client.expire_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.expire_session)
         """
 
     def generate_presigned_url(
@@ -424,58 +424,58 @@ class AppStreamClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.generate_presigned_url)
         """
 
     def list_associated_fleets(
         self, StackName: str, NextToken: str = None
     ) -> ListAssociatedFleetsResultTypeDef:
         """
-        [Client.list_associated_fleets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.list_associated_fleets)
+        [Client.list_associated_fleets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.list_associated_fleets)
         """
 
     def list_associated_stacks(
         self, FleetName: str, NextToken: str = None
     ) -> ListAssociatedStacksResultTypeDef:
         """
-        [Client.list_associated_stacks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.list_associated_stacks)
+        [Client.list_associated_stacks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.list_associated_stacks)
         """
 
     def list_tags_for_resource(self, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.list_tags_for_resource)
         """
 
     def start_fleet(self, Name: str) -> Dict[str, Any]:
         """
-        [Client.start_fleet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.start_fleet)
+        [Client.start_fleet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.start_fleet)
         """
 
     def start_image_builder(
         self, Name: str, AppstreamAgentVersion: str = None
     ) -> StartImageBuilderResultTypeDef:
         """
-        [Client.start_image_builder documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.start_image_builder)
+        [Client.start_image_builder documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.start_image_builder)
         """
 
     def stop_fleet(self, Name: str) -> Dict[str, Any]:
         """
-        [Client.stop_fleet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.stop_fleet)
+        [Client.stop_fleet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.stop_fleet)
         """
 
     def stop_image_builder(self, Name: str) -> StopImageBuilderResultTypeDef:
         """
-        [Client.stop_image_builder documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.stop_image_builder)
+        [Client.stop_image_builder documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.stop_image_builder)
         """
 
     def tag_resource(self, ResourceArn: str, Tags: Dict[str, str]) -> Dict[str, Any]:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.tag_resource)
         """
 
     def untag_resource(self, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.untag_resource)
         """
 
     def update_directory_config(
@@ -485,7 +485,7 @@ class AppStreamClient:
         ServiceAccountCredentials: "ServiceAccountCredentialsTypeDef" = None,
     ) -> UpdateDirectoryConfigResultTypeDef:
         """
-        [Client.update_directory_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.update_directory_config)
+        [Client.update_directory_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.update_directory_config)
         """
 
     def update_fleet(
@@ -516,14 +516,14 @@ class AppStreamClient:
         StreamView: Literal["APP", "DESKTOP"] = None,
     ) -> UpdateFleetResultTypeDef:
         """
-        [Client.update_fleet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.update_fleet)
+        [Client.update_fleet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.update_fleet)
         """
 
     def update_image_permissions(
         self, Name: str, SharedAccountId: str, ImagePermissions: "ImagePermissionsTypeDef"
     ) -> Dict[str, Any]:
         """
-        [Client.update_image_permissions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.update_image_permissions)
+        [Client.update_image_permissions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.update_image_permissions)
         """
 
     def update_stack(
@@ -556,7 +556,7 @@ class AppStreamClient:
         EmbedHostDomains: List[str] = None,
     ) -> UpdateStackResultTypeDef:
         """
-        [Client.update_stack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Client.update_stack)
+        [Client.update_stack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Client.update_stack)
         """
 
     @overload
@@ -564,13 +564,13 @@ class AppStreamClient:
         self, operation_name: Literal["describe_directory_configs"]
     ) -> DescribeDirectoryConfigsPaginator:
         """
-        [Paginator.DescribeDirectoryConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Paginator.DescribeDirectoryConfigs)
+        [Paginator.DescribeDirectoryConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Paginator.DescribeDirectoryConfigs)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["describe_fleets"]) -> DescribeFleetsPaginator:
         """
-        [Paginator.DescribeFleets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Paginator.DescribeFleets)
+        [Paginator.DescribeFleets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Paginator.DescribeFleets)
         """
 
     @overload
@@ -578,13 +578,13 @@ class AppStreamClient:
         self, operation_name: Literal["describe_image_builders"]
     ) -> DescribeImageBuildersPaginator:
         """
-        [Paginator.DescribeImageBuilders documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Paginator.DescribeImageBuilders)
+        [Paginator.DescribeImageBuilders documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Paginator.DescribeImageBuilders)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["describe_images"]) -> DescribeImagesPaginator:
         """
-        [Paginator.DescribeImages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Paginator.DescribeImages)
+        [Paginator.DescribeImages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Paginator.DescribeImages)
         """
 
     @overload
@@ -592,13 +592,13 @@ class AppStreamClient:
         self, operation_name: Literal["describe_sessions"]
     ) -> DescribeSessionsPaginator:
         """
-        [Paginator.DescribeSessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Paginator.DescribeSessions)
+        [Paginator.DescribeSessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Paginator.DescribeSessions)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["describe_stacks"]) -> DescribeStacksPaginator:
         """
-        [Paginator.DescribeStacks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Paginator.DescribeStacks)
+        [Paginator.DescribeStacks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Paginator.DescribeStacks)
         """
 
     @overload
@@ -606,13 +606,13 @@ class AppStreamClient:
         self, operation_name: Literal["describe_user_stack_associations"]
     ) -> DescribeUserStackAssociationsPaginator:
         """
-        [Paginator.DescribeUserStackAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Paginator.DescribeUserStackAssociations)
+        [Paginator.DescribeUserStackAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Paginator.DescribeUserStackAssociations)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["describe_users"]) -> DescribeUsersPaginator:
         """
-        [Paginator.DescribeUsers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Paginator.DescribeUsers)
+        [Paginator.DescribeUsers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Paginator.DescribeUsers)
         """
 
     @overload
@@ -620,7 +620,7 @@ class AppStreamClient:
         self, operation_name: Literal["list_associated_fleets"]
     ) -> ListAssociatedFleetsPaginator:
         """
-        [Paginator.ListAssociatedFleets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Paginator.ListAssociatedFleets)
+        [Paginator.ListAssociatedFleets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Paginator.ListAssociatedFleets)
         """
 
     @overload
@@ -628,17 +628,17 @@ class AppStreamClient:
         self, operation_name: Literal["list_associated_stacks"]
     ) -> ListAssociatedStacksPaginator:
         """
-        [Paginator.ListAssociatedStacks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Paginator.ListAssociatedStacks)
+        [Paginator.ListAssociatedStacks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Paginator.ListAssociatedStacks)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["fleet_started"]) -> FleetStartedWaiter:
         """
-        [Waiter.FleetStarted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Waiter.FleetStarted)
+        [Waiter.FleetStarted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Waiter.FleetStarted)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["fleet_stopped"]) -> FleetStoppedWaiter:
         """
-        [Waiter.FleetStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appstream.html#AppStream.Waiter.FleetStopped)
+        [Waiter.FleetStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Waiter.FleetStopped)
         """

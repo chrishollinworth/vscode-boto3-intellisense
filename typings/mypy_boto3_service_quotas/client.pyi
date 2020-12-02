@@ -78,7 +78,7 @@ class Exceptions:
 
 class ServiceQuotasClient:
     """
-    [ServiceQuotas.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/service-quotas.html#ServiceQuotas.Client)
+    [ServiceQuotas.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/service-quotas.html#ServiceQuotas.Client)
     """
 
     meta: ClientMeta
@@ -86,24 +86,24 @@ class ServiceQuotasClient:
 
     def associate_service_quota_template(self) -> Dict[str, Any]:
         """
-        [Client.associate_service_quota_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/service-quotas.html#ServiceQuotas.Client.associate_service_quota_template)
+        [Client.associate_service_quota_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/service-quotas.html#ServiceQuotas.Client.associate_service_quota_template)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/service-quotas.html#ServiceQuotas.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/service-quotas.html#ServiceQuotas.Client.can_paginate)
         """
 
     def delete_service_quota_increase_request_from_template(
         self, ServiceCode: str, QuotaCode: str, AwsRegion: str
     ) -> Dict[str, Any]:
         """
-        [Client.delete_service_quota_increase_request_from_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/service-quotas.html#ServiceQuotas.Client.delete_service_quota_increase_request_from_template)
+        [Client.delete_service_quota_increase_request_from_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/service-quotas.html#ServiceQuotas.Client.delete_service_quota_increase_request_from_template)
         """
 
     def disassociate_service_quota_template(self) -> Dict[str, Any]:
         """
-        [Client.disassociate_service_quota_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/service-quotas.html#ServiceQuotas.Client.disassociate_service_quota_template)
+        [Client.disassociate_service_quota_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/service-quotas.html#ServiceQuotas.Client.disassociate_service_quota_template)
         """
 
     def generate_presigned_url(
@@ -114,47 +114,47 @@ class ServiceQuotasClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/service-quotas.html#ServiceQuotas.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/service-quotas.html#ServiceQuotas.Client.generate_presigned_url)
         """
 
     def get_association_for_service_quota_template(
         self,
     ) -> GetAssociationForServiceQuotaTemplateResponseTypeDef:
         """
-        [Client.get_association_for_service_quota_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/service-quotas.html#ServiceQuotas.Client.get_association_for_service_quota_template)
+        [Client.get_association_for_service_quota_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/service-quotas.html#ServiceQuotas.Client.get_association_for_service_quota_template)
         """
 
     def get_aws_default_service_quota(
         self, ServiceCode: str, QuotaCode: str
     ) -> GetAWSDefaultServiceQuotaResponseTypeDef:
         """
-        [Client.get_aws_default_service_quota documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/service-quotas.html#ServiceQuotas.Client.get_aws_default_service_quota)
+        [Client.get_aws_default_service_quota documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/service-quotas.html#ServiceQuotas.Client.get_aws_default_service_quota)
         """
 
     def get_requested_service_quota_change(
         self, RequestId: str
     ) -> GetRequestedServiceQuotaChangeResponseTypeDef:
         """
-        [Client.get_requested_service_quota_change documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/service-quotas.html#ServiceQuotas.Client.get_requested_service_quota_change)
+        [Client.get_requested_service_quota_change documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/service-quotas.html#ServiceQuotas.Client.get_requested_service_quota_change)
         """
 
     def get_service_quota(self, ServiceCode: str, QuotaCode: str) -> GetServiceQuotaResponseTypeDef:
         """
-        [Client.get_service_quota documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/service-quotas.html#ServiceQuotas.Client.get_service_quota)
+        [Client.get_service_quota documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/service-quotas.html#ServiceQuotas.Client.get_service_quota)
         """
 
     def get_service_quota_increase_request_from_template(
         self, ServiceCode: str, QuotaCode: str, AwsRegion: str
     ) -> GetServiceQuotaIncreaseRequestFromTemplateResponseTypeDef:
         """
-        [Client.get_service_quota_increase_request_from_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/service-quotas.html#ServiceQuotas.Client.get_service_quota_increase_request_from_template)
+        [Client.get_service_quota_increase_request_from_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/service-quotas.html#ServiceQuotas.Client.get_service_quota_increase_request_from_template)
         """
 
     def list_aws_default_service_quotas(
         self, ServiceCode: str, NextToken: str = None, MaxResults: int = None
     ) -> ListAWSDefaultServiceQuotasResponseTypeDef:
         """
-        [Client.list_aws_default_service_quotas documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/service-quotas.html#ServiceQuotas.Client.list_aws_default_service_quotas)
+        [Client.list_aws_default_service_quotas documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/service-quotas.html#ServiceQuotas.Client.list_aws_default_service_quotas)
         """
 
     def list_requested_service_quota_change_history(
@@ -165,7 +165,7 @@ class ServiceQuotasClient:
         MaxResults: int = None,
     ) -> ListRequestedServiceQuotaChangeHistoryResponseTypeDef:
         """
-        [Client.list_requested_service_quota_change_history documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/service-quotas.html#ServiceQuotas.Client.list_requested_service_quota_change_history)
+        [Client.list_requested_service_quota_change_history documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/service-quotas.html#ServiceQuotas.Client.list_requested_service_quota_change_history)
         """
 
     def list_requested_service_quota_change_history_by_quota(
@@ -177,7 +177,7 @@ class ServiceQuotasClient:
         MaxResults: int = None,
     ) -> ListRequestedServiceQuotaChangeHistoryByQuotaResponseTypeDef:
         """
-        [Client.list_requested_service_quota_change_history_by_quota documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/service-quotas.html#ServiceQuotas.Client.list_requested_service_quota_change_history_by_quota)
+        [Client.list_requested_service_quota_change_history_by_quota documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/service-quotas.html#ServiceQuotas.Client.list_requested_service_quota_change_history_by_quota)
         """
 
     def list_service_quota_increase_requests_in_template(
@@ -188,35 +188,35 @@ class ServiceQuotasClient:
         MaxResults: int = None,
     ) -> ListServiceQuotaIncreaseRequestsInTemplateResponseTypeDef:
         """
-        [Client.list_service_quota_increase_requests_in_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/service-quotas.html#ServiceQuotas.Client.list_service_quota_increase_requests_in_template)
+        [Client.list_service_quota_increase_requests_in_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/service-quotas.html#ServiceQuotas.Client.list_service_quota_increase_requests_in_template)
         """
 
     def list_service_quotas(
         self, ServiceCode: str, NextToken: str = None, MaxResults: int = None
     ) -> ListServiceQuotasResponseTypeDef:
         """
-        [Client.list_service_quotas documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/service-quotas.html#ServiceQuotas.Client.list_service_quotas)
+        [Client.list_service_quotas documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/service-quotas.html#ServiceQuotas.Client.list_service_quotas)
         """
 
     def list_services(
         self, NextToken: str = None, MaxResults: int = None
     ) -> ListServicesResponseTypeDef:
         """
-        [Client.list_services documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/service-quotas.html#ServiceQuotas.Client.list_services)
+        [Client.list_services documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/service-quotas.html#ServiceQuotas.Client.list_services)
         """
 
     def put_service_quota_increase_request_into_template(
         self, QuotaCode: str, ServiceCode: str, AwsRegion: str, DesiredValue: float
     ) -> PutServiceQuotaIncreaseRequestIntoTemplateResponseTypeDef:
         """
-        [Client.put_service_quota_increase_request_into_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/service-quotas.html#ServiceQuotas.Client.put_service_quota_increase_request_into_template)
+        [Client.put_service_quota_increase_request_into_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/service-quotas.html#ServiceQuotas.Client.put_service_quota_increase_request_into_template)
         """
 
     def request_service_quota_increase(
         self, ServiceCode: str, QuotaCode: str, DesiredValue: float
     ) -> RequestServiceQuotaIncreaseResponseTypeDef:
         """
-        [Client.request_service_quota_increase documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/service-quotas.html#ServiceQuotas.Client.request_service_quota_increase)
+        [Client.request_service_quota_increase documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/service-quotas.html#ServiceQuotas.Client.request_service_quota_increase)
         """
 
     @overload
@@ -224,7 +224,7 @@ class ServiceQuotasClient:
         self, operation_name: Literal["list_aws_default_service_quotas"]
     ) -> ListAWSDefaultServiceQuotasPaginator:
         """
-        [Paginator.ListAWSDefaultServiceQuotas documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListAWSDefaultServiceQuotas)
+        [Paginator.ListAWSDefaultServiceQuotas documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListAWSDefaultServiceQuotas)
         """
 
     @overload
@@ -232,7 +232,7 @@ class ServiceQuotasClient:
         self, operation_name: Literal["list_requested_service_quota_change_history"]
     ) -> ListRequestedServiceQuotaChangeHistoryPaginator:
         """
-        [Paginator.ListRequestedServiceQuotaChangeHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListRequestedServiceQuotaChangeHistory)
+        [Paginator.ListRequestedServiceQuotaChangeHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListRequestedServiceQuotaChangeHistory)
         """
 
     @overload
@@ -240,7 +240,7 @@ class ServiceQuotasClient:
         self, operation_name: Literal["list_requested_service_quota_change_history_by_quota"]
     ) -> ListRequestedServiceQuotaChangeHistoryByQuotaPaginator:
         """
-        [Paginator.ListRequestedServiceQuotaChangeHistoryByQuota documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListRequestedServiceQuotaChangeHistoryByQuota)
+        [Paginator.ListRequestedServiceQuotaChangeHistoryByQuota documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListRequestedServiceQuotaChangeHistoryByQuota)
         """
 
     @overload
@@ -248,7 +248,7 @@ class ServiceQuotasClient:
         self, operation_name: Literal["list_service_quota_increase_requests_in_template"]
     ) -> ListServiceQuotaIncreaseRequestsInTemplatePaginator:
         """
-        [Paginator.ListServiceQuotaIncreaseRequestsInTemplate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListServiceQuotaIncreaseRequestsInTemplate)
+        [Paginator.ListServiceQuotaIncreaseRequestsInTemplate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListServiceQuotaIncreaseRequestsInTemplate)
         """
 
     @overload
@@ -256,11 +256,11 @@ class ServiceQuotasClient:
         self, operation_name: Literal["list_service_quotas"]
     ) -> ListServiceQuotasPaginator:
         """
-        [Paginator.ListServiceQuotas documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListServiceQuotas)
+        [Paginator.ListServiceQuotas documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListServiceQuotas)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_services"]) -> ListServicesPaginator:
         """
-        [Paginator.ListServices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListServices)
+        [Paginator.ListServices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/service-quotas.html#ServiceQuotas.Paginator.ListServices)
         """

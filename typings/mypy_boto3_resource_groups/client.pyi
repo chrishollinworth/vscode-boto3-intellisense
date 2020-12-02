@@ -73,7 +73,7 @@ class Exceptions:
 
 class ResourceGroupsClient:
     """
-    [ResourceGroups.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/resource-groups.html#ResourceGroups.Client)
+    [ResourceGroups.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/resource-groups.html#ResourceGroups.Client)
     """
 
     meta: ClientMeta
@@ -81,7 +81,7 @@ class ResourceGroupsClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/resource-groups.html#ResourceGroups.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/resource-groups.html#ResourceGroups.Client.can_paginate)
         """
 
     def create_group(
@@ -93,12 +93,12 @@ class ResourceGroupsClient:
         Configuration: List["GroupConfigurationItemTypeDef"] = None,
     ) -> CreateGroupOutputTypeDef:
         """
-        [Client.create_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/resource-groups.html#ResourceGroups.Client.create_group)
+        [Client.create_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/resource-groups.html#ResourceGroups.Client.create_group)
         """
 
     def delete_group(self, GroupName: str = None, Group: str = None) -> DeleteGroupOutputTypeDef:
         """
-        [Client.delete_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/resource-groups.html#ResourceGroups.Client.delete_group)
+        [Client.delete_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/resource-groups.html#ResourceGroups.Client.delete_group)
         """
 
     def generate_presigned_url(
@@ -109,34 +109,34 @@ class ResourceGroupsClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/resource-groups.html#ResourceGroups.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/resource-groups.html#ResourceGroups.Client.generate_presigned_url)
         """
 
     def get_group(self, GroupName: str = None, Group: str = None) -> GetGroupOutputTypeDef:
         """
-        [Client.get_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/resource-groups.html#ResourceGroups.Client.get_group)
+        [Client.get_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/resource-groups.html#ResourceGroups.Client.get_group)
         """
 
     def get_group_configuration(self, Group: str = None) -> GetGroupConfigurationOutputTypeDef:
         """
-        [Client.get_group_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/resource-groups.html#ResourceGroups.Client.get_group_configuration)
+        [Client.get_group_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/resource-groups.html#ResourceGroups.Client.get_group_configuration)
         """
 
     def get_group_query(
         self, GroupName: str = None, Group: str = None
     ) -> GetGroupQueryOutputTypeDef:
         """
-        [Client.get_group_query documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/resource-groups.html#ResourceGroups.Client.get_group_query)
+        [Client.get_group_query documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/resource-groups.html#ResourceGroups.Client.get_group_query)
         """
 
     def get_tags(self, Arn: str) -> GetTagsOutputTypeDef:
         """
-        [Client.get_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/resource-groups.html#ResourceGroups.Client.get_tags)
+        [Client.get_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/resource-groups.html#ResourceGroups.Client.get_tags)
         """
 
     def group_resources(self, Group: str, ResourceArns: List[str]) -> GroupResourcesOutputTypeDef:
         """
-        [Client.group_resources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/resource-groups.html#ResourceGroups.Client.group_resources)
+        [Client.group_resources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/resource-groups.html#ResourceGroups.Client.group_resources)
         """
 
     def list_group_resources(
@@ -148,7 +148,7 @@ class ResourceGroupsClient:
         NextToken: str = None,
     ) -> ListGroupResourcesOutputTypeDef:
         """
-        [Client.list_group_resources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/resource-groups.html#ResourceGroups.Client.list_group_resources)
+        [Client.list_group_resources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/resource-groups.html#ResourceGroups.Client.list_group_resources)
         """
 
     def list_groups(
@@ -158,45 +158,45 @@ class ResourceGroupsClient:
         NextToken: str = None,
     ) -> ListGroupsOutputTypeDef:
         """
-        [Client.list_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/resource-groups.html#ResourceGroups.Client.list_groups)
+        [Client.list_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/resource-groups.html#ResourceGroups.Client.list_groups)
         """
 
     def search_resources(
         self, ResourceQuery: "ResourceQueryTypeDef", MaxResults: int = None, NextToken: str = None
     ) -> SearchResourcesOutputTypeDef:
         """
-        [Client.search_resources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/resource-groups.html#ResourceGroups.Client.search_resources)
+        [Client.search_resources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/resource-groups.html#ResourceGroups.Client.search_resources)
         """
 
     def tag(self, Arn: str, Tags: Dict[str, str]) -> TagOutputTypeDef:
         """
-        [Client.tag documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/resource-groups.html#ResourceGroups.Client.tag)
+        [Client.tag documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/resource-groups.html#ResourceGroups.Client.tag)
         """
 
     def ungroup_resources(
         self, Group: str, ResourceArns: List[str]
     ) -> UngroupResourcesOutputTypeDef:
         """
-        [Client.ungroup_resources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/resource-groups.html#ResourceGroups.Client.ungroup_resources)
+        [Client.ungroup_resources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/resource-groups.html#ResourceGroups.Client.ungroup_resources)
         """
 
     def untag(self, Arn: str, Keys: List[str]) -> UntagOutputTypeDef:
         """
-        [Client.untag documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/resource-groups.html#ResourceGroups.Client.untag)
+        [Client.untag documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/resource-groups.html#ResourceGroups.Client.untag)
         """
 
     def update_group(
         self, GroupName: str = None, Group: str = None, Description: str = None
     ) -> UpdateGroupOutputTypeDef:
         """
-        [Client.update_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/resource-groups.html#ResourceGroups.Client.update_group)
+        [Client.update_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/resource-groups.html#ResourceGroups.Client.update_group)
         """
 
     def update_group_query(
         self, ResourceQuery: "ResourceQueryTypeDef", GroupName: str = None, Group: str = None
     ) -> UpdateGroupQueryOutputTypeDef:
         """
-        [Client.update_group_query documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/resource-groups.html#ResourceGroups.Client.update_group_query)
+        [Client.update_group_query documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/resource-groups.html#ResourceGroups.Client.update_group_query)
         """
 
     @overload
@@ -204,13 +204,13 @@ class ResourceGroupsClient:
         self, operation_name: Literal["list_group_resources"]
     ) -> ListGroupResourcesPaginator:
         """
-        [Paginator.ListGroupResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/resource-groups.html#ResourceGroups.Paginator.ListGroupResources)
+        [Paginator.ListGroupResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/resource-groups.html#ResourceGroups.Paginator.ListGroupResources)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_groups"]) -> ListGroupsPaginator:
         """
-        [Paginator.ListGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/resource-groups.html#ResourceGroups.Paginator.ListGroups)
+        [Paginator.ListGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/resource-groups.html#ResourceGroups.Paginator.ListGroups)
         """
 
     @overload
@@ -218,5 +218,5 @@ class ResourceGroupsClient:
         self, operation_name: Literal["search_resources"]
     ) -> SearchResourcesPaginator:
         """
-        [Paginator.SearchResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/resource-groups.html#ResourceGroups.Paginator.SearchResources)
+        [Paginator.SearchResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/resource-groups.html#ResourceGroups.Paginator.SearchResources)
         """

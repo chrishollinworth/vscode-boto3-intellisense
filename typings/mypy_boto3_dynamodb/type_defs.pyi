@@ -36,6 +36,8 @@ __all__ = (
     "BackupDescriptionTypeDef",
     "BackupDetailsTypeDef",
     "BackupSummaryTypeDef",
+    "BatchStatementErrorTypeDef",
+    "BatchStatementResponseTypeDef",
     "BillingModeSummaryTypeDef",
     "CapacityTypeDef",
     "ConditionCheckTypeDef",
@@ -63,6 +65,7 @@ __all__ = (
     "ItemResponseTypeDef",
     "KeySchemaElementTypeDef",
     "KeysAndAttributesTypeDef",
+    "KinesisDataStreamDestinationTypeDef",
     "LocalSecondaryIndexDescriptionTypeDef",
     "LocalSecondaryIndexInfoTypeDef",
     "PointInTimeRecoveryDescriptionTypeDef",
@@ -98,7 +101,9 @@ __all__ = (
     "UpdateTypeDef",
     "WriteRequestTypeDef",
     "AttributeValueUpdateTypeDef",
+    "BatchExecuteStatementOutputTypeDef",
     "BatchGetItemOutputTypeDef",
+    "BatchStatementRequestTypeDef",
     "BatchWriteItemOutputTypeDef",
     "ConditionTypeDef",
     "CreateBackupOutputTypeDef",
@@ -114,10 +119,13 @@ __all__ = (
     "DescribeExportOutputTypeDef",
     "DescribeGlobalTableOutputTypeDef",
     "DescribeGlobalTableSettingsOutputTypeDef",
+    "DescribeKinesisStreamingDestinationOutputTypeDef",
     "DescribeLimitsOutputTypeDef",
     "DescribeTableOutputTypeDef",
     "DescribeTableReplicaAutoScalingOutputTypeDef",
     "DescribeTimeToLiveOutputTypeDef",
+    "ExecuteStatementOutputTypeDef",
+    "ExecuteTransactionOutputTypeDef",
     "ExpectedAttributeValueTypeDef",
     "ExportTableToPointInTimeOutputTypeDef",
     "GetItemOutputTypeDef",
@@ -125,6 +133,7 @@ __all__ = (
     "GlobalSecondaryIndexTypeDef",
     "GlobalSecondaryIndexUpdateTypeDef",
     "GlobalTableGlobalSecondaryIndexSettingsUpdateTypeDef",
+    "KinesisStreamingDestinationOutputTypeDef",
     "ListBackupsOutputTypeDef",
     "ListContributorInsightsOutputTypeDef",
     "ListExportsOutputTypeDef",
@@ -133,6 +142,7 @@ __all__ = (
     "ListTagsOfResourceOutputTypeDef",
     "LocalSecondaryIndexTypeDef",
     "PaginatorConfigTypeDef",
+    "ParameterizedStatementTypeDef",
     "PointInTimeRecoverySpecificationTypeDef",
     "PutItemOutputTypeDef",
     "QueryOutputTypeDef",
@@ -299,6 +309,55 @@ BackupSummaryTypeDef = TypedDict(
         "BackupStatus": Literal["CREATING", "DELETED", "AVAILABLE"],
         "BackupType": Literal["USER", "SYSTEM", "AWS_BACKUP"],
         "BackupSizeBytes": int,
+    },
+    total=False,
+)
+
+BatchStatementErrorTypeDef = TypedDict(
+    "BatchStatementErrorTypeDef",
+    {
+        "Code": Literal[
+            "ConditionalCheckFailed",
+            "ItemCollectionSizeLimitExceeded",
+            "RequestLimitExceeded",
+            "ValidationError",
+            "ProvisionedThroughputExceeded",
+            "TransactionConflict",
+            "ThrottlingError",
+            "InternalServerError",
+            "ResourceNotFound",
+            "AccessDenied",
+            "DuplicateItem",
+        ],
+        "Message": str,
+    },
+    total=False,
+)
+
+BatchStatementResponseTypeDef = TypedDict(
+    "BatchStatementResponseTypeDef",
+    {
+        "Error": "BatchStatementErrorTypeDef",
+        "TableName": str,
+        "Item": Dict[
+            str,
+            Union[
+                bytes,
+                bytearray,
+                str,
+                int,
+                Decimal,
+                bool,
+                Set[int],
+                Set[Decimal],
+                Set[str],
+                Set[bytes],
+                Set[bytearray],
+                List[Any],
+                Dict[str, Any],
+                None,
+            ],
+        ],
     },
     total=False,
 )
@@ -778,6 +837,18 @@ class KeysAndAttributesTypeDef(
 ):
     pass
 
+
+KinesisDataStreamDestinationTypeDef = TypedDict(
+    "KinesisDataStreamDestinationTypeDef",
+    {
+        "StreamArn": str,
+        "DestinationStatus": Literal[
+            "ENABLING", "ACTIVE", "DISABLING", "DISABLED", "ENABLE_FAILED"
+        ],
+        "DestinationStatusDescription": str,
+    },
+    total=False,
+)
 
 LocalSecondaryIndexDescriptionTypeDef = TypedDict(
     "LocalSecondaryIndexDescriptionTypeDef",
@@ -1361,6 +1432,12 @@ AttributeValueUpdateTypeDef = TypedDict(
     total=False,
 )
 
+BatchExecuteStatementOutputTypeDef = TypedDict(
+    "BatchExecuteStatementOutputTypeDef",
+    {"Responses": List["BatchStatementResponseTypeDef"], "ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
 BatchGetItemOutputTypeDef = TypedDict(
     "BatchGetItemOutputTypeDef",
     {
@@ -1394,6 +1471,42 @@ BatchGetItemOutputTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredBatchStatementRequestTypeDef = TypedDict(
+    "_RequiredBatchStatementRequestTypeDef", {"Statement": str}
+)
+_OptionalBatchStatementRequestTypeDef = TypedDict(
+    "_OptionalBatchStatementRequestTypeDef",
+    {
+        "Parameters": List[
+            Union[
+                bytes,
+                bytearray,
+                str,
+                int,
+                Decimal,
+                bool,
+                Set[int],
+                Set[Decimal],
+                Set[str],
+                Set[bytes],
+                Set[bytearray],
+                List[Any],
+                Dict[str, Any],
+                None,
+            ]
+        ],
+        "ConsistentRead": bool,
+    },
+    total=False,
+)
+
+
+class BatchStatementRequestTypeDef(
+    _RequiredBatchStatementRequestTypeDef, _OptionalBatchStatementRequestTypeDef
+):
+    pass
+
 
 BatchWriteItemOutputTypeDef = TypedDict(
     "BatchWriteItemOutputTypeDef",
@@ -1578,6 +1691,16 @@ DescribeGlobalTableSettingsOutputTypeDef = TypedDict(
     total=False,
 )
 
+DescribeKinesisStreamingDestinationOutputTypeDef = TypedDict(
+    "DescribeKinesisStreamingDestinationOutputTypeDef",
+    {
+        "TableName": str,
+        "KinesisDataStreamDestinations": List["KinesisDataStreamDestinationTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
+    total=False,
+)
+
 DescribeLimitsOutputTypeDef = TypedDict(
     "DescribeLimitsOutputTypeDef",
     {
@@ -1611,6 +1734,42 @@ DescribeTimeToLiveOutputTypeDef = TypedDict(
         "TimeToLiveDescription": "TimeToLiveDescriptionTypeDef",
         "ResponseMetadata": "ResponseMetadata",
     },
+    total=False,
+)
+
+ExecuteStatementOutputTypeDef = TypedDict(
+    "ExecuteStatementOutputTypeDef",
+    {
+        "Items": List[
+            Dict[
+                str,
+                Union[
+                    bytes,
+                    bytearray,
+                    str,
+                    int,
+                    Decimal,
+                    bool,
+                    Set[int],
+                    Set[Decimal],
+                    Set[str],
+                    Set[bytes],
+                    Set[bytearray],
+                    List[Any],
+                    Dict[str, Any],
+                    None,
+                ],
+            ]
+        ],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
+    total=False,
+)
+
+ExecuteTransactionOutputTypeDef = TypedDict(
+    "ExecuteTransactionOutputTypeDef",
+    {"Responses": List["ItemResponseTypeDef"], "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
@@ -1765,6 +1924,19 @@ class GlobalTableGlobalSecondaryIndexSettingsUpdateTypeDef(
     pass
 
 
+KinesisStreamingDestinationOutputTypeDef = TypedDict(
+    "KinesisStreamingDestinationOutputTypeDef",
+    {
+        "TableName": str,
+        "StreamArn": str,
+        "DestinationStatus": Literal[
+            "ENABLING", "ACTIVE", "DISABLING", "DISABLED", "ENABLE_FAILED"
+        ],
+        "ResponseMetadata": "ResponseMetadata",
+    },
+    total=False,
+)
+
 ListBackupsOutputTypeDef = TypedDict(
     "ListBackupsOutputTypeDef",
     {
@@ -1833,6 +2005,41 @@ LocalSecondaryIndexTypeDef = TypedDict(
 PaginatorConfigTypeDef = TypedDict(
     "PaginatorConfigTypeDef", {"MaxItems": int, "PageSize": int, "StartingToken": str}, total=False
 )
+
+_RequiredParameterizedStatementTypeDef = TypedDict(
+    "_RequiredParameterizedStatementTypeDef", {"Statement": str}
+)
+_OptionalParameterizedStatementTypeDef = TypedDict(
+    "_OptionalParameterizedStatementTypeDef",
+    {
+        "Parameters": List[
+            Union[
+                bytes,
+                bytearray,
+                str,
+                int,
+                Decimal,
+                bool,
+                Set[int],
+                Set[Decimal],
+                Set[str],
+                Set[bytes],
+                Set[bytearray],
+                List[Any],
+                Dict[str, Any],
+                None,
+            ]
+        ]
+    },
+    total=False,
+)
+
+
+class ParameterizedStatementTypeDef(
+    _RequiredParameterizedStatementTypeDef, _OptionalParameterizedStatementTypeDef
+):
+    pass
+
 
 PointInTimeRecoverySpecificationTypeDef = TypedDict(
     "PointInTimeRecoverySpecificationTypeDef", {"PointInTimeRecoveryEnabled": bool}

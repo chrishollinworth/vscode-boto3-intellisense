@@ -60,7 +60,7 @@ class Exceptions:
 
 class BraketClient:
     """
-    [Braket.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/braket.html#Braket.Client)
+    [Braket.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/braket.html#Braket.Client)
     """
 
     meta: ClientMeta
@@ -68,14 +68,14 @@ class BraketClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/braket.html#Braket.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/braket.html#Braket.Client.can_paginate)
         """
 
     def cancel_quantum_task(
         self, clientToken: str, quantumTaskArn: str
     ) -> CancelQuantumTaskResponseTypeDef:
         """
-        [Client.cancel_quantum_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/braket.html#Braket.Client.cancel_quantum_task)
+        [Client.cancel_quantum_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/braket.html#Braket.Client.cancel_quantum_task)
         """
 
     def create_quantum_task(
@@ -90,7 +90,7 @@ class BraketClient:
         tags: Dict[str, str] = None,
     ) -> CreateQuantumTaskResponseTypeDef:
         """
-        [Client.create_quantum_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/braket.html#Braket.Client.create_quantum_task)
+        [Client.create_quantum_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/braket.html#Braket.Client.create_quantum_task)
         """
 
     def generate_presigned_url(
@@ -101,22 +101,22 @@ class BraketClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/braket.html#Braket.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/braket.html#Braket.Client.generate_presigned_url)
         """
 
     def get_device(self, deviceArn: str) -> GetDeviceResponseTypeDef:
         """
-        [Client.get_device documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/braket.html#Braket.Client.get_device)
+        [Client.get_device documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/braket.html#Braket.Client.get_device)
         """
 
     def get_quantum_task(self, quantumTaskArn: str) -> GetQuantumTaskResponseTypeDef:
         """
-        [Client.get_quantum_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/braket.html#Braket.Client.get_quantum_task)
+        [Client.get_quantum_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/braket.html#Braket.Client.get_quantum_task)
         """
 
     def list_tags_for_resource(self, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/braket.html#Braket.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/braket.html#Braket.Client.list_tags_for_resource)
         """
 
     def search_devices(
@@ -126,7 +126,7 @@ class BraketClient:
         nextToken: str = None,
     ) -> SearchDevicesResponseTypeDef:
         """
-        [Client.search_devices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/braket.html#Braket.Client.search_devices)
+        [Client.search_devices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/braket.html#Braket.Client.search_devices)
         """
 
     def search_quantum_tasks(
@@ -136,23 +136,23 @@ class BraketClient:
         nextToken: str = None,
     ) -> SearchQuantumTasksResponseTypeDef:
         """
-        [Client.search_quantum_tasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/braket.html#Braket.Client.search_quantum_tasks)
+        [Client.search_quantum_tasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/braket.html#Braket.Client.search_quantum_tasks)
         """
 
     def tag_resource(self, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/braket.html#Braket.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/braket.html#Braket.Client.tag_resource)
         """
 
     def untag_resource(self, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/braket.html#Braket.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/braket.html#Braket.Client.untag_resource)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["search_devices"]) -> SearchDevicesPaginator:
         """
-        [Paginator.SearchDevices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/braket.html#Braket.Paginator.SearchDevices)
+        [Paginator.SearchDevices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/braket.html#Braket.Paginator.SearchDevices)
         """
 
     @overload
@@ -160,5 +160,5 @@ class BraketClient:
         self, operation_name: Literal["search_quantum_tasks"]
     ) -> SearchQuantumTasksPaginator:
         """
-        [Paginator.SearchQuantumTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/braket.html#Braket.Paginator.SearchQuantumTasks)
+        [Paginator.SearchQuantumTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/braket.html#Braket.Paginator.SearchQuantumTasks)
         """

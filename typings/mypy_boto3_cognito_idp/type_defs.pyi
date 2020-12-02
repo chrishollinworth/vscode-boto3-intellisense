@@ -38,6 +38,8 @@ __all__ = (
     "CompromisedCredentialsActionsTypeTypeDef",
     "CompromisedCredentialsRiskConfigurationTypeTypeDef",
     "CustomDomainConfigTypeTypeDef",
+    "CustomEmailLambdaVersionConfigTypeTypeDef",
+    "CustomSMSLambdaVersionConfigTypeTypeDef",
     "DeviceConfigurationTypeTypeDef",
     "DeviceTypeTypeDef",
     "DomainDescriptionTypeTypeDef",
@@ -290,6 +292,15 @@ class CompromisedCredentialsRiskConfigurationTypeTypeDef(
 
 CustomDomainConfigTypeTypeDef = TypedDict("CustomDomainConfigTypeTypeDef", {"CertificateArn": str})
 
+CustomEmailLambdaVersionConfigTypeTypeDef = TypedDict(
+    "CustomEmailLambdaVersionConfigTypeTypeDef",
+    {"LambdaVersion": Literal["V1_0"], "LambdaArn": str},
+)
+
+CustomSMSLambdaVersionConfigTypeTypeDef = TypedDict(
+    "CustomSMSLambdaVersionConfigTypeTypeDef", {"LambdaVersion": Literal["V1_0"], "LambdaArn": str}
+)
+
 DeviceConfigurationTypeTypeDef = TypedDict(
     "DeviceConfigurationTypeTypeDef",
     {"ChallengeRequiredOnNewDevice": bool, "DeviceOnlyRememberedOnUserPrompt": bool},
@@ -414,6 +425,9 @@ LambdaConfigTypeTypeDef = TypedDict(
         "VerifyAuthChallengeResponse": str,
         "PreTokenGeneration": str,
         "UserMigration": str,
+        "CustomSMSSender": "CustomSMSLambdaVersionConfigTypeTypeDef",
+        "CustomEmailSender": "CustomEmailLambdaVersionConfigTypeTypeDef",
+        "KMSKeyID": str,
     },
     total=False,
 )

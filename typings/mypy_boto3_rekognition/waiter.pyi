@@ -30,7 +30,7 @@ __all__ = ("ProjectVersionRunningWaiter", "ProjectVersionTrainingCompletedWaiter
 
 class ProjectVersionRunningWaiter(Boto3Waiter):
     """
-    [Waiter.ProjectVersionRunning documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rekognition.html#Rekognition.Waiter.ProjectVersionRunning)
+    [Waiter.ProjectVersionRunning documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rekognition.html#Rekognition.Waiter.ProjectVersionRunning)
     """
 
     def wait(
@@ -42,13 +42,13 @@ class ProjectVersionRunningWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [ProjectVersionRunning.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rekognition.html#Rekognition.Waiter.ProjectVersionRunning.wait)
+        [ProjectVersionRunning.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rekognition.html#Rekognition.Waiter.ProjectVersionRunning.wait)
         """
 
 
 class ProjectVersionTrainingCompletedWaiter(Boto3Waiter):
     """
-    [Waiter.ProjectVersionTrainingCompleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rekognition.html#Rekognition.Waiter.ProjectVersionTrainingCompleted)
+    [Waiter.ProjectVersionTrainingCompleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rekognition.html#Rekognition.Waiter.ProjectVersionTrainingCompleted)
     """
 
     def wait(
@@ -60,5 +60,5 @@ class ProjectVersionTrainingCompletedWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [ProjectVersionTrainingCompleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rekognition.html#Rekognition.Waiter.ProjectVersionTrainingCompleted.wait)
+        [ProjectVersionTrainingCompleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rekognition.html#Rekognition.Waiter.ProjectVersionTrainingCompleted.wait)
         """

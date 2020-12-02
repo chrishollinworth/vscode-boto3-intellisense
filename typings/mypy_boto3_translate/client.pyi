@@ -18,19 +18,25 @@ from botocore.client import ClientMeta
 
 from mypy_boto3_translate.paginator import ListTerminologiesPaginator
 from mypy_boto3_translate.type_defs import (
+    CreateParallelDataResponseTypeDef,
+    DeleteParallelDataResponseTypeDef,
     DescribeTextTranslationJobResponseTypeDef,
     EncryptionKeyTypeDef,
+    GetParallelDataResponseTypeDef,
     GetTerminologyResponseTypeDef,
     ImportTerminologyResponseTypeDef,
     InputDataConfigTypeDef,
+    ListParallelDataResponseTypeDef,
     ListTerminologiesResponseTypeDef,
     ListTextTranslationJobsResponseTypeDef,
     OutputDataConfigTypeDef,
+    ParallelDataConfigTypeDef,
     StartTextTranslationJobResponseTypeDef,
     StopTextTranslationJobResponseTypeDef,
     TerminologyDataTypeDef,
     TextTranslationJobFilterTypeDef,
     TranslateTextResponseTypeDef,
+    UpdateParallelDataResponseTypeDef,
 )
 
 if sys.version_info >= (3, 8):
@@ -52,6 +58,8 @@ class BotocoreClientError(BaseException):
 
 class Exceptions:
     ClientError: Type[BotocoreClientError]
+    ConcurrentModificationException: Type[BotocoreClientError]
+    ConflictException: Type[BotocoreClientError]
     DetectedLanguageLowConfidenceException: Type[BotocoreClientError]
     InternalServerException: Type[BotocoreClientError]
     InvalidFilterException: Type[BotocoreClientError]
@@ -67,7 +75,7 @@ class Exceptions:
 
 class TranslateClient:
     """
-    [Translate.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/translate.html#Translate.Client)
+    [Translate.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/translate.html#Translate.Client)
     """
 
     meta: ClientMeta
@@ -75,19 +83,36 @@ class TranslateClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/translate.html#Translate.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/translate.html#Translate.Client.can_paginate)
+        """
+
+    def create_parallel_data(
+        self,
+        Name: str,
+        ParallelDataConfig: "ParallelDataConfigTypeDef",
+        ClientToken: str,
+        Description: str = None,
+        EncryptionKey: "EncryptionKeyTypeDef" = None,
+    ) -> CreateParallelDataResponseTypeDef:
+        """
+        [Client.create_parallel_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/translate.html#Translate.Client.create_parallel_data)
+        """
+
+    def delete_parallel_data(self, Name: str) -> DeleteParallelDataResponseTypeDef:
+        """
+        [Client.delete_parallel_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/translate.html#Translate.Client.delete_parallel_data)
         """
 
     def delete_terminology(self, Name: str) -> None:
         """
-        [Client.delete_terminology documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/translate.html#Translate.Client.delete_terminology)
+        [Client.delete_terminology documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/translate.html#Translate.Client.delete_terminology)
         """
 
     def describe_text_translation_job(
         self, JobId: str
     ) -> DescribeTextTranslationJobResponseTypeDef:
         """
-        [Client.describe_text_translation_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/translate.html#Translate.Client.describe_text_translation_job)
+        [Client.describe_text_translation_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/translate.html#Translate.Client.describe_text_translation_job)
         """
 
     def generate_presigned_url(
@@ -98,14 +123,19 @@ class TranslateClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/translate.html#Translate.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/translate.html#Translate.Client.generate_presigned_url)
+        """
+
+    def get_parallel_data(self, Name: str) -> GetParallelDataResponseTypeDef:
+        """
+        [Client.get_parallel_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/translate.html#Translate.Client.get_parallel_data)
         """
 
     def get_terminology(
         self, Name: str, TerminologyDataFormat: Literal["CSV", "TMX"]
     ) -> GetTerminologyResponseTypeDef:
         """
-        [Client.get_terminology documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/translate.html#Translate.Client.get_terminology)
+        [Client.get_terminology documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/translate.html#Translate.Client.get_terminology)
         """
 
     def import_terminology(
@@ -117,14 +147,21 @@ class TranslateClient:
         EncryptionKey: "EncryptionKeyTypeDef" = None,
     ) -> ImportTerminologyResponseTypeDef:
         """
-        [Client.import_terminology documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/translate.html#Translate.Client.import_terminology)
+        [Client.import_terminology documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/translate.html#Translate.Client.import_terminology)
+        """
+
+    def list_parallel_data(
+        self, NextToken: str = None, MaxResults: int = None
+    ) -> ListParallelDataResponseTypeDef:
+        """
+        [Client.list_parallel_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/translate.html#Translate.Client.list_parallel_data)
         """
 
     def list_terminologies(
         self, NextToken: str = None, MaxResults: int = None
     ) -> ListTerminologiesResponseTypeDef:
         """
-        [Client.list_terminologies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/translate.html#Translate.Client.list_terminologies)
+        [Client.list_terminologies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/translate.html#Translate.Client.list_terminologies)
         """
 
     def list_text_translation_jobs(
@@ -134,7 +171,7 @@ class TranslateClient:
         MaxResults: int = None,
     ) -> ListTextTranslationJobsResponseTypeDef:
         """
-        [Client.list_text_translation_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/translate.html#Translate.Client.list_text_translation_jobs)
+        [Client.list_text_translation_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/translate.html#Translate.Client.list_text_translation_jobs)
         """
 
     def start_text_translation_job(
@@ -147,14 +184,15 @@ class TranslateClient:
         ClientToken: str,
         JobName: str = None,
         TerminologyNames: List[str] = None,
+        ParallelDataNames: List[str] = None,
     ) -> StartTextTranslationJobResponseTypeDef:
         """
-        [Client.start_text_translation_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/translate.html#Translate.Client.start_text_translation_job)
+        [Client.start_text_translation_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/translate.html#Translate.Client.start_text_translation_job)
         """
 
     def stop_text_translation_job(self, JobId: str) -> StopTextTranslationJobResponseTypeDef:
         """
-        [Client.stop_text_translation_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/translate.html#Translate.Client.stop_text_translation_job)
+        [Client.stop_text_translation_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/translate.html#Translate.Client.stop_text_translation_job)
         """
 
     def translate_text(
@@ -165,12 +203,23 @@ class TranslateClient:
         TerminologyNames: List[str] = None,
     ) -> TranslateTextResponseTypeDef:
         """
-        [Client.translate_text documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/translate.html#Translate.Client.translate_text)
+        [Client.translate_text documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/translate.html#Translate.Client.translate_text)
+        """
+
+    def update_parallel_data(
+        self,
+        Name: str,
+        ParallelDataConfig: "ParallelDataConfigTypeDef",
+        ClientToken: str,
+        Description: str = None,
+    ) -> UpdateParallelDataResponseTypeDef:
+        """
+        [Client.update_parallel_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/translate.html#Translate.Client.update_parallel_data)
         """
 
     def get_paginator(
         self, operation_name: Literal["list_terminologies"]
     ) -> ListTerminologiesPaginator:
         """
-        [Paginator.ListTerminologies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/translate.html#Translate.Paginator.ListTerminologies)
+        [Paginator.ListTerminologies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/translate.html#Translate.Paginator.ListTerminologies)
         """

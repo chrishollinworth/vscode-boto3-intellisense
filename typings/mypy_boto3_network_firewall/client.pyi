@@ -90,7 +90,7 @@ class Exceptions:
 
 class NetworkFirewallClient:
     """
-    [NetworkFirewall.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/network-firewall.html#NetworkFirewall.Client)
+    [NetworkFirewall.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/network-firewall.html#NetworkFirewall.Client)
     """
 
     meta: ClientMeta
@@ -104,7 +104,7 @@ class NetworkFirewallClient:
         FirewallName: str = None,
     ) -> AssociateFirewallPolicyResponseTypeDef:
         """
-        [Client.associate_firewall_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/network-firewall.html#NetworkFirewall.Client.associate_firewall_policy)
+        [Client.associate_firewall_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/network-firewall.html#NetworkFirewall.Client.associate_firewall_policy)
         """
 
     def associate_subnets(
@@ -115,12 +115,12 @@ class NetworkFirewallClient:
         FirewallName: str = None,
     ) -> AssociateSubnetsResponseTypeDef:
         """
-        [Client.associate_subnets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/network-firewall.html#NetworkFirewall.Client.associate_subnets)
+        [Client.associate_subnets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/network-firewall.html#NetworkFirewall.Client.associate_subnets)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/network-firewall.html#NetworkFirewall.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/network-firewall.html#NetworkFirewall.Client.can_paginate)
         """
 
     def create_firewall(
@@ -136,7 +136,7 @@ class NetworkFirewallClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateFirewallResponseTypeDef:
         """
-        [Client.create_firewall documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/network-firewall.html#NetworkFirewall.Client.create_firewall)
+        [Client.create_firewall documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/network-firewall.html#NetworkFirewall.Client.create_firewall)
         """
 
     def create_firewall_policy(
@@ -148,7 +148,7 @@ class NetworkFirewallClient:
         DryRun: bool = None,
     ) -> CreateFirewallPolicyResponseTypeDef:
         """
-        [Client.create_firewall_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/network-firewall.html#NetworkFirewall.Client.create_firewall_policy)
+        [Client.create_firewall_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/network-firewall.html#NetworkFirewall.Client.create_firewall_policy)
         """
 
     def create_rule_group(
@@ -163,26 +163,26 @@ class NetworkFirewallClient:
         DryRun: bool = None,
     ) -> CreateRuleGroupResponseTypeDef:
         """
-        [Client.create_rule_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/network-firewall.html#NetworkFirewall.Client.create_rule_group)
+        [Client.create_rule_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/network-firewall.html#NetworkFirewall.Client.create_rule_group)
         """
 
     def delete_firewall(
         self, FirewallName: str = None, FirewallArn: str = None
     ) -> DeleteFirewallResponseTypeDef:
         """
-        [Client.delete_firewall documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/network-firewall.html#NetworkFirewall.Client.delete_firewall)
+        [Client.delete_firewall documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/network-firewall.html#NetworkFirewall.Client.delete_firewall)
         """
 
     def delete_firewall_policy(
         self, FirewallPolicyName: str = None, FirewallPolicyArn: str = None
     ) -> DeleteFirewallPolicyResponseTypeDef:
         """
-        [Client.delete_firewall_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/network-firewall.html#NetworkFirewall.Client.delete_firewall_policy)
+        [Client.delete_firewall_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/network-firewall.html#NetworkFirewall.Client.delete_firewall_policy)
         """
 
     def delete_resource_policy(self, ResourceArn: str) -> Dict[str, Any]:
         """
-        [Client.delete_resource_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/network-firewall.html#NetworkFirewall.Client.delete_resource_policy)
+        [Client.delete_resource_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/network-firewall.html#NetworkFirewall.Client.delete_resource_policy)
         """
 
     def delete_rule_group(
@@ -192,33 +192,33 @@ class NetworkFirewallClient:
         Type: Literal["STATELESS", "STATEFUL"] = None,
     ) -> DeleteRuleGroupResponseTypeDef:
         """
-        [Client.delete_rule_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/network-firewall.html#NetworkFirewall.Client.delete_rule_group)
+        [Client.delete_rule_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/network-firewall.html#NetworkFirewall.Client.delete_rule_group)
         """
 
     def describe_firewall(
         self, FirewallName: str = None, FirewallArn: str = None
     ) -> DescribeFirewallResponseTypeDef:
         """
-        [Client.describe_firewall documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/network-firewall.html#NetworkFirewall.Client.describe_firewall)
+        [Client.describe_firewall documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/network-firewall.html#NetworkFirewall.Client.describe_firewall)
         """
 
     def describe_firewall_policy(
         self, FirewallPolicyName: str = None, FirewallPolicyArn: str = None
     ) -> DescribeFirewallPolicyResponseTypeDef:
         """
-        [Client.describe_firewall_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/network-firewall.html#NetworkFirewall.Client.describe_firewall_policy)
+        [Client.describe_firewall_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/network-firewall.html#NetworkFirewall.Client.describe_firewall_policy)
         """
 
     def describe_logging_configuration(
         self, FirewallArn: str = None, FirewallName: str = None
     ) -> DescribeLoggingConfigurationResponseTypeDef:
         """
-        [Client.describe_logging_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/network-firewall.html#NetworkFirewall.Client.describe_logging_configuration)
+        [Client.describe_logging_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/network-firewall.html#NetworkFirewall.Client.describe_logging_configuration)
         """
 
     def describe_resource_policy(self, ResourceArn: str) -> DescribeResourcePolicyResponseTypeDef:
         """
-        [Client.describe_resource_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/network-firewall.html#NetworkFirewall.Client.describe_resource_policy)
+        [Client.describe_resource_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/network-firewall.html#NetworkFirewall.Client.describe_resource_policy)
         """
 
     def describe_rule_group(
@@ -228,7 +228,7 @@ class NetworkFirewallClient:
         Type: Literal["STATELESS", "STATEFUL"] = None,
     ) -> DescribeRuleGroupResponseTypeDef:
         """
-        [Client.describe_rule_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/network-firewall.html#NetworkFirewall.Client.describe_rule_group)
+        [Client.describe_rule_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/network-firewall.html#NetworkFirewall.Client.describe_rule_group)
         """
 
     def disassociate_subnets(
@@ -239,7 +239,7 @@ class NetworkFirewallClient:
         FirewallName: str = None,
     ) -> DisassociateSubnetsResponseTypeDef:
         """
-        [Client.disassociate_subnets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/network-firewall.html#NetworkFirewall.Client.disassociate_subnets)
+        [Client.disassociate_subnets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/network-firewall.html#NetworkFirewall.Client.disassociate_subnets)
         """
 
     def generate_presigned_url(
@@ -250,50 +250,50 @@ class NetworkFirewallClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/network-firewall.html#NetworkFirewall.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/network-firewall.html#NetworkFirewall.Client.generate_presigned_url)
         """
 
     def list_firewall_policies(
         self, NextToken: str = None, MaxResults: int = None
     ) -> ListFirewallPoliciesResponseTypeDef:
         """
-        [Client.list_firewall_policies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/network-firewall.html#NetworkFirewall.Client.list_firewall_policies)
+        [Client.list_firewall_policies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/network-firewall.html#NetworkFirewall.Client.list_firewall_policies)
         """
 
     def list_firewalls(
         self, NextToken: str = None, VpcIds: List[str] = None, MaxResults: int = None
     ) -> ListFirewallsResponseTypeDef:
         """
-        [Client.list_firewalls documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/network-firewall.html#NetworkFirewall.Client.list_firewalls)
+        [Client.list_firewalls documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/network-firewall.html#NetworkFirewall.Client.list_firewalls)
         """
 
     def list_rule_groups(
         self, NextToken: str = None, MaxResults: int = None
     ) -> ListRuleGroupsResponseTypeDef:
         """
-        [Client.list_rule_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/network-firewall.html#NetworkFirewall.Client.list_rule_groups)
+        [Client.list_rule_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/network-firewall.html#NetworkFirewall.Client.list_rule_groups)
         """
 
     def list_tags_for_resource(
         self, ResourceArn: str, NextToken: str = None, MaxResults: int = None
     ) -> ListTagsForResourceResponseTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/network-firewall.html#NetworkFirewall.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/network-firewall.html#NetworkFirewall.Client.list_tags_for_resource)
         """
 
     def put_resource_policy(self, ResourceArn: str, Policy: str) -> Dict[str, Any]:
         """
-        [Client.put_resource_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/network-firewall.html#NetworkFirewall.Client.put_resource_policy)
+        [Client.put_resource_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/network-firewall.html#NetworkFirewall.Client.put_resource_policy)
         """
 
     def tag_resource(self, ResourceArn: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/network-firewall.html#NetworkFirewall.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/network-firewall.html#NetworkFirewall.Client.tag_resource)
         """
 
     def untag_resource(self, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/network-firewall.html#NetworkFirewall.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/network-firewall.html#NetworkFirewall.Client.untag_resource)
         """
 
     def update_firewall_delete_protection(
@@ -304,7 +304,7 @@ class NetworkFirewallClient:
         FirewallName: str = None,
     ) -> UpdateFirewallDeleteProtectionResponseTypeDef:
         """
-        [Client.update_firewall_delete_protection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/network-firewall.html#NetworkFirewall.Client.update_firewall_delete_protection)
+        [Client.update_firewall_delete_protection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/network-firewall.html#NetworkFirewall.Client.update_firewall_delete_protection)
         """
 
     def update_firewall_description(
@@ -315,7 +315,7 @@ class NetworkFirewallClient:
         Description: str = None,
     ) -> UpdateFirewallDescriptionResponseTypeDef:
         """
-        [Client.update_firewall_description documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/network-firewall.html#NetworkFirewall.Client.update_firewall_description)
+        [Client.update_firewall_description documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/network-firewall.html#NetworkFirewall.Client.update_firewall_description)
         """
 
     def update_firewall_policy(
@@ -328,7 +328,7 @@ class NetworkFirewallClient:
         DryRun: bool = None,
     ) -> UpdateFirewallPolicyResponseTypeDef:
         """
-        [Client.update_firewall_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/network-firewall.html#NetworkFirewall.Client.update_firewall_policy)
+        [Client.update_firewall_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/network-firewall.html#NetworkFirewall.Client.update_firewall_policy)
         """
 
     def update_firewall_policy_change_protection(
@@ -339,7 +339,7 @@ class NetworkFirewallClient:
         FirewallName: str = None,
     ) -> UpdateFirewallPolicyChangeProtectionResponseTypeDef:
         """
-        [Client.update_firewall_policy_change_protection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/network-firewall.html#NetworkFirewall.Client.update_firewall_policy_change_protection)
+        [Client.update_firewall_policy_change_protection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/network-firewall.html#NetworkFirewall.Client.update_firewall_policy_change_protection)
         """
 
     def update_logging_configuration(
@@ -349,7 +349,7 @@ class NetworkFirewallClient:
         LoggingConfiguration: "LoggingConfigurationTypeDef" = None,
     ) -> UpdateLoggingConfigurationResponseTypeDef:
         """
-        [Client.update_logging_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/network-firewall.html#NetworkFirewall.Client.update_logging_configuration)
+        [Client.update_logging_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/network-firewall.html#NetworkFirewall.Client.update_logging_configuration)
         """
 
     def update_rule_group(
@@ -364,7 +364,7 @@ class NetworkFirewallClient:
         DryRun: bool = None,
     ) -> UpdateRuleGroupResponseTypeDef:
         """
-        [Client.update_rule_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/network-firewall.html#NetworkFirewall.Client.update_rule_group)
+        [Client.update_rule_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/network-firewall.html#NetworkFirewall.Client.update_rule_group)
         """
 
     def update_subnet_change_protection(
@@ -375,7 +375,7 @@ class NetworkFirewallClient:
         FirewallName: str = None,
     ) -> UpdateSubnetChangeProtectionResponseTypeDef:
         """
-        [Client.update_subnet_change_protection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/network-firewall.html#NetworkFirewall.Client.update_subnet_change_protection)
+        [Client.update_subnet_change_protection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/network-firewall.html#NetworkFirewall.Client.update_subnet_change_protection)
         """
 
     @overload
@@ -383,19 +383,19 @@ class NetworkFirewallClient:
         self, operation_name: Literal["list_firewall_policies"]
     ) -> ListFirewallPoliciesPaginator:
         """
-        [Paginator.ListFirewallPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/network-firewall.html#NetworkFirewall.Paginator.ListFirewallPolicies)
+        [Paginator.ListFirewallPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/network-firewall.html#NetworkFirewall.Paginator.ListFirewallPolicies)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_firewalls"]) -> ListFirewallsPaginator:
         """
-        [Paginator.ListFirewalls documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/network-firewall.html#NetworkFirewall.Paginator.ListFirewalls)
+        [Paginator.ListFirewalls documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/network-firewall.html#NetworkFirewall.Paginator.ListFirewalls)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_rule_groups"]) -> ListRuleGroupsPaginator:
         """
-        [Paginator.ListRuleGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/network-firewall.html#NetworkFirewall.Paginator.ListRuleGroups)
+        [Paginator.ListRuleGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/network-firewall.html#NetworkFirewall.Paginator.ListRuleGroups)
         """
 
     @overload
@@ -403,5 +403,5 @@ class NetworkFirewallClient:
         self, operation_name: Literal["list_tags_for_resource"]
     ) -> ListTagsForResourcePaginator:
         """
-        [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/network-firewall.html#NetworkFirewall.Paginator.ListTagsForResource)
+        [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/network-firewall.html#NetworkFirewall.Paginator.ListTagsForResource)
         """

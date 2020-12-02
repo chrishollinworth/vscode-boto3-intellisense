@@ -69,7 +69,7 @@ class Exceptions:
 
 class AppflowClient:
     """
-    [Appflow.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appflow.html#Appflow.Client)
+    [Appflow.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appflow.html#Appflow.Client)
     """
 
     meta: ClientMeta
@@ -77,7 +77,7 @@ class AppflowClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appflow.html#Appflow.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appflow.html#Appflow.Client.can_paginate)
         """
 
     def create_connector_profile(
@@ -101,13 +101,14 @@ class AppflowClient:
             "Amplitude",
             "Veeva",
             "EventBridge",
+            "Upsolver",
         ],
         connectionMode: Literal["Public", "Private"],
         connectorProfileConfig: ConnectorProfileConfigTypeDef,
         kmsArn: str = None,
     ) -> CreateConnectorProfileResponseTypeDef:
         """
-        [Client.create_connector_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appflow.html#Appflow.Client.create_connector_profile)
+        [Client.create_connector_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appflow.html#Appflow.Client.create_connector_profile)
         """
 
     def create_flow(
@@ -122,19 +123,19 @@ class AppflowClient:
         tags: Dict[str, str] = None,
     ) -> CreateFlowResponseTypeDef:
         """
-        [Client.create_flow documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appflow.html#Appflow.Client.create_flow)
+        [Client.create_flow documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appflow.html#Appflow.Client.create_flow)
         """
 
     def delete_connector_profile(
         self, connectorProfileName: str, forceDelete: bool = None
     ) -> Dict[str, Any]:
         """
-        [Client.delete_connector_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appflow.html#Appflow.Client.delete_connector_profile)
+        [Client.delete_connector_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appflow.html#Appflow.Client.delete_connector_profile)
         """
 
     def delete_flow(self, flowName: str, forceDelete: bool = None) -> Dict[str, Any]:
         """
-        [Client.delete_flow documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appflow.html#Appflow.Client.delete_flow)
+        [Client.delete_flow documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appflow.html#Appflow.Client.delete_flow)
         """
 
     def describe_connector_entity(
@@ -158,11 +159,12 @@ class AppflowClient:
             "Amplitude",
             "Veeva",
             "EventBridge",
+            "Upsolver",
         ] = None,
         connectorProfileName: str = None,
     ) -> DescribeConnectorEntityResponseTypeDef:
         """
-        [Client.describe_connector_entity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appflow.html#Appflow.Client.describe_connector_entity)
+        [Client.describe_connector_entity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appflow.html#Appflow.Client.describe_connector_entity)
         """
 
     def describe_connector_profiles(
@@ -186,12 +188,13 @@ class AppflowClient:
             "Amplitude",
             "Veeva",
             "EventBridge",
+            "Upsolver",
         ] = None,
         maxResults: int = None,
         nextToken: str = None,
     ) -> DescribeConnectorProfilesResponseTypeDef:
         """
-        [Client.describe_connector_profiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appflow.html#Appflow.Client.describe_connector_profiles)
+        [Client.describe_connector_profiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appflow.html#Appflow.Client.describe_connector_profiles)
         """
 
     def describe_connectors(
@@ -215,24 +218,25 @@ class AppflowClient:
                 "Amplitude",
                 "Veeva",
                 "EventBridge",
+                "Upsolver",
             ]
         ] = None,
         nextToken: str = None,
     ) -> DescribeConnectorsResponseTypeDef:
         """
-        [Client.describe_connectors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appflow.html#Appflow.Client.describe_connectors)
+        [Client.describe_connectors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appflow.html#Appflow.Client.describe_connectors)
         """
 
     def describe_flow(self, flowName: str) -> DescribeFlowResponseTypeDef:
         """
-        [Client.describe_flow documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appflow.html#Appflow.Client.describe_flow)
+        [Client.describe_flow documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appflow.html#Appflow.Client.describe_flow)
         """
 
     def describe_flow_execution_records(
         self, flowName: str, maxResults: int = None, nextToken: str = None
     ) -> DescribeFlowExecutionRecordsResponseTypeDef:
         """
-        [Client.describe_flow_execution_records documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appflow.html#Appflow.Client.describe_flow_execution_records)
+        [Client.describe_flow_execution_records documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appflow.html#Appflow.Client.describe_flow_execution_records)
         """
 
     def generate_presigned_url(
@@ -243,7 +247,7 @@ class AppflowClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appflow.html#Appflow.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appflow.html#Appflow.Client.generate_presigned_url)
         """
 
     def list_connector_entities(
@@ -267,41 +271,42 @@ class AppflowClient:
             "Amplitude",
             "Veeva",
             "EventBridge",
+            "Upsolver",
         ] = None,
         entitiesPath: str = None,
     ) -> ListConnectorEntitiesResponseTypeDef:
         """
-        [Client.list_connector_entities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appflow.html#Appflow.Client.list_connector_entities)
+        [Client.list_connector_entities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appflow.html#Appflow.Client.list_connector_entities)
         """
 
     def list_flows(self, maxResults: int = None, nextToken: str = None) -> ListFlowsResponseTypeDef:
         """
-        [Client.list_flows documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appflow.html#Appflow.Client.list_flows)
+        [Client.list_flows documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appflow.html#Appflow.Client.list_flows)
         """
 
     def list_tags_for_resource(self, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appflow.html#Appflow.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appflow.html#Appflow.Client.list_tags_for_resource)
         """
 
     def start_flow(self, flowName: str) -> StartFlowResponseTypeDef:
         """
-        [Client.start_flow documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appflow.html#Appflow.Client.start_flow)
+        [Client.start_flow documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appflow.html#Appflow.Client.start_flow)
         """
 
     def stop_flow(self, flowName: str) -> StopFlowResponseTypeDef:
         """
-        [Client.stop_flow documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appflow.html#Appflow.Client.stop_flow)
+        [Client.stop_flow documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appflow.html#Appflow.Client.stop_flow)
         """
 
     def tag_resource(self, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appflow.html#Appflow.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appflow.html#Appflow.Client.tag_resource)
         """
 
     def untag_resource(self, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appflow.html#Appflow.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appflow.html#Appflow.Client.untag_resource)
         """
 
     def update_connector_profile(
@@ -311,7 +316,7 @@ class AppflowClient:
         connectorProfileConfig: ConnectorProfileConfigTypeDef,
     ) -> UpdateConnectorProfileResponseTypeDef:
         """
-        [Client.update_connector_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appflow.html#Appflow.Client.update_connector_profile)
+        [Client.update_connector_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appflow.html#Appflow.Client.update_connector_profile)
         """
 
     def update_flow(
@@ -324,5 +329,5 @@ class AppflowClient:
         sourceFlowConfig: "SourceFlowConfigTypeDef" = None,
     ) -> UpdateFlowResponseTypeDef:
         """
-        [Client.update_flow documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/appflow.html#Appflow.Client.update_flow)
+        [Client.update_flow documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appflow.html#Appflow.Client.update_flow)
         """

@@ -51,7 +51,7 @@ class Exceptions:
 
 class MediaStoreDataClient:
     """
-    [MediaStoreData.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediastore-data.html#MediaStoreData.Client)
+    [MediaStoreData.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediastore-data.html#MediaStoreData.Client)
     """
 
     meta: ClientMeta
@@ -59,17 +59,17 @@ class MediaStoreDataClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediastore-data.html#MediaStoreData.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediastore-data.html#MediaStoreData.Client.can_paginate)
         """
 
     def delete_object(self, Path: str) -> Dict[str, Any]:
         """
-        [Client.delete_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediastore-data.html#MediaStoreData.Client.delete_object)
+        [Client.delete_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediastore-data.html#MediaStoreData.Client.delete_object)
         """
 
     def describe_object(self, Path: str) -> DescribeObjectResponseTypeDef:
         """
-        [Client.describe_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediastore-data.html#MediaStoreData.Client.describe_object)
+        [Client.describe_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediastore-data.html#MediaStoreData.Client.describe_object)
         """
 
     def generate_presigned_url(
@@ -80,19 +80,19 @@ class MediaStoreDataClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediastore-data.html#MediaStoreData.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediastore-data.html#MediaStoreData.Client.generate_presigned_url)
         """
 
     def get_object(self, Path: str, Range: str = None) -> GetObjectResponseTypeDef:
         """
-        [Client.get_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediastore-data.html#MediaStoreData.Client.get_object)
+        [Client.get_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediastore-data.html#MediaStoreData.Client.get_object)
         """
 
     def list_items(
         self, Path: str = None, MaxResults: int = None, NextToken: str = None
     ) -> ListItemsResponseTypeDef:
         """
-        [Client.list_items documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediastore-data.html#MediaStoreData.Client.list_items)
+        [Client.list_items documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediastore-data.html#MediaStoreData.Client.list_items)
         """
 
     def put_object(
@@ -105,10 +105,10 @@ class MediaStoreDataClient:
         UploadAvailability: Literal["STANDARD", "STREAMING"] = None,
     ) -> PutObjectResponseTypeDef:
         """
-        [Client.put_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediastore-data.html#MediaStoreData.Client.put_object)
+        [Client.put_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediastore-data.html#MediaStoreData.Client.put_object)
         """
 
     def get_paginator(self, operation_name: Literal["list_items"]) -> ListItemsPaginator:
         """
-        [Paginator.ListItems documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/mediastore-data.html#MediaStoreData.Paginator.ListItems)
+        [Paginator.ListItems documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediastore-data.html#MediaStoreData.Paginator.ListItems)
         """

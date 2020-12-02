@@ -53,7 +53,7 @@ __all__ = (
 
 class DescribeImageScanFindingsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeImageScanFindings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecr.html#ECR.Paginator.DescribeImageScanFindings)
+    [Paginator.DescribeImageScanFindings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr.html#ECR.Paginator.DescribeImageScanFindings)
     """
 
     def paginate(
@@ -64,13 +64,13 @@ class DescribeImageScanFindingsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeImageScanFindingsResponseTypeDef]:
         """
-        [DescribeImageScanFindings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecr.html#ECR.Paginator.DescribeImageScanFindings.paginate)
+        [DescribeImageScanFindings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr.html#ECR.Paginator.DescribeImageScanFindings.paginate)
         """
 
 
 class DescribeImagesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeImages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecr.html#ECR.Paginator.DescribeImages)
+    [Paginator.DescribeImages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr.html#ECR.Paginator.DescribeImages)
     """
 
     def paginate(
@@ -82,13 +82,13 @@ class DescribeImagesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeImagesResponseTypeDef]:
         """
-        [DescribeImages.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecr.html#ECR.Paginator.DescribeImages.paginate)
+        [DescribeImages.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr.html#ECR.Paginator.DescribeImages.paginate)
         """
 
 
 class DescribeRepositoriesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeRepositories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecr.html#ECR.Paginator.DescribeRepositories)
+    [Paginator.DescribeRepositories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr.html#ECR.Paginator.DescribeRepositories)
     """
 
     def paginate(
@@ -98,13 +98,13 @@ class DescribeRepositoriesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeRepositoriesResponseTypeDef]:
         """
-        [DescribeRepositories.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecr.html#ECR.Paginator.DescribeRepositories.paginate)
+        [DescribeRepositories.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr.html#ECR.Paginator.DescribeRepositories.paginate)
         """
 
 
 class GetLifecyclePolicyPreviewPaginator(Boto3Paginator):
     """
-    [Paginator.GetLifecyclePolicyPreview documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecr.html#ECR.Paginator.GetLifecyclePolicyPreview)
+    [Paginator.GetLifecyclePolicyPreview documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr.html#ECR.Paginator.GetLifecyclePolicyPreview)
     """
 
     def paginate(
@@ -116,13 +116,13 @@ class GetLifecyclePolicyPreviewPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetLifecyclePolicyPreviewResponseTypeDef]:
         """
-        [GetLifecyclePolicyPreview.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecr.html#ECR.Paginator.GetLifecyclePolicyPreview.paginate)
+        [GetLifecyclePolicyPreview.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr.html#ECR.Paginator.GetLifecyclePolicyPreview.paginate)
         """
 
 
 class ListImagesPaginator(Boto3Paginator):
     """
-    [Paginator.ListImages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecr.html#ECR.Paginator.ListImages)
+    [Paginator.ListImages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr.html#ECR.Paginator.ListImages)
     """
 
     def paginate(
@@ -133,5 +133,5 @@ class ListImagesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListImagesResponseTypeDef]:
         """
-        [ListImages.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecr.html#ECR.Paginator.ListImages.paginate)
+        [ListImages.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr.html#ECR.Paginator.ListImages.paginate)
         """

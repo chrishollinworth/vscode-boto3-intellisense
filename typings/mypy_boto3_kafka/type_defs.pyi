@@ -170,11 +170,21 @@ ClusterInfoTypeDef = TypedDict(
         "CurrentBrokerSoftwareInfo": "BrokerSoftwareInfoTypeDef",
         "CurrentVersion": str,
         "EncryptionInfo": "EncryptionInfoTypeDef",
-        "EnhancedMonitoring": Literal["DEFAULT", "PER_BROKER", "PER_TOPIC_PER_BROKER"],
+        "EnhancedMonitoring": Literal[
+            "DEFAULT", "PER_BROKER", "PER_TOPIC_PER_BROKER", "PER_TOPIC_PER_PARTITION"
+        ],
         "OpenMonitoring": "OpenMonitoringTypeDef",
         "LoggingInfo": "LoggingInfoTypeDef",
         "NumberOfBrokerNodes": int,
-        "State": Literal["ACTIVE", "CREATING", "UPDATING", "DELETING", "FAILED"],
+        "State": Literal[
+            "ACTIVE",
+            "CREATING",
+            "DELETING",
+            "FAILED",
+            "MAINTENANCE",
+            "REBOOTING_BROKER",
+            "UPDATING",
+        ],
         "StateInfo": "StateInfoTypeDef",
         "Tags": Dict[str, str],
         "ZookeeperConnectString": str,
@@ -295,7 +305,9 @@ MutableClusterInfoTypeDef = TypedDict(
         "BrokerEBSVolumeInfo": List["BrokerEBSVolumeInfoTypeDef"],
         "ConfigurationInfo": "ConfigurationInfoTypeDef",
         "NumberOfBrokerNodes": int,
-        "EnhancedMonitoring": Literal["DEFAULT", "PER_BROKER", "PER_TOPIC_PER_BROKER"],
+        "EnhancedMonitoring": Literal[
+            "DEFAULT", "PER_BROKER", "PER_TOPIC_PER_BROKER", "PER_TOPIC_PER_PARTITION"
+        ],
         "OpenMonitoring": "OpenMonitoringTypeDef",
         "KafkaVersion": str,
         "LoggingInfo": "LoggingInfoTypeDef",
@@ -389,7 +401,15 @@ CreateClusterResponseTypeDef = TypedDict(
     {
         "ClusterArn": str,
         "ClusterName": str,
-        "State": Literal["ACTIVE", "CREATING", "UPDATING", "DELETING", "FAILED"],
+        "State": Literal[
+            "ACTIVE",
+            "CREATING",
+            "DELETING",
+            "FAILED",
+            "MAINTENANCE",
+            "REBOOTING_BROKER",
+            "UPDATING",
+        ],
     },
     total=False,
 )
@@ -408,7 +428,18 @@ CreateConfigurationResponseTypeDef = TypedDict(
 
 DeleteClusterResponseTypeDef = TypedDict(
     "DeleteClusterResponseTypeDef",
-    {"ClusterArn": str, "State": Literal["ACTIVE", "CREATING", "UPDATING", "DELETING", "FAILED"]},
+    {
+        "ClusterArn": str,
+        "State": Literal[
+            "ACTIVE",
+            "CREATING",
+            "DELETING",
+            "FAILED",
+            "MAINTENANCE",
+            "REBOOTING_BROKER",
+            "UPDATING",
+        ],
+    },
     total=False,
 )
 

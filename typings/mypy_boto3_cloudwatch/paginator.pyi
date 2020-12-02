@@ -59,7 +59,7 @@ __all__ = (
 
 class DescribeAlarmHistoryPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeAlarmHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Paginator.DescribeAlarmHistory)
+    [Paginator.DescribeAlarmHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudwatch.html#CloudWatch.Paginator.DescribeAlarmHistory)
     """
 
     def paginate(
@@ -73,13 +73,13 @@ class DescribeAlarmHistoryPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeAlarmHistoryOutputTypeDef]:
         """
-        [DescribeAlarmHistory.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Paginator.DescribeAlarmHistory.paginate)
+        [DescribeAlarmHistory.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudwatch.html#CloudWatch.Paginator.DescribeAlarmHistory.paginate)
         """
 
 
 class DescribeAlarmsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeAlarms documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Paginator.DescribeAlarms)
+    [Paginator.DescribeAlarms documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudwatch.html#CloudWatch.Paginator.DescribeAlarms)
     """
 
     def paginate(
@@ -94,13 +94,13 @@ class DescribeAlarmsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeAlarmsOutputTypeDef]:
         """
-        [DescribeAlarms.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Paginator.DescribeAlarms.paginate)
+        [DescribeAlarms.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudwatch.html#CloudWatch.Paginator.DescribeAlarms.paginate)
         """
 
 
 class GetMetricDataPaginator(Boto3Paginator):
     """
-    [Paginator.GetMetricData documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Paginator.GetMetricData)
+    [Paginator.GetMetricData documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudwatch.html#CloudWatch.Paginator.GetMetricData)
     """
 
     def paginate(
@@ -112,26 +112,26 @@ class GetMetricDataPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetMetricDataOutputTypeDef]:
         """
-        [GetMetricData.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Paginator.GetMetricData.paginate)
+        [GetMetricData.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudwatch.html#CloudWatch.Paginator.GetMetricData.paginate)
         """
 
 
 class ListDashboardsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDashboards documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Paginator.ListDashboards)
+    [Paginator.ListDashboards documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudwatch.html#CloudWatch.Paginator.ListDashboards)
     """
 
     def paginate(
         self, DashboardNamePrefix: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDashboardsOutputTypeDef]:
         """
-        [ListDashboards.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Paginator.ListDashboards.paginate)
+        [ListDashboards.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudwatch.html#CloudWatch.Paginator.ListDashboards.paginate)
         """
 
 
 class ListMetricsPaginator(Boto3Paginator):
     """
-    [Paginator.ListMetrics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Paginator.ListMetrics)
+    [Paginator.ListMetrics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudwatch.html#CloudWatch.Paginator.ListMetrics)
     """
 
     def paginate(
@@ -143,5 +143,5 @@ class ListMetricsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListMetricsOutputTypeDef]:
         """
-        [ListMetrics.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudwatch.html#CloudWatch.Paginator.ListMetrics.paginate)
+        [ListMetrics.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudwatch.html#CloudWatch.Paginator.ListMetrics.paginate)
         """

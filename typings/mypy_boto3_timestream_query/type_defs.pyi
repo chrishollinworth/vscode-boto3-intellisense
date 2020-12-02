@@ -24,6 +24,7 @@ else:
 
 __all__ = (
     "EndpointTypeDef",
+    "QueryStatusTypeDef",
     "TimeSeriesDataPointTypeDef",
     "TypeTypeDef",
     "CancelQueryResponseTypeDef",
@@ -36,6 +37,12 @@ __all__ = (
 )
 
 EndpointTypeDef = TypedDict("EndpointTypeDef", {"Address": str, "CachePeriodInMinutes": int})
+
+QueryStatusTypeDef = TypedDict(
+    "QueryStatusTypeDef",
+    {"ProgressPercentage": float, "CumulativeBytesScanned": int, "CumulativeBytesMetered": int},
+    total=False,
+)
 
 TimeSeriesDataPointTypeDef = TypedDict(
     "TimeSeriesDataPointTypeDef", {"Time": str, "Value": Dict[str, Any]}
@@ -103,7 +110,9 @@ _RequiredQueryResponseTypeDef = TypedDict(
     {"QueryId": str, "Rows": List[Dict[str, Any]], "ColumnInfo": List[Dict[str, Any]]},
 )
 _OptionalQueryResponseTypeDef = TypedDict(
-    "_OptionalQueryResponseTypeDef", {"NextToken": str}, total=False
+    "_OptionalQueryResponseTypeDef",
+    {"NextToken": str, "QueryStatus": "QueryStatusTypeDef"},
+    total=False,
 )
 
 

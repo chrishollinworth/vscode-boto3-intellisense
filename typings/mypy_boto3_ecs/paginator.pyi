@@ -68,7 +68,7 @@ __all__ = (
 
 class ListAccountSettingsPaginator(Boto3Paginator):
     """
-    [Paginator.ListAccountSettings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Paginator.ListAccountSettings)
+    [Paginator.ListAccountSettings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Paginator.ListAccountSettings)
     """
 
     def paginate(
@@ -86,13 +86,13 @@ class ListAccountSettingsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListAccountSettingsResponseTypeDef]:
         """
-        [ListAccountSettings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Paginator.ListAccountSettings.paginate)
+        [ListAccountSettings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Paginator.ListAccountSettings.paginate)
         """
 
 
 class ListAttributesPaginator(Boto3Paginator):
     """
-    [Paginator.ListAttributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Paginator.ListAttributes)
+    [Paginator.ListAttributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Paginator.ListAttributes)
     """
 
     def paginate(
@@ -104,26 +104,26 @@ class ListAttributesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListAttributesResponseTypeDef]:
         """
-        [ListAttributes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Paginator.ListAttributes.paginate)
+        [ListAttributes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Paginator.ListAttributes.paginate)
         """
 
 
 class ListClustersPaginator(Boto3Paginator):
     """
-    [Paginator.ListClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Paginator.ListClusters)
+    [Paginator.ListClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Paginator.ListClusters)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListClustersResponseTypeDef]:
         """
-        [ListClusters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Paginator.ListClusters.paginate)
+        [ListClusters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Paginator.ListClusters.paginate)
         """
 
 
 class ListContainerInstancesPaginator(Boto3Paginator):
     """
-    [Paginator.ListContainerInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Paginator.ListContainerInstances)
+    [Paginator.ListContainerInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Paginator.ListContainerInstances)
     """
 
     def paginate(
@@ -136,13 +136,13 @@ class ListContainerInstancesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListContainerInstancesResponseTypeDef]:
         """
-        [ListContainerInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Paginator.ListContainerInstances.paginate)
+        [ListContainerInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Paginator.ListContainerInstances.paginate)
         """
 
 
 class ListServicesPaginator(Boto3Paginator):
     """
-    [Paginator.ListServices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Paginator.ListServices)
+    [Paginator.ListServices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Paginator.ListServices)
     """
 
     def paginate(
@@ -153,13 +153,13 @@ class ListServicesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListServicesResponseTypeDef]:
         """
-        [ListServices.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Paginator.ListServices.paginate)
+        [ListServices.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Paginator.ListServices.paginate)
         """
 
 
 class ListTaskDefinitionFamiliesPaginator(Boto3Paginator):
     """
-    [Paginator.ListTaskDefinitionFamilies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Paginator.ListTaskDefinitionFamilies)
+    [Paginator.ListTaskDefinitionFamilies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Paginator.ListTaskDefinitionFamilies)
     """
 
     def paginate(
@@ -169,13 +169,13 @@ class ListTaskDefinitionFamiliesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListTaskDefinitionFamiliesResponseTypeDef]:
         """
-        [ListTaskDefinitionFamilies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Paginator.ListTaskDefinitionFamilies.paginate)
+        [ListTaskDefinitionFamilies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Paginator.ListTaskDefinitionFamilies.paginate)
         """
 
 
 class ListTaskDefinitionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListTaskDefinitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Paginator.ListTaskDefinitions)
+    [Paginator.ListTaskDefinitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Paginator.ListTaskDefinitions)
     """
 
     def paginate(
@@ -186,13 +186,13 @@ class ListTaskDefinitionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListTaskDefinitionsResponseTypeDef]:
         """
-        [ListTaskDefinitions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Paginator.ListTaskDefinitions.paginate)
+        [ListTaskDefinitions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Paginator.ListTaskDefinitions.paginate)
         """
 
 
 class ListTasksPaginator(Boto3Paginator):
     """
-    [Paginator.ListTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Paginator.ListTasks)
+    [Paginator.ListTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Paginator.ListTasks)
     """
 
     def paginate(
@@ -207,5 +207,5 @@ class ListTasksPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListTasksResponseTypeDef]:
         """
-        [ListTasks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ecs.html#ECS.Paginator.ListTasks.paginate)
+        [ListTasks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Paginator.ListTasks.paginate)
         """

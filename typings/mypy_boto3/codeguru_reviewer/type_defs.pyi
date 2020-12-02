@@ -25,6 +25,7 @@ from mypy_boto3_codeguru_reviewer.type_defs import (
     ListRecommendationFeedbackResponseTypeDef,
     ListRecommendationsResponseTypeDef,
     ListRepositoryAssociationsResponseTypeDef,
+    ListTagsForResourceResponseTypeDef,
     PaginatorConfigTypeDef,
     RepositoryTypeDef,
 )
@@ -56,6 +57,7 @@ __all__ = (
     "ListRecommendationFeedbackResponseTypeDef",
     "ListRecommendationsResponseTypeDef",
     "ListRepositoryAssociationsResponseTypeDef",
+    "ListTagsForResourceResponseTypeDef",
     "PaginatorConfigTypeDef",
     "RepositoryTypeDef",
 )

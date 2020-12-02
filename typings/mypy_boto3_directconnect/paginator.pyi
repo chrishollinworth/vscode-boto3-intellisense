@@ -41,7 +41,7 @@ __all__ = (
 
 class DescribeDirectConnectGatewayAssociationsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeDirectConnectGatewayAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Paginator.DescribeDirectConnectGatewayAssociations)
+    [Paginator.DescribeDirectConnectGatewayAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Paginator.DescribeDirectConnectGatewayAssociations)
     """
 
     def paginate(
@@ -53,13 +53,13 @@ class DescribeDirectConnectGatewayAssociationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeDirectConnectGatewayAssociationsResultTypeDef]:
         """
-        [DescribeDirectConnectGatewayAssociations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Paginator.DescribeDirectConnectGatewayAssociations.paginate)
+        [DescribeDirectConnectGatewayAssociations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Paginator.DescribeDirectConnectGatewayAssociations.paginate)
         """
 
 
 class DescribeDirectConnectGatewayAttachmentsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeDirectConnectGatewayAttachments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Paginator.DescribeDirectConnectGatewayAttachments)
+    [Paginator.DescribeDirectConnectGatewayAttachments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Paginator.DescribeDirectConnectGatewayAttachments)
     """
 
     def paginate(
@@ -69,18 +69,18 @@ class DescribeDirectConnectGatewayAttachmentsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeDirectConnectGatewayAttachmentsResultTypeDef]:
         """
-        [DescribeDirectConnectGatewayAttachments.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Paginator.DescribeDirectConnectGatewayAttachments.paginate)
+        [DescribeDirectConnectGatewayAttachments.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Paginator.DescribeDirectConnectGatewayAttachments.paginate)
         """
 
 
 class DescribeDirectConnectGatewaysPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeDirectConnectGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Paginator.DescribeDirectConnectGateways)
+    [Paginator.DescribeDirectConnectGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Paginator.DescribeDirectConnectGateways)
     """
 
     def paginate(
         self, directConnectGatewayId: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeDirectConnectGatewaysResultTypeDef]:
         """
-        [DescribeDirectConnectGateways.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/directconnect.html#DirectConnect.Paginator.DescribeDirectConnectGateways.paginate)
+        [DescribeDirectConnectGateways.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/directconnect.html#DirectConnect.Paginator.DescribeDirectConnectGateways.paginate)
         """

@@ -50,7 +50,7 @@ class Exceptions:
 
 class PIClient:
     """
-    [PI.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/pi.html#PI.Client)
+    [PI.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/pi.html#PI.Client)
     """
 
     meta: ClientMeta
@@ -58,7 +58,7 @@ class PIClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/pi.html#PI.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/pi.html#PI.Client.can_paginate)
         """
 
     def describe_dimension_keys(
@@ -76,7 +76,7 @@ class PIClient:
         NextToken: str = None,
     ) -> DescribeDimensionKeysResponseTypeDef:
         """
-        [Client.describe_dimension_keys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/pi.html#PI.Client.describe_dimension_keys)
+        [Client.describe_dimension_keys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/pi.html#PI.Client.describe_dimension_keys)
         """
 
     def generate_presigned_url(
@@ -87,7 +87,7 @@ class PIClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/pi.html#PI.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/pi.html#PI.Client.generate_presigned_url)
         """
 
     def get_resource_metrics(
@@ -102,5 +102,5 @@ class PIClient:
         NextToken: str = None,
     ) -> GetResourceMetricsResponseTypeDef:
         """
-        [Client.get_resource_metrics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/pi.html#PI.Client.get_resource_metrics)
+        [Client.get_resource_metrics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/pi.html#PI.Client.get_resource_metrics)
         """

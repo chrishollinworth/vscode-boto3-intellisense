@@ -1,8 +1,12 @@
 from mypy_boto3_eks import (
+    AddonActiveWaiter,
+    AddonDeletedWaiter,
     Client,
     ClusterActiveWaiter,
     ClusterDeletedWaiter,
+    DescribeAddonVersionsPaginator,
     EKSClient,
+    ListAddonsPaginator,
     ListClustersPaginator,
     ListFargateProfilesPaginator,
     ListNodegroupsPaginator,
@@ -12,10 +16,14 @@ from mypy_boto3_eks import (
 )
 
 __all__ = (
+    "AddonActiveWaiter",
+    "AddonDeletedWaiter",
     "Client",
     "ClusterActiveWaiter",
     "ClusterDeletedWaiter",
+    "DescribeAddonVersionsPaginator",
     "EKSClient",
+    "ListAddonsPaginator",
     "ListClustersPaginator",
     "ListFargateProfilesPaginator",
     "ListNodegroupsPaginator",

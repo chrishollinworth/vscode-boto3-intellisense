@@ -37,6 +37,7 @@ __all__ = (
     "ContainerInstanceTypeDef",
     "ContainerOverrideTypeDef",
     "ContainerTypeDef",
+    "DeploymentCircuitBreakerTypeDef",
     "DeploymentConfigurationTypeDef",
     "DeploymentControllerTypeDef",
     "DeploymentTypeDef",
@@ -90,6 +91,7 @@ __all__ = (
     "VolumeFromTypeDef",
     "VolumeTypeDef",
     "AttachmentStateChangeTypeDef",
+    "AutoScalingGroupProviderUpdateTypeDef",
     "ContainerStateChangeTypeDef",
     "CreateCapacityProviderResponseTypeDef",
     "CreateClusterResponseTypeDef",
@@ -134,6 +136,7 @@ __all__ = (
     "SubmitAttachmentStateChangesResponseTypeDef",
     "SubmitContainerStateChangeResponseTypeDef",
     "SubmitTaskStateChangeResponseTypeDef",
+    "UpdateCapacityProviderResponseTypeDef",
     "UpdateClusterSettingsResponseTypeDef",
     "UpdateContainerAgentResponseTypeDef",
     "UpdateContainerInstancesStateResponseTypeDef",
@@ -217,7 +220,14 @@ CapacityProviderTypeDef = TypedDict(
         "name": str,
         "status": Literal["ACTIVE", "INACTIVE"],
         "autoScalingGroupProvider": "AutoScalingGroupProviderTypeDef",
-        "updateStatus": Literal["DELETE_IN_PROGRESS", "DELETE_COMPLETE", "DELETE_FAILED"],
+        "updateStatus": Literal[
+            "DELETE_IN_PROGRESS",
+            "DELETE_COMPLETE",
+            "DELETE_FAILED",
+            "UPDATE_IN_PROGRESS",
+            "UPDATE_COMPLETE",
+            "UPDATE_FAILED",
+        ],
         "updateStatusReason": str,
         "tags": List["TagTypeDef"],
     },
@@ -364,9 +374,17 @@ ContainerTypeDef = TypedDict(
     total=False,
 )
 
+DeploymentCircuitBreakerTypeDef = TypedDict(
+    "DeploymentCircuitBreakerTypeDef", {"enable": bool, "rollback": bool}
+)
+
 DeploymentConfigurationTypeDef = TypedDict(
     "DeploymentConfigurationTypeDef",
-    {"maximumPercent": int, "minimumHealthyPercent": int},
+    {
+        "deploymentCircuitBreaker": "DeploymentCircuitBreakerTypeDef",
+        "maximumPercent": int,
+        "minimumHealthyPercent": int,
+    },
     total=False,
 )
 
@@ -383,12 +401,15 @@ DeploymentTypeDef = TypedDict(
         "desiredCount": int,
         "pendingCount": int,
         "runningCount": int,
+        "failedTasks": int,
         "createdAt": datetime,
         "updatedAt": datetime,
         "capacityProviderStrategy": List["CapacityProviderStrategyItemTypeDef"],
         "launchType": Literal["EC2", "FARGATE"],
         "platformVersion": str,
         "networkConfiguration": "NetworkConfigurationTypeDef",
+        "rolloutState": Literal["COMPLETED", "FAILED", "IN_PROGRESS"],
+        "rolloutStateReason": str,
     },
     total=False,
 )
@@ -555,6 +576,7 @@ ManagedScalingTypeDef = TypedDict(
         "targetCapacity": int,
         "minimumScalingStepSize": int,
         "maximumScalingStepSize": int,
+        "instanceWarmupPeriod": int,
     },
     total=False,
 )
@@ -880,6 +902,15 @@ AttachmentStateChangeTypeDef = TypedDict(
     "AttachmentStateChangeTypeDef", {"attachmentArn": str, "status": str}
 )
 
+AutoScalingGroupProviderUpdateTypeDef = TypedDict(
+    "AutoScalingGroupProviderUpdateTypeDef",
+    {
+        "managedScaling": "ManagedScalingTypeDef",
+        "managedTerminationProtection": Literal["ENABLED", "DISABLED"],
+    },
+    total=False,
+)
+
 ContainerStateChangeTypeDef = TypedDict(
     "ContainerStateChangeTypeDef",
     {
@@ -1104,6 +1135,12 @@ SubmitContainerStateChangeResponseTypeDef = TypedDict(
 
 SubmitTaskStateChangeResponseTypeDef = TypedDict(
     "SubmitTaskStateChangeResponseTypeDef", {"acknowledgment": str}, total=False
+)
+
+UpdateCapacityProviderResponseTypeDef = TypedDict(
+    "UpdateCapacityProviderResponseTypeDef",
+    {"capacityProvider": "CapacityProviderTypeDef"},
+    total=False,
 )
 
 UpdateClusterSettingsResponseTypeDef = TypedDict(

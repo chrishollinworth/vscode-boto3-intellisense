@@ -400,7 +400,13 @@ class LaunchConfigurationTypeDef(
 
 
 LaunchTemplateOverridesTypeDef = TypedDict(
-    "LaunchTemplateOverridesTypeDef", {"InstanceType": str, "WeightedCapacity": str}, total=False
+    "LaunchTemplateOverridesTypeDef",
+    {
+        "InstanceType": str,
+        "WeightedCapacity": str,
+        "LaunchTemplateSpecification": "LaunchTemplateSpecificationTypeDef",
+    },
+    total=False,
 )
 
 LaunchTemplateSpecificationTypeDef = TypedDict(

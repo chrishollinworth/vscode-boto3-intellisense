@@ -3,11 +3,13 @@ acm
 acm_pca
 alexaforbusiness
 amplify
+amplifybackend  
 apigateway
 apigatewaymanagementapi
 apigatewayv2
 appconfig
 appflow
+appintegrations
 application_autoscaling
 application_insights
 appmesh
@@ -45,6 +47,7 @@ codestar_notifications
 cognito_identity
 cognito_idp
 cognito_sync
+connect_contact_lens
 comprehend
 comprehendmedical
 compute_optimizer
@@ -52,6 +55,7 @@ config
 connect
 connectparticipant
 cur
+customer_profiles
 databrew
 dataexchange
 datapipeline
@@ -59,6 +63,7 @@ datasync
 dax
 detective
 devicefarm
+devops_guru
 directconnect
 discovery
 dlm
@@ -71,6 +76,7 @@ ebs
 ec2
 ec2_instance_connect
 ecr
+ecr_public
 ecs
 efs
 eks
@@ -132,6 +138,7 @@ lex_runtime
 license_manager
 lightsail
 logs
+lookoutvision
 machinelearning
 macie
 macie2
@@ -153,6 +160,7 @@ migrationhub_config
 mobile
 mq
 mturk
+mwaa
 neptune
 networkmanager
 network_firewall
@@ -189,6 +197,7 @@ s3control
 s3outposts
 sagemaker
 sagemaker_a2i_runtime
+sagemaker_featurestore_runtime
 sagemaker_runtime
 savingsplans
 schemas

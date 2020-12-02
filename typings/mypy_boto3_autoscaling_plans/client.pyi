@@ -59,7 +59,7 @@ class Exceptions:
 
 class AutoScalingPlansClient:
     """
-    [AutoScalingPlans.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/autoscaling-plans.html#AutoScalingPlans.Client)
+    [AutoScalingPlans.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/autoscaling-plans.html#AutoScalingPlans.Client)
     """
 
     meta: ClientMeta
@@ -67,7 +67,7 @@ class AutoScalingPlansClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/autoscaling-plans.html#AutoScalingPlans.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/autoscaling-plans.html#AutoScalingPlans.Client.can_paginate)
         """
 
     def create_scaling_plan(
@@ -77,12 +77,12 @@ class AutoScalingPlansClient:
         ScalingInstructions: List["ScalingInstructionTypeDef"],
     ) -> CreateScalingPlanResponseTypeDef:
         """
-        [Client.create_scaling_plan documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/autoscaling-plans.html#AutoScalingPlans.Client.create_scaling_plan)
+        [Client.create_scaling_plan documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/autoscaling-plans.html#AutoScalingPlans.Client.create_scaling_plan)
         """
 
     def delete_scaling_plan(self, ScalingPlanName: str, ScalingPlanVersion: int) -> Dict[str, Any]:
         """
-        [Client.delete_scaling_plan documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/autoscaling-plans.html#AutoScalingPlans.Client.delete_scaling_plan)
+        [Client.delete_scaling_plan documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/autoscaling-plans.html#AutoScalingPlans.Client.delete_scaling_plan)
         """
 
     def describe_scaling_plan_resources(
@@ -93,7 +93,7 @@ class AutoScalingPlansClient:
         NextToken: str = None,
     ) -> DescribeScalingPlanResourcesResponseTypeDef:
         """
-        [Client.describe_scaling_plan_resources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/autoscaling-plans.html#AutoScalingPlans.Client.describe_scaling_plan_resources)
+        [Client.describe_scaling_plan_resources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/autoscaling-plans.html#AutoScalingPlans.Client.describe_scaling_plan_resources)
         """
 
     def describe_scaling_plans(
@@ -105,7 +105,7 @@ class AutoScalingPlansClient:
         NextToken: str = None,
     ) -> DescribeScalingPlansResponseTypeDef:
         """
-        [Client.describe_scaling_plans documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/autoscaling-plans.html#AutoScalingPlans.Client.describe_scaling_plans)
+        [Client.describe_scaling_plans documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/autoscaling-plans.html#AutoScalingPlans.Client.describe_scaling_plans)
         """
 
     def generate_presigned_url(
@@ -116,7 +116,7 @@ class AutoScalingPlansClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/autoscaling-plans.html#AutoScalingPlans.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/autoscaling-plans.html#AutoScalingPlans.Client.generate_presigned_url)
         """
 
     def get_scaling_plan_resource_forecast_data(
@@ -145,7 +145,7 @@ class AutoScalingPlansClient:
         EndTime: datetime,
     ) -> GetScalingPlanResourceForecastDataResponseTypeDef:
         """
-        [Client.get_scaling_plan_resource_forecast_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/autoscaling-plans.html#AutoScalingPlans.Client.get_scaling_plan_resource_forecast_data)
+        [Client.get_scaling_plan_resource_forecast_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/autoscaling-plans.html#AutoScalingPlans.Client.get_scaling_plan_resource_forecast_data)
         """
 
     def update_scaling_plan(
@@ -156,7 +156,7 @@ class AutoScalingPlansClient:
         ScalingInstructions: List["ScalingInstructionTypeDef"] = None,
     ) -> Dict[str, Any]:
         """
-        [Client.update_scaling_plan documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/autoscaling-plans.html#AutoScalingPlans.Client.update_scaling_plan)
+        [Client.update_scaling_plan documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/autoscaling-plans.html#AutoScalingPlans.Client.update_scaling_plan)
         """
 
     @overload
@@ -164,7 +164,7 @@ class AutoScalingPlansClient:
         self, operation_name: Literal["describe_scaling_plan_resources"]
     ) -> DescribeScalingPlanResourcesPaginator:
         """
-        [Paginator.DescribeScalingPlanResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/autoscaling-plans.html#AutoScalingPlans.Paginator.DescribeScalingPlanResources)
+        [Paginator.DescribeScalingPlanResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/autoscaling-plans.html#AutoScalingPlans.Paginator.DescribeScalingPlanResources)
         """
 
     @overload
@@ -172,5 +172,5 @@ class AutoScalingPlansClient:
         self, operation_name: Literal["describe_scaling_plans"]
     ) -> DescribeScalingPlansPaginator:
         """
-        [Paginator.DescribeScalingPlans documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/autoscaling-plans.html#AutoScalingPlans.Paginator.DescribeScalingPlans)
+        [Paginator.DescribeScalingPlans documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/autoscaling-plans.html#AutoScalingPlans.Paginator.DescribeScalingPlans)
         """

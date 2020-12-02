@@ -52,7 +52,7 @@ __all__ = (
 
 class DescribeBatchPredictionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeBatchPredictions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/machinelearning.html#MachineLearning.Paginator.DescribeBatchPredictions)
+    [Paginator.DescribeBatchPredictions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/machinelearning.html#MachineLearning.Paginator.DescribeBatchPredictions)
     """
 
     def paginate(
@@ -78,13 +78,13 @@ class DescribeBatchPredictionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeBatchPredictionsOutputTypeDef]:
         """
-        [DescribeBatchPredictions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/machinelearning.html#MachineLearning.Paginator.DescribeBatchPredictions.paginate)
+        [DescribeBatchPredictions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/machinelearning.html#MachineLearning.Paginator.DescribeBatchPredictions.paginate)
         """
 
 
 class DescribeDataSourcesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeDataSources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/machinelearning.html#MachineLearning.Paginator.DescribeDataSources)
+    [Paginator.DescribeDataSources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/machinelearning.html#MachineLearning.Paginator.DescribeDataSources)
     """
 
     def paginate(
@@ -103,13 +103,13 @@ class DescribeDataSourcesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeDataSourcesOutputTypeDef]:
         """
-        [DescribeDataSources.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/machinelearning.html#MachineLearning.Paginator.DescribeDataSources.paginate)
+        [DescribeDataSources.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/machinelearning.html#MachineLearning.Paginator.DescribeDataSources.paginate)
         """
 
 
 class DescribeEvaluationsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeEvaluations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/machinelearning.html#MachineLearning.Paginator.DescribeEvaluations)
+    [Paginator.DescribeEvaluations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/machinelearning.html#MachineLearning.Paginator.DescribeEvaluations)
     """
 
     def paginate(
@@ -135,13 +135,13 @@ class DescribeEvaluationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeEvaluationsOutputTypeDef]:
         """
-        [DescribeEvaluations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/machinelearning.html#MachineLearning.Paginator.DescribeEvaluations.paginate)
+        [DescribeEvaluations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/machinelearning.html#MachineLearning.Paginator.DescribeEvaluations.paginate)
         """
 
 
 class DescribeMLModelsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeMLModels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/machinelearning.html#MachineLearning.Paginator.DescribeMLModels)
+    [Paginator.DescribeMLModels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/machinelearning.html#MachineLearning.Paginator.DescribeMLModels)
     """
 
     def paginate(
@@ -169,5 +169,5 @@ class DescribeMLModelsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeMLModelsOutputTypeDef]:
         """
-        [DescribeMLModels.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/machinelearning.html#MachineLearning.Paginator.DescribeMLModels.paginate)
+        [DescribeMLModels.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/machinelearning.html#MachineLearning.Paginator.DescribeMLModels.paginate)
         """

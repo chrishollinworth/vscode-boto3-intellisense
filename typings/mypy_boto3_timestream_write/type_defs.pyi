@@ -132,6 +132,7 @@ RecordTypeDef = TypedDict(
         "MeasureValueType": Literal["DOUBLE", "BIGINT", "VARCHAR", "BOOLEAN"],
         "Time": str,
         "TimeUnit": Literal["MILLISECONDS", "SECONDS", "MICROSECONDS", "NANOSECONDS"],
+        "Version": int,
     },
     total=False,
 )

@@ -32,6 +32,7 @@ __all__ = (
     "DeploymentTargetsTypeDef",
     "ExportTypeDef",
     "LoggingConfigTypeDef",
+    "ModuleInfoTypeDef",
     "OutputTypeDef",
     "ParameterConstraintsTypeDef",
     "ParameterDeclarationTypeDef",
@@ -147,11 +148,21 @@ ChangeSetSummaryTypeDef = TypedDict(
             "OBSOLETE",
         ],
         "Status": Literal[
-            "CREATE_PENDING", "CREATE_IN_PROGRESS", "CREATE_COMPLETE", "DELETE_COMPLETE", "FAILED"
+            "CREATE_PENDING",
+            "CREATE_IN_PROGRESS",
+            "CREATE_COMPLETE",
+            "DELETE_PENDING",
+            "DELETE_IN_PROGRESS",
+            "DELETE_COMPLETE",
+            "DELETE_FAILED",
+            "FAILED",
         ],
         "StatusReason": str,
         "CreationTime": datetime,
         "Description": str,
+        "IncludeNestedStacks": bool,
+        "ParentChangeSetId": str,
+        "RootChangeSetId": str,
     },
     total=False,
 )
@@ -173,6 +184,10 @@ ExportTypeDef = TypedDict(
 )
 
 LoggingConfigTypeDef = TypedDict("LoggingConfigTypeDef", {"LogRoleArn": str, "LogGroupName": str})
+
+ModuleInfoTypeDef = TypedDict(
+    "ModuleInfoTypeDef", {"TypeHierarchy": str, "LogicalIdHierarchy": str}, total=False
+)
 
 OutputTypeDef = TypedDict(
     "OutputTypeDef",
@@ -243,7 +258,7 @@ ResourceChangeDetailTypeDef = TypedDict(
 ResourceChangeTypeDef = TypedDict(
     "ResourceChangeTypeDef",
     {
-        "Action": Literal["Add", "Modify", "Remove", "Import"],
+        "Action": Literal["Add", "Modify", "Remove", "Import", "Dynamic"],
         "LogicalResourceId": str,
         "PhysicalResourceId": str,
         "ResourceType": str,
@@ -254,6 +269,8 @@ ResourceChangeTypeDef = TypedDict(
             ]
         ],
         "Details": List["ResourceChangeDetailTypeDef"],
+        "ChangeSetId": str,
+        "ModuleInfo": "ModuleInfoTypeDef",
     },
     total=False,
 )
@@ -446,6 +463,7 @@ _OptionalStackResourceDetailTypeDef = TypedDict(
         "Description": str,
         "Metadata": str,
         "DriftInformation": "StackResourceDriftInformationTypeDef",
+        "ModuleInfo": "ModuleInfoTypeDef",
     },
     total=False,
 )
@@ -508,6 +526,7 @@ _OptionalStackResourceDriftTypeDef = TypedDict(
         "ExpectedProperties": str,
         "ActualProperties": str,
         "PropertyDifferences": List["PropertyDifferenceTypeDef"],
+        "ModuleInfo": "ModuleInfoTypeDef",
     },
     total=False,
 )
@@ -551,6 +570,7 @@ _OptionalStackResourceSummaryTypeDef = TypedDict(
         "PhysicalResourceId": str,
         "ResourceStatusReason": str,
         "DriftInformation": "StackResourceDriftInformationSummaryTypeDef",
+        "ModuleInfo": "ModuleInfoTypeDef",
     },
     total=False,
 )
@@ -597,6 +617,7 @@ _OptionalStackResourceTypeDef = TypedDict(
         "ResourceStatusReason": str,
         "Description": str,
         "DriftInformation": "StackResourceDriftInformationTypeDef",
+        "ModuleInfo": "ModuleInfoTypeDef",
     },
     total=False,
 )
@@ -844,7 +865,7 @@ TemplateParameterTypeDef = TypedDict(
 TypeSummaryTypeDef = TypedDict(
     "TypeSummaryTypeDef",
     {
-        "Type": Literal["RESOURCE"],
+        "Type": Literal["RESOURCE", "MODULE"],
         "TypeName": str,
         "DefaultVersionId": str,
         "TypeArn": str,
@@ -857,7 +878,7 @@ TypeSummaryTypeDef = TypedDict(
 TypeVersionSummaryTypeDef = TypedDict(
     "TypeVersionSummaryTypeDef",
     {
-        "Type": Literal["RESOURCE"],
+        "Type": Literal["RESOURCE", "MODULE"],
         "TypeName": str,
         "VersionId": str,
         "IsDefaultVersion": bool,
@@ -927,7 +948,14 @@ DescribeChangeSetOutputTypeDef = TypedDict(
             "OBSOLETE",
         ],
         "Status": Literal[
-            "CREATE_PENDING", "CREATE_IN_PROGRESS", "CREATE_COMPLETE", "DELETE_COMPLETE", "FAILED"
+            "CREATE_PENDING",
+            "CREATE_IN_PROGRESS",
+            "CREATE_COMPLETE",
+            "DELETE_PENDING",
+            "DELETE_IN_PROGRESS",
+            "DELETE_COMPLETE",
+            "DELETE_FAILED",
+            "FAILED",
         ],
         "StatusReason": str,
         "NotificationARNs": List[str],
@@ -938,6 +966,9 @@ DescribeChangeSetOutputTypeDef = TypedDict(
         "Tags": List["TagTypeDef"],
         "Changes": List["ChangeTypeDef"],
         "NextToken": str,
+        "IncludeNestedStacks": bool,
+        "ParentChangeSetId": str,
+        "RootChangeSetId": str,
         "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
@@ -1041,7 +1072,7 @@ DescribeTypeOutputTypeDef = TypedDict(
     "DescribeTypeOutputTypeDef",
     {
         "Arn": str,
-        "Type": Literal["RESOURCE"],
+        "Type": Literal["RESOURCE", "MODULE"],
         "TypeName": str,
         "DefaultVersionId": str,
         "IsDefaultVersion": bool,

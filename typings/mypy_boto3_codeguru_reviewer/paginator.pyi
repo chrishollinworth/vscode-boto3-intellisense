@@ -38,7 +38,7 @@ __all__ = ("ListRepositoryAssociationsPaginator",)
 
 class ListRepositoryAssociationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListRepositoryAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Paginator.ListRepositoryAssociations)
+    [Paginator.ListRepositoryAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Paginator.ListRepositoryAssociations)
     """
 
     def paginate(
@@ -46,11 +46,13 @@ class ListRepositoryAssociationsPaginator(Boto3Paginator):
         ProviderTypes: List[
             Literal["CodeCommit", "GitHub", "Bitbucket", "GitHubEnterpriseServer"]
         ] = None,
-        States: List[Literal["Associated", "Associating", "Failed", "Disassociating"]] = None,
+        States: List[
+            Literal["Associated", "Associating", "Failed", "Disassociating", "Disassociated"]
+        ] = None,
         Names: List[str] = None,
         Owners: List[str] = None,
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListRepositoryAssociationsResponseTypeDef]:
         """
-        [ListRepositoryAssociations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Paginator.ListRepositoryAssociations.paginate)
+        [ListRepositoryAssociations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codeguru-reviewer.html#CodeGuruReviewer.Paginator.ListRepositoryAssociations.paginate)
         """

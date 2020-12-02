@@ -45,51 +45,51 @@ __all__ = (
 
 class ListApplicationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListApplications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicecatalog-appregistry.html#ServiceCatalogAppRegistry.Paginator.ListApplications)
+    [Paginator.ListApplications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/servicecatalog-appregistry.html#ServiceCatalogAppRegistry.Paginator.ListApplications)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListApplicationsResponseTypeDef]:
         """
-        [ListApplications.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicecatalog-appregistry.html#ServiceCatalogAppRegistry.Paginator.ListApplications.paginate)
+        [ListApplications.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/servicecatalog-appregistry.html#ServiceCatalogAppRegistry.Paginator.ListApplications.paginate)
         """
 
 
 class ListAssociatedAttributeGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.ListAssociatedAttributeGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicecatalog-appregistry.html#ServiceCatalogAppRegistry.Paginator.ListAssociatedAttributeGroups)
+    [Paginator.ListAssociatedAttributeGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/servicecatalog-appregistry.html#ServiceCatalogAppRegistry.Paginator.ListAssociatedAttributeGroups)
     """
 
     def paginate(
         self, application: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAssociatedAttributeGroupsResponseTypeDef]:
         """
-        [ListAssociatedAttributeGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicecatalog-appregistry.html#ServiceCatalogAppRegistry.Paginator.ListAssociatedAttributeGroups.paginate)
+        [ListAssociatedAttributeGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/servicecatalog-appregistry.html#ServiceCatalogAppRegistry.Paginator.ListAssociatedAttributeGroups.paginate)
         """
 
 
 class ListAssociatedResourcesPaginator(Boto3Paginator):
     """
-    [Paginator.ListAssociatedResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicecatalog-appregistry.html#ServiceCatalogAppRegistry.Paginator.ListAssociatedResources)
+    [Paginator.ListAssociatedResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/servicecatalog-appregistry.html#ServiceCatalogAppRegistry.Paginator.ListAssociatedResources)
     """
 
     def paginate(
         self, application: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAssociatedResourcesResponseTypeDef]:
         """
-        [ListAssociatedResources.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicecatalog-appregistry.html#ServiceCatalogAppRegistry.Paginator.ListAssociatedResources.paginate)
+        [ListAssociatedResources.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/servicecatalog-appregistry.html#ServiceCatalogAppRegistry.Paginator.ListAssociatedResources.paginate)
         """
 
 
 class ListAttributeGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.ListAttributeGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicecatalog-appregistry.html#ServiceCatalogAppRegistry.Paginator.ListAttributeGroups)
+    [Paginator.ListAttributeGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/servicecatalog-appregistry.html#ServiceCatalogAppRegistry.Paginator.ListAttributeGroups)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAttributeGroupsResponseTypeDef]:
         """
-        [ListAttributeGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/servicecatalog-appregistry.html#ServiceCatalogAppRegistry.Paginator.ListAttributeGroups.paginate)
+        [ListAttributeGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/servicecatalog-appregistry.html#ServiceCatalogAppRegistry.Paginator.ListAttributeGroups.paginate)
         """

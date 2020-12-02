@@ -90,6 +90,8 @@ __all__ = (
     "ScalingTriggerTypeDef",
     "ScriptBootstrapActionConfigTypeDef",
     "SecurityConfigurationSummaryTypeDef",
+    "SessionMappingDetailTypeDef",
+    "SessionMappingSummaryTypeDef",
     "ShrinkPolicyTypeDef",
     "SimpleScalingPolicyConfigurationTypeDef",
     "SpotProvisioningSpecificationTypeDef",
@@ -101,6 +103,8 @@ __all__ = (
     "StepSummaryTypeDef",
     "StepTimelineTypeDef",
     "StepTypeDef",
+    "StudioSummaryTypeDef",
+    "StudioTypeDef",
     "TagTypeDef",
     "VolumeSpecificationTypeDef",
     "AddInstanceFleetOutputTypeDef",
@@ -108,14 +112,17 @@ __all__ = (
     "AddJobFlowStepsOutputTypeDef",
     "CancelStepsOutputTypeDef",
     "CreateSecurityConfigurationOutputTypeDef",
+    "CreateStudioOutputTypeDef",
     "DescribeClusterOutputTypeDef",
     "DescribeJobFlowsOutputTypeDef",
     "DescribeNotebookExecutionOutputTypeDef",
     "DescribeSecurityConfigurationOutputTypeDef",
     "DescribeStepOutputTypeDef",
+    "DescribeStudioOutputTypeDef",
     "ConfigurationTypeDef",
     "GetBlockPublicAccessConfigurationOutputTypeDef",
     "GetManagedScalingPolicyOutputTypeDef",
+    "GetStudioSessionMappingOutputTypeDef",
     "InstanceFleetModifyConfigTypeDef",
     "InstanceGroupModifyConfigTypeDef",
     "JobFlowInstancesConfigTypeDef",
@@ -127,6 +134,8 @@ __all__ = (
     "ListNotebookExecutionsOutputTypeDef",
     "ListSecurityConfigurationsOutputTypeDef",
     "ListStepsOutputTypeDef",
+    "ListStudioSessionMappingsOutputTypeDef",
+    "ListStudiosOutputTypeDef",
     "ModifyClusterOutputTypeDef",
     "PaginatorConfigTypeDef",
     "PutAutoScalingPolicyOutputTypeDef",
@@ -1052,6 +1061,33 @@ SecurityConfigurationSummaryTypeDef = TypedDict(
     "SecurityConfigurationSummaryTypeDef", {"Name": str, "CreationDateTime": datetime}, total=False
 )
 
+SessionMappingDetailTypeDef = TypedDict(
+    "SessionMappingDetailTypeDef",
+    {
+        "StudioId": str,
+        "IdentityId": str,
+        "IdentityName": str,
+        "IdentityType": Literal["USER", "GROUP"],
+        "SessionPolicyArn": str,
+        "CreationTime": datetime,
+        "LastModifiedTime": datetime,
+    },
+    total=False,
+)
+
+SessionMappingSummaryTypeDef = TypedDict(
+    "SessionMappingSummaryTypeDef",
+    {
+        "StudioId": str,
+        "IdentityId": str,
+        "IdentityName": str,
+        "IdentityType": Literal["USER", "GROUP"],
+        "SessionPolicyArn": str,
+        "CreationTime": datetime,
+    },
+    total=False,
+)
+
 ShrinkPolicyTypeDef = TypedDict(
     "ShrinkPolicyTypeDef",
     {"DecommissionTimeout": int, "InstanceResizePolicy": "InstanceResizePolicyTypeDef"},
@@ -1205,6 +1241,41 @@ StepTypeDef = TypedDict(
     total=False,
 )
 
+StudioSummaryTypeDef = TypedDict(
+    "StudioSummaryTypeDef",
+    {
+        "StudioId": str,
+        "Name": str,
+        "VpcId": str,
+        "Description": str,
+        "Url": str,
+        "CreationTime": datetime,
+    },
+    total=False,
+)
+
+StudioTypeDef = TypedDict(
+    "StudioTypeDef",
+    {
+        "StudioId": str,
+        "StudioArn": str,
+        "Name": str,
+        "Description": str,
+        "AuthMode": Literal["SSO", "IAM"],
+        "VpcId": str,
+        "SubnetIds": List[str],
+        "ServiceRole": str,
+        "UserRole": str,
+        "WorkspaceSecurityGroupId": str,
+        "EngineSecurityGroupId": str,
+        "Url": str,
+        "CreationTime": datetime,
+        "DefaultS3Location": str,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
 TagTypeDef = TypedDict("TagTypeDef", {"Key": str, "Value": str}, total=False)
 
 _RequiredVolumeSpecificationTypeDef = TypedDict(
@@ -1272,6 +1343,12 @@ class CreateSecurityConfigurationOutputTypeDef(
     pass
 
 
+CreateStudioOutputTypeDef = TypedDict(
+    "CreateStudioOutputTypeDef",
+    {"StudioId": str, "Url": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
 DescribeClusterOutputTypeDef = TypedDict(
     "DescribeClusterOutputTypeDef",
     {"Cluster": "ClusterTypeDef", "ResponseMetadata": "ResponseMetadata"},
@@ -1307,6 +1384,12 @@ DescribeStepOutputTypeDef = TypedDict(
     total=False,
 )
 
+DescribeStudioOutputTypeDef = TypedDict(
+    "DescribeStudioOutputTypeDef",
+    {"Studio": "StudioTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
 ConfigurationTypeDef = TypedDict(
     "ConfigurationTypeDef",
     {"Classification": str, "Configurations": List[Dict[str, Any]], "Properties": Dict[str, str]},
@@ -1337,6 +1420,12 @@ class GetBlockPublicAccessConfigurationOutputTypeDef(
 GetManagedScalingPolicyOutputTypeDef = TypedDict(
     "GetManagedScalingPolicyOutputTypeDef",
     {"ManagedScalingPolicy": "ManagedScalingPolicyTypeDef", "ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+GetStudioSessionMappingOutputTypeDef = TypedDict(
+    "GetStudioSessionMappingOutputTypeDef",
+    {"SessionMapping": "SessionMappingDetailTypeDef", "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
@@ -1470,6 +1559,26 @@ ListSecurityConfigurationsOutputTypeDef = TypedDict(
 ListStepsOutputTypeDef = TypedDict(
     "ListStepsOutputTypeDef",
     {"Steps": List["StepSummaryTypeDef"], "Marker": str, "ResponseMetadata": "ResponseMetadata"},
+    total=False,
+)
+
+ListStudioSessionMappingsOutputTypeDef = TypedDict(
+    "ListStudioSessionMappingsOutputTypeDef",
+    {
+        "SessionMappings": List["SessionMappingSummaryTypeDef"],
+        "Marker": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
+    total=False,
+)
+
+ListStudiosOutputTypeDef = TypedDict(
+    "ListStudiosOutputTypeDef",
+    {
+        "Studios": List["StudioSummaryTypeDef"],
+        "Marker": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
     total=False,
 )
 

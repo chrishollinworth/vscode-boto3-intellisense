@@ -52,20 +52,20 @@ __all__ = (
 
 class DescribeComputeEnvironmentsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeComputeEnvironments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/batch.html#Batch.Paginator.DescribeComputeEnvironments)
+    [Paginator.DescribeComputeEnvironments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/batch.html#Batch.Paginator.DescribeComputeEnvironments)
     """
 
     def paginate(
         self, computeEnvironments: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeComputeEnvironmentsResponseTypeDef]:
         """
-        [DescribeComputeEnvironments.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/batch.html#Batch.Paginator.DescribeComputeEnvironments.paginate)
+        [DescribeComputeEnvironments.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/batch.html#Batch.Paginator.DescribeComputeEnvironments.paginate)
         """
 
 
 class DescribeJobDefinitionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeJobDefinitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/batch.html#Batch.Paginator.DescribeJobDefinitions)
+    [Paginator.DescribeJobDefinitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/batch.html#Batch.Paginator.DescribeJobDefinitions)
     """
 
     def paginate(
@@ -76,26 +76,26 @@ class DescribeJobDefinitionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeJobDefinitionsResponseTypeDef]:
         """
-        [DescribeJobDefinitions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/batch.html#Batch.Paginator.DescribeJobDefinitions.paginate)
+        [DescribeJobDefinitions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/batch.html#Batch.Paginator.DescribeJobDefinitions.paginate)
         """
 
 
 class DescribeJobQueuesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeJobQueues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/batch.html#Batch.Paginator.DescribeJobQueues)
+    [Paginator.DescribeJobQueues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/batch.html#Batch.Paginator.DescribeJobQueues)
     """
 
     def paginate(
         self, jobQueues: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeJobQueuesResponseTypeDef]:
         """
-        [DescribeJobQueues.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/batch.html#Batch.Paginator.DescribeJobQueues.paginate)
+        [DescribeJobQueues.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/batch.html#Batch.Paginator.DescribeJobQueues.paginate)
         """
 
 
 class ListJobsPaginator(Boto3Paginator):
     """
-    [Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/batch.html#Batch.Paginator.ListJobs)
+    [Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/batch.html#Batch.Paginator.ListJobs)
     """
 
     def paginate(
@@ -109,5 +109,5 @@ class ListJobsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListJobsResponseTypeDef]:
         """
-        [ListJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/batch.html#Batch.Paginator.ListJobs.paginate)
+        [ListJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/batch.html#Batch.Paginator.ListJobs.paginate)
         """

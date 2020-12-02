@@ -39,7 +39,7 @@ class Exceptions:
 
 class PersonalizeRuntimeClient:
     """
-    [PersonalizeRuntime.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/personalize-runtime.html#PersonalizeRuntime.Client)
+    [PersonalizeRuntime.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize-runtime.html#PersonalizeRuntime.Client)
     """
 
     meta: ClientMeta
@@ -47,7 +47,7 @@ class PersonalizeRuntimeClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/personalize-runtime.html#PersonalizeRuntime.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize-runtime.html#PersonalizeRuntime.Client.can_paginate)
         """
 
     def generate_presigned_url(
@@ -58,7 +58,7 @@ class PersonalizeRuntimeClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/personalize-runtime.html#PersonalizeRuntime.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize-runtime.html#PersonalizeRuntime.Client.generate_presigned_url)
         """
 
     def get_personalized_ranking(
@@ -71,7 +71,7 @@ class PersonalizeRuntimeClient:
         filterValues: Dict[str, str] = None,
     ) -> GetPersonalizedRankingResponseTypeDef:
         """
-        [Client.get_personalized_ranking documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/personalize-runtime.html#PersonalizeRuntime.Client.get_personalized_ranking)
+        [Client.get_personalized_ranking documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize-runtime.html#PersonalizeRuntime.Client.get_personalized_ranking)
         """
 
     def get_recommendations(
@@ -85,5 +85,5 @@ class PersonalizeRuntimeClient:
         filterValues: Dict[str, str] = None,
     ) -> GetRecommendationsResponseTypeDef:
         """
-        [Client.get_recommendations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/personalize-runtime.html#PersonalizeRuntime.Client.get_recommendations)
+        [Client.get_recommendations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize-runtime.html#PersonalizeRuntime.Client.get_recommendations)
         """

@@ -54,6 +54,7 @@ __all__ = (
     "EntityTypeDef",
     "EntityTypesEvaluationMetricsTypeDef",
     "EntityTypesListItemTypeDef",
+    "EventsDetectionJobPropertiesTypeDef",
     "InputDataConfigTypeDef",
     "KeyPhraseTypeDef",
     "KeyPhrasesDetectionJobPropertiesTypeDef",
@@ -84,6 +85,7 @@ __all__ = (
     "DescribeEndpointResponseTypeDef",
     "DescribeEntitiesDetectionJobResponseTypeDef",
     "DescribeEntityRecognizerResponseTypeDef",
+    "DescribeEventsDetectionJobResponseTypeDef",
     "DescribeKeyPhrasesDetectionJobResponseTypeDef",
     "DescribePiiEntitiesDetectionJobResponseTypeDef",
     "DescribeSentimentDetectionJobResponseTypeDef",
@@ -100,6 +102,7 @@ __all__ = (
     "EndpointFilterTypeDef",
     "EntitiesDetectionJobFilterTypeDef",
     "EntityRecognizerFilterTypeDef",
+    "EventsDetectionJobFilterTypeDef",
     "KeyPhrasesDetectionJobFilterTypeDef",
     "ListDocumentClassificationJobsResponseTypeDef",
     "ListDocumentClassifiersResponseTypeDef",
@@ -107,6 +110,7 @@ __all__ = (
     "ListEndpointsResponseTypeDef",
     "ListEntitiesDetectionJobsResponseTypeDef",
     "ListEntityRecognizersResponseTypeDef",
+    "ListEventsDetectionJobsResponseTypeDef",
     "ListKeyPhrasesDetectionJobsResponseTypeDef",
     "ListPiiEntitiesDetectionJobsResponseTypeDef",
     "ListSentimentDetectionJobsResponseTypeDef",
@@ -118,12 +122,14 @@ __all__ = (
     "StartDocumentClassificationJobResponseTypeDef",
     "StartDominantLanguageDetectionJobResponseTypeDef",
     "StartEntitiesDetectionJobResponseTypeDef",
+    "StartEventsDetectionJobResponseTypeDef",
     "StartKeyPhrasesDetectionJobResponseTypeDef",
     "StartPiiEntitiesDetectionJobResponseTypeDef",
     "StartSentimentDetectionJobResponseTypeDef",
     "StartTopicsDetectionJobResponseTypeDef",
     "StopDominantLanguageDetectionJobResponseTypeDef",
     "StopEntitiesDetectionJobResponseTypeDef",
+    "StopEventsDetectionJobResponseTypeDef",
     "StopKeyPhrasesDetectionJobResponseTypeDef",
     "StopPiiEntitiesDetectionJobResponseTypeDef",
     "StopSentimentDetectionJobResponseTypeDef",
@@ -436,6 +442,28 @@ EntityTypesEvaluationMetricsTypeDef = TypedDict(
 )
 
 EntityTypesListItemTypeDef = TypedDict("EntityTypesListItemTypeDef", {"Type": str})
+
+EventsDetectionJobPropertiesTypeDef = TypedDict(
+    "EventsDetectionJobPropertiesTypeDef",
+    {
+        "JobId": str,
+        "JobName": str,
+        "JobStatus": Literal[
+            "SUBMITTED", "IN_PROGRESS", "COMPLETED", "FAILED", "STOP_REQUESTED", "STOPPED"
+        ],
+        "Message": str,
+        "SubmitTime": datetime,
+        "EndTime": datetime,
+        "InputDataConfig": "InputDataConfigTypeDef",
+        "OutputDataConfig": "OutputDataConfigTypeDef",
+        "LanguageCode": Literal[
+            "en", "es", "fr", "de", "it", "pt", "ar", "hi", "ja", "ko", "zh", "zh-TW"
+        ],
+        "DataAccessRoleArn": str,
+        "TargetEventTypes": List[str],
+    },
+    total=False,
+)
 
 _RequiredInputDataConfigTypeDef = TypedDict("_RequiredInputDataConfigTypeDef", {"S3Uri": str})
 _OptionalInputDataConfigTypeDef = TypedDict(
@@ -792,6 +820,12 @@ DescribeEntityRecognizerResponseTypeDef = TypedDict(
     total=False,
 )
 
+DescribeEventsDetectionJobResponseTypeDef = TypedDict(
+    "DescribeEventsDetectionJobResponseTypeDef",
+    {"EventsDetectionJobProperties": "EventsDetectionJobPropertiesTypeDef"},
+    total=False,
+)
+
 DescribeKeyPhrasesDetectionJobResponseTypeDef = TypedDict(
     "DescribeKeyPhrasesDetectionJobResponseTypeDef",
     {"KeyPhrasesDetectionJobProperties": "KeyPhrasesDetectionJobPropertiesTypeDef"},
@@ -921,6 +955,19 @@ EntityRecognizerFilterTypeDef = TypedDict(
     total=False,
 )
 
+EventsDetectionJobFilterTypeDef = TypedDict(
+    "EventsDetectionJobFilterTypeDef",
+    {
+        "JobName": str,
+        "JobStatus": Literal[
+            "SUBMITTED", "IN_PROGRESS", "COMPLETED", "FAILED", "STOP_REQUESTED", "STOPPED"
+        ],
+        "SubmitTimeBefore": datetime,
+        "SubmitTimeAfter": datetime,
+    },
+    total=False,
+)
+
 KeyPhrasesDetectionJobFilterTypeDef = TypedDict(
     "KeyPhrasesDetectionJobFilterTypeDef",
     {
@@ -983,6 +1030,15 @@ ListEntitiesDetectionJobsResponseTypeDef = TypedDict(
 ListEntityRecognizersResponseTypeDef = TypedDict(
     "ListEntityRecognizersResponseTypeDef",
     {"EntityRecognizerPropertiesList": List["EntityRecognizerPropertiesTypeDef"], "NextToken": str},
+    total=False,
+)
+
+ListEventsDetectionJobsResponseTypeDef = TypedDict(
+    "ListEventsDetectionJobsResponseTypeDef",
+    {
+        "EventsDetectionJobPropertiesList": List["EventsDetectionJobPropertiesTypeDef"],
+        "NextToken": str,
+    },
     total=False,
 )
 
@@ -1091,6 +1147,17 @@ StartEntitiesDetectionJobResponseTypeDef = TypedDict(
     total=False,
 )
 
+StartEventsDetectionJobResponseTypeDef = TypedDict(
+    "StartEventsDetectionJobResponseTypeDef",
+    {
+        "JobId": str,
+        "JobStatus": Literal[
+            "SUBMITTED", "IN_PROGRESS", "COMPLETED", "FAILED", "STOP_REQUESTED", "STOPPED"
+        ],
+    },
+    total=False,
+)
+
 StartKeyPhrasesDetectionJobResponseTypeDef = TypedDict(
     "StartKeyPhrasesDetectionJobResponseTypeDef",
     {
@@ -1148,6 +1215,17 @@ StopDominantLanguageDetectionJobResponseTypeDef = TypedDict(
 
 StopEntitiesDetectionJobResponseTypeDef = TypedDict(
     "StopEntitiesDetectionJobResponseTypeDef",
+    {
+        "JobId": str,
+        "JobStatus": Literal[
+            "SUBMITTED", "IN_PROGRESS", "COMPLETED", "FAILED", "STOP_REQUESTED", "STOPPED"
+        ],
+    },
+    total=False,
+)
+
+StopEventsDetectionJobResponseTypeDef = TypedDict(
+    "StopEventsDetectionJobResponseTypeDef",
     {
         "JobId": str,
         "JobStatus": Literal[

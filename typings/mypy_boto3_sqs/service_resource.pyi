@@ -51,7 +51,7 @@ __all__ = (
 
 class ServiceResourceQueuesCollection(ResourceCollection):
     """
-    [ServiceResource.queues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.ServiceResource.queues)
+    [ServiceResource.queues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sqs.html#SQS.ServiceResource.queues)
     """
 
     def all(self) -> "ServiceResourceQueuesCollection":
@@ -77,7 +77,7 @@ class ServiceResourceQueuesCollection(ResourceCollection):
 
 class QueueDeadLetterSourceQueuesCollection(ResourceCollection):
     """
-    [Queue.dead_letter_source_queues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Queue.dead_letter_source_queues)
+    [Queue.dead_letter_source_queues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sqs.html#SQS.Queue.dead_letter_source_queues)
     """
 
     def all(self) -> "QueueDeadLetterSourceQueuesCollection":
@@ -103,7 +103,7 @@ class QueueDeadLetterSourceQueuesCollection(ResourceCollection):
 
 class Message(Boto3ServiceResource):
     """
-    [Message documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.ServiceResource.Message)
+    [Message documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sqs.html#SQS.ServiceResource.Message)
     """
 
     message_id: str
@@ -117,22 +117,22 @@ class Message(Boto3ServiceResource):
 
     def Queue(self) -> "_Queue":
         """
-        [Message.Queue documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Message.Queue)
+        [Message.Queue documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sqs.html#SQS.Message.Queue)
         """
 
     def change_visibility(self, VisibilityTimeout: int) -> None:
         """
-        [Message.change_visibility documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Message.change_visibility)
+        [Message.change_visibility documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sqs.html#SQS.Message.change_visibility)
         """
 
     def delete(self) -> None:
         """
-        [Message.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Message.delete)
+        [Message.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sqs.html#SQS.Message.delete)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [Message.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Message.get_available_subresources)
+        [Message.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sqs.html#SQS.Message.get_available_subresources)
         """
 
 
@@ -141,7 +141,7 @@ _Message = Message
 
 class Queue(Boto3ServiceResource):
     """
-    [Queue documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.ServiceResource.Queue)
+    [Queue documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sqs.html#SQS.ServiceResource.Queue)
     """
 
     attributes: Dict[str, Any]
@@ -150,46 +150,46 @@ class Queue(Boto3ServiceResource):
 
     def Message(self, receipt_handle: str) -> _Message:
         """
-        [Queue.Message documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Queue.Message)
+        [Queue.Message documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sqs.html#SQS.Queue.Message)
         """
 
     def add_permission(self, Label: str, AWSAccountIds: List[str], Actions: List[str]) -> None:
         """
-        [Queue.add_permission documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Queue.add_permission)
+        [Queue.add_permission documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sqs.html#SQS.Queue.add_permission)
         """
 
     def change_message_visibility_batch(
         self, Entries: List[ChangeMessageVisibilityBatchRequestEntryTypeDef]
     ) -> ChangeMessageVisibilityBatchResultTypeDef:
         """
-        [Queue.change_message_visibility_batch documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Queue.change_message_visibility_batch)
+        [Queue.change_message_visibility_batch documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sqs.html#SQS.Queue.change_message_visibility_batch)
         """
 
     def delete(self) -> None:
         """
-        [Queue.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Queue.delete)
+        [Queue.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sqs.html#SQS.Queue.delete)
         """
 
     def delete_messages(
         self, Entries: List[DeleteMessageBatchRequestEntryTypeDef]
     ) -> DeleteMessageBatchResultTypeDef:
         """
-        [Queue.delete_messages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Queue.delete_messages)
+        [Queue.delete_messages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sqs.html#SQS.Queue.delete_messages)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [Queue.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Queue.get_available_subresources)
+        [Queue.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sqs.html#SQS.Queue.get_available_subresources)
         """
 
     def load(self) -> None:
         """
-        [Queue.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Queue.load)
+        [Queue.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sqs.html#SQS.Queue.load)
         """
 
     def purge(self) -> None:
         """
-        [Queue.purge documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Queue.purge)
+        [Queue.purge documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sqs.html#SQS.Queue.purge)
         """
 
     def receive_messages(
@@ -223,17 +223,17 @@ class Queue(Boto3ServiceResource):
         ReceiveRequestAttemptId: str = None,
     ) -> List[_Message]:
         """
-        [Queue.receive_messages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Queue.receive_messages)
+        [Queue.receive_messages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sqs.html#SQS.Queue.receive_messages)
         """
 
     def reload(self) -> None:
         """
-        [Queue.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Queue.reload)
+        [Queue.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sqs.html#SQS.Queue.reload)
         """
 
     def remove_permission(self, Label: str) -> None:
         """
-        [Queue.remove_permission documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Queue.remove_permission)
+        [Queue.remove_permission documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sqs.html#SQS.Queue.remove_permission)
         """
 
     def send_message(
@@ -248,14 +248,14 @@ class Queue(Boto3ServiceResource):
         MessageGroupId: str = None,
     ) -> SendMessageResultTypeDef:
         """
-        [Queue.send_message documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Queue.send_message)
+        [Queue.send_message documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sqs.html#SQS.Queue.send_message)
         """
 
     def send_messages(
         self, Entries: List[SendMessageBatchRequestEntryTypeDef]
     ) -> SendMessageBatchResultTypeDef:
         """
-        [Queue.send_messages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Queue.send_messages)
+        [Queue.send_messages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sqs.html#SQS.Queue.send_messages)
         """
 
     def set_attributes(
@@ -285,7 +285,7 @@ class Queue(Boto3ServiceResource):
         ],
     ) -> None:
         """
-        [Queue.set_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.Queue.set_attributes)
+        [Queue.set_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sqs.html#SQS.Queue.set_attributes)
         """
 
 
@@ -294,19 +294,19 @@ _Queue = Queue
 
 class SQSServiceResource(Boto3ServiceResource):
     """
-    [SQS.ServiceResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.ServiceResource)
+    [SQS.ServiceResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sqs.html#SQS.ServiceResource)
     """
 
     queues: ServiceResourceQueuesCollection
 
     def Message(self, queue_url: str, receipt_handle: str) -> _Message:
         """
-        [ServiceResource.Message documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.ServiceResource.Message)
+        [ServiceResource.Message documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sqs.html#SQS.ServiceResource.Message)
         """
 
     def Queue(self, url: str) -> _Queue:
         """
-        [ServiceResource.Queue documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.ServiceResource.Queue)
+        [ServiceResource.Queue documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sqs.html#SQS.ServiceResource.Queue)
         """
 
     def create_queue(
@@ -338,15 +338,15 @@ class SQSServiceResource(Boto3ServiceResource):
         tags: Dict[str, str] = None,
     ) -> _Queue:
         """
-        [ServiceResource.create_queue documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.ServiceResource.create_queue)
+        [ServiceResource.create_queue documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sqs.html#SQS.ServiceResource.create_queue)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [ServiceResource.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.ServiceResource.get_available_subresources)
+        [ServiceResource.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sqs.html#SQS.ServiceResource.get_available_subresources)
         """
 
     def get_queue_by_name(self, QueueName: str, QueueOwnerAWSAccountId: str = None) -> _Queue:
         """
-        [ServiceResource.get_queue_by_name documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/sqs.html#SQS.ServiceResource.get_queue_by_name)
+        [ServiceResource.get_queue_by_name documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sqs.html#SQS.ServiceResource.get_queue_by_name)
         """

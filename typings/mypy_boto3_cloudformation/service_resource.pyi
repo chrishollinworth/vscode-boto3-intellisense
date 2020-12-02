@@ -52,7 +52,7 @@ __all__ = (
 
 class ServiceResourceStacksCollection(ResourceCollection):
     """
-    [ServiceResource.stacks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.ServiceResource.stacks)
+    [ServiceResource.stacks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudformation.html#CloudFormation.ServiceResource.stacks)
     """
 
     def all(self) -> "ServiceResourceStacksCollection":
@@ -78,7 +78,7 @@ class ServiceResourceStacksCollection(ResourceCollection):
 
 class StackEventsCollection(ResourceCollection):
     """
-    [Stack.events documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.Stack.events)
+    [Stack.events documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudformation.html#CloudFormation.Stack.events)
     """
 
     def all(self) -> "StackEventsCollection":
@@ -104,7 +104,7 @@ class StackEventsCollection(ResourceCollection):
 
 class StackResourceSummariesCollection(ResourceCollection):
     """
-    [Stack.resource_summaries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.Stack.resource_summaries)
+    [Stack.resource_summaries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudformation.html#CloudFormation.Stack.resource_summaries)
     """
 
     def all(self) -> "StackResourceSummariesCollection":
@@ -128,7 +128,7 @@ class StackResourceSummariesCollection(ResourceCollection):
 
 class Event(Boto3ServiceResource):
     """
-    [Event documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.ServiceResource.Event)
+    [Event documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudformation.html#CloudFormation.ServiceResource.Event)
     """
 
     stack_id: str
@@ -146,7 +146,7 @@ class Event(Boto3ServiceResource):
 
     def get_available_subresources(self) -> List[str]:
         """
-        [Event.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.Event.get_available_subresources)
+        [Event.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudformation.html#CloudFormation.Event.get_available_subresources)
         """
 
 
@@ -155,7 +155,7 @@ _Event = Event
 
 class Stack(Boto3ServiceResource):
     """
-    [Stack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.ServiceResource.Stack)
+    [Stack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudformation.html#CloudFormation.ServiceResource.Stack)
     """
 
     stack_id: str
@@ -186,34 +186,34 @@ class Stack(Boto3ServiceResource):
 
     def Resource(self, logical_id: str) -> "_StackResource":
         """
-        [Stack.Resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.Stack.Resource)
+        [Stack.Resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudformation.html#CloudFormation.Stack.Resource)
         """
 
     def cancel_update(self, ClientRequestToken: str = None) -> None:
         """
-        [Stack.cancel_update documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.Stack.cancel_update)
+        [Stack.cancel_update documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudformation.html#CloudFormation.Stack.cancel_update)
         """
 
     def delete(
         self, RetainResources: List[str] = None, RoleARN: str = None, ClientRequestToken: str = None
     ) -> None:
         """
-        [Stack.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.Stack.delete)
+        [Stack.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudformation.html#CloudFormation.Stack.delete)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [Stack.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.Stack.get_available_subresources)
+        [Stack.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudformation.html#CloudFormation.Stack.get_available_subresources)
         """
 
     def load(self) -> None:
         """
-        [Stack.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.Stack.load)
+        [Stack.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudformation.html#CloudFormation.Stack.load)
         """
 
     def reload(self) -> None:
         """
-        [Stack.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.Stack.reload)
+        [Stack.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudformation.html#CloudFormation.Stack.reload)
         """
 
     def update(
@@ -237,7 +237,7 @@ class Stack(Boto3ServiceResource):
         ClientRequestToken: str = None,
     ) -> UpdateStackOutputTypeDef:
         """
-        [Stack.update documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.Stack.update)
+        [Stack.update documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudformation.html#CloudFormation.Stack.update)
         """
 
 
@@ -246,7 +246,7 @@ _Stack = Stack
 
 class StackResource(Boto3ServiceResource):
     """
-    [StackResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.ServiceResource.StackResource)
+    [StackResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudformation.html#CloudFormation.ServiceResource.StackResource)
     """
 
     stack_id: str
@@ -259,27 +259,28 @@ class StackResource(Boto3ServiceResource):
     description: str
     metadata: str
     drift_information: Dict[str, Any]
+    module_info: Dict[str, Any]
     stack_name: str
     logical_id: str
 
     def Stack(self) -> _Stack:
         """
-        [StackResource.Stack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.StackResource.Stack)
+        [StackResource.Stack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudformation.html#CloudFormation.StackResource.Stack)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [StackResource.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.StackResource.get_available_subresources)
+        [StackResource.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudformation.html#CloudFormation.StackResource.get_available_subresources)
         """
 
     def load(self) -> None:
         """
-        [StackResource.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.StackResource.load)
+        [StackResource.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudformation.html#CloudFormation.StackResource.load)
         """
 
     def reload(self) -> None:
         """
-        [StackResource.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.StackResource.reload)
+        [StackResource.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudformation.html#CloudFormation.StackResource.reload)
         """
 
 
@@ -288,7 +289,7 @@ _StackResource = StackResource
 
 class StackResourceSummary(Boto3ServiceResource):
     """
-    [StackResourceSummary documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.ServiceResource.StackResourceSummary)
+    [StackResourceSummary documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudformation.html#CloudFormation.ServiceResource.StackResourceSummary)
     """
 
     logical_resource_id: str
@@ -298,17 +299,18 @@ class StackResourceSummary(Boto3ServiceResource):
     resource_status: str
     resource_status_reason: str
     drift_information: Dict[str, Any]
+    module_info: Dict[str, Any]
     stack_name: str
     logical_id: str
 
     def Resource(self) -> _StackResource:
         """
-        [StackResourceSummary.Resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.StackResourceSummary.Resource)
+        [StackResourceSummary.Resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudformation.html#CloudFormation.StackResourceSummary.Resource)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [StackResourceSummary.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.StackResourceSummary.get_available_subresources)
+        [StackResourceSummary.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudformation.html#CloudFormation.StackResourceSummary.get_available_subresources)
         """
 
 
@@ -317,29 +319,29 @@ _StackResourceSummary = StackResourceSummary
 
 class CloudFormationServiceResource(Boto3ServiceResource):
     """
-    [CloudFormation.ServiceResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.ServiceResource)
+    [CloudFormation.ServiceResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudformation.html#CloudFormation.ServiceResource)
     """
 
     stacks: ServiceResourceStacksCollection
 
     def Event(self, id: str) -> _Event:
         """
-        [ServiceResource.Event documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.ServiceResource.Event)
+        [ServiceResource.Event documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudformation.html#CloudFormation.ServiceResource.Event)
         """
 
     def Stack(self, name: str) -> _Stack:
         """
-        [ServiceResource.Stack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.ServiceResource.Stack)
+        [ServiceResource.Stack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudformation.html#CloudFormation.ServiceResource.Stack)
         """
 
     def StackResource(self, stack_name: str, logical_id: str) -> _StackResource:
         """
-        [ServiceResource.StackResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.ServiceResource.StackResource)
+        [ServiceResource.StackResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudformation.html#CloudFormation.ServiceResource.StackResource)
         """
 
     def StackResourceSummary(self, stack_name: str, logical_id: str) -> _StackResourceSummary:
         """
-        [ServiceResource.StackResourceSummary documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.ServiceResource.StackResourceSummary)
+        [ServiceResource.StackResourceSummary documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudformation.html#CloudFormation.ServiceResource.StackResourceSummary)
         """
 
     def create_stack(
@@ -365,10 +367,10 @@ class CloudFormationServiceResource(Boto3ServiceResource):
         EnableTerminationProtection: bool = None,
     ) -> _Stack:
         """
-        [ServiceResource.create_stack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.ServiceResource.create_stack)
+        [ServiceResource.create_stack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudformation.html#CloudFormation.ServiceResource.create_stack)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [ServiceResource.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/cloudformation.html#CloudFormation.ServiceResource.get_available_subresources)
+        [ServiceResource.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudformation.html#CloudFormation.ServiceResource.get_available_subresources)
         """

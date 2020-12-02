@@ -13,6 +13,7 @@ Usage::
         ListDatasetsPaginator,
         ListForecastExportJobsPaginator,
         ListForecastsPaginator,
+        ListPredictorBacktestExportJobsPaginator,
         ListPredictorsPaginator,
     )
 
@@ -26,6 +27,7 @@ Usage::
     list_datasets_paginator: ListDatasetsPaginator = client.get_paginator("list_datasets")
     list_forecast_export_jobs_paginator: ListForecastExportJobsPaginator = client.get_paginator("list_forecast_export_jobs")
     list_forecasts_paginator: ListForecastsPaginator = client.get_paginator("list_forecasts")
+    list_predictor_backtest_export_jobs_paginator: ListPredictorBacktestExportJobsPaginator = client.get_paginator("list_predictor_backtest_export_jobs")
     list_predictors_paginator: ListPredictorsPaginator = client.get_paginator("list_predictors")
     ```
 """
@@ -36,6 +38,7 @@ from mypy_boto3_forecast.paginator import (
     ListDatasetsPaginator,
     ListForecastExportJobsPaginator,
     ListForecastsPaginator,
+    ListPredictorBacktestExportJobsPaginator,
     ListPredictorsPaginator,
 )
 
@@ -50,5 +53,6 @@ __all__ = (
     "ListDatasetsPaginator",
     "ListForecastExportJobsPaginator",
     "ListForecastsPaginator",
+    "ListPredictorBacktestExportJobsPaginator",
     "ListPredictorsPaginator",
 )

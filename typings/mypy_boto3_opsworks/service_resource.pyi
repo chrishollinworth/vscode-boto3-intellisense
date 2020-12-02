@@ -51,7 +51,7 @@ __all__ = (
 
 class ServiceResourceStacksCollection(ResourceCollection):
     """
-    [ServiceResource.stacks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworks.html#OpsWorks.ServiceResource.stacks)
+    [ServiceResource.stacks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.ServiceResource.stacks)
     """
 
     def all(self) -> "ServiceResourceStacksCollection":
@@ -77,7 +77,7 @@ class ServiceResourceStacksCollection(ResourceCollection):
 
 class StackLayersCollection(ResourceCollection):
     """
-    [Stack.layers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworks.html#OpsWorks.Stack.layers)
+    [Stack.layers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Stack.layers)
     """
 
     def all(self) -> "StackLayersCollection":
@@ -103,7 +103,7 @@ class StackLayersCollection(ResourceCollection):
 
 class Layer(Boto3ServiceResource):
     """
-    [Layer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworks.html#OpsWorks.ServiceResource.Layer)
+    [Layer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.ServiceResource.Layer)
     """
 
     arn: str
@@ -134,22 +134,22 @@ class Layer(Boto3ServiceResource):
 
     def delete(self) -> None:
         """
-        [Layer.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworks.html#OpsWorks.Layer.delete)
+        [Layer.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Layer.delete)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [Layer.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworks.html#OpsWorks.Layer.get_available_subresources)
+        [Layer.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Layer.get_available_subresources)
         """
 
     def load(self) -> None:
         """
-        [Layer.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworks.html#OpsWorks.Layer.load)
+        [Layer.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Layer.load)
         """
 
     def reload(self) -> None:
         """
-        [Layer.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworks.html#OpsWorks.Layer.reload)
+        [Layer.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Layer.reload)
         """
 
 
@@ -158,7 +158,7 @@ _Layer = Layer
 
 class StackSummary(Boto3ServiceResource):
     """
-    [StackSummary documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworks.html#OpsWorks.ServiceResource.StackSummary)
+    [StackSummary documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.ServiceResource.StackSummary)
     """
 
     name: str
@@ -170,22 +170,22 @@ class StackSummary(Boto3ServiceResource):
 
     def Stack(self) -> "_Stack":
         """
-        [StackSummary.Stack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworks.html#OpsWorks.StackSummary.Stack)
+        [StackSummary.Stack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.StackSummary.Stack)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [StackSummary.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworks.html#OpsWorks.StackSummary.get_available_subresources)
+        [StackSummary.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.StackSummary.get_available_subresources)
         """
 
     def load(self) -> None:
         """
-        [StackSummary.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworks.html#OpsWorks.StackSummary.load)
+        [StackSummary.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.StackSummary.load)
         """
 
     def reload(self) -> None:
         """
-        [StackSummary.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworks.html#OpsWorks.StackSummary.reload)
+        [StackSummary.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.StackSummary.reload)
         """
 
 
@@ -194,7 +194,7 @@ _StackSummary = StackSummary
 
 class Stack(Boto3ServiceResource):
     """
-    [Stack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworks.html#OpsWorks.ServiceResource.Stack)
+    [Stack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.ServiceResource.Stack)
     """
 
     stack_id: str
@@ -224,7 +224,7 @@ class Stack(Boto3ServiceResource):
 
     def Summary(self) -> _StackSummary:
         """
-        [Stack.Summary documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworks.html#OpsWorks.Stack.Summary)
+        [Stack.Summary documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Stack.Summary)
         """
 
     def create_layer(
@@ -290,27 +290,27 @@ class Stack(Boto3ServiceResource):
         LifecycleEventConfiguration: "LifecycleEventConfigurationTypeDef" = None,
     ) -> _Layer:
         """
-        [Stack.create_layer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworks.html#OpsWorks.Stack.create_layer)
+        [Stack.create_layer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Stack.create_layer)
         """
 
     def delete(self) -> None:
         """
-        [Stack.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworks.html#OpsWorks.Stack.delete)
+        [Stack.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Stack.delete)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [Stack.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworks.html#OpsWorks.Stack.get_available_subresources)
+        [Stack.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Stack.get_available_subresources)
         """
 
     def load(self) -> None:
         """
-        [Stack.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworks.html#OpsWorks.Stack.load)
+        [Stack.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Stack.load)
         """
 
     def reload(self) -> None:
         """
-        [Stack.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworks.html#OpsWorks.Stack.reload)
+        [Stack.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Stack.reload)
         """
 
 
@@ -319,24 +319,24 @@ _Stack = Stack
 
 class OpsWorksServiceResource(Boto3ServiceResource):
     """
-    [OpsWorks.ServiceResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworks.html#OpsWorks.ServiceResource)
+    [OpsWorks.ServiceResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.ServiceResource)
     """
 
     stacks: ServiceResourceStacksCollection
 
     def Layer(self, id: str) -> _Layer:
         """
-        [ServiceResource.Layer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworks.html#OpsWorks.ServiceResource.Layer)
+        [ServiceResource.Layer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.ServiceResource.Layer)
         """
 
     def Stack(self, id: str) -> _Stack:
         """
-        [ServiceResource.Stack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworks.html#OpsWorks.ServiceResource.Stack)
+        [ServiceResource.Stack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.ServiceResource.Stack)
         """
 
     def StackSummary(self, stack_id: str) -> _StackSummary:
         """
-        [ServiceResource.StackSummary documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworks.html#OpsWorks.ServiceResource.StackSummary)
+        [ServiceResource.StackSummary documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.ServiceResource.StackSummary)
         """
 
     def create_stack(
@@ -362,10 +362,10 @@ class OpsWorksServiceResource(Boto3ServiceResource):
         AgentVersion: str = None,
     ) -> _Stack:
         """
-        [ServiceResource.create_stack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworks.html#OpsWorks.ServiceResource.create_stack)
+        [ServiceResource.create_stack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.ServiceResource.create_stack)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [ServiceResource.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/opsworks.html#OpsWorks.ServiceResource.get_available_subresources)
+        [ServiceResource.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.ServiceResource.get_available_subresources)
         """

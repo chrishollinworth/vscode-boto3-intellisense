@@ -1,4 +1,5 @@
 import boto3
+from mypy_boto3_network_firewall.type_defs import FirewallPolicyTypeDef
 
 subnet1a = 'subnet-0fc4d2543f3dcc255'
 subnet1b = 'subnet-09b9d0dbca4bae8a5'
@@ -9,11 +10,57 @@ servicecatalog_client = boto3.client("servicecatalog")
 networkfirewall_client = boto3.client("network-firewall")
 lambda_client = boto3.client("lambda")
 
-
+lambda_client.
 servicecatalog_client.accept_portfolio_share()
+
+networkfirewall_client.create_firewall_policy(
+  FirewallPolicy= {'StatelessRuleGroupReferences': [
+            {
+                'ResourceArn': 'string',
+                'Priority': 123
+            },
+        ],
+        'StatelessDefaultActions': [
+            'string',
+        ],
+        'StatelessFragmentDefaultActions': [
+            'string',
+        ],
+        'StatelessCustomActions': [
+            {
+                'ActionName': 'string',
+                'ActionDefinition': {
+                    'PublishMetricAction': {
+                        'Dimensions': [
+                            {
+                                'Value': 'string'
+                            },
+                        ]
+                    }
+                }
+            },
+        ],
+        'StatefulRuleGroupReferences': [
+            {
+                'ResourceArn': 'string'
+            },
+        ]
+    },
+Description='string',
+    Tags=[
+        {
+            'Key': 'string',
+            'Value': 'string'
+        },
+    ],
+    DryRun=False,
+)
+
 networkfirewall_client.create_firewall(
   FirewallName="",
-  FirewallPolicyChangeProtection=False
+  FirewallPolicyChangeProtection=False,
+  FirewallPolicyArn=
+
 )
  
 lambda_client.create_function()

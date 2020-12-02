@@ -44,7 +44,7 @@ __all__ = ("ListCertificateAuthoritiesPaginator", "ListPermissionsPaginator", "L
 
 class ListCertificateAuthoritiesPaginator(Boto3Paginator):
     """
-    [Paginator.ListCertificateAuthorities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm-pca.html#ACMPCA.Paginator.ListCertificateAuthorities)
+    [Paginator.ListCertificateAuthorities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm-pca.html#ACMPCA.Paginator.ListCertificateAuthorities)
     """
 
     def paginate(
@@ -53,31 +53,31 @@ class ListCertificateAuthoritiesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListCertificateAuthoritiesResponseTypeDef]:
         """
-        [ListCertificateAuthorities.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm-pca.html#ACMPCA.Paginator.ListCertificateAuthorities.paginate)
+        [ListCertificateAuthorities.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm-pca.html#ACMPCA.Paginator.ListCertificateAuthorities.paginate)
         """
 
 
 class ListPermissionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListPermissions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm-pca.html#ACMPCA.Paginator.ListPermissions)
+    [Paginator.ListPermissions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm-pca.html#ACMPCA.Paginator.ListPermissions)
     """
 
     def paginate(
         self, CertificateAuthorityArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPermissionsResponseTypeDef]:
         """
-        [ListPermissions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm-pca.html#ACMPCA.Paginator.ListPermissions.paginate)
+        [ListPermissions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm-pca.html#ACMPCA.Paginator.ListPermissions.paginate)
         """
 
 
 class ListTagsPaginator(Boto3Paginator):
     """
-    [Paginator.ListTags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm-pca.html#ACMPCA.Paginator.ListTags)
+    [Paginator.ListTags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm-pca.html#ACMPCA.Paginator.ListTags)
     """
 
     def paginate(
         self, CertificateAuthorityArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTagsResponseTypeDef]:
         """
-        [ListTags.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/acm-pca.html#ACMPCA.Paginator.ListTags.paginate)
+        [ListTags.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm-pca.html#ACMPCA.Paginator.ListTags.paginate)
         """

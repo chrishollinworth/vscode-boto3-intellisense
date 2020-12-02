@@ -45,51 +45,51 @@ __all__ = (
 
 class ListFirewallPoliciesPaginator(Boto3Paginator):
     """
-    [Paginator.ListFirewallPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/network-firewall.html#NetworkFirewall.Paginator.ListFirewallPolicies)
+    [Paginator.ListFirewallPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/network-firewall.html#NetworkFirewall.Paginator.ListFirewallPolicies)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListFirewallPoliciesResponseTypeDef]:
         """
-        [ListFirewallPolicies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/network-firewall.html#NetworkFirewall.Paginator.ListFirewallPolicies.paginate)
+        [ListFirewallPolicies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/network-firewall.html#NetworkFirewall.Paginator.ListFirewallPolicies.paginate)
         """
 
 
 class ListFirewallsPaginator(Boto3Paginator):
     """
-    [Paginator.ListFirewalls documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/network-firewall.html#NetworkFirewall.Paginator.ListFirewalls)
+    [Paginator.ListFirewalls documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/network-firewall.html#NetworkFirewall.Paginator.ListFirewalls)
     """
 
     def paginate(
         self, VpcIds: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListFirewallsResponseTypeDef]:
         """
-        [ListFirewalls.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/network-firewall.html#NetworkFirewall.Paginator.ListFirewalls.paginate)
+        [ListFirewalls.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/network-firewall.html#NetworkFirewall.Paginator.ListFirewalls.paginate)
         """
 
 
 class ListRuleGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.ListRuleGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/network-firewall.html#NetworkFirewall.Paginator.ListRuleGroups)
+    [Paginator.ListRuleGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/network-firewall.html#NetworkFirewall.Paginator.ListRuleGroups)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRuleGroupsResponseTypeDef]:
         """
-        [ListRuleGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/network-firewall.html#NetworkFirewall.Paginator.ListRuleGroups.paginate)
+        [ListRuleGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/network-firewall.html#NetworkFirewall.Paginator.ListRuleGroups.paginate)
         """
 
 
 class ListTagsForResourcePaginator(Boto3Paginator):
     """
-    [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/network-firewall.html#NetworkFirewall.Paginator.ListTagsForResource)
+    [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/network-firewall.html#NetworkFirewall.Paginator.ListTagsForResource)
     """
 
     def paginate(
         self, ResourceArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTagsForResourceResponseTypeDef]:
         """
-        [ListTagsForResource.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/network-firewall.html#NetworkFirewall.Paginator.ListTagsForResource.paginate)
+        [ListTagsForResource.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/network-firewall.html#NetworkFirewall.Paginator.ListTagsForResource.paginate)
         """

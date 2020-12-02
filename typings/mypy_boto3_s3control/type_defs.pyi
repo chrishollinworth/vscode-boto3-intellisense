@@ -26,6 +26,11 @@ else:
 __all__ = (
     "AbortIncompleteMultipartUploadTypeDef",
     "AccessPointTypeDef",
+    "AccountLevelTypeDef",
+    "ActivityMetricsTypeDef",
+    "BucketLevelTypeDef",
+    "ExcludeTypeDef",
+    "IncludeTypeDef",
     "JobDescriptorTypeDef",
     "JobFailureTypeDef",
     "JobListDescriptorTypeDef",
@@ -40,14 +45,18 @@ __all__ = (
     "LifecycleRuleAndOperatorTypeDef",
     "LifecycleRuleFilterTypeDef",
     "LifecycleRuleTypeDef",
+    "ListStorageLensConfigurationEntryTypeDef",
     "NoncurrentVersionExpirationTypeDef",
     "NoncurrentVersionTransitionTypeDef",
     "PolicyStatusTypeDef",
+    "PrefixLevelStorageMetricsTypeDef",
+    "PrefixLevelTypeDef",
     "PublicAccessBlockConfigurationTypeDef",
     "RegionalBucketTypeDef",
     "ResponseMetadata",
     "S3AccessControlListTypeDef",
     "S3AccessControlPolicyTypeDef",
+    "S3BucketDestinationTypeDef",
     "S3CopyObjectOperationTypeDef",
     "S3GrantTypeDef",
     "S3GranteeTypeDef",
@@ -61,6 +70,13 @@ __all__ = (
     "S3SetObjectRetentionOperationTypeDef",
     "S3SetObjectTaggingOperationTypeDef",
     "S3TagTypeDef",
+    "SSEKMSTypeDef",
+    "SelectionCriteriaTypeDef",
+    "StorageLensAwsOrgTypeDef",
+    "StorageLensConfigurationTypeDef",
+    "StorageLensDataExportEncryptionTypeDef",
+    "StorageLensDataExportTypeDef",
+    "StorageLensTagTypeDef",
     "TransitionTypeDef",
     "VpcConfigurationTypeDef",
     "CreateAccessPointResultTypeDef",
@@ -77,10 +93,13 @@ __all__ = (
     "GetBucketTaggingResultTypeDef",
     "GetJobTaggingResultTypeDef",
     "GetPublicAccessBlockOutputTypeDef",
+    "GetStorageLensConfigurationResultTypeDef",
+    "GetStorageLensConfigurationTaggingResultTypeDef",
     "LifecycleConfigurationTypeDef",
     "ListAccessPointsResultTypeDef",
     "ListJobsResultTypeDef",
     "ListRegionalBucketsResultTypeDef",
+    "ListStorageLensConfigurationsResultTypeDef",
     "TaggingTypeDef",
     "UpdateJobPriorityResultTypeDef",
     "UpdateJobStatusResultTypeDef",
@@ -104,6 +123,34 @@ _OptionalAccessPointTypeDef = TypedDict(
 class AccessPointTypeDef(_RequiredAccessPointTypeDef, _OptionalAccessPointTypeDef):
     pass
 
+
+_RequiredAccountLevelTypeDef = TypedDict(
+    "_RequiredAccountLevelTypeDef", {"BucketLevel": "BucketLevelTypeDef"}
+)
+_OptionalAccountLevelTypeDef = TypedDict(
+    "_OptionalAccountLevelTypeDef", {"ActivityMetrics": "ActivityMetricsTypeDef"}, total=False
+)
+
+
+class AccountLevelTypeDef(_RequiredAccountLevelTypeDef, _OptionalAccountLevelTypeDef):
+    pass
+
+
+ActivityMetricsTypeDef = TypedDict("ActivityMetricsTypeDef", {"IsEnabled": bool}, total=False)
+
+BucketLevelTypeDef = TypedDict(
+    "BucketLevelTypeDef",
+    {"ActivityMetrics": "ActivityMetricsTypeDef", "PrefixLevel": "PrefixLevelTypeDef"},
+    total=False,
+)
+
+ExcludeTypeDef = TypedDict(
+    "ExcludeTypeDef", {"Buckets": List[str], "Regions": List[str]}, total=False
+)
+
+IncludeTypeDef = TypedDict(
+    "IncludeTypeDef", {"Buckets": List[str], "Regions": List[str]}, total=False
+)
 
 JobDescriptorTypeDef = TypedDict(
     "JobDescriptorTypeDef",
@@ -297,6 +344,22 @@ class LifecycleRuleTypeDef(_RequiredLifecycleRuleTypeDef, _OptionalLifecycleRule
     pass
 
 
+_RequiredListStorageLensConfigurationEntryTypeDef = TypedDict(
+    "_RequiredListStorageLensConfigurationEntryTypeDef",
+    {"Id": str, "StorageLensArn": str, "HomeRegion": str},
+)
+_OptionalListStorageLensConfigurationEntryTypeDef = TypedDict(
+    "_OptionalListStorageLensConfigurationEntryTypeDef", {"IsEnabled": bool}, total=False
+)
+
+
+class ListStorageLensConfigurationEntryTypeDef(
+    _RequiredListStorageLensConfigurationEntryTypeDef,
+    _OptionalListStorageLensConfigurationEntryTypeDef,
+):
+    pass
+
+
 NoncurrentVersionExpirationTypeDef = TypedDict(
     "NoncurrentVersionExpirationTypeDef", {"NoncurrentDays": int}, total=False
 )
@@ -313,6 +376,16 @@ NoncurrentVersionTransitionTypeDef = TypedDict(
 )
 
 PolicyStatusTypeDef = TypedDict("PolicyStatusTypeDef", {"IsPublic": bool}, total=False)
+
+PrefixLevelStorageMetricsTypeDef = TypedDict(
+    "PrefixLevelStorageMetricsTypeDef",
+    {"IsEnabled": bool, "SelectionCriteria": "SelectionCriteriaTypeDef"},
+    total=False,
+)
+
+PrefixLevelTypeDef = TypedDict(
+    "PrefixLevelTypeDef", {"StorageMetrics": "PrefixLevelStorageMetricsTypeDef"}
+)
 
 PublicAccessBlockConfigurationTypeDef = TypedDict(
     "PublicAccessBlockConfigurationTypeDef",
@@ -379,6 +452,28 @@ S3AccessControlPolicyTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredS3BucketDestinationTypeDef = TypedDict(
+    "_RequiredS3BucketDestinationTypeDef",
+    {
+        "Format": Literal["CSV", "Parquet"],
+        "OutputSchemaVersion": Literal["V_1"],
+        "AccountId": str,
+        "Arn": str,
+    },
+)
+_OptionalS3BucketDestinationTypeDef = TypedDict(
+    "_OptionalS3BucketDestinationTypeDef",
+    {"Prefix": str, "Encryption": "StorageLensDataExportEncryptionTypeDef"},
+    total=False,
+)
+
+
+class S3BucketDestinationTypeDef(
+    _RequiredS3BucketDestinationTypeDef, _OptionalS3BucketDestinationTypeDef
+):
+    pass
+
 
 S3CopyObjectOperationTypeDef = TypedDict(
     "S3CopyObjectOperationTypeDef",
@@ -503,6 +598,51 @@ S3SetObjectTaggingOperationTypeDef = TypedDict(
 
 S3TagTypeDef = TypedDict("S3TagTypeDef", {"Key": str, "Value": str})
 
+SSEKMSTypeDef = TypedDict("SSEKMSTypeDef", {"KeyId": str})
+
+SelectionCriteriaTypeDef = TypedDict(
+    "SelectionCriteriaTypeDef",
+    {"Delimiter": str, "MaxDepth": int, "MinStorageBytesPercentage": float},
+    total=False,
+)
+
+StorageLensAwsOrgTypeDef = TypedDict("StorageLensAwsOrgTypeDef", {"Arn": str})
+
+_RequiredStorageLensConfigurationTypeDef = TypedDict(
+    "_RequiredStorageLensConfigurationTypeDef",
+    {"Id": str, "AccountLevel": "AccountLevelTypeDef", "IsEnabled": bool},
+)
+_OptionalStorageLensConfigurationTypeDef = TypedDict(
+    "_OptionalStorageLensConfigurationTypeDef",
+    {
+        "Include": "IncludeTypeDef",
+        "Exclude": "ExcludeTypeDef",
+        "DataExport": "StorageLensDataExportTypeDef",
+        "AwsOrg": "StorageLensAwsOrgTypeDef",
+        "StorageLensArn": str,
+    },
+    total=False,
+)
+
+
+class StorageLensConfigurationTypeDef(
+    _RequiredStorageLensConfigurationTypeDef, _OptionalStorageLensConfigurationTypeDef
+):
+    pass
+
+
+StorageLensDataExportEncryptionTypeDef = TypedDict(
+    "StorageLensDataExportEncryptionTypeDef",
+    {"SSES3": Dict[str, Any], "SSEKMS": "SSEKMSTypeDef"},
+    total=False,
+)
+
+StorageLensDataExportTypeDef = TypedDict(
+    "StorageLensDataExportTypeDef", {"S3BucketDestination": "S3BucketDestinationTypeDef"}
+)
+
+StorageLensTagTypeDef = TypedDict("StorageLensTagTypeDef", {"Key": str, "Value": str})
+
 TransitionTypeDef = TypedDict(
     "TransitionTypeDef",
     {
@@ -605,6 +745,18 @@ GetPublicAccessBlockOutputTypeDef = TypedDict(
     total=False,
 )
 
+GetStorageLensConfigurationResultTypeDef = TypedDict(
+    "GetStorageLensConfigurationResultTypeDef",
+    {"StorageLensConfiguration": "StorageLensConfigurationTypeDef"},
+    total=False,
+)
+
+GetStorageLensConfigurationTaggingResultTypeDef = TypedDict(
+    "GetStorageLensConfigurationTaggingResultTypeDef",
+    {"Tags": List["StorageLensTagTypeDef"]},
+    total=False,
+)
+
 LifecycleConfigurationTypeDef = TypedDict(
     "LifecycleConfigurationTypeDef", {"Rules": List["LifecycleRuleTypeDef"]}, total=False
 )
@@ -624,6 +776,15 @@ ListJobsResultTypeDef = TypedDict(
 ListRegionalBucketsResultTypeDef = TypedDict(
     "ListRegionalBucketsResultTypeDef",
     {"RegionalBucketList": List["RegionalBucketTypeDef"], "NextToken": str},
+    total=False,
+)
+
+ListStorageLensConfigurationsResultTypeDef = TypedDict(
+    "ListStorageLensConfigurationsResultTypeDef",
+    {
+        "NextToken": str,
+        "StorageLensConfigurationList": List["ListStorageLensConfigurationEntryTypeDef"],
+    },
     total=False,
 )
 

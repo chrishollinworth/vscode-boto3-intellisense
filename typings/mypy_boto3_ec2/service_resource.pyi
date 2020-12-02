@@ -174,7 +174,7 @@ __all__ = (
 
 class ServiceResourceClassicAddressesCollection(ResourceCollection):
     """
-    [ServiceResource.classic_addresses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.classic_addresses)
+    [ServiceResource.classic_addresses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.classic_addresses)
     """
 
     def all(self) -> "ServiceResourceClassicAddressesCollection":
@@ -204,7 +204,7 @@ class ServiceResourceClassicAddressesCollection(ResourceCollection):
 
 class ServiceResourceDhcpOptionsSetsCollection(ResourceCollection):
     """
-    [ServiceResource.dhcp_options_sets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.dhcp_options_sets)
+    [ServiceResource.dhcp_options_sets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.dhcp_options_sets)
     """
 
     def all(self) -> "ServiceResourceDhcpOptionsSetsCollection":
@@ -235,7 +235,7 @@ class ServiceResourceDhcpOptionsSetsCollection(ResourceCollection):
 
 class ServiceResourceImagesCollection(ResourceCollection):
     """
-    [ServiceResource.images documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.images)
+    [ServiceResource.images documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.images)
     """
 
     def all(self) -> "ServiceResourceImagesCollection":
@@ -266,7 +266,7 @@ class ServiceResourceImagesCollection(ResourceCollection):
 
 class ServiceResourceInstancesCollection(ResourceCollection):
     """
-    [ServiceResource.instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.instances)
+    [ServiceResource.instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.instances)
     """
 
     def all(self) -> "ServiceResourceInstancesCollection":
@@ -320,7 +320,7 @@ class ServiceResourceInstancesCollection(ResourceCollection):
 
 class ServiceResourceInternetGatewaysCollection(ResourceCollection):
     """
-    [ServiceResource.internet_gateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.internet_gateways)
+    [ServiceResource.internet_gateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.internet_gateways)
     """
 
     def all(self) -> "ServiceResourceInternetGatewaysCollection":
@@ -351,7 +351,7 @@ class ServiceResourceInternetGatewaysCollection(ResourceCollection):
 
 class ServiceResourceKeyPairsCollection(ResourceCollection):
     """
-    [ServiceResource.key_pairs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.key_pairs)
+    [ServiceResource.key_pairs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.key_pairs)
     """
 
     def all(self) -> "ServiceResourceKeyPairsCollection":
@@ -381,7 +381,7 @@ class ServiceResourceKeyPairsCollection(ResourceCollection):
 
 class ServiceResourceNetworkAclsCollection(ResourceCollection):
     """
-    [ServiceResource.network_acls documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.network_acls)
+    [ServiceResource.network_acls documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.network_acls)
     """
 
     def all(self) -> "ServiceResourceNetworkAclsCollection":
@@ -412,7 +412,7 @@ class ServiceResourceNetworkAclsCollection(ResourceCollection):
 
 class ServiceResourceNetworkInterfacesCollection(ResourceCollection):
     """
-    [ServiceResource.network_interfaces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.network_interfaces)
+    [ServiceResource.network_interfaces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.network_interfaces)
     """
 
     def all(self) -> "ServiceResourceNetworkInterfacesCollection":
@@ -443,7 +443,7 @@ class ServiceResourceNetworkInterfacesCollection(ResourceCollection):
 
 class ServiceResourcePlacementGroupsCollection(ResourceCollection):
     """
-    [ServiceResource.placement_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.placement_groups)
+    [ServiceResource.placement_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.placement_groups)
     """
 
     def all(self) -> "ServiceResourcePlacementGroupsCollection":
@@ -473,7 +473,7 @@ class ServiceResourcePlacementGroupsCollection(ResourceCollection):
 
 class ServiceResourceRouteTablesCollection(ResourceCollection):
     """
-    [ServiceResource.route_tables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.route_tables)
+    [ServiceResource.route_tables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.route_tables)
     """
 
     def all(self) -> "ServiceResourceRouteTablesCollection":
@@ -504,7 +504,7 @@ class ServiceResourceRouteTablesCollection(ResourceCollection):
 
 class ServiceResourceSecurityGroupsCollection(ResourceCollection):
     """
-    [ServiceResource.security_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.security_groups)
+    [ServiceResource.security_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.security_groups)
     """
 
     def all(self) -> "ServiceResourceSecurityGroupsCollection":
@@ -536,7 +536,7 @@ class ServiceResourceSecurityGroupsCollection(ResourceCollection):
 
 class ServiceResourceSnapshotsCollection(ResourceCollection):
     """
-    [ServiceResource.snapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.snapshots)
+    [ServiceResource.snapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.snapshots)
     """
 
     def all(self) -> "ServiceResourceSnapshotsCollection":
@@ -569,7 +569,7 @@ class ServiceResourceSnapshotsCollection(ResourceCollection):
 
 class ServiceResourceSubnetsCollection(ResourceCollection):
     """
-    [ServiceResource.subnets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.subnets)
+    [ServiceResource.subnets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.subnets)
     """
 
     def all(self) -> "ServiceResourceSubnetsCollection":
@@ -600,7 +600,7 @@ class ServiceResourceSubnetsCollection(ResourceCollection):
 
 class ServiceResourceVolumesCollection(ResourceCollection):
     """
-    [ServiceResource.volumes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.volumes)
+    [ServiceResource.volumes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.volumes)
     """
 
     def all(self) -> "ServiceResourceVolumesCollection":
@@ -631,7 +631,7 @@ class ServiceResourceVolumesCollection(ResourceCollection):
 
 class ServiceResourceVpcAddressesCollection(ResourceCollection):
     """
-    [ServiceResource.vpc_addresses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.vpc_addresses)
+    [ServiceResource.vpc_addresses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.vpc_addresses)
     """
 
     def all(self) -> "ServiceResourceVpcAddressesCollection":
@@ -661,7 +661,7 @@ class ServiceResourceVpcAddressesCollection(ResourceCollection):
 
 class ServiceResourceVpcPeeringConnectionsCollection(ResourceCollection):
     """
-    [ServiceResource.vpc_peering_connections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.vpc_peering_connections)
+    [ServiceResource.vpc_peering_connections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.vpc_peering_connections)
     """
 
     def all(self) -> "ServiceResourceVpcPeeringConnectionsCollection":
@@ -692,7 +692,7 @@ class ServiceResourceVpcPeeringConnectionsCollection(ResourceCollection):
 
 class ServiceResourceVpcsCollection(ResourceCollection):
     """
-    [ServiceResource.vpcs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.vpcs)
+    [ServiceResource.vpcs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.vpcs)
     """
 
     def all(self) -> "ServiceResourceVpcsCollection":
@@ -723,7 +723,7 @@ class ServiceResourceVpcsCollection(ResourceCollection):
 
 class InstanceVolumesCollection(ResourceCollection):
     """
-    [Instance.volumes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Instance.volumes)
+    [Instance.volumes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Instance.volumes)
     """
 
     def all(self) -> "InstanceVolumesCollection":
@@ -754,7 +754,7 @@ class InstanceVolumesCollection(ResourceCollection):
 
 class InstanceVpcAddressesCollection(ResourceCollection):
     """
-    [Instance.vpc_addresses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Instance.vpc_addresses)
+    [Instance.vpc_addresses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Instance.vpc_addresses)
     """
 
     def all(self) -> "InstanceVpcAddressesCollection":
@@ -784,7 +784,7 @@ class InstanceVpcAddressesCollection(ResourceCollection):
 
 class PlacementGroupInstancesCollection(ResourceCollection):
     """
-    [PlacementGroup.instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.PlacementGroup.instances)
+    [PlacementGroup.instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.PlacementGroup.instances)
     """
 
     def all(self) -> "PlacementGroupInstancesCollection":
@@ -838,7 +838,7 @@ class PlacementGroupInstancesCollection(ResourceCollection):
 
 class SubnetInstancesCollection(ResourceCollection):
     """
-    [Subnet.instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Subnet.instances)
+    [Subnet.instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Subnet.instances)
     """
 
     def all(self) -> "SubnetInstancesCollection":
@@ -892,7 +892,7 @@ class SubnetInstancesCollection(ResourceCollection):
 
 class SubnetNetworkInterfacesCollection(ResourceCollection):
     """
-    [Subnet.network_interfaces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Subnet.network_interfaces)
+    [Subnet.network_interfaces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Subnet.network_interfaces)
     """
 
     def all(self) -> "SubnetNetworkInterfacesCollection":
@@ -923,7 +923,7 @@ class SubnetNetworkInterfacesCollection(ResourceCollection):
 
 class VolumeSnapshotsCollection(ResourceCollection):
     """
-    [Volume.snapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Volume.snapshots)
+    [Volume.snapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Volume.snapshots)
     """
 
     def all(self) -> "VolumeSnapshotsCollection":
@@ -956,7 +956,7 @@ class VolumeSnapshotsCollection(ResourceCollection):
 
 class VpcAcceptedVpcPeeringConnectionsCollection(ResourceCollection):
     """
-    [Vpc.accepted_vpc_peering_connections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Vpc.accepted_vpc_peering_connections)
+    [Vpc.accepted_vpc_peering_connections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Vpc.accepted_vpc_peering_connections)
     """
 
     def all(self) -> "VpcAcceptedVpcPeeringConnectionsCollection":
@@ -987,7 +987,7 @@ class VpcAcceptedVpcPeeringConnectionsCollection(ResourceCollection):
 
 class VpcInstancesCollection(ResourceCollection):
     """
-    [Vpc.instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Vpc.instances)
+    [Vpc.instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Vpc.instances)
     """
 
     def all(self) -> "VpcInstancesCollection":
@@ -1041,7 +1041,7 @@ class VpcInstancesCollection(ResourceCollection):
 
 class VpcInternetGatewaysCollection(ResourceCollection):
     """
-    [Vpc.internet_gateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Vpc.internet_gateways)
+    [Vpc.internet_gateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Vpc.internet_gateways)
     """
 
     def all(self) -> "VpcInternetGatewaysCollection":
@@ -1072,7 +1072,7 @@ class VpcInternetGatewaysCollection(ResourceCollection):
 
 class VpcNetworkAclsCollection(ResourceCollection):
     """
-    [Vpc.network_acls documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Vpc.network_acls)
+    [Vpc.network_acls documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Vpc.network_acls)
     """
 
     def all(self) -> "VpcNetworkAclsCollection":
@@ -1103,7 +1103,7 @@ class VpcNetworkAclsCollection(ResourceCollection):
 
 class VpcNetworkInterfacesCollection(ResourceCollection):
     """
-    [Vpc.network_interfaces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Vpc.network_interfaces)
+    [Vpc.network_interfaces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Vpc.network_interfaces)
     """
 
     def all(self) -> "VpcNetworkInterfacesCollection":
@@ -1134,7 +1134,7 @@ class VpcNetworkInterfacesCollection(ResourceCollection):
 
 class VpcRequestedVpcPeeringConnectionsCollection(ResourceCollection):
     """
-    [Vpc.requested_vpc_peering_connections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Vpc.requested_vpc_peering_connections)
+    [Vpc.requested_vpc_peering_connections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Vpc.requested_vpc_peering_connections)
     """
 
     def all(self) -> "VpcRequestedVpcPeeringConnectionsCollection":
@@ -1165,7 +1165,7 @@ class VpcRequestedVpcPeeringConnectionsCollection(ResourceCollection):
 
 class VpcRouteTablesCollection(ResourceCollection):
     """
-    [Vpc.route_tables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Vpc.route_tables)
+    [Vpc.route_tables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Vpc.route_tables)
     """
 
     def all(self) -> "VpcRouteTablesCollection":
@@ -1196,7 +1196,7 @@ class VpcRouteTablesCollection(ResourceCollection):
 
 class VpcSecurityGroupsCollection(ResourceCollection):
     """
-    [Vpc.security_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Vpc.security_groups)
+    [Vpc.security_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Vpc.security_groups)
     """
 
     def all(self) -> "VpcSecurityGroupsCollection":
@@ -1228,7 +1228,7 @@ class VpcSecurityGroupsCollection(ResourceCollection):
 
 class VpcSubnetsCollection(ResourceCollection):
     """
-    [Vpc.subnets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Vpc.subnets)
+    [Vpc.subnets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Vpc.subnets)
     """
 
     def all(self) -> "VpcSubnetsCollection":
@@ -1259,7 +1259,7 @@ class VpcSubnetsCollection(ResourceCollection):
 
 class ClassicAddress(Boto3ServiceResource):
     """
-    [ClassicAddress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.ClassicAddress)
+    [ClassicAddress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.ClassicAddress)
     """
 
     instance_id: str
@@ -1287,24 +1287,24 @@ class ClassicAddress(Boto3ServiceResource):
         PrivateIpAddress: str = None,
     ) -> AssociateAddressResultTypeDef:
         """
-        [ClassicAddress.associate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ClassicAddress.associate)
+        [ClassicAddress.associate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ClassicAddress.associate)
         """
 
     def disassociate(
         self, AssociationId: str = None, PublicIp: str = None, DryRun: bool = None
     ) -> None:
         """
-        [ClassicAddress.disassociate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ClassicAddress.disassociate)
+        [ClassicAddress.disassociate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ClassicAddress.disassociate)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [ClassicAddress.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ClassicAddress.get_available_subresources)
+        [ClassicAddress.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ClassicAddress.get_available_subresources)
         """
 
     def load(self) -> None:
         """
-        [ClassicAddress.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ClassicAddress.load)
+        [ClassicAddress.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ClassicAddress.load)
         """
 
     def release(
@@ -1315,12 +1315,12 @@ class ClassicAddress(Boto3ServiceResource):
         DryRun: bool = None,
     ) -> None:
         """
-        [ClassicAddress.release documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ClassicAddress.release)
+        [ClassicAddress.release documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ClassicAddress.release)
         """
 
     def reload(self) -> None:
         """
-        [ClassicAddress.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ClassicAddress.reload)
+        [ClassicAddress.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ClassicAddress.reload)
         """
 
 
@@ -1329,7 +1329,7 @@ _ClassicAddress = ClassicAddress
 
 class KeyPair(Boto3ServiceResource):
     """
-    [KeyPair documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.KeyPair)
+    [KeyPair documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.KeyPair)
     """
 
     key_fingerprint: str
@@ -1341,12 +1341,12 @@ class KeyPair(Boto3ServiceResource):
 
     def delete(self, KeyPairId: str = None, DryRun: bool = None) -> None:
         """
-        [KeyPair.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.KeyPair.delete)
+        [KeyPair.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.KeyPair.delete)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [KeyPair.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.KeyPair.get_available_subresources)
+        [KeyPair.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.KeyPair.get_available_subresources)
         """
 
 
@@ -1355,7 +1355,7 @@ _KeyPair = KeyPair
 
 class KeyPairInfo(Boto3ServiceResource):
     """
-    [KeyPairInfo documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.KeyPairInfo)
+    [KeyPairInfo documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.KeyPairInfo)
     """
 
     key_pair_id: str
@@ -1366,22 +1366,22 @@ class KeyPairInfo(Boto3ServiceResource):
 
     def delete(self, KeyPairId: str = None, DryRun: bool = None) -> None:
         """
-        [KeyPairInfo.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.KeyPairInfo.delete)
+        [KeyPairInfo.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.KeyPairInfo.delete)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [KeyPairInfo.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.KeyPairInfo.get_available_subresources)
+        [KeyPairInfo.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.KeyPairInfo.get_available_subresources)
         """
 
     def load(self) -> None:
         """
-        [KeyPairInfo.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.KeyPairInfo.load)
+        [KeyPairInfo.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.KeyPairInfo.load)
         """
 
     def reload(self) -> None:
         """
-        [KeyPairInfo.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.KeyPairInfo.reload)
+        [KeyPairInfo.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.KeyPairInfo.reload)
         """
 
 
@@ -1390,7 +1390,7 @@ _KeyPairInfo = KeyPairInfo
 
 class NetworkInterfaceAssociation(Boto3ServiceResource):
     """
-    [NetworkInterfaceAssociation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.NetworkInterfaceAssociation)
+    [NetworkInterfaceAssociation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.NetworkInterfaceAssociation)
     """
 
     carrier_ip: str
@@ -1402,22 +1402,22 @@ class NetworkInterfaceAssociation(Boto3ServiceResource):
 
     def delete(self, PublicIp: str = None, DryRun: bool = None) -> None:
         """
-        [NetworkInterfaceAssociation.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.NetworkInterfaceAssociation.delete)
+        [NetworkInterfaceAssociation.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.NetworkInterfaceAssociation.delete)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [NetworkInterfaceAssociation.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.NetworkInterfaceAssociation.get_available_subresources)
+        [NetworkInterfaceAssociation.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.NetworkInterfaceAssociation.get_available_subresources)
         """
 
     def load(self) -> None:
         """
-        [NetworkInterfaceAssociation.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.NetworkInterfaceAssociation.load)
+        [NetworkInterfaceAssociation.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.NetworkInterfaceAssociation.load)
         """
 
     def reload(self) -> None:
         """
-        [NetworkInterfaceAssociation.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.NetworkInterfaceAssociation.reload)
+        [NetworkInterfaceAssociation.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.NetworkInterfaceAssociation.reload)
         """
 
 
@@ -1426,7 +1426,7 @@ _NetworkInterfaceAssociation = NetworkInterfaceAssociation
 
 class PlacementGroup(Boto3ServiceResource):
     """
-    [PlacementGroup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.PlacementGroup)
+    [PlacementGroup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.PlacementGroup)
     """
 
     group_name: str
@@ -1440,22 +1440,22 @@ class PlacementGroup(Boto3ServiceResource):
 
     def delete(self, DryRun: bool = None) -> None:
         """
-        [PlacementGroup.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.PlacementGroup.delete)
+        [PlacementGroup.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.PlacementGroup.delete)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [PlacementGroup.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.PlacementGroup.get_available_subresources)
+        [PlacementGroup.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.PlacementGroup.get_available_subresources)
         """
 
     def load(self) -> None:
         """
-        [PlacementGroup.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.PlacementGroup.load)
+        [PlacementGroup.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.PlacementGroup.load)
         """
 
     def reload(self) -> None:
         """
-        [PlacementGroup.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.PlacementGroup.reload)
+        [PlacementGroup.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.PlacementGroup.reload)
         """
 
 
@@ -1464,7 +1464,7 @@ _PlacementGroup = PlacementGroup
 
 class Tag(Boto3ServiceResource):
     """
-    [Tag documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.Tag)
+    [Tag documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.Tag)
     """
 
     resource_type: str
@@ -1476,22 +1476,22 @@ class Tag(Boto3ServiceResource):
         self, Resources: List[str], DryRun: bool = None, Tags: List["TagTypeDef"] = None
     ) -> None:
         """
-        [Tag.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Tag.delete)
+        [Tag.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Tag.delete)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [Tag.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Tag.get_available_subresources)
+        [Tag.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Tag.get_available_subresources)
         """
 
     def load(self) -> None:
         """
-        [Tag.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Tag.load)
+        [Tag.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Tag.load)
         """
 
     def reload(self) -> None:
         """
-        [Tag.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Tag.reload)
+        [Tag.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Tag.reload)
         """
 
 
@@ -1500,7 +1500,7 @@ _Tag = Tag
 
 class VpcPeeringConnection(Boto3ServiceResource):
     """
-    [VpcPeeringConnection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.VpcPeeringConnection)
+    [VpcPeeringConnection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.VpcPeeringConnection)
     """
 
     accepter_vpc_info: Dict[str, Any]
@@ -1515,37 +1515,37 @@ class VpcPeeringConnection(Boto3ServiceResource):
 
     def accept(self, DryRun: bool = None) -> AcceptVpcPeeringConnectionResultTypeDef:
         """
-        [VpcPeeringConnection.accept documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.VpcPeeringConnection.accept)
+        [VpcPeeringConnection.accept documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.VpcPeeringConnection.accept)
         """
 
     def delete(self, DryRun: bool = None) -> DeleteVpcPeeringConnectionResultTypeDef:
         """
-        [VpcPeeringConnection.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.VpcPeeringConnection.delete)
+        [VpcPeeringConnection.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.VpcPeeringConnection.delete)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [VpcPeeringConnection.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.VpcPeeringConnection.get_available_subresources)
+        [VpcPeeringConnection.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.VpcPeeringConnection.get_available_subresources)
         """
 
     def load(self) -> None:
         """
-        [VpcPeeringConnection.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.VpcPeeringConnection.load)
+        [VpcPeeringConnection.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.VpcPeeringConnection.load)
         """
 
     def reject(self, DryRun: bool = None) -> RejectVpcPeeringConnectionResultTypeDef:
         """
-        [VpcPeeringConnection.reject documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.VpcPeeringConnection.reject)
+        [VpcPeeringConnection.reject documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.VpcPeeringConnection.reject)
         """
 
     def reload(self) -> None:
         """
-        [VpcPeeringConnection.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.VpcPeeringConnection.reload)
+        [VpcPeeringConnection.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.VpcPeeringConnection.reload)
         """
 
     def wait_until_exists(self) -> None:
         """
-        [VpcPeeringConnection.wait_until_exists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.VpcPeeringConnection.wait_until_exists)
+        [VpcPeeringConnection.wait_until_exists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.VpcPeeringConnection.wait_until_exists)
         """
 
 
@@ -1554,7 +1554,7 @@ _VpcPeeringConnection = VpcPeeringConnection
 
 class VpcAddress(Boto3ServiceResource):
     """
-    [VpcAddress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.VpcAddress)
+    [VpcAddress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.VpcAddress)
     """
 
     instance_id: str
@@ -1583,17 +1583,17 @@ class VpcAddress(Boto3ServiceResource):
         PrivateIpAddress: str = None,
     ) -> AssociateAddressResultTypeDef:
         """
-        [VpcAddress.associate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.VpcAddress.associate)
+        [VpcAddress.associate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.VpcAddress.associate)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [VpcAddress.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.VpcAddress.get_available_subresources)
+        [VpcAddress.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.VpcAddress.get_available_subresources)
         """
 
     def load(self) -> None:
         """
-        [VpcAddress.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.VpcAddress.load)
+        [VpcAddress.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.VpcAddress.load)
         """
 
     def release(
@@ -1604,12 +1604,12 @@ class VpcAddress(Boto3ServiceResource):
         DryRun: bool = None,
     ) -> None:
         """
-        [VpcAddress.release documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.VpcAddress.release)
+        [VpcAddress.release documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.VpcAddress.release)
         """
 
     def reload(self) -> None:
         """
-        [VpcAddress.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.VpcAddress.reload)
+        [VpcAddress.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.VpcAddress.reload)
         """
 
 
@@ -1618,7 +1618,7 @@ _VpcAddress = VpcAddress
 
 class DhcpOptions(Boto3ServiceResource):
     """
-    [DhcpOptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.DhcpOptions)
+    [DhcpOptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.DhcpOptions)
     """
 
     dhcp_configurations: List[Any]
@@ -1629,32 +1629,32 @@ class DhcpOptions(Boto3ServiceResource):
 
     def associate_with_vpc(self, VpcId: str, DryRun: bool = None) -> None:
         """
-        [DhcpOptions.associate_with_vpc documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.DhcpOptions.associate_with_vpc)
+        [DhcpOptions.associate_with_vpc documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.DhcpOptions.associate_with_vpc)
         """
 
     def create_tags(self, Tags: Optional[List[TagTypeDef]], DryRun: bool = None) -> _Tag:
         """
-        [DhcpOptions.create_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.DhcpOptions.create_tags)
+        [DhcpOptions.create_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.DhcpOptions.create_tags)
         """
 
     def delete(self, DryRun: bool = None) -> None:
         """
-        [DhcpOptions.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.DhcpOptions.delete)
+        [DhcpOptions.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.DhcpOptions.delete)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [DhcpOptions.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.DhcpOptions.get_available_subresources)
+        [DhcpOptions.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.DhcpOptions.get_available_subresources)
         """
 
     def load(self) -> None:
         """
-        [DhcpOptions.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.DhcpOptions.load)
+        [DhcpOptions.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.DhcpOptions.load)
         """
 
     def reload(self) -> None:
         """
-        [DhcpOptions.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.DhcpOptions.reload)
+        [DhcpOptions.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.DhcpOptions.reload)
         """
 
 
@@ -1663,7 +1663,7 @@ _DhcpOptions = DhcpOptions
 
 class Image(Boto3ServiceResource):
     """
-    [Image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.Image)
+    [Image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.Image)
     """
 
     architecture: str
@@ -1696,12 +1696,12 @@ class Image(Boto3ServiceResource):
 
     def create_tags(self, Tags: Optional[List[TagTypeDef]], DryRun: bool = None) -> _Tag:
         """
-        [Image.create_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Image.create_tags)
+        [Image.create_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Image.create_tags)
         """
 
     def deregister(self, DryRun: bool = None) -> None:
         """
-        [Image.deregister documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Image.deregister)
+        [Image.deregister documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Image.deregister)
         """
 
     def describe_attribute(
@@ -1718,17 +1718,17 @@ class Image(Boto3ServiceResource):
         DryRun: bool = None,
     ) -> ImageAttributeTypeDef:
         """
-        [Image.describe_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Image.describe_attribute)
+        [Image.describe_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Image.describe_attribute)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [Image.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Image.get_available_subresources)
+        [Image.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Image.get_available_subresources)
         """
 
     def load(self) -> None:
         """
-        [Image.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Image.load)
+        [Image.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Image.load)
         """
 
     def modify_attribute(
@@ -1744,22 +1744,22 @@ class Image(Boto3ServiceResource):
         DryRun: bool = None,
     ) -> None:
         """
-        [Image.modify_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Image.modify_attribute)
+        [Image.modify_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Image.modify_attribute)
         """
 
     def reload(self) -> None:
         """
-        [Image.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Image.reload)
+        [Image.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Image.reload)
         """
 
     def reset_attribute(self, Attribute: Literal["launchPermission"], DryRun: bool = None) -> None:
         """
-        [Image.reset_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Image.reset_attribute)
+        [Image.reset_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Image.reset_attribute)
         """
 
     def wait_until_exists(self) -> None:
         """
-        [Image.wait_until_exists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Image.wait_until_exists)
+        [Image.wait_until_exists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Image.wait_until_exists)
         """
 
 
@@ -1768,7 +1768,7 @@ _Image = Image
 
 class InternetGateway(Boto3ServiceResource):
     """
-    [InternetGateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.InternetGateway)
+    [InternetGateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.InternetGateway)
     """
 
     attachments: List[Any]
@@ -1779,37 +1779,37 @@ class InternetGateway(Boto3ServiceResource):
 
     def attach_to_vpc(self, VpcId: str, DryRun: bool = None) -> None:
         """
-        [InternetGateway.attach_to_vpc documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.InternetGateway.attach_to_vpc)
+        [InternetGateway.attach_to_vpc documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.InternetGateway.attach_to_vpc)
         """
 
     def create_tags(self, Tags: Optional[List[TagTypeDef]], DryRun: bool = None) -> _Tag:
         """
-        [InternetGateway.create_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.InternetGateway.create_tags)
+        [InternetGateway.create_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.InternetGateway.create_tags)
         """
 
     def delete(self, DryRun: bool = None) -> None:
         """
-        [InternetGateway.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.InternetGateway.delete)
+        [InternetGateway.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.InternetGateway.delete)
         """
 
     def detach_from_vpc(self, VpcId: str, DryRun: bool = None) -> None:
         """
-        [InternetGateway.detach_from_vpc documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.InternetGateway.detach_from_vpc)
+        [InternetGateway.detach_from_vpc documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.InternetGateway.detach_from_vpc)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [InternetGateway.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.InternetGateway.get_available_subresources)
+        [InternetGateway.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.InternetGateway.get_available_subresources)
         """
 
     def load(self) -> None:
         """
-        [InternetGateway.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.InternetGateway.load)
+        [InternetGateway.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.InternetGateway.load)
         """
 
     def reload(self) -> None:
         """
-        [InternetGateway.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.InternetGateway.reload)
+        [InternetGateway.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.InternetGateway.reload)
         """
 
 
@@ -1818,7 +1818,7 @@ _InternetGateway = InternetGateway
 
 class NetworkAcl(Boto3ServiceResource):
     """
-    [NetworkAcl documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.NetworkAcl)
+    [NetworkAcl documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.NetworkAcl)
     """
 
     associations: List[Any]
@@ -1844,44 +1844,44 @@ class NetworkAcl(Boto3ServiceResource):
         PortRange: "PortRangeTypeDef" = None,
     ) -> None:
         """
-        [NetworkAcl.create_entry documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.NetworkAcl.create_entry)
+        [NetworkAcl.create_entry documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.NetworkAcl.create_entry)
         """
 
     def create_tags(self, Tags: Optional[List[TagTypeDef]], DryRun: bool = None) -> _Tag:
         """
-        [NetworkAcl.create_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.NetworkAcl.create_tags)
+        [NetworkAcl.create_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.NetworkAcl.create_tags)
         """
 
     def delete(self, DryRun: bool = None) -> None:
         """
-        [NetworkAcl.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.NetworkAcl.delete)
+        [NetworkAcl.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.NetworkAcl.delete)
         """
 
     def delete_entry(self, Egress: bool, RuleNumber: int, DryRun: bool = None) -> None:
         """
-        [NetworkAcl.delete_entry documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.NetworkAcl.delete_entry)
+        [NetworkAcl.delete_entry documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.NetworkAcl.delete_entry)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [NetworkAcl.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.NetworkAcl.get_available_subresources)
+        [NetworkAcl.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.NetworkAcl.get_available_subresources)
         """
 
     def load(self) -> None:
         """
-        [NetworkAcl.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.NetworkAcl.load)
+        [NetworkAcl.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.NetworkAcl.load)
         """
 
     def reload(self) -> None:
         """
-        [NetworkAcl.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.NetworkAcl.reload)
+        [NetworkAcl.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.NetworkAcl.reload)
         """
 
     def replace_association(
         self, AssociationId: str, DryRun: bool = None
     ) -> ReplaceNetworkAclAssociationResultTypeDef:
         """
-        [NetworkAcl.replace_association documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.NetworkAcl.replace_association)
+        [NetworkAcl.replace_association documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.NetworkAcl.replace_association)
         """
 
     def replace_entry(
@@ -1897,7 +1897,7 @@ class NetworkAcl(Boto3ServiceResource):
         PortRange: "PortRangeTypeDef" = None,
     ) -> None:
         """
-        [NetworkAcl.replace_entry documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.NetworkAcl.replace_entry)
+        [NetworkAcl.replace_entry documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.NetworkAcl.replace_entry)
         """
 
 
@@ -1906,7 +1906,7 @@ _NetworkAcl = NetworkAcl
 
 class NetworkInterface(Boto3ServiceResource):
     """
-    [NetworkInterface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.NetworkInterface)
+    [NetworkInterface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.NetworkInterface)
     """
 
     association_attribute: Dict[str, Any]
@@ -1942,24 +1942,24 @@ class NetworkInterface(Boto3ServiceResource):
         SecondaryPrivateIpAddressCount: int = None,
     ) -> AssignPrivateIpAddressesResultTypeDef:
         """
-        [NetworkInterface.assign_private_ip_addresses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.NetworkInterface.assign_private_ip_addresses)
+        [NetworkInterface.assign_private_ip_addresses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.NetworkInterface.assign_private_ip_addresses)
         """
 
     def attach(
         self, DeviceIndex: int, InstanceId: str, DryRun: bool = None, NetworkCardIndex: int = None
     ) -> AttachNetworkInterfaceResultTypeDef:
         """
-        [NetworkInterface.attach documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.NetworkInterface.attach)
+        [NetworkInterface.attach documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.NetworkInterface.attach)
         """
 
     def create_tags(self, Tags: Optional[List[TagTypeDef]], DryRun: bool = None) -> _Tag:
         """
-        [NetworkInterface.create_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.NetworkInterface.create_tags)
+        [NetworkInterface.create_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.NetworkInterface.create_tags)
         """
 
     def delete(self, DryRun: bool = None) -> None:
         """
-        [NetworkInterface.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.NetworkInterface.delete)
+        [NetworkInterface.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.NetworkInterface.delete)
         """
 
     def describe_attribute(
@@ -1968,22 +1968,22 @@ class NetworkInterface(Boto3ServiceResource):
         DryRun: bool = None,
     ) -> DescribeNetworkInterfaceAttributeResultTypeDef:
         """
-        [NetworkInterface.describe_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.NetworkInterface.describe_attribute)
+        [NetworkInterface.describe_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.NetworkInterface.describe_attribute)
         """
 
     def detach(self, AttachmentId: str, DryRun: bool = None, Force: bool = None) -> None:
         """
-        [NetworkInterface.detach documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.NetworkInterface.detach)
+        [NetworkInterface.detach documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.NetworkInterface.detach)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [NetworkInterface.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.NetworkInterface.get_available_subresources)
+        [NetworkInterface.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.NetworkInterface.get_available_subresources)
         """
 
     def load(self) -> None:
         """
-        [NetworkInterface.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.NetworkInterface.load)
+        [NetworkInterface.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.NetworkInterface.load)
         """
 
     def modify_attribute(
@@ -1995,22 +1995,22 @@ class NetworkInterface(Boto3ServiceResource):
         SourceDestCheck: "AttributeBooleanValueTypeDef" = None,
     ) -> None:
         """
-        [NetworkInterface.modify_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.NetworkInterface.modify_attribute)
+        [NetworkInterface.modify_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.NetworkInterface.modify_attribute)
         """
 
     def reload(self) -> None:
         """
-        [NetworkInterface.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.NetworkInterface.reload)
+        [NetworkInterface.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.NetworkInterface.reload)
         """
 
     def reset_attribute(self, DryRun: bool = None, SourceDestCheck: str = None) -> None:
         """
-        [NetworkInterface.reset_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.NetworkInterface.reset_attribute)
+        [NetworkInterface.reset_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.NetworkInterface.reset_attribute)
         """
 
     def unassign_private_ip_addresses(self, PrivateIpAddresses: List[str]) -> None:
         """
-        [NetworkInterface.unassign_private_ip_addresses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.NetworkInterface.unassign_private_ip_addresses)
+        [NetworkInterface.unassign_private_ip_addresses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.NetworkInterface.unassign_private_ip_addresses)
         """
 
 
@@ -2019,7 +2019,7 @@ _NetworkInterface = NetworkInterface
 
 class Route(Boto3ServiceResource):
     """
-    [Route documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.Route)
+    [Route documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.Route)
     """
 
     destination_ipv6_cidr_block: str
@@ -2041,7 +2041,7 @@ class Route(Boto3ServiceResource):
 
     def RouteTable(self) -> "_RouteTable":
         """
-        [Route.RouteTable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Route.RouteTable)
+        [Route.RouteTable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Route.RouteTable)
         """
 
     def delete(
@@ -2051,12 +2051,12 @@ class Route(Boto3ServiceResource):
         DryRun: bool = None,
     ) -> None:
         """
-        [Route.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Route.delete)
+        [Route.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Route.delete)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [Route.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Route.get_available_subresources)
+        [Route.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Route.get_available_subresources)
         """
 
     def replace(
@@ -2077,7 +2077,7 @@ class Route(Boto3ServiceResource):
         VpcPeeringConnectionId: str = None,
     ) -> None:
         """
-        [Route.replace documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Route.replace)
+        [Route.replace documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Route.replace)
         """
 
 
@@ -2086,7 +2086,7 @@ _Route = Route
 
 class RouteTableAssociation(Boto3ServiceResource):
     """
-    [RouteTableAssociation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.RouteTableAssociation)
+    [RouteTableAssociation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.RouteTableAssociation)
     """
 
     main: bool
@@ -2101,17 +2101,17 @@ class RouteTableAssociation(Boto3ServiceResource):
 
     def delete(self, DryRun: bool = None) -> None:
         """
-        [RouteTableAssociation.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.RouteTableAssociation.delete)
+        [RouteTableAssociation.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.RouteTableAssociation.delete)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [RouteTableAssociation.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.RouteTableAssociation.get_available_subresources)
+        [RouteTableAssociation.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.RouteTableAssociation.get_available_subresources)
         """
 
     def replace_subnet(self, RouteTableId: str, DryRun: bool = None) -> "_RouteTableAssociation":
         """
-        [RouteTableAssociation.replace_subnet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.RouteTableAssociation.replace_subnet)
+        [RouteTableAssociation.replace_subnet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.RouteTableAssociation.replace_subnet)
         """
 
 
@@ -2120,7 +2120,7 @@ _RouteTableAssociation = RouteTableAssociation
 
 class SecurityGroup(Boto3ServiceResource):
     """
-    [SecurityGroup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.SecurityGroup)
+    [SecurityGroup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.SecurityGroup)
     """
 
     description: str
@@ -2145,7 +2145,7 @@ class SecurityGroup(Boto3ServiceResource):
         SourceSecurityGroupOwnerId: str = None,
     ) -> None:
         """
-        [SecurityGroup.authorize_egress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.SecurityGroup.authorize_egress)
+        [SecurityGroup.authorize_egress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.SecurityGroup.authorize_egress)
         """
 
     def authorize_ingress(
@@ -2161,32 +2161,32 @@ class SecurityGroup(Boto3ServiceResource):
         DryRun: bool = None,
     ) -> None:
         """
-        [SecurityGroup.authorize_ingress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.SecurityGroup.authorize_ingress)
+        [SecurityGroup.authorize_ingress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.SecurityGroup.authorize_ingress)
         """
 
     def create_tags(self, Tags: Optional[List[TagTypeDef]], DryRun: bool = None) -> _Tag:
         """
-        [SecurityGroup.create_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.SecurityGroup.create_tags)
+        [SecurityGroup.create_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.SecurityGroup.create_tags)
         """
 
     def delete(self, GroupName: str = None, DryRun: bool = None) -> None:
         """
-        [SecurityGroup.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.SecurityGroup.delete)
+        [SecurityGroup.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.SecurityGroup.delete)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [SecurityGroup.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.SecurityGroup.get_available_subresources)
+        [SecurityGroup.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.SecurityGroup.get_available_subresources)
         """
 
     def load(self) -> None:
         """
-        [SecurityGroup.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.SecurityGroup.load)
+        [SecurityGroup.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.SecurityGroup.load)
         """
 
     def reload(self) -> None:
         """
-        [SecurityGroup.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.SecurityGroup.reload)
+        [SecurityGroup.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.SecurityGroup.reload)
         """
 
     def revoke_egress(
@@ -2201,7 +2201,7 @@ class SecurityGroup(Boto3ServiceResource):
         SourceSecurityGroupOwnerId: str = None,
     ) -> RevokeSecurityGroupEgressResultTypeDef:
         """
-        [SecurityGroup.revoke_egress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.SecurityGroup.revoke_egress)
+        [SecurityGroup.revoke_egress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.SecurityGroup.revoke_egress)
         """
 
     def revoke_ingress(
@@ -2217,7 +2217,7 @@ class SecurityGroup(Boto3ServiceResource):
         DryRun: bool = None,
     ) -> RevokeSecurityGroupIngressResultTypeDef:
         """
-        [SecurityGroup.revoke_ingress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.SecurityGroup.revoke_ingress)
+        [SecurityGroup.revoke_ingress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.SecurityGroup.revoke_ingress)
         """
 
 
@@ -2226,7 +2226,7 @@ _SecurityGroup = SecurityGroup
 
 class Snapshot(Boto3ServiceResource):
     """
-    [Snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.Snapshot)
+    [Snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.Snapshot)
     """
 
     data_encryption_key_id: str
@@ -2258,34 +2258,34 @@ class Snapshot(Boto3ServiceResource):
         DryRun: bool = None,
     ) -> CopySnapshotResultTypeDef:
         """
-        [Snapshot.copy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Snapshot.copy)
+        [Snapshot.copy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Snapshot.copy)
         """
 
     def create_tags(self, Tags: Optional[List[TagTypeDef]], DryRun: bool = None) -> _Tag:
         """
-        [Snapshot.create_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Snapshot.create_tags)
+        [Snapshot.create_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Snapshot.create_tags)
         """
 
     def delete(self, DryRun: bool = None) -> None:
         """
-        [Snapshot.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Snapshot.delete)
+        [Snapshot.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Snapshot.delete)
         """
 
     def describe_attribute(
         self, Attribute: Literal["productCodes", "createVolumePermission"], DryRun: bool = None
     ) -> DescribeSnapshotAttributeResultTypeDef:
         """
-        [Snapshot.describe_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Snapshot.describe_attribute)
+        [Snapshot.describe_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Snapshot.describe_attribute)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [Snapshot.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Snapshot.get_available_subresources)
+        [Snapshot.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Snapshot.get_available_subresources)
         """
 
     def load(self) -> None:
         """
-        [Snapshot.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Snapshot.load)
+        [Snapshot.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Snapshot.load)
         """
 
     def modify_attribute(
@@ -2298,24 +2298,24 @@ class Snapshot(Boto3ServiceResource):
         DryRun: bool = None,
     ) -> None:
         """
-        [Snapshot.modify_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Snapshot.modify_attribute)
+        [Snapshot.modify_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Snapshot.modify_attribute)
         """
 
     def reload(self) -> None:
         """
-        [Snapshot.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Snapshot.reload)
+        [Snapshot.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Snapshot.reload)
         """
 
     def reset_attribute(
         self, Attribute: Literal["productCodes", "createVolumePermission"], DryRun: bool = None
     ) -> None:
         """
-        [Snapshot.reset_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Snapshot.reset_attribute)
+        [Snapshot.reset_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Snapshot.reset_attribute)
         """
 
     def wait_until_completed(self) -> None:
         """
-        [Snapshot.wait_until_completed documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Snapshot.wait_until_completed)
+        [Snapshot.wait_until_completed documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Snapshot.wait_until_completed)
         """
 
 
@@ -2324,7 +2324,7 @@ _Snapshot = Snapshot
 
 class Instance(Boto3ServiceResource):
     """
-    [Instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.Instance)
+    [Instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.Instance)
     """
 
     ami_launch_index: int
@@ -2390,21 +2390,21 @@ class Instance(Boto3ServiceResource):
         self, Groups: List[str], VpcId: str, DryRun: bool = None
     ) -> AttachClassicLinkVpcResultTypeDef:
         """
-        [Instance.attach_classic_link_vpc documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Instance.attach_classic_link_vpc)
+        [Instance.attach_classic_link_vpc documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Instance.attach_classic_link_vpc)
         """
 
     def attach_volume(
         self, Device: str, VolumeId: str, DryRun: bool = None
     ) -> "VolumeAttachmentTypeDef":
         """
-        [Instance.attach_volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Instance.attach_volume)
+        [Instance.attach_volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Instance.attach_volume)
         """
 
     def console_output(
         self, DryRun: bool = None, Latest: bool = None
     ) -> GetConsoleOutputResultTypeDef:
         """
-        [Instance.console_output documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Instance.console_output)
+        [Instance.console_output documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Instance.console_output)
         """
 
     def create_image(
@@ -2416,17 +2416,17 @@ class Instance(Boto3ServiceResource):
         NoReboot: bool = None,
     ) -> _Image:
         """
-        [Instance.create_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Instance.create_image)
+        [Instance.create_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Instance.create_image)
         """
 
     def create_tags(self, Tags: Optional[List[TagTypeDef]], DryRun: bool = None) -> _Tag:
         """
-        [Instance.create_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Instance.create_tags)
+        [Instance.create_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Instance.create_tags)
         """
 
     def delete_tags(self, Tags: List[TagTypeDef] = None, DryRun: bool = None) -> None:
         """
-        [Instance.delete_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Instance.delete_tags)
+        [Instance.delete_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Instance.delete_tags)
         """
 
     def describe_attribute(
@@ -2451,31 +2451,31 @@ class Instance(Boto3ServiceResource):
         DryRun: bool = None,
     ) -> InstanceAttributeTypeDef:
         """
-        [Instance.describe_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Instance.describe_attribute)
+        [Instance.describe_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Instance.describe_attribute)
         """
 
     def detach_classic_link_vpc(
         self, VpcId: str, DryRun: bool = None
     ) -> DetachClassicLinkVpcResultTypeDef:
         """
-        [Instance.detach_classic_link_vpc documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Instance.detach_classic_link_vpc)
+        [Instance.detach_classic_link_vpc documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Instance.detach_classic_link_vpc)
         """
 
     def detach_volume(
         self, VolumeId: str, Device: str = None, Force: bool = None, DryRun: bool = None
     ) -> "VolumeAttachmentTypeDef":
         """
-        [Instance.detach_volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Instance.detach_volume)
+        [Instance.detach_volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Instance.detach_volume)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [Instance.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Instance.get_available_subresources)
+        [Instance.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Instance.get_available_subresources)
         """
 
     def load(self) -> None:
         """
-        [Instance.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Instance.load)
+        [Instance.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Instance.load)
         """
 
     def modify_attribute(
@@ -2513,27 +2513,27 @@ class Instance(Boto3ServiceResource):
         Value: str = None,
     ) -> None:
         """
-        [Instance.modify_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Instance.modify_attribute)
+        [Instance.modify_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Instance.modify_attribute)
         """
 
     def monitor(self, InstanceIds: List[str], DryRun: bool = None) -> MonitorInstancesResultTypeDef:
         """
-        [Instance.monitor documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Instance.monitor)
+        [Instance.monitor documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Instance.monitor)
         """
 
     def password_data(self, DryRun: bool = None) -> GetPasswordDataResultTypeDef:
         """
-        [Instance.password_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Instance.password_data)
+        [Instance.password_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Instance.password_data)
         """
 
     def reboot(self, InstanceIds: List[str], DryRun: bool = None) -> None:
         """
-        [Instance.reboot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Instance.reboot)
+        [Instance.reboot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Instance.reboot)
         """
 
     def reload(self) -> None:
         """
-        [Instance.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Instance.reload)
+        [Instance.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Instance.reload)
         """
 
     def report_status(
@@ -2559,7 +2559,7 @@ class Instance(Boto3ServiceResource):
         StartTime: datetime = None,
     ) -> None:
         """
-        [Instance.report_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Instance.report_status)
+        [Instance.report_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Instance.report_status)
         """
 
     def reset_attribute(
@@ -2584,7 +2584,7 @@ class Instance(Boto3ServiceResource):
         DryRun: bool = None,
     ) -> None:
         """
-        [Instance.reset_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Instance.reset_attribute)
+        [Instance.reset_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Instance.reset_attribute)
         """
 
     def reset_kernel(
@@ -2609,7 +2609,7 @@ class Instance(Boto3ServiceResource):
         DryRun: bool = None,
     ) -> None:
         """
-        [Instance.reset_kernel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Instance.reset_kernel)
+        [Instance.reset_kernel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Instance.reset_kernel)
         """
 
     def reset_ramdisk(
@@ -2634,7 +2634,7 @@ class Instance(Boto3ServiceResource):
         DryRun: bool = None,
     ) -> None:
         """
-        [Instance.reset_ramdisk documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Instance.reset_ramdisk)
+        [Instance.reset_ramdisk documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Instance.reset_ramdisk)
         """
 
     def reset_source_dest_check(
@@ -2659,14 +2659,14 @@ class Instance(Boto3ServiceResource):
         DryRun: bool = None,
     ) -> None:
         """
-        [Instance.reset_source_dest_check documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Instance.reset_source_dest_check)
+        [Instance.reset_source_dest_check documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Instance.reset_source_dest_check)
         """
 
     def start(
         self, InstanceIds: List[str], AdditionalInfo: str = None, DryRun: bool = None
     ) -> StartInstancesResultTypeDef:
         """
-        [Instance.start documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Instance.start)
+        [Instance.start documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Instance.start)
         """
 
     def stop(
@@ -2677,41 +2677,41 @@ class Instance(Boto3ServiceResource):
         Force: bool = None,
     ) -> StopInstancesResultTypeDef:
         """
-        [Instance.stop documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Instance.stop)
+        [Instance.stop documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Instance.stop)
         """
 
     def terminate(
         self, InstanceIds: List[str], DryRun: bool = None
     ) -> TerminateInstancesResultTypeDef:
         """
-        [Instance.terminate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Instance.terminate)
+        [Instance.terminate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Instance.terminate)
         """
 
     def unmonitor(
         self, InstanceIds: List[str], DryRun: bool = None
     ) -> UnmonitorInstancesResultTypeDef:
         """
-        [Instance.unmonitor documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Instance.unmonitor)
+        [Instance.unmonitor documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Instance.unmonitor)
         """
 
     def wait_until_exists(self) -> None:
         """
-        [Instance.wait_until_exists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Instance.wait_until_exists)
+        [Instance.wait_until_exists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Instance.wait_until_exists)
         """
 
     def wait_until_running(self) -> None:
         """
-        [Instance.wait_until_running documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Instance.wait_until_running)
+        [Instance.wait_until_running documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Instance.wait_until_running)
         """
 
     def wait_until_stopped(self) -> None:
         """
-        [Instance.wait_until_stopped documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Instance.wait_until_stopped)
+        [Instance.wait_until_stopped documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Instance.wait_until_stopped)
         """
 
     def wait_until_terminated(self) -> None:
         """
-        [Instance.wait_until_terminated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Instance.wait_until_terminated)
+        [Instance.wait_until_terminated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Instance.wait_until_terminated)
         """
 
 
@@ -2720,7 +2720,7 @@ _Instance = Instance
 
 class Volume(Boto3ServiceResource):
     """
-    [Volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.Volume)
+    [Volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.Volume)
     """
 
     attachments: List[Any]
@@ -2738,6 +2738,7 @@ class Volume(Boto3ServiceResource):
     volume_type: str
     fast_restored: bool
     multi_attach_enabled: bool
+    throughput: int
     id: str
     snapshots: VolumeSnapshotsCollection
 
@@ -2745,7 +2746,7 @@ class Volume(Boto3ServiceResource):
         self, Device: str, InstanceId: str, DryRun: bool = None
     ) -> "VolumeAttachmentTypeDef":
         """
-        [Volume.attach_to_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Volume.attach_to_instance)
+        [Volume.attach_to_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Volume.attach_to_instance)
         """
 
     def create_snapshot(
@@ -2755,24 +2756,24 @@ class Volume(Boto3ServiceResource):
         DryRun: bool = None,
     ) -> _Snapshot:
         """
-        [Volume.create_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Volume.create_snapshot)
+        [Volume.create_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Volume.create_snapshot)
         """
 
     def create_tags(self, Tags: Optional[List[TagTypeDef]], DryRun: bool = None) -> _Tag:
         """
-        [Volume.create_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Volume.create_tags)
+        [Volume.create_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Volume.create_tags)
         """
 
     def delete(self, DryRun: bool = None) -> None:
         """
-        [Volume.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Volume.delete)
+        [Volume.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Volume.delete)
         """
 
     def describe_attribute(
         self, Attribute: Literal["autoEnableIO", "productCodes"], DryRun: bool = None
     ) -> DescribeVolumeAttributeResultTypeDef:
         """
-        [Volume.describe_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Volume.describe_attribute)
+        [Volume.describe_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Volume.describe_attribute)
         """
 
     def describe_status(
@@ -2784,41 +2785,41 @@ class Volume(Boto3ServiceResource):
         DryRun: bool = None,
     ) -> DescribeVolumeStatusResultTypeDef:
         """
-        [Volume.describe_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Volume.describe_status)
+        [Volume.describe_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Volume.describe_status)
         """
 
     def detach_from_instance(
         self, Device: str = None, Force: bool = None, InstanceId: str = None, DryRun: bool = None
     ) -> "VolumeAttachmentTypeDef":
         """
-        [Volume.detach_from_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Volume.detach_from_instance)
+        [Volume.detach_from_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Volume.detach_from_instance)
         """
 
     def enable_io(self, DryRun: bool = None) -> None:
         """
-        [Volume.enable_io documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Volume.enable_io)
+        [Volume.enable_io documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Volume.enable_io)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [Volume.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Volume.get_available_subresources)
+        [Volume.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Volume.get_available_subresources)
         """
 
     def load(self) -> None:
         """
-        [Volume.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Volume.load)
+        [Volume.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Volume.load)
         """
 
     def modify_attribute(
         self, AutoEnableIO: "AttributeBooleanValueTypeDef" = None, DryRun: bool = None
     ) -> None:
         """
-        [Volume.modify_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Volume.modify_attribute)
+        [Volume.modify_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Volume.modify_attribute)
         """
 
     def reload(self) -> None:
         """
-        [Volume.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Volume.reload)
+        [Volume.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Volume.reload)
         """
 
 
@@ -2827,7 +2828,7 @@ _Volume = Volume
 
 class RouteTable(Boto3ServiceResource):
     """
-    [RouteTable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.RouteTable)
+    [RouteTable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.RouteTable)
     """
 
     associations_attribute: List[Any]
@@ -2846,7 +2847,7 @@ class RouteTable(Boto3ServiceResource):
         self, DryRun: bool = None, SubnetId: str = None, GatewayId: str = None
     ) -> _RouteTableAssociation:
         """
-        [RouteTable.associate_with_subnet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.RouteTable.associate_with_subnet)
+        [RouteTable.associate_with_subnet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.RouteTable.associate_with_subnet)
         """
 
     def create_route(
@@ -2867,32 +2868,32 @@ class RouteTable(Boto3ServiceResource):
         VpcPeeringConnectionId: str = None,
     ) -> _Route:
         """
-        [RouteTable.create_route documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.RouteTable.create_route)
+        [RouteTable.create_route documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.RouteTable.create_route)
         """
 
     def create_tags(self, Tags: Optional[List[TagTypeDef]], DryRun: bool = None) -> _Tag:
         """
-        [RouteTable.create_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.RouteTable.create_tags)
+        [RouteTable.create_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.RouteTable.create_tags)
         """
 
     def delete(self, DryRun: bool = None) -> None:
         """
-        [RouteTable.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.RouteTable.delete)
+        [RouteTable.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.RouteTable.delete)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [RouteTable.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.RouteTable.get_available_subresources)
+        [RouteTable.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.RouteTable.get_available_subresources)
         """
 
     def load(self) -> None:
         """
-        [RouteTable.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.RouteTable.load)
+        [RouteTable.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.RouteTable.load)
         """
 
     def reload(self) -> None:
         """
-        [RouteTable.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.RouteTable.reload)
+        [RouteTable.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.RouteTable.reload)
         """
 
 
@@ -2901,7 +2902,7 @@ _RouteTable = RouteTable
 
 class Subnet(Boto3ServiceResource):
     """
-    [Subnet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.Subnet)
+    [Subnet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.Subnet)
     """
 
     availability_zone: str
@@ -3008,6 +3009,15 @@ class Subnet(Boto3ServiceResource):
             "r5a.12xlarge",
             "r5a.16xlarge",
             "r5a.24xlarge",
+            "r5b.large",
+            "r5b.xlarge",
+            "r5b.2xlarge",
+            "r5b.4xlarge",
+            "r5b.8xlarge",
+            "r5b.12xlarge",
+            "r5b.16xlarge",
+            "r5b.24xlarge",
+            "r5b.metal",
             "r5d.large",
             "r5d.xlarge",
             "r5d.2xlarge",
@@ -3170,6 +3180,16 @@ class Subnet(Boto3ServiceResource):
             "d2.2xlarge",
             "d2.4xlarge",
             "d2.8xlarge",
+            "d3.xlarge",
+            "d3.2xlarge",
+            "d3.4xlarge",
+            "d3.8xlarge",
+            "d3en.xlarge",
+            "d3en.2xlarge",
+            "d3en.4xlarge",
+            "d3en.6xlarge",
+            "d3en.8xlarge",
+            "d3en.12xlarge",
             "f1.2xlarge",
             "f1.4xlarge",
             "f1.16xlarge",
@@ -3207,6 +3227,13 @@ class Subnet(Boto3ServiceResource):
             "m5ad.12xlarge",
             "m5ad.16xlarge",
             "m5ad.24xlarge",
+            "m5zn.large",
+            "m5zn.xlarge",
+            "m5zn.2xlarge",
+            "m5zn.3xlarge",
+            "m5zn.6xlarge",
+            "m5zn.12xlarge",
+            "m5zn.metal",
             "h1.2xlarge",
             "h1.4xlarge",
             "h1.8xlarge",
@@ -3283,6 +3310,7 @@ class Subnet(Boto3ServiceResource):
             "m6gd.8xlarge",
             "m6gd.12xlarge",
             "m6gd.16xlarge",
+            "mac1.metal",
         ] = None,
         Ipv6AddressCount: int = None,
         Ipv6Addresses: List["InstanceIpv6AddressTypeDef"] = None,
@@ -3317,7 +3345,7 @@ class Subnet(Boto3ServiceResource):
         EnclaveOptions: EnclaveOptionsRequestTypeDef = None,
     ) -> List[_Instance]:
         """
-        [Subnet.create_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Subnet.create_instances)
+        [Subnet.create_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Subnet.create_instances)
         """
 
     def create_network_interface(
@@ -3334,32 +3362,32 @@ class Subnet(Boto3ServiceResource):
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
     ) -> _NetworkInterface:
         """
-        [Subnet.create_network_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Subnet.create_network_interface)
+        [Subnet.create_network_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Subnet.create_network_interface)
         """
 
     def create_tags(self, Tags: Optional[List[TagTypeDef]], DryRun: bool = None) -> _Tag:
         """
-        [Subnet.create_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Subnet.create_tags)
+        [Subnet.create_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Subnet.create_tags)
         """
 
     def delete(self, DryRun: bool = None) -> None:
         """
-        [Subnet.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Subnet.delete)
+        [Subnet.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Subnet.delete)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [Subnet.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Subnet.get_available_subresources)
+        [Subnet.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Subnet.get_available_subresources)
         """
 
     def load(self) -> None:
         """
-        [Subnet.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Subnet.load)
+        [Subnet.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Subnet.load)
         """
 
     def reload(self) -> None:
         """
-        [Subnet.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Subnet.reload)
+        [Subnet.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Subnet.reload)
         """
 
 
@@ -3368,7 +3396,7 @@ _Subnet = Subnet
 
 class Vpc(Boto3ServiceResource):
     """
-    [Vpc documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.Vpc)
+    [Vpc documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.Vpc)
     """
 
     cidr_block: str
@@ -3395,33 +3423,33 @@ class Vpc(Boto3ServiceResource):
 
     def associate_dhcp_options(self, DhcpOptionsId: str, DryRun: bool = None) -> None:
         """
-        [Vpc.associate_dhcp_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Vpc.associate_dhcp_options)
+        [Vpc.associate_dhcp_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Vpc.associate_dhcp_options)
         """
 
     def attach_classic_link_instance(
         self, Groups: List[str], InstanceId: str, DryRun: bool = None
     ) -> AttachClassicLinkVpcResultTypeDef:
         """
-        [Vpc.attach_classic_link_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Vpc.attach_classic_link_instance)
+        [Vpc.attach_classic_link_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Vpc.attach_classic_link_instance)
         """
 
     def attach_internet_gateway(self, InternetGatewayId: str, DryRun: bool = None) -> None:
         """
-        [Vpc.attach_internet_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Vpc.attach_internet_gateway)
+        [Vpc.attach_internet_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Vpc.attach_internet_gateway)
         """
 
     def create_network_acl(
         self, DryRun: bool = None, TagSpecifications: List["TagSpecificationTypeDef"] = None
     ) -> _NetworkAcl:
         """
-        [Vpc.create_network_acl documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Vpc.create_network_acl)
+        [Vpc.create_network_acl documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Vpc.create_network_acl)
         """
 
     def create_route_table(
         self, DryRun: bool = None, TagSpecifications: List["TagSpecificationTypeDef"] = None
     ) -> _RouteTable:
         """
-        [Vpc.create_route_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Vpc.create_route_table)
+        [Vpc.create_route_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Vpc.create_route_table)
         """
 
     def create_security_group(
@@ -3432,7 +3460,7 @@ class Vpc(Boto3ServiceResource):
         DryRun: bool = None,
     ) -> _SecurityGroup:
         """
-        [Vpc.create_security_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Vpc.create_security_group)
+        [Vpc.create_security_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Vpc.create_security_group)
         """
 
     def create_subnet(
@@ -3446,56 +3474,56 @@ class Vpc(Boto3ServiceResource):
         DryRun: bool = None,
     ) -> _Subnet:
         """
-        [Vpc.create_subnet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Vpc.create_subnet)
+        [Vpc.create_subnet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Vpc.create_subnet)
         """
 
     def create_tags(self, Tags: Optional[List[TagTypeDef]], DryRun: bool = None) -> _Tag:
         """
-        [Vpc.create_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Vpc.create_tags)
+        [Vpc.create_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Vpc.create_tags)
         """
 
     def delete(self, DryRun: bool = None) -> None:
         """
-        [Vpc.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Vpc.delete)
+        [Vpc.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Vpc.delete)
         """
 
     def describe_attribute(
         self, Attribute: Literal["enableDnsSupport", "enableDnsHostnames"], DryRun: bool = None
     ) -> DescribeVpcAttributeResultTypeDef:
         """
-        [Vpc.describe_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Vpc.describe_attribute)
+        [Vpc.describe_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Vpc.describe_attribute)
         """
 
     def detach_classic_link_instance(
         self, InstanceId: str, DryRun: bool = None
     ) -> DetachClassicLinkVpcResultTypeDef:
         """
-        [Vpc.detach_classic_link_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Vpc.detach_classic_link_instance)
+        [Vpc.detach_classic_link_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Vpc.detach_classic_link_instance)
         """
 
     def detach_internet_gateway(self, InternetGatewayId: str, DryRun: bool = None) -> None:
         """
-        [Vpc.detach_internet_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Vpc.detach_internet_gateway)
+        [Vpc.detach_internet_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Vpc.detach_internet_gateway)
         """
 
     def disable_classic_link(self, DryRun: bool = None) -> DisableVpcClassicLinkResultTypeDef:
         """
-        [Vpc.disable_classic_link documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Vpc.disable_classic_link)
+        [Vpc.disable_classic_link documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Vpc.disable_classic_link)
         """
 
     def enable_classic_link(self, DryRun: bool = None) -> EnableVpcClassicLinkResultTypeDef:
         """
-        [Vpc.enable_classic_link documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Vpc.enable_classic_link)
+        [Vpc.enable_classic_link documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Vpc.enable_classic_link)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [Vpc.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Vpc.get_available_subresources)
+        [Vpc.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Vpc.get_available_subresources)
         """
 
     def load(self) -> None:
         """
-        [Vpc.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Vpc.load)
+        [Vpc.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Vpc.load)
         """
 
     def modify_attribute(
@@ -3504,12 +3532,12 @@ class Vpc(Boto3ServiceResource):
         EnableDnsSupport: "AttributeBooleanValueTypeDef" = None,
     ) -> None:
         """
-        [Vpc.modify_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Vpc.modify_attribute)
+        [Vpc.modify_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Vpc.modify_attribute)
         """
 
     def reload(self) -> None:
         """
-        [Vpc.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Vpc.reload)
+        [Vpc.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Vpc.reload)
         """
 
     def request_vpc_peering_connection(
@@ -3521,17 +3549,17 @@ class Vpc(Boto3ServiceResource):
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
     ) -> _VpcPeeringConnection:
         """
-        [Vpc.request_vpc_peering_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Vpc.request_vpc_peering_connection)
+        [Vpc.request_vpc_peering_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Vpc.request_vpc_peering_connection)
         """
 
     def wait_until_available(self) -> None:
         """
-        [Vpc.wait_until_available documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Vpc.wait_until_available)
+        [Vpc.wait_until_available documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Vpc.wait_until_available)
         """
 
     def wait_until_exists(self) -> None:
         """
-        [Vpc.wait_until_exists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.Vpc.wait_until_exists)
+        [Vpc.wait_until_exists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Vpc.wait_until_exists)
         """
 
 
@@ -3540,7 +3568,7 @@ _Vpc = Vpc
 
 class EC2ServiceResource(Boto3ServiceResource):
     """
-    [EC2.ServiceResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource)
+    [EC2.ServiceResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource)
     """
 
     classic_addresses: ServiceResourceClassicAddressesCollection
@@ -3563,107 +3591,107 @@ class EC2ServiceResource(Boto3ServiceResource):
 
     def ClassicAddress(self, public_ip: str) -> _ClassicAddress:
         """
-        [ServiceResource.ClassicAddress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.ClassicAddress)
+        [ServiceResource.ClassicAddress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.ClassicAddress)
         """
 
     def DhcpOptions(self, id: str) -> _DhcpOptions:
         """
-        [ServiceResource.DhcpOptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.DhcpOptions)
+        [ServiceResource.DhcpOptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.DhcpOptions)
         """
 
     def Image(self, id: str) -> _Image:
         """
-        [ServiceResource.Image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.Image)
+        [ServiceResource.Image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.Image)
         """
 
     def Instance(self, id: str) -> _Instance:
         """
-        [ServiceResource.Instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.Instance)
+        [ServiceResource.Instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.Instance)
         """
 
     def InternetGateway(self, id: str) -> _InternetGateway:
         """
-        [ServiceResource.InternetGateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.InternetGateway)
+        [ServiceResource.InternetGateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.InternetGateway)
         """
 
     def KeyPair(self, name: str) -> _KeyPairInfo:
         """
-        [ServiceResource.KeyPair documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.KeyPair)
+        [ServiceResource.KeyPair documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.KeyPair)
         """
 
     def NetworkAcl(self, id: str) -> _NetworkAcl:
         """
-        [ServiceResource.NetworkAcl documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.NetworkAcl)
+        [ServiceResource.NetworkAcl documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.NetworkAcl)
         """
 
     def NetworkInterface(self, id: str) -> _NetworkInterface:
         """
-        [ServiceResource.NetworkInterface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.NetworkInterface)
+        [ServiceResource.NetworkInterface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.NetworkInterface)
         """
 
     def NetworkInterfaceAssociation(self, id: str) -> _NetworkInterfaceAssociation:
         """
-        [ServiceResource.NetworkInterfaceAssociation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.NetworkInterfaceAssociation)
+        [ServiceResource.NetworkInterfaceAssociation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.NetworkInterfaceAssociation)
         """
 
     def PlacementGroup(self, name: str) -> _PlacementGroup:
         """
-        [ServiceResource.PlacementGroup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.PlacementGroup)
+        [ServiceResource.PlacementGroup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.PlacementGroup)
         """
 
     def Route(self, route_table_id: str, destination_cidr_block: str) -> _Route:
         """
-        [ServiceResource.Route documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.Route)
+        [ServiceResource.Route documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.Route)
         """
 
     def RouteTable(self, id: str) -> _RouteTable:
         """
-        [ServiceResource.RouteTable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.RouteTable)
+        [ServiceResource.RouteTable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.RouteTable)
         """
 
     def RouteTableAssociation(self, id: str) -> _RouteTableAssociation:
         """
-        [ServiceResource.RouteTableAssociation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.RouteTableAssociation)
+        [ServiceResource.RouteTableAssociation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.RouteTableAssociation)
         """
 
     def SecurityGroup(self, id: str) -> _SecurityGroup:
         """
-        [ServiceResource.SecurityGroup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.SecurityGroup)
+        [ServiceResource.SecurityGroup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.SecurityGroup)
         """
 
     def Snapshot(self, id: str) -> _Snapshot:
         """
-        [ServiceResource.Snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.Snapshot)
+        [ServiceResource.Snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.Snapshot)
         """
 
     def Subnet(self, id: str) -> _Subnet:
         """
-        [ServiceResource.Subnet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.Subnet)
+        [ServiceResource.Subnet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.Subnet)
         """
 
     def Tag(self, resource_id: str, key: str, value: str) -> _Tag:
         """
-        [ServiceResource.Tag documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.Tag)
+        [ServiceResource.Tag documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.Tag)
         """
 
     def Volume(self, id: str) -> _Volume:
         """
-        [ServiceResource.Volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.Volume)
+        [ServiceResource.Volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.Volume)
         """
 
     def Vpc(self, id: str) -> _Vpc:
         """
-        [ServiceResource.Vpc documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.Vpc)
+        [ServiceResource.Vpc documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.Vpc)
         """
 
     def VpcAddress(self, allocation_id: str) -> _VpcAddress:
         """
-        [ServiceResource.VpcAddress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.VpcAddress)
+        [ServiceResource.VpcAddress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.VpcAddress)
         """
 
     def VpcPeeringConnection(self, id: str) -> _VpcPeeringConnection:
         """
-        [ServiceResource.VpcPeeringConnection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.VpcPeeringConnection)
+        [ServiceResource.VpcPeeringConnection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.VpcPeeringConnection)
         """
 
     def create_dhcp_options(
@@ -3673,7 +3701,7 @@ class EC2ServiceResource(Boto3ServiceResource):
         DryRun: bool = None,
     ) -> _DhcpOptions:
         """
-        [ServiceResource.create_dhcp_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.create_dhcp_options)
+        [ServiceResource.create_dhcp_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.create_dhcp_options)
         """
 
     def create_instances(
@@ -3758,6 +3786,15 @@ class EC2ServiceResource(Boto3ServiceResource):
             "r5a.12xlarge",
             "r5a.16xlarge",
             "r5a.24xlarge",
+            "r5b.large",
+            "r5b.xlarge",
+            "r5b.2xlarge",
+            "r5b.4xlarge",
+            "r5b.8xlarge",
+            "r5b.12xlarge",
+            "r5b.16xlarge",
+            "r5b.24xlarge",
+            "r5b.metal",
             "r5d.large",
             "r5d.xlarge",
             "r5d.2xlarge",
@@ -3920,6 +3957,16 @@ class EC2ServiceResource(Boto3ServiceResource):
             "d2.2xlarge",
             "d2.4xlarge",
             "d2.8xlarge",
+            "d3.xlarge",
+            "d3.2xlarge",
+            "d3.4xlarge",
+            "d3.8xlarge",
+            "d3en.xlarge",
+            "d3en.2xlarge",
+            "d3en.4xlarge",
+            "d3en.6xlarge",
+            "d3en.8xlarge",
+            "d3en.12xlarge",
             "f1.2xlarge",
             "f1.4xlarge",
             "f1.16xlarge",
@@ -3957,6 +4004,13 @@ class EC2ServiceResource(Boto3ServiceResource):
             "m5ad.12xlarge",
             "m5ad.16xlarge",
             "m5ad.24xlarge",
+            "m5zn.large",
+            "m5zn.xlarge",
+            "m5zn.2xlarge",
+            "m5zn.3xlarge",
+            "m5zn.6xlarge",
+            "m5zn.12xlarge",
+            "m5zn.metal",
             "h1.2xlarge",
             "h1.4xlarge",
             "h1.8xlarge",
@@ -4033,6 +4087,7 @@ class EC2ServiceResource(Boto3ServiceResource):
             "m6gd.8xlarge",
             "m6gd.12xlarge",
             "m6gd.16xlarge",
+            "mac1.metal",
         ] = None,
         Ipv6AddressCount: int = None,
         Ipv6Addresses: List["InstanceIpv6AddressTypeDef"] = None,
@@ -4068,14 +4123,14 @@ class EC2ServiceResource(Boto3ServiceResource):
         EnclaveOptions: EnclaveOptionsRequestTypeDef = None,
     ) -> List[_Instance]:
         """
-        [ServiceResource.create_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.create_instances)
+        [ServiceResource.create_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.create_instances)
         """
 
     def create_internet_gateway(
         self, TagSpecifications: List["TagSpecificationTypeDef"] = None, DryRun: bool = None
     ) -> _InternetGateway:
         """
-        [ServiceResource.create_internet_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.create_internet_gateway)
+        [ServiceResource.create_internet_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.create_internet_gateway)
         """
 
     def create_key_pair(
@@ -4085,7 +4140,7 @@ class EC2ServiceResource(Boto3ServiceResource):
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
     ) -> _KeyPair:
         """
-        [ServiceResource.create_key_pair documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.create_key_pair)
+        [ServiceResource.create_key_pair documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.create_key_pair)
         """
 
     def create_network_acl(
@@ -4095,7 +4150,7 @@ class EC2ServiceResource(Boto3ServiceResource):
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
     ) -> _NetworkAcl:
         """
-        [ServiceResource.create_network_acl documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.create_network_acl)
+        [ServiceResource.create_network_acl documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.create_network_acl)
         """
 
     def create_network_interface(
@@ -4113,7 +4168,7 @@ class EC2ServiceResource(Boto3ServiceResource):
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
     ) -> _NetworkInterface:
         """
-        [ServiceResource.create_network_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.create_network_interface)
+        [ServiceResource.create_network_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.create_network_interface)
         """
 
     def create_placement_group(
@@ -4125,7 +4180,7 @@ class EC2ServiceResource(Boto3ServiceResource):
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
     ) -> _PlacementGroup:
         """
-        [ServiceResource.create_placement_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.create_placement_group)
+        [ServiceResource.create_placement_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.create_placement_group)
         """
 
     def create_route_table(
@@ -4135,7 +4190,7 @@ class EC2ServiceResource(Boto3ServiceResource):
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
     ) -> _RouteTable:
         """
-        [ServiceResource.create_route_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.create_route_table)
+        [ServiceResource.create_route_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.create_route_table)
         """
 
     def create_security_group(
@@ -4147,7 +4202,7 @@ class EC2ServiceResource(Boto3ServiceResource):
         DryRun: bool = None,
     ) -> _SecurityGroup:
         """
-        [ServiceResource.create_security_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.create_security_group)
+        [ServiceResource.create_security_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.create_security_group)
         """
 
     def create_snapshot(
@@ -4158,7 +4213,7 @@ class EC2ServiceResource(Boto3ServiceResource):
         DryRun: bool = None,
     ) -> _Snapshot:
         """
-        [ServiceResource.create_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.create_snapshot)
+        [ServiceResource.create_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.create_snapshot)
         """
 
     def create_subnet(
@@ -4173,14 +4228,14 @@ class EC2ServiceResource(Boto3ServiceResource):
         DryRun: bool = None,
     ) -> _Subnet:
         """
-        [ServiceResource.create_subnet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.create_subnet)
+        [ServiceResource.create_subnet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.create_subnet)
         """
 
     def create_tags(
         self, Resources: List[str], Tags: List["TagTypeDef"], DryRun: bool = None
     ) -> None:
         """
-        [ServiceResource.create_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.create_tags)
+        [ServiceResource.create_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.create_tags)
         """
 
     def create_volume(
@@ -4192,13 +4247,14 @@ class EC2ServiceResource(Boto3ServiceResource):
         OutpostArn: str = None,
         Size: int = None,
         SnapshotId: str = None,
-        VolumeType: Literal["standard", "io1", "io2", "gp2", "sc1", "st1"] = None,
+        VolumeType: Literal["standard", "io1", "io2", "gp2", "sc1", "st1", "gp3"] = None,
         DryRun: bool = None,
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
         MultiAttachEnabled: bool = None,
+        Throughput: int = None,
     ) -> _Volume:
         """
-        [ServiceResource.create_volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.create_volume)
+        [ServiceResource.create_volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.create_volume)
         """
 
     def create_vpc(
@@ -4213,7 +4269,7 @@ class EC2ServiceResource(Boto3ServiceResource):
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
     ) -> _Vpc:
         """
-        [ServiceResource.create_vpc documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.create_vpc)
+        [ServiceResource.create_vpc documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.create_vpc)
         """
 
     def create_vpc_peering_connection(
@@ -4226,17 +4282,17 @@ class EC2ServiceResource(Boto3ServiceResource):
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
     ) -> _VpcPeeringConnection:
         """
-        [ServiceResource.create_vpc_peering_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.create_vpc_peering_connection)
+        [ServiceResource.create_vpc_peering_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.create_vpc_peering_connection)
         """
 
     def disassociate_route_table(self, AssociationId: str, DryRun: bool = None) -> None:
         """
-        [ServiceResource.disassociate_route_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.disassociate_route_table)
+        [ServiceResource.disassociate_route_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.disassociate_route_table)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [ServiceResource.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.get_available_subresources)
+        [ServiceResource.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.get_available_subresources)
         """
 
     def import_key_pair(
@@ -4247,7 +4303,7 @@ class EC2ServiceResource(Boto3ServiceResource):
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
     ) -> _KeyPairInfo:
         """
-        [ServiceResource.import_key_pair documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.import_key_pair)
+        [ServiceResource.import_key_pair documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.import_key_pair)
         """
 
     def register_image(
@@ -4267,5 +4323,5 @@ class EC2ServiceResource(Boto3ServiceResource):
         VirtualizationType: str = None,
     ) -> _Image:
         """
-        [ServiceResource.register_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/ec2.html#EC2.ServiceResource.register_image)
+        [ServiceResource.register_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.ServiceResource.register_image)
         """

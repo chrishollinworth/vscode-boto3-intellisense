@@ -61,7 +61,7 @@ __all__ = (
 
 class ListActionExecutionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListActionExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Paginator.ListActionExecutions)
+    [Paginator.ListActionExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codepipeline.html#CodePipeline.Paginator.ListActionExecutions)
     """
 
     def paginate(
@@ -71,13 +71,13 @@ class ListActionExecutionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListActionExecutionsOutputTypeDef]:
         """
-        [ListActionExecutions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Paginator.ListActionExecutions.paginate)
+        [ListActionExecutions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codepipeline.html#CodePipeline.Paginator.ListActionExecutions.paginate)
         """
 
 
 class ListActionTypesPaginator(Boto3Paginator):
     """
-    [Paginator.ListActionTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Paginator.ListActionTypes)
+    [Paginator.ListActionTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codepipeline.html#CodePipeline.Paginator.ListActionTypes)
     """
 
     def paginate(
@@ -86,57 +86,57 @@ class ListActionTypesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListActionTypesOutputTypeDef]:
         """
-        [ListActionTypes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Paginator.ListActionTypes.paginate)
+        [ListActionTypes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codepipeline.html#CodePipeline.Paginator.ListActionTypes.paginate)
         """
 
 
 class ListPipelineExecutionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListPipelineExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Paginator.ListPipelineExecutions)
+    [Paginator.ListPipelineExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codepipeline.html#CodePipeline.Paginator.ListPipelineExecutions)
     """
 
     def paginate(
         self, pipelineName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPipelineExecutionsOutputTypeDef]:
         """
-        [ListPipelineExecutions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Paginator.ListPipelineExecutions.paginate)
+        [ListPipelineExecutions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codepipeline.html#CodePipeline.Paginator.ListPipelineExecutions.paginate)
         """
 
 
 class ListPipelinesPaginator(Boto3Paginator):
     """
-    [Paginator.ListPipelines documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Paginator.ListPipelines)
+    [Paginator.ListPipelines documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codepipeline.html#CodePipeline.Paginator.ListPipelines)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPipelinesOutputTypeDef]:
         """
-        [ListPipelines.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Paginator.ListPipelines.paginate)
+        [ListPipelines.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codepipeline.html#CodePipeline.Paginator.ListPipelines.paginate)
         """
 
 
 class ListTagsForResourcePaginator(Boto3Paginator):
     """
-    [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Paginator.ListTagsForResource)
+    [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codepipeline.html#CodePipeline.Paginator.ListTagsForResource)
     """
 
     def paginate(
         self, resourceArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTagsForResourceOutputTypeDef]:
         """
-        [ListTagsForResource.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Paginator.ListTagsForResource.paginate)
+        [ListTagsForResource.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codepipeline.html#CodePipeline.Paginator.ListTagsForResource.paginate)
         """
 
 
 class ListWebhooksPaginator(Boto3Paginator):
     """
-    [Paginator.ListWebhooks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Paginator.ListWebhooks)
+    [Paginator.ListWebhooks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codepipeline.html#CodePipeline.Paginator.ListWebhooks)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListWebhooksOutputTypeDef]:
         """
-        [ListWebhooks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/codepipeline.html#CodePipeline.Paginator.ListWebhooks.paginate)
+        [ListWebhooks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codepipeline.html#CodePipeline.Paginator.ListWebhooks.paginate)
         """

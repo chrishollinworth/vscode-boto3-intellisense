@@ -45,33 +45,33 @@ __all__ = (
 
 class ListDataSetRevisionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDataSetRevisions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dataexchange.html#DataExchange.Paginator.ListDataSetRevisions)
+    [Paginator.ListDataSetRevisions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dataexchange.html#DataExchange.Paginator.ListDataSetRevisions)
     """
 
     def paginate(
         self, DataSetId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDataSetRevisionsResponseTypeDef]:
         """
-        [ListDataSetRevisions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dataexchange.html#DataExchange.Paginator.ListDataSetRevisions.paginate)
+        [ListDataSetRevisions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dataexchange.html#DataExchange.Paginator.ListDataSetRevisions.paginate)
         """
 
 
 class ListDataSetsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDataSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dataexchange.html#DataExchange.Paginator.ListDataSets)
+    [Paginator.ListDataSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dataexchange.html#DataExchange.Paginator.ListDataSets)
     """
 
     def paginate(
         self, Origin: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDataSetsResponseTypeDef]:
         """
-        [ListDataSets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dataexchange.html#DataExchange.Paginator.ListDataSets.paginate)
+        [ListDataSets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dataexchange.html#DataExchange.Paginator.ListDataSets.paginate)
         """
 
 
 class ListJobsPaginator(Boto3Paginator):
     """
-    [Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dataexchange.html#DataExchange.Paginator.ListJobs)
+    [Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dataexchange.html#DataExchange.Paginator.ListJobs)
     """
 
     def paginate(
@@ -81,18 +81,18 @@ class ListJobsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListJobsResponseTypeDef]:
         """
-        [ListJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dataexchange.html#DataExchange.Paginator.ListJobs.paginate)
+        [ListJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dataexchange.html#DataExchange.Paginator.ListJobs.paginate)
         """
 
 
 class ListRevisionAssetsPaginator(Boto3Paginator):
     """
-    [Paginator.ListRevisionAssets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dataexchange.html#DataExchange.Paginator.ListRevisionAssets)
+    [Paginator.ListRevisionAssets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dataexchange.html#DataExchange.Paginator.ListRevisionAssets)
     """
 
     def paginate(
         self, DataSetId: str, RevisionId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRevisionAssetsResponseTypeDef]:
         """
-        [ListRevisionAssets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/dataexchange.html#DataExchange.Paginator.ListRevisionAssets.paginate)
+        [ListRevisionAssets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dataexchange.html#DataExchange.Paginator.ListRevisionAssets.paginate)
         """

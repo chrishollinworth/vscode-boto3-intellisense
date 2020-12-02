@@ -28,12 +28,12 @@ __all__ = ("ListServersPaginator",)
 
 class ListServersPaginator(Boto3Paginator):
     """
-    [Paginator.ListServers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/transfer.html#Transfer.Paginator.ListServers)
+    [Paginator.ListServers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/transfer.html#Transfer.Paginator.ListServers)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListServersResponseTypeDef]:
         """
-        [ListServers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/transfer.html#Transfer.Paginator.ListServers.paginate)
+        [ListServers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/transfer.html#Transfer.Paginator.ListServers.paginate)
         """

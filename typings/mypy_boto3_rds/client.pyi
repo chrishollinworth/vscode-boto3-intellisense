@@ -323,7 +323,7 @@ class Exceptions:
 
 class RDSClient:
     """
-    [RDS.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client)
+    [RDS.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client)
     """
 
     meta: ClientMeta
@@ -333,33 +333,33 @@ class RDSClient:
         self, DBClusterIdentifier: str, RoleArn: str, FeatureName: str = None
     ) -> None:
         """
-        [Client.add_role_to_db_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.add_role_to_db_cluster)
+        [Client.add_role_to_db_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.add_role_to_db_cluster)
         """
 
     def add_role_to_db_instance(
         self, DBInstanceIdentifier: str, RoleArn: str, FeatureName: str
     ) -> None:
         """
-        [Client.add_role_to_db_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.add_role_to_db_instance)
+        [Client.add_role_to_db_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.add_role_to_db_instance)
         """
 
     def add_source_identifier_to_subscription(
         self, SubscriptionName: str, SourceIdentifier: str
     ) -> AddSourceIdentifierToSubscriptionResultTypeDef:
         """
-        [Client.add_source_identifier_to_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.add_source_identifier_to_subscription)
+        [Client.add_source_identifier_to_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.add_source_identifier_to_subscription)
         """
 
     def add_tags_to_resource(self, ResourceName: str, Tags: List["TagTypeDef"]) -> None:
         """
-        [Client.add_tags_to_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.add_tags_to_resource)
+        [Client.add_tags_to_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.add_tags_to_resource)
         """
 
     def apply_pending_maintenance_action(
         self, ResourceIdentifier: str, ApplyAction: str, OptInType: str
     ) -> ApplyPendingMaintenanceActionResultTypeDef:
         """
-        [Client.apply_pending_maintenance_action documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.apply_pending_maintenance_action)
+        [Client.apply_pending_maintenance_action documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.apply_pending_maintenance_action)
         """
 
     def authorize_db_security_group_ingress(
@@ -371,7 +371,7 @@ class RDSClient:
         EC2SecurityGroupOwnerId: str = None,
     ) -> AuthorizeDBSecurityGroupIngressResultTypeDef:
         """
-        [Client.authorize_db_security_group_ingress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.authorize_db_security_group_ingress)
+        [Client.authorize_db_security_group_ingress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.authorize_db_security_group_ingress)
         """
 
     def backtrack_db_cluster(
@@ -382,17 +382,17 @@ class RDSClient:
         UseEarliestTimeOnPointInTimeUnavailable: bool = None,
     ) -> "DBClusterBacktrackTypeDef":
         """
-        [Client.backtrack_db_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.backtrack_db_cluster)
+        [Client.backtrack_db_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.backtrack_db_cluster)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.can_paginate)
         """
 
     def cancel_export_task(self, ExportTaskIdentifier: str) -> "ExportTaskTypeDef":
         """
-        [Client.cancel_export_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.cancel_export_task)
+        [Client.cancel_export_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.cancel_export_task)
         """
 
     def copy_db_cluster_parameter_group(
@@ -403,7 +403,7 @@ class RDSClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CopyDBClusterParameterGroupResultTypeDef:
         """
-        [Client.copy_db_cluster_parameter_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.copy_db_cluster_parameter_group)
+        [Client.copy_db_cluster_parameter_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.copy_db_cluster_parameter_group)
         """
 
     def copy_db_cluster_snapshot(
@@ -417,7 +417,7 @@ class RDSClient:
         SourceRegion: str = None,
     ) -> CopyDBClusterSnapshotResultTypeDef:
         """
-        [Client.copy_db_cluster_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.copy_db_cluster_snapshot)
+        [Client.copy_db_cluster_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.copy_db_cluster_snapshot)
         """
 
     def copy_db_parameter_group(
@@ -428,7 +428,7 @@ class RDSClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CopyDBParameterGroupResultTypeDef:
         """
-        [Client.copy_db_parameter_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.copy_db_parameter_group)
+        [Client.copy_db_parameter_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.copy_db_parameter_group)
         """
 
     def copy_db_snapshot(
@@ -444,7 +444,7 @@ class RDSClient:
         SourceRegion: str = None,
     ) -> CopyDBSnapshotResultTypeDef:
         """
-        [Client.copy_db_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.copy_db_snapshot)
+        [Client.copy_db_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.copy_db_snapshot)
         """
 
     def copy_option_group(
@@ -455,7 +455,7 @@ class RDSClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CopyOptionGroupResultTypeDef:
         """
-        [Client.copy_option_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.copy_option_group)
+        [Client.copy_option_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.copy_option_group)
         """
 
     def create_custom_availability_zone(
@@ -466,7 +466,7 @@ class RDSClient:
         VpnTunnelOriginatorIP: str = None,
     ) -> CreateCustomAvailabilityZoneResultTypeDef:
         """
-        [Client.create_custom_availability_zone documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.create_custom_availability_zone)
+        [Client.create_custom_availability_zone documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.create_custom_availability_zone)
         """
 
     def create_db_cluster(
@@ -507,7 +507,7 @@ class RDSClient:
         SourceRegion: str = None,
     ) -> CreateDBClusterResultTypeDef:
         """
-        [Client.create_db_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.create_db_cluster)
+        [Client.create_db_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.create_db_cluster)
         """
 
     def create_db_cluster_endpoint(
@@ -520,7 +520,7 @@ class RDSClient:
         Tags: List["TagTypeDef"] = None,
     ) -> "DBClusterEndpointTypeDef":
         """
-        [Client.create_db_cluster_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.create_db_cluster_endpoint)
+        [Client.create_db_cluster_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.create_db_cluster_endpoint)
         """
 
     def create_db_cluster_parameter_group(
@@ -531,7 +531,7 @@ class RDSClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateDBClusterParameterGroupResultTypeDef:
         """
-        [Client.create_db_cluster_parameter_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.create_db_cluster_parameter_group)
+        [Client.create_db_cluster_parameter_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.create_db_cluster_parameter_group)
         """
 
     def create_db_cluster_snapshot(
@@ -541,7 +541,7 @@ class RDSClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateDBClusterSnapshotResultTypeDef:
         """
-        [Client.create_db_cluster_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.create_db_cluster_snapshot)
+        [Client.create_db_cluster_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.create_db_cluster_snapshot)
         """
 
     def create_db_instance(
@@ -595,7 +595,7 @@ class RDSClient:
         MaxAllocatedStorage: int = None,
     ) -> CreateDBInstanceResultTypeDef:
         """
-        [Client.create_db_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.create_db_instance)
+        [Client.create_db_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.create_db_instance)
         """
 
     def create_db_instance_read_replica(
@@ -635,7 +635,7 @@ class RDSClient:
         SourceRegion: str = None,
     ) -> CreateDBInstanceReadReplicaResultTypeDef:
         """
-        [Client.create_db_instance_read_replica documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.create_db_instance_read_replica)
+        [Client.create_db_instance_read_replica documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.create_db_instance_read_replica)
         """
 
     def create_db_parameter_group(
@@ -646,7 +646,7 @@ class RDSClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateDBParameterGroupResultTypeDef:
         """
-        [Client.create_db_parameter_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.create_db_parameter_group)
+        [Client.create_db_parameter_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.create_db_parameter_group)
         """
 
     def create_db_proxy(
@@ -663,7 +663,7 @@ class RDSClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateDBProxyResponseTypeDef:
         """
-        [Client.create_db_proxy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.create_db_proxy)
+        [Client.create_db_proxy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.create_db_proxy)
         """
 
     def create_db_security_group(
@@ -673,14 +673,14 @@ class RDSClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateDBSecurityGroupResultTypeDef:
         """
-        [Client.create_db_security_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.create_db_security_group)
+        [Client.create_db_security_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.create_db_security_group)
         """
 
     def create_db_snapshot(
         self, DBSnapshotIdentifier: str, DBInstanceIdentifier: str, Tags: List["TagTypeDef"] = None
     ) -> CreateDBSnapshotResultTypeDef:
         """
-        [Client.create_db_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.create_db_snapshot)
+        [Client.create_db_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.create_db_snapshot)
         """
 
     def create_db_subnet_group(
@@ -691,7 +691,7 @@ class RDSClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateDBSubnetGroupResultTypeDef:
         """
-        [Client.create_db_subnet_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.create_db_subnet_group)
+        [Client.create_db_subnet_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.create_db_subnet_group)
         """
 
     def create_event_subscription(
@@ -705,7 +705,7 @@ class RDSClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateEventSubscriptionResultTypeDef:
         """
-        [Client.create_event_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.create_event_subscription)
+        [Client.create_event_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.create_event_subscription)
         """
 
     def create_global_cluster(
@@ -719,7 +719,7 @@ class RDSClient:
         StorageEncrypted: bool = None,
     ) -> CreateGlobalClusterResultTypeDef:
         """
-        [Client.create_global_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.create_global_cluster)
+        [Client.create_global_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.create_global_cluster)
         """
 
     def create_option_group(
@@ -731,14 +731,14 @@ class RDSClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateOptionGroupResultTypeDef:
         """
-        [Client.create_option_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.create_option_group)
+        [Client.create_option_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.create_option_group)
         """
 
     def delete_custom_availability_zone(
         self, CustomAvailabilityZoneId: str
     ) -> DeleteCustomAvailabilityZoneResultTypeDef:
         """
-        [Client.delete_custom_availability_zone documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.delete_custom_availability_zone)
+        [Client.delete_custom_availability_zone documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.delete_custom_availability_zone)
         """
 
     def delete_db_cluster(
@@ -748,26 +748,26 @@ class RDSClient:
         FinalDBSnapshotIdentifier: str = None,
     ) -> DeleteDBClusterResultTypeDef:
         """
-        [Client.delete_db_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.delete_db_cluster)
+        [Client.delete_db_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.delete_db_cluster)
         """
 
     def delete_db_cluster_endpoint(
         self, DBClusterEndpointIdentifier: str
     ) -> "DBClusterEndpointTypeDef":
         """
-        [Client.delete_db_cluster_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.delete_db_cluster_endpoint)
+        [Client.delete_db_cluster_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.delete_db_cluster_endpoint)
         """
 
     def delete_db_cluster_parameter_group(self, DBClusterParameterGroupName: str) -> None:
         """
-        [Client.delete_db_cluster_parameter_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.delete_db_cluster_parameter_group)
+        [Client.delete_db_cluster_parameter_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.delete_db_cluster_parameter_group)
         """
 
     def delete_db_cluster_snapshot(
         self, DBClusterSnapshotIdentifier: str
     ) -> DeleteDBClusterSnapshotResultTypeDef:
         """
-        [Client.delete_db_cluster_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.delete_db_cluster_snapshot)
+        [Client.delete_db_cluster_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.delete_db_cluster_snapshot)
         """
 
     def delete_db_instance(
@@ -778,63 +778,63 @@ class RDSClient:
         DeleteAutomatedBackups: bool = None,
     ) -> DeleteDBInstanceResultTypeDef:
         """
-        [Client.delete_db_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.delete_db_instance)
+        [Client.delete_db_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.delete_db_instance)
         """
 
     def delete_db_instance_automated_backup(
         self, DbiResourceId: str
     ) -> DeleteDBInstanceAutomatedBackupResultTypeDef:
         """
-        [Client.delete_db_instance_automated_backup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.delete_db_instance_automated_backup)
+        [Client.delete_db_instance_automated_backup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.delete_db_instance_automated_backup)
         """
 
     def delete_db_parameter_group(self, DBParameterGroupName: str) -> None:
         """
-        [Client.delete_db_parameter_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.delete_db_parameter_group)
+        [Client.delete_db_parameter_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.delete_db_parameter_group)
         """
 
     def delete_db_proxy(self, DBProxyName: str) -> DeleteDBProxyResponseTypeDef:
         """
-        [Client.delete_db_proxy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.delete_db_proxy)
+        [Client.delete_db_proxy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.delete_db_proxy)
         """
 
     def delete_db_security_group(self, DBSecurityGroupName: str) -> None:
         """
-        [Client.delete_db_security_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.delete_db_security_group)
+        [Client.delete_db_security_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.delete_db_security_group)
         """
 
     def delete_db_snapshot(self, DBSnapshotIdentifier: str) -> DeleteDBSnapshotResultTypeDef:
         """
-        [Client.delete_db_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.delete_db_snapshot)
+        [Client.delete_db_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.delete_db_snapshot)
         """
 
     def delete_db_subnet_group(self, DBSubnetGroupName: str) -> None:
         """
-        [Client.delete_db_subnet_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.delete_db_subnet_group)
+        [Client.delete_db_subnet_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.delete_db_subnet_group)
         """
 
     def delete_event_subscription(
         self, SubscriptionName: str
     ) -> DeleteEventSubscriptionResultTypeDef:
         """
-        [Client.delete_event_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.delete_event_subscription)
+        [Client.delete_event_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.delete_event_subscription)
         """
 
     def delete_global_cluster(
         self, GlobalClusterIdentifier: str
     ) -> DeleteGlobalClusterResultTypeDef:
         """
-        [Client.delete_global_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.delete_global_cluster)
+        [Client.delete_global_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.delete_global_cluster)
         """
 
     def delete_installation_media(self, InstallationMediaId: str) -> "InstallationMediaTypeDef":
         """
-        [Client.delete_installation_media documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.delete_installation_media)
+        [Client.delete_installation_media documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.delete_installation_media)
         """
 
     def delete_option_group(self, OptionGroupName: str) -> None:
         """
-        [Client.delete_option_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.delete_option_group)
+        [Client.delete_option_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.delete_option_group)
         """
 
     def deregister_db_proxy_targets(
@@ -845,12 +845,12 @@ class RDSClient:
         DBClusterIdentifiers: List[str] = None,
     ) -> Dict[str, Any]:
         """
-        [Client.deregister_db_proxy_targets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.deregister_db_proxy_targets)
+        [Client.deregister_db_proxy_targets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.deregister_db_proxy_targets)
         """
 
     def describe_account_attributes(self) -> AccountAttributesMessageTypeDef:
         """
-        [Client.describe_account_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.describe_account_attributes)
+        [Client.describe_account_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.describe_account_attributes)
         """
 
     def describe_certificates(
@@ -861,7 +861,7 @@ class RDSClient:
         Marker: str = None,
     ) -> CertificateMessageTypeDef:
         """
-        [Client.describe_certificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.describe_certificates)
+        [Client.describe_certificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.describe_certificates)
         """
 
     def describe_custom_availability_zones(
@@ -872,7 +872,7 @@ class RDSClient:
         Marker: str = None,
     ) -> CustomAvailabilityZoneMessageTypeDef:
         """
-        [Client.describe_custom_availability_zones documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.describe_custom_availability_zones)
+        [Client.describe_custom_availability_zones documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.describe_custom_availability_zones)
         """
 
     def describe_db_cluster_backtracks(
@@ -884,7 +884,7 @@ class RDSClient:
         Marker: str = None,
     ) -> DBClusterBacktrackMessageTypeDef:
         """
-        [Client.describe_db_cluster_backtracks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.describe_db_cluster_backtracks)
+        [Client.describe_db_cluster_backtracks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.describe_db_cluster_backtracks)
         """
 
     def describe_db_cluster_endpoints(
@@ -896,7 +896,7 @@ class RDSClient:
         Marker: str = None,
     ) -> DBClusterEndpointMessageTypeDef:
         """
-        [Client.describe_db_cluster_endpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.describe_db_cluster_endpoints)
+        [Client.describe_db_cluster_endpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.describe_db_cluster_endpoints)
         """
 
     def describe_db_cluster_parameter_groups(
@@ -907,7 +907,7 @@ class RDSClient:
         Marker: str = None,
     ) -> DBClusterParameterGroupsMessageTypeDef:
         """
-        [Client.describe_db_cluster_parameter_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.describe_db_cluster_parameter_groups)
+        [Client.describe_db_cluster_parameter_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.describe_db_cluster_parameter_groups)
         """
 
     def describe_db_cluster_parameters(
@@ -919,14 +919,14 @@ class RDSClient:
         Marker: str = None,
     ) -> DBClusterParameterGroupDetailsTypeDef:
         """
-        [Client.describe_db_cluster_parameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.describe_db_cluster_parameters)
+        [Client.describe_db_cluster_parameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.describe_db_cluster_parameters)
         """
 
     def describe_db_cluster_snapshot_attributes(
         self, DBClusterSnapshotIdentifier: str
     ) -> DescribeDBClusterSnapshotAttributesResultTypeDef:
         """
-        [Client.describe_db_cluster_snapshot_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.describe_db_cluster_snapshot_attributes)
+        [Client.describe_db_cluster_snapshot_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.describe_db_cluster_snapshot_attributes)
         """
 
     def describe_db_cluster_snapshots(
@@ -941,7 +941,7 @@ class RDSClient:
         IncludePublic: bool = None,
     ) -> DBClusterSnapshotMessageTypeDef:
         """
-        [Client.describe_db_cluster_snapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.describe_db_cluster_snapshots)
+        [Client.describe_db_cluster_snapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.describe_db_cluster_snapshots)
         """
 
     def describe_db_clusters(
@@ -953,7 +953,7 @@ class RDSClient:
         IncludeShared: bool = None,
     ) -> DBClusterMessageTypeDef:
         """
-        [Client.describe_db_clusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.describe_db_clusters)
+        [Client.describe_db_clusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.describe_db_clusters)
         """
 
     def describe_db_engine_versions(
@@ -970,7 +970,7 @@ class RDSClient:
         IncludeAll: bool = None,
     ) -> DBEngineVersionMessageTypeDef:
         """
-        [Client.describe_db_engine_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.describe_db_engine_versions)
+        [Client.describe_db_engine_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.describe_db_engine_versions)
         """
 
     def describe_db_instance_automated_backups(
@@ -982,7 +982,7 @@ class RDSClient:
         Marker: str = None,
     ) -> DBInstanceAutomatedBackupMessageTypeDef:
         """
-        [Client.describe_db_instance_automated_backups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.describe_db_instance_automated_backups)
+        [Client.describe_db_instance_automated_backups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.describe_db_instance_automated_backups)
         """
 
     def describe_db_instances(
@@ -993,7 +993,7 @@ class RDSClient:
         Marker: str = None,
     ) -> DBInstanceMessageTypeDef:
         """
-        [Client.describe_db_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.describe_db_instances)
+        [Client.describe_db_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.describe_db_instances)
         """
 
     def describe_db_log_files(
@@ -1007,7 +1007,7 @@ class RDSClient:
         Marker: str = None,
     ) -> DescribeDBLogFilesResponseTypeDef:
         """
-        [Client.describe_db_log_files documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.describe_db_log_files)
+        [Client.describe_db_log_files documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.describe_db_log_files)
         """
 
     def describe_db_parameter_groups(
@@ -1018,7 +1018,7 @@ class RDSClient:
         Marker: str = None,
     ) -> DBParameterGroupsMessageTypeDef:
         """
-        [Client.describe_db_parameter_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.describe_db_parameter_groups)
+        [Client.describe_db_parameter_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.describe_db_parameter_groups)
         """
 
     def describe_db_parameters(
@@ -1030,7 +1030,7 @@ class RDSClient:
         Marker: str = None,
     ) -> DBParameterGroupDetailsTypeDef:
         """
-        [Client.describe_db_parameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.describe_db_parameters)
+        [Client.describe_db_parameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.describe_db_parameters)
         """
 
     def describe_db_proxies(
@@ -1041,7 +1041,7 @@ class RDSClient:
         MaxRecords: int = None,
     ) -> DescribeDBProxiesResponseTypeDef:
         """
-        [Client.describe_db_proxies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.describe_db_proxies)
+        [Client.describe_db_proxies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.describe_db_proxies)
         """
 
     def describe_db_proxy_target_groups(
@@ -1053,7 +1053,7 @@ class RDSClient:
         MaxRecords: int = None,
     ) -> DescribeDBProxyTargetGroupsResponseTypeDef:
         """
-        [Client.describe_db_proxy_target_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.describe_db_proxy_target_groups)
+        [Client.describe_db_proxy_target_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.describe_db_proxy_target_groups)
         """
 
     def describe_db_proxy_targets(
@@ -1065,7 +1065,7 @@ class RDSClient:
         MaxRecords: int = None,
     ) -> DescribeDBProxyTargetsResponseTypeDef:
         """
-        [Client.describe_db_proxy_targets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.describe_db_proxy_targets)
+        [Client.describe_db_proxy_targets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.describe_db_proxy_targets)
         """
 
     def describe_db_security_groups(
@@ -1076,14 +1076,14 @@ class RDSClient:
         Marker: str = None,
     ) -> DBSecurityGroupMessageTypeDef:
         """
-        [Client.describe_db_security_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.describe_db_security_groups)
+        [Client.describe_db_security_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.describe_db_security_groups)
         """
 
     def describe_db_snapshot_attributes(
         self, DBSnapshotIdentifier: str
     ) -> DescribeDBSnapshotAttributesResultTypeDef:
         """
-        [Client.describe_db_snapshot_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.describe_db_snapshot_attributes)
+        [Client.describe_db_snapshot_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.describe_db_snapshot_attributes)
         """
 
     def describe_db_snapshots(
@@ -1099,7 +1099,7 @@ class RDSClient:
         DbiResourceId: str = None,
     ) -> DBSnapshotMessageTypeDef:
         """
-        [Client.describe_db_snapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.describe_db_snapshots)
+        [Client.describe_db_snapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.describe_db_snapshots)
         """
 
     def describe_db_subnet_groups(
@@ -1110,7 +1110,7 @@ class RDSClient:
         Marker: str = None,
     ) -> DBSubnetGroupMessageTypeDef:
         """
-        [Client.describe_db_subnet_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.describe_db_subnet_groups)
+        [Client.describe_db_subnet_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.describe_db_subnet_groups)
         """
 
     def describe_engine_default_cluster_parameters(
@@ -1121,7 +1121,7 @@ class RDSClient:
         Marker: str = None,
     ) -> DescribeEngineDefaultClusterParametersResultTypeDef:
         """
-        [Client.describe_engine_default_cluster_parameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.describe_engine_default_cluster_parameters)
+        [Client.describe_engine_default_cluster_parameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.describe_engine_default_cluster_parameters)
         """
 
     def describe_engine_default_parameters(
@@ -1132,14 +1132,14 @@ class RDSClient:
         Marker: str = None,
     ) -> DescribeEngineDefaultParametersResultTypeDef:
         """
-        [Client.describe_engine_default_parameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.describe_engine_default_parameters)
+        [Client.describe_engine_default_parameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.describe_engine_default_parameters)
         """
 
     def describe_event_categories(
         self, SourceType: str = None, Filters: List[FilterTypeDef] = None
     ) -> EventCategoriesMessageTypeDef:
         """
-        [Client.describe_event_categories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.describe_event_categories)
+        [Client.describe_event_categories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.describe_event_categories)
         """
 
     def describe_event_subscriptions(
@@ -1150,7 +1150,7 @@ class RDSClient:
         Marker: str = None,
     ) -> EventSubscriptionsMessageTypeDef:
         """
-        [Client.describe_event_subscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.describe_event_subscriptions)
+        [Client.describe_event_subscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.describe_event_subscriptions)
         """
 
     def describe_events(
@@ -1173,7 +1173,7 @@ class RDSClient:
         Marker: str = None,
     ) -> EventsMessageTypeDef:
         """
-        [Client.describe_events documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.describe_events)
+        [Client.describe_events documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.describe_events)
         """
 
     def describe_export_tasks(
@@ -1185,7 +1185,7 @@ class RDSClient:
         MaxRecords: int = None,
     ) -> ExportTasksMessageTypeDef:
         """
-        [Client.describe_export_tasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.describe_export_tasks)
+        [Client.describe_export_tasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.describe_export_tasks)
         """
 
     def describe_global_clusters(
@@ -1196,7 +1196,7 @@ class RDSClient:
         Marker: str = None,
     ) -> GlobalClustersMessageTypeDef:
         """
-        [Client.describe_global_clusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.describe_global_clusters)
+        [Client.describe_global_clusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.describe_global_clusters)
         """
 
     def describe_installation_media(
@@ -1207,7 +1207,7 @@ class RDSClient:
         Marker: str = None,
     ) -> InstallationMediaMessageTypeDef:
         """
-        [Client.describe_installation_media documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.describe_installation_media)
+        [Client.describe_installation_media documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.describe_installation_media)
         """
 
     def describe_option_group_options(
@@ -1219,7 +1219,7 @@ class RDSClient:
         Marker: str = None,
     ) -> OptionGroupOptionsMessageTypeDef:
         """
-        [Client.describe_option_group_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.describe_option_group_options)
+        [Client.describe_option_group_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.describe_option_group_options)
         """
 
     def describe_option_groups(
@@ -1232,7 +1232,7 @@ class RDSClient:
         MajorEngineVersion: str = None,
     ) -> OptionGroupsTypeDef:
         """
-        [Client.describe_option_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.describe_option_groups)
+        [Client.describe_option_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.describe_option_groups)
         """
 
     def describe_orderable_db_instance_options(
@@ -1248,7 +1248,7 @@ class RDSClient:
         Marker: str = None,
     ) -> OrderableDBInstanceOptionsMessageTypeDef:
         """
-        [Client.describe_orderable_db_instance_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.describe_orderable_db_instance_options)
+        [Client.describe_orderable_db_instance_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.describe_orderable_db_instance_options)
         """
 
     def describe_pending_maintenance_actions(
@@ -1259,7 +1259,7 @@ class RDSClient:
         MaxRecords: int = None,
     ) -> PendingMaintenanceActionsMessageTypeDef:
         """
-        [Client.describe_pending_maintenance_actions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.describe_pending_maintenance_actions)
+        [Client.describe_pending_maintenance_actions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.describe_pending_maintenance_actions)
         """
 
     def describe_reserved_db_instances(
@@ -1277,7 +1277,7 @@ class RDSClient:
         Marker: str = None,
     ) -> ReservedDBInstanceMessageTypeDef:
         """
-        [Client.describe_reserved_db_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.describe_reserved_db_instances)
+        [Client.describe_reserved_db_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.describe_reserved_db_instances)
         """
 
     def describe_reserved_db_instances_offerings(
@@ -1293,7 +1293,7 @@ class RDSClient:
         Marker: str = None,
     ) -> ReservedDBInstancesOfferingMessageTypeDef:
         """
-        [Client.describe_reserved_db_instances_offerings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.describe_reserved_db_instances_offerings)
+        [Client.describe_reserved_db_instances_offerings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.describe_reserved_db_instances_offerings)
         """
 
     def describe_source_regions(
@@ -1304,14 +1304,14 @@ class RDSClient:
         Filters: List[FilterTypeDef] = None,
     ) -> SourceRegionMessageTypeDef:
         """
-        [Client.describe_source_regions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.describe_source_regions)
+        [Client.describe_source_regions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.describe_source_regions)
         """
 
     def describe_valid_db_instance_modifications(
         self, DBInstanceIdentifier: str
     ) -> DescribeValidDBInstanceModificationsResultTypeDef:
         """
-        [Client.describe_valid_db_instance_modifications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.describe_valid_db_instance_modifications)
+        [Client.describe_valid_db_instance_modifications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.describe_valid_db_instance_modifications)
         """
 
     def download_db_log_file_portion(
@@ -1322,21 +1322,21 @@ class RDSClient:
         NumberOfLines: int = None,
     ) -> DownloadDBLogFilePortionDetailsTypeDef:
         """
-        [Client.download_db_log_file_portion documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.download_db_log_file_portion)
+        [Client.download_db_log_file_portion documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.download_db_log_file_portion)
         """
 
     def failover_db_cluster(
         self, DBClusterIdentifier: str, TargetDBInstanceIdentifier: str = None
     ) -> FailoverDBClusterResultTypeDef:
         """
-        [Client.failover_db_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.failover_db_cluster)
+        [Client.failover_db_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.failover_db_cluster)
         """
 
     def generate_db_auth_token(
         self, DBHostname: str, Port: int, DBUsername: str, Region: str = None
     ) -> str:
         """
-        [Client.generate_db_auth_token documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.generate_db_auth_token)
+        [Client.generate_db_auth_token documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.generate_db_auth_token)
         """
 
     def generate_presigned_url(
@@ -1347,7 +1347,7 @@ class RDSClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.generate_presigned_url)
         """
 
     def import_installation_media(
@@ -1359,21 +1359,21 @@ class RDSClient:
         OSInstallationMediaPath: str,
     ) -> "InstallationMediaTypeDef":
         """
-        [Client.import_installation_media documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.import_installation_media)
+        [Client.import_installation_media documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.import_installation_media)
         """
 
     def list_tags_for_resource(
         self, ResourceName: str, Filters: List[FilterTypeDef] = None
     ) -> TagListMessageTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.list_tags_for_resource)
         """
 
     def modify_certificates(
         self, CertificateIdentifier: str = None, RemoveCustomerOverride: bool = None
     ) -> ModifyCertificatesResultTypeDef:
         """
-        [Client.modify_certificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.modify_certificates)
+        [Client.modify_certificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.modify_certificates)
         """
 
     def modify_current_db_cluster_capacity(
@@ -1384,7 +1384,7 @@ class RDSClient:
         TimeoutAction: str = None,
     ) -> DBClusterCapacityInfoTypeDef:
         """
-        [Client.modify_current_db_cluster_capacity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.modify_current_db_cluster_capacity)
+        [Client.modify_current_db_cluster_capacity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.modify_current_db_cluster_capacity)
         """
 
     def modify_db_cluster(
@@ -1415,7 +1415,7 @@ class RDSClient:
         EnableGlobalWriteForwarding: bool = None,
     ) -> ModifyDBClusterResultTypeDef:
         """
-        [Client.modify_db_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.modify_db_cluster)
+        [Client.modify_db_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.modify_db_cluster)
         """
 
     def modify_db_cluster_endpoint(
@@ -1426,14 +1426,14 @@ class RDSClient:
         ExcludedMembers: List[str] = None,
     ) -> "DBClusterEndpointTypeDef":
         """
-        [Client.modify_db_cluster_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.modify_db_cluster_endpoint)
+        [Client.modify_db_cluster_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.modify_db_cluster_endpoint)
         """
 
     def modify_db_cluster_parameter_group(
         self, DBClusterParameterGroupName: str, Parameters: List["ParameterTypeDef"]
     ) -> DBClusterParameterGroupNameMessageTypeDef:
         """
-        [Client.modify_db_cluster_parameter_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.modify_db_cluster_parameter_group)
+        [Client.modify_db_cluster_parameter_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.modify_db_cluster_parameter_group)
         """
 
     def modify_db_cluster_snapshot_attribute(
@@ -1444,7 +1444,7 @@ class RDSClient:
         ValuesToRemove: List[str] = None,
     ) -> ModifyDBClusterSnapshotAttributeResultTypeDef:
         """
-        [Client.modify_db_cluster_snapshot_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.modify_db_cluster_snapshot_attribute)
+        [Client.modify_db_cluster_snapshot_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.modify_db_cluster_snapshot_attribute)
         """
 
     def modify_db_instance(
@@ -1494,14 +1494,14 @@ class RDSClient:
         ReplicaMode: Literal["open-read-only", "mounted"] = None,
     ) -> ModifyDBInstanceResultTypeDef:
         """
-        [Client.modify_db_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.modify_db_instance)
+        [Client.modify_db_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.modify_db_instance)
         """
 
     def modify_db_parameter_group(
         self, DBParameterGroupName: str, Parameters: List["ParameterTypeDef"]
     ) -> DBParameterGroupNameMessageTypeDef:
         """
-        [Client.modify_db_parameter_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.modify_db_parameter_group)
+        [Client.modify_db_parameter_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.modify_db_parameter_group)
         """
 
     def modify_db_proxy(
@@ -1516,7 +1516,7 @@ class RDSClient:
         SecurityGroups: List[str] = None,
     ) -> ModifyDBProxyResponseTypeDef:
         """
-        [Client.modify_db_proxy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.modify_db_proxy)
+        [Client.modify_db_proxy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.modify_db_proxy)
         """
 
     def modify_db_proxy_target_group(
@@ -1527,14 +1527,14 @@ class RDSClient:
         NewName: str = None,
     ) -> ModifyDBProxyTargetGroupResponseTypeDef:
         """
-        [Client.modify_db_proxy_target_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.modify_db_proxy_target_group)
+        [Client.modify_db_proxy_target_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.modify_db_proxy_target_group)
         """
 
     def modify_db_snapshot(
         self, DBSnapshotIdentifier: str, EngineVersion: str = None, OptionGroupName: str = None
     ) -> ModifyDBSnapshotResultTypeDef:
         """
-        [Client.modify_db_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.modify_db_snapshot)
+        [Client.modify_db_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.modify_db_snapshot)
         """
 
     def modify_db_snapshot_attribute(
@@ -1545,14 +1545,14 @@ class RDSClient:
         ValuesToRemove: List[str] = None,
     ) -> ModifyDBSnapshotAttributeResultTypeDef:
         """
-        [Client.modify_db_snapshot_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.modify_db_snapshot_attribute)
+        [Client.modify_db_snapshot_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.modify_db_snapshot_attribute)
         """
 
     def modify_db_subnet_group(
         self, DBSubnetGroupName: str, SubnetIds: List[str], DBSubnetGroupDescription: str = None
     ) -> ModifyDBSubnetGroupResultTypeDef:
         """
-        [Client.modify_db_subnet_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.modify_db_subnet_group)
+        [Client.modify_db_subnet_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.modify_db_subnet_group)
         """
 
     def modify_event_subscription(
@@ -1564,7 +1564,7 @@ class RDSClient:
         Enabled: bool = None,
     ) -> ModifyEventSubscriptionResultTypeDef:
         """
-        [Client.modify_event_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.modify_event_subscription)
+        [Client.modify_event_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.modify_event_subscription)
         """
 
     def modify_global_cluster(
@@ -1574,7 +1574,7 @@ class RDSClient:
         DeletionProtection: bool = None,
     ) -> ModifyGlobalClusterResultTypeDef:
         """
-        [Client.modify_global_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.modify_global_cluster)
+        [Client.modify_global_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.modify_global_cluster)
         """
 
     def modify_option_group(
@@ -1585,7 +1585,7 @@ class RDSClient:
         ApplyImmediately: bool = None,
     ) -> ModifyOptionGroupResultTypeDef:
         """
-        [Client.modify_option_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.modify_option_group)
+        [Client.modify_option_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.modify_option_group)
         """
 
     def promote_read_replica(
@@ -1595,14 +1595,14 @@ class RDSClient:
         PreferredBackupWindow: str = None,
     ) -> PromoteReadReplicaResultTypeDef:
         """
-        [Client.promote_read_replica documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.promote_read_replica)
+        [Client.promote_read_replica documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.promote_read_replica)
         """
 
     def promote_read_replica_db_cluster(
         self, DBClusterIdentifier: str
     ) -> PromoteReadReplicaDBClusterResultTypeDef:
         """
-        [Client.promote_read_replica_db_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.promote_read_replica_db_cluster)
+        [Client.promote_read_replica_db_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.promote_read_replica_db_cluster)
         """
 
     def purchase_reserved_db_instances_offering(
@@ -1613,14 +1613,14 @@ class RDSClient:
         Tags: List["TagTypeDef"] = None,
     ) -> PurchaseReservedDBInstancesOfferingResultTypeDef:
         """
-        [Client.purchase_reserved_db_instances_offering documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.purchase_reserved_db_instances_offering)
+        [Client.purchase_reserved_db_instances_offering documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.purchase_reserved_db_instances_offering)
         """
 
     def reboot_db_instance(
         self, DBInstanceIdentifier: str, ForceFailover: bool = None
     ) -> RebootDBInstanceResultTypeDef:
         """
-        [Client.reboot_db_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.reboot_db_instance)
+        [Client.reboot_db_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.reboot_db_instance)
         """
 
     def register_db_proxy_targets(
@@ -1631,40 +1631,40 @@ class RDSClient:
         DBClusterIdentifiers: List[str] = None,
     ) -> RegisterDBProxyTargetsResponseTypeDef:
         """
-        [Client.register_db_proxy_targets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.register_db_proxy_targets)
+        [Client.register_db_proxy_targets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.register_db_proxy_targets)
         """
 
     def remove_from_global_cluster(
         self, GlobalClusterIdentifier: str = None, DbClusterIdentifier: str = None
     ) -> RemoveFromGlobalClusterResultTypeDef:
         """
-        [Client.remove_from_global_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.remove_from_global_cluster)
+        [Client.remove_from_global_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.remove_from_global_cluster)
         """
 
     def remove_role_from_db_cluster(
         self, DBClusterIdentifier: str, RoleArn: str, FeatureName: str = None
     ) -> None:
         """
-        [Client.remove_role_from_db_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.remove_role_from_db_cluster)
+        [Client.remove_role_from_db_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.remove_role_from_db_cluster)
         """
 
     def remove_role_from_db_instance(
         self, DBInstanceIdentifier: str, RoleArn: str, FeatureName: str
     ) -> None:
         """
-        [Client.remove_role_from_db_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.remove_role_from_db_instance)
+        [Client.remove_role_from_db_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.remove_role_from_db_instance)
         """
 
     def remove_source_identifier_from_subscription(
         self, SubscriptionName: str, SourceIdentifier: str
     ) -> RemoveSourceIdentifierFromSubscriptionResultTypeDef:
         """
-        [Client.remove_source_identifier_from_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.remove_source_identifier_from_subscription)
+        [Client.remove_source_identifier_from_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.remove_source_identifier_from_subscription)
         """
 
     def remove_tags_from_resource(self, ResourceName: str, TagKeys: List[str]) -> None:
         """
-        [Client.remove_tags_from_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.remove_tags_from_resource)
+        [Client.remove_tags_from_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.remove_tags_from_resource)
         """
 
     def reset_db_cluster_parameter_group(
@@ -1674,7 +1674,7 @@ class RDSClient:
         Parameters: List["ParameterTypeDef"] = None,
     ) -> DBClusterParameterGroupNameMessageTypeDef:
         """
-        [Client.reset_db_cluster_parameter_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.reset_db_cluster_parameter_group)
+        [Client.reset_db_cluster_parameter_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.reset_db_cluster_parameter_group)
         """
 
     def reset_db_parameter_group(
@@ -1684,7 +1684,7 @@ class RDSClient:
         Parameters: List["ParameterTypeDef"] = None,
     ) -> DBParameterGroupNameMessageTypeDef:
         """
-        [Client.reset_db_parameter_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.reset_db_parameter_group)
+        [Client.reset_db_parameter_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.reset_db_parameter_group)
         """
 
     def restore_db_cluster_from_s3(
@@ -1722,7 +1722,7 @@ class RDSClient:
         DomainIAMRoleName: str = None,
     ) -> RestoreDBClusterFromS3ResultTypeDef:
         """
-        [Client.restore_db_cluster_from_s3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.restore_db_cluster_from_s3)
+        [Client.restore_db_cluster_from_s3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.restore_db_cluster_from_s3)
         """
 
     def restore_db_cluster_from_snapshot(
@@ -1751,7 +1751,7 @@ class RDSClient:
         DomainIAMRoleName: str = None,
     ) -> RestoreDBClusterFromSnapshotResultTypeDef:
         """
-        [Client.restore_db_cluster_from_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.restore_db_cluster_from_snapshot)
+        [Client.restore_db_cluster_from_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.restore_db_cluster_from_snapshot)
         """
 
     def restore_db_cluster_to_point_in_time(
@@ -1777,7 +1777,7 @@ class RDSClient:
         DomainIAMRoleName: str = None,
     ) -> RestoreDBClusterToPointInTimeResultTypeDef:
         """
-        [Client.restore_db_cluster_to_point_in_time documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.restore_db_cluster_to_point_in_time)
+        [Client.restore_db_cluster_to_point_in_time documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.restore_db_cluster_to_point_in_time)
         """
 
     def restore_db_instance_from_db_snapshot(
@@ -1812,7 +1812,7 @@ class RDSClient:
         DeletionProtection: bool = None,
     ) -> RestoreDBInstanceFromDBSnapshotResultTypeDef:
         """
-        [Client.restore_db_instance_from_db_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.restore_db_instance_from_db_snapshot)
+        [Client.restore_db_instance_from_db_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.restore_db_instance_from_db_snapshot)
         """
 
     def restore_db_instance_from_s3(
@@ -1863,7 +1863,7 @@ class RDSClient:
         MaxAllocatedStorage: int = None,
     ) -> RestoreDBInstanceFromS3ResultTypeDef:
         """
-        [Client.restore_db_instance_from_s3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.restore_db_instance_from_s3)
+        [Client.restore_db_instance_from_s3 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.restore_db_instance_from_s3)
         """
 
     def restore_db_instance_to_point_in_time(
@@ -1902,7 +1902,7 @@ class RDSClient:
         MaxAllocatedStorage: int = None,
     ) -> RestoreDBInstanceToPointInTimeResultTypeDef:
         """
-        [Client.restore_db_instance_to_point_in_time documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.restore_db_instance_to_point_in_time)
+        [Client.restore_db_instance_to_point_in_time documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.restore_db_instance_to_point_in_time)
         """
 
     def revoke_db_security_group_ingress(
@@ -1914,7 +1914,7 @@ class RDSClient:
         EC2SecurityGroupOwnerId: str = None,
     ) -> RevokeDBSecurityGroupIngressResultTypeDef:
         """
-        [Client.revoke_db_security_group_ingress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.revoke_db_security_group_ingress)
+        [Client.revoke_db_security_group_ingress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.revoke_db_security_group_ingress)
         """
 
     def start_activity_stream(
@@ -1925,17 +1925,17 @@ class RDSClient:
         ApplyImmediately: bool = None,
     ) -> StartActivityStreamResponseTypeDef:
         """
-        [Client.start_activity_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.start_activity_stream)
+        [Client.start_activity_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.start_activity_stream)
         """
 
     def start_db_cluster(self, DBClusterIdentifier: str) -> StartDBClusterResultTypeDef:
         """
-        [Client.start_db_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.start_db_cluster)
+        [Client.start_db_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.start_db_cluster)
         """
 
     def start_db_instance(self, DBInstanceIdentifier: str) -> StartDBInstanceResultTypeDef:
         """
-        [Client.start_db_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.start_db_instance)
+        [Client.start_db_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.start_db_instance)
         """
 
     def start_export_task(
@@ -1949,26 +1949,26 @@ class RDSClient:
         ExportOnly: List[str] = None,
     ) -> "ExportTaskTypeDef":
         """
-        [Client.start_export_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.start_export_task)
+        [Client.start_export_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.start_export_task)
         """
 
     def stop_activity_stream(
         self, ResourceArn: str, ApplyImmediately: bool = None
     ) -> StopActivityStreamResponseTypeDef:
         """
-        [Client.stop_activity_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.stop_activity_stream)
+        [Client.stop_activity_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.stop_activity_stream)
         """
 
     def stop_db_cluster(self, DBClusterIdentifier: str) -> StopDBClusterResultTypeDef:
         """
-        [Client.stop_db_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.stop_db_cluster)
+        [Client.stop_db_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.stop_db_cluster)
         """
 
     def stop_db_instance(
         self, DBInstanceIdentifier: str, DBSnapshotIdentifier: str = None
     ) -> StopDBInstanceResultTypeDef:
         """
-        [Client.stop_db_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Client.stop_db_instance)
+        [Client.stop_db_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Client.stop_db_instance)
         """
 
     @overload
@@ -1976,7 +1976,7 @@ class RDSClient:
         self, operation_name: Literal["describe_certificates"]
     ) -> DescribeCertificatesPaginator:
         """
-        [Paginator.DescribeCertificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Paginator.DescribeCertificates)
+        [Paginator.DescribeCertificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Paginator.DescribeCertificates)
         """
 
     @overload
@@ -1984,7 +1984,7 @@ class RDSClient:
         self, operation_name: Literal["describe_custom_availability_zones"]
     ) -> DescribeCustomAvailabilityZonesPaginator:
         """
-        [Paginator.DescribeCustomAvailabilityZones documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Paginator.DescribeCustomAvailabilityZones)
+        [Paginator.DescribeCustomAvailabilityZones documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Paginator.DescribeCustomAvailabilityZones)
         """
 
     @overload
@@ -1992,7 +1992,7 @@ class RDSClient:
         self, operation_name: Literal["describe_db_cluster_backtracks"]
     ) -> DescribeDBClusterBacktracksPaginator:
         """
-        [Paginator.DescribeDBClusterBacktracks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Paginator.DescribeDBClusterBacktracks)
+        [Paginator.DescribeDBClusterBacktracks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Paginator.DescribeDBClusterBacktracks)
         """
 
     @overload
@@ -2000,7 +2000,7 @@ class RDSClient:
         self, operation_name: Literal["describe_db_cluster_endpoints"]
     ) -> DescribeDBClusterEndpointsPaginator:
         """
-        [Paginator.DescribeDBClusterEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Paginator.DescribeDBClusterEndpoints)
+        [Paginator.DescribeDBClusterEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Paginator.DescribeDBClusterEndpoints)
         """
 
     @overload
@@ -2008,7 +2008,7 @@ class RDSClient:
         self, operation_name: Literal["describe_db_cluster_parameter_groups"]
     ) -> DescribeDBClusterParameterGroupsPaginator:
         """
-        [Paginator.DescribeDBClusterParameterGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Paginator.DescribeDBClusterParameterGroups)
+        [Paginator.DescribeDBClusterParameterGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Paginator.DescribeDBClusterParameterGroups)
         """
 
     @overload
@@ -2016,7 +2016,7 @@ class RDSClient:
         self, operation_name: Literal["describe_db_cluster_parameters"]
     ) -> DescribeDBClusterParametersPaginator:
         """
-        [Paginator.DescribeDBClusterParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Paginator.DescribeDBClusterParameters)
+        [Paginator.DescribeDBClusterParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Paginator.DescribeDBClusterParameters)
         """
 
     @overload
@@ -2024,7 +2024,7 @@ class RDSClient:
         self, operation_name: Literal["describe_db_cluster_snapshots"]
     ) -> DescribeDBClusterSnapshotsPaginator:
         """
-        [Paginator.DescribeDBClusterSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Paginator.DescribeDBClusterSnapshots)
+        [Paginator.DescribeDBClusterSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Paginator.DescribeDBClusterSnapshots)
         """
 
     @overload
@@ -2032,7 +2032,7 @@ class RDSClient:
         self, operation_name: Literal["describe_db_clusters"]
     ) -> DescribeDBClustersPaginator:
         """
-        [Paginator.DescribeDBClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Paginator.DescribeDBClusters)
+        [Paginator.DescribeDBClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Paginator.DescribeDBClusters)
         """
 
     @overload
@@ -2040,7 +2040,7 @@ class RDSClient:
         self, operation_name: Literal["describe_db_engine_versions"]
     ) -> DescribeDBEngineVersionsPaginator:
         """
-        [Paginator.DescribeDBEngineVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Paginator.DescribeDBEngineVersions)
+        [Paginator.DescribeDBEngineVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Paginator.DescribeDBEngineVersions)
         """
 
     @overload
@@ -2048,7 +2048,7 @@ class RDSClient:
         self, operation_name: Literal["describe_db_instance_automated_backups"]
     ) -> DescribeDBInstanceAutomatedBackupsPaginator:
         """
-        [Paginator.DescribeDBInstanceAutomatedBackups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Paginator.DescribeDBInstanceAutomatedBackups)
+        [Paginator.DescribeDBInstanceAutomatedBackups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Paginator.DescribeDBInstanceAutomatedBackups)
         """
 
     @overload
@@ -2056,7 +2056,7 @@ class RDSClient:
         self, operation_name: Literal["describe_db_instances"]
     ) -> DescribeDBInstancesPaginator:
         """
-        [Paginator.DescribeDBInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Paginator.DescribeDBInstances)
+        [Paginator.DescribeDBInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Paginator.DescribeDBInstances)
         """
 
     @overload
@@ -2064,7 +2064,7 @@ class RDSClient:
         self, operation_name: Literal["describe_db_log_files"]
     ) -> DescribeDBLogFilesPaginator:
         """
-        [Paginator.DescribeDBLogFiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Paginator.DescribeDBLogFiles)
+        [Paginator.DescribeDBLogFiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Paginator.DescribeDBLogFiles)
         """
 
     @overload
@@ -2072,7 +2072,7 @@ class RDSClient:
         self, operation_name: Literal["describe_db_parameter_groups"]
     ) -> DescribeDBParameterGroupsPaginator:
         """
-        [Paginator.DescribeDBParameterGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Paginator.DescribeDBParameterGroups)
+        [Paginator.DescribeDBParameterGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Paginator.DescribeDBParameterGroups)
         """
 
     @overload
@@ -2080,7 +2080,7 @@ class RDSClient:
         self, operation_name: Literal["describe_db_parameters"]
     ) -> DescribeDBParametersPaginator:
         """
-        [Paginator.DescribeDBParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Paginator.DescribeDBParameters)
+        [Paginator.DescribeDBParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Paginator.DescribeDBParameters)
         """
 
     @overload
@@ -2088,7 +2088,7 @@ class RDSClient:
         self, operation_name: Literal["describe_db_proxies"]
     ) -> DescribeDBProxiesPaginator:
         """
-        [Paginator.DescribeDBProxies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Paginator.DescribeDBProxies)
+        [Paginator.DescribeDBProxies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Paginator.DescribeDBProxies)
         """
 
     @overload
@@ -2096,7 +2096,7 @@ class RDSClient:
         self, operation_name: Literal["describe_db_proxy_target_groups"]
     ) -> DescribeDBProxyTargetGroupsPaginator:
         """
-        [Paginator.DescribeDBProxyTargetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Paginator.DescribeDBProxyTargetGroups)
+        [Paginator.DescribeDBProxyTargetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Paginator.DescribeDBProxyTargetGroups)
         """
 
     @overload
@@ -2104,7 +2104,7 @@ class RDSClient:
         self, operation_name: Literal["describe_db_proxy_targets"]
     ) -> DescribeDBProxyTargetsPaginator:
         """
-        [Paginator.DescribeDBProxyTargets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Paginator.DescribeDBProxyTargets)
+        [Paginator.DescribeDBProxyTargets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Paginator.DescribeDBProxyTargets)
         """
 
     @overload
@@ -2112,7 +2112,7 @@ class RDSClient:
         self, operation_name: Literal["describe_db_security_groups"]
     ) -> DescribeDBSecurityGroupsPaginator:
         """
-        [Paginator.DescribeDBSecurityGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Paginator.DescribeDBSecurityGroups)
+        [Paginator.DescribeDBSecurityGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Paginator.DescribeDBSecurityGroups)
         """
 
     @overload
@@ -2120,7 +2120,7 @@ class RDSClient:
         self, operation_name: Literal["describe_db_snapshots"]
     ) -> DescribeDBSnapshotsPaginator:
         """
-        [Paginator.DescribeDBSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Paginator.DescribeDBSnapshots)
+        [Paginator.DescribeDBSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Paginator.DescribeDBSnapshots)
         """
 
     @overload
@@ -2128,7 +2128,7 @@ class RDSClient:
         self, operation_name: Literal["describe_db_subnet_groups"]
     ) -> DescribeDBSubnetGroupsPaginator:
         """
-        [Paginator.DescribeDBSubnetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Paginator.DescribeDBSubnetGroups)
+        [Paginator.DescribeDBSubnetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Paginator.DescribeDBSubnetGroups)
         """
 
     @overload
@@ -2136,7 +2136,7 @@ class RDSClient:
         self, operation_name: Literal["describe_engine_default_cluster_parameters"]
     ) -> DescribeEngineDefaultClusterParametersPaginator:
         """
-        [Paginator.DescribeEngineDefaultClusterParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Paginator.DescribeEngineDefaultClusterParameters)
+        [Paginator.DescribeEngineDefaultClusterParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Paginator.DescribeEngineDefaultClusterParameters)
         """
 
     @overload
@@ -2144,7 +2144,7 @@ class RDSClient:
         self, operation_name: Literal["describe_engine_default_parameters"]
     ) -> DescribeEngineDefaultParametersPaginator:
         """
-        [Paginator.DescribeEngineDefaultParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Paginator.DescribeEngineDefaultParameters)
+        [Paginator.DescribeEngineDefaultParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Paginator.DescribeEngineDefaultParameters)
         """
 
     @overload
@@ -2152,13 +2152,13 @@ class RDSClient:
         self, operation_name: Literal["describe_event_subscriptions"]
     ) -> DescribeEventSubscriptionsPaginator:
         """
-        [Paginator.DescribeEventSubscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Paginator.DescribeEventSubscriptions)
+        [Paginator.DescribeEventSubscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Paginator.DescribeEventSubscriptions)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["describe_events"]) -> DescribeEventsPaginator:
         """
-        [Paginator.DescribeEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Paginator.DescribeEvents)
+        [Paginator.DescribeEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Paginator.DescribeEvents)
         """
 
     @overload
@@ -2166,7 +2166,7 @@ class RDSClient:
         self, operation_name: Literal["describe_export_tasks"]
     ) -> DescribeExportTasksPaginator:
         """
-        [Paginator.DescribeExportTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Paginator.DescribeExportTasks)
+        [Paginator.DescribeExportTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Paginator.DescribeExportTasks)
         """
 
     @overload
@@ -2174,7 +2174,7 @@ class RDSClient:
         self, operation_name: Literal["describe_global_clusters"]
     ) -> DescribeGlobalClustersPaginator:
         """
-        [Paginator.DescribeGlobalClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Paginator.DescribeGlobalClusters)
+        [Paginator.DescribeGlobalClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Paginator.DescribeGlobalClusters)
         """
 
     @overload
@@ -2182,7 +2182,7 @@ class RDSClient:
         self, operation_name: Literal["describe_installation_media"]
     ) -> DescribeInstallationMediaPaginator:
         """
-        [Paginator.DescribeInstallationMedia documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Paginator.DescribeInstallationMedia)
+        [Paginator.DescribeInstallationMedia documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Paginator.DescribeInstallationMedia)
         """
 
     @overload
@@ -2190,7 +2190,7 @@ class RDSClient:
         self, operation_name: Literal["describe_option_group_options"]
     ) -> DescribeOptionGroupOptionsPaginator:
         """
-        [Paginator.DescribeOptionGroupOptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Paginator.DescribeOptionGroupOptions)
+        [Paginator.DescribeOptionGroupOptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Paginator.DescribeOptionGroupOptions)
         """
 
     @overload
@@ -2198,7 +2198,7 @@ class RDSClient:
         self, operation_name: Literal["describe_option_groups"]
     ) -> DescribeOptionGroupsPaginator:
         """
-        [Paginator.DescribeOptionGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Paginator.DescribeOptionGroups)
+        [Paginator.DescribeOptionGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Paginator.DescribeOptionGroups)
         """
 
     @overload
@@ -2206,7 +2206,7 @@ class RDSClient:
         self, operation_name: Literal["describe_orderable_db_instance_options"]
     ) -> DescribeOrderableDBInstanceOptionsPaginator:
         """
-        [Paginator.DescribeOrderableDBInstanceOptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Paginator.DescribeOrderableDBInstanceOptions)
+        [Paginator.DescribeOrderableDBInstanceOptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Paginator.DescribeOrderableDBInstanceOptions)
         """
 
     @overload
@@ -2214,7 +2214,7 @@ class RDSClient:
         self, operation_name: Literal["describe_pending_maintenance_actions"]
     ) -> DescribePendingMaintenanceActionsPaginator:
         """
-        [Paginator.DescribePendingMaintenanceActions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Paginator.DescribePendingMaintenanceActions)
+        [Paginator.DescribePendingMaintenanceActions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Paginator.DescribePendingMaintenanceActions)
         """
 
     @overload
@@ -2222,7 +2222,7 @@ class RDSClient:
         self, operation_name: Literal["describe_reserved_db_instances"]
     ) -> DescribeReservedDBInstancesPaginator:
         """
-        [Paginator.DescribeReservedDBInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Paginator.DescribeReservedDBInstances)
+        [Paginator.DescribeReservedDBInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Paginator.DescribeReservedDBInstances)
         """
 
     @overload
@@ -2230,7 +2230,7 @@ class RDSClient:
         self, operation_name: Literal["describe_reserved_db_instances_offerings"]
     ) -> DescribeReservedDBInstancesOfferingsPaginator:
         """
-        [Paginator.DescribeReservedDBInstancesOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Paginator.DescribeReservedDBInstancesOfferings)
+        [Paginator.DescribeReservedDBInstancesOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Paginator.DescribeReservedDBInstancesOfferings)
         """
 
     @overload
@@ -2238,7 +2238,7 @@ class RDSClient:
         self, operation_name: Literal["describe_source_regions"]
     ) -> DescribeSourceRegionsPaginator:
         """
-        [Paginator.DescribeSourceRegions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Paginator.DescribeSourceRegions)
+        [Paginator.DescribeSourceRegions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Paginator.DescribeSourceRegions)
         """
 
     @overload
@@ -2246,7 +2246,7 @@ class RDSClient:
         self, operation_name: Literal["download_db_log_file_portion"]
     ) -> DownloadDBLogFilePortionPaginator:
         """
-        [Paginator.DownloadDBLogFilePortion documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Paginator.DownloadDBLogFilePortion)
+        [Paginator.DownloadDBLogFilePortion documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Paginator.DownloadDBLogFilePortion)
         """
 
     @overload
@@ -2254,7 +2254,7 @@ class RDSClient:
         self, waiter_name: Literal["db_cluster_snapshot_available"]
     ) -> DBClusterSnapshotAvailableWaiter:
         """
-        [Waiter.DBClusterSnapshotAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Waiter.DBClusterSnapshotAvailable)
+        [Waiter.DBClusterSnapshotAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Waiter.DBClusterSnapshotAvailable)
         """
 
     @overload
@@ -2262,7 +2262,7 @@ class RDSClient:
         self, waiter_name: Literal["db_cluster_snapshot_deleted"]
     ) -> DBClusterSnapshotDeletedWaiter:
         """
-        [Waiter.DBClusterSnapshotDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Waiter.DBClusterSnapshotDeleted)
+        [Waiter.DBClusterSnapshotDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Waiter.DBClusterSnapshotDeleted)
         """
 
     @overload
@@ -2270,13 +2270,13 @@ class RDSClient:
         self, waiter_name: Literal["db_instance_available"]
     ) -> DBInstanceAvailableWaiter:
         """
-        [Waiter.DBInstanceAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Waiter.DBInstanceAvailable)
+        [Waiter.DBInstanceAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Waiter.DBInstanceAvailable)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["db_instance_deleted"]) -> DBInstanceDeletedWaiter:
         """
-        [Waiter.DBInstanceDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Waiter.DBInstanceDeleted)
+        [Waiter.DBInstanceDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Waiter.DBInstanceDeleted)
         """
 
     @overload
@@ -2284,7 +2284,7 @@ class RDSClient:
         self, waiter_name: Literal["db_snapshot_available"]
     ) -> DBSnapshotAvailableWaiter:
         """
-        [Waiter.DBSnapshotAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Waiter.DBSnapshotAvailable)
+        [Waiter.DBSnapshotAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Waiter.DBSnapshotAvailable)
         """
 
     @overload
@@ -2292,11 +2292,11 @@ class RDSClient:
         self, waiter_name: Literal["db_snapshot_completed"]
     ) -> DBSnapshotCompletedWaiter:
         """
-        [Waiter.DBSnapshotCompleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Waiter.DBSnapshotCompleted)
+        [Waiter.DBSnapshotCompleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Waiter.DBSnapshotCompleted)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["db_snapshot_deleted"]) -> DBSnapshotDeletedWaiter:
         """
-        [Waiter.DBSnapshotDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rds.html#RDS.Waiter.DBSnapshotDeleted)
+        [Waiter.DBSnapshotDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rds.html#RDS.Waiter.DBSnapshotDeleted)
         """

@@ -4,9 +4,9 @@ Main interface for lex-runtime service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_lex_runtime.type_defs import ButtonTypeDef
+    from mypy_boto3_lex_runtime.type_defs import ActiveContextTimeToLiveTypeDef
 
-    data: ButtonTypeDef = {...}
+    data: ActiveContextTimeToLiveTypeDef = {...}
     ```
 """
 import sys
@@ -23,6 +23,8 @@ else:
 
 
 __all__ = (
+    "ActiveContextTimeToLiveTypeDef",
+    "ActiveContextTypeDef",
     "ButtonTypeDef",
     "DialogActionTypeDef",
     "GenericAttachmentTypeDef",
@@ -36,6 +38,15 @@ __all__ = (
     "PostContentResponseTypeDef",
     "PostTextResponseTypeDef",
     "PutSessionResponseTypeDef",
+)
+
+ActiveContextTimeToLiveTypeDef = TypedDict(
+    "ActiveContextTimeToLiveTypeDef", {"timeToLiveInSeconds": int, "turnsToLive": int}, total=False
+)
+
+ActiveContextTypeDef = TypedDict(
+    "ActiveContextTypeDef",
+    {"name": str, "timeToLive": "ActiveContextTimeToLiveTypeDef", "parameters": Dict[str, str]},
 )
 
 ButtonTypeDef = TypedDict("ButtonTypeDef", {"text": str, "value": str})
@@ -135,6 +146,7 @@ GetSessionResponseTypeDef = TypedDict(
         "sessionAttributes": Dict[str, str],
         "sessionId": str,
         "dialogAction": "DialogActionTypeDef",
+        "activeContexts": List["ActiveContextTypeDef"],
     },
     total=False,
 )
@@ -164,6 +176,7 @@ PostContentResponseTypeDef = TypedDict(
         "audioStream": IO[bytes],
         "botVersion": str,
         "sessionId": str,
+        "activeContexts": str,
     },
     total=False,
 )
@@ -191,6 +204,7 @@ PostTextResponseTypeDef = TypedDict(
         "responseCard": "ResponseCardTypeDef",
         "sessionId": str,
         "botVersion": str,
+        "activeContexts": List["ActiveContextTypeDef"],
     },
     total=False,
 )
@@ -215,6 +229,7 @@ PutSessionResponseTypeDef = TypedDict(
         "slotToElicit": str,
         "audioStream": IO[bytes],
         "sessionId": str,
+        "activeContexts": str,
     },
     total=False,
 )

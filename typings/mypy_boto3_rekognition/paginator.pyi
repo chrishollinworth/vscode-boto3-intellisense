@@ -49,7 +49,7 @@ __all__ = (
 
 class DescribeProjectVersionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeProjectVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rekognition.html#Rekognition.Paginator.DescribeProjectVersions)
+    [Paginator.DescribeProjectVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rekognition.html#Rekognition.Paginator.DescribeProjectVersions)
     """
 
     def paginate(
@@ -59,57 +59,57 @@ class DescribeProjectVersionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeProjectVersionsResponseTypeDef]:
         """
-        [DescribeProjectVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rekognition.html#Rekognition.Paginator.DescribeProjectVersions.paginate)
+        [DescribeProjectVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rekognition.html#Rekognition.Paginator.DescribeProjectVersions.paginate)
         """
 
 
 class DescribeProjectsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeProjects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rekognition.html#Rekognition.Paginator.DescribeProjects)
+    [Paginator.DescribeProjects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rekognition.html#Rekognition.Paginator.DescribeProjects)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeProjectsResponseTypeDef]:
         """
-        [DescribeProjects.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rekognition.html#Rekognition.Paginator.DescribeProjects.paginate)
+        [DescribeProjects.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rekognition.html#Rekognition.Paginator.DescribeProjects.paginate)
         """
 
 
 class ListCollectionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListCollections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rekognition.html#Rekognition.Paginator.ListCollections)
+    [Paginator.ListCollections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rekognition.html#Rekognition.Paginator.ListCollections)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListCollectionsResponseTypeDef]:
         """
-        [ListCollections.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rekognition.html#Rekognition.Paginator.ListCollections.paginate)
+        [ListCollections.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rekognition.html#Rekognition.Paginator.ListCollections.paginate)
         """
 
 
 class ListFacesPaginator(Boto3Paginator):
     """
-    [Paginator.ListFaces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rekognition.html#Rekognition.Paginator.ListFaces)
+    [Paginator.ListFaces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rekognition.html#Rekognition.Paginator.ListFaces)
     """
 
     def paginate(
         self, CollectionId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListFacesResponseTypeDef]:
         """
-        [ListFaces.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rekognition.html#Rekognition.Paginator.ListFaces.paginate)
+        [ListFaces.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rekognition.html#Rekognition.Paginator.ListFaces.paginate)
         """
 
 
 class ListStreamProcessorsPaginator(Boto3Paginator):
     """
-    [Paginator.ListStreamProcessors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rekognition.html#Rekognition.Paginator.ListStreamProcessors)
+    [Paginator.ListStreamProcessors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rekognition.html#Rekognition.Paginator.ListStreamProcessors)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListStreamProcessorsResponseTypeDef]:
         """
-        [ListStreamProcessors.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.20/reference/services/rekognition.html#Rekognition.Paginator.ListStreamProcessors.paginate)
+        [ListStreamProcessors.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/rekognition.html#Rekognition.Paginator.ListStreamProcessors.paginate)
         """

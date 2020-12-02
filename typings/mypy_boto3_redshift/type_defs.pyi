@@ -329,6 +329,7 @@ ClusterTypeDef = TypedDict(
         "ExpectedNextSnapshotScheduleTimeStatus": str,
         "NextMaintenanceWindowStartTime": datetime,
         "ResizeInfo": "ResizeInfoTypeDef",
+        "ClusterNamespaceArn": str,
     },
     total=False,
 )
