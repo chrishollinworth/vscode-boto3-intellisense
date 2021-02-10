@@ -1,5 +1,6 @@
 from mypy_boto3_iot import (
     Client,
+    GetBehaviorModelTrainingSummariesPaginator,
     IoTClient,
     ListActiveViolationsPaginator,
     ListAttachedPoliciesPaginator,
@@ -13,6 +14,9 @@ from mypy_boto3_iot import (
     ListCACertificatesPaginator,
     ListCertificatesByCAPaginator,
     ListCertificatesPaginator,
+    ListCustomMetricsPaginator,
+    ListDetectMitigationActionsExecutionsPaginator,
+    ListDetectMitigationActionsTasksPaginator,
     ListDimensionsPaginator,
     ListDomainConfigurationsPaginator,
     ListIndicesPaginator,
@@ -53,6 +57,7 @@ from mypy_boto3_iot import (
 
 __all__ = (
     "Client",
+    "GetBehaviorModelTrainingSummariesPaginator",
     "IoTClient",
     "ListActiveViolationsPaginator",
     "ListAttachedPoliciesPaginator",
@@ -66,6 +71,9 @@ __all__ = (
     "ListCACertificatesPaginator",
     "ListCertificatesByCAPaginator",
     "ListCertificatesPaginator",
+    "ListCustomMetricsPaginator",
+    "ListDetectMitigationActionsExecutionsPaginator",
+    "ListDetectMitigationActionsTasksPaginator",
     "ListDimensionsPaginator",
     "ListDomainConfigurationsPaginator",
     "ListIndicesPaginator",

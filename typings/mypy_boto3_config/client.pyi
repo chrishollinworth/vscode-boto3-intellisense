@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for config service client
 
@@ -76,6 +75,7 @@ from mypy_boto3_config.type_defs import (
     DescribeRemediationExecutionStatusResponseTypeDef,
     DescribeRetentionConfigurationsResponseTypeDef,
     EvaluationTypeDef,
+    ExternalEvaluationTypeDef,
     GetAggregateComplianceDetailsByConfigRuleResponseTypeDef,
     GetAggregateConfigRuleComplianceSummaryResponseTypeDef,
     GetAggregateDiscoveredResourceCountsResponseTypeDef,
@@ -90,8 +90,10 @@ from mypy_boto3_config.type_defs import (
     GetOrganizationConfigRuleDetailedStatusResponseTypeDef,
     GetOrganizationConformancePackDetailedStatusResponseTypeDef,
     GetResourceConfigHistoryResponseTypeDef,
+    GetStoredQueryResponseTypeDef,
     ListAggregateDiscoveredResourcesResponseTypeDef,
     ListDiscoveredResourcesResponseTypeDef,
+    ListStoredQueriesResponseTypeDef,
     ListTagsForResourceResponseTypeDef,
     OrganizationAggregationSourceTypeDef,
     OrganizationCustomRuleMetadataTypeDef,
@@ -106,6 +108,7 @@ from mypy_boto3_config.type_defs import (
     PutRemediationConfigurationsResponseTypeDef,
     PutRemediationExceptionsResponseTypeDef,
     PutRetentionConfigurationResponseTypeDef,
+    PutStoredQueryResponseTypeDef,
     RemediationConfigurationTypeDef,
     RemediationExceptionResourceKeyTypeDef,
     ResourceCountFiltersTypeDef,
@@ -115,6 +118,7 @@ from mypy_boto3_config.type_defs import (
     SelectResourceConfigResponseTypeDef,
     StartRemediationExecutionResponseTypeDef,
     StatusDetailFiltersTypeDef,
+    StoredQueryTypeDef,
     TagTypeDef,
 )
 
@@ -183,6 +187,7 @@ class Exceptions:
     OrganizationConformancePackTemplateValidationException: Type[BotocoreClientError]
     OversizedConfigurationItemException: Type[BotocoreClientError]
     RemediationInProgressException: Type[BotocoreClientError]
+    ResourceConcurrentModificationException: Type[BotocoreClientError]
     ResourceInUseException: Type[BotocoreClientError]
     ResourceNotDiscoveredException: Type[BotocoreClientError]
     ResourceNotFoundException: Type[BotocoreClientError]
@@ -192,7 +197,7 @@ class Exceptions:
 
 class ConfigServiceClient:
     """
-    [ConfigService.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client)
+    [ConfigService.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client)
     """
 
     meta: ClientMeta
@@ -204,104 +209,109 @@ class ConfigServiceClient:
         ResourceIdentifiers: List["AggregateResourceIdentifierTypeDef"],
     ) -> BatchGetAggregateResourceConfigResponseTypeDef:
         """
-        [Client.batch_get_aggregate_resource_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.batch_get_aggregate_resource_config)
+        [Client.batch_get_aggregate_resource_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.batch_get_aggregate_resource_config)
         """
 
     def batch_get_resource_config(
         self, resourceKeys: List["ResourceKeyTypeDef"]
     ) -> BatchGetResourceConfigResponseTypeDef:
         """
-        [Client.batch_get_resource_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.batch_get_resource_config)
+        [Client.batch_get_resource_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.batch_get_resource_config)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.can_paginate)
         """
 
     def delete_aggregation_authorization(
         self, AuthorizedAccountId: str, AuthorizedAwsRegion: str
     ) -> None:
         """
-        [Client.delete_aggregation_authorization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.delete_aggregation_authorization)
+        [Client.delete_aggregation_authorization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.delete_aggregation_authorization)
         """
 
     def delete_config_rule(self, ConfigRuleName: str) -> None:
         """
-        [Client.delete_config_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.delete_config_rule)
+        [Client.delete_config_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.delete_config_rule)
         """
 
     def delete_configuration_aggregator(self, ConfigurationAggregatorName: str) -> None:
         """
-        [Client.delete_configuration_aggregator documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.delete_configuration_aggregator)
+        [Client.delete_configuration_aggregator documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.delete_configuration_aggregator)
         """
 
     def delete_configuration_recorder(self, ConfigurationRecorderName: str) -> None:
         """
-        [Client.delete_configuration_recorder documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.delete_configuration_recorder)
+        [Client.delete_configuration_recorder documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.delete_configuration_recorder)
         """
 
     def delete_conformance_pack(self, ConformancePackName: str) -> None:
         """
-        [Client.delete_conformance_pack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.delete_conformance_pack)
+        [Client.delete_conformance_pack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.delete_conformance_pack)
         """
 
     def delete_delivery_channel(self, DeliveryChannelName: str) -> None:
         """
-        [Client.delete_delivery_channel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.delete_delivery_channel)
+        [Client.delete_delivery_channel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.delete_delivery_channel)
         """
 
     def delete_evaluation_results(self, ConfigRuleName: str) -> Dict[str, Any]:
         """
-        [Client.delete_evaluation_results documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.delete_evaluation_results)
+        [Client.delete_evaluation_results documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.delete_evaluation_results)
         """
 
     def delete_organization_config_rule(self, OrganizationConfigRuleName: str) -> None:
         """
-        [Client.delete_organization_config_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.delete_organization_config_rule)
+        [Client.delete_organization_config_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.delete_organization_config_rule)
         """
 
     def delete_organization_conformance_pack(self, OrganizationConformancePackName: str) -> None:
         """
-        [Client.delete_organization_conformance_pack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.delete_organization_conformance_pack)
+        [Client.delete_organization_conformance_pack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.delete_organization_conformance_pack)
         """
 
     def delete_pending_aggregation_request(
         self, RequesterAccountId: str, RequesterAwsRegion: str
     ) -> None:
         """
-        [Client.delete_pending_aggregation_request documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.delete_pending_aggregation_request)
+        [Client.delete_pending_aggregation_request documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.delete_pending_aggregation_request)
         """
 
     def delete_remediation_configuration(
         self, ConfigRuleName: str, ResourceType: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.delete_remediation_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.delete_remediation_configuration)
+        [Client.delete_remediation_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.delete_remediation_configuration)
         """
 
     def delete_remediation_exceptions(
         self, ConfigRuleName: str, ResourceKeys: List["RemediationExceptionResourceKeyTypeDef"]
     ) -> DeleteRemediationExceptionsResponseTypeDef:
         """
-        [Client.delete_remediation_exceptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.delete_remediation_exceptions)
+        [Client.delete_remediation_exceptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.delete_remediation_exceptions)
         """
 
     def delete_resource_config(self, ResourceType: str, ResourceId: str) -> None:
         """
-        [Client.delete_resource_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.delete_resource_config)
+        [Client.delete_resource_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.delete_resource_config)
         """
 
     def delete_retention_configuration(self, RetentionConfigurationName: str) -> None:
         """
-        [Client.delete_retention_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.delete_retention_configuration)
+        [Client.delete_retention_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.delete_retention_configuration)
+        """
+
+    def delete_stored_query(self, QueryName: str) -> Dict[str, Any]:
+        """
+        [Client.delete_stored_query documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.delete_stored_query)
         """
 
     def deliver_config_snapshot(
         self, deliveryChannelName: str
     ) -> DeliverConfigSnapshotResponseTypeDef:
         """
-        [Client.deliver_config_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.deliver_config_snapshot)
+        [Client.deliver_config_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.deliver_config_snapshot)
         """
 
     def describe_aggregate_compliance_by_config_rules(
@@ -312,14 +322,14 @@ class ConfigServiceClient:
         NextToken: str = None,
     ) -> DescribeAggregateComplianceByConfigRulesResponseTypeDef:
         """
-        [Client.describe_aggregate_compliance_by_config_rules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.describe_aggregate_compliance_by_config_rules)
+        [Client.describe_aggregate_compliance_by_config_rules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.describe_aggregate_compliance_by_config_rules)
         """
 
     def describe_aggregation_authorizations(
         self, Limit: int = None, NextToken: str = None
     ) -> DescribeAggregationAuthorizationsResponseTypeDef:
         """
-        [Client.describe_aggregation_authorizations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.describe_aggregation_authorizations)
+        [Client.describe_aggregation_authorizations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.describe_aggregation_authorizations)
         """
 
     def describe_compliance_by_config_rule(
@@ -331,7 +341,7 @@ class ConfigServiceClient:
         NextToken: str = None,
     ) -> DescribeComplianceByConfigRuleResponseTypeDef:
         """
-        [Client.describe_compliance_by_config_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.describe_compliance_by_config_rule)
+        [Client.describe_compliance_by_config_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.describe_compliance_by_config_rule)
         """
 
     def describe_compliance_by_resource(
@@ -345,21 +355,21 @@ class ConfigServiceClient:
         NextToken: str = None,
     ) -> DescribeComplianceByResourceResponseTypeDef:
         """
-        [Client.describe_compliance_by_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.describe_compliance_by_resource)
+        [Client.describe_compliance_by_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.describe_compliance_by_resource)
         """
 
     def describe_config_rule_evaluation_status(
         self, ConfigRuleNames: List[str] = None, NextToken: str = None, Limit: int = None
     ) -> DescribeConfigRuleEvaluationStatusResponseTypeDef:
         """
-        [Client.describe_config_rule_evaluation_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.describe_config_rule_evaluation_status)
+        [Client.describe_config_rule_evaluation_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.describe_config_rule_evaluation_status)
         """
 
     def describe_config_rules(
         self, ConfigRuleNames: List[str] = None, NextToken: str = None
     ) -> DescribeConfigRulesResponseTypeDef:
         """
-        [Client.describe_config_rules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.describe_config_rules)
+        [Client.describe_config_rules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.describe_config_rules)
         """
 
     def describe_configuration_aggregator_sources_status(
@@ -370,7 +380,7 @@ class ConfigServiceClient:
         Limit: int = None,
     ) -> DescribeConfigurationAggregatorSourcesStatusResponseTypeDef:
         """
-        [Client.describe_configuration_aggregator_sources_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.describe_configuration_aggregator_sources_status)
+        [Client.describe_configuration_aggregator_sources_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.describe_configuration_aggregator_sources_status)
         """
 
     def describe_configuration_aggregators(
@@ -380,21 +390,21 @@ class ConfigServiceClient:
         Limit: int = None,
     ) -> DescribeConfigurationAggregatorsResponseTypeDef:
         """
-        [Client.describe_configuration_aggregators documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.describe_configuration_aggregators)
+        [Client.describe_configuration_aggregators documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.describe_configuration_aggregators)
         """
 
     def describe_configuration_recorder_status(
         self, ConfigurationRecorderNames: List[str] = None
     ) -> DescribeConfigurationRecorderStatusResponseTypeDef:
         """
-        [Client.describe_configuration_recorder_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.describe_configuration_recorder_status)
+        [Client.describe_configuration_recorder_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.describe_configuration_recorder_status)
         """
 
     def describe_configuration_recorders(
         self, ConfigurationRecorderNames: List[str] = None
     ) -> DescribeConfigurationRecordersResponseTypeDef:
         """
-        [Client.describe_configuration_recorders documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.describe_configuration_recorders)
+        [Client.describe_configuration_recorders documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.describe_configuration_recorders)
         """
 
     def describe_conformance_pack_compliance(
@@ -405,35 +415,35 @@ class ConfigServiceClient:
         NextToken: str = None,
     ) -> DescribeConformancePackComplianceResponseTypeDef:
         """
-        [Client.describe_conformance_pack_compliance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.describe_conformance_pack_compliance)
+        [Client.describe_conformance_pack_compliance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.describe_conformance_pack_compliance)
         """
 
     def describe_conformance_pack_status(
         self, ConformancePackNames: List[str] = None, Limit: int = None, NextToken: str = None
     ) -> DescribeConformancePackStatusResponseTypeDef:
         """
-        [Client.describe_conformance_pack_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.describe_conformance_pack_status)
+        [Client.describe_conformance_pack_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.describe_conformance_pack_status)
         """
 
     def describe_conformance_packs(
         self, ConformancePackNames: List[str] = None, Limit: int = None, NextToken: str = None
     ) -> DescribeConformancePacksResponseTypeDef:
         """
-        [Client.describe_conformance_packs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.describe_conformance_packs)
+        [Client.describe_conformance_packs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.describe_conformance_packs)
         """
 
     def describe_delivery_channel_status(
         self, DeliveryChannelNames: List[str] = None
     ) -> DescribeDeliveryChannelStatusResponseTypeDef:
         """
-        [Client.describe_delivery_channel_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.describe_delivery_channel_status)
+        [Client.describe_delivery_channel_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.describe_delivery_channel_status)
         """
 
     def describe_delivery_channels(
         self, DeliveryChannelNames: List[str] = None
     ) -> DescribeDeliveryChannelsResponseTypeDef:
         """
-        [Client.describe_delivery_channels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.describe_delivery_channels)
+        [Client.describe_delivery_channels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.describe_delivery_channels)
         """
 
     def describe_organization_config_rule_statuses(
@@ -443,7 +453,7 @@ class ConfigServiceClient:
         NextToken: str = None,
     ) -> DescribeOrganizationConfigRuleStatusesResponseTypeDef:
         """
-        [Client.describe_organization_config_rule_statuses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.describe_organization_config_rule_statuses)
+        [Client.describe_organization_config_rule_statuses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.describe_organization_config_rule_statuses)
         """
 
     def describe_organization_config_rules(
@@ -453,7 +463,7 @@ class ConfigServiceClient:
         NextToken: str = None,
     ) -> DescribeOrganizationConfigRulesResponseTypeDef:
         """
-        [Client.describe_organization_config_rules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.describe_organization_config_rules)
+        [Client.describe_organization_config_rules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.describe_organization_config_rules)
         """
 
     def describe_organization_conformance_pack_statuses(
@@ -463,7 +473,7 @@ class ConfigServiceClient:
         NextToken: str = None,
     ) -> DescribeOrganizationConformancePackStatusesResponseTypeDef:
         """
-        [Client.describe_organization_conformance_pack_statuses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.describe_organization_conformance_pack_statuses)
+        [Client.describe_organization_conformance_pack_statuses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.describe_organization_conformance_pack_statuses)
         """
 
     def describe_organization_conformance_packs(
@@ -473,21 +483,21 @@ class ConfigServiceClient:
         NextToken: str = None,
     ) -> DescribeOrganizationConformancePacksResponseTypeDef:
         """
-        [Client.describe_organization_conformance_packs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.describe_organization_conformance_packs)
+        [Client.describe_organization_conformance_packs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.describe_organization_conformance_packs)
         """
 
     def describe_pending_aggregation_requests(
         self, Limit: int = None, NextToken: str = None
     ) -> DescribePendingAggregationRequestsResponseTypeDef:
         """
-        [Client.describe_pending_aggregation_requests documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.describe_pending_aggregation_requests)
+        [Client.describe_pending_aggregation_requests documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.describe_pending_aggregation_requests)
         """
 
     def describe_remediation_configurations(
         self, ConfigRuleNames: List[str]
     ) -> DescribeRemediationConfigurationsResponseTypeDef:
         """
-        [Client.describe_remediation_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.describe_remediation_configurations)
+        [Client.describe_remediation_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.describe_remediation_configurations)
         """
 
     def describe_remediation_exceptions(
@@ -498,7 +508,7 @@ class ConfigServiceClient:
         NextToken: str = None,
     ) -> DescribeRemediationExceptionsResponseTypeDef:
         """
-        [Client.describe_remediation_exceptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.describe_remediation_exceptions)
+        [Client.describe_remediation_exceptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.describe_remediation_exceptions)
         """
 
     def describe_remediation_execution_status(
@@ -509,14 +519,14 @@ class ConfigServiceClient:
         NextToken: str = None,
     ) -> DescribeRemediationExecutionStatusResponseTypeDef:
         """
-        [Client.describe_remediation_execution_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.describe_remediation_execution_status)
+        [Client.describe_remediation_execution_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.describe_remediation_execution_status)
         """
 
     def describe_retention_configurations(
         self, RetentionConfigurationNames: List[str] = None, NextToken: str = None
     ) -> DescribeRetentionConfigurationsResponseTypeDef:
         """
-        [Client.describe_retention_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.describe_retention_configurations)
+        [Client.describe_retention_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.describe_retention_configurations)
         """
 
     def generate_presigned_url(
@@ -527,7 +537,7 @@ class ConfigServiceClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.generate_presigned_url)
         """
 
     def get_aggregate_compliance_details_by_config_rule(
@@ -543,7 +553,7 @@ class ConfigServiceClient:
         NextToken: str = None,
     ) -> GetAggregateComplianceDetailsByConfigRuleResponseTypeDef:
         """
-        [Client.get_aggregate_compliance_details_by_config_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.get_aggregate_compliance_details_by_config_rule)
+        [Client.get_aggregate_compliance_details_by_config_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.get_aggregate_compliance_details_by_config_rule)
         """
 
     def get_aggregate_config_rule_compliance_summary(
@@ -555,7 +565,7 @@ class ConfigServiceClient:
         NextToken: str = None,
     ) -> GetAggregateConfigRuleComplianceSummaryResponseTypeDef:
         """
-        [Client.get_aggregate_config_rule_compliance_summary documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.get_aggregate_config_rule_compliance_summary)
+        [Client.get_aggregate_config_rule_compliance_summary documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.get_aggregate_config_rule_compliance_summary)
         """
 
     def get_aggregate_discovered_resource_counts(
@@ -567,7 +577,7 @@ class ConfigServiceClient:
         NextToken: str = None,
     ) -> GetAggregateDiscoveredResourceCountsResponseTypeDef:
         """
-        [Client.get_aggregate_discovered_resource_counts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.get_aggregate_discovered_resource_counts)
+        [Client.get_aggregate_discovered_resource_counts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.get_aggregate_discovered_resource_counts)
         """
 
     def get_aggregate_resource_config(
@@ -576,7 +586,7 @@ class ConfigServiceClient:
         ResourceIdentifier: "AggregateResourceIdentifierTypeDef",
     ) -> GetAggregateResourceConfigResponseTypeDef:
         """
-        [Client.get_aggregate_resource_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.get_aggregate_resource_config)
+        [Client.get_aggregate_resource_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.get_aggregate_resource_config)
         """
 
     def get_compliance_details_by_config_rule(
@@ -589,7 +599,7 @@ class ConfigServiceClient:
         NextToken: str = None,
     ) -> GetComplianceDetailsByConfigRuleResponseTypeDef:
         """
-        [Client.get_compliance_details_by_config_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.get_compliance_details_by_config_rule)
+        [Client.get_compliance_details_by_config_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.get_compliance_details_by_config_rule)
         """
 
     def get_compliance_details_by_resource(
@@ -602,21 +612,21 @@ class ConfigServiceClient:
         NextToken: str = None,
     ) -> GetComplianceDetailsByResourceResponseTypeDef:
         """
-        [Client.get_compliance_details_by_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.get_compliance_details_by_resource)
+        [Client.get_compliance_details_by_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.get_compliance_details_by_resource)
         """
 
     def get_compliance_summary_by_config_rule(
         self,
     ) -> GetComplianceSummaryByConfigRuleResponseTypeDef:
         """
-        [Client.get_compliance_summary_by_config_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.get_compliance_summary_by_config_rule)
+        [Client.get_compliance_summary_by_config_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.get_compliance_summary_by_config_rule)
         """
 
     def get_compliance_summary_by_resource_type(
         self, ResourceTypes: List[str] = None
     ) -> GetComplianceSummaryByResourceTypeResponseTypeDef:
         """
-        [Client.get_compliance_summary_by_resource_type documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.get_compliance_summary_by_resource_type)
+        [Client.get_compliance_summary_by_resource_type documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.get_compliance_summary_by_resource_type)
         """
 
     def get_conformance_pack_compliance_details(
@@ -627,21 +637,21 @@ class ConfigServiceClient:
         NextToken: str = None,
     ) -> GetConformancePackComplianceDetailsResponseTypeDef:
         """
-        [Client.get_conformance_pack_compliance_details documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.get_conformance_pack_compliance_details)
+        [Client.get_conformance_pack_compliance_details documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.get_conformance_pack_compliance_details)
         """
 
     def get_conformance_pack_compliance_summary(
         self, ConformancePackNames: List[str], Limit: int = None, NextToken: str = None
     ) -> GetConformancePackComplianceSummaryResponseTypeDef:
         """
-        [Client.get_conformance_pack_compliance_summary documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.get_conformance_pack_compliance_summary)
+        [Client.get_conformance_pack_compliance_summary documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.get_conformance_pack_compliance_summary)
         """
 
     def get_discovered_resource_counts(
         self, resourceTypes: List[str] = None, limit: int = None, nextToken: str = None
     ) -> GetDiscoveredResourceCountsResponseTypeDef:
         """
-        [Client.get_discovered_resource_counts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.get_discovered_resource_counts)
+        [Client.get_discovered_resource_counts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.get_discovered_resource_counts)
         """
 
     def get_organization_config_rule_detailed_status(
@@ -652,7 +662,7 @@ class ConfigServiceClient:
         NextToken: str = None,
     ) -> GetOrganizationConfigRuleDetailedStatusResponseTypeDef:
         """
-        [Client.get_organization_config_rule_detailed_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.get_organization_config_rule_detailed_status)
+        [Client.get_organization_config_rule_detailed_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.get_organization_config_rule_detailed_status)
         """
 
     def get_organization_conformance_pack_detailed_status(
@@ -663,7 +673,7 @@ class ConfigServiceClient:
         NextToken: str = None,
     ) -> GetOrganizationConformancePackDetailedStatusResponseTypeDef:
         """
-        [Client.get_organization_conformance_pack_detailed_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.get_organization_conformance_pack_detailed_status)
+        [Client.get_organization_conformance_pack_detailed_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.get_organization_conformance_pack_detailed_status)
         """
 
     def get_resource_config_history(
@@ -734,6 +744,9 @@ class ConfigServiceClient:
             "AWS::CloudFront::Distribution",
             "AWS::CloudFront::StreamingDistribution",
             "AWS::Lambda::Function",
+            "AWS::NetworkFirewall::Firewall",
+            "AWS::NetworkFirewall::FirewallPolicy",
+            "AWS::NetworkFirewall::RuleGroup",
             "AWS::ElasticBeanstalk::Application",
             "AWS::ElasticBeanstalk::ApplicationVersion",
             "AWS::ElasticBeanstalk::Environment",
@@ -771,7 +784,12 @@ class ConfigServiceClient:
         nextToken: str = None,
     ) -> GetResourceConfigHistoryResponseTypeDef:
         """
-        [Client.get_resource_config_history documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.get_resource_config_history)
+        [Client.get_resource_config_history documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.get_resource_config_history)
+        """
+
+    def get_stored_query(self, QueryName: str) -> GetStoredQueryResponseTypeDef:
+        """
+        [Client.get_stored_query documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.get_stored_query)
         """
 
     def list_aggregate_discovered_resources(
@@ -843,6 +861,9 @@ class ConfigServiceClient:
             "AWS::CloudFront::Distribution",
             "AWS::CloudFront::StreamingDistribution",
             "AWS::Lambda::Function",
+            "AWS::NetworkFirewall::Firewall",
+            "AWS::NetworkFirewall::FirewallPolicy",
+            "AWS::NetworkFirewall::RuleGroup",
             "AWS::ElasticBeanstalk::Application",
             "AWS::ElasticBeanstalk::ApplicationVersion",
             "AWS::ElasticBeanstalk::Environment",
@@ -877,7 +898,7 @@ class ConfigServiceClient:
         NextToken: str = None,
     ) -> ListAggregateDiscoveredResourcesResponseTypeDef:
         """
-        [Client.list_aggregate_discovered_resources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.list_aggregate_discovered_resources)
+        [Client.list_aggregate_discovered_resources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.list_aggregate_discovered_resources)
         """
 
     def list_discovered_resources(
@@ -948,6 +969,9 @@ class ConfigServiceClient:
             "AWS::CloudFront::Distribution",
             "AWS::CloudFront::StreamingDistribution",
             "AWS::Lambda::Function",
+            "AWS::NetworkFirewall::Firewall",
+            "AWS::NetworkFirewall::FirewallPolicy",
+            "AWS::NetworkFirewall::RuleGroup",
             "AWS::ElasticBeanstalk::Application",
             "AWS::ElasticBeanstalk::ApplicationVersion",
             "AWS::ElasticBeanstalk::Environment",
@@ -984,28 +1008,35 @@ class ConfigServiceClient:
         nextToken: str = None,
     ) -> ListDiscoveredResourcesResponseTypeDef:
         """
-        [Client.list_discovered_resources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.list_discovered_resources)
+        [Client.list_discovered_resources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.list_discovered_resources)
+        """
+
+    def list_stored_queries(
+        self, NextToken: str = None, MaxResults: int = None
+    ) -> ListStoredQueriesResponseTypeDef:
+        """
+        [Client.list_stored_queries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.list_stored_queries)
         """
 
     def list_tags_for_resource(
         self, ResourceArn: str, Limit: int = None, NextToken: str = None
     ) -> ListTagsForResourceResponseTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.list_tags_for_resource)
         """
 
     def put_aggregation_authorization(
         self, AuthorizedAccountId: str, AuthorizedAwsRegion: str, Tags: List["TagTypeDef"] = None
     ) -> PutAggregationAuthorizationResponseTypeDef:
         """
-        [Client.put_aggregation_authorization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.put_aggregation_authorization)
+        [Client.put_aggregation_authorization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.put_aggregation_authorization)
         """
 
     def put_config_rule(
         self, ConfigRule: "ConfigRuleTypeDef", Tags: List["TagTypeDef"] = None
     ) -> None:
         """
-        [Client.put_config_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.put_config_rule)
+        [Client.put_config_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.put_config_rule)
         """
 
     def put_configuration_aggregator(
@@ -1016,14 +1047,14 @@ class ConfigServiceClient:
         Tags: List["TagTypeDef"] = None,
     ) -> PutConfigurationAggregatorResponseTypeDef:
         """
-        [Client.put_configuration_aggregator documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.put_configuration_aggregator)
+        [Client.put_configuration_aggregator documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.put_configuration_aggregator)
         """
 
     def put_configuration_recorder(
         self, ConfigurationRecorder: "ConfigurationRecorderTypeDef"
     ) -> None:
         """
-        [Client.put_configuration_recorder documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.put_configuration_recorder)
+        [Client.put_configuration_recorder documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.put_configuration_recorder)
         """
 
     def put_conformance_pack(
@@ -1036,19 +1067,26 @@ class ConfigServiceClient:
         ConformancePackInputParameters: List["ConformancePackInputParameterTypeDef"] = None,
     ) -> PutConformancePackResponseTypeDef:
         """
-        [Client.put_conformance_pack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.put_conformance_pack)
+        [Client.put_conformance_pack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.put_conformance_pack)
         """
 
     def put_delivery_channel(self, DeliveryChannel: "DeliveryChannelTypeDef") -> None:
         """
-        [Client.put_delivery_channel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.put_delivery_channel)
+        [Client.put_delivery_channel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.put_delivery_channel)
         """
 
     def put_evaluations(
         self, ResultToken: str, Evaluations: List["EvaluationTypeDef"] = None, TestMode: bool = None
     ) -> PutEvaluationsResponseTypeDef:
         """
-        [Client.put_evaluations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.put_evaluations)
+        [Client.put_evaluations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.put_evaluations)
+        """
+
+    def put_external_evaluation(
+        self, ConfigRuleName: str, ExternalEvaluation: ExternalEvaluationTypeDef
+    ) -> Dict[str, Any]:
+        """
+        [Client.put_external_evaluation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.put_external_evaluation)
         """
 
     def put_organization_config_rule(
@@ -1059,7 +1097,7 @@ class ConfigServiceClient:
         ExcludedAccounts: List[str] = None,
     ) -> PutOrganizationConfigRuleResponseTypeDef:
         """
-        [Client.put_organization_config_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.put_organization_config_rule)
+        [Client.put_organization_config_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.put_organization_config_rule)
         """
 
     def put_organization_conformance_pack(
@@ -1073,14 +1111,14 @@ class ConfigServiceClient:
         ExcludedAccounts: List[str] = None,
     ) -> PutOrganizationConformancePackResponseTypeDef:
         """
-        [Client.put_organization_conformance_pack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.put_organization_conformance_pack)
+        [Client.put_organization_conformance_pack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.put_organization_conformance_pack)
         """
 
     def put_remediation_configurations(
         self, RemediationConfigurations: List["RemediationConfigurationTypeDef"]
     ) -> PutRemediationConfigurationsResponseTypeDef:
         """
-        [Client.put_remediation_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.put_remediation_configurations)
+        [Client.put_remediation_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.put_remediation_configurations)
         """
 
     def put_remediation_exceptions(
@@ -1091,7 +1129,7 @@ class ConfigServiceClient:
         ExpirationTime: datetime = None,
     ) -> PutRemediationExceptionsResponseTypeDef:
         """
-        [Client.put_remediation_exceptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.put_remediation_exceptions)
+        [Client.put_remediation_exceptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.put_remediation_exceptions)
         """
 
     def put_resource_config(
@@ -1104,14 +1142,21 @@ class ConfigServiceClient:
         Tags: Dict[str, str] = None,
     ) -> None:
         """
-        [Client.put_resource_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.put_resource_config)
+        [Client.put_resource_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.put_resource_config)
         """
 
     def put_retention_configuration(
         self, RetentionPeriodInDays: int
     ) -> PutRetentionConfigurationResponseTypeDef:
         """
-        [Client.put_retention_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.put_retention_configuration)
+        [Client.put_retention_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.put_retention_configuration)
+        """
+
+    def put_stored_query(
+        self, StoredQuery: "StoredQueryTypeDef", Tags: List["TagTypeDef"] = None
+    ) -> PutStoredQueryResponseTypeDef:
+        """
+        [Client.put_stored_query documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.put_stored_query)
         """
 
     def select_aggregate_resource_config(
@@ -1123,46 +1168,46 @@ class ConfigServiceClient:
         NextToken: str = None,
     ) -> SelectAggregateResourceConfigResponseTypeDef:
         """
-        [Client.select_aggregate_resource_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.select_aggregate_resource_config)
+        [Client.select_aggregate_resource_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.select_aggregate_resource_config)
         """
 
     def select_resource_config(
         self, Expression: str, Limit: int = None, NextToken: str = None
     ) -> SelectResourceConfigResponseTypeDef:
         """
-        [Client.select_resource_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.select_resource_config)
+        [Client.select_resource_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.select_resource_config)
         """
 
     def start_config_rules_evaluation(self, ConfigRuleNames: List[str] = None) -> Dict[str, Any]:
         """
-        [Client.start_config_rules_evaluation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.start_config_rules_evaluation)
+        [Client.start_config_rules_evaluation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.start_config_rules_evaluation)
         """
 
     def start_configuration_recorder(self, ConfigurationRecorderName: str) -> None:
         """
-        [Client.start_configuration_recorder documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.start_configuration_recorder)
+        [Client.start_configuration_recorder documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.start_configuration_recorder)
         """
 
     def start_remediation_execution(
         self, ConfigRuleName: str, ResourceKeys: List["ResourceKeyTypeDef"]
     ) -> StartRemediationExecutionResponseTypeDef:
         """
-        [Client.start_remediation_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.start_remediation_execution)
+        [Client.start_remediation_execution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.start_remediation_execution)
         """
 
     def stop_configuration_recorder(self, ConfigurationRecorderName: str) -> None:
         """
-        [Client.stop_configuration_recorder documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.stop_configuration_recorder)
+        [Client.stop_configuration_recorder documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.stop_configuration_recorder)
         """
 
     def tag_resource(self, ResourceArn: str, Tags: List["TagTypeDef"]) -> None:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.tag_resource)
         """
 
     def untag_resource(self, ResourceArn: str, TagKeys: List[str]) -> None:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Client.untag_resource)
         """
 
     @overload
@@ -1170,7 +1215,7 @@ class ConfigServiceClient:
         self, operation_name: Literal["describe_aggregate_compliance_by_config_rules"]
     ) -> DescribeAggregateComplianceByConfigRulesPaginator:
         """
-        [Paginator.DescribeAggregateComplianceByConfigRules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.DescribeAggregateComplianceByConfigRules)
+        [Paginator.DescribeAggregateComplianceByConfigRules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.DescribeAggregateComplianceByConfigRules)
         """
 
     @overload
@@ -1178,7 +1223,7 @@ class ConfigServiceClient:
         self, operation_name: Literal["describe_aggregation_authorizations"]
     ) -> DescribeAggregationAuthorizationsPaginator:
         """
-        [Paginator.DescribeAggregationAuthorizations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.DescribeAggregationAuthorizations)
+        [Paginator.DescribeAggregationAuthorizations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.DescribeAggregationAuthorizations)
         """
 
     @overload
@@ -1186,7 +1231,7 @@ class ConfigServiceClient:
         self, operation_name: Literal["describe_compliance_by_config_rule"]
     ) -> DescribeComplianceByConfigRulePaginator:
         """
-        [Paginator.DescribeComplianceByConfigRule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.DescribeComplianceByConfigRule)
+        [Paginator.DescribeComplianceByConfigRule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.DescribeComplianceByConfigRule)
         """
 
     @overload
@@ -1194,7 +1239,7 @@ class ConfigServiceClient:
         self, operation_name: Literal["describe_compliance_by_resource"]
     ) -> DescribeComplianceByResourcePaginator:
         """
-        [Paginator.DescribeComplianceByResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.DescribeComplianceByResource)
+        [Paginator.DescribeComplianceByResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.DescribeComplianceByResource)
         """
 
     @overload
@@ -1202,7 +1247,7 @@ class ConfigServiceClient:
         self, operation_name: Literal["describe_config_rule_evaluation_status"]
     ) -> DescribeConfigRuleEvaluationStatusPaginator:
         """
-        [Paginator.DescribeConfigRuleEvaluationStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.DescribeConfigRuleEvaluationStatus)
+        [Paginator.DescribeConfigRuleEvaluationStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.DescribeConfigRuleEvaluationStatus)
         """
 
     @overload
@@ -1210,7 +1255,7 @@ class ConfigServiceClient:
         self, operation_name: Literal["describe_config_rules"]
     ) -> DescribeConfigRulesPaginator:
         """
-        [Paginator.DescribeConfigRules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.DescribeConfigRules)
+        [Paginator.DescribeConfigRules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.DescribeConfigRules)
         """
 
     @overload
@@ -1218,7 +1263,7 @@ class ConfigServiceClient:
         self, operation_name: Literal["describe_configuration_aggregator_sources_status"]
     ) -> DescribeConfigurationAggregatorSourcesStatusPaginator:
         """
-        [Paginator.DescribeConfigurationAggregatorSourcesStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.DescribeConfigurationAggregatorSourcesStatus)
+        [Paginator.DescribeConfigurationAggregatorSourcesStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.DescribeConfigurationAggregatorSourcesStatus)
         """
 
     @overload
@@ -1226,7 +1271,7 @@ class ConfigServiceClient:
         self, operation_name: Literal["describe_configuration_aggregators"]
     ) -> DescribeConfigurationAggregatorsPaginator:
         """
-        [Paginator.DescribeConfigurationAggregators documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.DescribeConfigurationAggregators)
+        [Paginator.DescribeConfigurationAggregators documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.DescribeConfigurationAggregators)
         """
 
     @overload
@@ -1234,7 +1279,7 @@ class ConfigServiceClient:
         self, operation_name: Literal["describe_pending_aggregation_requests"]
     ) -> DescribePendingAggregationRequestsPaginator:
         """
-        [Paginator.DescribePendingAggregationRequests documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.DescribePendingAggregationRequests)
+        [Paginator.DescribePendingAggregationRequests documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.DescribePendingAggregationRequests)
         """
 
     @overload
@@ -1242,7 +1287,7 @@ class ConfigServiceClient:
         self, operation_name: Literal["describe_remediation_execution_status"]
     ) -> DescribeRemediationExecutionStatusPaginator:
         """
-        [Paginator.DescribeRemediationExecutionStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.DescribeRemediationExecutionStatus)
+        [Paginator.DescribeRemediationExecutionStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.DescribeRemediationExecutionStatus)
         """
 
     @overload
@@ -1250,7 +1295,7 @@ class ConfigServiceClient:
         self, operation_name: Literal["describe_retention_configurations"]
     ) -> DescribeRetentionConfigurationsPaginator:
         """
-        [Paginator.DescribeRetentionConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.DescribeRetentionConfigurations)
+        [Paginator.DescribeRetentionConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.DescribeRetentionConfigurations)
         """
 
     @overload
@@ -1258,7 +1303,7 @@ class ConfigServiceClient:
         self, operation_name: Literal["get_aggregate_compliance_details_by_config_rule"]
     ) -> GetAggregateComplianceDetailsByConfigRulePaginator:
         """
-        [Paginator.GetAggregateComplianceDetailsByConfigRule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.GetAggregateComplianceDetailsByConfigRule)
+        [Paginator.GetAggregateComplianceDetailsByConfigRule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.GetAggregateComplianceDetailsByConfigRule)
         """
 
     @overload
@@ -1266,7 +1311,7 @@ class ConfigServiceClient:
         self, operation_name: Literal["get_compliance_details_by_config_rule"]
     ) -> GetComplianceDetailsByConfigRulePaginator:
         """
-        [Paginator.GetComplianceDetailsByConfigRule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.GetComplianceDetailsByConfigRule)
+        [Paginator.GetComplianceDetailsByConfigRule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.GetComplianceDetailsByConfigRule)
         """
 
     @overload
@@ -1274,7 +1319,7 @@ class ConfigServiceClient:
         self, operation_name: Literal["get_compliance_details_by_resource"]
     ) -> GetComplianceDetailsByResourcePaginator:
         """
-        [Paginator.GetComplianceDetailsByResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.GetComplianceDetailsByResource)
+        [Paginator.GetComplianceDetailsByResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.GetComplianceDetailsByResource)
         """
 
     @overload
@@ -1282,7 +1327,7 @@ class ConfigServiceClient:
         self, operation_name: Literal["get_resource_config_history"]
     ) -> GetResourceConfigHistoryPaginator:
         """
-        [Paginator.GetResourceConfigHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.GetResourceConfigHistory)
+        [Paginator.GetResourceConfigHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.GetResourceConfigHistory)
         """
 
     @overload
@@ -1290,7 +1335,7 @@ class ConfigServiceClient:
         self, operation_name: Literal["list_aggregate_discovered_resources"]
     ) -> ListAggregateDiscoveredResourcesPaginator:
         """
-        [Paginator.ListAggregateDiscoveredResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.ListAggregateDiscoveredResources)
+        [Paginator.ListAggregateDiscoveredResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.ListAggregateDiscoveredResources)
         """
 
     @overload
@@ -1298,5 +1343,5 @@ class ConfigServiceClient:
         self, operation_name: Literal["list_discovered_resources"]
     ) -> ListDiscoveredResourcesPaginator:
         """
-        [Paginator.ListDiscoveredResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.ListDiscoveredResources)
+        [Paginator.ListDiscoveredResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.ListDiscoveredResources)
         """

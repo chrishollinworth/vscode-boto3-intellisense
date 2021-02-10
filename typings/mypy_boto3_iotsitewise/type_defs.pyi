@@ -27,20 +27,26 @@ __all__ = (
     "AccessPolicySummaryTypeDef",
     "AggregatedValueTypeDef",
     "AggregatesTypeDef",
+    "AssetCompositeModelTypeDef",
     "AssetErrorDetailsTypeDef",
+    "AssetHierarchyInfoTypeDef",
     "AssetHierarchyTypeDef",
+    "AssetModelCompositeModelTypeDef",
     "AssetModelHierarchyTypeDef",
+    "AssetModelPropertyDefinitionTypeDef",
     "AssetModelPropertyTypeDef",
     "AssetModelStatusTypeDef",
     "AssetModelSummaryTypeDef",
     "AssetPropertyTypeDef",
     "AssetPropertyValueTypeDef",
+    "AssetRelationshipSummaryTypeDef",
     "AssetStatusTypeDef",
     "AssetSummaryTypeDef",
     "AssociatedAssetsSummaryTypeDef",
     "AttributeTypeDef",
     "BatchPutAssetPropertyErrorEntryTypeDef",
     "BatchPutAssetPropertyErrorTypeDef",
+    "CompositeModelPropertyTypeDef",
     "ConfigurationErrorDetailsTypeDef",
     "ConfigurationStatusTypeDef",
     "DashboardSummaryTypeDef",
@@ -51,6 +57,7 @@ __all__ = (
     "GatewaySummaryTypeDef",
     "GreengrassTypeDef",
     "GroupIdentityTypeDef",
+    "IAMRoleIdentityTypeDef",
     "IAMUserIdentityTypeDef",
     "IdentityTypeDef",
     "ImageFileTypeDef",
@@ -74,8 +81,8 @@ __all__ = (
     "UserIdentityTypeDef",
     "VariableValueTypeDef",
     "VariantTypeDef",
+    "AssetModelCompositeModelDefinitionTypeDef",
     "AssetModelHierarchyDefinitionTypeDef",
-    "AssetModelPropertyDefinitionTypeDef",
     "BatchAssociateProjectAssetsResponseTypeDef",
     "BatchDisassociateProjectAssetsResponseTypeDef",
     "BatchPutAssetPropertyValueResponseTypeDef",
@@ -85,7 +92,6 @@ __all__ = (
     "CreateDashboardResponseTypeDef",
     "CreateGatewayResponseTypeDef",
     "CreatePortalResponseTypeDef",
-    "CreatePresignedPortalUrlResponseTypeDef",
     "CreateProjectResponseTypeDef",
     "DeleteAssetModelResponseTypeDef",
     "DeleteAssetResponseTypeDef",
@@ -107,6 +113,7 @@ __all__ = (
     "ImageTypeDef",
     "ListAccessPoliciesResponseTypeDef",
     "ListAssetModelsResponseTypeDef",
+    "ListAssetRelationshipsResponseTypeDef",
     "ListAssetsResponseTypeDef",
     "ListAssociatedAssetsResponseTypeDef",
     "ListDashboardsResponseTypeDef",
@@ -172,9 +179,28 @@ AggregatesTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredAssetCompositeModelTypeDef = TypedDict(
+    "_RequiredAssetCompositeModelTypeDef",
+    {"name": str, "type": str, "properties": List["AssetPropertyTypeDef"]},
+)
+_OptionalAssetCompositeModelTypeDef = TypedDict(
+    "_OptionalAssetCompositeModelTypeDef", {"description": str}, total=False
+)
+
+
+class AssetCompositeModelTypeDef(
+    _RequiredAssetCompositeModelTypeDef, _OptionalAssetCompositeModelTypeDef
+):
+    pass
+
+
 AssetErrorDetailsTypeDef = TypedDict(
     "AssetErrorDetailsTypeDef",
     {"assetId": str, "code": Literal["INTERNAL_FAILURE"], "message": str},
+)
+
+AssetHierarchyInfoTypeDef = TypedDict(
+    "AssetHierarchyInfoTypeDef", {"parentAssetId": str, "childAssetId": str}, total=False
 )
 
 _RequiredAssetHierarchyTypeDef = TypedDict("_RequiredAssetHierarchyTypeDef", {"name": str})
@@ -184,6 +210,22 @@ _OptionalAssetHierarchyTypeDef = TypedDict(
 
 
 class AssetHierarchyTypeDef(_RequiredAssetHierarchyTypeDef, _OptionalAssetHierarchyTypeDef):
+    pass
+
+
+_RequiredAssetModelCompositeModelTypeDef = TypedDict(
+    "_RequiredAssetModelCompositeModelTypeDef", {"name": str, "type": str}
+)
+_OptionalAssetModelCompositeModelTypeDef = TypedDict(
+    "_OptionalAssetModelCompositeModelTypeDef",
+    {"description": str, "properties": List["AssetModelPropertyTypeDef"]},
+    total=False,
+)
+
+
+class AssetModelCompositeModelTypeDef(
+    _RequiredAssetModelCompositeModelTypeDef, _OptionalAssetModelCompositeModelTypeDef
+):
     pass
 
 
@@ -201,16 +243,35 @@ class AssetModelHierarchyTypeDef(
     pass
 
 
+_RequiredAssetModelPropertyDefinitionTypeDef = TypedDict(
+    "_RequiredAssetModelPropertyDefinitionTypeDef",
+    {
+        "name": str,
+        "dataType": Literal["STRING", "INTEGER", "DOUBLE", "BOOLEAN", "STRUCT"],
+        "type": "PropertyTypeTypeDef",
+    },
+)
+_OptionalAssetModelPropertyDefinitionTypeDef = TypedDict(
+    "_OptionalAssetModelPropertyDefinitionTypeDef", {"dataTypeSpec": str, "unit": str}, total=False
+)
+
+
+class AssetModelPropertyDefinitionTypeDef(
+    _RequiredAssetModelPropertyDefinitionTypeDef, _OptionalAssetModelPropertyDefinitionTypeDef
+):
+    pass
+
+
 _RequiredAssetModelPropertyTypeDef = TypedDict(
     "_RequiredAssetModelPropertyTypeDef",
     {
         "name": str,
-        "dataType": Literal["STRING", "INTEGER", "DOUBLE", "BOOLEAN"],
+        "dataType": Literal["STRING", "INTEGER", "DOUBLE", "BOOLEAN", "STRUCT"],
         "type": "PropertyTypeTypeDef",
     },
 )
 _OptionalAssetModelPropertyTypeDef = TypedDict(
-    "_OptionalAssetModelPropertyTypeDef", {"id": str, "unit": str}, total=False
+    "_OptionalAssetModelPropertyTypeDef", {"id": str, "dataTypeSpec": str, "unit": str}, total=False
 )
 
 
@@ -248,11 +309,15 @@ AssetModelSummaryTypeDef = TypedDict(
 
 _RequiredAssetPropertyTypeDef = TypedDict(
     "_RequiredAssetPropertyTypeDef",
-    {"id": str, "name": str, "dataType": Literal["STRING", "INTEGER", "DOUBLE", "BOOLEAN"]},
+    {
+        "id": str,
+        "name": str,
+        "dataType": Literal["STRING", "INTEGER", "DOUBLE", "BOOLEAN", "STRUCT"],
+    },
 )
 _OptionalAssetPropertyTypeDef = TypedDict(
     "_OptionalAssetPropertyTypeDef",
-    {"alias": str, "notification": "PropertyNotificationTypeDef", "unit": str},
+    {"alias": str, "notification": "PropertyNotificationTypeDef", "dataTypeSpec": str, "unit": str},
     total=False,
 )
 
@@ -274,6 +339,22 @@ _OptionalAssetPropertyValueTypeDef = TypedDict(
 
 class AssetPropertyValueTypeDef(
     _RequiredAssetPropertyValueTypeDef, _OptionalAssetPropertyValueTypeDef
+):
+    pass
+
+
+_RequiredAssetRelationshipSummaryTypeDef = TypedDict(
+    "_RequiredAssetRelationshipSummaryTypeDef", {"relationshipType": Literal["HIERARCHY"]}
+)
+_OptionalAssetRelationshipSummaryTypeDef = TypedDict(
+    "_OptionalAssetRelationshipSummaryTypeDef",
+    {"hierarchyInfo": "AssetHierarchyInfoTypeDef"},
+    total=False,
+)
+
+
+class AssetRelationshipSummaryTypeDef(
+    _RequiredAssetRelationshipSummaryTypeDef, _OptionalAssetRelationshipSummaryTypeDef
 ):
     pass
 
@@ -343,6 +424,10 @@ BatchPutAssetPropertyErrorTypeDef = TypedDict(
         "errorMessage": str,
         "timestamps": List["TimeInNanosTypeDef"],
     },
+)
+
+CompositeModelPropertyTypeDef = TypedDict(
+    "CompositeModelPropertyTypeDef", {"name": str, "type": str, "assetProperty": "PropertyTypeDef"}
 )
 
 ConfigurationErrorDetailsTypeDef = TypedDict(
@@ -418,6 +503,8 @@ GreengrassTypeDef = TypedDict("GreengrassTypeDef", {"groupArn": str})
 
 GroupIdentityTypeDef = TypedDict("GroupIdentityTypeDef", {"id": str})
 
+IAMRoleIdentityTypeDef = TypedDict("IAMRoleIdentityTypeDef", {"arn": str})
+
 IAMUserIdentityTypeDef = TypedDict("IAMUserIdentityTypeDef", {"arn": str})
 
 IdentityTypeDef = TypedDict(
@@ -426,6 +513,7 @@ IdentityTypeDef = TypedDict(
         "user": "UserIdentityTypeDef",
         "group": "GroupIdentityTypeDef",
         "iamUser": "IAMUserIdentityTypeDef",
+        "iamRole": "IAMRoleIdentityTypeDef",
     },
     total=False,
 )
@@ -511,7 +599,11 @@ PropertyNotificationTypeDef = TypedDict(
 
 _RequiredPropertyTypeDef = TypedDict(
     "_RequiredPropertyTypeDef",
-    {"id": str, "name": str, "dataType": Literal["STRING", "INTEGER", "DOUBLE", "BOOLEAN"]},
+    {
+        "id": str,
+        "name": str,
+        "dataType": Literal["STRING", "INTEGER", "DOUBLE", "BOOLEAN", "STRUCT"],
+    },
 )
 _OptionalPropertyTypeDef = TypedDict(
     "_OptionalPropertyTypeDef",
@@ -580,28 +672,26 @@ VariantTypeDef = TypedDict(
     total=False,
 )
 
-AssetModelHierarchyDefinitionTypeDef = TypedDict(
-    "AssetModelHierarchyDefinitionTypeDef", {"name": str, "childAssetModelId": str}
+_RequiredAssetModelCompositeModelDefinitionTypeDef = TypedDict(
+    "_RequiredAssetModelCompositeModelDefinitionTypeDef", {"name": str, "type": str}
 )
-
-_RequiredAssetModelPropertyDefinitionTypeDef = TypedDict(
-    "_RequiredAssetModelPropertyDefinitionTypeDef",
-    {
-        "name": str,
-        "dataType": Literal["STRING", "INTEGER", "DOUBLE", "BOOLEAN"],
-        "type": "PropertyTypeTypeDef",
-    },
-)
-_OptionalAssetModelPropertyDefinitionTypeDef = TypedDict(
-    "_OptionalAssetModelPropertyDefinitionTypeDef", {"unit": str}, total=False
+_OptionalAssetModelCompositeModelDefinitionTypeDef = TypedDict(
+    "_OptionalAssetModelCompositeModelDefinitionTypeDef",
+    {"description": str, "properties": List["AssetModelPropertyDefinitionTypeDef"]},
+    total=False,
 )
 
 
-class AssetModelPropertyDefinitionTypeDef(
-    _RequiredAssetModelPropertyDefinitionTypeDef, _OptionalAssetModelPropertyDefinitionTypeDef
+class AssetModelCompositeModelDefinitionTypeDef(
+    _RequiredAssetModelCompositeModelDefinitionTypeDef,
+    _OptionalAssetModelCompositeModelDefinitionTypeDef,
 ):
     pass
 
+
+AssetModelHierarchyDefinitionTypeDef = TypedDict(
+    "AssetModelHierarchyDefinitionTypeDef", {"name": str, "childAssetModelId": str}
+)
 
 BatchAssociateProjectAssetsResponseTypeDef = TypedDict(
     "BatchAssociateProjectAssetsResponseTypeDef",
@@ -653,10 +743,6 @@ CreatePortalResponseTypeDef = TypedDict(
     },
 )
 
-CreatePresignedPortalUrlResponseTypeDef = TypedDict(
-    "CreatePresignedPortalUrlResponseTypeDef", {"presignedPortalUrl": str}
-)
-
 CreateProjectResponseTypeDef = TypedDict(
     "CreateProjectResponseTypeDef", {"projectId": str, "projectArn": str}
 )
@@ -686,8 +772,8 @@ DescribeAccessPolicyResponseTypeDef = TypedDict(
     },
 )
 
-DescribeAssetModelResponseTypeDef = TypedDict(
-    "DescribeAssetModelResponseTypeDef",
+_RequiredDescribeAssetModelResponseTypeDef = TypedDict(
+    "_RequiredDescribeAssetModelResponseTypeDef",
     {
         "assetModelId": str,
         "assetModelArn": str,
@@ -700,14 +786,38 @@ DescribeAssetModelResponseTypeDef = TypedDict(
         "assetModelStatus": "AssetModelStatusTypeDef",
     },
 )
-
-DescribeAssetPropertyResponseTypeDef = TypedDict(
-    "DescribeAssetPropertyResponseTypeDef",
-    {"assetId": str, "assetName": str, "assetModelId": str, "assetProperty": "PropertyTypeDef"},
+_OptionalDescribeAssetModelResponseTypeDef = TypedDict(
+    "_OptionalDescribeAssetModelResponseTypeDef",
+    {"assetModelCompositeModels": List["AssetModelCompositeModelTypeDef"]},
+    total=False,
 )
 
-DescribeAssetResponseTypeDef = TypedDict(
-    "DescribeAssetResponseTypeDef",
+
+class DescribeAssetModelResponseTypeDef(
+    _RequiredDescribeAssetModelResponseTypeDef, _OptionalDescribeAssetModelResponseTypeDef
+):
+    pass
+
+
+_RequiredDescribeAssetPropertyResponseTypeDef = TypedDict(
+    "_RequiredDescribeAssetPropertyResponseTypeDef",
+    {"assetId": str, "assetName": str, "assetModelId": str},
+)
+_OptionalDescribeAssetPropertyResponseTypeDef = TypedDict(
+    "_OptionalDescribeAssetPropertyResponseTypeDef",
+    {"assetProperty": "PropertyTypeDef", "compositeModel": "CompositeModelPropertyTypeDef"},
+    total=False,
+)
+
+
+class DescribeAssetPropertyResponseTypeDef(
+    _RequiredDescribeAssetPropertyResponseTypeDef, _OptionalDescribeAssetPropertyResponseTypeDef
+):
+    pass
+
+
+_RequiredDescribeAssetResponseTypeDef = TypedDict(
+    "_RequiredDescribeAssetResponseTypeDef",
     {
         "assetId": str,
         "assetArn": str,
@@ -720,6 +830,18 @@ DescribeAssetResponseTypeDef = TypedDict(
         "assetStatus": "AssetStatusTypeDef",
     },
 )
+_OptionalDescribeAssetResponseTypeDef = TypedDict(
+    "_OptionalDescribeAssetResponseTypeDef",
+    {"assetCompositeModels": List["AssetCompositeModelTypeDef"]},
+    total=False,
+)
+
+
+class DescribeAssetResponseTypeDef(
+    _RequiredDescribeAssetResponseTypeDef, _OptionalDescribeAssetResponseTypeDef
+):
+    pass
+
 
 _RequiredDescribeDashboardResponseTypeDef = TypedDict(
     "_RequiredDescribeDashboardResponseTypeDef",
@@ -923,6 +1045,21 @@ _OptionalListAssetModelsResponseTypeDef = TypedDict(
 
 class ListAssetModelsResponseTypeDef(
     _RequiredListAssetModelsResponseTypeDef, _OptionalListAssetModelsResponseTypeDef
+):
+    pass
+
+
+_RequiredListAssetRelationshipsResponseTypeDef = TypedDict(
+    "_RequiredListAssetRelationshipsResponseTypeDef",
+    {"assetRelationshipSummaries": List["AssetRelationshipSummaryTypeDef"]},
+)
+_OptionalListAssetRelationshipsResponseTypeDef = TypedDict(
+    "_OptionalListAssetRelationshipsResponseTypeDef", {"nextToken": str}, total=False
+)
+
+
+class ListAssetRelationshipsResponseTypeDef(
+    _RequiredListAssetRelationshipsResponseTypeDef, _OptionalListAssetRelationshipsResponseTypeDef
 ):
     pass
 

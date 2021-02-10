@@ -1,5 +1,6 @@
 from mypy_boto3_route53resolver import (
     Client,
+    ListResolverDnssecConfigsPaginator,
     ListResolverEndpointIpAddressesPaginator,
     ListResolverEndpointsPaginator,
     ListResolverQueryLogConfigAssociationsPaginator,
@@ -12,6 +13,7 @@ from mypy_boto3_route53resolver import (
 
 __all__ = (
     "Client",
+    "ListResolverDnssecConfigsPaginator",
     "ListResolverEndpointIpAddressesPaginator",
     "ListResolverEndpointsPaginator",
     "ListResolverQueryLogConfigAssociationsPaginator",

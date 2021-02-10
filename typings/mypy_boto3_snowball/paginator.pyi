@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for snowball service client paginators.
 
@@ -49,64 +48,64 @@ __all__ = (
 
 class DescribeAddressesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeAddresses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/snowball.html#Snowball.Paginator.DescribeAddresses)
+    [Paginator.DescribeAddresses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/snowball.html#Snowball.Paginator.DescribeAddresses)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeAddressesResultTypeDef]:
         """
-        [DescribeAddresses.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/snowball.html#Snowball.Paginator.DescribeAddresses.paginate)
+        [DescribeAddresses.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/snowball.html#Snowball.Paginator.DescribeAddresses.paginate)
         """
 
 
 class ListClusterJobsPaginator(Boto3Paginator):
     """
-    [Paginator.ListClusterJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/snowball.html#Snowball.Paginator.ListClusterJobs)
+    [Paginator.ListClusterJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/snowball.html#Snowball.Paginator.ListClusterJobs)
     """
 
     def paginate(
         self, ClusterId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListClusterJobsResultTypeDef]:
         """
-        [ListClusterJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/snowball.html#Snowball.Paginator.ListClusterJobs.paginate)
+        [ListClusterJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/snowball.html#Snowball.Paginator.ListClusterJobs.paginate)
         """
 
 
 class ListClustersPaginator(Boto3Paginator):
     """
-    [Paginator.ListClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/snowball.html#Snowball.Paginator.ListClusters)
+    [Paginator.ListClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/snowball.html#Snowball.Paginator.ListClusters)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListClustersResultTypeDef]:
         """
-        [ListClusters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/snowball.html#Snowball.Paginator.ListClusters.paginate)
+        [ListClusters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/snowball.html#Snowball.Paginator.ListClusters.paginate)
         """
 
 
 class ListCompatibleImagesPaginator(Boto3Paginator):
     """
-    [Paginator.ListCompatibleImages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/snowball.html#Snowball.Paginator.ListCompatibleImages)
+    [Paginator.ListCompatibleImages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/snowball.html#Snowball.Paginator.ListCompatibleImages)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListCompatibleImagesResultTypeDef]:
         """
-        [ListCompatibleImages.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/snowball.html#Snowball.Paginator.ListCompatibleImages.paginate)
+        [ListCompatibleImages.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/snowball.html#Snowball.Paginator.ListCompatibleImages.paginate)
         """
 
 
 class ListJobsPaginator(Boto3Paginator):
     """
-    [Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/snowball.html#Snowball.Paginator.ListJobs)
+    [Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/snowball.html#Snowball.Paginator.ListJobs)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListJobsResultTypeDef]:
         """
-        [ListJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/snowball.html#Snowball.Paginator.ListJobs.paginate)
+        [ListJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/snowball.html#Snowball.Paginator.ListJobs.paginate)
         """

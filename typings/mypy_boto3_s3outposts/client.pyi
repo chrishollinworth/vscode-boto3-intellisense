@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for s3outposts service client
 
@@ -47,7 +46,7 @@ class Exceptions:
 
 class S3OutpostsClient:
     """
-    [S3Outposts.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3outposts.html#S3Outposts.Client)
+    [S3Outposts.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3outposts.html#S3Outposts.Client)
     """
 
     meta: ClientMeta
@@ -55,19 +54,19 @@ class S3OutpostsClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3outposts.html#S3Outposts.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3outposts.html#S3Outposts.Client.can_paginate)
         """
 
     def create_endpoint(
         self, OutpostId: str, SubnetId: str, SecurityGroupId: str
     ) -> CreateEndpointResultTypeDef:
         """
-        [Client.create_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3outposts.html#S3Outposts.Client.create_endpoint)
+        [Client.create_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3outposts.html#S3Outposts.Client.create_endpoint)
         """
 
     def delete_endpoint(self, EndpointId: str, OutpostId: str) -> None:
         """
-        [Client.delete_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3outposts.html#S3Outposts.Client.delete_endpoint)
+        [Client.delete_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3outposts.html#S3Outposts.Client.delete_endpoint)
         """
 
     def generate_presigned_url(
@@ -78,17 +77,17 @@ class S3OutpostsClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3outposts.html#S3Outposts.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3outposts.html#S3Outposts.Client.generate_presigned_url)
         """
 
     def list_endpoints(
         self, NextToken: str = None, MaxResults: int = None
     ) -> ListEndpointsResultTypeDef:
         """
-        [Client.list_endpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3outposts.html#S3Outposts.Client.list_endpoints)
+        [Client.list_endpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3outposts.html#S3Outposts.Client.list_endpoints)
         """
 
     def get_paginator(self, operation_name: Literal["list_endpoints"]) -> ListEndpointsPaginator:
         """
-        [Paginator.ListEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3outposts.html#S3Outposts.Paginator.ListEndpoints)
+        [Paginator.ListEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3outposts.html#S3Outposts.Paginator.ListEndpoints)
         """

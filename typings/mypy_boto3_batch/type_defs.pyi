@@ -37,6 +37,7 @@ __all__ = (
     "DeviceTypeDef",
     "Ec2ConfigurationTypeDef",
     "EvaluateOnExitTypeDef",
+    "FargatePlatformConfigurationTypeDef",
     "HostTypeDef",
     "JobDefinitionTypeDef",
     "JobDependencyTypeDef",
@@ -49,6 +50,7 @@ __all__ = (
     "LinuxParametersTypeDef",
     "LogConfigurationTypeDef",
     "MountPointTypeDef",
+    "NetworkConfigurationTypeDef",
     "NetworkInterfaceTypeDef",
     "NodeDetailsTypeDef",
     "NodePropertiesSummaryTypeDef",
@@ -145,12 +147,9 @@ ComputeEnvironmentOrderTypeDef = TypedDict(
 _RequiredComputeResourceTypeDef = TypedDict(
     "_RequiredComputeResourceTypeDef",
     {
-        "type": Literal["EC2", "SPOT"],
-        "minvCpus": int,
+        "type": Literal["EC2", "SPOT", "FARGATE", "FARGATE_SPOT"],
         "maxvCpus": int,
-        "instanceTypes": List[str],
         "subnets": List[str],
-        "instanceRole": str,
     },
 )
 _OptionalComputeResourceTypeDef = TypedDict(
@@ -159,10 +158,13 @@ _OptionalComputeResourceTypeDef = TypedDict(
         "allocationStrategy": Literal[
             "BEST_FIT", "BEST_FIT_PROGRESSIVE", "SPOT_CAPACITY_OPTIMIZED"
         ],
+        "minvCpus": int,
         "desiredvCpus": int,
+        "instanceTypes": List[str],
         "imageId": str,
         "securityGroupIds": List[str],
         "ec2KeyPair": str,
+        "instanceRole": str,
         "tags": Dict[str, str],
         "placementGroup": str,
         "bidPercentage": int,
@@ -205,6 +207,8 @@ ContainerDetailTypeDef = TypedDict(
         "linuxParameters": "LinuxParametersTypeDef",
         "logConfiguration": "LogConfigurationTypeDef",
         "secrets": List["SecretTypeDef"],
+        "networkConfiguration": "NetworkConfigurationTypeDef",
+        "fargatePlatformConfiguration": "FargatePlatformConfigurationTypeDef",
     },
     total=False,
 )
@@ -243,6 +247,8 @@ ContainerPropertiesTypeDef = TypedDict(
         "linuxParameters": "LinuxParametersTypeDef",
         "logConfiguration": "LogConfigurationTypeDef",
         "secrets": List["SecretTypeDef"],
+        "networkConfiguration": "NetworkConfigurationTypeDef",
+        "fargatePlatformConfiguration": "FargatePlatformConfigurationTypeDef",
     },
     total=False,
 )
@@ -287,6 +293,10 @@ class EvaluateOnExitTypeDef(_RequiredEvaluateOnExitTypeDef, _OptionalEvaluateOnE
     pass
 
 
+FargatePlatformConfigurationTypeDef = TypedDict(
+    "FargatePlatformConfigurationTypeDef", {"platformVersion": str}, total=False
+)
+
 HostTypeDef = TypedDict("HostTypeDef", {"sourcePath": str}, total=False)
 
 _RequiredJobDefinitionTypeDef = TypedDict(
@@ -303,6 +313,8 @@ _OptionalJobDefinitionTypeDef = TypedDict(
         "timeout": "JobTimeoutTypeDef",
         "nodeProperties": "NodePropertiesTypeDef",
         "tags": Dict[str, str],
+        "propagateTags": bool,
+        "platformCapabilities": List[Literal["EC2", "FARGATE"]],
     },
     total=False,
 )
@@ -346,6 +358,8 @@ _OptionalJobDetailTypeDef = TypedDict(
         "arrayProperties": "ArrayPropertiesDetailTypeDef",
         "timeout": "JobTimeoutTypeDef",
         "tags": Dict[str, str],
+        "propagateTags": bool,
+        "platformCapabilities": List[Literal["EC2", "FARGATE"]],
     },
     total=False,
 )
@@ -450,6 +464,10 @@ MountPointTypeDef = TypedDict(
     "MountPointTypeDef", {"containerPath": str, "readOnly": bool, "sourceVolume": str}, total=False
 )
 
+NetworkConfigurationTypeDef = TypedDict(
+    "NetworkConfigurationTypeDef", {"assignPublicIp": Literal["ENABLED", "DISABLED"]}, total=False
+)
+
 NetworkInterfaceTypeDef = TypedDict(
     "NetworkInterfaceTypeDef",
     {"attachmentId": str, "ipv6Address": str, "privateIpv4Address": str},
@@ -502,7 +520,7 @@ class NodeRangePropertyTypeDef(
 
 
 ResourceRequirementTypeDef = TypedDict(
-    "ResourceRequirementTypeDef", {"value": str, "type": Literal["GPU"]}
+    "ResourceRequirementTypeDef", {"value": str, "type": Literal["GPU", "VCPU", "MEMORY"]}
 )
 
 RetryStrategyTypeDef = TypedDict(
@@ -529,7 +547,13 @@ ArrayPropertiesTypeDef = TypedDict("ArrayPropertiesTypeDef", {"size": int}, tota
 
 ComputeResourceUpdateTypeDef = TypedDict(
     "ComputeResourceUpdateTypeDef",
-    {"minvCpus": int, "maxvCpus": int, "desiredvCpus": int},
+    {
+        "minvCpus": int,
+        "maxvCpus": int,
+        "desiredvCpus": int,
+        "subnets": List[str],
+        "securityGroupIds": List[str],
+    },
     total=False,
 )
 

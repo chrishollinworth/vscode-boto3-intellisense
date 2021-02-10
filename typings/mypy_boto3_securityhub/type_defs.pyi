@@ -4,9 +4,9 @@ Main interface for securityhub service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_securityhub.type_defs import ActionTargetTypeDef
+    from mypy_boto3_securityhub.type_defs import ActionLocalIpDetailsTypeDef
 
-    data: ActionTargetTypeDef = {...}
+    data: ActionLocalIpDetailsTypeDef = {...}
     ```
 """
 import sys
@@ -24,9 +24,16 @@ else:
 
 
 __all__ = (
+    "ActionLocalIpDetailsTypeDef",
+    "ActionLocalPortDetailsTypeDef",
+    "ActionRemoteIpDetailsTypeDef",
+    "ActionRemotePortDetailsTypeDef",
     "ActionTargetTypeDef",
+    "ActionTypeDef",
     "AdminAccountTypeDef",
     "AvailabilityZoneTypeDef",
+    "AwsApiCallActionDomainDetailsTypeDef",
+    "AwsApiCallActionTypeDef",
     "AwsApiGatewayAccessLogSettingsTypeDef",
     "AwsApiGatewayCanarySettingsTypeDef",
     "AwsApiGatewayEndpointConfigurationTypeDef",
@@ -81,6 +88,8 @@ __all__ = (
     "AwsEc2InstanceDetailsTypeDef",
     "AwsEc2NetworkInterfaceAttachmentTypeDef",
     "AwsEc2NetworkInterfaceDetailsTypeDef",
+    "AwsEc2NetworkInterfaceIpV6AddressDetailTypeDef",
+    "AwsEc2NetworkInterfacePrivateIpAddressDetailTypeDef",
     "AwsEc2NetworkInterfaceSecurityGroupTypeDef",
     "AwsEc2SecurityGroupDetailsTypeDef",
     "AwsEc2SecurityGroupIpPermissionTypeDef",
@@ -186,27 +195,36 @@ __all__ = (
     "AwsSnsTopicDetailsTypeDef",
     "AwsSnsTopicSubscriptionTypeDef",
     "AwsSqsQueueDetailsTypeDef",
+    "AwsSsmComplianceSummaryTypeDef",
+    "AwsSsmPatchComplianceDetailsTypeDef",
+    "AwsSsmPatchTypeDef",
     "AwsWafWebAclDetailsTypeDef",
     "AwsWafWebAclRuleTypeDef",
     "BatchUpdateFindingsUnprocessedFindingTypeDef",
     "CidrBlockAssociationTypeDef",
+    "CityTypeDef",
     "ComplianceTypeDef",
     "ContainerDetailsTypeDef",
+    "CountryTypeDef",
     "CvssTypeDef",
     "DateFilterTypeDef",
     "DateRangeTypeDef",
+    "DnsRequestActionTypeDef",
+    "GeoLocationTypeDef",
     "ImportFindingsErrorTypeDef",
     "InsightResultValueTypeDef",
     "InsightResultsTypeDef",
     "InsightTypeDef",
     "InvitationTypeDef",
     "IpFilterTypeDef",
+    "IpOrganizationDetailsTypeDef",
     "Ipv6CidrBlockAssociationTypeDef",
     "KeywordFilterTypeDef",
     "LoadBalancerStateTypeDef",
     "MalwareTypeDef",
     "MapFilterTypeDef",
     "MemberTypeDef",
+    "NetworkConnectionActionTypeDef",
     "NetworkHeaderTypeDef",
     "NetworkPathComponentDetailsTypeDef",
     "NetworkPathComponentTypeDef",
@@ -214,6 +232,8 @@ __all__ = (
     "NoteTypeDef",
     "NumberFilterTypeDef",
     "PatchSummaryTypeDef",
+    "PortProbeActionTypeDef",
+    "PortProbeDetailTypeDef",
     "PortRangeTypeDef",
     "ProcessDetailsTypeDef",
     "ProductTypeDef",
@@ -278,8 +298,44 @@ __all__ = (
     "WorkflowUpdateTypeDef",
 )
 
+ActionLocalIpDetailsTypeDef = TypedDict(
+    "ActionLocalIpDetailsTypeDef", {"IpAddressV4": str}, total=False
+)
+
+ActionLocalPortDetailsTypeDef = TypedDict(
+    "ActionLocalPortDetailsTypeDef", {"Port": int, "PortName": str}, total=False
+)
+
+ActionRemoteIpDetailsTypeDef = TypedDict(
+    "ActionRemoteIpDetailsTypeDef",
+    {
+        "IpAddressV4": str,
+        "Organization": "IpOrganizationDetailsTypeDef",
+        "Country": "CountryTypeDef",
+        "City": "CityTypeDef",
+        "GeoLocation": "GeoLocationTypeDef",
+    },
+    total=False,
+)
+
+ActionRemotePortDetailsTypeDef = TypedDict(
+    "ActionRemotePortDetailsTypeDef", {"Port": int, "PortName": str}, total=False
+)
+
 ActionTargetTypeDef = TypedDict(
     "ActionTargetTypeDef", {"ActionTargetArn": str, "Name": str, "Description": str}
+)
+
+ActionTypeDef = TypedDict(
+    "ActionTypeDef",
+    {
+        "ActionType": str,
+        "NetworkConnectionAction": "NetworkConnectionActionTypeDef",
+        "AwsApiCallAction": "AwsApiCallActionTypeDef",
+        "DnsRequestAction": "DnsRequestActionTypeDef",
+        "PortProbeAction": "PortProbeActionTypeDef",
+    },
+    total=False,
 )
 
 AdminAccountTypeDef = TypedDict(
@@ -290,6 +346,25 @@ AdminAccountTypeDef = TypedDict(
 
 AvailabilityZoneTypeDef = TypedDict(
     "AvailabilityZoneTypeDef", {"ZoneName": str, "SubnetId": str}, total=False
+)
+
+AwsApiCallActionDomainDetailsTypeDef = TypedDict(
+    "AwsApiCallActionDomainDetailsTypeDef", {"Domain": str}, total=False
+)
+
+AwsApiCallActionTypeDef = TypedDict(
+    "AwsApiCallActionTypeDef",
+    {
+        "Api": str,
+        "ServiceName": str,
+        "CallerType": str,
+        "RemoteIpDetails": "ActionRemoteIpDetailsTypeDef",
+        "DomainDetails": "AwsApiCallActionDomainDetailsTypeDef",
+        "AffectedResources": Dict[str, str],
+        "FirstSeen": str,
+        "LastSeen": str,
+    },
+    total=False,
 )
 
 AwsApiGatewayAccessLogSettingsTypeDef = TypedDict(
@@ -863,7 +938,21 @@ AwsEc2NetworkInterfaceDetailsTypeDef = TypedDict(
         "NetworkInterfaceId": str,
         "SecurityGroups": List["AwsEc2NetworkInterfaceSecurityGroupTypeDef"],
         "SourceDestCheck": bool,
+        "IpV6Addresses": List["AwsEc2NetworkInterfaceIpV6AddressDetailTypeDef"],
+        "PrivateIpAddresses": List["AwsEc2NetworkInterfacePrivateIpAddressDetailTypeDef"],
+        "PublicDnsName": str,
+        "PublicIp": str,
     },
+    total=False,
+)
+
+AwsEc2NetworkInterfaceIpV6AddressDetailTypeDef = TypedDict(
+    "AwsEc2NetworkInterfaceIpV6AddressDetailTypeDef", {"IpV6Address": str}, total=False
+)
+
+AwsEc2NetworkInterfacePrivateIpAddressDetailTypeDef = TypedDict(
+    "AwsEc2NetworkInterfacePrivateIpAddressDetailTypeDef",
+    {"PrivateIpAddress": str, "PrivateDnsName": str},
     total=False,
 )
 
@@ -2008,6 +2097,7 @@ _OptionalAwsSecurityFindingTypeDef = TypedDict(
         "Note": "NoteTypeDef",
         "Vulnerabilities": List["VulnerabilityTypeDef"],
         "PatchSummary": "PatchSummaryTypeDef",
+        "Action": "ActionTypeDef",
     },
     total=False,
 )
@@ -2045,6 +2135,39 @@ AwsSqsQueueDetailsTypeDef = TypedDict(
     total=False,
 )
 
+AwsSsmComplianceSummaryTypeDef = TypedDict(
+    "AwsSsmComplianceSummaryTypeDef",
+    {
+        "Status": str,
+        "CompliantCriticalCount": int,
+        "CompliantHighCount": int,
+        "CompliantMediumCount": int,
+        "ExecutionType": str,
+        "NonCompliantCriticalCount": int,
+        "CompliantInformationalCount": int,
+        "NonCompliantInformationalCount": int,
+        "CompliantUnspecifiedCount": int,
+        "NonCompliantLowCount": int,
+        "NonCompliantHighCount": int,
+        "CompliantLowCount": int,
+        "ComplianceType": str,
+        "PatchBaselineId": str,
+        "OverallSeverity": str,
+        "NonCompliantMediumCount": int,
+        "NonCompliantUnspecifiedCount": int,
+        "PatchGroup": str,
+    },
+    total=False,
+)
+
+AwsSsmPatchComplianceDetailsTypeDef = TypedDict(
+    "AwsSsmPatchComplianceDetailsTypeDef", {"Patch": "AwsSsmPatchTypeDef"}, total=False
+)
+
+AwsSsmPatchTypeDef = TypedDict(
+    "AwsSsmPatchTypeDef", {"ComplianceSummary": "AwsSsmComplianceSummaryTypeDef"}, total=False
+)
+
 AwsWafWebAclDetailsTypeDef = TypedDict(
     "AwsWafWebAclDetailsTypeDef",
     {"Name": str, "DefaultAction": str, "Rules": List["AwsWafWebAclRuleTypeDef"], "WebAclId": str},
@@ -2079,6 +2202,8 @@ CidrBlockAssociationTypeDef = TypedDict(
     total=False,
 )
 
+CityTypeDef = TypedDict("CityTypeDef", {"CityName": str}, total=False)
+
 ComplianceTypeDef = TypedDict(
     "ComplianceTypeDef",
     {
@@ -2095,6 +2220,8 @@ ContainerDetailsTypeDef = TypedDict(
     total=False,
 )
 
+CountryTypeDef = TypedDict("CountryTypeDef", {"CountryCode": str, "CountryName": str}, total=False)
+
 CvssTypeDef = TypedDict(
     "CvssTypeDef", {"Version": str, "BaseScore": float, "BaseVector": str}, total=False
 )
@@ -2106,6 +2233,12 @@ DateFilterTypeDef = TypedDict(
 DateRangeTypeDef = TypedDict(
     "DateRangeTypeDef", {"Value": int, "Unit": Literal["DAYS"]}, total=False
 )
+
+DnsRequestActionTypeDef = TypedDict(
+    "DnsRequestActionTypeDef", {"Domain": str, "Protocol": str, "Blocked": bool}, total=False
+)
+
+GeoLocationTypeDef = TypedDict("GeoLocationTypeDef", {"Lon": float, "Lat": float}, total=False)
 
 ImportFindingsErrorTypeDef = TypedDict(
     "ImportFindingsErrorTypeDef", {"Id": str, "ErrorCode": str, "ErrorMessage": str}
@@ -2137,6 +2270,10 @@ InvitationTypeDef = TypedDict(
 )
 
 IpFilterTypeDef = TypedDict("IpFilterTypeDef", {"Cidr": str}, total=False)
+
+IpOrganizationDetailsTypeDef = TypedDict(
+    "IpOrganizationDetailsTypeDef", {"Asn": int, "AsnOrg": str, "Isp": str, "Org": str}, total=False
+)
 
 Ipv6CidrBlockAssociationTypeDef = TypedDict(
     "Ipv6CidrBlockAssociationTypeDef",
@@ -2197,6 +2334,19 @@ MemberTypeDef = TypedDict(
         "MemberStatus": str,
         "InvitedAt": datetime,
         "UpdatedAt": datetime,
+    },
+    total=False,
+)
+
+NetworkConnectionActionTypeDef = TypedDict(
+    "NetworkConnectionActionTypeDef",
+    {
+        "ConnectionDirection": str,
+        "RemoteIpDetails": "ActionRemoteIpDetailsTypeDef",
+        "RemotePortDetails": "ActionRemotePortDetailsTypeDef",
+        "LocalPortDetails": "ActionLocalPortDetailsTypeDef",
+        "Protocol": str,
+        "Blocked": bool,
     },
     total=False,
 )
@@ -2276,6 +2426,22 @@ class PatchSummaryTypeDef(_RequiredPatchSummaryTypeDef, _OptionalPatchSummaryTyp
     pass
 
 
+PortProbeActionTypeDef = TypedDict(
+    "PortProbeActionTypeDef",
+    {"PortProbeDetails": List["PortProbeDetailTypeDef"], "Blocked": bool},
+    total=False,
+)
+
+PortProbeDetailTypeDef = TypedDict(
+    "PortProbeDetailTypeDef",
+    {
+        "LocalPortDetails": "ActionLocalPortDetailsTypeDef",
+        "LocalIpDetails": "ActionLocalIpDetailsTypeDef",
+        "RemoteIpDetails": "ActionRemoteIpDetailsTypeDef",
+    },
+    total=False,
+)
+
 PortRangeTypeDef = TypedDict("PortRangeTypeDef", {"Begin": int, "End": int}, total=False)
 
 ProcessDetailsTypeDef = TypedDict(
@@ -2348,6 +2514,7 @@ ResourceDetailsTypeDef = TypedDict(
         "AwsApiGatewayStage": "AwsApiGatewayStageDetailsTypeDef",
         "AwsApiGatewayRestApi": "AwsApiGatewayRestApiDetailsTypeDef",
         "AwsCloudTrailTrail": "AwsCloudTrailTrailDetailsTypeDef",
+        "AwsSsmPatchCompliance": "AwsSsmPatchComplianceDetailsTypeDef",
         "AwsCertificateManagerCertificate": "AwsCertificateManagerCertificateDetailsTypeDef",
         "AwsRedshiftCluster": "AwsRedshiftClusterDetailsTypeDef",
         "AwsElbLoadBalancer": "AwsElbLoadBalancerDetailsTypeDef",

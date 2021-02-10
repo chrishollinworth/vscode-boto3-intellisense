@@ -41,6 +41,9 @@ __all__ = (
     "LifecyclePolicyPreviewResultTypeDef",
     "LifecyclePolicyPreviewSummaryTypeDef",
     "LifecyclePolicyRuleActionTypeDef",
+    "ReplicationConfigurationTypeDef",
+    "ReplicationDestinationTypeDef",
+    "ReplicationRuleTypeDef",
     "RepositoryTypeDef",
     "TagTypeDef",
     "BatchCheckLayerAvailabilityResponseTypeDef",
@@ -49,16 +52,19 @@ __all__ = (
     "CompleteLayerUploadResponseTypeDef",
     "CreateRepositoryResponseTypeDef",
     "DeleteLifecyclePolicyResponseTypeDef",
+    "DeleteRegistryPolicyResponseTypeDef",
     "DeleteRepositoryPolicyResponseTypeDef",
     "DeleteRepositoryResponseTypeDef",
     "DescribeImageScanFindingsResponseTypeDef",
     "DescribeImagesFilterTypeDef",
     "DescribeImagesResponseTypeDef",
+    "DescribeRegistryResponseTypeDef",
     "DescribeRepositoriesResponseTypeDef",
     "GetAuthorizationTokenResponseTypeDef",
     "GetDownloadUrlForLayerResponseTypeDef",
     "GetLifecyclePolicyPreviewResponseTypeDef",
     "GetLifecyclePolicyResponseTypeDef",
+    "GetRegistryPolicyResponseTypeDef",
     "GetRepositoryPolicyResponseTypeDef",
     "InitiateLayerUploadResponseTypeDef",
     "LifecyclePolicyPreviewFilterTypeDef",
@@ -70,6 +76,8 @@ __all__ = (
     "PutImageScanningConfigurationResponseTypeDef",
     "PutImageTagMutabilityResponseTypeDef",
     "PutLifecyclePolicyResponseTypeDef",
+    "PutRegistryPolicyResponseTypeDef",
+    "PutReplicationConfigurationResponseTypeDef",
     "SetRepositoryPolicyResponseTypeDef",
     "StartImageScanResponseTypeDef",
     "StartLifecyclePolicyPreviewResponseTypeDef",
@@ -244,6 +252,18 @@ LifecyclePolicyRuleActionTypeDef = TypedDict(
     "LifecyclePolicyRuleActionTypeDef", {"type": Literal["EXPIRE"]}, total=False
 )
 
+ReplicationConfigurationTypeDef = TypedDict(
+    "ReplicationConfigurationTypeDef", {"rules": List["ReplicationRuleTypeDef"]}
+)
+
+ReplicationDestinationTypeDef = TypedDict(
+    "ReplicationDestinationTypeDef", {"region": str, "registryId": str}
+)
+
+ReplicationRuleTypeDef = TypedDict(
+    "ReplicationRuleTypeDef", {"destinations": List["ReplicationDestinationTypeDef"]}
+)
+
 RepositoryTypeDef = TypedDict(
     "RepositoryTypeDef",
     {
@@ -300,6 +320,10 @@ DeleteLifecyclePolicyResponseTypeDef = TypedDict(
     total=False,
 )
 
+DeleteRegistryPolicyResponseTypeDef = TypedDict(
+    "DeleteRegistryPolicyResponseTypeDef", {"registryId": str, "policyText": str}, total=False
+)
+
 DeleteRepositoryPolicyResponseTypeDef = TypedDict(
     "DeleteRepositoryPolicyResponseTypeDef",
     {"registryId": str, "repositoryName": str, "policyText": str},
@@ -330,6 +354,12 @@ DescribeImagesFilterTypeDef = TypedDict(
 DescribeImagesResponseTypeDef = TypedDict(
     "DescribeImagesResponseTypeDef",
     {"imageDetails": List["ImageDetailTypeDef"], "nextToken": str},
+    total=False,
+)
+
+DescribeRegistryResponseTypeDef = TypedDict(
+    "DescribeRegistryResponseTypeDef",
+    {"registryId": str, "replicationConfiguration": "ReplicationConfigurationTypeDef"},
     total=False,
 )
 
@@ -372,6 +402,10 @@ GetLifecyclePolicyResponseTypeDef = TypedDict(
         "lastEvaluatedAt": datetime,
     },
     total=False,
+)
+
+GetRegistryPolicyResponseTypeDef = TypedDict(
+    "GetRegistryPolicyResponseTypeDef", {"registryId": str, "policyText": str}, total=False
 )
 
 GetRepositoryPolicyResponseTypeDef = TypedDict(
@@ -435,6 +469,16 @@ PutImageTagMutabilityResponseTypeDef = TypedDict(
 PutLifecyclePolicyResponseTypeDef = TypedDict(
     "PutLifecyclePolicyResponseTypeDef",
     {"registryId": str, "repositoryName": str, "lifecyclePolicyText": str},
+    total=False,
+)
+
+PutRegistryPolicyResponseTypeDef = TypedDict(
+    "PutRegistryPolicyResponseTypeDef", {"registryId": str, "policyText": str}, total=False
+)
+
+PutReplicationConfigurationResponseTypeDef = TypedDict(
+    "PutReplicationConfigurationResponseTypeDef",
+    {"replicationConfiguration": "ReplicationConfigurationTypeDef"},
     total=False,
 )
 

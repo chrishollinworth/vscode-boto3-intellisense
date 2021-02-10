@@ -30,6 +30,7 @@ __all__ = (
     "ChangeInfoTypeDef",
     "ChangeTypeDef",
     "CloudWatchAlarmConfigurationTypeDef",
+    "DNSSECStatusTypeDef",
     "DelegationSetTypeDef",
     "DimensionTypeDef",
     "GeoLocationDetailsTypeDef",
@@ -42,6 +43,7 @@ __all__ = (
     "HostedZoneOwnerTypeDef",
     "HostedZoneSummaryTypeDef",
     "HostedZoneTypeDef",
+    "KeySigningKeyTypeDef",
     "LinkedServiceTypeDef",
     "QueryLoggingConfigTypeDef",
     "ResourceRecordSetTypeDef",
@@ -54,22 +56,29 @@ __all__ = (
     "TrafficPolicySummaryTypeDef",
     "TrafficPolicyTypeDef",
     "VPCTypeDef",
+    "ActivateKeySigningKeyResponseTypeDef",
     "AssociateVPCWithHostedZoneResponseTypeDef",
     "ChangeBatchTypeDef",
     "ChangeResourceRecordSetsResponseTypeDef",
     "CreateHealthCheckResponseTypeDef",
     "CreateHostedZoneResponseTypeDef",
+    "CreateKeySigningKeyResponseTypeDef",
     "CreateQueryLoggingConfigResponseTypeDef",
     "CreateReusableDelegationSetResponseTypeDef",
     "CreateTrafficPolicyInstanceResponseTypeDef",
     "CreateTrafficPolicyResponseTypeDef",
     "CreateTrafficPolicyVersionResponseTypeDef",
     "CreateVPCAssociationAuthorizationResponseTypeDef",
+    "DeactivateKeySigningKeyResponseTypeDef",
     "DeleteHostedZoneResponseTypeDef",
+    "DeleteKeySigningKeyResponseTypeDef",
+    "DisableHostedZoneDNSSECResponseTypeDef",
     "DisassociateVPCFromHostedZoneResponseTypeDef",
+    "EnableHostedZoneDNSSECResponseTypeDef",
     "GetAccountLimitResponseTypeDef",
     "GetChangeResponseTypeDef",
     "GetCheckerIpRangesResponseTypeDef",
+    "GetDNSSECResponseTypeDef",
     "GetGeoLocationResponseTypeDef",
     "GetHealthCheckCountResponseTypeDef",
     "GetHealthCheckLastFailureReasonResponseTypeDef",
@@ -211,6 +220,10 @@ class CloudWatchAlarmConfigurationTypeDef(
 ):
     pass
 
+
+DNSSECStatusTypeDef = TypedDict(
+    "DNSSECStatusTypeDef", {"ServeSignature": str, "StatusMessage": str}, total=False
+)
 
 _RequiredDelegationSetTypeDef = TypedDict(
     "_RequiredDelegationSetTypeDef", {"NameServers": List[str]}
@@ -378,6 +391,29 @@ class HostedZoneTypeDef(_RequiredHostedZoneTypeDef, _OptionalHostedZoneTypeDef):
     pass
 
 
+KeySigningKeyTypeDef = TypedDict(
+    "KeySigningKeyTypeDef",
+    {
+        "Name": str,
+        "KmsArn": str,
+        "Flag": int,
+        "SigningAlgorithmMnemonic": str,
+        "SigningAlgorithmType": int,
+        "DigestAlgorithmMnemonic": str,
+        "DigestAlgorithmType": int,
+        "KeyTag": int,
+        "DigestValue": str,
+        "PublicKey": str,
+        "DSRecord": str,
+        "DNSKEYRecord": str,
+        "Status": str,
+        "StatusMessage": str,
+        "CreatedDate": datetime,
+        "LastModifiedDate": datetime,
+    },
+    total=False,
+)
+
 LinkedServiceTypeDef = TypedDict(
     "LinkedServiceTypeDef", {"ServicePrincipal": str, "Description": str}, total=False
 )
@@ -391,7 +427,19 @@ _RequiredResourceRecordSetTypeDef = TypedDict(
     {
         "Name": str,
         "Type": Literal[
-            "SOA", "A", "TXT", "NS", "CNAME", "MX", "NAPTR", "PTR", "SRV", "SPF", "AAAA", "CAA"
+            "SOA",
+            "A",
+            "TXT",
+            "NS",
+            "CNAME",
+            "MX",
+            "NAPTR",
+            "PTR",
+            "SRV",
+            "SPF",
+            "AAAA",
+            "CAA",
+            "DS",
         ],
     },
 )
@@ -479,7 +527,19 @@ TrafficPolicyInstanceTypeDef = TypedDict(
         "TrafficPolicyId": str,
         "TrafficPolicyVersion": int,
         "TrafficPolicyType": Literal[
-            "SOA", "A", "TXT", "NS", "CNAME", "MX", "NAPTR", "PTR", "SRV", "SPF", "AAAA", "CAA"
+            "SOA",
+            "A",
+            "TXT",
+            "NS",
+            "CNAME",
+            "MX",
+            "NAPTR",
+            "PTR",
+            "SRV",
+            "SPF",
+            "AAAA",
+            "CAA",
+            "DS",
         ],
     },
 )
@@ -490,7 +550,19 @@ TrafficPolicySummaryTypeDef = TypedDict(
         "Id": str,
         "Name": str,
         "Type": Literal[
-            "SOA", "A", "TXT", "NS", "CNAME", "MX", "NAPTR", "PTR", "SRV", "SPF", "AAAA", "CAA"
+            "SOA",
+            "A",
+            "TXT",
+            "NS",
+            "CNAME",
+            "MX",
+            "NAPTR",
+            "PTR",
+            "SRV",
+            "SPF",
+            "AAAA",
+            "CAA",
+            "DS",
         ],
         "LatestVersion": int,
         "TrafficPolicyCount": int,
@@ -504,7 +576,19 @@ _RequiredTrafficPolicyTypeDef = TypedDict(
         "Version": int,
         "Name": str,
         "Type": Literal[
-            "SOA", "A", "TXT", "NS", "CNAME", "MX", "NAPTR", "PTR", "SRV", "SPF", "AAAA", "CAA"
+            "SOA",
+            "A",
+            "TXT",
+            "NS",
+            "CNAME",
+            "MX",
+            "NAPTR",
+            "PTR",
+            "SRV",
+            "SPF",
+            "AAAA",
+            "CAA",
+            "DS",
         ],
         "Document": str,
     },
@@ -554,6 +638,10 @@ VPCTypeDef = TypedDict(
     total=False,
 )
 
+ActivateKeySigningKeyResponseTypeDef = TypedDict(
+    "ActivateKeySigningKeyResponseTypeDef", {"ChangeInfo": "ChangeInfoTypeDef"}
+)
+
 AssociateVPCWithHostedZoneResponseTypeDef = TypedDict(
     "AssociateVPCWithHostedZoneResponseTypeDef", {"ChangeInfo": "ChangeInfoTypeDef"}
 )
@@ -598,6 +686,11 @@ class CreateHostedZoneResponseTypeDef(
     pass
 
 
+CreateKeySigningKeyResponseTypeDef = TypedDict(
+    "CreateKeySigningKeyResponseTypeDef",
+    {"ChangeInfo": "ChangeInfoTypeDef", "KeySigningKey": "KeySigningKeyTypeDef", "Location": str},
+)
+
 CreateQueryLoggingConfigResponseTypeDef = TypedDict(
     "CreateQueryLoggingConfigResponseTypeDef",
     {"QueryLoggingConfig": "QueryLoggingConfigTypeDef", "Location": str},
@@ -626,12 +719,28 @@ CreateVPCAssociationAuthorizationResponseTypeDef = TypedDict(
     "CreateVPCAssociationAuthorizationResponseTypeDef", {"HostedZoneId": str, "VPC": "VPCTypeDef"}
 )
 
+DeactivateKeySigningKeyResponseTypeDef = TypedDict(
+    "DeactivateKeySigningKeyResponseTypeDef", {"ChangeInfo": "ChangeInfoTypeDef"}
+)
+
 DeleteHostedZoneResponseTypeDef = TypedDict(
     "DeleteHostedZoneResponseTypeDef", {"ChangeInfo": "ChangeInfoTypeDef"}
 )
 
+DeleteKeySigningKeyResponseTypeDef = TypedDict(
+    "DeleteKeySigningKeyResponseTypeDef", {"ChangeInfo": "ChangeInfoTypeDef"}
+)
+
+DisableHostedZoneDNSSECResponseTypeDef = TypedDict(
+    "DisableHostedZoneDNSSECResponseTypeDef", {"ChangeInfo": "ChangeInfoTypeDef"}
+)
+
 DisassociateVPCFromHostedZoneResponseTypeDef = TypedDict(
     "DisassociateVPCFromHostedZoneResponseTypeDef", {"ChangeInfo": "ChangeInfoTypeDef"}
+)
+
+EnableHostedZoneDNSSECResponseTypeDef = TypedDict(
+    "EnableHostedZoneDNSSECResponseTypeDef", {"ChangeInfo": "ChangeInfoTypeDef"}
 )
 
 GetAccountLimitResponseTypeDef = TypedDict(
@@ -644,6 +753,11 @@ GetChangeResponseTypeDef = TypedDict(
 
 GetCheckerIpRangesResponseTypeDef = TypedDict(
     "GetCheckerIpRangesResponseTypeDef", {"CheckerIpRanges": List[str]}
+)
+
+GetDNSSECResponseTypeDef = TypedDict(
+    "GetDNSSECResponseTypeDef",
+    {"Status": "DNSSECStatusTypeDef", "KeySigningKeys": List["KeySigningKeyTypeDef"]},
 )
 
 GetGeoLocationResponseTypeDef = TypedDict(
@@ -830,7 +944,19 @@ _OptionalListResourceRecordSetsResponseTypeDef = TypedDict(
     {
         "NextRecordName": str,
         "NextRecordType": Literal[
-            "SOA", "A", "TXT", "NS", "CNAME", "MX", "NAPTR", "PTR", "SRV", "SPF", "AAAA", "CAA"
+            "SOA",
+            "A",
+            "TXT",
+            "NS",
+            "CNAME",
+            "MX",
+            "NAPTR",
+            "PTR",
+            "SRV",
+            "SPF",
+            "AAAA",
+            "CAA",
+            "DS",
         ],
         "NextRecordIdentifier": str,
     },
@@ -896,7 +1022,19 @@ _OptionalListTrafficPolicyInstancesByHostedZoneResponseTypeDef = TypedDict(
     {
         "TrafficPolicyInstanceNameMarker": str,
         "TrafficPolicyInstanceTypeMarker": Literal[
-            "SOA", "A", "TXT", "NS", "CNAME", "MX", "NAPTR", "PTR", "SRV", "SPF", "AAAA", "CAA"
+            "SOA",
+            "A",
+            "TXT",
+            "NS",
+            "CNAME",
+            "MX",
+            "NAPTR",
+            "PTR",
+            "SRV",
+            "SPF",
+            "AAAA",
+            "CAA",
+            "DS",
         ],
     },
     total=False,
@@ -924,7 +1062,19 @@ _OptionalListTrafficPolicyInstancesByPolicyResponseTypeDef = TypedDict(
         "HostedZoneIdMarker": str,
         "TrafficPolicyInstanceNameMarker": str,
         "TrafficPolicyInstanceTypeMarker": Literal[
-            "SOA", "A", "TXT", "NS", "CNAME", "MX", "NAPTR", "PTR", "SRV", "SPF", "AAAA", "CAA"
+            "SOA",
+            "A",
+            "TXT",
+            "NS",
+            "CNAME",
+            "MX",
+            "NAPTR",
+            "PTR",
+            "SRV",
+            "SPF",
+            "AAAA",
+            "CAA",
+            "DS",
         ],
     },
     total=False,
@@ -952,7 +1102,19 @@ _OptionalListTrafficPolicyInstancesResponseTypeDef = TypedDict(
         "HostedZoneIdMarker": str,
         "TrafficPolicyInstanceNameMarker": str,
         "TrafficPolicyInstanceTypeMarker": Literal[
-            "SOA", "A", "TXT", "NS", "CNAME", "MX", "NAPTR", "PTR", "SRV", "SPF", "AAAA", "CAA"
+            "SOA",
+            "A",
+            "TXT",
+            "NS",
+            "CNAME",
+            "MX",
+            "NAPTR",
+            "PTR",
+            "SRV",
+            "SPF",
+            "AAAA",
+            "CAA",
+            "DS",
         ],
     },
     total=False,
@@ -1002,7 +1164,19 @@ TestDNSAnswerResponseTypeDef = TypedDict(
         "Nameserver": str,
         "RecordName": str,
         "RecordType": Literal[
-            "SOA", "A", "TXT", "NS", "CNAME", "MX", "NAPTR", "PTR", "SRV", "SPF", "AAAA", "CAA"
+            "SOA",
+            "A",
+            "TXT",
+            "NS",
+            "CNAME",
+            "MX",
+            "NAPTR",
+            "PTR",
+            "SRV",
+            "SPF",
+            "AAAA",
+            "CAA",
+            "DS",
         ],
         "RecordData": List[str],
         "ResponseCode": str,

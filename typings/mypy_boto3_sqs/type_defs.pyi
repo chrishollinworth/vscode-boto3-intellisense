@@ -216,6 +216,8 @@ GetQueueAttributesResultTypeDef = TypedDict(
                 "ContentBasedDeduplication",
                 "KmsMasterKeyId",
                 "KmsDataKeyReusePeriodSeconds",
+                "DeduplicationScope",
+                "FifoThroughputLimit",
             ],
             str,
         ]

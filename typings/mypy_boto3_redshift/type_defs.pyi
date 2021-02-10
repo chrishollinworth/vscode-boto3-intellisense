@@ -83,6 +83,7 @@ __all__ = (
     "TaggedResourceTypeDef",
     "UpdateTargetTypeDef",
     "UsageLimitTypeDef",
+    "VpcEndpointTypeDef",
     "VpcSecurityGroupMembershipTypeDef",
     "AcceptReservedNodeExchangeOutputMessageTypeDef",
     "AccountAttributeListTypeDef",
@@ -329,6 +330,7 @@ ClusterTypeDef = TypedDict(
         "ExpectedNextSnapshotScheduleTimeStatus": str,
         "NextMaintenanceWindowStartTime": datetime,
         "ResizeInfo": "ResizeInfoTypeDef",
+        "AvailabilityZoneRelocationStatus": str,
         "ClusterNamespaceArn": str,
     },
     total=False,
@@ -384,7 +386,11 @@ ElasticIpStatusTypeDef = TypedDict(
     "ElasticIpStatusTypeDef", {"ElasticIp": str, "Status": str}, total=False
 )
 
-EndpointTypeDef = TypedDict("EndpointTypeDef", {"Address": str, "Port": int}, total=False)
+EndpointTypeDef = TypedDict(
+    "EndpointTypeDef",
+    {"Address": str, "Port": int, "VpcEndpoints": List["VpcEndpointTypeDef"]},
+    total=False,
+)
 
 EventCategoriesMapTypeDef = TypedDict(
     "EventCategoriesMapTypeDef",
@@ -688,6 +694,7 @@ SnapshotTypeDef = TypedDict(
         "ClusterCreateTime": datetime,
         "MasterUsername": str,
         "ClusterVersion": str,
+        "EngineFullVersion": str,
         "SnapshotType": str,
         "NodeType": str,
         "NumberOfNodes": int,
@@ -785,6 +792,8 @@ UsageLimitTypeDef = TypedDict(
     },
     total=False,
 )
+
+VpcEndpointTypeDef = TypedDict("VpcEndpointTypeDef", {"VpcEndpointId": str}, total=False)
 
 VpcSecurityGroupMembershipTypeDef = TypedDict(
     "VpcSecurityGroupMembershipTypeDef", {"VpcSecurityGroupId": str, "Status": str}, total=False

@@ -103,6 +103,7 @@ __all__ = (
     "GetAnomalySubscriptionsResponseTypeDef",
     "GetCostAndUsageResponseTypeDef",
     "GetCostAndUsageWithResourcesResponseTypeDef",
+    "GetCostCategoriesResponseTypeDef",
     "GetCostForecastResponseTypeDef",
     "GetDimensionValuesResponseTypeDef",
     "GetReservationCoverageResponseTypeDef",
@@ -117,6 +118,7 @@ __all__ = (
     "GetUsageForecastResponseTypeDef",
     "ListCostCategoryDefinitionsResponseTypeDef",
     "ProvideAnomalyFeedbackResponseTypeDef",
+    "SortDefinitionTypeDef",
     "TotalImpactFilterTypeDef",
     "UpdateAnomalyMonitorResponseTypeDef",
     "UpdateAnomalySubscriptionResponseTypeDef",
@@ -248,6 +250,7 @@ CostCategoryValuesTypeDef = TypedDict(
         "MatchOptions": List[
             Literal[
                 "EQUALS",
+                "ABSENT",
                 "STARTS_WITH",
                 "ENDS_WITH",
                 "CONTAINS",
@@ -356,11 +359,14 @@ DimensionValuesTypeDef = TypedDict(
             "SAVINGS_PLANS_TYPE",
             "SAVINGS_PLAN_ARN",
             "PAYMENT_OPTION",
+            "AGREEMENT_END_DATE_TIME_AFTER",
+            "AGREEMENT_END_DATE_TIME_BEFORE",
         ],
         "Values": List[str],
         "MatchOptions": List[
             Literal[
                 "EQUALS",
+                "ABSENT",
                 "STARTS_WITH",
                 "ENDS_WITH",
                 "CONTAINS",
@@ -554,6 +560,9 @@ ReservationAggregatesTypeDef = TypedDict(
         "AmortizedUpfrontFee": str,
         "AmortizedRecurringFee": str,
         "TotalAmortizedFee": str,
+        "RICostForUnusedHours": str,
+        "RealizedSavings": str,
+        "UnrealizedSavings": str,
     },
     total=False,
 )
@@ -673,6 +682,7 @@ RightsizingRecommendationMetadataTypeDef = TypedDict(
         "RecommendationId": str,
         "GenerationTimestamp": str,
         "LookbackPeriodInDays": Literal["SEVEN_DAYS", "THIRTY_DAYS", "SIXTY_DAYS"],
+        "AdditionalMetadata": str,
     },
     total=False,
 )
@@ -899,6 +909,7 @@ TagValuesTypeDef = TypedDict(
         "MatchOptions": List[
             Literal[
                 "EQUALS",
+                "ABSENT",
                 "STARTS_WITH",
                 "ENDS_WITH",
                 "CONTAINS",
@@ -1041,6 +1052,7 @@ GetCostAndUsageResponseTypeDef = TypedDict(
         "NextPageToken": str,
         "GroupDefinitions": List["GroupDefinitionTypeDef"],
         "ResultsByTime": List["ResultByTimeTypeDef"],
+        "DimensionValueAttributes": List["DimensionValuesWithAttributesTypeDef"],
     },
     total=False,
 )
@@ -1051,9 +1063,26 @@ GetCostAndUsageWithResourcesResponseTypeDef = TypedDict(
         "NextPageToken": str,
         "GroupDefinitions": List["GroupDefinitionTypeDef"],
         "ResultsByTime": List["ResultByTimeTypeDef"],
+        "DimensionValueAttributes": List["DimensionValuesWithAttributesTypeDef"],
     },
     total=False,
 )
+
+_RequiredGetCostCategoriesResponseTypeDef = TypedDict(
+    "_RequiredGetCostCategoriesResponseTypeDef", {"ReturnSize": int, "TotalSize": int}
+)
+_OptionalGetCostCategoriesResponseTypeDef = TypedDict(
+    "_OptionalGetCostCategoriesResponseTypeDef",
+    {"NextPageToken": str, "CostCategoryNames": List[str], "CostCategoryValues": List[str]},
+    total=False,
+)
+
+
+class GetCostCategoriesResponseTypeDef(
+    _RequiredGetCostCategoriesResponseTypeDef, _OptionalGetCostCategoriesResponseTypeDef
+):
+    pass
+
 
 GetCostForecastResponseTypeDef = TypedDict(
     "GetCostForecastResponseTypeDef",
@@ -1228,6 +1257,16 @@ ListCostCategoryDefinitionsResponseTypeDef = TypedDict(
 ProvideAnomalyFeedbackResponseTypeDef = TypedDict(
     "ProvideAnomalyFeedbackResponseTypeDef", {"AnomalyId": str}
 )
+
+_RequiredSortDefinitionTypeDef = TypedDict("_RequiredSortDefinitionTypeDef", {"Key": str})
+_OptionalSortDefinitionTypeDef = TypedDict(
+    "_OptionalSortDefinitionTypeDef", {"SortOrder": Literal["ASCENDING", "DESCENDING"]}, total=False
+)
+
+
+class SortDefinitionTypeDef(_RequiredSortDefinitionTypeDef, _OptionalSortDefinitionTypeDef):
+    pass
+
 
 _RequiredTotalImpactFilterTypeDef = TypedDict(
     "_RequiredTotalImpactFilterTypeDef",

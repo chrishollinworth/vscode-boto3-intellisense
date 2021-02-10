@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for workdocs service client paginators.
 
@@ -73,7 +72,7 @@ __all__ = (
 
 class DescribeActivitiesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeActivities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Paginator.DescribeActivities)
+    [Paginator.DescribeActivities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/workdocs.html#WorkDocs.Paginator.DescribeActivities)
     """
 
     def paginate(
@@ -89,13 +88,13 @@ class DescribeActivitiesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeActivitiesResponseTypeDef]:
         """
-        [DescribeActivities.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Paginator.DescribeActivities.paginate)
+        [DescribeActivities.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/workdocs.html#WorkDocs.Paginator.DescribeActivities.paginate)
         """
 
 
 class DescribeCommentsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeComments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Paginator.DescribeComments)
+    [Paginator.DescribeComments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/workdocs.html#WorkDocs.Paginator.DescribeComments)
     """
 
     def paginate(
@@ -106,13 +105,13 @@ class DescribeCommentsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeCommentsResponseTypeDef]:
         """
-        [DescribeComments.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Paginator.DescribeComments.paginate)
+        [DescribeComments.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/workdocs.html#WorkDocs.Paginator.DescribeComments.paginate)
         """
 
 
 class DescribeDocumentVersionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeDocumentVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Paginator.DescribeDocumentVersions)
+    [Paginator.DescribeDocumentVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/workdocs.html#WorkDocs.Paginator.DescribeDocumentVersions)
     """
 
     def paginate(
@@ -124,13 +123,13 @@ class DescribeDocumentVersionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeDocumentVersionsResponseTypeDef]:
         """
-        [DescribeDocumentVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Paginator.DescribeDocumentVersions.paginate)
+        [DescribeDocumentVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/workdocs.html#WorkDocs.Paginator.DescribeDocumentVersions.paginate)
         """
 
 
 class DescribeFolderContentsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeFolderContents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Paginator.DescribeFolderContents)
+    [Paginator.DescribeFolderContents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/workdocs.html#WorkDocs.Paginator.DescribeFolderContents)
     """
 
     def paginate(
@@ -144,13 +143,13 @@ class DescribeFolderContentsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeFolderContentsResponseTypeDef]:
         """
-        [DescribeFolderContents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Paginator.DescribeFolderContents.paginate)
+        [DescribeFolderContents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/workdocs.html#WorkDocs.Paginator.DescribeFolderContents.paginate)
         """
 
 
 class DescribeGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Paginator.DescribeGroups)
+    [Paginator.DescribeGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/workdocs.html#WorkDocs.Paginator.DescribeGroups)
     """
 
     def paginate(
@@ -161,26 +160,26 @@ class DescribeGroupsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeGroupsResponseTypeDef]:
         """
-        [DescribeGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Paginator.DescribeGroups.paginate)
+        [DescribeGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/workdocs.html#WorkDocs.Paginator.DescribeGroups.paginate)
         """
 
 
 class DescribeNotificationSubscriptionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeNotificationSubscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Paginator.DescribeNotificationSubscriptions)
+    [Paginator.DescribeNotificationSubscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/workdocs.html#WorkDocs.Paginator.DescribeNotificationSubscriptions)
     """
 
     def paginate(
         self, OrganizationId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeNotificationSubscriptionsResponseTypeDef]:
         """
-        [DescribeNotificationSubscriptions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Paginator.DescribeNotificationSubscriptions.paginate)
+        [DescribeNotificationSubscriptions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/workdocs.html#WorkDocs.Paginator.DescribeNotificationSubscriptions.paginate)
         """
 
 
 class DescribeResourcePermissionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeResourcePermissions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Paginator.DescribeResourcePermissions)
+    [Paginator.DescribeResourcePermissions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/workdocs.html#WorkDocs.Paginator.DescribeResourcePermissions)
     """
 
     def paginate(
@@ -191,26 +190,26 @@ class DescribeResourcePermissionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeResourcePermissionsResponseTypeDef]:
         """
-        [DescribeResourcePermissions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Paginator.DescribeResourcePermissions.paginate)
+        [DescribeResourcePermissions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/workdocs.html#WorkDocs.Paginator.DescribeResourcePermissions.paginate)
         """
 
 
 class DescribeRootFoldersPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeRootFolders documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Paginator.DescribeRootFolders)
+    [Paginator.DescribeRootFolders documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/workdocs.html#WorkDocs.Paginator.DescribeRootFolders)
     """
 
     def paginate(
         self, AuthenticationToken: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeRootFoldersResponseTypeDef]:
         """
-        [DescribeRootFolders.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Paginator.DescribeRootFolders.paginate)
+        [DescribeRootFolders.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/workdocs.html#WorkDocs.Paginator.DescribeRootFolders.paginate)
         """
 
 
 class DescribeUsersPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeUsers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Paginator.DescribeUsers)
+    [Paginator.DescribeUsers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/workdocs.html#WorkDocs.Paginator.DescribeUsers)
     """
 
     def paginate(
@@ -228,5 +227,5 @@ class DescribeUsersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeUsersResponseTypeDef]:
         """
-        [DescribeUsers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workdocs.html#WorkDocs.Paginator.DescribeUsers.paginate)
+        [DescribeUsers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/workdocs.html#WorkDocs.Paginator.DescribeUsers.paginate)
         """

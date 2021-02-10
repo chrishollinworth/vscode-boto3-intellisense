@@ -31,6 +31,7 @@ __all__ = (
     "ServiceInfoTypeDef",
     "ServiceQuotaIncreaseRequestInTemplateTypeDef",
     "ServiceQuotaTypeDef",
+    "TagTypeDef",
     "GetAWSDefaultServiceQuotaResponseTypeDef",
     "GetAssociationForServiceQuotaTemplateResponseTypeDef",
     "GetRequestedServiceQuotaChangeResponseTypeDef",
@@ -42,6 +43,7 @@ __all__ = (
     "ListServiceQuotaIncreaseRequestsInTemplateResponseTypeDef",
     "ListServiceQuotasResponseTypeDef",
     "ListServicesResponseTypeDef",
+    "ListTagsForResourceResponseTypeDef",
     "PaginatorConfigTypeDef",
     "PutServiceQuotaIncreaseRequestIntoTemplateResponseTypeDef",
     "RequestServiceQuotaIncreaseResponseTypeDef",
@@ -142,6 +144,8 @@ ServiceQuotaTypeDef = TypedDict(
     total=False,
 )
 
+TagTypeDef = TypedDict("TagTypeDef", {"Key": str, "Value": str})
+
 GetAWSDefaultServiceQuotaResponseTypeDef = TypedDict(
     "GetAWSDefaultServiceQuotaResponseTypeDef", {"Quota": "ServiceQuotaTypeDef"}, total=False
 )
@@ -207,6 +211,10 @@ ListServicesResponseTypeDef = TypedDict(
     "ListServicesResponseTypeDef",
     {"NextToken": str, "Services": List["ServiceInfoTypeDef"]},
     total=False,
+)
+
+ListTagsForResourceResponseTypeDef = TypedDict(
+    "ListTagsForResourceResponseTypeDef", {"Tags": List["TagTypeDef"]}, total=False
 )
 
 PaginatorConfigTypeDef = TypedDict(

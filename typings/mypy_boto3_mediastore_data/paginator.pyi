@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for mediastore-data service client paginators.
 
@@ -28,12 +27,12 @@ __all__ = ("ListItemsPaginator",)
 
 class ListItemsPaginator(Boto3Paginator):
     """
-    [Paginator.ListItems documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediastore-data.html#MediaStoreData.Paginator.ListItems)
+    [Paginator.ListItems documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediastore-data.html#MediaStoreData.Paginator.ListItems)
     """
 
     def paginate(
         self, Path: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListItemsResponseTypeDef]:
         """
-        [ListItems.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediastore-data.html#MediaStoreData.Paginator.ListItems.paginate)
+        [ListItems.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediastore-data.html#MediaStoreData.Paginator.ListItems.paginate)
         """

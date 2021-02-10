@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for lightsail service client
 
@@ -177,6 +176,7 @@ from mypy_boto3_lightsail.type_defs import (
     ReleaseStaticIpResultTypeDef,
     ResetDistributionCacheResultTypeDef,
     SendContactMethodVerificationResultTypeDef,
+    SetIpAddressTypeResultTypeDef,
     StartInstanceResultTypeDef,
     StartRelationalDatabaseResultTypeDef,
     StopInstanceResultTypeDef,
@@ -225,7 +225,7 @@ class Exceptions:
 
 class LightsailClient:
     """
-    [Lightsail.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client)
+    [Lightsail.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client)
     """
 
     meta: ClientMeta
@@ -233,52 +233,52 @@ class LightsailClient:
 
     def allocate_static_ip(self, staticIpName: str) -> AllocateStaticIpResultTypeDef:
         """
-        [Client.allocate_static_ip documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.allocate_static_ip)
+        [Client.allocate_static_ip documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.allocate_static_ip)
         """
 
     def attach_certificate_to_distribution(
         self, distributionName: str, certificateName: str
     ) -> AttachCertificateToDistributionResultTypeDef:
         """
-        [Client.attach_certificate_to_distribution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.attach_certificate_to_distribution)
+        [Client.attach_certificate_to_distribution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.attach_certificate_to_distribution)
         """
 
     def attach_disk(
         self, diskName: str, instanceName: str, diskPath: str
     ) -> AttachDiskResultTypeDef:
         """
-        [Client.attach_disk documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.attach_disk)
+        [Client.attach_disk documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.attach_disk)
         """
 
     def attach_instances_to_load_balancer(
         self, loadBalancerName: str, instanceNames: List[str]
     ) -> AttachInstancesToLoadBalancerResultTypeDef:
         """
-        [Client.attach_instances_to_load_balancer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.attach_instances_to_load_balancer)
+        [Client.attach_instances_to_load_balancer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.attach_instances_to_load_balancer)
         """
 
     def attach_load_balancer_tls_certificate(
         self, loadBalancerName: str, certificateName: str
     ) -> AttachLoadBalancerTlsCertificateResultTypeDef:
         """
-        [Client.attach_load_balancer_tls_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.attach_load_balancer_tls_certificate)
+        [Client.attach_load_balancer_tls_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.attach_load_balancer_tls_certificate)
         """
 
     def attach_static_ip(self, staticIpName: str, instanceName: str) -> AttachStaticIpResultTypeDef:
         """
-        [Client.attach_static_ip documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.attach_static_ip)
+        [Client.attach_static_ip documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.attach_static_ip)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.can_paginate)
         """
 
     def close_instance_public_ports(
         self, portInfo: PortInfoTypeDef, instanceName: str
     ) -> CloseInstancePublicPortsResultTypeDef:
         """
-        [Client.close_instance_public_ports documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.close_instance_public_ports)
+        [Client.close_instance_public_ports documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.close_instance_public_ports)
         """
 
     def copy_snapshot(
@@ -306,7 +306,7 @@ class LightsailClient:
         useLatestRestorableAutoSnapshot: bool = None,
     ) -> CopySnapshotResultTypeDef:
         """
-        [Client.copy_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.copy_snapshot)
+        [Client.copy_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.copy_snapshot)
         """
 
     def create_certificate(
@@ -317,21 +317,21 @@ class LightsailClient:
         tags: List["TagTypeDef"] = None,
     ) -> CreateCertificateResultTypeDef:
         """
-        [Client.create_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.create_certificate)
+        [Client.create_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.create_certificate)
         """
 
     def create_cloud_formation_stack(
         self, instances: List[InstanceEntryTypeDef]
     ) -> CreateCloudFormationStackResultTypeDef:
         """
-        [Client.create_cloud_formation_stack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.create_cloud_formation_stack)
+        [Client.create_cloud_formation_stack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.create_cloud_formation_stack)
         """
 
     def create_contact_method(
         self, protocol: Literal["Email", "SMS"], contactEndpoint: str
     ) -> CreateContactMethodResultTypeDef:
         """
-        [Client.create_contact_method documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.create_contact_method)
+        [Client.create_contact_method documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.create_contact_method)
         """
 
     def create_container_service(
@@ -344,7 +344,7 @@ class LightsailClient:
         deployment: ContainerServiceDeploymentRequestTypeDef = None,
     ) -> CreateContainerServiceResultTypeDef:
         """
-        [Client.create_container_service documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.create_container_service)
+        [Client.create_container_service documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.create_container_service)
         """
 
     def create_container_service_deployment(
@@ -354,14 +354,14 @@ class LightsailClient:
         publicEndpoint: "EndpointRequestTypeDef" = None,
     ) -> CreateContainerServiceDeploymentResultTypeDef:
         """
-        [Client.create_container_service_deployment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.create_container_service_deployment)
+        [Client.create_container_service_deployment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.create_container_service_deployment)
         """
 
     def create_container_service_registry_login(
         self,
     ) -> CreateContainerServiceRegistryLoginResultTypeDef:
         """
-        [Client.create_container_service_registry_login documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.create_container_service_registry_login)
+        [Client.create_container_service_registry_login documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.create_container_service_registry_login)
         """
 
     def create_disk(
@@ -373,7 +373,7 @@ class LightsailClient:
         addOns: List[AddOnRequestTypeDef] = None,
     ) -> CreateDiskResultTypeDef:
         """
-        [Client.create_disk documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.create_disk)
+        [Client.create_disk documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.create_disk)
         """
 
     def create_disk_from_snapshot(
@@ -389,7 +389,7 @@ class LightsailClient:
         useLatestRestorableAutoSnapshot: bool = None,
     ) -> CreateDiskFromSnapshotResultTypeDef:
         """
-        [Client.create_disk_from_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.create_disk_from_snapshot)
+        [Client.create_disk_from_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.create_disk_from_snapshot)
         """
 
     def create_disk_snapshot(
@@ -400,7 +400,7 @@ class LightsailClient:
         tags: List["TagTypeDef"] = None,
     ) -> CreateDiskSnapshotResultTypeDef:
         """
-        [Client.create_disk_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.create_disk_snapshot)
+        [Client.create_disk_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.create_disk_snapshot)
         """
 
     def create_distribution(
@@ -411,31 +411,32 @@ class LightsailClient:
         bundleId: str,
         cacheBehaviorSettings: "CacheSettingsTypeDef" = None,
         cacheBehaviors: List["CacheBehaviorPerPathTypeDef"] = None,
+        ipAddressType: Literal["dualstack", "ipv4"] = None,
         tags: List["TagTypeDef"] = None,
     ) -> CreateDistributionResultTypeDef:
         """
-        [Client.create_distribution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.create_distribution)
+        [Client.create_distribution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.create_distribution)
         """
 
     def create_domain(
         self, domainName: str, tags: List["TagTypeDef"] = None
     ) -> CreateDomainResultTypeDef:
         """
-        [Client.create_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.create_domain)
+        [Client.create_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.create_domain)
         """
 
     def create_domain_entry(
         self, domainName: str, domainEntry: "DomainEntryTypeDef"
     ) -> CreateDomainEntryResultTypeDef:
         """
-        [Client.create_domain_entry documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.create_domain_entry)
+        [Client.create_domain_entry documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.create_domain_entry)
         """
 
     def create_instance_snapshot(
         self, instanceSnapshotName: str, instanceName: str, tags: List["TagTypeDef"] = None
     ) -> CreateInstanceSnapshotResultTypeDef:
         """
-        [Client.create_instance_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.create_instance_snapshot)
+        [Client.create_instance_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.create_instance_snapshot)
         """
 
     def create_instances(
@@ -449,9 +450,10 @@ class LightsailClient:
         keyPairName: str = None,
         tags: List["TagTypeDef"] = None,
         addOns: List[AddOnRequestTypeDef] = None,
+        ipAddressType: Literal["dualstack", "ipv4"] = None,
     ) -> CreateInstancesResultTypeDef:
         """
-        [Client.create_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.create_instances)
+        [Client.create_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.create_instances)
         """
 
     def create_instances_from_snapshot(
@@ -465,19 +467,20 @@ class LightsailClient:
         keyPairName: str = None,
         tags: List["TagTypeDef"] = None,
         addOns: List[AddOnRequestTypeDef] = None,
+        ipAddressType: Literal["dualstack", "ipv4"] = None,
         sourceInstanceName: str = None,
         restoreDate: str = None,
         useLatestRestorableAutoSnapshot: bool = None,
     ) -> CreateInstancesFromSnapshotResultTypeDef:
         """
-        [Client.create_instances_from_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.create_instances_from_snapshot)
+        [Client.create_instances_from_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.create_instances_from_snapshot)
         """
 
     def create_key_pair(
         self, keyPairName: str, tags: List["TagTypeDef"] = None
     ) -> CreateKeyPairResultTypeDef:
         """
-        [Client.create_key_pair documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.create_key_pair)
+        [Client.create_key_pair documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.create_key_pair)
         """
 
     def create_load_balancer(
@@ -489,9 +492,10 @@ class LightsailClient:
         certificateDomainName: str = None,
         certificateAlternativeNames: List[str] = None,
         tags: List["TagTypeDef"] = None,
+        ipAddressType: Literal["dualstack", "ipv4"] = None,
     ) -> CreateLoadBalancerResultTypeDef:
         """
-        [Client.create_load_balancer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.create_load_balancer)
+        [Client.create_load_balancer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.create_load_balancer)
         """
 
     def create_load_balancer_tls_certificate(
@@ -503,7 +507,7 @@ class LightsailClient:
         tags: List["TagTypeDef"] = None,
     ) -> CreateLoadBalancerTlsCertificateResultTypeDef:
         """
-        [Client.create_load_balancer_tls_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.create_load_balancer_tls_certificate)
+        [Client.create_load_balancer_tls_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.create_load_balancer_tls_certificate)
         """
 
     def create_relational_database(
@@ -521,7 +525,7 @@ class LightsailClient:
         tags: List["TagTypeDef"] = None,
     ) -> CreateRelationalDatabaseResultTypeDef:
         """
-        [Client.create_relational_database documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.create_relational_database)
+        [Client.create_relational_database documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.create_relational_database)
         """
 
     def create_relational_database_from_snapshot(
@@ -537,7 +541,7 @@ class LightsailClient:
         tags: List["TagTypeDef"] = None,
     ) -> CreateRelationalDatabaseFromSnapshotResultTypeDef:
         """
-        [Client.create_relational_database_from_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.create_relational_database_from_snapshot)
+        [Client.create_relational_database_from_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.create_relational_database_from_snapshot)
         """
 
     def create_relational_database_snapshot(
@@ -547,102 +551,102 @@ class LightsailClient:
         tags: List["TagTypeDef"] = None,
     ) -> CreateRelationalDatabaseSnapshotResultTypeDef:
         """
-        [Client.create_relational_database_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.create_relational_database_snapshot)
+        [Client.create_relational_database_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.create_relational_database_snapshot)
         """
 
     def delete_alarm(self, alarmName: str) -> DeleteAlarmResultTypeDef:
         """
-        [Client.delete_alarm documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.delete_alarm)
+        [Client.delete_alarm documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.delete_alarm)
         """
 
     def delete_auto_snapshot(self, resourceName: str, date: str) -> DeleteAutoSnapshotResultTypeDef:
         """
-        [Client.delete_auto_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.delete_auto_snapshot)
+        [Client.delete_auto_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.delete_auto_snapshot)
         """
 
     def delete_certificate(self, certificateName: str) -> DeleteCertificateResultTypeDef:
         """
-        [Client.delete_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.delete_certificate)
+        [Client.delete_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.delete_certificate)
         """
 
     def delete_contact_method(
         self, protocol: Literal["Email", "SMS"]
     ) -> DeleteContactMethodResultTypeDef:
         """
-        [Client.delete_contact_method documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.delete_contact_method)
+        [Client.delete_contact_method documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.delete_contact_method)
         """
 
     def delete_container_image(self, serviceName: str, image: str) -> Dict[str, Any]:
         """
-        [Client.delete_container_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.delete_container_image)
+        [Client.delete_container_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.delete_container_image)
         """
 
     def delete_container_service(self, serviceName: str) -> Dict[str, Any]:
         """
-        [Client.delete_container_service documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.delete_container_service)
+        [Client.delete_container_service documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.delete_container_service)
         """
 
     def delete_disk(self, diskName: str, forceDeleteAddOns: bool = None) -> DeleteDiskResultTypeDef:
         """
-        [Client.delete_disk documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.delete_disk)
+        [Client.delete_disk documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.delete_disk)
         """
 
     def delete_disk_snapshot(self, diskSnapshotName: str) -> DeleteDiskSnapshotResultTypeDef:
         """
-        [Client.delete_disk_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.delete_disk_snapshot)
+        [Client.delete_disk_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.delete_disk_snapshot)
         """
 
     def delete_distribution(self, distributionName: str = None) -> DeleteDistributionResultTypeDef:
         """
-        [Client.delete_distribution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.delete_distribution)
+        [Client.delete_distribution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.delete_distribution)
         """
 
     def delete_domain(self, domainName: str) -> DeleteDomainResultTypeDef:
         """
-        [Client.delete_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.delete_domain)
+        [Client.delete_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.delete_domain)
         """
 
     def delete_domain_entry(
         self, domainName: str, domainEntry: "DomainEntryTypeDef"
     ) -> DeleteDomainEntryResultTypeDef:
         """
-        [Client.delete_domain_entry documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.delete_domain_entry)
+        [Client.delete_domain_entry documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.delete_domain_entry)
         """
 
     def delete_instance(
         self, instanceName: str, forceDeleteAddOns: bool = None
     ) -> DeleteInstanceResultTypeDef:
         """
-        [Client.delete_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.delete_instance)
+        [Client.delete_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.delete_instance)
         """
 
     def delete_instance_snapshot(
         self, instanceSnapshotName: str
     ) -> DeleteInstanceSnapshotResultTypeDef:
         """
-        [Client.delete_instance_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.delete_instance_snapshot)
+        [Client.delete_instance_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.delete_instance_snapshot)
         """
 
     def delete_key_pair(self, keyPairName: str) -> DeleteKeyPairResultTypeDef:
         """
-        [Client.delete_key_pair documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.delete_key_pair)
+        [Client.delete_key_pair documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.delete_key_pair)
         """
 
     def delete_known_host_keys(self, instanceName: str) -> DeleteKnownHostKeysResultTypeDef:
         """
-        [Client.delete_known_host_keys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.delete_known_host_keys)
+        [Client.delete_known_host_keys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.delete_known_host_keys)
         """
 
     def delete_load_balancer(self, loadBalancerName: str) -> DeleteLoadBalancerResultTypeDef:
         """
-        [Client.delete_load_balancer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.delete_load_balancer)
+        [Client.delete_load_balancer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.delete_load_balancer)
         """
 
     def delete_load_balancer_tls_certificate(
         self, loadBalancerName: str, certificateName: str, force: bool = None
     ) -> DeleteLoadBalancerTlsCertificateResultTypeDef:
         """
-        [Client.delete_load_balancer_tls_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.delete_load_balancer_tls_certificate)
+        [Client.delete_load_balancer_tls_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.delete_load_balancer_tls_certificate)
         """
 
     def delete_relational_database(
@@ -652,62 +656,62 @@ class LightsailClient:
         finalRelationalDatabaseSnapshotName: str = None,
     ) -> DeleteRelationalDatabaseResultTypeDef:
         """
-        [Client.delete_relational_database documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.delete_relational_database)
+        [Client.delete_relational_database documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.delete_relational_database)
         """
 
     def delete_relational_database_snapshot(
         self, relationalDatabaseSnapshotName: str
     ) -> DeleteRelationalDatabaseSnapshotResultTypeDef:
         """
-        [Client.delete_relational_database_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.delete_relational_database_snapshot)
+        [Client.delete_relational_database_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.delete_relational_database_snapshot)
         """
 
     def detach_certificate_from_distribution(
         self, distributionName: str
     ) -> DetachCertificateFromDistributionResultTypeDef:
         """
-        [Client.detach_certificate_from_distribution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.detach_certificate_from_distribution)
+        [Client.detach_certificate_from_distribution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.detach_certificate_from_distribution)
         """
 
     def detach_disk(self, diskName: str) -> DetachDiskResultTypeDef:
         """
-        [Client.detach_disk documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.detach_disk)
+        [Client.detach_disk documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.detach_disk)
         """
 
     def detach_instances_from_load_balancer(
         self, loadBalancerName: str, instanceNames: List[str]
     ) -> DetachInstancesFromLoadBalancerResultTypeDef:
         """
-        [Client.detach_instances_from_load_balancer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.detach_instances_from_load_balancer)
+        [Client.detach_instances_from_load_balancer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.detach_instances_from_load_balancer)
         """
 
     def detach_static_ip(self, staticIpName: str) -> DetachStaticIpResultTypeDef:
         """
-        [Client.detach_static_ip documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.detach_static_ip)
+        [Client.detach_static_ip documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.detach_static_ip)
         """
 
     def disable_add_on(
         self, addOnType: Literal["AutoSnapshot"], resourceName: str
     ) -> DisableAddOnResultTypeDef:
         """
-        [Client.disable_add_on documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.disable_add_on)
+        [Client.disable_add_on documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.disable_add_on)
         """
 
     def download_default_key_pair(self) -> DownloadDefaultKeyPairResultTypeDef:
         """
-        [Client.download_default_key_pair documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.download_default_key_pair)
+        [Client.download_default_key_pair documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.download_default_key_pair)
         """
 
     def enable_add_on(
         self, resourceName: str, addOnRequest: AddOnRequestTypeDef
     ) -> EnableAddOnResultTypeDef:
         """
-        [Client.enable_add_on documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.enable_add_on)
+        [Client.enable_add_on documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.enable_add_on)
         """
 
     def export_snapshot(self, sourceSnapshotName: str) -> ExportSnapshotResultTypeDef:
         """
-        [Client.export_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.export_snapshot)
+        [Client.export_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.export_snapshot)
         """
 
     def generate_presigned_url(
@@ -718,38 +722,38 @@ class LightsailClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.generate_presigned_url)
         """
 
     def get_active_names(self, pageToken: str = None) -> GetActiveNamesResultTypeDef:
         """
-        [Client.get_active_names documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_active_names)
+        [Client.get_active_names documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_active_names)
         """
 
     def get_alarms(
         self, alarmName: str = None, pageToken: str = None, monitoredResourceName: str = None
     ) -> GetAlarmsResultTypeDef:
         """
-        [Client.get_alarms documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_alarms)
+        [Client.get_alarms documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_alarms)
         """
 
     def get_auto_snapshots(self, resourceName: str) -> GetAutoSnapshotsResultTypeDef:
         """
-        [Client.get_auto_snapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_auto_snapshots)
+        [Client.get_auto_snapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_auto_snapshots)
         """
 
     def get_blueprints(
         self, includeInactive: bool = None, pageToken: str = None
     ) -> GetBlueprintsResultTypeDef:
         """
-        [Client.get_blueprints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_blueprints)
+        [Client.get_blueprints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_blueprints)
         """
 
     def get_bundles(
         self, includeInactive: bool = None, pageToken: str = None
     ) -> GetBundlesResultTypeDef:
         """
-        [Client.get_bundles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_bundles)
+        [Client.get_bundles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_bundles)
         """
 
     def get_certificates(
@@ -769,31 +773,31 @@ class LightsailClient:
         certificateName: str = None,
     ) -> GetCertificatesResultTypeDef:
         """
-        [Client.get_certificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_certificates)
+        [Client.get_certificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_certificates)
         """
 
     def get_cloud_formation_stack_records(
         self, pageToken: str = None
     ) -> GetCloudFormationStackRecordsResultTypeDef:
         """
-        [Client.get_cloud_formation_stack_records documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_cloud_formation_stack_records)
+        [Client.get_cloud_formation_stack_records documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_cloud_formation_stack_records)
         """
 
     def get_contact_methods(
         self, protocols: List[Literal["Email", "SMS"]] = None
     ) -> GetContactMethodsResultTypeDef:
         """
-        [Client.get_contact_methods documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_contact_methods)
+        [Client.get_contact_methods documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_contact_methods)
         """
 
     def get_container_api_metadata(self) -> GetContainerAPIMetadataResultTypeDef:
         """
-        [Client.get_container_api_metadata documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_container_api_metadata)
+        [Client.get_container_api_metadata documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_container_api_metadata)
         """
 
     def get_container_images(self, serviceName: str) -> GetContainerImagesResultTypeDef:
         """
-        [Client.get_container_images documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_container_images)
+        [Client.get_container_images documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_container_images)
         """
 
     def get_container_log(
@@ -806,14 +810,14 @@ class LightsailClient:
         pageToken: str = None,
     ) -> GetContainerLogResultTypeDef:
         """
-        [Client.get_container_log documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_container_log)
+        [Client.get_container_log documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_container_log)
         """
 
     def get_container_service_deployments(
         self, serviceName: str
     ) -> GetContainerServiceDeploymentsResultTypeDef:
         """
-        [Client.get_container_service_deployments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_container_service_deployments)
+        [Client.get_container_service_deployments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_container_service_deployments)
         """
 
     def get_container_service_metric_data(
@@ -826,49 +830,49 @@ class LightsailClient:
         statistics: List[Literal["Minimum", "Maximum", "Sum", "Average", "SampleCount"]],
     ) -> GetContainerServiceMetricDataResultTypeDef:
         """
-        [Client.get_container_service_metric_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_container_service_metric_data)
+        [Client.get_container_service_metric_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_container_service_metric_data)
         """
 
     def get_container_service_powers(self) -> GetContainerServicePowersResultTypeDef:
         """
-        [Client.get_container_service_powers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_container_service_powers)
+        [Client.get_container_service_powers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_container_service_powers)
         """
 
     def get_container_services(self, serviceName: str = None) -> ContainerServicesListResultTypeDef:
         """
-        [Client.get_container_services documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_container_services)
+        [Client.get_container_services documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_container_services)
         """
 
     def get_disk(self, diskName: str) -> GetDiskResultTypeDef:
         """
-        [Client.get_disk documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_disk)
+        [Client.get_disk documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_disk)
         """
 
     def get_disk_snapshot(self, diskSnapshotName: str) -> GetDiskSnapshotResultTypeDef:
         """
-        [Client.get_disk_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_disk_snapshot)
+        [Client.get_disk_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_disk_snapshot)
         """
 
     def get_disk_snapshots(self, pageToken: str = None) -> GetDiskSnapshotsResultTypeDef:
         """
-        [Client.get_disk_snapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_disk_snapshots)
+        [Client.get_disk_snapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_disk_snapshots)
         """
 
     def get_disks(self, pageToken: str = None) -> GetDisksResultTypeDef:
         """
-        [Client.get_disks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_disks)
+        [Client.get_disks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_disks)
         """
 
     def get_distribution_bundles(self) -> GetDistributionBundlesResultTypeDef:
         """
-        [Client.get_distribution_bundles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_distribution_bundles)
+        [Client.get_distribution_bundles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_distribution_bundles)
         """
 
     def get_distribution_latest_cache_reset(
         self, distributionName: str = None
     ) -> GetDistributionLatestCacheResetResultTypeDef:
         """
-        [Client.get_distribution_latest_cache_reset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_distribution_latest_cache_reset)
+        [Client.get_distribution_latest_cache_reset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_distribution_latest_cache_reset)
         """
 
     def get_distribution_metric_data(
@@ -917,43 +921,43 @@ class LightsailClient:
         statistics: List[Literal["Minimum", "Maximum", "Sum", "Average", "SampleCount"]],
     ) -> GetDistributionMetricDataResultTypeDef:
         """
-        [Client.get_distribution_metric_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_distribution_metric_data)
+        [Client.get_distribution_metric_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_distribution_metric_data)
         """
 
     def get_distributions(
         self, distributionName: str = None, pageToken: str = None
     ) -> GetDistributionsResultTypeDef:
         """
-        [Client.get_distributions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_distributions)
+        [Client.get_distributions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_distributions)
         """
 
     def get_domain(self, domainName: str) -> GetDomainResultTypeDef:
         """
-        [Client.get_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_domain)
+        [Client.get_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_domain)
         """
 
     def get_domains(self, pageToken: str = None) -> GetDomainsResultTypeDef:
         """
-        [Client.get_domains documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_domains)
+        [Client.get_domains documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_domains)
         """
 
     def get_export_snapshot_records(
         self, pageToken: str = None
     ) -> GetExportSnapshotRecordsResultTypeDef:
         """
-        [Client.get_export_snapshot_records documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_export_snapshot_records)
+        [Client.get_export_snapshot_records documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_export_snapshot_records)
         """
 
     def get_instance(self, instanceName: str) -> GetInstanceResultTypeDef:
         """
-        [Client.get_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_instance)
+        [Client.get_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_instance)
         """
 
     def get_instance_access_details(
         self, instanceName: str, protocol: Literal["ssh", "rdp"] = None
     ) -> GetInstanceAccessDetailsResultTypeDef:
         """
-        [Client.get_instance_access_details documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_instance_access_details)
+        [Client.get_instance_access_details documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_instance_access_details)
         """
 
     def get_instance_metric_data(
@@ -1004,47 +1008,47 @@ class LightsailClient:
         statistics: List[Literal["Minimum", "Maximum", "Sum", "Average", "SampleCount"]],
     ) -> GetInstanceMetricDataResultTypeDef:
         """
-        [Client.get_instance_metric_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_instance_metric_data)
+        [Client.get_instance_metric_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_instance_metric_data)
         """
 
     def get_instance_port_states(self, instanceName: str) -> GetInstancePortStatesResultTypeDef:
         """
-        [Client.get_instance_port_states documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_instance_port_states)
+        [Client.get_instance_port_states documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_instance_port_states)
         """
 
     def get_instance_snapshot(self, instanceSnapshotName: str) -> GetInstanceSnapshotResultTypeDef:
         """
-        [Client.get_instance_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_instance_snapshot)
+        [Client.get_instance_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_instance_snapshot)
         """
 
     def get_instance_snapshots(self, pageToken: str = None) -> GetInstanceSnapshotsResultTypeDef:
         """
-        [Client.get_instance_snapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_instance_snapshots)
+        [Client.get_instance_snapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_instance_snapshots)
         """
 
     def get_instance_state(self, instanceName: str) -> GetInstanceStateResultTypeDef:
         """
-        [Client.get_instance_state documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_instance_state)
+        [Client.get_instance_state documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_instance_state)
         """
 
     def get_instances(self, pageToken: str = None) -> GetInstancesResultTypeDef:
         """
-        [Client.get_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_instances)
+        [Client.get_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_instances)
         """
 
     def get_key_pair(self, keyPairName: str) -> GetKeyPairResultTypeDef:
         """
-        [Client.get_key_pair documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_key_pair)
+        [Client.get_key_pair documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_key_pair)
         """
 
     def get_key_pairs(self, pageToken: str = None) -> GetKeyPairsResultTypeDef:
         """
-        [Client.get_key_pairs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_key_pairs)
+        [Client.get_key_pairs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_key_pairs)
         """
 
     def get_load_balancer(self, loadBalancerName: str) -> GetLoadBalancerResultTypeDef:
         """
-        [Client.get_load_balancer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_load_balancer)
+        [Client.get_load_balancer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_load_balancer)
         """
 
     def get_load_balancer_metric_data(
@@ -1099,36 +1103,36 @@ class LightsailClient:
         statistics: List[Literal["Minimum", "Maximum", "Sum", "Average", "SampleCount"]],
     ) -> GetLoadBalancerMetricDataResultTypeDef:
         """
-        [Client.get_load_balancer_metric_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_load_balancer_metric_data)
+        [Client.get_load_balancer_metric_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_load_balancer_metric_data)
         """
 
     def get_load_balancer_tls_certificates(
         self, loadBalancerName: str
     ) -> GetLoadBalancerTlsCertificatesResultTypeDef:
         """
-        [Client.get_load_balancer_tls_certificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_load_balancer_tls_certificates)
+        [Client.get_load_balancer_tls_certificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_load_balancer_tls_certificates)
         """
 
     def get_load_balancers(self, pageToken: str = None) -> GetLoadBalancersResultTypeDef:
         """
-        [Client.get_load_balancers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_load_balancers)
+        [Client.get_load_balancers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_load_balancers)
         """
 
     def get_operation(self, operationId: str) -> GetOperationResultTypeDef:
         """
-        [Client.get_operation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_operation)
+        [Client.get_operation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_operation)
         """
 
     def get_operations(self, pageToken: str = None) -> GetOperationsResultTypeDef:
         """
-        [Client.get_operations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_operations)
+        [Client.get_operations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_operations)
         """
 
     def get_operations_for_resource(
         self, resourceName: str, pageToken: str = None
     ) -> GetOperationsForResourceResultTypeDef:
         """
-        [Client.get_operations_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_operations_for_resource)
+        [Client.get_operations_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_operations_for_resource)
         """
 
     def get_regions(
@@ -1137,35 +1141,35 @@ class LightsailClient:
         includeRelationalDatabaseAvailabilityZones: bool = None,
     ) -> GetRegionsResultTypeDef:
         """
-        [Client.get_regions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_regions)
+        [Client.get_regions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_regions)
         """
 
     def get_relational_database(
         self, relationalDatabaseName: str
     ) -> GetRelationalDatabaseResultTypeDef:
         """
-        [Client.get_relational_database documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_relational_database)
+        [Client.get_relational_database documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_relational_database)
         """
 
     def get_relational_database_blueprints(
         self, pageToken: str = None
     ) -> GetRelationalDatabaseBlueprintsResultTypeDef:
         """
-        [Client.get_relational_database_blueprints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_relational_database_blueprints)
+        [Client.get_relational_database_blueprints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_relational_database_blueprints)
         """
 
     def get_relational_database_bundles(
         self, pageToken: str = None
     ) -> GetRelationalDatabaseBundlesResultTypeDef:
         """
-        [Client.get_relational_database_bundles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_relational_database_bundles)
+        [Client.get_relational_database_bundles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_relational_database_bundles)
         """
 
     def get_relational_database_events(
         self, relationalDatabaseName: str, durationInMinutes: int = None, pageToken: str = None
     ) -> GetRelationalDatabaseEventsResultTypeDef:
         """
-        [Client.get_relational_database_events documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_relational_database_events)
+        [Client.get_relational_database_events documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_relational_database_events)
         """
 
     def get_relational_database_log_events(
@@ -1178,14 +1182,14 @@ class LightsailClient:
         pageToken: str = None,
     ) -> GetRelationalDatabaseLogEventsResultTypeDef:
         """
-        [Client.get_relational_database_log_events documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_relational_database_log_events)
+        [Client.get_relational_database_log_events documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_relational_database_log_events)
         """
 
     def get_relational_database_log_streams(
         self, relationalDatabaseName: str
     ) -> GetRelationalDatabaseLogStreamsResultTypeDef:
         """
-        [Client.get_relational_database_log_streams documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_relational_database_log_streams)
+        [Client.get_relational_database_log_streams documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_relational_database_log_streams)
         """
 
     def get_relational_database_master_user_password(
@@ -1194,7 +1198,7 @@ class LightsailClient:
         passwordVersion: Literal["CURRENT", "PREVIOUS", "PENDING"] = None,
     ) -> GetRelationalDatabaseMasterUserPasswordResultTypeDef:
         """
-        [Client.get_relational_database_master_user_password documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_relational_database_master_user_password)
+        [Client.get_relational_database_master_user_password documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_relational_database_master_user_password)
         """
 
     def get_relational_database_metric_data(
@@ -1243,67 +1247,67 @@ class LightsailClient:
         statistics: List[Literal["Minimum", "Maximum", "Sum", "Average", "SampleCount"]],
     ) -> GetRelationalDatabaseMetricDataResultTypeDef:
         """
-        [Client.get_relational_database_metric_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_relational_database_metric_data)
+        [Client.get_relational_database_metric_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_relational_database_metric_data)
         """
 
     def get_relational_database_parameters(
         self, relationalDatabaseName: str, pageToken: str = None
     ) -> GetRelationalDatabaseParametersResultTypeDef:
         """
-        [Client.get_relational_database_parameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_relational_database_parameters)
+        [Client.get_relational_database_parameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_relational_database_parameters)
         """
 
     def get_relational_database_snapshot(
         self, relationalDatabaseSnapshotName: str
     ) -> GetRelationalDatabaseSnapshotResultTypeDef:
         """
-        [Client.get_relational_database_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_relational_database_snapshot)
+        [Client.get_relational_database_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_relational_database_snapshot)
         """
 
     def get_relational_database_snapshots(
         self, pageToken: str = None
     ) -> GetRelationalDatabaseSnapshotsResultTypeDef:
         """
-        [Client.get_relational_database_snapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_relational_database_snapshots)
+        [Client.get_relational_database_snapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_relational_database_snapshots)
         """
 
     def get_relational_databases(
         self, pageToken: str = None
     ) -> GetRelationalDatabasesResultTypeDef:
         """
-        [Client.get_relational_databases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_relational_databases)
+        [Client.get_relational_databases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_relational_databases)
         """
 
     def get_static_ip(self, staticIpName: str) -> GetStaticIpResultTypeDef:
         """
-        [Client.get_static_ip documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_static_ip)
+        [Client.get_static_ip documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_static_ip)
         """
 
     def get_static_ips(self, pageToken: str = None) -> GetStaticIpsResultTypeDef:
         """
-        [Client.get_static_ips documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.get_static_ips)
+        [Client.get_static_ips documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.get_static_ips)
         """
 
     def import_key_pair(self, keyPairName: str, publicKeyBase64: str) -> ImportKeyPairResultTypeDef:
         """
-        [Client.import_key_pair documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.import_key_pair)
+        [Client.import_key_pair documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.import_key_pair)
         """
 
     def is_vpc_peered(self) -> IsVpcPeeredResultTypeDef:
         """
-        [Client.is_vpc_peered documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.is_vpc_peered)
+        [Client.is_vpc_peered documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.is_vpc_peered)
         """
 
     def open_instance_public_ports(
         self, portInfo: PortInfoTypeDef, instanceName: str
     ) -> OpenInstancePublicPortsResultTypeDef:
         """
-        [Client.open_instance_public_ports documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.open_instance_public_ports)
+        [Client.open_instance_public_ports documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.open_instance_public_ports)
         """
 
     def peer_vpc(self) -> PeerVpcResultTypeDef:
         """
-        [Client.peer_vpc documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.peer_vpc)
+        [Client.peer_vpc documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.peer_vpc)
         """
 
     def put_alarm(
@@ -1352,102 +1356,132 @@ class LightsailClient:
         notificationEnabled: bool = None,
     ) -> PutAlarmResultTypeDef:
         """
-        [Client.put_alarm documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.put_alarm)
+        [Client.put_alarm documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.put_alarm)
         """
 
     def put_instance_public_ports(
         self, portInfos: List[PortInfoTypeDef], instanceName: str
     ) -> PutInstancePublicPortsResultTypeDef:
         """
-        [Client.put_instance_public_ports documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.put_instance_public_ports)
+        [Client.put_instance_public_ports documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.put_instance_public_ports)
         """
 
     def reboot_instance(self, instanceName: str) -> RebootInstanceResultTypeDef:
         """
-        [Client.reboot_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.reboot_instance)
+        [Client.reboot_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.reboot_instance)
         """
 
     def reboot_relational_database(
         self, relationalDatabaseName: str
     ) -> RebootRelationalDatabaseResultTypeDef:
         """
-        [Client.reboot_relational_database documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.reboot_relational_database)
+        [Client.reboot_relational_database documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.reboot_relational_database)
         """
 
     def register_container_image(
         self, serviceName: str, label: str, digest: str
     ) -> RegisterContainerImageResultTypeDef:
         """
-        [Client.register_container_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.register_container_image)
+        [Client.register_container_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.register_container_image)
         """
 
     def release_static_ip(self, staticIpName: str) -> ReleaseStaticIpResultTypeDef:
         """
-        [Client.release_static_ip documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.release_static_ip)
+        [Client.release_static_ip documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.release_static_ip)
         """
 
     def reset_distribution_cache(
         self, distributionName: str = None
     ) -> ResetDistributionCacheResultTypeDef:
         """
-        [Client.reset_distribution_cache documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.reset_distribution_cache)
+        [Client.reset_distribution_cache documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.reset_distribution_cache)
         """
 
     def send_contact_method_verification(
         self, protocol: Literal["Email"]
     ) -> SendContactMethodVerificationResultTypeDef:
         """
-        [Client.send_contact_method_verification documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.send_contact_method_verification)
+        [Client.send_contact_method_verification documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.send_contact_method_verification)
+        """
+
+    def set_ip_address_type(
+        self,
+        resourceType: Literal[
+            "ContainerService",
+            "Instance",
+            "StaticIp",
+            "KeyPair",
+            "InstanceSnapshot",
+            "Domain",
+            "PeeredVpc",
+            "LoadBalancer",
+            "LoadBalancerTlsCertificate",
+            "Disk",
+            "DiskSnapshot",
+            "RelationalDatabase",
+            "RelationalDatabaseSnapshot",
+            "ExportSnapshotRecord",
+            "CloudFormationStackRecord",
+            "Alarm",
+            "ContactMethod",
+            "Distribution",
+            "Certificate",
+        ],
+        resourceName: str,
+        ipAddressType: Literal["dualstack", "ipv4"],
+    ) -> SetIpAddressTypeResultTypeDef:
+        """
+        [Client.set_ip_address_type documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.set_ip_address_type)
         """
 
     def start_instance(self, instanceName: str) -> StartInstanceResultTypeDef:
         """
-        [Client.start_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.start_instance)
+        [Client.start_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.start_instance)
         """
 
     def start_relational_database(
         self, relationalDatabaseName: str
     ) -> StartRelationalDatabaseResultTypeDef:
         """
-        [Client.start_relational_database documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.start_relational_database)
+        [Client.start_relational_database documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.start_relational_database)
         """
 
     def stop_instance(self, instanceName: str, force: bool = None) -> StopInstanceResultTypeDef:
         """
-        [Client.stop_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.stop_instance)
+        [Client.stop_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.stop_instance)
         """
 
     def stop_relational_database(
         self, relationalDatabaseName: str, relationalDatabaseSnapshotName: str = None
     ) -> StopRelationalDatabaseResultTypeDef:
         """
-        [Client.stop_relational_database documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.stop_relational_database)
+        [Client.stop_relational_database documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.stop_relational_database)
         """
 
     def tag_resource(
         self, resourceName: str, tags: List["TagTypeDef"], resourceArn: str = None
     ) -> TagResourceResultTypeDef:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.tag_resource)
         """
 
     def test_alarm(
         self, alarmName: str, state: Literal["OK", "ALARM", "INSUFFICIENT_DATA"]
     ) -> TestAlarmResultTypeDef:
         """
-        [Client.test_alarm documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.test_alarm)
+        [Client.test_alarm documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.test_alarm)
         """
 
     def unpeer_vpc(self) -> UnpeerVpcResultTypeDef:
         """
-        [Client.unpeer_vpc documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.unpeer_vpc)
+        [Client.unpeer_vpc documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.unpeer_vpc)
         """
 
     def untag_resource(
         self, resourceName: str, tagKeys: List[str], resourceArn: str = None
     ) -> UntagResourceResultTypeDef:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.untag_resource)
         """
 
     def update_container_service(
@@ -1459,7 +1493,7 @@ class LightsailClient:
         publicDomainNames: Dict[str, List[str]] = None,
     ) -> UpdateContainerServiceResultTypeDef:
         """
-        [Client.update_container_service documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.update_container_service)
+        [Client.update_container_service documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.update_container_service)
         """
 
     def update_distribution(
@@ -1472,21 +1506,21 @@ class LightsailClient:
         isEnabled: bool = None,
     ) -> UpdateDistributionResultTypeDef:
         """
-        [Client.update_distribution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.update_distribution)
+        [Client.update_distribution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.update_distribution)
         """
 
     def update_distribution_bundle(
         self, distributionName: str = None, bundleId: str = None
     ) -> UpdateDistributionBundleResultTypeDef:
         """
-        [Client.update_distribution_bundle documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.update_distribution_bundle)
+        [Client.update_distribution_bundle documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.update_distribution_bundle)
         """
 
     def update_domain_entry(
         self, domainName: str, domainEntry: "DomainEntryTypeDef"
     ) -> UpdateDomainEntryResultTypeDef:
         """
-        [Client.update_domain_entry documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.update_domain_entry)
+        [Client.update_domain_entry documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.update_domain_entry)
         """
 
     def update_load_balancer_attribute(
@@ -1500,7 +1534,7 @@ class LightsailClient:
         attributeValue: str,
     ) -> UpdateLoadBalancerAttributeResultTypeDef:
         """
-        [Client.update_load_balancer_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.update_load_balancer_attribute)
+        [Client.update_load_balancer_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.update_load_balancer_attribute)
         """
 
     def update_relational_database(
@@ -1517,32 +1551,32 @@ class LightsailClient:
         caCertificateIdentifier: str = None,
     ) -> UpdateRelationalDatabaseResultTypeDef:
         """
-        [Client.update_relational_database documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.update_relational_database)
+        [Client.update_relational_database documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.update_relational_database)
         """
 
     def update_relational_database_parameters(
         self, relationalDatabaseName: str, parameters: List["RelationalDatabaseParameterTypeDef"]
     ) -> UpdateRelationalDatabaseParametersResultTypeDef:
         """
-        [Client.update_relational_database_parameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Client.update_relational_database_parameters)
+        [Client.update_relational_database_parameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Client.update_relational_database_parameters)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_active_names"]) -> GetActiveNamesPaginator:
         """
-        [Paginator.GetActiveNames documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetActiveNames)
+        [Paginator.GetActiveNames documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Paginator.GetActiveNames)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_blueprints"]) -> GetBlueprintsPaginator:
         """
-        [Paginator.GetBlueprints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetBlueprints)
+        [Paginator.GetBlueprints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Paginator.GetBlueprints)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_bundles"]) -> GetBundlesPaginator:
         """
-        [Paginator.GetBundles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetBundles)
+        [Paginator.GetBundles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Paginator.GetBundles)
         """
 
     @overload
@@ -1550,7 +1584,7 @@ class LightsailClient:
         self, operation_name: Literal["get_cloud_formation_stack_records"]
     ) -> GetCloudFormationStackRecordsPaginator:
         """
-        [Paginator.GetCloudFormationStackRecords documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetCloudFormationStackRecords)
+        [Paginator.GetCloudFormationStackRecords documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Paginator.GetCloudFormationStackRecords)
         """
 
     @overload
@@ -1558,19 +1592,19 @@ class LightsailClient:
         self, operation_name: Literal["get_disk_snapshots"]
     ) -> GetDiskSnapshotsPaginator:
         """
-        [Paginator.GetDiskSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetDiskSnapshots)
+        [Paginator.GetDiskSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Paginator.GetDiskSnapshots)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_disks"]) -> GetDisksPaginator:
         """
-        [Paginator.GetDisks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetDisks)
+        [Paginator.GetDisks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Paginator.GetDisks)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_domains"]) -> GetDomainsPaginator:
         """
-        [Paginator.GetDomains documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetDomains)
+        [Paginator.GetDomains documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Paginator.GetDomains)
         """
 
     @overload
@@ -1578,7 +1612,7 @@ class LightsailClient:
         self, operation_name: Literal["get_export_snapshot_records"]
     ) -> GetExportSnapshotRecordsPaginator:
         """
-        [Paginator.GetExportSnapshotRecords documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetExportSnapshotRecords)
+        [Paginator.GetExportSnapshotRecords documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Paginator.GetExportSnapshotRecords)
         """
 
     @overload
@@ -1586,19 +1620,19 @@ class LightsailClient:
         self, operation_name: Literal["get_instance_snapshots"]
     ) -> GetInstanceSnapshotsPaginator:
         """
-        [Paginator.GetInstanceSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetInstanceSnapshots)
+        [Paginator.GetInstanceSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Paginator.GetInstanceSnapshots)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_instances"]) -> GetInstancesPaginator:
         """
-        [Paginator.GetInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetInstances)
+        [Paginator.GetInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Paginator.GetInstances)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_key_pairs"]) -> GetKeyPairsPaginator:
         """
-        [Paginator.GetKeyPairs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetKeyPairs)
+        [Paginator.GetKeyPairs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Paginator.GetKeyPairs)
         """
 
     @overload
@@ -1606,13 +1640,13 @@ class LightsailClient:
         self, operation_name: Literal["get_load_balancers"]
     ) -> GetLoadBalancersPaginator:
         """
-        [Paginator.GetLoadBalancers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetLoadBalancers)
+        [Paginator.GetLoadBalancers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Paginator.GetLoadBalancers)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_operations"]) -> GetOperationsPaginator:
         """
-        [Paginator.GetOperations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetOperations)
+        [Paginator.GetOperations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Paginator.GetOperations)
         """
 
     @overload
@@ -1620,7 +1654,7 @@ class LightsailClient:
         self, operation_name: Literal["get_relational_database_blueprints"]
     ) -> GetRelationalDatabaseBlueprintsPaginator:
         """
-        [Paginator.GetRelationalDatabaseBlueprints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseBlueprints)
+        [Paginator.GetRelationalDatabaseBlueprints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseBlueprints)
         """
 
     @overload
@@ -1628,7 +1662,7 @@ class LightsailClient:
         self, operation_name: Literal["get_relational_database_bundles"]
     ) -> GetRelationalDatabaseBundlesPaginator:
         """
-        [Paginator.GetRelationalDatabaseBundles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseBundles)
+        [Paginator.GetRelationalDatabaseBundles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseBundles)
         """
 
     @overload
@@ -1636,7 +1670,7 @@ class LightsailClient:
         self, operation_name: Literal["get_relational_database_events"]
     ) -> GetRelationalDatabaseEventsPaginator:
         """
-        [Paginator.GetRelationalDatabaseEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseEvents)
+        [Paginator.GetRelationalDatabaseEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseEvents)
         """
 
     @overload
@@ -1644,7 +1678,7 @@ class LightsailClient:
         self, operation_name: Literal["get_relational_database_parameters"]
     ) -> GetRelationalDatabaseParametersPaginator:
         """
-        [Paginator.GetRelationalDatabaseParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseParameters)
+        [Paginator.GetRelationalDatabaseParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseParameters)
         """
 
     @overload
@@ -1652,7 +1686,7 @@ class LightsailClient:
         self, operation_name: Literal["get_relational_database_snapshots"]
     ) -> GetRelationalDatabaseSnapshotsPaginator:
         """
-        [Paginator.GetRelationalDatabaseSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseSnapshots)
+        [Paginator.GetRelationalDatabaseSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabaseSnapshots)
         """
 
     @overload
@@ -1660,11 +1694,11 @@ class LightsailClient:
         self, operation_name: Literal["get_relational_databases"]
     ) -> GetRelationalDatabasesPaginator:
         """
-        [Paginator.GetRelationalDatabases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabases)
+        [Paginator.GetRelationalDatabases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Paginator.GetRelationalDatabases)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_static_ips"]) -> GetStaticIpsPaginator:
         """
-        [Paginator.GetStaticIps documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lightsail.html#Lightsail.Paginator.GetStaticIps)
+        [Paginator.GetStaticIps documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lightsail.html#Lightsail.Paginator.GetStaticIps)
         """

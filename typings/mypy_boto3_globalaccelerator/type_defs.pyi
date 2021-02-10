@@ -28,26 +28,50 @@ __all__ = (
     "AcceleratorTypeDef",
     "ByoipCidrEventTypeDef",
     "ByoipCidrTypeDef",
+    "CustomRoutingAcceleratorAttributesTypeDef",
+    "CustomRoutingAcceleratorTypeDef",
+    "CustomRoutingDestinationDescriptionTypeDef",
+    "CustomRoutingEndpointDescriptionTypeDef",
+    "CustomRoutingEndpointGroupTypeDef",
+    "CustomRoutingListenerTypeDef",
+    "DestinationPortMappingTypeDef",
     "EndpointDescriptionTypeDef",
     "EndpointGroupTypeDef",
     "IpSetTypeDef",
     "ListenerTypeDef",
+    "PortMappingTypeDef",
     "PortOverrideTypeDef",
     "PortRangeTypeDef",
+    "SocketAddressTypeDef",
     "TagTypeDef",
+    "AddCustomRoutingEndpointsResponseTypeDef",
     "AdvertiseByoipCidrResponseTypeDef",
     "CidrAuthorizationContextTypeDef",
     "CreateAcceleratorResponseTypeDef",
+    "CreateCustomRoutingAcceleratorResponseTypeDef",
+    "CreateCustomRoutingEndpointGroupResponseTypeDef",
+    "CreateCustomRoutingListenerResponseTypeDef",
     "CreateEndpointGroupResponseTypeDef",
     "CreateListenerResponseTypeDef",
+    "CustomRoutingDestinationConfigurationTypeDef",
+    "CustomRoutingEndpointConfigurationTypeDef",
     "DeprovisionByoipCidrResponseTypeDef",
     "DescribeAcceleratorAttributesResponseTypeDef",
     "DescribeAcceleratorResponseTypeDef",
+    "DescribeCustomRoutingAcceleratorAttributesResponseTypeDef",
+    "DescribeCustomRoutingAcceleratorResponseTypeDef",
+    "DescribeCustomRoutingEndpointGroupResponseTypeDef",
+    "DescribeCustomRoutingListenerResponseTypeDef",
     "DescribeEndpointGroupResponseTypeDef",
     "DescribeListenerResponseTypeDef",
     "EndpointConfigurationTypeDef",
     "ListAcceleratorsResponseTypeDef",
     "ListByoipCidrsResponseTypeDef",
+    "ListCustomRoutingAcceleratorsResponseTypeDef",
+    "ListCustomRoutingEndpointGroupsResponseTypeDef",
+    "ListCustomRoutingListenersResponseTypeDef",
+    "ListCustomRoutingPortMappingsByDestinationResponseTypeDef",
+    "ListCustomRoutingPortMappingsResponseTypeDef",
     "ListEndpointGroupsResponseTypeDef",
     "ListListenersResponseTypeDef",
     "ListTagsForResourceResponseTypeDef",
@@ -55,6 +79,9 @@ __all__ = (
     "ProvisionByoipCidrResponseTypeDef",
     "UpdateAcceleratorAttributesResponseTypeDef",
     "UpdateAcceleratorResponseTypeDef",
+    "UpdateCustomRoutingAcceleratorAttributesResponseTypeDef",
+    "UpdateCustomRoutingAcceleratorResponseTypeDef",
+    "UpdateCustomRoutingListenerResponseTypeDef",
     "UpdateEndpointGroupResponseTypeDef",
     "UpdateListenerResponseTypeDef",
     "WithdrawByoipCidrResponseTypeDef",
@@ -108,6 +135,70 @@ ByoipCidrTypeDef = TypedDict(
     total=False,
 )
 
+CustomRoutingAcceleratorAttributesTypeDef = TypedDict(
+    "CustomRoutingAcceleratorAttributesTypeDef",
+    {"FlowLogsEnabled": bool, "FlowLogsS3Bucket": str, "FlowLogsS3Prefix": str},
+    total=False,
+)
+
+CustomRoutingAcceleratorTypeDef = TypedDict(
+    "CustomRoutingAcceleratorTypeDef",
+    {
+        "AcceleratorArn": str,
+        "Name": str,
+        "IpAddressType": Literal["IPV4"],
+        "Enabled": bool,
+        "IpSets": List["IpSetTypeDef"],
+        "DnsName": str,
+        "Status": Literal["DEPLOYED", "IN_PROGRESS"],
+        "CreatedTime": datetime,
+        "LastModifiedTime": datetime,
+    },
+    total=False,
+)
+
+CustomRoutingDestinationDescriptionTypeDef = TypedDict(
+    "CustomRoutingDestinationDescriptionTypeDef",
+    {"FromPort": int, "ToPort": int, "Protocols": List[Literal["TCP", "UDP"]]},
+    total=False,
+)
+
+CustomRoutingEndpointDescriptionTypeDef = TypedDict(
+    "CustomRoutingEndpointDescriptionTypeDef", {"EndpointId": str}, total=False
+)
+
+CustomRoutingEndpointGroupTypeDef = TypedDict(
+    "CustomRoutingEndpointGroupTypeDef",
+    {
+        "EndpointGroupArn": str,
+        "EndpointGroupRegion": str,
+        "DestinationDescriptions": List["CustomRoutingDestinationDescriptionTypeDef"],
+        "EndpointDescriptions": List["CustomRoutingEndpointDescriptionTypeDef"],
+    },
+    total=False,
+)
+
+CustomRoutingListenerTypeDef = TypedDict(
+    "CustomRoutingListenerTypeDef",
+    {"ListenerArn": str, "PortRanges": List["PortRangeTypeDef"]},
+    total=False,
+)
+
+DestinationPortMappingTypeDef = TypedDict(
+    "DestinationPortMappingTypeDef",
+    {
+        "AcceleratorArn": str,
+        "AcceleratorSocketAddresses": List["SocketAddressTypeDef"],
+        "EndpointGroupArn": str,
+        "EndpointId": str,
+        "EndpointGroupRegion": str,
+        "DestinationSocketAddress": "SocketAddressTypeDef",
+        "IpAddressType": Literal["IPV4"],
+        "DestinationTrafficState": Literal["ALLOW", "DENY"],
+    },
+    total=False,
+)
+
 EndpointDescriptionTypeDef = TypedDict(
     "EndpointDescriptionTypeDef",
     {
@@ -150,13 +241,39 @@ ListenerTypeDef = TypedDict(
     total=False,
 )
 
+PortMappingTypeDef = TypedDict(
+    "PortMappingTypeDef",
+    {
+        "AcceleratorPort": int,
+        "EndpointGroupArn": str,
+        "EndpointId": str,
+        "DestinationSocketAddress": "SocketAddressTypeDef",
+        "Protocols": List[Literal["TCP", "UDP"]],
+        "DestinationTrafficState": Literal["ALLOW", "DENY"],
+    },
+    total=False,
+)
+
 PortOverrideTypeDef = TypedDict(
     "PortOverrideTypeDef", {"ListenerPort": int, "EndpointPort": int}, total=False
 )
 
 PortRangeTypeDef = TypedDict("PortRangeTypeDef", {"FromPort": int, "ToPort": int}, total=False)
 
+SocketAddressTypeDef = TypedDict(
+    "SocketAddressTypeDef", {"IpAddress": str, "Port": int}, total=False
+)
+
 TagTypeDef = TypedDict("TagTypeDef", {"Key": str, "Value": str})
+
+AddCustomRoutingEndpointsResponseTypeDef = TypedDict(
+    "AddCustomRoutingEndpointsResponseTypeDef",
+    {
+        "EndpointDescriptions": List["CustomRoutingEndpointDescriptionTypeDef"],
+        "EndpointGroupArn": str,
+    },
+    total=False,
+)
 
 AdvertiseByoipCidrResponseTypeDef = TypedDict(
     "AdvertiseByoipCidrResponseTypeDef", {"ByoipCidr": "ByoipCidrTypeDef"}, total=False
@@ -170,12 +287,39 @@ CreateAcceleratorResponseTypeDef = TypedDict(
     "CreateAcceleratorResponseTypeDef", {"Accelerator": "AcceleratorTypeDef"}, total=False
 )
 
+CreateCustomRoutingAcceleratorResponseTypeDef = TypedDict(
+    "CreateCustomRoutingAcceleratorResponseTypeDef",
+    {"Accelerator": "CustomRoutingAcceleratorTypeDef"},
+    total=False,
+)
+
+CreateCustomRoutingEndpointGroupResponseTypeDef = TypedDict(
+    "CreateCustomRoutingEndpointGroupResponseTypeDef",
+    {"EndpointGroup": "CustomRoutingEndpointGroupTypeDef"},
+    total=False,
+)
+
+CreateCustomRoutingListenerResponseTypeDef = TypedDict(
+    "CreateCustomRoutingListenerResponseTypeDef",
+    {"Listener": "CustomRoutingListenerTypeDef"},
+    total=False,
+)
+
 CreateEndpointGroupResponseTypeDef = TypedDict(
     "CreateEndpointGroupResponseTypeDef", {"EndpointGroup": "EndpointGroupTypeDef"}, total=False
 )
 
 CreateListenerResponseTypeDef = TypedDict(
     "CreateListenerResponseTypeDef", {"Listener": "ListenerTypeDef"}, total=False
+)
+
+CustomRoutingDestinationConfigurationTypeDef = TypedDict(
+    "CustomRoutingDestinationConfigurationTypeDef",
+    {"FromPort": int, "ToPort": int, "Protocols": List[Literal["TCP", "UDP"]]},
+)
+
+CustomRoutingEndpointConfigurationTypeDef = TypedDict(
+    "CustomRoutingEndpointConfigurationTypeDef", {"EndpointId": str}, total=False
 )
 
 DeprovisionByoipCidrResponseTypeDef = TypedDict(
@@ -190,6 +334,30 @@ DescribeAcceleratorAttributesResponseTypeDef = TypedDict(
 
 DescribeAcceleratorResponseTypeDef = TypedDict(
     "DescribeAcceleratorResponseTypeDef", {"Accelerator": "AcceleratorTypeDef"}, total=False
+)
+
+DescribeCustomRoutingAcceleratorAttributesResponseTypeDef = TypedDict(
+    "DescribeCustomRoutingAcceleratorAttributesResponseTypeDef",
+    {"AcceleratorAttributes": "CustomRoutingAcceleratorAttributesTypeDef"},
+    total=False,
+)
+
+DescribeCustomRoutingAcceleratorResponseTypeDef = TypedDict(
+    "DescribeCustomRoutingAcceleratorResponseTypeDef",
+    {"Accelerator": "CustomRoutingAcceleratorTypeDef"},
+    total=False,
+)
+
+DescribeCustomRoutingEndpointGroupResponseTypeDef = TypedDict(
+    "DescribeCustomRoutingEndpointGroupResponseTypeDef",
+    {"EndpointGroup": "CustomRoutingEndpointGroupTypeDef"},
+    total=False,
+)
+
+DescribeCustomRoutingListenerResponseTypeDef = TypedDict(
+    "DescribeCustomRoutingListenerResponseTypeDef",
+    {"Listener": "CustomRoutingListenerTypeDef"},
+    total=False,
 )
 
 DescribeEndpointGroupResponseTypeDef = TypedDict(
@@ -215,6 +383,36 @@ ListAcceleratorsResponseTypeDef = TypedDict(
 ListByoipCidrsResponseTypeDef = TypedDict(
     "ListByoipCidrsResponseTypeDef",
     {"ByoipCidrs": List["ByoipCidrTypeDef"], "NextToken": str},
+    total=False,
+)
+
+ListCustomRoutingAcceleratorsResponseTypeDef = TypedDict(
+    "ListCustomRoutingAcceleratorsResponseTypeDef",
+    {"Accelerators": List["CustomRoutingAcceleratorTypeDef"], "NextToken": str},
+    total=False,
+)
+
+ListCustomRoutingEndpointGroupsResponseTypeDef = TypedDict(
+    "ListCustomRoutingEndpointGroupsResponseTypeDef",
+    {"EndpointGroups": List["CustomRoutingEndpointGroupTypeDef"], "NextToken": str},
+    total=False,
+)
+
+ListCustomRoutingListenersResponseTypeDef = TypedDict(
+    "ListCustomRoutingListenersResponseTypeDef",
+    {"Listeners": List["CustomRoutingListenerTypeDef"], "NextToken": str},
+    total=False,
+)
+
+ListCustomRoutingPortMappingsByDestinationResponseTypeDef = TypedDict(
+    "ListCustomRoutingPortMappingsByDestinationResponseTypeDef",
+    {"DestinationPortMappings": List["DestinationPortMappingTypeDef"], "NextToken": str},
+    total=False,
+)
+
+ListCustomRoutingPortMappingsResponseTypeDef = TypedDict(
+    "ListCustomRoutingPortMappingsResponseTypeDef",
+    {"PortMappings": List["PortMappingTypeDef"], "NextToken": str},
     total=False,
 )
 
@@ -250,6 +448,24 @@ UpdateAcceleratorAttributesResponseTypeDef = TypedDict(
 
 UpdateAcceleratorResponseTypeDef = TypedDict(
     "UpdateAcceleratorResponseTypeDef", {"Accelerator": "AcceleratorTypeDef"}, total=False
+)
+
+UpdateCustomRoutingAcceleratorAttributesResponseTypeDef = TypedDict(
+    "UpdateCustomRoutingAcceleratorAttributesResponseTypeDef",
+    {"AcceleratorAttributes": "CustomRoutingAcceleratorAttributesTypeDef"},
+    total=False,
+)
+
+UpdateCustomRoutingAcceleratorResponseTypeDef = TypedDict(
+    "UpdateCustomRoutingAcceleratorResponseTypeDef",
+    {"Accelerator": "CustomRoutingAcceleratorTypeDef"},
+    total=False,
+)
+
+UpdateCustomRoutingListenerResponseTypeDef = TypedDict(
+    "UpdateCustomRoutingListenerResponseTypeDef",
+    {"Listener": "CustomRoutingListenerTypeDef"},
+    total=False,
 )
 
 UpdateEndpointGroupResponseTypeDef = TypedDict(

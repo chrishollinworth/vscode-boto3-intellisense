@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for iotsecuretunneling service client
 
@@ -44,7 +43,7 @@ class Exceptions:
 
 class IoTSecureTunnelingClient:
     """
-    [IoTSecureTunneling.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsecuretunneling.html#IoTSecureTunneling.Client)
+    [IoTSecureTunneling.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsecuretunneling.html#IoTSecureTunneling.Client)
     """
 
     meta: ClientMeta
@@ -52,17 +51,17 @@ class IoTSecureTunnelingClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsecuretunneling.html#IoTSecureTunneling.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsecuretunneling.html#IoTSecureTunneling.Client.can_paginate)
         """
 
     def close_tunnel(self, tunnelId: str, delete: bool = None) -> Dict[str, Any]:
         """
-        [Client.close_tunnel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsecuretunneling.html#IoTSecureTunneling.Client.close_tunnel)
+        [Client.close_tunnel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsecuretunneling.html#IoTSecureTunneling.Client.close_tunnel)
         """
 
     def describe_tunnel(self, tunnelId: str) -> DescribeTunnelResponseTypeDef:
         """
-        [Client.describe_tunnel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsecuretunneling.html#IoTSecureTunneling.Client.describe_tunnel)
+        [Client.describe_tunnel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsecuretunneling.html#IoTSecureTunneling.Client.describe_tunnel)
         """
 
     def generate_presigned_url(
@@ -73,19 +72,19 @@ class IoTSecureTunnelingClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsecuretunneling.html#IoTSecureTunneling.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsecuretunneling.html#IoTSecureTunneling.Client.generate_presigned_url)
         """
 
     def list_tags_for_resource(self, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsecuretunneling.html#IoTSecureTunneling.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsecuretunneling.html#IoTSecureTunneling.Client.list_tags_for_resource)
         """
 
     def list_tunnels(
         self, thingName: str = None, maxResults: int = None, nextToken: str = None
     ) -> ListTunnelsResponseTypeDef:
         """
-        [Client.list_tunnels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsecuretunneling.html#IoTSecureTunneling.Client.list_tunnels)
+        [Client.list_tunnels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsecuretunneling.html#IoTSecureTunneling.Client.list_tunnels)
         """
 
     def open_tunnel(
@@ -96,15 +95,15 @@ class IoTSecureTunnelingClient:
         timeoutConfig: "TimeoutConfigTypeDef" = None,
     ) -> OpenTunnelResponseTypeDef:
         """
-        [Client.open_tunnel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsecuretunneling.html#IoTSecureTunneling.Client.open_tunnel)
+        [Client.open_tunnel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsecuretunneling.html#IoTSecureTunneling.Client.open_tunnel)
         """
 
     def tag_resource(self, resourceArn: str, tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsecuretunneling.html#IoTSecureTunneling.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsecuretunneling.html#IoTSecureTunneling.Client.tag_resource)
         """
 
     def untag_resource(self, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsecuretunneling.html#IoTSecureTunneling.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsecuretunneling.html#IoTSecureTunneling.Client.untag_resource)
         """

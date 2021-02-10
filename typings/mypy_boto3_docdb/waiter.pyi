@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
 """
 Main interface for docdb service client waiters.
 
@@ -30,7 +29,7 @@ __all__ = ("DBInstanceAvailableWaiter", "DBInstanceDeletedWaiter")
 
 class DBInstanceAvailableWaiter(Boto3Waiter):
     """
-    [Waiter.DBInstanceAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/docdb.html#DocDB.Waiter.DBInstanceAvailable)
+    [Waiter.DBInstanceAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/docdb.html#DocDB.Waiter.DBInstanceAvailable)
     """
 
     def wait(
@@ -42,13 +41,13 @@ class DBInstanceAvailableWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [DBInstanceAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/docdb.html#DocDB.Waiter.DBInstanceAvailable.wait)
+        [DBInstanceAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/docdb.html#DocDB.Waiter.DBInstanceAvailable.wait)
         """
 
 
 class DBInstanceDeletedWaiter(Boto3Waiter):
     """
-    [Waiter.DBInstanceDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/docdb.html#DocDB.Waiter.DBInstanceDeleted)
+    [Waiter.DBInstanceDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/docdb.html#DocDB.Waiter.DBInstanceDeleted)
     """
 
     def wait(
@@ -60,5 +59,5 @@ class DBInstanceDeletedWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [DBInstanceDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/docdb.html#DocDB.Waiter.DBInstanceDeleted.wait)
+        [DBInstanceDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/docdb.html#DocDB.Waiter.DBInstanceDeleted.wait)
         """

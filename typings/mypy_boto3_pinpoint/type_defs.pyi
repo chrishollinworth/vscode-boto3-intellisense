@@ -680,7 +680,11 @@ _RequiredAttributeDimensionTypeDef = TypedDict(
 )
 _OptionalAttributeDimensionTypeDef = TypedDict(
     "_OptionalAttributeDimensionTypeDef",
-    {"AttributeType": Literal["INCLUSIVE", "EXCLUSIVE"]},
+    {
+        "AttributeType": Literal[
+            "INCLUSIVE", "EXCLUSIVE", "CONTAINS", "BEFORE", "AFTER", "ON", "BETWEEN"
+        ]
+    },
     total=False,
 )
 

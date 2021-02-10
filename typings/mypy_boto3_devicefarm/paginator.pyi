@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for devicefarm service client paginators.
 
@@ -117,20 +116,20 @@ __all__ = (
 
 class GetOfferingStatusPaginator(Boto3Paginator):
     """
-    [Paginator.GetOfferingStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.GetOfferingStatus)
+    [Paginator.GetOfferingStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.GetOfferingStatus)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetOfferingStatusResultTypeDef]:
         """
-        [GetOfferingStatus.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.GetOfferingStatus.paginate)
+        [GetOfferingStatus.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.GetOfferingStatus.paginate)
         """
 
 
 class ListArtifactsPaginator(Boto3Paginator):
     """
-    [Paginator.ListArtifacts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListArtifacts)
+    [Paginator.ListArtifacts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListArtifacts)
     """
 
     def paginate(
@@ -140,26 +139,26 @@ class ListArtifactsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListArtifactsResultTypeDef]:
         """
-        [ListArtifacts.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListArtifacts.paginate)
+        [ListArtifacts.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListArtifacts.paginate)
         """
 
 
 class ListDeviceInstancesPaginator(Boto3Paginator):
     """
-    [Paginator.ListDeviceInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListDeviceInstances)
+    [Paginator.ListDeviceInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListDeviceInstances)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDeviceInstancesResultTypeDef]:
         """
-        [ListDeviceInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListDeviceInstances.paginate)
+        [ListDeviceInstances.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListDeviceInstances.paginate)
         """
 
 
 class ListDevicePoolsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDevicePools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListDevicePools)
+    [Paginator.ListDevicePools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListDevicePools)
     """
 
     def paginate(
@@ -169,13 +168,13 @@ class ListDevicePoolsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListDevicePoolsResultTypeDef]:
         """
-        [ListDevicePools.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListDevicePools.paginate)
+        [ListDevicePools.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListDevicePools.paginate)
         """
 
 
 class ListDevicesPaginator(Boto3Paginator):
     """
-    [Paginator.ListDevices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListDevices)
+    [Paginator.ListDevices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListDevices)
     """
 
     def paginate(
@@ -185,39 +184,39 @@ class ListDevicesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListDevicesResultTypeDef]:
         """
-        [ListDevices.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListDevices.paginate)
+        [ListDevices.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListDevices.paginate)
         """
 
 
 class ListInstanceProfilesPaginator(Boto3Paginator):
     """
-    [Paginator.ListInstanceProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListInstanceProfiles)
+    [Paginator.ListInstanceProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListInstanceProfiles)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListInstanceProfilesResultTypeDef]:
         """
-        [ListInstanceProfiles.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListInstanceProfiles.paginate)
+        [ListInstanceProfiles.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListInstanceProfiles.paginate)
         """
 
 
 class ListJobsPaginator(Boto3Paginator):
     """
-    [Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListJobs)
+    [Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListJobs)
     """
 
     def paginate(
         self, arn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListJobsResultTypeDef]:
         """
-        [ListJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListJobs.paginate)
+        [ListJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListJobs.paginate)
         """
 
 
 class ListNetworkProfilesPaginator(Boto3Paginator):
     """
-    [Paginator.ListNetworkProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListNetworkProfiles)
+    [Paginator.ListNetworkProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListNetworkProfiles)
     """
 
     def paginate(
@@ -227,143 +226,143 @@ class ListNetworkProfilesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListNetworkProfilesResultTypeDef]:
         """
-        [ListNetworkProfiles.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListNetworkProfiles.paginate)
+        [ListNetworkProfiles.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListNetworkProfiles.paginate)
         """
 
 
 class ListOfferingPromotionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListOfferingPromotions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListOfferingPromotions)
+    [Paginator.ListOfferingPromotions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListOfferingPromotions)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListOfferingPromotionsResultTypeDef]:
         """
-        [ListOfferingPromotions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListOfferingPromotions.paginate)
+        [ListOfferingPromotions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListOfferingPromotions.paginate)
         """
 
 
 class ListOfferingTransactionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListOfferingTransactions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListOfferingTransactions)
+    [Paginator.ListOfferingTransactions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListOfferingTransactions)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListOfferingTransactionsResultTypeDef]:
         """
-        [ListOfferingTransactions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListOfferingTransactions.paginate)
+        [ListOfferingTransactions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListOfferingTransactions.paginate)
         """
 
 
 class ListOfferingsPaginator(Boto3Paginator):
     """
-    [Paginator.ListOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListOfferings)
+    [Paginator.ListOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListOfferings)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListOfferingsResultTypeDef]:
         """
-        [ListOfferings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListOfferings.paginate)
+        [ListOfferings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListOfferings.paginate)
         """
 
 
 class ListProjectsPaginator(Boto3Paginator):
     """
-    [Paginator.ListProjects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListProjects)
+    [Paginator.ListProjects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListProjects)
     """
 
     def paginate(
         self, arn: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListProjectsResultTypeDef]:
         """
-        [ListProjects.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListProjects.paginate)
+        [ListProjects.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListProjects.paginate)
         """
 
 
 class ListRemoteAccessSessionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListRemoteAccessSessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListRemoteAccessSessions)
+    [Paginator.ListRemoteAccessSessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListRemoteAccessSessions)
     """
 
     def paginate(
         self, arn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRemoteAccessSessionsResultTypeDef]:
         """
-        [ListRemoteAccessSessions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListRemoteAccessSessions.paginate)
+        [ListRemoteAccessSessions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListRemoteAccessSessions.paginate)
         """
 
 
 class ListRunsPaginator(Boto3Paginator):
     """
-    [Paginator.ListRuns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListRuns)
+    [Paginator.ListRuns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListRuns)
     """
 
     def paginate(
         self, arn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRunsResultTypeDef]:
         """
-        [ListRuns.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListRuns.paginate)
+        [ListRuns.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListRuns.paginate)
         """
 
 
 class ListSamplesPaginator(Boto3Paginator):
     """
-    [Paginator.ListSamples documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListSamples)
+    [Paginator.ListSamples documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListSamples)
     """
 
     def paginate(
         self, arn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSamplesResultTypeDef]:
         """
-        [ListSamples.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListSamples.paginate)
+        [ListSamples.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListSamples.paginate)
         """
 
 
 class ListSuitesPaginator(Boto3Paginator):
     """
-    [Paginator.ListSuites documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListSuites)
+    [Paginator.ListSuites documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListSuites)
     """
 
     def paginate(
         self, arn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListSuitesResultTypeDef]:
         """
-        [ListSuites.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListSuites.paginate)
+        [ListSuites.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListSuites.paginate)
         """
 
 
 class ListTestsPaginator(Boto3Paginator):
     """
-    [Paginator.ListTests documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListTests)
+    [Paginator.ListTests documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListTests)
     """
 
     def paginate(
         self, arn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTestsResultTypeDef]:
         """
-        [ListTests.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListTests.paginate)
+        [ListTests.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListTests.paginate)
         """
 
 
 class ListUniqueProblemsPaginator(Boto3Paginator):
     """
-    [Paginator.ListUniqueProblems documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListUniqueProblems)
+    [Paginator.ListUniqueProblems documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListUniqueProblems)
     """
 
     def paginate(
         self, arn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListUniqueProblemsResultTypeDef]:
         """
-        [ListUniqueProblems.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListUniqueProblems.paginate)
+        [ListUniqueProblems.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListUniqueProblems.paginate)
         """
 
 
 class ListUploadsPaginator(Boto3Paginator):
     """
-    [Paginator.ListUploads documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListUploads)
+    [Paginator.ListUploads documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListUploads)
     """
 
     def paginate(
@@ -406,18 +405,18 @@ class ListUploadsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListUploadsResultTypeDef]:
         """
-        [ListUploads.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListUploads.paginate)
+        [ListUploads.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListUploads.paginate)
         """
 
 
 class ListVPCEConfigurationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListVPCEConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListVPCEConfigurations)
+    [Paginator.ListVPCEConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListVPCEConfigurations)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListVPCEConfigurationsResultTypeDef]:
         """
-        [ListVPCEConfigurations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListVPCEConfigurations.paginate)
+        [ListVPCEConfigurations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListVPCEConfigurations.paginate)
         """

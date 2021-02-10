@@ -1,10 +1,14 @@
 from mypy_boto3_qldb_session.type_defs import (
+    AbortTransactionResultTypeDef,
     CommitTransactionResultTypeDef,
+    EndSessionResultTypeDef,
     ExecuteStatementResultTypeDef,
     FetchPageResultTypeDef,
+    IOUsageTypeDef,
     PageTypeDef,
     StartSessionResultTypeDef,
     StartTransactionResultTypeDef,
+    TimingInformationTypeDef,
     ValueHolderTypeDef,
     CommitTransactionRequestTypeDef,
     ExecuteStatementRequestTypeDef,
@@ -14,12 +18,16 @@ from mypy_boto3_qldb_session.type_defs import (
 )
 
 __all__ = (
+    "AbortTransactionResultTypeDef",
     "CommitTransactionResultTypeDef",
+    "EndSessionResultTypeDef",
     "ExecuteStatementResultTypeDef",
     "FetchPageResultTypeDef",
+    "IOUsageTypeDef",
     "PageTypeDef",
     "StartSessionResultTypeDef",
     "StartTransactionResultTypeDef",
+    "TimingInformationTypeDef",
     "ValueHolderTypeDef",
     "CommitTransactionRequestTypeDef",
     "ExecuteStatementRequestTypeDef",

@@ -61,6 +61,7 @@ __all__ = (
     "GetMetricDataOutputTypeDef",
     "GetMetricStatisticsOutputTypeDef",
     "GetMetricWidgetImageOutputTypeDef",
+    "LabelOptionsTypeDef",
     "ListDashboardsOutputTypeDef",
     "ListMetricsOutputTypeDef",
     "ListTagsForResourceOutputTypeDef",
@@ -518,6 +519,8 @@ GetMetricWidgetImageOutputTypeDef = TypedDict(
     {"MetricWidgetImage": Union[bytes, IO[bytes]], "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
+
+LabelOptionsTypeDef = TypedDict("LabelOptionsTypeDef", {"Timezone": str}, total=False)
 
 ListDashboardsOutputTypeDef = TypedDict(
     "ListDashboardsOutputTypeDef",

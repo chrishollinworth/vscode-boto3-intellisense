@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for mgh service client paginators.
 
@@ -49,20 +48,20 @@ __all__ = (
 
 class ListApplicationStatesPaginator(Boto3Paginator):
     """
-    [Paginator.ListApplicationStates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mgh.html#MigrationHub.Paginator.ListApplicationStates)
+    [Paginator.ListApplicationStates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mgh.html#MigrationHub.Paginator.ListApplicationStates)
     """
 
     def paginate(
         self, ApplicationIds: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListApplicationStatesResultTypeDef]:
         """
-        [ListApplicationStates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mgh.html#MigrationHub.Paginator.ListApplicationStates.paginate)
+        [ListApplicationStates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mgh.html#MigrationHub.Paginator.ListApplicationStates.paginate)
         """
 
 
 class ListCreatedArtifactsPaginator(Boto3Paginator):
     """
-    [Paginator.ListCreatedArtifacts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mgh.html#MigrationHub.Paginator.ListCreatedArtifacts)
+    [Paginator.ListCreatedArtifacts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mgh.html#MigrationHub.Paginator.ListCreatedArtifacts)
     """
 
     def paginate(
@@ -72,13 +71,13 @@ class ListCreatedArtifactsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListCreatedArtifactsResultTypeDef]:
         """
-        [ListCreatedArtifacts.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mgh.html#MigrationHub.Paginator.ListCreatedArtifacts.paginate)
+        [ListCreatedArtifacts.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mgh.html#MigrationHub.Paginator.ListCreatedArtifacts.paginate)
         """
 
 
 class ListDiscoveredResourcesPaginator(Boto3Paginator):
     """
-    [Paginator.ListDiscoveredResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mgh.html#MigrationHub.Paginator.ListDiscoveredResources)
+    [Paginator.ListDiscoveredResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mgh.html#MigrationHub.Paginator.ListDiscoveredResources)
     """
 
     def paginate(
@@ -88,31 +87,31 @@ class ListDiscoveredResourcesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListDiscoveredResourcesResultTypeDef]:
         """
-        [ListDiscoveredResources.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mgh.html#MigrationHub.Paginator.ListDiscoveredResources.paginate)
+        [ListDiscoveredResources.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mgh.html#MigrationHub.Paginator.ListDiscoveredResources.paginate)
         """
 
 
 class ListMigrationTasksPaginator(Boto3Paginator):
     """
-    [Paginator.ListMigrationTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mgh.html#MigrationHub.Paginator.ListMigrationTasks)
+    [Paginator.ListMigrationTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mgh.html#MigrationHub.Paginator.ListMigrationTasks)
     """
 
     def paginate(
         self, ResourceName: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListMigrationTasksResultTypeDef]:
         """
-        [ListMigrationTasks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mgh.html#MigrationHub.Paginator.ListMigrationTasks.paginate)
+        [ListMigrationTasks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mgh.html#MigrationHub.Paginator.ListMigrationTasks.paginate)
         """
 
 
 class ListProgressUpdateStreamsPaginator(Boto3Paginator):
     """
-    [Paginator.ListProgressUpdateStreams documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mgh.html#MigrationHub.Paginator.ListProgressUpdateStreams)
+    [Paginator.ListProgressUpdateStreams documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mgh.html#MigrationHub.Paginator.ListProgressUpdateStreams)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListProgressUpdateStreamsResultTypeDef]:
         """
-        [ListProgressUpdateStreams.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mgh.html#MigrationHub.Paginator.ListProgressUpdateStreams.paginate)
+        [ListProgressUpdateStreams.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mgh.html#MigrationHub.Paginator.ListProgressUpdateStreams.paginate)
         """

@@ -52,6 +52,7 @@ __all__ = (
     "OnSuccessTypeDef",
     "ProvisionedConcurrencyConfigListItemTypeDef",
     "ResponseMetadata",
+    "SelfManagedEventSourceTypeDef",
     "SourceAccessConfigurationTypeDef",
     "TracingConfigResponseTypeDef",
     "VpcConfigResponseTypeDef",
@@ -198,9 +199,12 @@ EventSourceMappingConfigurationTypeDef = TypedDict(
         "Topics": List[str],
         "Queues": List[str],
         "SourceAccessConfigurations": List["SourceAccessConfigurationTypeDef"],
+        "SelfManagedEventSource": "SelfManagedEventSourceTypeDef",
         "MaximumRecordAgeInSeconds": int,
         "BisectBatchOnFunctionError": bool,
         "MaximumRetryAttempts": int,
+        "TumblingWindowInSeconds": int,
+        "FunctionResponseTypes": List[Literal["ReportBatchItemFailures"]],
     },
     total=False,
 )
@@ -225,6 +229,7 @@ FunctionConfigurationTypeDef = TypedDict(
             "nodejs8.10",
             "nodejs10.x",
             "nodejs12.x",
+            "nodejs14.x",
             "java8",
             "java8.al2",
             "java11",
@@ -275,6 +280,7 @@ FunctionConfigurationTypeDef = TypedDict(
             "InvalidSecurityGroup",
             "ImageDeleted",
             "ImageAccessDenied",
+            "InvalidImage",
         ],
         "LastUpdateStatus": Literal["Successful", "Failed", "InProgress"],
         "LastUpdateStatusReason": str,
@@ -288,6 +294,7 @@ FunctionConfigurationTypeDef = TypedDict(
             "InvalidSecurityGroup",
             "ImageDeleted",
             "ImageAccessDenied",
+            "InvalidImage",
         ],
         "FileSystemConfigs": List["FileSystemConfigTypeDef"],
         "PackageType": Literal["Zip", "Image"],
@@ -360,6 +367,7 @@ LayerVersionsListItemTypeDef = TypedDict(
                 "nodejs8.10",
                 "nodejs10.x",
                 "nodejs12.x",
+                "nodejs14.x",
                 "java8",
                 "java8.al2",
                 "java11",
@@ -419,8 +427,25 @@ ResponseMetadata = TypedDict(
     },
 )
 
+SelfManagedEventSourceTypeDef = TypedDict(
+    "SelfManagedEventSourceTypeDef",
+    {"Endpoints": Dict[Literal["KAFKA_BOOTSTRAP_SERVERS"], List[str]]},
+    total=False,
+)
+
 SourceAccessConfigurationTypeDef = TypedDict(
-    "SourceAccessConfigurationTypeDef", {"Type": Literal["BASIC_AUTH"], "URI": str}, total=False
+    "SourceAccessConfigurationTypeDef",
+    {
+        "Type": Literal[
+            "BASIC_AUTH",
+            "VPC_SUBNET",
+            "VPC_SECURITY_GROUP",
+            "SASL_SCRAM_512_AUTH",
+            "SASL_SCRAM_256_AUTH",
+        ],
+        "URI": str,
+    },
+    total=False,
 )
 
 TracingConfigResponseTypeDef = TypedDict(
@@ -510,6 +535,7 @@ GetLayerVersionResponseTypeDef = TypedDict(
                 "nodejs8.10",
                 "nodejs10.x",
                 "nodejs12.x",
+                "nodejs14.x",
                 "java8",
                 "java8.al2",
                 "java11",
@@ -659,6 +685,7 @@ PublishLayerVersionResponseTypeDef = TypedDict(
                 "nodejs8.10",
                 "nodejs10.x",
                 "nodejs12.x",
+                "nodejs14.x",
                 "java8",
                 "java8.al2",
                 "java11",

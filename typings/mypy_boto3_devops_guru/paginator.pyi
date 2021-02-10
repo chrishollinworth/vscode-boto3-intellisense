@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for devops-guru service client paginators.
 
@@ -7,7 +6,7 @@ Usage::
     ```python
     import boto3
 
-    from mypy_boto3_devops_guru import DevOpsGuruClient
+    from mypy_boto3_devops_guru import DevopsGuruClient
     from mypy_boto3_devops_guru.paginator import (
         DescribeResourceCollectionHealthPaginator,
         GetResourceCollectionPaginator,
@@ -19,7 +18,7 @@ Usage::
         SearchInsightsPaginator,
     )
 
-    client: DevOpsGuruClient = boto3.client("devops-guru")
+    client: DevopsGuruClient = boto3.client("devops-guru")
 
     describe_resource_collection_health_paginator: DescribeResourceCollectionHealthPaginator = client.get_paginator("describe_resource_collection_health")
     get_resource_collection_paginator: GetResourceCollectionPaginator = client.get_paginator("get_resource_collection")
@@ -72,33 +71,37 @@ __all__ = (
 
 class DescribeResourceCollectionHealthPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeResourceCollectionHealth documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devops-guru.html#DevOpsGuru.Paginator.DescribeResourceCollectionHealth)
+    [Paginator.DescribeResourceCollectionHealth documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Paginator.DescribeResourceCollectionHealth)
     """
 
     def paginate(
-        self, ResourceCollectionType: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self,
+        ResourceCollectionType: Literal["AWS_CLOUD_FORMATION"],
+        PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeResourceCollectionHealthResponseTypeDef]:
         """
-        [DescribeResourceCollectionHealth.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devops-guru.html#DevOpsGuru.Paginator.DescribeResourceCollectionHealth.paginate)
+        [DescribeResourceCollectionHealth.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Paginator.DescribeResourceCollectionHealth.paginate)
         """
 
 
 class GetResourceCollectionPaginator(Boto3Paginator):
     """
-    [Paginator.GetResourceCollection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devops-guru.html#DevOpsGuru.Paginator.GetResourceCollection)
+    [Paginator.GetResourceCollection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Paginator.GetResourceCollection)
     """
 
     def paginate(
-        self, ResourceCollectionType: str, PaginationConfig: PaginatorConfigTypeDef = None
+        self,
+        ResourceCollectionType: Literal["AWS_CLOUD_FORMATION"],
+        PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetResourceCollectionResponseTypeDef]:
         """
-        [GetResourceCollection.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devops-guru.html#DevOpsGuru.Paginator.GetResourceCollection.paginate)
+        [GetResourceCollection.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Paginator.GetResourceCollection.paginate)
         """
 
 
 class ListAnomaliesForInsightPaginator(Boto3Paginator):
     """
-    [Paginator.ListAnomaliesForInsight documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListAnomaliesForInsight)
+    [Paginator.ListAnomaliesForInsight documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Paginator.ListAnomaliesForInsight)
     """
 
     def paginate(
@@ -108,26 +111,26 @@ class ListAnomaliesForInsightPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListAnomaliesForInsightResponseTypeDef]:
         """
-        [ListAnomaliesForInsight.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListAnomaliesForInsight.paginate)
+        [ListAnomaliesForInsight.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Paginator.ListAnomaliesForInsight.paginate)
         """
 
 
 class ListEventsPaginator(Boto3Paginator):
     """
-    [Paginator.ListEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListEvents)
+    [Paginator.ListEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Paginator.ListEvents)
     """
 
     def paginate(
         self, Filters: ListEventsFiltersTypeDef, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListEventsResponseTypeDef]:
         """
-        [ListEvents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListEvents.paginate)
+        [ListEvents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Paginator.ListEvents.paginate)
         """
 
 
 class ListInsightsPaginator(Boto3Paginator):
     """
-    [Paginator.ListInsights documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListInsights)
+    [Paginator.ListInsights documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Paginator.ListInsights)
     """
 
     def paginate(
@@ -136,39 +139,39 @@ class ListInsightsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListInsightsResponseTypeDef]:
         """
-        [ListInsights.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListInsights.paginate)
+        [ListInsights.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Paginator.ListInsights.paginate)
         """
 
 
 class ListNotificationChannelsPaginator(Boto3Paginator):
     """
-    [Paginator.ListNotificationChannels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListNotificationChannels)
+    [Paginator.ListNotificationChannels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Paginator.ListNotificationChannels)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListNotificationChannelsResponseTypeDef]:
         """
-        [ListNotificationChannels.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListNotificationChannels.paginate)
+        [ListNotificationChannels.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Paginator.ListNotificationChannels.paginate)
         """
 
 
 class ListRecommendationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListRecommendations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListRecommendations)
+    [Paginator.ListRecommendations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Paginator.ListRecommendations)
     """
 
     def paginate(
         self, InsightId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListRecommendationsResponseTypeDef]:
         """
-        [ListRecommendations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListRecommendations.paginate)
+        [ListRecommendations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Paginator.ListRecommendations.paginate)
         """
 
 
 class SearchInsightsPaginator(Boto3Paginator):
     """
-    [Paginator.SearchInsights documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devops-guru.html#DevOpsGuru.Paginator.SearchInsights)
+    [Paginator.SearchInsights documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Paginator.SearchInsights)
     """
 
     def paginate(
@@ -179,5 +182,5 @@ class SearchInsightsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[SearchInsightsResponseTypeDef]:
         """
-        [SearchInsights.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devops-guru.html#DevOpsGuru.Paginator.SearchInsights.paginate)
+        [SearchInsights.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Paginator.SearchInsights.paginate)
         """

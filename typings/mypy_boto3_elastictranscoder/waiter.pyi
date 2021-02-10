@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
 """
 Main interface for elastictranscoder service client waiters.
 
@@ -26,10 +25,10 @@ __all__ = ("JobCompleteWaiter",)
 
 class JobCompleteWaiter(Boto3Waiter):
     """
-    [Waiter.JobComplete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elastictranscoder.html#ElasticTranscoder.Waiter.JobComplete)
+    [Waiter.JobComplete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elastictranscoder.html#ElasticTranscoder.Waiter.JobComplete)
     """
 
     def wait(self, Id: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [JobComplete.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elastictranscoder.html#ElasticTranscoder.Waiter.JobComplete.wait)
+        [JobComplete.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elastictranscoder.html#ElasticTranscoder.Waiter.JobComplete.wait)
         """

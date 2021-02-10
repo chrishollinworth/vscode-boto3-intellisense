@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for macie service client paginators.
 
@@ -34,25 +33,25 @@ __all__ = ("ListMemberAccountsPaginator", "ListS3ResourcesPaginator")
 
 class ListMemberAccountsPaginator(Boto3Paginator):
     """
-    [Paginator.ListMemberAccounts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/macie.html#Macie.Paginator.ListMemberAccounts)
+    [Paginator.ListMemberAccounts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie.html#Macie.Paginator.ListMemberAccounts)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListMemberAccountsResultTypeDef]:
         """
-        [ListMemberAccounts.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/macie.html#Macie.Paginator.ListMemberAccounts.paginate)
+        [ListMemberAccounts.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie.html#Macie.Paginator.ListMemberAccounts.paginate)
         """
 
 
 class ListS3ResourcesPaginator(Boto3Paginator):
     """
-    [Paginator.ListS3Resources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/macie.html#Macie.Paginator.ListS3Resources)
+    [Paginator.ListS3Resources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie.html#Macie.Paginator.ListS3Resources)
     """
 
     def paginate(
         self, memberAccountId: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListS3ResourcesResultTypeDef]:
         """
-        [ListS3Resources.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/macie.html#Macie.Paginator.ListS3Resources.paginate)
+        [ListS3Resources.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/macie.html#Macie.Paginator.ListS3Resources.paginate)
         """

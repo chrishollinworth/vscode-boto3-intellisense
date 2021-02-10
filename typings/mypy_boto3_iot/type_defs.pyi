@@ -55,6 +55,7 @@ __all__ = (
     "AwsJobPresignedUrlConfigTypeDef",
     "AwsJobRateIncreaseCriteriaTypeDef",
     "BehaviorCriteriaTypeDef",
+    "BehaviorModelTrainingSummaryTypeDef",
     "BehaviorTypeDef",
     "BillingGroupMetadataTypeDef",
     "BillingGroupPropertiesTypeDef",
@@ -73,6 +74,10 @@ __all__ = (
     "CustomCodeSigningTypeDef",
     "DeniedTypeDef",
     "DestinationTypeDef",
+    "DetectMitigationActionExecutionTypeDef",
+    "DetectMitigationActionsTaskStatisticsTypeDef",
+    "DetectMitigationActionsTaskSummaryTypeDef",
+    "DetectMitigationActionsTaskTargetTypeDef",
     "DomainConfigurationSummaryTypeDef",
     "DynamoDBActionTypeDef",
     "DynamoDBv2ActionTypeDef",
@@ -105,11 +110,13 @@ __all__ = (
     "JobProcessDetailsTypeDef",
     "JobSummaryTypeDef",
     "JobTypeDef",
+    "KafkaActionTypeDef",
     "KeyPairTypeDef",
     "KinesisActionTypeDef",
     "LambdaActionTypeDef",
     "LogTargetConfigurationTypeDef",
     "LogTargetTypeDef",
+    "MachineLearningDetectionConfigTypeDef",
     "MetricDimensionTypeDef",
     "MetricToRetainTypeDef",
     "MetricValueTypeDef",
@@ -186,7 +193,12 @@ __all__ = (
     "UpdateCACertificateParamsTypeDef",
     "UpdateDeviceCertificateParamsTypeDef",
     "ValidationErrorTypeDef",
+    "ViolationEventAdditionalInfoTypeDef",
+    "ViolationEventOccurrenceRangeTypeDef",
     "ViolationEventTypeDef",
+    "VpcDestinationConfigurationTypeDef",
+    "VpcDestinationPropertiesTypeDef",
+    "VpcDestinationSummaryTypeDef",
     "AssociateTargetsWithJobResponseTypeDef",
     "AwsJobAbortConfigTypeDef",
     "AwsJobTimeoutConfigTypeDef",
@@ -194,6 +206,7 @@ __all__ = (
     "CreateAuthorizerResponseTypeDef",
     "CreateBillingGroupResponseTypeDef",
     "CreateCertificateFromCsrResponseTypeDef",
+    "CreateCustomMetricResponseTypeDef",
     "CreateDimensionResponseTypeDef",
     "CreateDomainConfigurationResponseTypeDef",
     "CreateDynamicThingGroupResponseTypeDef",
@@ -223,7 +236,9 @@ __all__ = (
     "DescribeBillingGroupResponseTypeDef",
     "DescribeCACertificateResponseTypeDef",
     "DescribeCertificateResponseTypeDef",
+    "DescribeCustomMetricResponseTypeDef",
     "DescribeDefaultAuthorizerResponseTypeDef",
+    "DescribeDetectMitigationActionsTaskResponseTypeDef",
     "DescribeDimensionResponseTypeDef",
     "DescribeDomainConfigurationResponseTypeDef",
     "DescribeEndpointResponseTypeDef",
@@ -242,6 +257,7 @@ __all__ = (
     "DescribeThingRegistrationTaskResponseTypeDef",
     "DescribeThingResponseTypeDef",
     "DescribeThingTypeResponseTypeDef",
+    "GetBehaviorModelTrainingSummariesResponseTypeDef",
     "GetCardinalityResponseTypeDef",
     "GetEffectivePoliciesResponseTypeDef",
     "GetIndexingConfigurationResponseTypeDef",
@@ -269,6 +285,9 @@ __all__ = (
     "ListCACertificatesResponseTypeDef",
     "ListCertificatesByCAResponseTypeDef",
     "ListCertificatesResponseTypeDef",
+    "ListCustomMetricsResponseTypeDef",
+    "ListDetectMitigationActionsExecutionsResponseTypeDef",
+    "ListDetectMitigationActionsTasksResponseTypeDef",
     "ListDimensionsResponseTypeDef",
     "ListDomainConfigurationsResponseTypeDef",
     "ListIndicesResponseTypeDef",
@@ -316,6 +335,7 @@ __all__ = (
     "SearchIndexResponseTypeDef",
     "SetDefaultAuthorizerResponseTypeDef",
     "StartAuditMitigationActionsTaskResponseTypeDef",
+    "StartDetectMitigationActionsTaskResponseTypeDef",
     "StartOnDemandAuditTaskResponseTypeDef",
     "StartThingRegistrationTaskResponseTypeDef",
     "TestAuthorizationResponseTypeDef",
@@ -326,6 +346,7 @@ __all__ = (
     "TransferCertificateResponseTypeDef",
     "UpdateAuthorizerResponseTypeDef",
     "UpdateBillingGroupResponseTypeDef",
+    "UpdateCustomMetricResponseTypeDef",
     "UpdateDimensionResponseTypeDef",
     "UpdateDomainConfigurationResponseTypeDef",
     "UpdateDynamicThingGroupResponseTypeDef",
@@ -373,6 +394,7 @@ ActionTypeDef = TypedDict(
         "stepFunctions": "StepFunctionsActionTypeDef",
         "timestream": "TimestreamActionTypeDef",
         "http": "HttpActionTypeDef",
+        "kafka": "KafkaActionTypeDef",
     },
     total=False,
 )
@@ -385,6 +407,7 @@ ActiveViolationTypeDef = TypedDict(
         "securityProfileName": str,
         "behavior": "BehaviorTypeDef",
         "lastViolationValue": "MetricValueTypeDef",
+        "violationEventAdditionalInfo": "ViolationEventAdditionalInfoTypeDef",
         "lastViolationTime": datetime,
         "violationStartTime": datetime,
     },
@@ -655,12 +678,28 @@ BehaviorCriteriaTypeDef = TypedDict(
             "not-in-cidr-set",
             "in-port-set",
             "not-in-port-set",
+            "in-set",
+            "not-in-set",
         ],
         "value": "MetricValueTypeDef",
         "durationSeconds": int,
         "consecutiveDatapointsToAlarm": int,
         "consecutiveDatapointsToClear": int,
         "statisticalThreshold": "StatisticalThresholdTypeDef",
+        "mlDetectionConfig": "MachineLearningDetectionConfigTypeDef",
+    },
+    total=False,
+)
+
+BehaviorModelTrainingSummaryTypeDef = TypedDict(
+    "BehaviorModelTrainingSummaryTypeDef",
+    {
+        "securityProfileName": str,
+        "behaviorName": str,
+        "trainingDataCollectionStartDate": datetime,
+        "modelStatus": Literal["PENDING_BUILD", "ACTIVE", "EXPIRED"],
+        "datapointsCollectionPercentage": float,
+        "lastModelRefreshDate": datetime,
     },
     total=False,
 )
@@ -672,6 +711,7 @@ _OptionalBehaviorTypeDef = TypedDict(
         "metric": str,
         "metricDimension": "MetricDimensionTypeDef",
         "criteria": "BehaviorCriteriaTypeDef",
+        "suppressAlerts": bool,
     },
     total=False,
 )
@@ -840,6 +880,51 @@ DeniedTypeDef = TypedDict(
 
 DestinationTypeDef = TypedDict(
     "DestinationTypeDef", {"s3Destination": "S3DestinationTypeDef"}, total=False
+)
+
+DetectMitigationActionExecutionTypeDef = TypedDict(
+    "DetectMitigationActionExecutionTypeDef",
+    {
+        "taskId": str,
+        "violationId": str,
+        "actionName": str,
+        "thingName": str,
+        "executionStartDate": datetime,
+        "executionEndDate": datetime,
+        "status": Literal["IN_PROGRESS", "SUCCESSFUL", "FAILED", "SKIPPED"],
+        "errorCode": str,
+        "message": str,
+    },
+    total=False,
+)
+
+DetectMitigationActionsTaskStatisticsTypeDef = TypedDict(
+    "DetectMitigationActionsTaskStatisticsTypeDef",
+    {"actionsExecuted": int, "actionsSkipped": int, "actionsFailed": int},
+    total=False,
+)
+
+DetectMitigationActionsTaskSummaryTypeDef = TypedDict(
+    "DetectMitigationActionsTaskSummaryTypeDef",
+    {
+        "taskId": str,
+        "taskStatus": Literal["IN_PROGRESS", "SUCCESSFUL", "FAILED", "CANCELED"],
+        "taskStartTime": datetime,
+        "taskEndTime": datetime,
+        "target": "DetectMitigationActionsTaskTargetTypeDef",
+        "violationEventOccurrenceRange": "ViolationEventOccurrenceRangeTypeDef",
+        "onlyActiveViolationsIncluded": bool,
+        "suppressedAlertsIncluded": bool,
+        "actionsDefinition": List["MitigationActionTypeDef"],
+        "taskStatistics": "DetectMitigationActionsTaskStatisticsTypeDef",
+    },
+    total=False,
+)
+
+DetectMitigationActionsTaskTargetTypeDef = TypedDict(
+    "DetectMitigationActionsTaskTargetTypeDef",
+    {"violationIds": List[str], "securityProfileName": str, "behaviorName": str},
+    total=False,
 )
 
 DomainConfigurationSummaryTypeDef = TypedDict(
@@ -1122,6 +1207,19 @@ JobTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredKafkaActionTypeDef = TypedDict(
+    "_RequiredKafkaActionTypeDef",
+    {"destinationArn": str, "topic": str, "clientProperties": Dict[str, str]},
+)
+_OptionalKafkaActionTypeDef = TypedDict(
+    "_OptionalKafkaActionTypeDef", {"key": str, "partition": str}, total=False
+)
+
+
+class KafkaActionTypeDef(_RequiredKafkaActionTypeDef, _OptionalKafkaActionTypeDef):
+    pass
+
+
 KeyPairTypeDef = TypedDict("KeyPairTypeDef", {"PublicKey": str, "PrivateKey": str}, total=False)
 
 _RequiredKinesisActionTypeDef = TypedDict(
@@ -1157,6 +1255,10 @@ class LogTargetTypeDef(_RequiredLogTargetTypeDef, _OptionalLogTargetTypeDef):
     pass
 
 
+MachineLearningDetectionConfigTypeDef = TypedDict(
+    "MachineLearningDetectionConfigTypeDef", {"confidenceLevel": Literal["LOW", "MEDIUM", "HIGH"]}
+)
+
 _RequiredMetricDimensionTypeDef = TypedDict(
     "_RequiredMetricDimensionTypeDef", {"dimensionName": str}
 )
@@ -1180,7 +1282,16 @@ class MetricToRetainTypeDef(_RequiredMetricToRetainTypeDef, _OptionalMetricToRet
 
 
 MetricValueTypeDef = TypedDict(
-    "MetricValueTypeDef", {"count": int, "cidrs": List[str], "ports": List[int]}, total=False
+    "MetricValueTypeDef",
+    {
+        "count": int,
+        "cidrs": List[str],
+        "ports": List[int],
+        "number": float,
+        "numbers": List[float],
+        "strings": List[str],
+    },
+    total=False,
 )
 
 MitigationActionIdentifierTypeDef = TypedDict(
@@ -1785,9 +1896,12 @@ TopicRuleDestinationSummaryTypeDef = TypedDict(
     "TopicRuleDestinationSummaryTypeDef",
     {
         "arn": str,
-        "status": Literal["ENABLED", "IN_PROGRESS", "DISABLED", "ERROR"],
+        "status": Literal["ENABLED", "IN_PROGRESS", "DISABLED", "ERROR", "DELETING"],
+        "createdAt": datetime,
+        "lastUpdatedAt": datetime,
         "statusReason": str,
         "httpUrlSummary": "HttpUrlDestinationSummaryTypeDef",
+        "vpcDestinationSummary": "VpcDestinationSummaryTypeDef",
     },
     total=False,
 )
@@ -1796,9 +1910,12 @@ TopicRuleDestinationTypeDef = TypedDict(
     "TopicRuleDestinationTypeDef",
     {
         "arn": str,
-        "status": Literal["ENABLED", "IN_PROGRESS", "DISABLED", "ERROR"],
+        "status": Literal["ENABLED", "IN_PROGRESS", "DISABLED", "ERROR", "DELETING"],
+        "createdAt": datetime,
+        "lastUpdatedAt": datetime,
         "statusReason": str,
         "httpUrlProperties": "HttpUrlDestinationPropertiesTypeDef",
+        "vpcProperties": "VpcDestinationPropertiesTypeDef",
     },
     total=False,
 )
@@ -1852,6 +1969,16 @@ UpdateDeviceCertificateParamsTypeDef = TypedDict(
 
 ValidationErrorTypeDef = TypedDict("ValidationErrorTypeDef", {"errorMessage": str}, total=False)
 
+ViolationEventAdditionalInfoTypeDef = TypedDict(
+    "ViolationEventAdditionalInfoTypeDef",
+    {"confidenceLevel": Literal["LOW", "MEDIUM", "HIGH"]},
+    total=False,
+)
+
+ViolationEventOccurrenceRangeTypeDef = TypedDict(
+    "ViolationEventOccurrenceRangeTypeDef", {"startTime": datetime, "endTime": datetime}
+)
+
 ViolationEventTypeDef = TypedDict(
     "ViolationEventTypeDef",
     {
@@ -1860,9 +1987,37 @@ ViolationEventTypeDef = TypedDict(
         "securityProfileName": str,
         "behavior": "BehaviorTypeDef",
         "metricValue": "MetricValueTypeDef",
+        "violationEventAdditionalInfo": "ViolationEventAdditionalInfoTypeDef",
         "violationEventType": Literal["in-alarm", "alarm-cleared", "alarm-invalidated"],
         "violationEventTime": datetime,
     },
+    total=False,
+)
+
+_RequiredVpcDestinationConfigurationTypeDef = TypedDict(
+    "_RequiredVpcDestinationConfigurationTypeDef",
+    {"subnetIds": List[str], "vpcId": str, "roleArn": str},
+)
+_OptionalVpcDestinationConfigurationTypeDef = TypedDict(
+    "_OptionalVpcDestinationConfigurationTypeDef", {"securityGroups": List[str]}, total=False
+)
+
+
+class VpcDestinationConfigurationTypeDef(
+    _RequiredVpcDestinationConfigurationTypeDef, _OptionalVpcDestinationConfigurationTypeDef
+):
+    pass
+
+
+VpcDestinationPropertiesTypeDef = TypedDict(
+    "VpcDestinationPropertiesTypeDef",
+    {"subnetIds": List[str], "securityGroups": List[str], "vpcId": str, "roleArn": str},
+    total=False,
+)
+
+VpcDestinationSummaryTypeDef = TypedDict(
+    "VpcDestinationSummaryTypeDef",
+    {"subnetIds": List[str], "securityGroups": List[str], "vpcId": str, "roleArn": str},
     total=False,
 )
 
@@ -1898,6 +2053,10 @@ CreateCertificateFromCsrResponseTypeDef = TypedDict(
     "CreateCertificateFromCsrResponseTypeDef",
     {"certificateArn": str, "certificateId": str, "certificatePem": str},
     total=False,
+)
+
+CreateCustomMetricResponseTypeDef = TypedDict(
+    "CreateCustomMetricResponseTypeDef", {"metricName": str, "metricArn": str}, total=False
 )
 
 CreateDimensionResponseTypeDef = TypedDict(
@@ -2122,9 +2281,28 @@ DescribeCertificateResponseTypeDef = TypedDict(
     total=False,
 )
 
+DescribeCustomMetricResponseTypeDef = TypedDict(
+    "DescribeCustomMetricResponseTypeDef",
+    {
+        "metricName": str,
+        "metricArn": str,
+        "metricType": Literal["string-list", "ip-address-list", "number-list", "number"],
+        "displayName": str,
+        "creationDate": datetime,
+        "lastModifiedDate": datetime,
+    },
+    total=False,
+)
+
 DescribeDefaultAuthorizerResponseTypeDef = TypedDict(
     "DescribeDefaultAuthorizerResponseTypeDef",
     {"authorizerDescription": "AuthorizerDescriptionTypeDef"},
+    total=False,
+)
+
+DescribeDetectMitigationActionsTaskResponseTypeDef = TypedDict(
+    "DescribeDetectMitigationActionsTaskResponseTypeDef",
+    {"taskSummary": "DetectMitigationActionsTaskSummaryTypeDef"},
     total=False,
 )
 
@@ -2348,6 +2526,12 @@ DescribeThingTypeResponseTypeDef = TypedDict(
     total=False,
 )
 
+GetBehaviorModelTrainingSummariesResponseTypeDef = TypedDict(
+    "GetBehaviorModelTrainingSummariesResponseTypeDef",
+    {"summaries": List["BehaviorModelTrainingSummaryTypeDef"], "nextToken": str},
+    total=False,
+)
+
 GetCardinalityResponseTypeDef = TypedDict(
     "GetCardinalityResponseTypeDef", {"cardinality": int}, total=False
 )
@@ -2515,6 +2699,22 @@ ListCertificatesByCAResponseTypeDef = TypedDict(
 ListCertificatesResponseTypeDef = TypedDict(
     "ListCertificatesResponseTypeDef",
     {"certificates": List["CertificateTypeDef"], "nextMarker": str},
+    total=False,
+)
+
+ListCustomMetricsResponseTypeDef = TypedDict(
+    "ListCustomMetricsResponseTypeDef", {"metricNames": List[str], "nextToken": str}, total=False
+)
+
+ListDetectMitigationActionsExecutionsResponseTypeDef = TypedDict(
+    "ListDetectMitigationActionsExecutionsResponseTypeDef",
+    {"actionsExecutions": List["DetectMitigationActionExecutionTypeDef"], "nextToken": str},
+    total=False,
+)
+
+ListDetectMitigationActionsTasksResponseTypeDef = TypedDict(
+    "ListDetectMitigationActionsTasksResponseTypeDef",
+    {"tasks": List["DetectMitigationActionsTaskSummaryTypeDef"], "nextToken": str},
     total=False,
 )
 
@@ -2791,6 +2991,10 @@ StartAuditMitigationActionsTaskResponseTypeDef = TypedDict(
     "StartAuditMitigationActionsTaskResponseTypeDef", {"taskId": str}, total=False
 )
 
+StartDetectMitigationActionsTaskResponseTypeDef = TypedDict(
+    "StartDetectMitigationActionsTaskResponseTypeDef", {"taskId": str}, total=False
+)
+
 StartOnDemandAuditTaskResponseTypeDef = TypedDict(
     "StartOnDemandAuditTaskResponseTypeDef", {"taskId": str}, total=False
 )
@@ -2819,7 +3023,10 @@ TlsContextTypeDef = TypedDict("TlsContextTypeDef", {"serverName": str}, total=Fa
 
 TopicRuleDestinationConfigurationTypeDef = TypedDict(
     "TopicRuleDestinationConfigurationTypeDef",
-    {"httpUrlConfiguration": "HttpUrlDestinationConfigurationTypeDef"},
+    {
+        "httpUrlConfiguration": "HttpUrlDestinationConfigurationTypeDef",
+        "vpcConfiguration": "VpcDestinationConfigurationTypeDef",
+    },
     total=False,
 )
 
@@ -2852,6 +3059,19 @@ UpdateAuthorizerResponseTypeDef = TypedDict(
 
 UpdateBillingGroupResponseTypeDef = TypedDict(
     "UpdateBillingGroupResponseTypeDef", {"version": int}, total=False
+)
+
+UpdateCustomMetricResponseTypeDef = TypedDict(
+    "UpdateCustomMetricResponseTypeDef",
+    {
+        "metricName": str,
+        "metricArn": str,
+        "metricType": Literal["string-list", "ip-address-list", "number-list", "number"],
+        "displayName": str,
+        "creationDate": datetime,
+        "lastModifiedDate": datetime,
+    },
+    total=False,
 )
 
 UpdateDimensionResponseTypeDef = TypedDict(

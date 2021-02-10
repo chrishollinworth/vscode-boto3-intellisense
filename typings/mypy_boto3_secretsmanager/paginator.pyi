@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for secretsmanager service client paginators.
 
@@ -39,7 +38,7 @@ __all__ = ("ListSecretsPaginator",)
 
 class ListSecretsPaginator(Boto3Paginator):
     """
-    [Paginator.ListSecrets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/secretsmanager.html#SecretsManager.Paginator.ListSecrets)
+    [Paginator.ListSecrets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/secretsmanager.html#SecretsManager.Paginator.ListSecrets)
     """
 
     def paginate(
@@ -49,5 +48,5 @@ class ListSecretsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListSecretsResponseTypeDef]:
         """
-        [ListSecrets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/secretsmanager.html#SecretsManager.Paginator.ListSecrets.paginate)
+        [ListSecrets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/secretsmanager.html#SecretsManager.Paginator.ListSecrets.paginate)
         """

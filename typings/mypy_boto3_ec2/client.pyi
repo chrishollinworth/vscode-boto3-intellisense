@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for ec2 service client
 
@@ -18,6 +17,7 @@ from typing import IO, Any, Dict, List, Optional, Type, Union, overload
 from botocore.client import ClientMeta
 
 from mypy_boto3_ec2.paginator import (
+    DescribeAddressesAttributePaginator,
     DescribeByoipCidrsPaginator,
     DescribeCapacityReservationsPaginator,
     DescribeCarrierGatewaysPaginator,
@@ -60,6 +60,8 @@ from mypy_boto3_ec2.paginator import (
     DescribeMovingAddressesPaginator,
     DescribeNatGatewaysPaginator,
     DescribeNetworkAclsPaginator,
+    DescribeNetworkInsightsAnalysesPaginator,
+    DescribeNetworkInsightsPathsPaginator,
     DescribeNetworkInterfacePermissionsPaginator,
     DescribeNetworkInterfacesPaginator,
     DescribePrefixListsPaginator,
@@ -83,6 +85,8 @@ from mypy_boto3_ec2.paginator import (
     DescribeTrafficMirrorSessionsPaginator,
     DescribeTrafficMirrorTargetsPaginator,
     DescribeTransitGatewayAttachmentsPaginator,
+    DescribeTransitGatewayConnectPeersPaginator,
+    DescribeTransitGatewayConnectsPaginator,
     DescribeTransitGatewayMulticastDomainsPaginator,
     DescribeTransitGatewayPeeringAttachmentsPaginator,
     DescribeTransitGatewayRouteTablesPaginator,
@@ -114,6 +118,7 @@ from mypy_boto3_ec2.paginator import (
 )
 from mypy_boto3_ec2.type_defs import (
     AcceptReservedInstancesExchangeQuoteResultTypeDef,
+    AcceptTransitGatewayMulticastDomainAssociationsResultTypeDef,
     AcceptTransitGatewayPeeringAttachmentResultTypeDef,
     AcceptTransitGatewayVpcAttachmentResultTypeDef,
     AcceptVpcEndpointConnectionsResultTypeDef,
@@ -182,6 +187,7 @@ from mypy_boto3_ec2.type_defs import (
     CreateManagedPrefixListResultTypeDef,
     CreateNatGatewayResultTypeDef,
     CreateNetworkAclResultTypeDef,
+    CreateNetworkInsightsPathResultTypeDef,
     CreateNetworkInterfacePermissionResultTypeDef,
     CreateNetworkInterfaceResultTypeDef,
     CreatePlacementGroupResultTypeDef,
@@ -196,6 +202,10 @@ from mypy_boto3_ec2.type_defs import (
     CreateTrafficMirrorFilterRuleResultTypeDef,
     CreateTrafficMirrorSessionResultTypeDef,
     CreateTrafficMirrorTargetResultTypeDef,
+    CreateTransitGatewayConnectPeerResultTypeDef,
+    CreateTransitGatewayConnectRequestOptionsTypeDef,
+    CreateTransitGatewayConnectResultTypeDef,
+    CreateTransitGatewayMulticastDomainRequestOptionsTypeDef,
     CreateTransitGatewayMulticastDomainResultTypeDef,
     CreateTransitGatewayPeeringAttachmentResultTypeDef,
     CreateTransitGatewayPrefixListReferenceResultTypeDef,
@@ -226,12 +236,16 @@ from mypy_boto3_ec2.type_defs import (
     DeleteLocalGatewayRouteTableVpcAssociationResultTypeDef,
     DeleteManagedPrefixListResultTypeDef,
     DeleteNatGatewayResultTypeDef,
+    DeleteNetworkInsightsAnalysisResultTypeDef,
+    DeleteNetworkInsightsPathResultTypeDef,
     DeleteNetworkInterfacePermissionResultTypeDef,
     DeleteQueuedReservedInstancesResultTypeDef,
     DeleteTrafficMirrorFilterResultTypeDef,
     DeleteTrafficMirrorFilterRuleResultTypeDef,
     DeleteTrafficMirrorSessionResultTypeDef,
     DeleteTrafficMirrorTargetResultTypeDef,
+    DeleteTransitGatewayConnectPeerResultTypeDef,
+    DeleteTransitGatewayConnectResultTypeDef,
     DeleteTransitGatewayMulticastDomainResultTypeDef,
     DeleteTransitGatewayPeeringAttachmentResultTypeDef,
     DeleteTransitGatewayPrefixListReferenceResultTypeDef,
@@ -249,6 +263,7 @@ from mypy_boto3_ec2.type_defs import (
     DeregisterTransitGatewayMulticastGroupMembersResultTypeDef,
     DeregisterTransitGatewayMulticastGroupSourcesResultTypeDef,
     DescribeAccountAttributesResultTypeDef,
+    DescribeAddressesAttributeResultTypeDef,
     DescribeAddressesResultTypeDef,
     DescribeAggregateIdFormatResultTypeDef,
     DescribeAvailabilityZonesResultTypeDef,
@@ -307,6 +322,8 @@ from mypy_boto3_ec2.type_defs import (
     DescribeMovingAddressesResultTypeDef,
     DescribeNatGatewaysResultTypeDef,
     DescribeNetworkAclsResultTypeDef,
+    DescribeNetworkInsightsAnalysesResultTypeDef,
+    DescribeNetworkInsightsPathsResultTypeDef,
     DescribeNetworkInterfaceAttributeResultTypeDef,
     DescribeNetworkInterfacePermissionsResultTypeDef,
     DescribeNetworkInterfacesResultTypeDef,
@@ -339,6 +356,8 @@ from mypy_boto3_ec2.type_defs import (
     DescribeTrafficMirrorSessionsResultTypeDef,
     DescribeTrafficMirrorTargetsResultTypeDef,
     DescribeTransitGatewayAttachmentsResultTypeDef,
+    DescribeTransitGatewayConnectPeersResultTypeDef,
+    DescribeTransitGatewayConnectsResultTypeDef,
     DescribeTransitGatewayMulticastDomainsResultTypeDef,
     DescribeTransitGatewayPeeringAttachmentsResultTypeDef,
     DescribeTransitGatewayRouteTablesResultTypeDef,
@@ -442,6 +461,7 @@ from mypy_boto3_ec2.type_defs import (
     LaunchTemplateSpecificationTypeDef,
     LicenseConfigurationRequestTypeDef,
     LoadPermissionModificationsTypeDef,
+    ModifyAddressAttributeResultTypeDef,
     ModifyAvailabilityZoneGroupResultTypeDef,
     ModifyCapacityReservationResultTypeDef,
     ModifyClientVpnEndpointResultTypeDef,
@@ -499,6 +519,7 @@ from mypy_boto3_ec2.type_defs import (
     RegisterInstanceTagAttributeRequestTypeDef,
     RegisterTransitGatewayMulticastGroupMembersResultTypeDef,
     RegisterTransitGatewayMulticastGroupSourcesResultTypeDef,
+    RejectTransitGatewayMulticastDomainAssociationsResultTypeDef,
     RejectTransitGatewayPeeringAttachmentResultTypeDef,
     RejectTransitGatewayVpcAttachmentResultTypeDef,
     RejectVpcEndpointConnectionsResultTypeDef,
@@ -516,6 +537,7 @@ from mypy_boto3_ec2.type_defs import (
     ReservationTypeDef,
     ReservedInstanceLimitPriceTypeDef,
     ReservedInstancesConfigurationTypeDef,
+    ResetAddressAttributeResultTypeDef,
     ResetEbsDefaultKmsKeyIdResultTypeDef,
     ResetFpgaImageAttributeResultTypeDef,
     RestoreAddressToClassicResultTypeDef,
@@ -537,6 +559,7 @@ from mypy_boto3_ec2.type_defs import (
     SpotFleetRequestConfigDataTypeDef,
     SpotOptionsRequestTypeDef,
     StartInstancesResultTypeDef,
+    StartNetworkInsightsAnalysisResultTypeDef,
     StartVpcEndpointServicePrivateDnsVerificationResultTypeDef,
     StopInstancesResultTypeDef,
     StorageLocationTypeDef,
@@ -548,6 +571,7 @@ from mypy_boto3_ec2.type_defs import (
     TerminateClientVpnConnectionsResultTypeDef,
     TerminateInstancesResultTypeDef,
     TrafficMirrorPortRangeRequestTypeDef,
+    TransitGatewayConnectRequestBgpOptionsTypeDef,
     TransitGatewayRequestOptionsTypeDef,
     UnassignIpv6AddressesResultTypeDef,
     UnmonitorInstancesResultTypeDef,
@@ -617,7 +641,7 @@ class Exceptions:
 
 class EC2Client:
     """
-    [EC2.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client)
+    [EC2.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client)
     """
 
     meta: ClientMeta
@@ -630,42 +654,53 @@ class EC2Client:
         TargetConfigurations: List[TargetConfigurationRequestTypeDef] = None,
     ) -> AcceptReservedInstancesExchangeQuoteResultTypeDef:
         """
-        [Client.accept_reserved_instances_exchange_quote documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.accept_reserved_instances_exchange_quote)
+        [Client.accept_reserved_instances_exchange_quote documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.accept_reserved_instances_exchange_quote)
+        """
+
+    def accept_transit_gateway_multicast_domain_associations(
+        self,
+        TransitGatewayMulticastDomainId: str = None,
+        TransitGatewayAttachmentId: str = None,
+        SubnetIds: List[str] = None,
+        DryRun: bool = None,
+    ) -> AcceptTransitGatewayMulticastDomainAssociationsResultTypeDef:
+        """
+        [Client.accept_transit_gateway_multicast_domain_associations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.accept_transit_gateway_multicast_domain_associations)
         """
 
     def accept_transit_gateway_peering_attachment(
         self, TransitGatewayAttachmentId: str, DryRun: bool = None
     ) -> AcceptTransitGatewayPeeringAttachmentResultTypeDef:
         """
-        [Client.accept_transit_gateway_peering_attachment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.accept_transit_gateway_peering_attachment)
+        [Client.accept_transit_gateway_peering_attachment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.accept_transit_gateway_peering_attachment)
         """
 
     def accept_transit_gateway_vpc_attachment(
         self, TransitGatewayAttachmentId: str, DryRun: bool = None
     ) -> AcceptTransitGatewayVpcAttachmentResultTypeDef:
         """
-        [Client.accept_transit_gateway_vpc_attachment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.accept_transit_gateway_vpc_attachment)
+        [Client.accept_transit_gateway_vpc_attachment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.accept_transit_gateway_vpc_attachment)
         """
 
     def accept_vpc_endpoint_connections(
         self, ServiceId: str, VpcEndpointIds: List[str], DryRun: bool = None
     ) -> AcceptVpcEndpointConnectionsResultTypeDef:
         """
-        [Client.accept_vpc_endpoint_connections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.accept_vpc_endpoint_connections)
+        [Client.accept_vpc_endpoint_connections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.accept_vpc_endpoint_connections)
         """
 
     def accept_vpc_peering_connection(
         self, DryRun: bool = None, VpcPeeringConnectionId: str = None
     ) -> AcceptVpcPeeringConnectionResultTypeDef:
         """
-        [Client.accept_vpc_peering_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.accept_vpc_peering_connection)
+        [Client.accept_vpc_peering_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.accept_vpc_peering_connection)
         """
 
     def advertise_byoip_cidr(
         self, Cidr: str, DryRun: bool = None
     ) -> AdvertiseByoipCidrResultTypeDef:
         """
-        [Client.advertise_byoip_cidr documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.advertise_byoip_cidr)
+        [Client.advertise_byoip_cidr documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.advertise_byoip_cidr)
         """
 
     def allocate_address(
@@ -676,9 +711,10 @@ class EC2Client:
         NetworkBorderGroup: str = None,
         CustomerOwnedIpv4Pool: str = None,
         DryRun: bool = None,
+        TagSpecifications: List["TagSpecificationTypeDef"] = None,
     ) -> AllocateAddressResultTypeDef:
         """
-        [Client.allocate_address documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.allocate_address)
+        [Client.allocate_address documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.allocate_address)
         """
 
     def allocate_hosts(
@@ -693,21 +729,21 @@ class EC2Client:
         HostRecovery: Literal["on", "off"] = None,
     ) -> AllocateHostsResultTypeDef:
         """
-        [Client.allocate_hosts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.allocate_hosts)
+        [Client.allocate_hosts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.allocate_hosts)
         """
 
     def apply_security_groups_to_client_vpn_target_network(
         self, ClientVpnEndpointId: str, VpcId: str, SecurityGroupIds: List[str], DryRun: bool = None
     ) -> ApplySecurityGroupsToClientVpnTargetNetworkResultTypeDef:
         """
-        [Client.apply_security_groups_to_client_vpn_target_network documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.apply_security_groups_to_client_vpn_target_network)
+        [Client.apply_security_groups_to_client_vpn_target_network documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.apply_security_groups_to_client_vpn_target_network)
         """
 
     def assign_ipv6_addresses(
         self, NetworkInterfaceId: str, Ipv6AddressCount: int = None, Ipv6Addresses: List[str] = None
     ) -> AssignIpv6AddressesResultTypeDef:
         """
-        [Client.assign_ipv6_addresses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.assign_ipv6_addresses)
+        [Client.assign_ipv6_addresses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.assign_ipv6_addresses)
         """
 
     def assign_private_ip_addresses(
@@ -718,7 +754,7 @@ class EC2Client:
         SecondaryPrivateIpAddressCount: int = None,
     ) -> AssignPrivateIpAddressesResultTypeDef:
         """
-        [Client.assign_private_ip_addresses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.assign_private_ip_addresses)
+        [Client.assign_private_ip_addresses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.assign_private_ip_addresses)
         """
 
     def associate_address(
@@ -732,47 +768,47 @@ class EC2Client:
         PrivateIpAddress: str = None,
     ) -> AssociateAddressResultTypeDef:
         """
-        [Client.associate_address documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.associate_address)
+        [Client.associate_address documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.associate_address)
         """
 
     def associate_client_vpn_target_network(
         self, ClientVpnEndpointId: str, SubnetId: str, ClientToken: str = None, DryRun: bool = None
     ) -> AssociateClientVpnTargetNetworkResultTypeDef:
         """
-        [Client.associate_client_vpn_target_network documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.associate_client_vpn_target_network)
+        [Client.associate_client_vpn_target_network documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.associate_client_vpn_target_network)
         """
 
     def associate_dhcp_options(self, DhcpOptionsId: str, VpcId: str, DryRun: bool = None) -> None:
         """
-        [Client.associate_dhcp_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.associate_dhcp_options)
+        [Client.associate_dhcp_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.associate_dhcp_options)
         """
 
     def associate_enclave_certificate_iam_role(
         self, CertificateArn: str = None, RoleArn: str = None, DryRun: bool = None
     ) -> AssociateEnclaveCertificateIamRoleResultTypeDef:
         """
-        [Client.associate_enclave_certificate_iam_role documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.associate_enclave_certificate_iam_role)
+        [Client.associate_enclave_certificate_iam_role documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.associate_enclave_certificate_iam_role)
         """
 
     def associate_iam_instance_profile(
         self, IamInstanceProfile: "IamInstanceProfileSpecificationTypeDef", InstanceId: str
     ) -> AssociateIamInstanceProfileResultTypeDef:
         """
-        [Client.associate_iam_instance_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.associate_iam_instance_profile)
+        [Client.associate_iam_instance_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.associate_iam_instance_profile)
         """
 
     def associate_route_table(
         self, RouteTableId: str, DryRun: bool = None, SubnetId: str = None, GatewayId: str = None
     ) -> AssociateRouteTableResultTypeDef:
         """
-        [Client.associate_route_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.associate_route_table)
+        [Client.associate_route_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.associate_route_table)
         """
 
     def associate_subnet_cidr_block(
         self, Ipv6CidrBlock: str, SubnetId: str
     ) -> AssociateSubnetCidrBlockResultTypeDef:
         """
-        [Client.associate_subnet_cidr_block documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.associate_subnet_cidr_block)
+        [Client.associate_subnet_cidr_block documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.associate_subnet_cidr_block)
         """
 
     def associate_transit_gateway_multicast_domain(
@@ -783,14 +819,14 @@ class EC2Client:
         DryRun: bool = None,
     ) -> AssociateTransitGatewayMulticastDomainResultTypeDef:
         """
-        [Client.associate_transit_gateway_multicast_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.associate_transit_gateway_multicast_domain)
+        [Client.associate_transit_gateway_multicast_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.associate_transit_gateway_multicast_domain)
         """
 
     def associate_transit_gateway_route_table(
         self, TransitGatewayRouteTableId: str, TransitGatewayAttachmentId: str, DryRun: bool = None
     ) -> AssociateTransitGatewayRouteTableResultTypeDef:
         """
-        [Client.associate_transit_gateway_route_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.associate_transit_gateway_route_table)
+        [Client.associate_transit_gateway_route_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.associate_transit_gateway_route_table)
         """
 
     def associate_vpc_cidr_block(
@@ -803,21 +839,21 @@ class EC2Client:
         Ipv6CidrBlock: str = None,
     ) -> AssociateVpcCidrBlockResultTypeDef:
         """
-        [Client.associate_vpc_cidr_block documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.associate_vpc_cidr_block)
+        [Client.associate_vpc_cidr_block documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.associate_vpc_cidr_block)
         """
 
     def attach_classic_link_vpc(
         self, Groups: List[str], InstanceId: str, VpcId: str, DryRun: bool = None
     ) -> AttachClassicLinkVpcResultTypeDef:
         """
-        [Client.attach_classic_link_vpc documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.attach_classic_link_vpc)
+        [Client.attach_classic_link_vpc documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.attach_classic_link_vpc)
         """
 
     def attach_internet_gateway(
         self, InternetGatewayId: str, VpcId: str, DryRun: bool = None
     ) -> None:
         """
-        [Client.attach_internet_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.attach_internet_gateway)
+        [Client.attach_internet_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.attach_internet_gateway)
         """
 
     def attach_network_interface(
@@ -829,21 +865,21 @@ class EC2Client:
         NetworkCardIndex: int = None,
     ) -> AttachNetworkInterfaceResultTypeDef:
         """
-        [Client.attach_network_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.attach_network_interface)
+        [Client.attach_network_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.attach_network_interface)
         """
 
     def attach_volume(
         self, Device: str, InstanceId: str, VolumeId: str, DryRun: bool = None
     ) -> "VolumeAttachmentTypeDef":
         """
-        [Client.attach_volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.attach_volume)
+        [Client.attach_volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.attach_volume)
         """
 
     def attach_vpn_gateway(
         self, VpcId: str, VpnGatewayId: str, DryRun: bool = None
     ) -> AttachVpnGatewayResultTypeDef:
         """
-        [Client.attach_vpn_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.attach_vpn_gateway)
+        [Client.attach_vpn_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.attach_vpn_gateway)
         """
 
     def authorize_client_vpn_ingress(
@@ -857,7 +893,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> AuthorizeClientVpnIngressResultTypeDef:
         """
-        [Client.authorize_client_vpn_ingress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.authorize_client_vpn_ingress)
+        [Client.authorize_client_vpn_ingress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.authorize_client_vpn_ingress)
         """
 
     def authorize_security_group_egress(
@@ -873,7 +909,7 @@ class EC2Client:
         SourceSecurityGroupOwnerId: str = None,
     ) -> None:
         """
-        [Client.authorize_security_group_egress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.authorize_security_group_egress)
+        [Client.authorize_security_group_egress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.authorize_security_group_egress)
         """
 
     def authorize_security_group_ingress(
@@ -890,80 +926,80 @@ class EC2Client:
         DryRun: bool = None,
     ) -> None:
         """
-        [Client.authorize_security_group_ingress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.authorize_security_group_ingress)
+        [Client.authorize_security_group_ingress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.authorize_security_group_ingress)
         """
 
     def bundle_instance(
         self, InstanceId: str, Storage: "StorageTypeDef", DryRun: bool = None
     ) -> BundleInstanceResultTypeDef:
         """
-        [Client.bundle_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.bundle_instance)
+        [Client.bundle_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.bundle_instance)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.can_paginate)
         """
 
     def cancel_bundle_task(
         self, BundleId: str, DryRun: bool = None
     ) -> CancelBundleTaskResultTypeDef:
         """
-        [Client.cancel_bundle_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.cancel_bundle_task)
+        [Client.cancel_bundle_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.cancel_bundle_task)
         """
 
     def cancel_capacity_reservation(
         self, CapacityReservationId: str, DryRun: bool = None
     ) -> CancelCapacityReservationResultTypeDef:
         """
-        [Client.cancel_capacity_reservation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.cancel_capacity_reservation)
+        [Client.cancel_capacity_reservation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.cancel_capacity_reservation)
         """
 
     def cancel_conversion_task(
         self, ConversionTaskId: str, DryRun: bool = None, ReasonMessage: str = None
     ) -> None:
         """
-        [Client.cancel_conversion_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.cancel_conversion_task)
+        [Client.cancel_conversion_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.cancel_conversion_task)
         """
 
     def cancel_export_task(self, ExportTaskId: str) -> None:
         """
-        [Client.cancel_export_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.cancel_export_task)
+        [Client.cancel_export_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.cancel_export_task)
         """
 
     def cancel_import_task(
         self, CancelReason: str = None, DryRun: bool = None, ImportTaskId: str = None
     ) -> CancelImportTaskResultTypeDef:
         """
-        [Client.cancel_import_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.cancel_import_task)
+        [Client.cancel_import_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.cancel_import_task)
         """
 
     def cancel_reserved_instances_listing(
         self, ReservedInstancesListingId: str
     ) -> CancelReservedInstancesListingResultTypeDef:
         """
-        [Client.cancel_reserved_instances_listing documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.cancel_reserved_instances_listing)
+        [Client.cancel_reserved_instances_listing documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.cancel_reserved_instances_listing)
         """
 
     def cancel_spot_fleet_requests(
         self, SpotFleetRequestIds: List[str], TerminateInstances: bool, DryRun: bool = None
     ) -> CancelSpotFleetRequestsResponseTypeDef:
         """
-        [Client.cancel_spot_fleet_requests documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.cancel_spot_fleet_requests)
+        [Client.cancel_spot_fleet_requests documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.cancel_spot_fleet_requests)
         """
 
     def cancel_spot_instance_requests(
         self, SpotInstanceRequestIds: List[str], DryRun: bool = None
     ) -> CancelSpotInstanceRequestsResultTypeDef:
         """
-        [Client.cancel_spot_instance_requests documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.cancel_spot_instance_requests)
+        [Client.cancel_spot_instance_requests documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.cancel_spot_instance_requests)
         """
 
     def confirm_product_instance(
         self, InstanceId: str, ProductCode: str, DryRun: bool = None
     ) -> ConfirmProductInstanceResultTypeDef:
         """
-        [Client.confirm_product_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.confirm_product_instance)
+        [Client.confirm_product_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.confirm_product_instance)
         """
 
     def copy_fpga_image(
@@ -976,7 +1012,7 @@ class EC2Client:
         ClientToken: str = None,
     ) -> CopyFpgaImageResultTypeDef:
         """
-        [Client.copy_fpga_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.copy_fpga_image)
+        [Client.copy_fpga_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.copy_fpga_image)
         """
 
     def copy_image(
@@ -988,10 +1024,11 @@ class EC2Client:
         Description: str = None,
         Encrypted: bool = None,
         KmsKeyId: str = None,
+        DestinationOutpostArn: str = None,
         DryRun: bool = None,
     ) -> CopyImageResultTypeDef:
         """
-        [Client.copy_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.copy_image)
+        [Client.copy_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.copy_image)
         """
 
     def copy_snapshot(
@@ -999,6 +1036,7 @@ class EC2Client:
         SourceRegion: str,
         SourceSnapshotId: str,
         Description: str = None,
+        DestinationOutpostArn: str = None,
         DestinationRegion: str = None,
         Encrypted: bool = None,
         KmsKeyId: str = None,
@@ -1007,7 +1045,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> CopySnapshotResultTypeDef:
         """
-        [Client.copy_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.copy_snapshot)
+        [Client.copy_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.copy_snapshot)
         """
 
     def create_capacity_reservation(
@@ -1040,7 +1078,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> CreateCapacityReservationResultTypeDef:
         """
-        [Client.create_capacity_reservation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_capacity_reservation)
+        [Client.create_capacity_reservation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_capacity_reservation)
         """
 
     def create_carrier_gateway(
@@ -1051,7 +1089,7 @@ class EC2Client:
         ClientToken: str = None,
     ) -> CreateCarrierGatewayResultTypeDef:
         """
-        [Client.create_carrier_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_carrier_gateway)
+        [Client.create_carrier_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_carrier_gateway)
         """
 
     def create_client_vpn_endpoint(
@@ -1074,7 +1112,7 @@ class EC2Client:
         ClientConnectOptions: ClientConnectOptionsTypeDef = None,
     ) -> CreateClientVpnEndpointResultTypeDef:
         """
-        [Client.create_client_vpn_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_client_vpn_endpoint)
+        [Client.create_client_vpn_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_client_vpn_endpoint)
         """
 
     def create_client_vpn_route(
@@ -1087,7 +1125,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> CreateClientVpnRouteResultTypeDef:
         """
-        [Client.create_client_vpn_route documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_client_vpn_route)
+        [Client.create_client_vpn_route documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_client_vpn_route)
         """
 
     def create_customer_gateway(
@@ -1101,19 +1139,19 @@ class EC2Client:
         DryRun: bool = None,
     ) -> CreateCustomerGatewayResultTypeDef:
         """
-        [Client.create_customer_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_customer_gateway)
+        [Client.create_customer_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_customer_gateway)
         """
 
     def create_default_subnet(
         self, AvailabilityZone: str, DryRun: bool = None
     ) -> CreateDefaultSubnetResultTypeDef:
         """
-        [Client.create_default_subnet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_default_subnet)
+        [Client.create_default_subnet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_default_subnet)
         """
 
     def create_default_vpc(self, DryRun: bool = None) -> CreateDefaultVpcResultTypeDef:
         """
-        [Client.create_default_vpc documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_default_vpc)
+        [Client.create_default_vpc documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_default_vpc)
         """
 
     def create_dhcp_options(
@@ -1123,7 +1161,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> CreateDhcpOptionsResultTypeDef:
         """
-        [Client.create_dhcp_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_dhcp_options)
+        [Client.create_dhcp_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_dhcp_options)
         """
 
     def create_egress_only_internet_gateway(
@@ -1134,7 +1172,7 @@ class EC2Client:
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
     ) -> CreateEgressOnlyInternetGatewayResultTypeDef:
         """
-        [Client.create_egress_only_internet_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_egress_only_internet_gateway)
+        [Client.create_egress_only_internet_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_egress_only_internet_gateway)
         """
 
     def create_fleet(
@@ -1154,7 +1192,7 @@ class EC2Client:
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
     ) -> CreateFleetResultTypeDef:
         """
-        [Client.create_fleet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_fleet)
+        [Client.create_fleet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_fleet)
         """
 
     def create_flow_logs(
@@ -1173,7 +1211,7 @@ class EC2Client:
         MaxAggregationInterval: int = None,
     ) -> CreateFlowLogsResultTypeDef:
         """
-        [Client.create_flow_logs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_flow_logs)
+        [Client.create_flow_logs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_flow_logs)
         """
 
     def create_fpga_image(
@@ -1187,7 +1225,7 @@ class EC2Client:
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
     ) -> CreateFpgaImageResultTypeDef:
         """
-        [Client.create_fpga_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_fpga_image)
+        [Client.create_fpga_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_fpga_image)
         """
 
     def create_image(
@@ -1198,9 +1236,10 @@ class EC2Client:
         Description: str = None,
         DryRun: bool = None,
         NoReboot: bool = None,
+        TagSpecifications: List["TagSpecificationTypeDef"] = None,
     ) -> CreateImageResultTypeDef:
         """
-        [Client.create_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_image)
+        [Client.create_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_image)
         """
 
     def create_instance_export_task(
@@ -1212,14 +1251,14 @@ class EC2Client:
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
     ) -> CreateInstanceExportTaskResultTypeDef:
         """
-        [Client.create_instance_export_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_instance_export_task)
+        [Client.create_instance_export_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_instance_export_task)
         """
 
     def create_internet_gateway(
         self, TagSpecifications: List["TagSpecificationTypeDef"] = None, DryRun: bool = None
     ) -> CreateInternetGatewayResultTypeDef:
         """
-        [Client.create_internet_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_internet_gateway)
+        [Client.create_internet_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_internet_gateway)
         """
 
     def create_key_pair(
@@ -1229,7 +1268,7 @@ class EC2Client:
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
     ) -> KeyPairTypeDef:
         """
-        [Client.create_key_pair documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_key_pair)
+        [Client.create_key_pair documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_key_pair)
         """
 
     def create_launch_template(
@@ -1242,7 +1281,7 @@ class EC2Client:
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
     ) -> CreateLaunchTemplateResultTypeDef:
         """
-        [Client.create_launch_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_launch_template)
+        [Client.create_launch_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_launch_template)
         """
 
     def create_launch_template_version(
@@ -1256,7 +1295,7 @@ class EC2Client:
         VersionDescription: str = None,
     ) -> CreateLaunchTemplateVersionResultTypeDef:
         """
-        [Client.create_launch_template_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_launch_template_version)
+        [Client.create_launch_template_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_launch_template_version)
         """
 
     def create_local_gateway_route(
@@ -1267,7 +1306,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> CreateLocalGatewayRouteResultTypeDef:
         """
-        [Client.create_local_gateway_route documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_local_gateway_route)
+        [Client.create_local_gateway_route documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_local_gateway_route)
         """
 
     def create_local_gateway_route_table_vpc_association(
@@ -1278,7 +1317,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> CreateLocalGatewayRouteTableVpcAssociationResultTypeDef:
         """
-        [Client.create_local_gateway_route_table_vpc_association documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_local_gateway_route_table_vpc_association)
+        [Client.create_local_gateway_route_table_vpc_association documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_local_gateway_route_table_vpc_association)
         """
 
     def create_managed_prefix_list(
@@ -1292,7 +1331,7 @@ class EC2Client:
         ClientToken: str = None,
     ) -> CreateManagedPrefixListResultTypeDef:
         """
-        [Client.create_managed_prefix_list documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_managed_prefix_list)
+        [Client.create_managed_prefix_list documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_managed_prefix_list)
         """
 
     def create_nat_gateway(
@@ -1304,7 +1343,7 @@ class EC2Client:
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
     ) -> CreateNatGatewayResultTypeDef:
         """
-        [Client.create_nat_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_nat_gateway)
+        [Client.create_nat_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_nat_gateway)
         """
 
     def create_network_acl(
@@ -1314,7 +1353,7 @@ class EC2Client:
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
     ) -> CreateNetworkAclResultTypeDef:
         """
-        [Client.create_network_acl documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_network_acl)
+        [Client.create_network_acl documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_network_acl)
         """
 
     def create_network_acl_entry(
@@ -1331,7 +1370,23 @@ class EC2Client:
         PortRange: "PortRangeTypeDef" = None,
     ) -> None:
         """
-        [Client.create_network_acl_entry documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_network_acl_entry)
+        [Client.create_network_acl_entry documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_network_acl_entry)
+        """
+
+    def create_network_insights_path(
+        self,
+        Source: str,
+        Destination: str,
+        Protocol: Literal["tcp", "udp"],
+        ClientToken: str,
+        SourceIp: str = None,
+        DestinationIp: str = None,
+        DestinationPort: int = None,
+        TagSpecifications: List["TagSpecificationTypeDef"] = None,
+        DryRun: bool = None,
+    ) -> CreateNetworkInsightsPathResultTypeDef:
+        """
+        [Client.create_network_insights_path documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_network_insights_path)
         """
 
     def create_network_interface(
@@ -1349,7 +1404,7 @@ class EC2Client:
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
     ) -> CreateNetworkInterfaceResultTypeDef:
         """
-        [Client.create_network_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_network_interface)
+        [Client.create_network_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_network_interface)
         """
 
     def create_network_interface_permission(
@@ -1361,7 +1416,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> CreateNetworkInterfacePermissionResultTypeDef:
         """
-        [Client.create_network_interface_permission documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_network_interface_permission)
+        [Client.create_network_interface_permission documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_network_interface_permission)
         """
 
     def create_placement_group(
@@ -1373,7 +1428,7 @@ class EC2Client:
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
     ) -> CreatePlacementGroupResultTypeDef:
         """
-        [Client.create_placement_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_placement_group)
+        [Client.create_placement_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_placement_group)
         """
 
     def create_reserved_instances_listing(
@@ -1384,7 +1439,7 @@ class EC2Client:
         ReservedInstancesId: str,
     ) -> CreateReservedInstancesListingResultTypeDef:
         """
-        [Client.create_reserved_instances_listing documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_reserved_instances_listing)
+        [Client.create_reserved_instances_listing documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_reserved_instances_listing)
         """
 
     def create_route(
@@ -1406,7 +1461,7 @@ class EC2Client:
         VpcPeeringConnectionId: str = None,
     ) -> CreateRouteResultTypeDef:
         """
-        [Client.create_route documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_route)
+        [Client.create_route documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_route)
         """
 
     def create_route_table(
@@ -1416,7 +1471,7 @@ class EC2Client:
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
     ) -> CreateRouteTableResultTypeDef:
         """
-        [Client.create_route_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_route_table)
+        [Client.create_route_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_route_table)
         """
 
     def create_security_group(
@@ -1428,37 +1483,39 @@ class EC2Client:
         DryRun: bool = None,
     ) -> CreateSecurityGroupResultTypeDef:
         """
-        [Client.create_security_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_security_group)
+        [Client.create_security_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_security_group)
         """
 
     def create_snapshot(
         self,
         VolumeId: str,
         Description: str = None,
+        OutpostArn: str = None,
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
         DryRun: bool = None,
     ) -> "SnapshotTypeDef":
         """
-        [Client.create_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_snapshot)
+        [Client.create_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_snapshot)
         """
 
     def create_snapshots(
         self,
         InstanceSpecification: InstanceSpecificationTypeDef,
         Description: str = None,
+        OutpostArn: str = None,
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
         DryRun: bool = None,
         CopyTagsFromSource: Literal["volume"] = None,
     ) -> CreateSnapshotsResultTypeDef:
         """
-        [Client.create_snapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_snapshots)
+        [Client.create_snapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_snapshots)
         """
 
     def create_spot_datafeed_subscription(
         self, Bucket: str, DryRun: bool = None, Prefix: str = None
     ) -> CreateSpotDatafeedSubscriptionResultTypeDef:
         """
-        [Client.create_spot_datafeed_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_spot_datafeed_subscription)
+        [Client.create_spot_datafeed_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_spot_datafeed_subscription)
         """
 
     def create_subnet(
@@ -1473,14 +1530,14 @@ class EC2Client:
         DryRun: bool = None,
     ) -> CreateSubnetResultTypeDef:
         """
-        [Client.create_subnet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_subnet)
+        [Client.create_subnet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_subnet)
         """
 
     def create_tags(
         self, Resources: List[Any], Tags: Optional[List[TagTypeDef]], DryRun: bool = None
     ) -> None:
         """
-        [Client.create_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_tags)
+        [Client.create_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_tags)
         """
 
     def create_traffic_mirror_filter(
@@ -1491,7 +1548,7 @@ class EC2Client:
         ClientToken: str = None,
     ) -> CreateTrafficMirrorFilterResultTypeDef:
         """
-        [Client.create_traffic_mirror_filter documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_traffic_mirror_filter)
+        [Client.create_traffic_mirror_filter documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_traffic_mirror_filter)
         """
 
     def create_traffic_mirror_filter_rule(
@@ -1510,7 +1567,7 @@ class EC2Client:
         ClientToken: str = None,
     ) -> CreateTrafficMirrorFilterRuleResultTypeDef:
         """
-        [Client.create_traffic_mirror_filter_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_traffic_mirror_filter_rule)
+        [Client.create_traffic_mirror_filter_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_traffic_mirror_filter_rule)
         """
 
     def create_traffic_mirror_session(
@@ -1527,7 +1584,7 @@ class EC2Client:
         ClientToken: str = None,
     ) -> CreateTrafficMirrorSessionResultTypeDef:
         """
-        [Client.create_traffic_mirror_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_traffic_mirror_session)
+        [Client.create_traffic_mirror_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_traffic_mirror_session)
         """
 
     def create_traffic_mirror_target(
@@ -1540,7 +1597,7 @@ class EC2Client:
         ClientToken: str = None,
     ) -> CreateTrafficMirrorTargetResultTypeDef:
         """
-        [Client.create_traffic_mirror_target documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_traffic_mirror_target)
+        [Client.create_traffic_mirror_target documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_traffic_mirror_target)
         """
 
     def create_transit_gateway(
@@ -1551,17 +1608,43 @@ class EC2Client:
         DryRun: bool = None,
     ) -> CreateTransitGatewayResultTypeDef:
         """
-        [Client.create_transit_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_transit_gateway)
+        [Client.create_transit_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_transit_gateway)
+        """
+
+    def create_transit_gateway_connect(
+        self,
+        TransportTransitGatewayAttachmentId: str,
+        Options: CreateTransitGatewayConnectRequestOptionsTypeDef,
+        TagSpecifications: List["TagSpecificationTypeDef"] = None,
+        DryRun: bool = None,
+    ) -> CreateTransitGatewayConnectResultTypeDef:
+        """
+        [Client.create_transit_gateway_connect documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_transit_gateway_connect)
+        """
+
+    def create_transit_gateway_connect_peer(
+        self,
+        TransitGatewayAttachmentId: str,
+        PeerAddress: str,
+        InsideCidrBlocks: List[str],
+        TransitGatewayAddress: str = None,
+        BgpOptions: TransitGatewayConnectRequestBgpOptionsTypeDef = None,
+        TagSpecifications: List["TagSpecificationTypeDef"] = None,
+        DryRun: bool = None,
+    ) -> CreateTransitGatewayConnectPeerResultTypeDef:
+        """
+        [Client.create_transit_gateway_connect_peer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_transit_gateway_connect_peer)
         """
 
     def create_transit_gateway_multicast_domain(
         self,
         TransitGatewayId: str,
+        Options: CreateTransitGatewayMulticastDomainRequestOptionsTypeDef = None,
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
         DryRun: bool = None,
     ) -> CreateTransitGatewayMulticastDomainResultTypeDef:
         """
-        [Client.create_transit_gateway_multicast_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_transit_gateway_multicast_domain)
+        [Client.create_transit_gateway_multicast_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_transit_gateway_multicast_domain)
         """
 
     def create_transit_gateway_peering_attachment(
@@ -1574,7 +1657,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> CreateTransitGatewayPeeringAttachmentResultTypeDef:
         """
-        [Client.create_transit_gateway_peering_attachment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_transit_gateway_peering_attachment)
+        [Client.create_transit_gateway_peering_attachment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_transit_gateway_peering_attachment)
         """
 
     def create_transit_gateway_prefix_list_reference(
@@ -1586,7 +1669,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> CreateTransitGatewayPrefixListReferenceResultTypeDef:
         """
-        [Client.create_transit_gateway_prefix_list_reference documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_transit_gateway_prefix_list_reference)
+        [Client.create_transit_gateway_prefix_list_reference documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_transit_gateway_prefix_list_reference)
         """
 
     def create_transit_gateway_route(
@@ -1598,7 +1681,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> CreateTransitGatewayRouteResultTypeDef:
         """
-        [Client.create_transit_gateway_route documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_transit_gateway_route)
+        [Client.create_transit_gateway_route documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_transit_gateway_route)
         """
 
     def create_transit_gateway_route_table(
@@ -1608,7 +1691,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> CreateTransitGatewayRouteTableResultTypeDef:
         """
-        [Client.create_transit_gateway_route_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_transit_gateway_route_table)
+        [Client.create_transit_gateway_route_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_transit_gateway_route_table)
         """
 
     def create_transit_gateway_vpc_attachment(
@@ -1621,7 +1704,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> CreateTransitGatewayVpcAttachmentResultTypeDef:
         """
-        [Client.create_transit_gateway_vpc_attachment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_transit_gateway_vpc_attachment)
+        [Client.create_transit_gateway_vpc_attachment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_transit_gateway_vpc_attachment)
         """
 
     def create_volume(
@@ -1640,7 +1723,7 @@ class EC2Client:
         Throughput: int = None,
     ) -> "VolumeTypeDef":
         """
-        [Client.create_volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_volume)
+        [Client.create_volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_volume)
         """
 
     def create_vpc(
@@ -1655,7 +1738,7 @@ class EC2Client:
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
     ) -> CreateVpcResultTypeDef:
         """
-        [Client.create_vpc documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_vpc)
+        [Client.create_vpc documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_vpc)
         """
 
     def create_vpc_endpoint(
@@ -1673,7 +1756,7 @@ class EC2Client:
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
     ) -> CreateVpcEndpointResultTypeDef:
         """
-        [Client.create_vpc_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_vpc_endpoint)
+        [Client.create_vpc_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_vpc_endpoint)
         """
 
     def create_vpc_endpoint_connection_notification(
@@ -1686,7 +1769,7 @@ class EC2Client:
         ClientToken: str = None,
     ) -> CreateVpcEndpointConnectionNotificationResultTypeDef:
         """
-        [Client.create_vpc_endpoint_connection_notification documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_vpc_endpoint_connection_notification)
+        [Client.create_vpc_endpoint_connection_notification documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_vpc_endpoint_connection_notification)
         """
 
     def create_vpc_endpoint_service_configuration(
@@ -1700,7 +1783,7 @@ class EC2Client:
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
     ) -> CreateVpcEndpointServiceConfigurationResultTypeDef:
         """
-        [Client.create_vpc_endpoint_service_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_vpc_endpoint_service_configuration)
+        [Client.create_vpc_endpoint_service_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_vpc_endpoint_service_configuration)
         """
 
     def create_vpc_peering_connection(
@@ -1713,7 +1796,7 @@ class EC2Client:
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
     ) -> CreateVpcPeeringConnectionResultTypeDef:
         """
-        [Client.create_vpc_peering_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_vpc_peering_connection)
+        [Client.create_vpc_peering_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_vpc_peering_connection)
         """
 
     def create_vpn_connection(
@@ -1727,12 +1810,12 @@ class EC2Client:
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
     ) -> CreateVpnConnectionResultTypeDef:
         """
-        [Client.create_vpn_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_vpn_connection)
+        [Client.create_vpn_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_vpn_connection)
         """
 
     def create_vpn_connection_route(self, DestinationCidrBlock: str, VpnConnectionId: str) -> None:
         """
-        [Client.create_vpn_connection_route documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_vpn_connection_route)
+        [Client.create_vpn_connection_route documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_vpn_connection_route)
         """
 
     def create_vpn_gateway(
@@ -1744,21 +1827,21 @@ class EC2Client:
         DryRun: bool = None,
     ) -> CreateVpnGatewayResultTypeDef:
         """
-        [Client.create_vpn_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.create_vpn_gateway)
+        [Client.create_vpn_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.create_vpn_gateway)
         """
 
     def delete_carrier_gateway(
         self, CarrierGatewayId: str, DryRun: bool = None
     ) -> DeleteCarrierGatewayResultTypeDef:
         """
-        [Client.delete_carrier_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_carrier_gateway)
+        [Client.delete_carrier_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_carrier_gateway)
         """
 
     def delete_client_vpn_endpoint(
         self, ClientVpnEndpointId: str, DryRun: bool = None
     ) -> DeleteClientVpnEndpointResultTypeDef:
         """
-        [Client.delete_client_vpn_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_client_vpn_endpoint)
+        [Client.delete_client_vpn_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_client_vpn_endpoint)
         """
 
     def delete_client_vpn_route(
@@ -1769,64 +1852,64 @@ class EC2Client:
         DryRun: bool = None,
     ) -> DeleteClientVpnRouteResultTypeDef:
         """
-        [Client.delete_client_vpn_route documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_client_vpn_route)
+        [Client.delete_client_vpn_route documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_client_vpn_route)
         """
 
     def delete_customer_gateway(self, CustomerGatewayId: str, DryRun: bool = None) -> None:
         """
-        [Client.delete_customer_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_customer_gateway)
+        [Client.delete_customer_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_customer_gateway)
         """
 
     def delete_dhcp_options(self, DhcpOptionsId: str, DryRun: bool = None) -> None:
         """
-        [Client.delete_dhcp_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_dhcp_options)
+        [Client.delete_dhcp_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_dhcp_options)
         """
 
     def delete_egress_only_internet_gateway(
         self, EgressOnlyInternetGatewayId: str, DryRun: bool = None
     ) -> DeleteEgressOnlyInternetGatewayResultTypeDef:
         """
-        [Client.delete_egress_only_internet_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_egress_only_internet_gateway)
+        [Client.delete_egress_only_internet_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_egress_only_internet_gateway)
         """
 
     def delete_fleets(
         self, FleetIds: List[str], TerminateInstances: bool, DryRun: bool = None
     ) -> DeleteFleetsResultTypeDef:
         """
-        [Client.delete_fleets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_fleets)
+        [Client.delete_fleets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_fleets)
         """
 
     def delete_flow_logs(
         self, FlowLogIds: List[str], DryRun: bool = None
     ) -> DeleteFlowLogsResultTypeDef:
         """
-        [Client.delete_flow_logs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_flow_logs)
+        [Client.delete_flow_logs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_flow_logs)
         """
 
     def delete_fpga_image(
         self, FpgaImageId: str, DryRun: bool = None
     ) -> DeleteFpgaImageResultTypeDef:
         """
-        [Client.delete_fpga_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_fpga_image)
+        [Client.delete_fpga_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_fpga_image)
         """
 
     def delete_internet_gateway(self, InternetGatewayId: str, DryRun: bool = None) -> None:
         """
-        [Client.delete_internet_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_internet_gateway)
+        [Client.delete_internet_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_internet_gateway)
         """
 
     def delete_key_pair(
         self, KeyName: str = None, KeyPairId: str = None, DryRun: bool = None
     ) -> None:
         """
-        [Client.delete_key_pair documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_key_pair)
+        [Client.delete_key_pair documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_key_pair)
         """
 
     def delete_launch_template(
         self, DryRun: bool = None, LaunchTemplateId: str = None, LaunchTemplateName: str = None
     ) -> DeleteLaunchTemplateResultTypeDef:
         """
-        [Client.delete_launch_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_launch_template)
+        [Client.delete_launch_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_launch_template)
         """
 
     def delete_launch_template_versions(
@@ -1837,71 +1920,85 @@ class EC2Client:
         LaunchTemplateName: str = None,
     ) -> DeleteLaunchTemplateVersionsResultTypeDef:
         """
-        [Client.delete_launch_template_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_launch_template_versions)
+        [Client.delete_launch_template_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_launch_template_versions)
         """
 
     def delete_local_gateway_route(
         self, DestinationCidrBlock: str, LocalGatewayRouteTableId: str, DryRun: bool = None
     ) -> DeleteLocalGatewayRouteResultTypeDef:
         """
-        [Client.delete_local_gateway_route documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_local_gateway_route)
+        [Client.delete_local_gateway_route documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_local_gateway_route)
         """
 
     def delete_local_gateway_route_table_vpc_association(
         self, LocalGatewayRouteTableVpcAssociationId: str, DryRun: bool = None
     ) -> DeleteLocalGatewayRouteTableVpcAssociationResultTypeDef:
         """
-        [Client.delete_local_gateway_route_table_vpc_association documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_local_gateway_route_table_vpc_association)
+        [Client.delete_local_gateway_route_table_vpc_association documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_local_gateway_route_table_vpc_association)
         """
 
     def delete_managed_prefix_list(
         self, PrefixListId: str, DryRun: bool = None
     ) -> DeleteManagedPrefixListResultTypeDef:
         """
-        [Client.delete_managed_prefix_list documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_managed_prefix_list)
+        [Client.delete_managed_prefix_list documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_managed_prefix_list)
         """
 
     def delete_nat_gateway(
         self, NatGatewayId: str, DryRun: bool = None
     ) -> DeleteNatGatewayResultTypeDef:
         """
-        [Client.delete_nat_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_nat_gateway)
+        [Client.delete_nat_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_nat_gateway)
         """
 
     def delete_network_acl(self, NetworkAclId: str, DryRun: bool = None) -> None:
         """
-        [Client.delete_network_acl documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_network_acl)
+        [Client.delete_network_acl documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_network_acl)
         """
 
     def delete_network_acl_entry(
         self, Egress: bool, NetworkAclId: str, RuleNumber: int, DryRun: bool = None
     ) -> None:
         """
-        [Client.delete_network_acl_entry documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_network_acl_entry)
+        [Client.delete_network_acl_entry documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_network_acl_entry)
+        """
+
+    def delete_network_insights_analysis(
+        self, NetworkInsightsAnalysisId: str, DryRun: bool = None
+    ) -> DeleteNetworkInsightsAnalysisResultTypeDef:
+        """
+        [Client.delete_network_insights_analysis documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_network_insights_analysis)
+        """
+
+    def delete_network_insights_path(
+        self, NetworkInsightsPathId: str, DryRun: bool = None
+    ) -> DeleteNetworkInsightsPathResultTypeDef:
+        """
+        [Client.delete_network_insights_path documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_network_insights_path)
         """
 
     def delete_network_interface(self, NetworkInterfaceId: str, DryRun: bool = None) -> None:
         """
-        [Client.delete_network_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_network_interface)
+        [Client.delete_network_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_network_interface)
         """
 
     def delete_network_interface_permission(
         self, NetworkInterfacePermissionId: str, Force: bool = None, DryRun: bool = None
     ) -> DeleteNetworkInterfacePermissionResultTypeDef:
         """
-        [Client.delete_network_interface_permission documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_network_interface_permission)
+        [Client.delete_network_interface_permission documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_network_interface_permission)
         """
 
     def delete_placement_group(self, GroupName: str, DryRun: bool = None) -> None:
         """
-        [Client.delete_placement_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_placement_group)
+        [Client.delete_placement_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_placement_group)
         """
 
     def delete_queued_reserved_instances(
         self, ReservedInstancesIds: List[str], DryRun: bool = None
     ) -> DeleteQueuedReservedInstancesResultTypeDef:
         """
-        [Client.delete_queued_reserved_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_queued_reserved_instances)
+        [Client.delete_queued_reserved_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_queued_reserved_instances)
         """
 
     def delete_route(
@@ -1913,183 +2010,197 @@ class EC2Client:
         DryRun: bool = None,
     ) -> None:
         """
-        [Client.delete_route documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_route)
+        [Client.delete_route documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_route)
         """
 
     def delete_route_table(self, RouteTableId: str, DryRun: bool = None) -> None:
         """
-        [Client.delete_route_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_route_table)
+        [Client.delete_route_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_route_table)
         """
 
     def delete_security_group(
         self, GroupId: str = None, GroupName: str = None, DryRun: bool = None
     ) -> None:
         """
-        [Client.delete_security_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_security_group)
+        [Client.delete_security_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_security_group)
         """
 
     def delete_snapshot(self, SnapshotId: str, DryRun: bool = None) -> None:
         """
-        [Client.delete_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_snapshot)
+        [Client.delete_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_snapshot)
         """
 
     def delete_spot_datafeed_subscription(self, DryRun: bool = None) -> None:
         """
-        [Client.delete_spot_datafeed_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_spot_datafeed_subscription)
+        [Client.delete_spot_datafeed_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_spot_datafeed_subscription)
         """
 
     def delete_subnet(self, SubnetId: str, DryRun: bool = None) -> None:
         """
-        [Client.delete_subnet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_subnet)
+        [Client.delete_subnet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_subnet)
         """
 
     def delete_tags(
         self, Resources: List[Any], DryRun: bool = None, Tags: Optional[List[TagTypeDef]] = None
     ) -> None:
         """
-        [Client.delete_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_tags)
+        [Client.delete_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_tags)
         """
 
     def delete_traffic_mirror_filter(
         self, TrafficMirrorFilterId: str, DryRun: bool = None
     ) -> DeleteTrafficMirrorFilterResultTypeDef:
         """
-        [Client.delete_traffic_mirror_filter documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_traffic_mirror_filter)
+        [Client.delete_traffic_mirror_filter documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_traffic_mirror_filter)
         """
 
     def delete_traffic_mirror_filter_rule(
         self, TrafficMirrorFilterRuleId: str, DryRun: bool = None
     ) -> DeleteTrafficMirrorFilterRuleResultTypeDef:
         """
-        [Client.delete_traffic_mirror_filter_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_traffic_mirror_filter_rule)
+        [Client.delete_traffic_mirror_filter_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_traffic_mirror_filter_rule)
         """
 
     def delete_traffic_mirror_session(
         self, TrafficMirrorSessionId: str, DryRun: bool = None
     ) -> DeleteTrafficMirrorSessionResultTypeDef:
         """
-        [Client.delete_traffic_mirror_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_traffic_mirror_session)
+        [Client.delete_traffic_mirror_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_traffic_mirror_session)
         """
 
     def delete_traffic_mirror_target(
         self, TrafficMirrorTargetId: str, DryRun: bool = None
     ) -> DeleteTrafficMirrorTargetResultTypeDef:
         """
-        [Client.delete_traffic_mirror_target documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_traffic_mirror_target)
+        [Client.delete_traffic_mirror_target documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_traffic_mirror_target)
         """
 
     def delete_transit_gateway(
         self, TransitGatewayId: str, DryRun: bool = None
     ) -> DeleteTransitGatewayResultTypeDef:
         """
-        [Client.delete_transit_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_transit_gateway)
+        [Client.delete_transit_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_transit_gateway)
+        """
+
+    def delete_transit_gateway_connect(
+        self, TransitGatewayAttachmentId: str, DryRun: bool = None
+    ) -> DeleteTransitGatewayConnectResultTypeDef:
+        """
+        [Client.delete_transit_gateway_connect documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_transit_gateway_connect)
+        """
+
+    def delete_transit_gateway_connect_peer(
+        self, TransitGatewayConnectPeerId: str, DryRun: bool = None
+    ) -> DeleteTransitGatewayConnectPeerResultTypeDef:
+        """
+        [Client.delete_transit_gateway_connect_peer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_transit_gateway_connect_peer)
         """
 
     def delete_transit_gateway_multicast_domain(
         self, TransitGatewayMulticastDomainId: str, DryRun: bool = None
     ) -> DeleteTransitGatewayMulticastDomainResultTypeDef:
         """
-        [Client.delete_transit_gateway_multicast_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_transit_gateway_multicast_domain)
+        [Client.delete_transit_gateway_multicast_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_transit_gateway_multicast_domain)
         """
 
     def delete_transit_gateway_peering_attachment(
         self, TransitGatewayAttachmentId: str, DryRun: bool = None
     ) -> DeleteTransitGatewayPeeringAttachmentResultTypeDef:
         """
-        [Client.delete_transit_gateway_peering_attachment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_transit_gateway_peering_attachment)
+        [Client.delete_transit_gateway_peering_attachment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_transit_gateway_peering_attachment)
         """
 
     def delete_transit_gateway_prefix_list_reference(
         self, TransitGatewayRouteTableId: str, PrefixListId: str, DryRun: bool = None
     ) -> DeleteTransitGatewayPrefixListReferenceResultTypeDef:
         """
-        [Client.delete_transit_gateway_prefix_list_reference documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_transit_gateway_prefix_list_reference)
+        [Client.delete_transit_gateway_prefix_list_reference documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_transit_gateway_prefix_list_reference)
         """
 
     def delete_transit_gateway_route(
         self, TransitGatewayRouteTableId: str, DestinationCidrBlock: str, DryRun: bool = None
     ) -> DeleteTransitGatewayRouteResultTypeDef:
         """
-        [Client.delete_transit_gateway_route documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_transit_gateway_route)
+        [Client.delete_transit_gateway_route documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_transit_gateway_route)
         """
 
     def delete_transit_gateway_route_table(
         self, TransitGatewayRouteTableId: str, DryRun: bool = None
     ) -> DeleteTransitGatewayRouteTableResultTypeDef:
         """
-        [Client.delete_transit_gateway_route_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_transit_gateway_route_table)
+        [Client.delete_transit_gateway_route_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_transit_gateway_route_table)
         """
 
     def delete_transit_gateway_vpc_attachment(
         self, TransitGatewayAttachmentId: str, DryRun: bool = None
     ) -> DeleteTransitGatewayVpcAttachmentResultTypeDef:
         """
-        [Client.delete_transit_gateway_vpc_attachment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_transit_gateway_vpc_attachment)
+        [Client.delete_transit_gateway_vpc_attachment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_transit_gateway_vpc_attachment)
         """
 
     def delete_volume(self, VolumeId: str, DryRun: bool = None) -> None:
         """
-        [Client.delete_volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_volume)
+        [Client.delete_volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_volume)
         """
 
     def delete_vpc(self, VpcId: str, DryRun: bool = None) -> None:
         """
-        [Client.delete_vpc documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_vpc)
+        [Client.delete_vpc documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_vpc)
         """
 
     def delete_vpc_endpoint_connection_notifications(
         self, ConnectionNotificationIds: List[str], DryRun: bool = None
     ) -> DeleteVpcEndpointConnectionNotificationsResultTypeDef:
         """
-        [Client.delete_vpc_endpoint_connection_notifications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_vpc_endpoint_connection_notifications)
+        [Client.delete_vpc_endpoint_connection_notifications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_vpc_endpoint_connection_notifications)
         """
 
     def delete_vpc_endpoint_service_configurations(
         self, ServiceIds: List[str], DryRun: bool = None
     ) -> DeleteVpcEndpointServiceConfigurationsResultTypeDef:
         """
-        [Client.delete_vpc_endpoint_service_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_vpc_endpoint_service_configurations)
+        [Client.delete_vpc_endpoint_service_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_vpc_endpoint_service_configurations)
         """
 
     def delete_vpc_endpoints(
         self, VpcEndpointIds: List[str], DryRun: bool = None
     ) -> DeleteVpcEndpointsResultTypeDef:
         """
-        [Client.delete_vpc_endpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_vpc_endpoints)
+        [Client.delete_vpc_endpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_vpc_endpoints)
         """
 
     def delete_vpc_peering_connection(
         self, VpcPeeringConnectionId: str, DryRun: bool = None
     ) -> DeleteVpcPeeringConnectionResultTypeDef:
         """
-        [Client.delete_vpc_peering_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_vpc_peering_connection)
+        [Client.delete_vpc_peering_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_vpc_peering_connection)
         """
 
     def delete_vpn_connection(self, VpnConnectionId: str, DryRun: bool = None) -> None:
         """
-        [Client.delete_vpn_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_vpn_connection)
+        [Client.delete_vpn_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_vpn_connection)
         """
 
     def delete_vpn_connection_route(self, DestinationCidrBlock: str, VpnConnectionId: str) -> None:
         """
-        [Client.delete_vpn_connection_route documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_vpn_connection_route)
+        [Client.delete_vpn_connection_route documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_vpn_connection_route)
         """
 
     def delete_vpn_gateway(self, VpnGatewayId: str, DryRun: bool = None) -> None:
         """
-        [Client.delete_vpn_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.delete_vpn_gateway)
+        [Client.delete_vpn_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.delete_vpn_gateway)
         """
 
     def deprovision_byoip_cidr(
         self, Cidr: str, DryRun: bool = None
     ) -> DeprovisionByoipCidrResultTypeDef:
         """
-        [Client.deprovision_byoip_cidr documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.deprovision_byoip_cidr)
+        [Client.deprovision_byoip_cidr documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.deprovision_byoip_cidr)
         """
 
     def deregister_image(self, ImageId: str, DryRun: bool = None) -> None:
         """
-        [Client.deregister_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.deregister_image)
+        [Client.deregister_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.deregister_image)
         """
 
     def deregister_instance_event_notification_attributes(
@@ -2098,7 +2209,7 @@ class EC2Client:
         InstanceTagAttribute: DeregisterInstanceTagAttributeRequestTypeDef = None,
     ) -> DeregisterInstanceEventNotificationAttributesResultTypeDef:
         """
-        [Client.deregister_instance_event_notification_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.deregister_instance_event_notification_attributes)
+        [Client.deregister_instance_event_notification_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.deregister_instance_event_notification_attributes)
         """
 
     def deregister_transit_gateway_multicast_group_members(
@@ -2109,7 +2220,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> DeregisterTransitGatewayMulticastGroupMembersResultTypeDef:
         """
-        [Client.deregister_transit_gateway_multicast_group_members documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.deregister_transit_gateway_multicast_group_members)
+        [Client.deregister_transit_gateway_multicast_group_members documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.deregister_transit_gateway_multicast_group_members)
         """
 
     def deregister_transit_gateway_multicast_group_sources(
@@ -2120,7 +2231,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> DeregisterTransitGatewayMulticastGroupSourcesResultTypeDef:
         """
-        [Client.deregister_transit_gateway_multicast_group_sources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.deregister_transit_gateway_multicast_group_sources)
+        [Client.deregister_transit_gateway_multicast_group_sources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.deregister_transit_gateway_multicast_group_sources)
         """
 
     def describe_account_attributes(
@@ -2129,7 +2240,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> DescribeAccountAttributesResultTypeDef:
         """
-        [Client.describe_account_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_account_attributes)
+        [Client.describe_account_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_account_attributes)
         """
 
     def describe_addresses(
@@ -2140,14 +2251,26 @@ class EC2Client:
         DryRun: bool = None,
     ) -> DescribeAddressesResultTypeDef:
         """
-        [Client.describe_addresses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_addresses)
+        [Client.describe_addresses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_addresses)
+        """
+
+    def describe_addresses_attribute(
+        self,
+        AllocationIds: List[str] = None,
+        Attribute: Literal["domain-name"] = None,
+        NextToken: str = None,
+        MaxResults: int = None,
+        DryRun: bool = None,
+    ) -> DescribeAddressesAttributeResultTypeDef:
+        """
+        [Client.describe_addresses_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_addresses_attribute)
         """
 
     def describe_aggregate_id_format(
         self, DryRun: bool = None
     ) -> DescribeAggregateIdFormatResultTypeDef:
         """
-        [Client.describe_aggregate_id_format documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_aggregate_id_format)
+        [Client.describe_aggregate_id_format documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_aggregate_id_format)
         """
 
     def describe_availability_zones(
@@ -2159,21 +2282,21 @@ class EC2Client:
         DryRun: bool = None,
     ) -> DescribeAvailabilityZonesResultTypeDef:
         """
-        [Client.describe_availability_zones documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_availability_zones)
+        [Client.describe_availability_zones documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_availability_zones)
         """
 
     def describe_bundle_tasks(
         self, BundleIds: List[str] = None, Filters: List[FilterTypeDef] = None, DryRun: bool = None
     ) -> DescribeBundleTasksResultTypeDef:
         """
-        [Client.describe_bundle_tasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_bundle_tasks)
+        [Client.describe_bundle_tasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_bundle_tasks)
         """
 
     def describe_byoip_cidrs(
         self, MaxResults: int, DryRun: bool = None, NextToken: str = None
     ) -> DescribeByoipCidrsResultTypeDef:
         """
-        [Client.describe_byoip_cidrs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_byoip_cidrs)
+        [Client.describe_byoip_cidrs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_byoip_cidrs)
         """
 
     def describe_capacity_reservations(
@@ -2185,7 +2308,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> DescribeCapacityReservationsResultTypeDef:
         """
-        [Client.describe_capacity_reservations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_capacity_reservations)
+        [Client.describe_capacity_reservations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_capacity_reservations)
         """
 
     def describe_carrier_gateways(
@@ -2197,7 +2320,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> DescribeCarrierGatewaysResultTypeDef:
         """
-        [Client.describe_carrier_gateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_carrier_gateways)
+        [Client.describe_carrier_gateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_carrier_gateways)
         """
 
     def describe_classic_link_instances(
@@ -2209,7 +2332,7 @@ class EC2Client:
         NextToken: str = None,
     ) -> DescribeClassicLinkInstancesResultTypeDef:
         """
-        [Client.describe_classic_link_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_classic_link_instances)
+        [Client.describe_classic_link_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_classic_link_instances)
         """
 
     def describe_client_vpn_authorization_rules(
@@ -2221,7 +2344,7 @@ class EC2Client:
         MaxResults: int = None,
     ) -> DescribeClientVpnAuthorizationRulesResultTypeDef:
         """
-        [Client.describe_client_vpn_authorization_rules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_client_vpn_authorization_rules)
+        [Client.describe_client_vpn_authorization_rules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_client_vpn_authorization_rules)
         """
 
     def describe_client_vpn_connections(
@@ -2233,7 +2356,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> DescribeClientVpnConnectionsResultTypeDef:
         """
-        [Client.describe_client_vpn_connections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_client_vpn_connections)
+        [Client.describe_client_vpn_connections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_client_vpn_connections)
         """
 
     def describe_client_vpn_endpoints(
@@ -2245,7 +2368,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> DescribeClientVpnEndpointsResultTypeDef:
         """
-        [Client.describe_client_vpn_endpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_client_vpn_endpoints)
+        [Client.describe_client_vpn_endpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_client_vpn_endpoints)
         """
 
     def describe_client_vpn_routes(
@@ -2257,7 +2380,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> DescribeClientVpnRoutesResultTypeDef:
         """
-        [Client.describe_client_vpn_routes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_client_vpn_routes)
+        [Client.describe_client_vpn_routes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_client_vpn_routes)
         """
 
     def describe_client_vpn_target_networks(
@@ -2270,7 +2393,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> DescribeClientVpnTargetNetworksResultTypeDef:
         """
-        [Client.describe_client_vpn_target_networks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_client_vpn_target_networks)
+        [Client.describe_client_vpn_target_networks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_client_vpn_target_networks)
         """
 
     def describe_coip_pools(
@@ -2282,14 +2405,14 @@ class EC2Client:
         DryRun: bool = None,
     ) -> DescribeCoipPoolsResultTypeDef:
         """
-        [Client.describe_coip_pools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_coip_pools)
+        [Client.describe_coip_pools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_coip_pools)
         """
 
     def describe_conversion_tasks(
         self, ConversionTaskIds: List[str] = None, DryRun: bool = None
     ) -> DescribeConversionTasksResultTypeDef:
         """
-        [Client.describe_conversion_tasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_conversion_tasks)
+        [Client.describe_conversion_tasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_conversion_tasks)
         """
 
     def describe_customer_gateways(
@@ -2299,7 +2422,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> DescribeCustomerGatewaysResultTypeDef:
         """
-        [Client.describe_customer_gateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_customer_gateways)
+        [Client.describe_customer_gateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_customer_gateways)
         """
 
     def describe_dhcp_options(
@@ -2311,7 +2434,7 @@ class EC2Client:
         MaxResults: int = None,
     ) -> DescribeDhcpOptionsResultTypeDef:
         """
-        [Client.describe_dhcp_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_dhcp_options)
+        [Client.describe_dhcp_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_dhcp_options)
         """
 
     def describe_egress_only_internet_gateways(
@@ -2323,7 +2446,7 @@ class EC2Client:
         Filters: List[FilterTypeDef] = None,
     ) -> DescribeEgressOnlyInternetGatewaysResultTypeDef:
         """
-        [Client.describe_egress_only_internet_gateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_egress_only_internet_gateways)
+        [Client.describe_egress_only_internet_gateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_egress_only_internet_gateways)
         """
 
     def describe_elastic_gpus(
@@ -2335,7 +2458,7 @@ class EC2Client:
         NextToken: str = None,
     ) -> DescribeElasticGpusResultTypeDef:
         """
-        [Client.describe_elastic_gpus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_elastic_gpus)
+        [Client.describe_elastic_gpus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_elastic_gpus)
         """
 
     def describe_export_image_tasks(
@@ -2347,14 +2470,14 @@ class EC2Client:
         NextToken: str = None,
     ) -> DescribeExportImageTasksResultTypeDef:
         """
-        [Client.describe_export_image_tasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_export_image_tasks)
+        [Client.describe_export_image_tasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_export_image_tasks)
         """
 
     def describe_export_tasks(
         self, ExportTaskIds: List[str] = None, Filters: List[FilterTypeDef] = None
     ) -> DescribeExportTasksResultTypeDef:
         """
-        [Client.describe_export_tasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_export_tasks)
+        [Client.describe_export_tasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_export_tasks)
         """
 
     def describe_fast_snapshot_restores(
@@ -2365,7 +2488,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> DescribeFastSnapshotRestoresResultTypeDef:
         """
-        [Client.describe_fast_snapshot_restores documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_fast_snapshot_restores)
+        [Client.describe_fast_snapshot_restores documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_fast_snapshot_restores)
         """
 
     def describe_fleet_history(
@@ -2378,7 +2501,7 @@ class EC2Client:
         NextToken: str = None,
     ) -> DescribeFleetHistoryResultTypeDef:
         """
-        [Client.describe_fleet_history documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_fleet_history)
+        [Client.describe_fleet_history documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_fleet_history)
         """
 
     def describe_fleet_instances(
@@ -2390,7 +2513,7 @@ class EC2Client:
         Filters: List[FilterTypeDef] = None,
     ) -> DescribeFleetInstancesResultTypeDef:
         """
-        [Client.describe_fleet_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_fleet_instances)
+        [Client.describe_fleet_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_fleet_instances)
         """
 
     def describe_fleets(
@@ -2402,7 +2525,7 @@ class EC2Client:
         Filters: List[FilterTypeDef] = None,
     ) -> DescribeFleetsResultTypeDef:
         """
-        [Client.describe_fleets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_fleets)
+        [Client.describe_fleets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_fleets)
         """
 
     def describe_flow_logs(
@@ -2414,7 +2537,7 @@ class EC2Client:
         NextToken: str = None,
     ) -> DescribeFlowLogsResultTypeDef:
         """
-        [Client.describe_flow_logs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_flow_logs)
+        [Client.describe_flow_logs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_flow_logs)
         """
 
     def describe_fpga_image_attribute(
@@ -2424,7 +2547,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> DescribeFpgaImageAttributeResultTypeDef:
         """
-        [Client.describe_fpga_image_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_fpga_image_attribute)
+        [Client.describe_fpga_image_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_fpga_image_attribute)
         """
 
     def describe_fpga_images(
@@ -2437,7 +2560,7 @@ class EC2Client:
         MaxResults: int = None,
     ) -> DescribeFpgaImagesResultTypeDef:
         """
-        [Client.describe_fpga_images documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_fpga_images)
+        [Client.describe_fpga_images documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_fpga_images)
         """
 
     def describe_host_reservation_offerings(
@@ -2450,7 +2573,7 @@ class EC2Client:
         OfferingId: str = None,
     ) -> DescribeHostReservationOfferingsResultTypeDef:
         """
-        [Client.describe_host_reservation_offerings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_host_reservation_offerings)
+        [Client.describe_host_reservation_offerings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_host_reservation_offerings)
         """
 
     def describe_host_reservations(
@@ -2461,7 +2584,7 @@ class EC2Client:
         NextToken: str = None,
     ) -> DescribeHostReservationsResultTypeDef:
         """
-        [Client.describe_host_reservations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_host_reservations)
+        [Client.describe_host_reservations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_host_reservations)
         """
 
     def describe_hosts(
@@ -2472,7 +2595,7 @@ class EC2Client:
         NextToken: str = None,
     ) -> DescribeHostsResultTypeDef:
         """
-        [Client.describe_hosts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_hosts)
+        [Client.describe_hosts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_hosts)
         """
 
     def describe_iam_instance_profile_associations(
@@ -2483,19 +2606,19 @@ class EC2Client:
         NextToken: str = None,
     ) -> DescribeIamInstanceProfileAssociationsResultTypeDef:
         """
-        [Client.describe_iam_instance_profile_associations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_iam_instance_profile_associations)
+        [Client.describe_iam_instance_profile_associations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_iam_instance_profile_associations)
         """
 
     def describe_id_format(self, Resource: str = None) -> DescribeIdFormatResultTypeDef:
         """
-        [Client.describe_id_format documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_id_format)
+        [Client.describe_id_format documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_id_format)
         """
 
     def describe_identity_id_format(
         self, PrincipalArn: str, Resource: str = None
     ) -> DescribeIdentityIdFormatResultTypeDef:
         """
-        [Client.describe_identity_id_format documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_identity_id_format)
+        [Client.describe_identity_id_format documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_identity_id_format)
         """
 
     def describe_image_attribute(
@@ -2513,7 +2636,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> ImageAttributeTypeDef:
         """
-        [Client.describe_image_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_image_attribute)
+        [Client.describe_image_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_image_attribute)
         """
 
     def describe_images(
@@ -2525,7 +2648,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> DescribeImagesResultTypeDef:
         """
-        [Client.describe_images documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_images)
+        [Client.describe_images documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_images)
         """
 
     def describe_import_image_tasks(
@@ -2537,7 +2660,7 @@ class EC2Client:
         NextToken: str = None,
     ) -> DescribeImportImageTasksResultTypeDef:
         """
-        [Client.describe_import_image_tasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_import_image_tasks)
+        [Client.describe_import_image_tasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_import_image_tasks)
         """
 
     def describe_import_snapshot_tasks(
@@ -2549,7 +2672,7 @@ class EC2Client:
         NextToken: str = None,
     ) -> DescribeImportSnapshotTasksResultTypeDef:
         """
-        [Client.describe_import_snapshot_tasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_import_snapshot_tasks)
+        [Client.describe_import_snapshot_tasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_import_snapshot_tasks)
         """
 
     def describe_instance_attribute(
@@ -2575,7 +2698,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> InstanceAttributeTypeDef:
         """
-        [Client.describe_instance_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_instance_attribute)
+        [Client.describe_instance_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_instance_attribute)
         """
 
     def describe_instance_credit_specifications(
@@ -2587,14 +2710,14 @@ class EC2Client:
         NextToken: str = None,
     ) -> DescribeInstanceCreditSpecificationsResultTypeDef:
         """
-        [Client.describe_instance_credit_specifications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_instance_credit_specifications)
+        [Client.describe_instance_credit_specifications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_instance_credit_specifications)
         """
 
     def describe_instance_event_notification_attributes(
         self, DryRun: bool = None
     ) -> DescribeInstanceEventNotificationAttributesResultTypeDef:
         """
-        [Client.describe_instance_event_notification_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_instance_event_notification_attributes)
+        [Client.describe_instance_event_notification_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_instance_event_notification_attributes)
         """
 
     def describe_instance_status(
@@ -2607,7 +2730,7 @@ class EC2Client:
         IncludeAllInstances: bool = None,
     ) -> DescribeInstanceStatusResultTypeDef:
         """
-        [Client.describe_instance_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_instance_status)
+        [Client.describe_instance_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_instance_status)
         """
 
     def describe_instance_type_offerings(
@@ -2619,7 +2742,7 @@ class EC2Client:
         NextToken: str = None,
     ) -> DescribeInstanceTypeOfferingsResultTypeDef:
         """
-        [Client.describe_instance_type_offerings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_instance_type_offerings)
+        [Client.describe_instance_type_offerings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_instance_type_offerings)
         """
 
     def describe_instance_types(
@@ -2827,6 +2950,7 @@ class EC2Client:
                 "c5n.4xlarge",
                 "c5n.9xlarge",
                 "c5n.18xlarge",
+                "c5n.metal",
                 "c6g.metal",
                 "c6g.medium",
                 "c6g.large",
@@ -2845,6 +2969,14 @@ class EC2Client:
                 "c6gd.8xlarge",
                 "c6gd.12xlarge",
                 "c6gd.16xlarge",
+                "c6gn.medium",
+                "c6gn.large",
+                "c6gn.xlarge",
+                "c6gn.2xlarge",
+                "c6gn.4xlarge",
+                "c6gn.8xlarge",
+                "c6gn.12xlarge",
+                "c6gn.16xlarge",
                 "cc1.4xlarge",
                 "cc2.8xlarge",
                 "g2.2xlarge",
@@ -2853,6 +2985,9 @@ class EC2Client:
                 "g3.8xlarge",
                 "g3.16xlarge",
                 "g3s.xlarge",
+                "g4ad.4xlarge",
+                "g4ad.8xlarge",
+                "g4ad.16xlarge",
                 "g4dn.xlarge",
                 "g4dn.2xlarge",
                 "g4dn.4xlarge",
@@ -3011,7 +3146,7 @@ class EC2Client:
         NextToken: str = None,
     ) -> DescribeInstanceTypesResultTypeDef:
         """
-        [Client.describe_instance_types documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_instance_types)
+        [Client.describe_instance_types documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_instance_types)
         """
 
     def describe_instances(
@@ -3023,7 +3158,7 @@ class EC2Client:
         NextToken: str = None,
     ) -> DescribeInstancesResultTypeDef:
         """
-        [Client.describe_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_instances)
+        [Client.describe_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_instances)
         """
 
     def describe_internet_gateways(
@@ -3035,7 +3170,7 @@ class EC2Client:
         MaxResults: int = None,
     ) -> DescribeInternetGatewaysResultTypeDef:
         """
-        [Client.describe_internet_gateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_internet_gateways)
+        [Client.describe_internet_gateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_internet_gateways)
         """
 
     def describe_ipv6_pools(
@@ -3047,7 +3182,7 @@ class EC2Client:
         Filters: List[FilterTypeDef] = None,
     ) -> DescribeIpv6PoolsResultTypeDef:
         """
-        [Client.describe_ipv6_pools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_ipv6_pools)
+        [Client.describe_ipv6_pools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_ipv6_pools)
         """
 
     def describe_key_pairs(
@@ -3058,7 +3193,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> DescribeKeyPairsResultTypeDef:
         """
-        [Client.describe_key_pairs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_key_pairs)
+        [Client.describe_key_pairs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_key_pairs)
         """
 
     def describe_launch_template_versions(
@@ -3074,7 +3209,7 @@ class EC2Client:
         Filters: List[FilterTypeDef] = None,
     ) -> DescribeLaunchTemplateVersionsResultTypeDef:
         """
-        [Client.describe_launch_template_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_launch_template_versions)
+        [Client.describe_launch_template_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_launch_template_versions)
         """
 
     def describe_launch_templates(
@@ -3087,7 +3222,7 @@ class EC2Client:
         MaxResults: int = None,
     ) -> DescribeLaunchTemplatesResultTypeDef:
         """
-        [Client.describe_launch_templates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_launch_templates)
+        [Client.describe_launch_templates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_launch_templates)
         """
 
     def describe_local_gateway_route_table_virtual_interface_group_associations(
@@ -3099,7 +3234,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsResultTypeDef:
         """
-        [Client.describe_local_gateway_route_table_virtual_interface_group_associations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_local_gateway_route_table_virtual_interface_group_associations)
+        [Client.describe_local_gateway_route_table_virtual_interface_group_associations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_local_gateway_route_table_virtual_interface_group_associations)
         """
 
     def describe_local_gateway_route_table_vpc_associations(
@@ -3111,7 +3246,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> DescribeLocalGatewayRouteTableVpcAssociationsResultTypeDef:
         """
-        [Client.describe_local_gateway_route_table_vpc_associations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_local_gateway_route_table_vpc_associations)
+        [Client.describe_local_gateway_route_table_vpc_associations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_local_gateway_route_table_vpc_associations)
         """
 
     def describe_local_gateway_route_tables(
@@ -3123,7 +3258,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> DescribeLocalGatewayRouteTablesResultTypeDef:
         """
-        [Client.describe_local_gateway_route_tables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_local_gateway_route_tables)
+        [Client.describe_local_gateway_route_tables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_local_gateway_route_tables)
         """
 
     def describe_local_gateway_virtual_interface_groups(
@@ -3135,7 +3270,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> DescribeLocalGatewayVirtualInterfaceGroupsResultTypeDef:
         """
-        [Client.describe_local_gateway_virtual_interface_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_local_gateway_virtual_interface_groups)
+        [Client.describe_local_gateway_virtual_interface_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_local_gateway_virtual_interface_groups)
         """
 
     def describe_local_gateway_virtual_interfaces(
@@ -3147,7 +3282,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> DescribeLocalGatewayVirtualInterfacesResultTypeDef:
         """
-        [Client.describe_local_gateway_virtual_interfaces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_local_gateway_virtual_interfaces)
+        [Client.describe_local_gateway_virtual_interfaces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_local_gateway_virtual_interfaces)
         """
 
     def describe_local_gateways(
@@ -3159,7 +3294,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> DescribeLocalGatewaysResultTypeDef:
         """
-        [Client.describe_local_gateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_local_gateways)
+        [Client.describe_local_gateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_local_gateways)
         """
 
     def describe_managed_prefix_lists(
@@ -3171,7 +3306,7 @@ class EC2Client:
         PrefixListIds: List[str] = None,
     ) -> DescribeManagedPrefixListsResultTypeDef:
         """
-        [Client.describe_managed_prefix_lists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_managed_prefix_lists)
+        [Client.describe_managed_prefix_lists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_managed_prefix_lists)
         """
 
     def describe_moving_addresses(
@@ -3183,7 +3318,7 @@ class EC2Client:
         PublicIps: List[str] = None,
     ) -> DescribeMovingAddressesResultTypeDef:
         """
-        [Client.describe_moving_addresses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_moving_addresses)
+        [Client.describe_moving_addresses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_moving_addresses)
         """
 
     def describe_nat_gateways(
@@ -3195,7 +3330,7 @@ class EC2Client:
         NextToken: str = None,
     ) -> DescribeNatGatewaysResultTypeDef:
         """
-        [Client.describe_nat_gateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_nat_gateways)
+        [Client.describe_nat_gateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_nat_gateways)
         """
 
     def describe_network_acls(
@@ -3207,7 +3342,34 @@ class EC2Client:
         MaxResults: int = None,
     ) -> DescribeNetworkAclsResultTypeDef:
         """
-        [Client.describe_network_acls documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_network_acls)
+        [Client.describe_network_acls documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_network_acls)
+        """
+
+    def describe_network_insights_analyses(
+        self,
+        NetworkInsightsAnalysisIds: List[str] = None,
+        NetworkInsightsPathId: str = None,
+        AnalysisStartTime: datetime = None,
+        AnalysisEndTime: datetime = None,
+        Filters: List[FilterTypeDef] = None,
+        MaxResults: int = None,
+        DryRun: bool = None,
+        NextToken: str = None,
+    ) -> DescribeNetworkInsightsAnalysesResultTypeDef:
+        """
+        [Client.describe_network_insights_analyses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_network_insights_analyses)
+        """
+
+    def describe_network_insights_paths(
+        self,
+        NetworkInsightsPathIds: List[str] = None,
+        Filters: List[FilterTypeDef] = None,
+        MaxResults: int = None,
+        DryRun: bool = None,
+        NextToken: str = None,
+    ) -> DescribeNetworkInsightsPathsResultTypeDef:
+        """
+        [Client.describe_network_insights_paths documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_network_insights_paths)
         """
 
     def describe_network_interface_attribute(
@@ -3217,7 +3379,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> DescribeNetworkInterfaceAttributeResultTypeDef:
         """
-        [Client.describe_network_interface_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_network_interface_attribute)
+        [Client.describe_network_interface_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_network_interface_attribute)
         """
 
     def describe_network_interface_permissions(
@@ -3228,7 +3390,7 @@ class EC2Client:
         MaxResults: int = None,
     ) -> DescribeNetworkInterfacePermissionsResultTypeDef:
         """
-        [Client.describe_network_interface_permissions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_network_interface_permissions)
+        [Client.describe_network_interface_permissions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_network_interface_permissions)
         """
 
     def describe_network_interfaces(
@@ -3240,7 +3402,7 @@ class EC2Client:
         MaxResults: int = None,
     ) -> DescribeNetworkInterfacesResultTypeDef:
         """
-        [Client.describe_network_interfaces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_network_interfaces)
+        [Client.describe_network_interfaces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_network_interfaces)
         """
 
     def describe_placement_groups(
@@ -3251,7 +3413,7 @@ class EC2Client:
         GroupIds: List[str] = None,
     ) -> DescribePlacementGroupsResultTypeDef:
         """
-        [Client.describe_placement_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_placement_groups)
+        [Client.describe_placement_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_placement_groups)
         """
 
     def describe_prefix_lists(
@@ -3263,7 +3425,7 @@ class EC2Client:
         PrefixListIds: List[str] = None,
     ) -> DescribePrefixListsResultTypeDef:
         """
-        [Client.describe_prefix_lists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_prefix_lists)
+        [Client.describe_prefix_lists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_prefix_lists)
         """
 
     def describe_principal_id_format(
@@ -3274,7 +3436,7 @@ class EC2Client:
         NextToken: str = None,
     ) -> DescribePrincipalIdFormatResultTypeDef:
         """
-        [Client.describe_principal_id_format documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_principal_id_format)
+        [Client.describe_principal_id_format documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_principal_id_format)
         """
 
     def describe_public_ipv4_pools(
@@ -3285,7 +3447,7 @@ class EC2Client:
         Filters: List[FilterTypeDef] = None,
     ) -> DescribePublicIpv4PoolsResultTypeDef:
         """
-        [Client.describe_public_ipv4_pools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_public_ipv4_pools)
+        [Client.describe_public_ipv4_pools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_public_ipv4_pools)
         """
 
     def describe_regions(
@@ -3296,7 +3458,7 @@ class EC2Client:
         AllRegions: bool = None,
     ) -> DescribeRegionsResultTypeDef:
         """
-        [Client.describe_regions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_regions)
+        [Client.describe_regions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_regions)
         """
 
     def describe_reserved_instances(
@@ -3315,7 +3477,7 @@ class EC2Client:
         ] = None,
     ) -> DescribeReservedInstancesResultTypeDef:
         """
-        [Client.describe_reserved_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_reserved_instances)
+        [Client.describe_reserved_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_reserved_instances)
         """
 
     def describe_reserved_instances_listings(
@@ -3325,7 +3487,7 @@ class EC2Client:
         ReservedInstancesListingId: str = None,
     ) -> DescribeReservedInstancesListingsResultTypeDef:
         """
-        [Client.describe_reserved_instances_listings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_reserved_instances_listings)
+        [Client.describe_reserved_instances_listings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_reserved_instances_listings)
         """
 
     def describe_reserved_instances_modifications(
@@ -3335,7 +3497,7 @@ class EC2Client:
         NextToken: str = None,
     ) -> DescribeReservedInstancesModificationsResultTypeDef:
         """
-        [Client.describe_reserved_instances_modifications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_reserved_instances_modifications)
+        [Client.describe_reserved_instances_modifications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_reserved_instances_modifications)
         """
 
     def describe_reserved_instances_offerings(
@@ -3544,6 +3706,7 @@ class EC2Client:
             "c5n.4xlarge",
             "c5n.9xlarge",
             "c5n.18xlarge",
+            "c5n.metal",
             "c6g.metal",
             "c6g.medium",
             "c6g.large",
@@ -3562,6 +3725,14 @@ class EC2Client:
             "c6gd.8xlarge",
             "c6gd.12xlarge",
             "c6gd.16xlarge",
+            "c6gn.medium",
+            "c6gn.large",
+            "c6gn.xlarge",
+            "c6gn.2xlarge",
+            "c6gn.4xlarge",
+            "c6gn.8xlarge",
+            "c6gn.12xlarge",
+            "c6gn.16xlarge",
             "cc1.4xlarge",
             "cc2.8xlarge",
             "g2.2xlarge",
@@ -3570,6 +3741,9 @@ class EC2Client:
             "g3.8xlarge",
             "g3.16xlarge",
             "g3s.xlarge",
+            "g4ad.4xlarge",
+            "g4ad.8xlarge",
+            "g4ad.16xlarge",
             "g4dn.xlarge",
             "g4dn.2xlarge",
             "g4dn.4xlarge",
@@ -3744,7 +3918,7 @@ class EC2Client:
         ] = None,
     ) -> DescribeReservedInstancesOfferingsResultTypeDef:
         """
-        [Client.describe_reserved_instances_offerings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_reserved_instances_offerings)
+        [Client.describe_reserved_instances_offerings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_reserved_instances_offerings)
         """
 
     def describe_route_tables(
@@ -3756,7 +3930,7 @@ class EC2Client:
         MaxResults: int = None,
     ) -> DescribeRouteTablesResultTypeDef:
         """
-        [Client.describe_route_tables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_route_tables)
+        [Client.describe_route_tables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_route_tables)
         """
 
     def describe_scheduled_instance_availability(
@@ -3771,7 +3945,7 @@ class EC2Client:
         NextToken: str = None,
     ) -> DescribeScheduledInstanceAvailabilityResultTypeDef:
         """
-        [Client.describe_scheduled_instance_availability documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_scheduled_instance_availability)
+        [Client.describe_scheduled_instance_availability documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_scheduled_instance_availability)
         """
 
     def describe_scheduled_instances(
@@ -3784,14 +3958,14 @@ class EC2Client:
         SlotStartTimeRange: SlotStartTimeRangeRequestTypeDef = None,
     ) -> DescribeScheduledInstancesResultTypeDef:
         """
-        [Client.describe_scheduled_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_scheduled_instances)
+        [Client.describe_scheduled_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_scheduled_instances)
         """
 
     def describe_security_group_references(
         self, GroupId: List[str], DryRun: bool = None
     ) -> DescribeSecurityGroupReferencesResultTypeDef:
         """
-        [Client.describe_security_group_references documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_security_group_references)
+        [Client.describe_security_group_references documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_security_group_references)
         """
 
     def describe_security_groups(
@@ -3804,7 +3978,7 @@ class EC2Client:
         MaxResults: int = None,
     ) -> DescribeSecurityGroupsResultTypeDef:
         """
-        [Client.describe_security_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_security_groups)
+        [Client.describe_security_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_security_groups)
         """
 
     def describe_snapshot_attribute(
@@ -3814,7 +3988,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> DescribeSnapshotAttributeResultTypeDef:
         """
-        [Client.describe_snapshot_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_snapshot_attribute)
+        [Client.describe_snapshot_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_snapshot_attribute)
         """
 
     def describe_snapshots(
@@ -3828,14 +4002,14 @@ class EC2Client:
         DryRun: bool = None,
     ) -> DescribeSnapshotsResultTypeDef:
         """
-        [Client.describe_snapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_snapshots)
+        [Client.describe_snapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_snapshots)
         """
 
     def describe_spot_datafeed_subscription(
         self, DryRun: bool = None
     ) -> DescribeSpotDatafeedSubscriptionResultTypeDef:
         """
-        [Client.describe_spot_datafeed_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_spot_datafeed_subscription)
+        [Client.describe_spot_datafeed_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_spot_datafeed_subscription)
         """
 
     def describe_spot_fleet_instances(
@@ -3846,7 +4020,7 @@ class EC2Client:
         NextToken: str = None,
     ) -> DescribeSpotFleetInstancesResponseTypeDef:
         """
-        [Client.describe_spot_fleet_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_spot_fleet_instances)
+        [Client.describe_spot_fleet_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_spot_fleet_instances)
         """
 
     def describe_spot_fleet_request_history(
@@ -3859,7 +4033,7 @@ class EC2Client:
         NextToken: str = None,
     ) -> DescribeSpotFleetRequestHistoryResponseTypeDef:
         """
-        [Client.describe_spot_fleet_request_history documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_spot_fleet_request_history)
+        [Client.describe_spot_fleet_request_history documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_spot_fleet_request_history)
         """
 
     def describe_spot_fleet_requests(
@@ -3870,7 +4044,7 @@ class EC2Client:
         SpotFleetRequestIds: List[str] = None,
     ) -> DescribeSpotFleetRequestsResponseTypeDef:
         """
-        [Client.describe_spot_fleet_requests documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_spot_fleet_requests)
+        [Client.describe_spot_fleet_requests documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_spot_fleet_requests)
         """
 
     def describe_spot_instance_requests(
@@ -3882,7 +4056,7 @@ class EC2Client:
         MaxResults: int = None,
     ) -> DescribeSpotInstanceRequestsResultTypeDef:
         """
-        [Client.describe_spot_instance_requests documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_spot_instance_requests)
+        [Client.describe_spot_instance_requests documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_spot_instance_requests)
         """
 
     def describe_spot_price_history(
@@ -4093,6 +4267,7 @@ class EC2Client:
                 "c5n.4xlarge",
                 "c5n.9xlarge",
                 "c5n.18xlarge",
+                "c5n.metal",
                 "c6g.metal",
                 "c6g.medium",
                 "c6g.large",
@@ -4111,6 +4286,14 @@ class EC2Client:
                 "c6gd.8xlarge",
                 "c6gd.12xlarge",
                 "c6gd.16xlarge",
+                "c6gn.medium",
+                "c6gn.large",
+                "c6gn.xlarge",
+                "c6gn.2xlarge",
+                "c6gn.4xlarge",
+                "c6gn.8xlarge",
+                "c6gn.12xlarge",
+                "c6gn.16xlarge",
                 "cc1.4xlarge",
                 "cc2.8xlarge",
                 "g2.2xlarge",
@@ -4119,6 +4302,9 @@ class EC2Client:
                 "g3.8xlarge",
                 "g3.16xlarge",
                 "g3s.xlarge",
+                "g4ad.4xlarge",
+                "g4ad.8xlarge",
+                "g4ad.16xlarge",
                 "g4dn.xlarge",
                 "g4dn.2xlarge",
                 "g4dn.4xlarge",
@@ -4278,14 +4464,14 @@ class EC2Client:
         StartTime: datetime = None,
     ) -> DescribeSpotPriceHistoryResultTypeDef:
         """
-        [Client.describe_spot_price_history documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_spot_price_history)
+        [Client.describe_spot_price_history documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_spot_price_history)
         """
 
     def describe_stale_security_groups(
         self, VpcId: str, DryRun: bool = None, MaxResults: int = None, NextToken: str = None
     ) -> DescribeStaleSecurityGroupsResultTypeDef:
         """
-        [Client.describe_stale_security_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_stale_security_groups)
+        [Client.describe_stale_security_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_stale_security_groups)
         """
 
     def describe_subnets(
@@ -4297,7 +4483,7 @@ class EC2Client:
         MaxResults: int = None,
     ) -> DescribeSubnetsResultTypeDef:
         """
-        [Client.describe_subnets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_subnets)
+        [Client.describe_subnets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_subnets)
         """
 
     def describe_tags(
@@ -4308,7 +4494,7 @@ class EC2Client:
         NextToken: str = None,
     ) -> DescribeTagsResultTypeDef:
         """
-        [Client.describe_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_tags)
+        [Client.describe_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_tags)
         """
 
     def describe_traffic_mirror_filters(
@@ -4320,7 +4506,7 @@ class EC2Client:
         NextToken: str = None,
     ) -> DescribeTrafficMirrorFiltersResultTypeDef:
         """
-        [Client.describe_traffic_mirror_filters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_traffic_mirror_filters)
+        [Client.describe_traffic_mirror_filters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_traffic_mirror_filters)
         """
 
     def describe_traffic_mirror_sessions(
@@ -4332,7 +4518,7 @@ class EC2Client:
         NextToken: str = None,
     ) -> DescribeTrafficMirrorSessionsResultTypeDef:
         """
-        [Client.describe_traffic_mirror_sessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_traffic_mirror_sessions)
+        [Client.describe_traffic_mirror_sessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_traffic_mirror_sessions)
         """
 
     def describe_traffic_mirror_targets(
@@ -4344,7 +4530,7 @@ class EC2Client:
         NextToken: str = None,
     ) -> DescribeTrafficMirrorTargetsResultTypeDef:
         """
-        [Client.describe_traffic_mirror_targets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_traffic_mirror_targets)
+        [Client.describe_traffic_mirror_targets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_traffic_mirror_targets)
         """
 
     def describe_transit_gateway_attachments(
@@ -4356,7 +4542,31 @@ class EC2Client:
         DryRun: bool = None,
     ) -> DescribeTransitGatewayAttachmentsResultTypeDef:
         """
-        [Client.describe_transit_gateway_attachments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_transit_gateway_attachments)
+        [Client.describe_transit_gateway_attachments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_transit_gateway_attachments)
+        """
+
+    def describe_transit_gateway_connect_peers(
+        self,
+        TransitGatewayConnectPeerIds: List[str] = None,
+        Filters: List[FilterTypeDef] = None,
+        MaxResults: int = None,
+        NextToken: str = None,
+        DryRun: bool = None,
+    ) -> DescribeTransitGatewayConnectPeersResultTypeDef:
+        """
+        [Client.describe_transit_gateway_connect_peers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_transit_gateway_connect_peers)
+        """
+
+    def describe_transit_gateway_connects(
+        self,
+        TransitGatewayAttachmentIds: List[str] = None,
+        Filters: List[FilterTypeDef] = None,
+        MaxResults: int = None,
+        NextToken: str = None,
+        DryRun: bool = None,
+    ) -> DescribeTransitGatewayConnectsResultTypeDef:
+        """
+        [Client.describe_transit_gateway_connects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_transit_gateway_connects)
         """
 
     def describe_transit_gateway_multicast_domains(
@@ -4368,7 +4578,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> DescribeTransitGatewayMulticastDomainsResultTypeDef:
         """
-        [Client.describe_transit_gateway_multicast_domains documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_transit_gateway_multicast_domains)
+        [Client.describe_transit_gateway_multicast_domains documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_transit_gateway_multicast_domains)
         """
 
     def describe_transit_gateway_peering_attachments(
@@ -4380,7 +4590,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> DescribeTransitGatewayPeeringAttachmentsResultTypeDef:
         """
-        [Client.describe_transit_gateway_peering_attachments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_transit_gateway_peering_attachments)
+        [Client.describe_transit_gateway_peering_attachments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_transit_gateway_peering_attachments)
         """
 
     def describe_transit_gateway_route_tables(
@@ -4392,7 +4602,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> DescribeTransitGatewayRouteTablesResultTypeDef:
         """
-        [Client.describe_transit_gateway_route_tables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_transit_gateway_route_tables)
+        [Client.describe_transit_gateway_route_tables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_transit_gateway_route_tables)
         """
 
     def describe_transit_gateway_vpc_attachments(
@@ -4404,7 +4614,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> DescribeTransitGatewayVpcAttachmentsResultTypeDef:
         """
-        [Client.describe_transit_gateway_vpc_attachments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_transit_gateway_vpc_attachments)
+        [Client.describe_transit_gateway_vpc_attachments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_transit_gateway_vpc_attachments)
         """
 
     def describe_transit_gateways(
@@ -4416,14 +4626,14 @@ class EC2Client:
         DryRun: bool = None,
     ) -> DescribeTransitGatewaysResultTypeDef:
         """
-        [Client.describe_transit_gateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_transit_gateways)
+        [Client.describe_transit_gateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_transit_gateways)
         """
 
     def describe_volume_attribute(
         self, Attribute: Literal["autoEnableIO", "productCodes"], VolumeId: str, DryRun: bool = None
     ) -> DescribeVolumeAttributeResultTypeDef:
         """
-        [Client.describe_volume_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_volume_attribute)
+        [Client.describe_volume_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_volume_attribute)
         """
 
     def describe_volume_status(
@@ -4435,7 +4645,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> DescribeVolumeStatusResultTypeDef:
         """
-        [Client.describe_volume_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_volume_status)
+        [Client.describe_volume_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_volume_status)
         """
 
     def describe_volumes(
@@ -4447,7 +4657,7 @@ class EC2Client:
         NextToken: str = None,
     ) -> DescribeVolumesResultTypeDef:
         """
-        [Client.describe_volumes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_volumes)
+        [Client.describe_volumes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_volumes)
         """
 
     def describe_volumes_modifications(
@@ -4459,7 +4669,7 @@ class EC2Client:
         MaxResults: int = None,
     ) -> DescribeVolumesModificationsResultTypeDef:
         """
-        [Client.describe_volumes_modifications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_volumes_modifications)
+        [Client.describe_volumes_modifications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_volumes_modifications)
         """
 
     def describe_vpc_attribute(
@@ -4469,21 +4679,21 @@ class EC2Client:
         DryRun: bool = None,
     ) -> DescribeVpcAttributeResultTypeDef:
         """
-        [Client.describe_vpc_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_vpc_attribute)
+        [Client.describe_vpc_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_vpc_attribute)
         """
 
     def describe_vpc_classic_link(
         self, Filters: List[FilterTypeDef] = None, DryRun: bool = None, VpcIds: List[str] = None
     ) -> DescribeVpcClassicLinkResultTypeDef:
         """
-        [Client.describe_vpc_classic_link documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_vpc_classic_link)
+        [Client.describe_vpc_classic_link documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_vpc_classic_link)
         """
 
     def describe_vpc_classic_link_dns_support(
         self, MaxResults: int = None, NextToken: str = None, VpcIds: List[str] = None
     ) -> DescribeVpcClassicLinkDnsSupportResultTypeDef:
         """
-        [Client.describe_vpc_classic_link_dns_support documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_vpc_classic_link_dns_support)
+        [Client.describe_vpc_classic_link_dns_support documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_vpc_classic_link_dns_support)
         """
 
     def describe_vpc_endpoint_connection_notifications(
@@ -4495,7 +4705,7 @@ class EC2Client:
         NextToken: str = None,
     ) -> DescribeVpcEndpointConnectionNotificationsResultTypeDef:
         """
-        [Client.describe_vpc_endpoint_connection_notifications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_vpc_endpoint_connection_notifications)
+        [Client.describe_vpc_endpoint_connection_notifications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_vpc_endpoint_connection_notifications)
         """
 
     def describe_vpc_endpoint_connections(
@@ -4506,7 +4716,7 @@ class EC2Client:
         NextToken: str = None,
     ) -> DescribeVpcEndpointConnectionsResultTypeDef:
         """
-        [Client.describe_vpc_endpoint_connections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_vpc_endpoint_connections)
+        [Client.describe_vpc_endpoint_connections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_vpc_endpoint_connections)
         """
 
     def describe_vpc_endpoint_service_configurations(
@@ -4518,7 +4728,7 @@ class EC2Client:
         NextToken: str = None,
     ) -> DescribeVpcEndpointServiceConfigurationsResultTypeDef:
         """
-        [Client.describe_vpc_endpoint_service_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_vpc_endpoint_service_configurations)
+        [Client.describe_vpc_endpoint_service_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_vpc_endpoint_service_configurations)
         """
 
     def describe_vpc_endpoint_service_permissions(
@@ -4530,7 +4740,7 @@ class EC2Client:
         NextToken: str = None,
     ) -> DescribeVpcEndpointServicePermissionsResultTypeDef:
         """
-        [Client.describe_vpc_endpoint_service_permissions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_vpc_endpoint_service_permissions)
+        [Client.describe_vpc_endpoint_service_permissions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_vpc_endpoint_service_permissions)
         """
 
     def describe_vpc_endpoint_services(
@@ -4542,7 +4752,7 @@ class EC2Client:
         NextToken: str = None,
     ) -> DescribeVpcEndpointServicesResultTypeDef:
         """
-        [Client.describe_vpc_endpoint_services documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_vpc_endpoint_services)
+        [Client.describe_vpc_endpoint_services documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_vpc_endpoint_services)
         """
 
     def describe_vpc_endpoints(
@@ -4554,7 +4764,7 @@ class EC2Client:
         NextToken: str = None,
     ) -> DescribeVpcEndpointsResultTypeDef:
         """
-        [Client.describe_vpc_endpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_vpc_endpoints)
+        [Client.describe_vpc_endpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_vpc_endpoints)
         """
 
     def describe_vpc_peering_connections(
@@ -4566,7 +4776,7 @@ class EC2Client:
         MaxResults: int = None,
     ) -> DescribeVpcPeeringConnectionsResultTypeDef:
         """
-        [Client.describe_vpc_peering_connections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_vpc_peering_connections)
+        [Client.describe_vpc_peering_connections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_vpc_peering_connections)
         """
 
     def describe_vpcs(
@@ -4578,7 +4788,7 @@ class EC2Client:
         MaxResults: int = None,
     ) -> DescribeVpcsResultTypeDef:
         """
-        [Client.describe_vpcs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_vpcs)
+        [Client.describe_vpcs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_vpcs)
         """
 
     def describe_vpn_connections(
@@ -4588,7 +4798,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> DescribeVpnConnectionsResultTypeDef:
         """
-        [Client.describe_vpn_connections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_vpn_connections)
+        [Client.describe_vpn_connections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_vpn_connections)
         """
 
     def describe_vpn_gateways(
@@ -4598,28 +4808,28 @@ class EC2Client:
         DryRun: bool = None,
     ) -> DescribeVpnGatewaysResultTypeDef:
         """
-        [Client.describe_vpn_gateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.describe_vpn_gateways)
+        [Client.describe_vpn_gateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.describe_vpn_gateways)
         """
 
     def detach_classic_link_vpc(
         self, InstanceId: str, VpcId: str, DryRun: bool = None
     ) -> DetachClassicLinkVpcResultTypeDef:
         """
-        [Client.detach_classic_link_vpc documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.detach_classic_link_vpc)
+        [Client.detach_classic_link_vpc documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.detach_classic_link_vpc)
         """
 
     def detach_internet_gateway(
         self, InternetGatewayId: str, VpcId: str, DryRun: bool = None
     ) -> None:
         """
-        [Client.detach_internet_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.detach_internet_gateway)
+        [Client.detach_internet_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.detach_internet_gateway)
         """
 
     def detach_network_interface(
         self, AttachmentId: str, DryRun: bool = None, Force: bool = None
     ) -> None:
         """
-        [Client.detach_network_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.detach_network_interface)
+        [Client.detach_network_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.detach_network_interface)
         """
 
     def detach_volume(
@@ -4631,94 +4841,94 @@ class EC2Client:
         DryRun: bool = None,
     ) -> "VolumeAttachmentTypeDef":
         """
-        [Client.detach_volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.detach_volume)
+        [Client.detach_volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.detach_volume)
         """
 
     def detach_vpn_gateway(self, VpcId: str, VpnGatewayId: str, DryRun: bool = None) -> None:
         """
-        [Client.detach_vpn_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.detach_vpn_gateway)
+        [Client.detach_vpn_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.detach_vpn_gateway)
         """
 
     def disable_ebs_encryption_by_default(
         self, DryRun: bool = None
     ) -> DisableEbsEncryptionByDefaultResultTypeDef:
         """
-        [Client.disable_ebs_encryption_by_default documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.disable_ebs_encryption_by_default)
+        [Client.disable_ebs_encryption_by_default documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.disable_ebs_encryption_by_default)
         """
 
     def disable_fast_snapshot_restores(
         self, AvailabilityZones: List[str], SourceSnapshotIds: List[str], DryRun: bool = None
     ) -> DisableFastSnapshotRestoresResultTypeDef:
         """
-        [Client.disable_fast_snapshot_restores documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.disable_fast_snapshot_restores)
+        [Client.disable_fast_snapshot_restores documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.disable_fast_snapshot_restores)
         """
 
     def disable_transit_gateway_route_table_propagation(
         self, TransitGatewayRouteTableId: str, TransitGatewayAttachmentId: str, DryRun: bool = None
     ) -> DisableTransitGatewayRouteTablePropagationResultTypeDef:
         """
-        [Client.disable_transit_gateway_route_table_propagation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.disable_transit_gateway_route_table_propagation)
+        [Client.disable_transit_gateway_route_table_propagation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.disable_transit_gateway_route_table_propagation)
         """
 
     def disable_vgw_route_propagation(
         self, GatewayId: str, RouteTableId: str, DryRun: bool = None
     ) -> None:
         """
-        [Client.disable_vgw_route_propagation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.disable_vgw_route_propagation)
+        [Client.disable_vgw_route_propagation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.disable_vgw_route_propagation)
         """
 
     def disable_vpc_classic_link(
         self, VpcId: str, DryRun: bool = None
     ) -> DisableVpcClassicLinkResultTypeDef:
         """
-        [Client.disable_vpc_classic_link documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.disable_vpc_classic_link)
+        [Client.disable_vpc_classic_link documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.disable_vpc_classic_link)
         """
 
     def disable_vpc_classic_link_dns_support(
         self, VpcId: str = None
     ) -> DisableVpcClassicLinkDnsSupportResultTypeDef:
         """
-        [Client.disable_vpc_classic_link_dns_support documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.disable_vpc_classic_link_dns_support)
+        [Client.disable_vpc_classic_link_dns_support documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.disable_vpc_classic_link_dns_support)
         """
 
     def disassociate_address(
         self, AssociationId: str = None, PublicIp: str = None, DryRun: bool = None
     ) -> None:
         """
-        [Client.disassociate_address documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.disassociate_address)
+        [Client.disassociate_address documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.disassociate_address)
         """
 
     def disassociate_client_vpn_target_network(
         self, ClientVpnEndpointId: str, AssociationId: str, DryRun: bool = None
     ) -> DisassociateClientVpnTargetNetworkResultTypeDef:
         """
-        [Client.disassociate_client_vpn_target_network documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.disassociate_client_vpn_target_network)
+        [Client.disassociate_client_vpn_target_network documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.disassociate_client_vpn_target_network)
         """
 
     def disassociate_enclave_certificate_iam_role(
         self, CertificateArn: str = None, RoleArn: str = None, DryRun: bool = None
     ) -> DisassociateEnclaveCertificateIamRoleResultTypeDef:
         """
-        [Client.disassociate_enclave_certificate_iam_role documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.disassociate_enclave_certificate_iam_role)
+        [Client.disassociate_enclave_certificate_iam_role documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.disassociate_enclave_certificate_iam_role)
         """
 
     def disassociate_iam_instance_profile(
         self, AssociationId: str
     ) -> DisassociateIamInstanceProfileResultTypeDef:
         """
-        [Client.disassociate_iam_instance_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.disassociate_iam_instance_profile)
+        [Client.disassociate_iam_instance_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.disassociate_iam_instance_profile)
         """
 
     def disassociate_route_table(self, AssociationId: str, DryRun: bool = None) -> None:
         """
-        [Client.disassociate_route_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.disassociate_route_table)
+        [Client.disassociate_route_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.disassociate_route_table)
         """
 
     def disassociate_subnet_cidr_block(
         self, AssociationId: str
     ) -> DisassociateSubnetCidrBlockResultTypeDef:
         """
-        [Client.disassociate_subnet_cidr_block documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.disassociate_subnet_cidr_block)
+        [Client.disassociate_subnet_cidr_block documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.disassociate_subnet_cidr_block)
         """
 
     def disassociate_transit_gateway_multicast_domain(
@@ -4729,82 +4939,82 @@ class EC2Client:
         DryRun: bool = None,
     ) -> DisassociateTransitGatewayMulticastDomainResultTypeDef:
         """
-        [Client.disassociate_transit_gateway_multicast_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.disassociate_transit_gateway_multicast_domain)
+        [Client.disassociate_transit_gateway_multicast_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.disassociate_transit_gateway_multicast_domain)
         """
 
     def disassociate_transit_gateway_route_table(
         self, TransitGatewayRouteTableId: str, TransitGatewayAttachmentId: str, DryRun: bool = None
     ) -> DisassociateTransitGatewayRouteTableResultTypeDef:
         """
-        [Client.disassociate_transit_gateway_route_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.disassociate_transit_gateway_route_table)
+        [Client.disassociate_transit_gateway_route_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.disassociate_transit_gateway_route_table)
         """
 
     def disassociate_vpc_cidr_block(
         self, AssociationId: str
     ) -> DisassociateVpcCidrBlockResultTypeDef:
         """
-        [Client.disassociate_vpc_cidr_block documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.disassociate_vpc_cidr_block)
+        [Client.disassociate_vpc_cidr_block documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.disassociate_vpc_cidr_block)
         """
 
     def enable_ebs_encryption_by_default(
         self, DryRun: bool = None
     ) -> EnableEbsEncryptionByDefaultResultTypeDef:
         """
-        [Client.enable_ebs_encryption_by_default documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.enable_ebs_encryption_by_default)
+        [Client.enable_ebs_encryption_by_default documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.enable_ebs_encryption_by_default)
         """
 
     def enable_fast_snapshot_restores(
         self, AvailabilityZones: List[str], SourceSnapshotIds: List[str], DryRun: bool = None
     ) -> EnableFastSnapshotRestoresResultTypeDef:
         """
-        [Client.enable_fast_snapshot_restores documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.enable_fast_snapshot_restores)
+        [Client.enable_fast_snapshot_restores documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.enable_fast_snapshot_restores)
         """
 
     def enable_transit_gateway_route_table_propagation(
         self, TransitGatewayRouteTableId: str, TransitGatewayAttachmentId: str, DryRun: bool = None
     ) -> EnableTransitGatewayRouteTablePropagationResultTypeDef:
         """
-        [Client.enable_transit_gateway_route_table_propagation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.enable_transit_gateway_route_table_propagation)
+        [Client.enable_transit_gateway_route_table_propagation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.enable_transit_gateway_route_table_propagation)
         """
 
     def enable_vgw_route_propagation(
         self, GatewayId: str, RouteTableId: str, DryRun: bool = None
     ) -> None:
         """
-        [Client.enable_vgw_route_propagation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.enable_vgw_route_propagation)
+        [Client.enable_vgw_route_propagation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.enable_vgw_route_propagation)
         """
 
     def enable_volume_io(self, VolumeId: str, DryRun: bool = None) -> None:
         """
-        [Client.enable_volume_io documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.enable_volume_io)
+        [Client.enable_volume_io documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.enable_volume_io)
         """
 
     def enable_vpc_classic_link(
         self, VpcId: str, DryRun: bool = None
     ) -> EnableVpcClassicLinkResultTypeDef:
         """
-        [Client.enable_vpc_classic_link documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.enable_vpc_classic_link)
+        [Client.enable_vpc_classic_link documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.enable_vpc_classic_link)
         """
 
     def enable_vpc_classic_link_dns_support(
         self, VpcId: str = None
     ) -> EnableVpcClassicLinkDnsSupportResultTypeDef:
         """
-        [Client.enable_vpc_classic_link_dns_support documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.enable_vpc_classic_link_dns_support)
+        [Client.enable_vpc_classic_link_dns_support documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.enable_vpc_classic_link_dns_support)
         """
 
     def export_client_vpn_client_certificate_revocation_list(
         self, ClientVpnEndpointId: str, DryRun: bool = None
     ) -> ExportClientVpnClientCertificateRevocationListResultTypeDef:
         """
-        [Client.export_client_vpn_client_certificate_revocation_list documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.export_client_vpn_client_certificate_revocation_list)
+        [Client.export_client_vpn_client_certificate_revocation_list documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.export_client_vpn_client_certificate_revocation_list)
         """
 
     def export_client_vpn_client_configuration(
         self, ClientVpnEndpointId: str, DryRun: bool = None
     ) -> ExportClientVpnClientConfigurationResultTypeDef:
         """
-        [Client.export_client_vpn_client_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.export_client_vpn_client_configuration)
+        [Client.export_client_vpn_client_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.export_client_vpn_client_configuration)
         """
 
     def export_image(
@@ -4819,7 +5029,7 @@ class EC2Client:
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
     ) -> ExportImageResultTypeDef:
         """
-        [Client.export_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.export_image)
+        [Client.export_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.export_image)
         """
 
     def export_transit_gateway_routes(
@@ -4830,7 +5040,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> ExportTransitGatewayRoutesResultTypeDef:
         """
-        [Client.export_transit_gateway_routes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.export_transit_gateway_routes)
+        [Client.export_transit_gateway_routes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.export_transit_gateway_routes)
         """
 
     def generate_presigned_url(
@@ -4841,21 +5051,21 @@ class EC2Client:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.generate_presigned_url)
         """
 
     def get_associated_enclave_certificate_iam_roles(
         self, CertificateArn: str = None, DryRun: bool = None
     ) -> GetAssociatedEnclaveCertificateIamRolesResultTypeDef:
         """
-        [Client.get_associated_enclave_certificate_iam_roles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.get_associated_enclave_certificate_iam_roles)
+        [Client.get_associated_enclave_certificate_iam_roles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.get_associated_enclave_certificate_iam_roles)
         """
 
     def get_associated_ipv6_pool_cidrs(
         self, PoolId: str, NextToken: str = None, MaxResults: int = None, DryRun: bool = None
     ) -> GetAssociatedIpv6PoolCidrsResultTypeDef:
         """
-        [Client.get_associated_ipv6_pool_cidrs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.get_associated_ipv6_pool_cidrs)
+        [Client.get_associated_ipv6_pool_cidrs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.get_associated_ipv6_pool_cidrs)
         """
 
     def get_capacity_reservation_usage(
@@ -4866,7 +5076,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> GetCapacityReservationUsageResultTypeDef:
         """
-        [Client.get_capacity_reservation_usage documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.get_capacity_reservation_usage)
+        [Client.get_capacity_reservation_usage documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.get_capacity_reservation_usage)
         """
 
     def get_coip_pool_usage(
@@ -4878,40 +5088,40 @@ class EC2Client:
         DryRun: bool = None,
     ) -> GetCoipPoolUsageResultTypeDef:
         """
-        [Client.get_coip_pool_usage documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.get_coip_pool_usage)
+        [Client.get_coip_pool_usage documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.get_coip_pool_usage)
         """
 
     def get_console_output(
         self, InstanceId: str, DryRun: bool = None, Latest: bool = None
     ) -> GetConsoleOutputResultTypeDef:
         """
-        [Client.get_console_output documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.get_console_output)
+        [Client.get_console_output documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.get_console_output)
         """
 
     def get_console_screenshot(
         self, InstanceId: str, DryRun: bool = None, WakeUp: bool = None
     ) -> GetConsoleScreenshotResultTypeDef:
         """
-        [Client.get_console_screenshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.get_console_screenshot)
+        [Client.get_console_screenshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.get_console_screenshot)
         """
 
     def get_default_credit_specification(
         self, InstanceFamily: Literal["t2", "t3", "t3a", "t4g"], DryRun: bool = None
     ) -> GetDefaultCreditSpecificationResultTypeDef:
         """
-        [Client.get_default_credit_specification documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.get_default_credit_specification)
+        [Client.get_default_credit_specification documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.get_default_credit_specification)
         """
 
     def get_ebs_default_kms_key_id(self, DryRun: bool = None) -> GetEbsDefaultKmsKeyIdResultTypeDef:
         """
-        [Client.get_ebs_default_kms_key_id documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.get_ebs_default_kms_key_id)
+        [Client.get_ebs_default_kms_key_id documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.get_ebs_default_kms_key_id)
         """
 
     def get_ebs_encryption_by_default(
         self, DryRun: bool = None
     ) -> GetEbsEncryptionByDefaultResultTypeDef:
         """
-        [Client.get_ebs_encryption_by_default documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.get_ebs_encryption_by_default)
+        [Client.get_ebs_encryption_by_default documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.get_ebs_encryption_by_default)
         """
 
     def get_groups_for_capacity_reservation(
@@ -4922,28 +5132,28 @@ class EC2Client:
         DryRun: bool = None,
     ) -> GetGroupsForCapacityReservationResultTypeDef:
         """
-        [Client.get_groups_for_capacity_reservation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.get_groups_for_capacity_reservation)
+        [Client.get_groups_for_capacity_reservation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.get_groups_for_capacity_reservation)
         """
 
     def get_host_reservation_purchase_preview(
         self, HostIdSet: List[str], OfferingId: str
     ) -> GetHostReservationPurchasePreviewResultTypeDef:
         """
-        [Client.get_host_reservation_purchase_preview documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.get_host_reservation_purchase_preview)
+        [Client.get_host_reservation_purchase_preview documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.get_host_reservation_purchase_preview)
         """
 
     def get_launch_template_data(
         self, InstanceId: str, DryRun: bool = None
     ) -> GetLaunchTemplateDataResultTypeDef:
         """
-        [Client.get_launch_template_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.get_launch_template_data)
+        [Client.get_launch_template_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.get_launch_template_data)
         """
 
     def get_managed_prefix_list_associations(
         self, PrefixListId: str, DryRun: bool = None, MaxResults: int = None, NextToken: str = None
     ) -> GetManagedPrefixListAssociationsResultTypeDef:
         """
-        [Client.get_managed_prefix_list_associations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.get_managed_prefix_list_associations)
+        [Client.get_managed_prefix_list_associations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.get_managed_prefix_list_associations)
         """
 
     def get_managed_prefix_list_entries(
@@ -4955,14 +5165,14 @@ class EC2Client:
         NextToken: str = None,
     ) -> GetManagedPrefixListEntriesResultTypeDef:
         """
-        [Client.get_managed_prefix_list_entries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.get_managed_prefix_list_entries)
+        [Client.get_managed_prefix_list_entries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.get_managed_prefix_list_entries)
         """
 
     def get_password_data(
         self, InstanceId: str, DryRun: bool = None
     ) -> GetPasswordDataResultTypeDef:
         """
-        [Client.get_password_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.get_password_data)
+        [Client.get_password_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.get_password_data)
         """
 
     def get_reserved_instances_exchange_quote(
@@ -4972,7 +5182,7 @@ class EC2Client:
         TargetConfigurations: List[TargetConfigurationRequestTypeDef] = None,
     ) -> GetReservedInstancesExchangeQuoteResultTypeDef:
         """
-        [Client.get_reserved_instances_exchange_quote documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.get_reserved_instances_exchange_quote)
+        [Client.get_reserved_instances_exchange_quote documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.get_reserved_instances_exchange_quote)
         """
 
     def get_transit_gateway_attachment_propagations(
@@ -4984,7 +5194,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> GetTransitGatewayAttachmentPropagationsResultTypeDef:
         """
-        [Client.get_transit_gateway_attachment_propagations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.get_transit_gateway_attachment_propagations)
+        [Client.get_transit_gateway_attachment_propagations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.get_transit_gateway_attachment_propagations)
         """
 
     def get_transit_gateway_multicast_domain_associations(
@@ -4996,7 +5206,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> GetTransitGatewayMulticastDomainAssociationsResultTypeDef:
         """
-        [Client.get_transit_gateway_multicast_domain_associations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.get_transit_gateway_multicast_domain_associations)
+        [Client.get_transit_gateway_multicast_domain_associations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.get_transit_gateway_multicast_domain_associations)
         """
 
     def get_transit_gateway_prefix_list_references(
@@ -5008,7 +5218,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> GetTransitGatewayPrefixListReferencesResultTypeDef:
         """
-        [Client.get_transit_gateway_prefix_list_references documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.get_transit_gateway_prefix_list_references)
+        [Client.get_transit_gateway_prefix_list_references documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.get_transit_gateway_prefix_list_references)
         """
 
     def get_transit_gateway_route_table_associations(
@@ -5020,7 +5230,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> GetTransitGatewayRouteTableAssociationsResultTypeDef:
         """
-        [Client.get_transit_gateway_route_table_associations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.get_transit_gateway_route_table_associations)
+        [Client.get_transit_gateway_route_table_associations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.get_transit_gateway_route_table_associations)
         """
 
     def get_transit_gateway_route_table_propagations(
@@ -5032,14 +5242,14 @@ class EC2Client:
         DryRun: bool = None,
     ) -> GetTransitGatewayRouteTablePropagationsResultTypeDef:
         """
-        [Client.get_transit_gateway_route_table_propagations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.get_transit_gateway_route_table_propagations)
+        [Client.get_transit_gateway_route_table_propagations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.get_transit_gateway_route_table_propagations)
         """
 
     def import_client_vpn_client_certificate_revocation_list(
         self, ClientVpnEndpointId: str, CertificateRevocationList: str, DryRun: bool = None
     ) -> ImportClientVpnClientCertificateRevocationListResultTypeDef:
         """
-        [Client.import_client_vpn_client_certificate_revocation_list documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.import_client_vpn_client_certificate_revocation_list)
+        [Client.import_client_vpn_client_certificate_revocation_list documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.import_client_vpn_client_certificate_revocation_list)
         """
 
     def import_image(
@@ -5060,7 +5270,7 @@ class EC2Client:
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
     ) -> ImportImageResultTypeDef:
         """
-        [Client.import_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.import_image)
+        [Client.import_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.import_image)
         """
 
     def import_instance(
@@ -5072,7 +5282,7 @@ class EC2Client:
         LaunchSpecification: ImportInstanceLaunchSpecificationTypeDef = None,
     ) -> ImportInstanceResultTypeDef:
         """
-        [Client.import_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.import_instance)
+        [Client.import_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.import_instance)
         """
 
     def import_key_pair(
@@ -5083,7 +5293,7 @@ class EC2Client:
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
     ) -> ImportKeyPairResultTypeDef:
         """
-        [Client.import_key_pair documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.import_key_pair)
+        [Client.import_key_pair documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.import_key_pair)
         """
 
     def import_snapshot(
@@ -5099,7 +5309,7 @@ class EC2Client:
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
     ) -> ImportSnapshotResultTypeDef:
         """
-        [Client.import_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.import_snapshot)
+        [Client.import_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.import_snapshot)
         """
 
     def import_volume(
@@ -5111,14 +5321,21 @@ class EC2Client:
         DryRun: bool = None,
     ) -> ImportVolumeResultTypeDef:
         """
-        [Client.import_volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.import_volume)
+        [Client.import_volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.import_volume)
+        """
+
+    def modify_address_attribute(
+        self, AllocationId: str, DomainName: str = None, DryRun: bool = None
+    ) -> ModifyAddressAttributeResultTypeDef:
+        """
+        [Client.modify_address_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.modify_address_attribute)
         """
 
     def modify_availability_zone_group(
         self, GroupName: str, OptInStatus: Literal["opted-in", "not-opted-in"], DryRun: bool = None
     ) -> ModifyAvailabilityZoneGroupResultTypeDef:
         """
-        [Client.modify_availability_zone_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.modify_availability_zone_group)
+        [Client.modify_availability_zone_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.modify_availability_zone_group)
         """
 
     def modify_capacity_reservation(
@@ -5127,10 +5344,11 @@ class EC2Client:
         InstanceCount: int = None,
         EndDate: datetime = None,
         EndDateType: Literal["unlimited", "limited"] = None,
+        Accept: bool = None,
         DryRun: bool = None,
     ) -> ModifyCapacityReservationResultTypeDef:
         """
-        [Client.modify_capacity_reservation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.modify_capacity_reservation)
+        [Client.modify_capacity_reservation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.modify_capacity_reservation)
         """
 
     def modify_client_vpn_endpoint(
@@ -5149,7 +5367,7 @@ class EC2Client:
         ClientConnectOptions: ClientConnectOptionsTypeDef = None,
     ) -> ModifyClientVpnEndpointResultTypeDef:
         """
-        [Client.modify_client_vpn_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.modify_client_vpn_endpoint)
+        [Client.modify_client_vpn_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.modify_client_vpn_endpoint)
         """
 
     def modify_default_credit_specification(
@@ -5159,14 +5377,14 @@ class EC2Client:
         DryRun: bool = None,
     ) -> ModifyDefaultCreditSpecificationResultTypeDef:
         """
-        [Client.modify_default_credit_specification documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.modify_default_credit_specification)
+        [Client.modify_default_credit_specification documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.modify_default_credit_specification)
         """
 
     def modify_ebs_default_kms_key_id(
         self, KmsKeyId: str, DryRun: bool = None
     ) -> ModifyEbsDefaultKmsKeyIdResultTypeDef:
         """
-        [Client.modify_ebs_default_kms_key_id documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.modify_ebs_default_kms_key_id)
+        [Client.modify_ebs_default_kms_key_id documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.modify_ebs_default_kms_key_id)
         """
 
     def modify_fleet(
@@ -5178,7 +5396,7 @@ class EC2Client:
         TargetCapacitySpecification: TargetCapacitySpecificationRequestTypeDef = None,
     ) -> ModifyFleetResultTypeDef:
         """
-        [Client.modify_fleet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.modify_fleet)
+        [Client.modify_fleet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.modify_fleet)
         """
 
     def modify_fpga_image_attribute(
@@ -5195,7 +5413,7 @@ class EC2Client:
         Name: str = None,
     ) -> ModifyFpgaImageAttributeResultTypeDef:
         """
-        [Client.modify_fpga_image_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.modify_fpga_image_attribute)
+        [Client.modify_fpga_image_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.modify_fpga_image_attribute)
         """
 
     def modify_hosts(
@@ -5207,17 +5425,17 @@ class EC2Client:
         InstanceFamily: str = None,
     ) -> ModifyHostsResultTypeDef:
         """
-        [Client.modify_hosts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.modify_hosts)
+        [Client.modify_hosts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.modify_hosts)
         """
 
     def modify_id_format(self, Resource: str, UseLongIds: bool) -> None:
         """
-        [Client.modify_id_format documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.modify_id_format)
+        [Client.modify_id_format documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.modify_id_format)
         """
 
     def modify_identity_id_format(self, PrincipalArn: str, Resource: str, UseLongIds: bool) -> None:
         """
-        [Client.modify_identity_id_format documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.modify_identity_id_format)
+        [Client.modify_identity_id_format documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.modify_identity_id_format)
         """
 
     def modify_image_attribute(
@@ -5234,7 +5452,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> None:
         """
-        [Client.modify_image_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.modify_image_attribute)
+        [Client.modify_image_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.modify_image_attribute)
         """
 
     def modify_instance_attribute(
@@ -5273,7 +5491,7 @@ class EC2Client:
         Value: str = None,
     ) -> None:
         """
-        [Client.modify_instance_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.modify_instance_attribute)
+        [Client.modify_instance_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.modify_instance_attribute)
         """
 
     def modify_instance_capacity_reservation_attributes(
@@ -5283,7 +5501,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> ModifyInstanceCapacityReservationAttributesResultTypeDef:
         """
-        [Client.modify_instance_capacity_reservation_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.modify_instance_capacity_reservation_attributes)
+        [Client.modify_instance_capacity_reservation_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.modify_instance_capacity_reservation_attributes)
         """
 
     def modify_instance_credit_specification(
@@ -5293,14 +5511,14 @@ class EC2Client:
         ClientToken: str = None,
     ) -> ModifyInstanceCreditSpecificationResultTypeDef:
         """
-        [Client.modify_instance_credit_specification documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.modify_instance_credit_specification)
+        [Client.modify_instance_credit_specification documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.modify_instance_credit_specification)
         """
 
     def modify_instance_event_start_time(
         self, InstanceId: str, InstanceEventId: str, NotBefore: datetime, DryRun: bool = None
     ) -> ModifyInstanceEventStartTimeResultTypeDef:
         """
-        [Client.modify_instance_event_start_time documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.modify_instance_event_start_time)
+        [Client.modify_instance_event_start_time documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.modify_instance_event_start_time)
         """
 
     def modify_instance_metadata_options(
@@ -5312,7 +5530,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> ModifyInstanceMetadataOptionsResultTypeDef:
         """
-        [Client.modify_instance_metadata_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.modify_instance_metadata_options)
+        [Client.modify_instance_metadata_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.modify_instance_metadata_options)
         """
 
     def modify_instance_placement(
@@ -5326,7 +5544,7 @@ class EC2Client:
         HostResourceGroupArn: str = None,
     ) -> ModifyInstancePlacementResultTypeDef:
         """
-        [Client.modify_instance_placement documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.modify_instance_placement)
+        [Client.modify_instance_placement documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.modify_instance_placement)
         """
 
     def modify_launch_template(
@@ -5338,7 +5556,7 @@ class EC2Client:
         DefaultVersion: str = None,
     ) -> ModifyLaunchTemplateResultTypeDef:
         """
-        [Client.modify_launch_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.modify_launch_template)
+        [Client.modify_launch_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.modify_launch_template)
         """
 
     def modify_managed_prefix_list(
@@ -5351,7 +5569,7 @@ class EC2Client:
         RemoveEntries: List[RemovePrefixListEntryTypeDef] = None,
     ) -> ModifyManagedPrefixListResultTypeDef:
         """
-        [Client.modify_managed_prefix_list documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.modify_managed_prefix_list)
+        [Client.modify_managed_prefix_list documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.modify_managed_prefix_list)
         """
 
     def modify_network_interface_attribute(
@@ -5364,7 +5582,7 @@ class EC2Client:
         SourceDestCheck: "AttributeBooleanValueTypeDef" = None,
     ) -> None:
         """
-        [Client.modify_network_interface_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.modify_network_interface_attribute)
+        [Client.modify_network_interface_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.modify_network_interface_attribute)
         """
 
     def modify_reserved_instances(
@@ -5374,7 +5592,7 @@ class EC2Client:
         ClientToken: str = None,
     ) -> ModifyReservedInstancesResultTypeDef:
         """
-        [Client.modify_reserved_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.modify_reserved_instances)
+        [Client.modify_reserved_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.modify_reserved_instances)
         """
 
     def modify_snapshot_attribute(
@@ -5388,7 +5606,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> None:
         """
-        [Client.modify_snapshot_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.modify_snapshot_attribute)
+        [Client.modify_snapshot_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.modify_snapshot_attribute)
         """
 
     def modify_spot_fleet_request(
@@ -5400,7 +5618,7 @@ class EC2Client:
         OnDemandTargetCapacity: int = None,
     ) -> ModifySpotFleetRequestResponseTypeDef:
         """
-        [Client.modify_spot_fleet_request documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.modify_spot_fleet_request)
+        [Client.modify_spot_fleet_request documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.modify_spot_fleet_request)
         """
 
     def modify_subnet_attribute(
@@ -5412,7 +5630,7 @@ class EC2Client:
         CustomerOwnedIpv4Pool: str = None,
     ) -> None:
         """
-        [Client.modify_subnet_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.modify_subnet_attribute)
+        [Client.modify_subnet_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.modify_subnet_attribute)
         """
 
     def modify_traffic_mirror_filter_network_services(
@@ -5423,7 +5641,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> ModifyTrafficMirrorFilterNetworkServicesResultTypeDef:
         """
-        [Client.modify_traffic_mirror_filter_network_services documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.modify_traffic_mirror_filter_network_services)
+        [Client.modify_traffic_mirror_filter_network_services documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.modify_traffic_mirror_filter_network_services)
         """
 
     def modify_traffic_mirror_filter_rule(
@@ -5444,7 +5662,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> ModifyTrafficMirrorFilterRuleResultTypeDef:
         """
-        [Client.modify_traffic_mirror_filter_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.modify_traffic_mirror_filter_rule)
+        [Client.modify_traffic_mirror_filter_rule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.modify_traffic_mirror_filter_rule)
         """
 
     def modify_traffic_mirror_session(
@@ -5460,7 +5678,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> ModifyTrafficMirrorSessionResultTypeDef:
         """
-        [Client.modify_traffic_mirror_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.modify_traffic_mirror_session)
+        [Client.modify_traffic_mirror_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.modify_traffic_mirror_session)
         """
 
     def modify_transit_gateway(
@@ -5471,7 +5689,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> ModifyTransitGatewayResultTypeDef:
         """
-        [Client.modify_transit_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.modify_transit_gateway)
+        [Client.modify_transit_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.modify_transit_gateway)
         """
 
     def modify_transit_gateway_prefix_list_reference(
@@ -5483,7 +5701,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> ModifyTransitGatewayPrefixListReferenceResultTypeDef:
         """
-        [Client.modify_transit_gateway_prefix_list_reference documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.modify_transit_gateway_prefix_list_reference)
+        [Client.modify_transit_gateway_prefix_list_reference documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.modify_transit_gateway_prefix_list_reference)
         """
 
     def modify_transit_gateway_vpc_attachment(
@@ -5495,7 +5713,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> ModifyTransitGatewayVpcAttachmentResultTypeDef:
         """
-        [Client.modify_transit_gateway_vpc_attachment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.modify_transit_gateway_vpc_attachment)
+        [Client.modify_transit_gateway_vpc_attachment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.modify_transit_gateway_vpc_attachment)
         """
 
     def modify_volume(
@@ -5506,9 +5724,10 @@ class EC2Client:
         VolumeType: Literal["standard", "io1", "io2", "gp2", "sc1", "st1", "gp3"] = None,
         Iops: int = None,
         Throughput: int = None,
+        MultiAttachEnabled: bool = None,
     ) -> ModifyVolumeResultTypeDef:
         """
-        [Client.modify_volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.modify_volume)
+        [Client.modify_volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.modify_volume)
         """
 
     def modify_volume_attribute(
@@ -5518,7 +5737,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> None:
         """
-        [Client.modify_volume_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.modify_volume_attribute)
+        [Client.modify_volume_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.modify_volume_attribute)
         """
 
     def modify_vpc_attribute(
@@ -5528,7 +5747,7 @@ class EC2Client:
         EnableDnsSupport: "AttributeBooleanValueTypeDef" = None,
     ) -> None:
         """
-        [Client.modify_vpc_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.modify_vpc_attribute)
+        [Client.modify_vpc_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.modify_vpc_attribute)
         """
 
     def modify_vpc_endpoint(
@@ -5546,7 +5765,7 @@ class EC2Client:
         PrivateDnsEnabled: bool = None,
     ) -> ModifyVpcEndpointResultTypeDef:
         """
-        [Client.modify_vpc_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.modify_vpc_endpoint)
+        [Client.modify_vpc_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.modify_vpc_endpoint)
         """
 
     def modify_vpc_endpoint_connection_notification(
@@ -5557,7 +5776,7 @@ class EC2Client:
         ConnectionEvents: List[str] = None,
     ) -> ModifyVpcEndpointConnectionNotificationResultTypeDef:
         """
-        [Client.modify_vpc_endpoint_connection_notification documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.modify_vpc_endpoint_connection_notification)
+        [Client.modify_vpc_endpoint_connection_notification documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.modify_vpc_endpoint_connection_notification)
         """
 
     def modify_vpc_endpoint_service_configuration(
@@ -5573,7 +5792,7 @@ class EC2Client:
         RemoveGatewayLoadBalancerArns: List[str] = None,
     ) -> ModifyVpcEndpointServiceConfigurationResultTypeDef:
         """
-        [Client.modify_vpc_endpoint_service_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.modify_vpc_endpoint_service_configuration)
+        [Client.modify_vpc_endpoint_service_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.modify_vpc_endpoint_service_configuration)
         """
 
     def modify_vpc_endpoint_service_permissions(
@@ -5584,7 +5803,7 @@ class EC2Client:
         RemoveAllowedPrincipals: List[str] = None,
     ) -> ModifyVpcEndpointServicePermissionsResultTypeDef:
         """
-        [Client.modify_vpc_endpoint_service_permissions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.modify_vpc_endpoint_service_permissions)
+        [Client.modify_vpc_endpoint_service_permissions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.modify_vpc_endpoint_service_permissions)
         """
 
     def modify_vpc_peering_connection_options(
@@ -5595,14 +5814,14 @@ class EC2Client:
         RequesterPeeringConnectionOptions: PeeringConnectionOptionsRequestTypeDef = None,
     ) -> ModifyVpcPeeringConnectionOptionsResultTypeDef:
         """
-        [Client.modify_vpc_peering_connection_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.modify_vpc_peering_connection_options)
+        [Client.modify_vpc_peering_connection_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.modify_vpc_peering_connection_options)
         """
 
     def modify_vpc_tenancy(
         self, VpcId: str, InstanceTenancy: Literal["default"], DryRun: bool = None
     ) -> ModifyVpcTenancyResultTypeDef:
         """
-        [Client.modify_vpc_tenancy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.modify_vpc_tenancy)
+        [Client.modify_vpc_tenancy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.modify_vpc_tenancy)
         """
 
     def modify_vpn_connection(
@@ -5614,7 +5833,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> ModifyVpnConnectionResultTypeDef:
         """
-        [Client.modify_vpn_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.modify_vpn_connection)
+        [Client.modify_vpn_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.modify_vpn_connection)
         """
 
     def modify_vpn_connection_options(
@@ -5627,14 +5846,14 @@ class EC2Client:
         DryRun: bool = None,
     ) -> ModifyVpnConnectionOptionsResultTypeDef:
         """
-        [Client.modify_vpn_connection_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.modify_vpn_connection_options)
+        [Client.modify_vpn_connection_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.modify_vpn_connection_options)
         """
 
     def modify_vpn_tunnel_certificate(
         self, VpnConnectionId: str, VpnTunnelOutsideIpAddress: str, DryRun: bool = None
     ) -> ModifyVpnTunnelCertificateResultTypeDef:
         """
-        [Client.modify_vpn_tunnel_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.modify_vpn_tunnel_certificate)
+        [Client.modify_vpn_tunnel_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.modify_vpn_tunnel_certificate)
         """
 
     def modify_vpn_tunnel_options(
@@ -5645,21 +5864,21 @@ class EC2Client:
         DryRun: bool = None,
     ) -> ModifyVpnTunnelOptionsResultTypeDef:
         """
-        [Client.modify_vpn_tunnel_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.modify_vpn_tunnel_options)
+        [Client.modify_vpn_tunnel_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.modify_vpn_tunnel_options)
         """
 
     def monitor_instances(
         self, InstanceIds: List[str], DryRun: bool = None
     ) -> MonitorInstancesResultTypeDef:
         """
-        [Client.monitor_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.monitor_instances)
+        [Client.monitor_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.monitor_instances)
         """
 
     def move_address_to_vpc(
         self, PublicIp: str, DryRun: bool = None
     ) -> MoveAddressToVpcResultTypeDef:
         """
-        [Client.move_address_to_vpc documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.move_address_to_vpc)
+        [Client.move_address_to_vpc documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.move_address_to_vpc)
         """
 
     def provision_byoip_cidr(
@@ -5672,7 +5891,7 @@ class EC2Client:
         PoolTagSpecifications: List["TagSpecificationTypeDef"] = None,
     ) -> ProvisionByoipCidrResultTypeDef:
         """
-        [Client.provision_byoip_cidr documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.provision_byoip_cidr)
+        [Client.provision_byoip_cidr documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.provision_byoip_cidr)
         """
 
     def purchase_host_reservation(
@@ -5685,7 +5904,7 @@ class EC2Client:
         TagSpecifications: List["TagSpecificationTypeDef"] = None,
     ) -> PurchaseHostReservationResultTypeDef:
         """
-        [Client.purchase_host_reservation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.purchase_host_reservation)
+        [Client.purchase_host_reservation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.purchase_host_reservation)
         """
 
     def purchase_reserved_instances_offering(
@@ -5697,7 +5916,7 @@ class EC2Client:
         PurchaseTime: datetime = None,
     ) -> PurchaseReservedInstancesOfferingResultTypeDef:
         """
-        [Client.purchase_reserved_instances_offering documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.purchase_reserved_instances_offering)
+        [Client.purchase_reserved_instances_offering documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.purchase_reserved_instances_offering)
         """
 
     def purchase_scheduled_instances(
@@ -5707,12 +5926,12 @@ class EC2Client:
         DryRun: bool = None,
     ) -> PurchaseScheduledInstancesResultTypeDef:
         """
-        [Client.purchase_scheduled_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.purchase_scheduled_instances)
+        [Client.purchase_scheduled_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.purchase_scheduled_instances)
         """
 
     def reboot_instances(self, InstanceIds: List[str], DryRun: bool = None) -> None:
         """
-        [Client.reboot_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.reboot_instances)
+        [Client.reboot_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.reboot_instances)
         """
 
     def register_image(
@@ -5732,7 +5951,7 @@ class EC2Client:
         VirtualizationType: str = None,
     ) -> RegisterImageResultTypeDef:
         """
-        [Client.register_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.register_image)
+        [Client.register_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.register_image)
         """
 
     def register_instance_event_notification_attributes(
@@ -5741,7 +5960,7 @@ class EC2Client:
         InstanceTagAttribute: RegisterInstanceTagAttributeRequestTypeDef = None,
     ) -> RegisterInstanceEventNotificationAttributesResultTypeDef:
         """
-        [Client.register_instance_event_notification_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.register_instance_event_notification_attributes)
+        [Client.register_instance_event_notification_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.register_instance_event_notification_attributes)
         """
 
     def register_transit_gateway_multicast_group_members(
@@ -5752,7 +5971,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> RegisterTransitGatewayMulticastGroupMembersResultTypeDef:
         """
-        [Client.register_transit_gateway_multicast_group_members documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.register_transit_gateway_multicast_group_members)
+        [Client.register_transit_gateway_multicast_group_members documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.register_transit_gateway_multicast_group_members)
         """
 
     def register_transit_gateway_multicast_group_sources(
@@ -5763,35 +5982,46 @@ class EC2Client:
         DryRun: bool = None,
     ) -> RegisterTransitGatewayMulticastGroupSourcesResultTypeDef:
         """
-        [Client.register_transit_gateway_multicast_group_sources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.register_transit_gateway_multicast_group_sources)
+        [Client.register_transit_gateway_multicast_group_sources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.register_transit_gateway_multicast_group_sources)
+        """
+
+    def reject_transit_gateway_multicast_domain_associations(
+        self,
+        TransitGatewayMulticastDomainId: str = None,
+        TransitGatewayAttachmentId: str = None,
+        SubnetIds: List[str] = None,
+        DryRun: bool = None,
+    ) -> RejectTransitGatewayMulticastDomainAssociationsResultTypeDef:
+        """
+        [Client.reject_transit_gateway_multicast_domain_associations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.reject_transit_gateway_multicast_domain_associations)
         """
 
     def reject_transit_gateway_peering_attachment(
         self, TransitGatewayAttachmentId: str, DryRun: bool = None
     ) -> RejectTransitGatewayPeeringAttachmentResultTypeDef:
         """
-        [Client.reject_transit_gateway_peering_attachment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.reject_transit_gateway_peering_attachment)
+        [Client.reject_transit_gateway_peering_attachment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.reject_transit_gateway_peering_attachment)
         """
 
     def reject_transit_gateway_vpc_attachment(
         self, TransitGatewayAttachmentId: str, DryRun: bool = None
     ) -> RejectTransitGatewayVpcAttachmentResultTypeDef:
         """
-        [Client.reject_transit_gateway_vpc_attachment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.reject_transit_gateway_vpc_attachment)
+        [Client.reject_transit_gateway_vpc_attachment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.reject_transit_gateway_vpc_attachment)
         """
 
     def reject_vpc_endpoint_connections(
         self, ServiceId: str, VpcEndpointIds: List[str], DryRun: bool = None
     ) -> RejectVpcEndpointConnectionsResultTypeDef:
         """
-        [Client.reject_vpc_endpoint_connections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.reject_vpc_endpoint_connections)
+        [Client.reject_vpc_endpoint_connections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.reject_vpc_endpoint_connections)
         """
 
     def reject_vpc_peering_connection(
         self, VpcPeeringConnectionId: str, DryRun: bool = None
     ) -> RejectVpcPeeringConnectionResultTypeDef:
         """
-        [Client.reject_vpc_peering_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.reject_vpc_peering_connection)
+        [Client.reject_vpc_peering_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.reject_vpc_peering_connection)
         """
 
     def release_address(
@@ -5802,26 +6032,26 @@ class EC2Client:
         DryRun: bool = None,
     ) -> None:
         """
-        [Client.release_address documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.release_address)
+        [Client.release_address documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.release_address)
         """
 
     def release_hosts(self, HostIds: List[str]) -> ReleaseHostsResultTypeDef:
         """
-        [Client.release_hosts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.release_hosts)
+        [Client.release_hosts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.release_hosts)
         """
 
     def replace_iam_instance_profile_association(
         self, IamInstanceProfile: "IamInstanceProfileSpecificationTypeDef", AssociationId: str
     ) -> ReplaceIamInstanceProfileAssociationResultTypeDef:
         """
-        [Client.replace_iam_instance_profile_association documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.replace_iam_instance_profile_association)
+        [Client.replace_iam_instance_profile_association documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.replace_iam_instance_profile_association)
         """
 
     def replace_network_acl_association(
         self, AssociationId: str, NetworkAclId: str, DryRun: bool = None
     ) -> ReplaceNetworkAclAssociationResultTypeDef:
         """
-        [Client.replace_network_acl_association documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.replace_network_acl_association)
+        [Client.replace_network_acl_association documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.replace_network_acl_association)
         """
 
     def replace_network_acl_entry(
@@ -5838,7 +6068,7 @@ class EC2Client:
         PortRange: "PortRangeTypeDef" = None,
     ) -> None:
         """
-        [Client.replace_network_acl_entry documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.replace_network_acl_entry)
+        [Client.replace_network_acl_entry documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.replace_network_acl_entry)
         """
 
     def replace_route(
@@ -5861,14 +6091,14 @@ class EC2Client:
         VpcPeeringConnectionId: str = None,
     ) -> None:
         """
-        [Client.replace_route documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.replace_route)
+        [Client.replace_route documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.replace_route)
         """
 
     def replace_route_table_association(
         self, AssociationId: str, RouteTableId: str, DryRun: bool = None
     ) -> ReplaceRouteTableAssociationResultTypeDef:
         """
-        [Client.replace_route_table_association documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.replace_route_table_association)
+        [Client.replace_route_table_association documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.replace_route_table_association)
         """
 
     def replace_transit_gateway_route(
@@ -5880,7 +6110,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> ReplaceTransitGatewayRouteResultTypeDef:
         """
-        [Client.replace_transit_gateway_route documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.replace_transit_gateway_route)
+        [Client.replace_transit_gateway_route documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.replace_transit_gateway_route)
         """
 
     def report_instance_status(
@@ -5906,14 +6136,14 @@ class EC2Client:
         StartTime: datetime = None,
     ) -> None:
         """
-        [Client.report_instance_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.report_instance_status)
+        [Client.report_instance_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.report_instance_status)
         """
 
     def request_spot_fleet(
         self, SpotFleetRequestConfig: "SpotFleetRequestConfigDataTypeDef", DryRun: bool = None
     ) -> RequestSpotFleetResponseTypeDef:
         """
-        [Client.request_spot_fleet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.request_spot_fleet)
+        [Client.request_spot_fleet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.request_spot_fleet)
         """
 
     def request_spot_instances(
@@ -5933,28 +6163,35 @@ class EC2Client:
         InstanceInterruptionBehavior: Literal["hibernate", "stop", "terminate"] = None,
     ) -> RequestSpotInstancesResultTypeDef:
         """
-        [Client.request_spot_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.request_spot_instances)
+        [Client.request_spot_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.request_spot_instances)
+        """
+
+    def reset_address_attribute(
+        self, AllocationId: str, Attribute: Literal["domain-name"], DryRun: bool = None
+    ) -> ResetAddressAttributeResultTypeDef:
+        """
+        [Client.reset_address_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.reset_address_attribute)
         """
 
     def reset_ebs_default_kms_key_id(
         self, DryRun: bool = None
     ) -> ResetEbsDefaultKmsKeyIdResultTypeDef:
         """
-        [Client.reset_ebs_default_kms_key_id documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.reset_ebs_default_kms_key_id)
+        [Client.reset_ebs_default_kms_key_id documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.reset_ebs_default_kms_key_id)
         """
 
     def reset_fpga_image_attribute(
         self, FpgaImageId: str, DryRun: bool = None, Attribute: Literal["loadPermission"] = None
     ) -> ResetFpgaImageAttributeResultTypeDef:
         """
-        [Client.reset_fpga_image_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.reset_fpga_image_attribute)
+        [Client.reset_fpga_image_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.reset_fpga_image_attribute)
         """
 
     def reset_image_attribute(
         self, Attribute: Literal["launchPermission"], ImageId: str, DryRun: bool = None
     ) -> None:
         """
-        [Client.reset_image_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.reset_image_attribute)
+        [Client.reset_image_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.reset_image_attribute)
         """
 
     def reset_instance_attribute(
@@ -5980,14 +6217,14 @@ class EC2Client:
         DryRun: bool = None,
     ) -> None:
         """
-        [Client.reset_instance_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.reset_instance_attribute)
+        [Client.reset_instance_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.reset_instance_attribute)
         """
 
     def reset_network_interface_attribute(
         self, NetworkInterfaceId: str, DryRun: bool = None, SourceDestCheck: str = None
     ) -> None:
         """
-        [Client.reset_network_interface_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.reset_network_interface_attribute)
+        [Client.reset_network_interface_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.reset_network_interface_attribute)
         """
 
     def reset_snapshot_attribute(
@@ -5997,21 +6234,21 @@ class EC2Client:
         DryRun: bool = None,
     ) -> None:
         """
-        [Client.reset_snapshot_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.reset_snapshot_attribute)
+        [Client.reset_snapshot_attribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.reset_snapshot_attribute)
         """
 
     def restore_address_to_classic(
         self, PublicIp: str, DryRun: bool = None
     ) -> RestoreAddressToClassicResultTypeDef:
         """
-        [Client.restore_address_to_classic documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.restore_address_to_classic)
+        [Client.restore_address_to_classic documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.restore_address_to_classic)
         """
 
     def restore_managed_prefix_list_version(
         self, PrefixListId: str, PreviousVersion: int, CurrentVersion: int, DryRun: bool = None
     ) -> RestoreManagedPrefixListVersionResultTypeDef:
         """
-        [Client.restore_managed_prefix_list_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.restore_managed_prefix_list_version)
+        [Client.restore_managed_prefix_list_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.restore_managed_prefix_list_version)
         """
 
     def revoke_client_vpn_ingress(
@@ -6023,7 +6260,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> RevokeClientVpnIngressResultTypeDef:
         """
-        [Client.revoke_client_vpn_ingress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.revoke_client_vpn_ingress)
+        [Client.revoke_client_vpn_ingress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.revoke_client_vpn_ingress)
         """
 
     def revoke_security_group_egress(
@@ -6039,7 +6276,7 @@ class EC2Client:
         SourceSecurityGroupOwnerId: str = None,
     ) -> RevokeSecurityGroupEgressResultTypeDef:
         """
-        [Client.revoke_security_group_egress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.revoke_security_group_egress)
+        [Client.revoke_security_group_egress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.revoke_security_group_egress)
         """
 
     def revoke_security_group_ingress(
@@ -6056,7 +6293,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> RevokeSecurityGroupIngressResultTypeDef:
         """
-        [Client.revoke_security_group_ingress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.revoke_security_group_ingress)
+        [Client.revoke_security_group_ingress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.revoke_security_group_ingress)
         """
 
     def run_instances(
@@ -6266,6 +6503,7 @@ class EC2Client:
             "c5n.4xlarge",
             "c5n.9xlarge",
             "c5n.18xlarge",
+            "c5n.metal",
             "c6g.metal",
             "c6g.medium",
             "c6g.large",
@@ -6284,6 +6522,14 @@ class EC2Client:
             "c6gd.8xlarge",
             "c6gd.12xlarge",
             "c6gd.16xlarge",
+            "c6gn.medium",
+            "c6gn.large",
+            "c6gn.xlarge",
+            "c6gn.2xlarge",
+            "c6gn.4xlarge",
+            "c6gn.8xlarge",
+            "c6gn.12xlarge",
+            "c6gn.16xlarge",
             "cc1.4xlarge",
             "cc2.8xlarge",
             "g2.2xlarge",
@@ -6292,6 +6538,9 @@ class EC2Client:
             "g3.8xlarge",
             "g3.16xlarge",
             "g3s.xlarge",
+            "g4ad.4xlarge",
+            "g4ad.8xlarge",
+            "g4ad.16xlarge",
             "g4dn.xlarge",
             "g4dn.2xlarge",
             "g4dn.4xlarge",
@@ -6478,7 +6727,7 @@ class EC2Client:
         EnclaveOptions: EnclaveOptionsRequestTypeDef = None,
     ) -> "ReservationTypeDef":
         """
-        [Client.run_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.run_instances)
+        [Client.run_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.run_instances)
         """
 
     def run_scheduled_instances(
@@ -6490,7 +6739,7 @@ class EC2Client:
         InstanceCount: int = None,
     ) -> RunScheduledInstancesResultTypeDef:
         """
-        [Client.run_scheduled_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.run_scheduled_instances)
+        [Client.run_scheduled_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.run_scheduled_instances)
         """
 
     def search_local_gateway_routes(
@@ -6502,7 +6751,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> SearchLocalGatewayRoutesResultTypeDef:
         """
-        [Client.search_local_gateway_routes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.search_local_gateway_routes)
+        [Client.search_local_gateway_routes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.search_local_gateway_routes)
         """
 
     def search_transit_gateway_multicast_groups(
@@ -6514,7 +6763,7 @@ class EC2Client:
         DryRun: bool = None,
     ) -> SearchTransitGatewayMulticastGroupsResultTypeDef:
         """
-        [Client.search_transit_gateway_multicast_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.search_transit_gateway_multicast_groups)
+        [Client.search_transit_gateway_multicast_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.search_transit_gateway_multicast_groups)
         """
 
     def search_transit_gateway_routes(
@@ -6525,26 +6774,38 @@ class EC2Client:
         DryRun: bool = None,
     ) -> SearchTransitGatewayRoutesResultTypeDef:
         """
-        [Client.search_transit_gateway_routes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.search_transit_gateway_routes)
+        [Client.search_transit_gateway_routes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.search_transit_gateway_routes)
         """
 
     def send_diagnostic_interrupt(self, InstanceId: str, DryRun: bool = None) -> None:
         """
-        [Client.send_diagnostic_interrupt documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.send_diagnostic_interrupt)
+        [Client.send_diagnostic_interrupt documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.send_diagnostic_interrupt)
         """
 
     def start_instances(
         self, InstanceIds: List[str], AdditionalInfo: str = None, DryRun: bool = None
     ) -> StartInstancesResultTypeDef:
         """
-        [Client.start_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.start_instances)
+        [Client.start_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.start_instances)
+        """
+
+    def start_network_insights_analysis(
+        self,
+        NetworkInsightsPathId: str,
+        ClientToken: str,
+        FilterInArns: List[str] = None,
+        DryRun: bool = None,
+        TagSpecifications: List["TagSpecificationTypeDef"] = None,
+    ) -> StartNetworkInsightsAnalysisResultTypeDef:
+        """
+        [Client.start_network_insights_analysis documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.start_network_insights_analysis)
         """
 
     def start_vpc_endpoint_service_private_dns_verification(
         self, ServiceId: str, DryRun: bool = None
     ) -> StartVpcEndpointServicePrivateDnsVerificationResultTypeDef:
         """
-        [Client.start_vpc_endpoint_service_private_dns_verification documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.start_vpc_endpoint_service_private_dns_verification)
+        [Client.start_vpc_endpoint_service_private_dns_verification documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.start_vpc_endpoint_service_private_dns_verification)
         """
 
     def stop_instances(
@@ -6555,7 +6816,7 @@ class EC2Client:
         Force: bool = None,
     ) -> StopInstancesResultTypeDef:
         """
-        [Client.stop_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.stop_instances)
+        [Client.stop_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.stop_instances)
         """
 
     def terminate_client_vpn_connections(
@@ -6566,35 +6827,35 @@ class EC2Client:
         DryRun: bool = None,
     ) -> TerminateClientVpnConnectionsResultTypeDef:
         """
-        [Client.terminate_client_vpn_connections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.terminate_client_vpn_connections)
+        [Client.terminate_client_vpn_connections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.terminate_client_vpn_connections)
         """
 
     def terminate_instances(
         self, InstanceIds: List[str], DryRun: bool = None
     ) -> TerminateInstancesResultTypeDef:
         """
-        [Client.terminate_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.terminate_instances)
+        [Client.terminate_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.terminate_instances)
         """
 
     def unassign_ipv6_addresses(
         self, Ipv6Addresses: List[str], NetworkInterfaceId: str
     ) -> UnassignIpv6AddressesResultTypeDef:
         """
-        [Client.unassign_ipv6_addresses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.unassign_ipv6_addresses)
+        [Client.unassign_ipv6_addresses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.unassign_ipv6_addresses)
         """
 
     def unassign_private_ip_addresses(
         self, NetworkInterfaceId: str, PrivateIpAddresses: List[str]
     ) -> None:
         """
-        [Client.unassign_private_ip_addresses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.unassign_private_ip_addresses)
+        [Client.unassign_private_ip_addresses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.unassign_private_ip_addresses)
         """
 
     def unmonitor_instances(
         self, InstanceIds: List[str], DryRun: bool = None
     ) -> UnmonitorInstancesResultTypeDef:
         """
-        [Client.unmonitor_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.unmonitor_instances)
+        [Client.unmonitor_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.unmonitor_instances)
         """
 
     def update_security_group_rule_descriptions_egress(
@@ -6605,7 +6866,7 @@ class EC2Client:
         GroupName: str = None,
     ) -> UpdateSecurityGroupRuleDescriptionsEgressResultTypeDef:
         """
-        [Client.update_security_group_rule_descriptions_egress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.update_security_group_rule_descriptions_egress)
+        [Client.update_security_group_rule_descriptions_egress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.update_security_group_rule_descriptions_egress)
         """
 
     def update_security_group_rule_descriptions_ingress(
@@ -6616,12 +6877,20 @@ class EC2Client:
         GroupName: str = None,
     ) -> UpdateSecurityGroupRuleDescriptionsIngressResultTypeDef:
         """
-        [Client.update_security_group_rule_descriptions_ingress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.update_security_group_rule_descriptions_ingress)
+        [Client.update_security_group_rule_descriptions_ingress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.update_security_group_rule_descriptions_ingress)
         """
 
     def withdraw_byoip_cidr(self, Cidr: str, DryRun: bool = None) -> WithdrawByoipCidrResultTypeDef:
         """
-        [Client.withdraw_byoip_cidr documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Client.withdraw_byoip_cidr)
+        [Client.withdraw_byoip_cidr documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Client.withdraw_byoip_cidr)
+        """
+
+    @overload
+    def get_paginator(
+        self, operation_name: Literal["describe_addresses_attribute"]
+    ) -> DescribeAddressesAttributePaginator:
+        """
+        [Paginator.DescribeAddressesAttribute documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeAddressesAttribute)
         """
 
     @overload
@@ -6629,7 +6898,7 @@ class EC2Client:
         self, operation_name: Literal["describe_byoip_cidrs"]
     ) -> DescribeByoipCidrsPaginator:
         """
-        [Paginator.DescribeByoipCidrs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeByoipCidrs)
+        [Paginator.DescribeByoipCidrs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeByoipCidrs)
         """
 
     @overload
@@ -6637,7 +6906,7 @@ class EC2Client:
         self, operation_name: Literal["describe_capacity_reservations"]
     ) -> DescribeCapacityReservationsPaginator:
         """
-        [Paginator.DescribeCapacityReservations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeCapacityReservations)
+        [Paginator.DescribeCapacityReservations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeCapacityReservations)
         """
 
     @overload
@@ -6645,7 +6914,7 @@ class EC2Client:
         self, operation_name: Literal["describe_carrier_gateways"]
     ) -> DescribeCarrierGatewaysPaginator:
         """
-        [Paginator.DescribeCarrierGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeCarrierGateways)
+        [Paginator.DescribeCarrierGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeCarrierGateways)
         """
 
     @overload
@@ -6653,7 +6922,7 @@ class EC2Client:
         self, operation_name: Literal["describe_classic_link_instances"]
     ) -> DescribeClassicLinkInstancesPaginator:
         """
-        [Paginator.DescribeClassicLinkInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeClassicLinkInstances)
+        [Paginator.DescribeClassicLinkInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeClassicLinkInstances)
         """
 
     @overload
@@ -6661,7 +6930,7 @@ class EC2Client:
         self, operation_name: Literal["describe_client_vpn_authorization_rules"]
     ) -> DescribeClientVpnAuthorizationRulesPaginator:
         """
-        [Paginator.DescribeClientVpnAuthorizationRules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnAuthorizationRules)
+        [Paginator.DescribeClientVpnAuthorizationRules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnAuthorizationRules)
         """
 
     @overload
@@ -6669,7 +6938,7 @@ class EC2Client:
         self, operation_name: Literal["describe_client_vpn_connections"]
     ) -> DescribeClientVpnConnectionsPaginator:
         """
-        [Paginator.DescribeClientVpnConnections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnConnections)
+        [Paginator.DescribeClientVpnConnections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnConnections)
         """
 
     @overload
@@ -6677,7 +6946,7 @@ class EC2Client:
         self, operation_name: Literal["describe_client_vpn_endpoints"]
     ) -> DescribeClientVpnEndpointsPaginator:
         """
-        [Paginator.DescribeClientVpnEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnEndpoints)
+        [Paginator.DescribeClientVpnEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnEndpoints)
         """
 
     @overload
@@ -6685,7 +6954,7 @@ class EC2Client:
         self, operation_name: Literal["describe_client_vpn_routes"]
     ) -> DescribeClientVpnRoutesPaginator:
         """
-        [Paginator.DescribeClientVpnRoutes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnRoutes)
+        [Paginator.DescribeClientVpnRoutes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnRoutes)
         """
 
     @overload
@@ -6693,7 +6962,7 @@ class EC2Client:
         self, operation_name: Literal["describe_client_vpn_target_networks"]
     ) -> DescribeClientVpnTargetNetworksPaginator:
         """
-        [Paginator.DescribeClientVpnTargetNetworks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnTargetNetworks)
+        [Paginator.DescribeClientVpnTargetNetworks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeClientVpnTargetNetworks)
         """
 
     @overload
@@ -6701,7 +6970,7 @@ class EC2Client:
         self, operation_name: Literal["describe_coip_pools"]
     ) -> DescribeCoipPoolsPaginator:
         """
-        [Paginator.DescribeCoipPools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeCoipPools)
+        [Paginator.DescribeCoipPools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeCoipPools)
         """
 
     @overload
@@ -6709,7 +6978,7 @@ class EC2Client:
         self, operation_name: Literal["describe_dhcp_options"]
     ) -> DescribeDhcpOptionsPaginator:
         """
-        [Paginator.DescribeDhcpOptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeDhcpOptions)
+        [Paginator.DescribeDhcpOptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeDhcpOptions)
         """
 
     @overload
@@ -6717,7 +6986,7 @@ class EC2Client:
         self, operation_name: Literal["describe_egress_only_internet_gateways"]
     ) -> DescribeEgressOnlyInternetGatewaysPaginator:
         """
-        [Paginator.DescribeEgressOnlyInternetGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeEgressOnlyInternetGateways)
+        [Paginator.DescribeEgressOnlyInternetGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeEgressOnlyInternetGateways)
         """
 
     @overload
@@ -6725,7 +6994,7 @@ class EC2Client:
         self, operation_name: Literal["describe_export_image_tasks"]
     ) -> DescribeExportImageTasksPaginator:
         """
-        [Paginator.DescribeExportImageTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeExportImageTasks)
+        [Paginator.DescribeExportImageTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeExportImageTasks)
         """
 
     @overload
@@ -6733,13 +7002,13 @@ class EC2Client:
         self, operation_name: Literal["describe_fast_snapshot_restores"]
     ) -> DescribeFastSnapshotRestoresPaginator:
         """
-        [Paginator.DescribeFastSnapshotRestores documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeFastSnapshotRestores)
+        [Paginator.DescribeFastSnapshotRestores documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeFastSnapshotRestores)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["describe_fleets"]) -> DescribeFleetsPaginator:
         """
-        [Paginator.DescribeFleets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeFleets)
+        [Paginator.DescribeFleets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeFleets)
         """
 
     @overload
@@ -6747,7 +7016,7 @@ class EC2Client:
         self, operation_name: Literal["describe_flow_logs"]
     ) -> DescribeFlowLogsPaginator:
         """
-        [Paginator.DescribeFlowLogs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeFlowLogs)
+        [Paginator.DescribeFlowLogs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeFlowLogs)
         """
 
     @overload
@@ -6755,7 +7024,7 @@ class EC2Client:
         self, operation_name: Literal["describe_fpga_images"]
     ) -> DescribeFpgaImagesPaginator:
         """
-        [Paginator.DescribeFpgaImages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeFpgaImages)
+        [Paginator.DescribeFpgaImages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeFpgaImages)
         """
 
     @overload
@@ -6763,7 +7032,7 @@ class EC2Client:
         self, operation_name: Literal["describe_host_reservation_offerings"]
     ) -> DescribeHostReservationOfferingsPaginator:
         """
-        [Paginator.DescribeHostReservationOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeHostReservationOfferings)
+        [Paginator.DescribeHostReservationOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeHostReservationOfferings)
         """
 
     @overload
@@ -6771,13 +7040,13 @@ class EC2Client:
         self, operation_name: Literal["describe_host_reservations"]
     ) -> DescribeHostReservationsPaginator:
         """
-        [Paginator.DescribeHostReservations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeHostReservations)
+        [Paginator.DescribeHostReservations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeHostReservations)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["describe_hosts"]) -> DescribeHostsPaginator:
         """
-        [Paginator.DescribeHosts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeHosts)
+        [Paginator.DescribeHosts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeHosts)
         """
 
     @overload
@@ -6785,7 +7054,7 @@ class EC2Client:
         self, operation_name: Literal["describe_iam_instance_profile_associations"]
     ) -> DescribeIamInstanceProfileAssociationsPaginator:
         """
-        [Paginator.DescribeIamInstanceProfileAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeIamInstanceProfileAssociations)
+        [Paginator.DescribeIamInstanceProfileAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeIamInstanceProfileAssociations)
         """
 
     @overload
@@ -6793,7 +7062,7 @@ class EC2Client:
         self, operation_name: Literal["describe_import_image_tasks"]
     ) -> DescribeImportImageTasksPaginator:
         """
-        [Paginator.DescribeImportImageTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeImportImageTasks)
+        [Paginator.DescribeImportImageTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeImportImageTasks)
         """
 
     @overload
@@ -6801,7 +7070,7 @@ class EC2Client:
         self, operation_name: Literal["describe_import_snapshot_tasks"]
     ) -> DescribeImportSnapshotTasksPaginator:
         """
-        [Paginator.DescribeImportSnapshotTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeImportSnapshotTasks)
+        [Paginator.DescribeImportSnapshotTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeImportSnapshotTasks)
         """
 
     @overload
@@ -6809,7 +7078,7 @@ class EC2Client:
         self, operation_name: Literal["describe_instance_credit_specifications"]
     ) -> DescribeInstanceCreditSpecificationsPaginator:
         """
-        [Paginator.DescribeInstanceCreditSpecifications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeInstanceCreditSpecifications)
+        [Paginator.DescribeInstanceCreditSpecifications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeInstanceCreditSpecifications)
         """
 
     @overload
@@ -6817,7 +7086,7 @@ class EC2Client:
         self, operation_name: Literal["describe_instance_status"]
     ) -> DescribeInstanceStatusPaginator:
         """
-        [Paginator.DescribeInstanceStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeInstanceStatus)
+        [Paginator.DescribeInstanceStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeInstanceStatus)
         """
 
     @overload
@@ -6825,7 +7094,7 @@ class EC2Client:
         self, operation_name: Literal["describe_instance_type_offerings"]
     ) -> DescribeInstanceTypeOfferingsPaginator:
         """
-        [Paginator.DescribeInstanceTypeOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeInstanceTypeOfferings)
+        [Paginator.DescribeInstanceTypeOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeInstanceTypeOfferings)
         """
 
     @overload
@@ -6833,7 +7102,7 @@ class EC2Client:
         self, operation_name: Literal["describe_instance_types"]
     ) -> DescribeInstanceTypesPaginator:
         """
-        [Paginator.DescribeInstanceTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeInstanceTypes)
+        [Paginator.DescribeInstanceTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeInstanceTypes)
         """
 
     @overload
@@ -6841,7 +7110,7 @@ class EC2Client:
         self, operation_name: Literal["describe_instances"]
     ) -> DescribeInstancesPaginator:
         """
-        [Paginator.DescribeInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeInstances)
+        [Paginator.DescribeInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeInstances)
         """
 
     @overload
@@ -6849,7 +7118,7 @@ class EC2Client:
         self, operation_name: Literal["describe_internet_gateways"]
     ) -> DescribeInternetGatewaysPaginator:
         """
-        [Paginator.DescribeInternetGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeInternetGateways)
+        [Paginator.DescribeInternetGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeInternetGateways)
         """
 
     @overload
@@ -6857,7 +7126,7 @@ class EC2Client:
         self, operation_name: Literal["describe_ipv6_pools"]
     ) -> DescribeIpv6PoolsPaginator:
         """
-        [Paginator.DescribeIpv6Pools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeIpv6Pools)
+        [Paginator.DescribeIpv6Pools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeIpv6Pools)
         """
 
     @overload
@@ -6865,7 +7134,7 @@ class EC2Client:
         self, operation_name: Literal["describe_launch_template_versions"]
     ) -> DescribeLaunchTemplateVersionsPaginator:
         """
-        [Paginator.DescribeLaunchTemplateVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeLaunchTemplateVersions)
+        [Paginator.DescribeLaunchTemplateVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeLaunchTemplateVersions)
         """
 
     @overload
@@ -6873,7 +7142,7 @@ class EC2Client:
         self, operation_name: Literal["describe_launch_templates"]
     ) -> DescribeLaunchTemplatesPaginator:
         """
-        [Paginator.DescribeLaunchTemplates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeLaunchTemplates)
+        [Paginator.DescribeLaunchTemplates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeLaunchTemplates)
         """
 
     @overload
@@ -6884,7 +7153,7 @@ class EC2Client:
         ],
     ) -> DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociationsPaginator:
         """
-        [Paginator.DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations)
+        [Paginator.DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayRouteTableVirtualInterfaceGroupAssociations)
         """
 
     @overload
@@ -6892,7 +7161,7 @@ class EC2Client:
         self, operation_name: Literal["describe_local_gateway_route_table_vpc_associations"]
     ) -> DescribeLocalGatewayRouteTableVpcAssociationsPaginator:
         """
-        [Paginator.DescribeLocalGatewayRouteTableVpcAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayRouteTableVpcAssociations)
+        [Paginator.DescribeLocalGatewayRouteTableVpcAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayRouteTableVpcAssociations)
         """
 
     @overload
@@ -6900,7 +7169,7 @@ class EC2Client:
         self, operation_name: Literal["describe_local_gateway_route_tables"]
     ) -> DescribeLocalGatewayRouteTablesPaginator:
         """
-        [Paginator.DescribeLocalGatewayRouteTables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayRouteTables)
+        [Paginator.DescribeLocalGatewayRouteTables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayRouteTables)
         """
 
     @overload
@@ -6908,7 +7177,7 @@ class EC2Client:
         self, operation_name: Literal["describe_local_gateway_virtual_interface_groups"]
     ) -> DescribeLocalGatewayVirtualInterfaceGroupsPaginator:
         """
-        [Paginator.DescribeLocalGatewayVirtualInterfaceGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayVirtualInterfaceGroups)
+        [Paginator.DescribeLocalGatewayVirtualInterfaceGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayVirtualInterfaceGroups)
         """
 
     @overload
@@ -6916,7 +7185,7 @@ class EC2Client:
         self, operation_name: Literal["describe_local_gateway_virtual_interfaces"]
     ) -> DescribeLocalGatewayVirtualInterfacesPaginator:
         """
-        [Paginator.DescribeLocalGatewayVirtualInterfaces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayVirtualInterfaces)
+        [Paginator.DescribeLocalGatewayVirtualInterfaces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeLocalGatewayVirtualInterfaces)
         """
 
     @overload
@@ -6924,7 +7193,7 @@ class EC2Client:
         self, operation_name: Literal["describe_local_gateways"]
     ) -> DescribeLocalGatewaysPaginator:
         """
-        [Paginator.DescribeLocalGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeLocalGateways)
+        [Paginator.DescribeLocalGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeLocalGateways)
         """
 
     @overload
@@ -6932,7 +7201,7 @@ class EC2Client:
         self, operation_name: Literal["describe_managed_prefix_lists"]
     ) -> DescribeManagedPrefixListsPaginator:
         """
-        [Paginator.DescribeManagedPrefixLists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeManagedPrefixLists)
+        [Paginator.DescribeManagedPrefixLists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeManagedPrefixLists)
         """
 
     @overload
@@ -6940,7 +7209,7 @@ class EC2Client:
         self, operation_name: Literal["describe_moving_addresses"]
     ) -> DescribeMovingAddressesPaginator:
         """
-        [Paginator.DescribeMovingAddresses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeMovingAddresses)
+        [Paginator.DescribeMovingAddresses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeMovingAddresses)
         """
 
     @overload
@@ -6948,7 +7217,7 @@ class EC2Client:
         self, operation_name: Literal["describe_nat_gateways"]
     ) -> DescribeNatGatewaysPaginator:
         """
-        [Paginator.DescribeNatGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeNatGateways)
+        [Paginator.DescribeNatGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeNatGateways)
         """
 
     @overload
@@ -6956,7 +7225,23 @@ class EC2Client:
         self, operation_name: Literal["describe_network_acls"]
     ) -> DescribeNetworkAclsPaginator:
         """
-        [Paginator.DescribeNetworkAcls documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeNetworkAcls)
+        [Paginator.DescribeNetworkAcls documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeNetworkAcls)
+        """
+
+    @overload
+    def get_paginator(
+        self, operation_name: Literal["describe_network_insights_analyses"]
+    ) -> DescribeNetworkInsightsAnalysesPaginator:
+        """
+        [Paginator.DescribeNetworkInsightsAnalyses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeNetworkInsightsAnalyses)
+        """
+
+    @overload
+    def get_paginator(
+        self, operation_name: Literal["describe_network_insights_paths"]
+    ) -> DescribeNetworkInsightsPathsPaginator:
+        """
+        [Paginator.DescribeNetworkInsightsPaths documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeNetworkInsightsPaths)
         """
 
     @overload
@@ -6964,7 +7249,7 @@ class EC2Client:
         self, operation_name: Literal["describe_network_interface_permissions"]
     ) -> DescribeNetworkInterfacePermissionsPaginator:
         """
-        [Paginator.DescribeNetworkInterfacePermissions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeNetworkInterfacePermissions)
+        [Paginator.DescribeNetworkInterfacePermissions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeNetworkInterfacePermissions)
         """
 
     @overload
@@ -6972,7 +7257,7 @@ class EC2Client:
         self, operation_name: Literal["describe_network_interfaces"]
     ) -> DescribeNetworkInterfacesPaginator:
         """
-        [Paginator.DescribeNetworkInterfaces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeNetworkInterfaces)
+        [Paginator.DescribeNetworkInterfaces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeNetworkInterfaces)
         """
 
     @overload
@@ -6980,7 +7265,7 @@ class EC2Client:
         self, operation_name: Literal["describe_prefix_lists"]
     ) -> DescribePrefixListsPaginator:
         """
-        [Paginator.DescribePrefixLists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribePrefixLists)
+        [Paginator.DescribePrefixLists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribePrefixLists)
         """
 
     @overload
@@ -6988,7 +7273,7 @@ class EC2Client:
         self, operation_name: Literal["describe_principal_id_format"]
     ) -> DescribePrincipalIdFormatPaginator:
         """
-        [Paginator.DescribePrincipalIdFormat documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribePrincipalIdFormat)
+        [Paginator.DescribePrincipalIdFormat documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribePrincipalIdFormat)
         """
 
     @overload
@@ -6996,7 +7281,7 @@ class EC2Client:
         self, operation_name: Literal["describe_public_ipv4_pools"]
     ) -> DescribePublicIpv4PoolsPaginator:
         """
-        [Paginator.DescribePublicIpv4Pools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribePublicIpv4Pools)
+        [Paginator.DescribePublicIpv4Pools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribePublicIpv4Pools)
         """
 
     @overload
@@ -7004,7 +7289,7 @@ class EC2Client:
         self, operation_name: Literal["describe_reserved_instances_modifications"]
     ) -> DescribeReservedInstancesModificationsPaginator:
         """
-        [Paginator.DescribeReservedInstancesModifications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeReservedInstancesModifications)
+        [Paginator.DescribeReservedInstancesModifications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeReservedInstancesModifications)
         """
 
     @overload
@@ -7012,7 +7297,7 @@ class EC2Client:
         self, operation_name: Literal["describe_reserved_instances_offerings"]
     ) -> DescribeReservedInstancesOfferingsPaginator:
         """
-        [Paginator.DescribeReservedInstancesOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeReservedInstancesOfferings)
+        [Paginator.DescribeReservedInstancesOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeReservedInstancesOfferings)
         """
 
     @overload
@@ -7020,7 +7305,7 @@ class EC2Client:
         self, operation_name: Literal["describe_route_tables"]
     ) -> DescribeRouteTablesPaginator:
         """
-        [Paginator.DescribeRouteTables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeRouteTables)
+        [Paginator.DescribeRouteTables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeRouteTables)
         """
 
     @overload
@@ -7028,7 +7313,7 @@ class EC2Client:
         self, operation_name: Literal["describe_scheduled_instance_availability"]
     ) -> DescribeScheduledInstanceAvailabilityPaginator:
         """
-        [Paginator.DescribeScheduledInstanceAvailability documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeScheduledInstanceAvailability)
+        [Paginator.DescribeScheduledInstanceAvailability documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeScheduledInstanceAvailability)
         """
 
     @overload
@@ -7036,7 +7321,7 @@ class EC2Client:
         self, operation_name: Literal["describe_scheduled_instances"]
     ) -> DescribeScheduledInstancesPaginator:
         """
-        [Paginator.DescribeScheduledInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeScheduledInstances)
+        [Paginator.DescribeScheduledInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeScheduledInstances)
         """
 
     @overload
@@ -7044,7 +7329,7 @@ class EC2Client:
         self, operation_name: Literal["describe_security_groups"]
     ) -> DescribeSecurityGroupsPaginator:
         """
-        [Paginator.DescribeSecurityGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeSecurityGroups)
+        [Paginator.DescribeSecurityGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeSecurityGroups)
         """
 
     @overload
@@ -7052,7 +7337,7 @@ class EC2Client:
         self, operation_name: Literal["describe_snapshots"]
     ) -> DescribeSnapshotsPaginator:
         """
-        [Paginator.DescribeSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeSnapshots)
+        [Paginator.DescribeSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeSnapshots)
         """
 
     @overload
@@ -7060,7 +7345,7 @@ class EC2Client:
         self, operation_name: Literal["describe_spot_fleet_instances"]
     ) -> DescribeSpotFleetInstancesPaginator:
         """
-        [Paginator.DescribeSpotFleetInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeSpotFleetInstances)
+        [Paginator.DescribeSpotFleetInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeSpotFleetInstances)
         """
 
     @overload
@@ -7068,7 +7353,7 @@ class EC2Client:
         self, operation_name: Literal["describe_spot_fleet_requests"]
     ) -> DescribeSpotFleetRequestsPaginator:
         """
-        [Paginator.DescribeSpotFleetRequests documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeSpotFleetRequests)
+        [Paginator.DescribeSpotFleetRequests documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeSpotFleetRequests)
         """
 
     @overload
@@ -7076,7 +7361,7 @@ class EC2Client:
         self, operation_name: Literal["describe_spot_instance_requests"]
     ) -> DescribeSpotInstanceRequestsPaginator:
         """
-        [Paginator.DescribeSpotInstanceRequests documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeSpotInstanceRequests)
+        [Paginator.DescribeSpotInstanceRequests documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeSpotInstanceRequests)
         """
 
     @overload
@@ -7084,7 +7369,7 @@ class EC2Client:
         self, operation_name: Literal["describe_spot_price_history"]
     ) -> DescribeSpotPriceHistoryPaginator:
         """
-        [Paginator.DescribeSpotPriceHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeSpotPriceHistory)
+        [Paginator.DescribeSpotPriceHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeSpotPriceHistory)
         """
 
     @overload
@@ -7092,7 +7377,7 @@ class EC2Client:
         self, operation_name: Literal["describe_stale_security_groups"]
     ) -> DescribeStaleSecurityGroupsPaginator:
         """
-        [Paginator.DescribeStaleSecurityGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeStaleSecurityGroups)
+        [Paginator.DescribeStaleSecurityGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeStaleSecurityGroups)
         """
 
     @overload
@@ -7100,13 +7385,13 @@ class EC2Client:
         self, operation_name: Literal["describe_subnets"]
     ) -> DescribeSubnetsPaginator:
         """
-        [Paginator.DescribeSubnets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeSubnets)
+        [Paginator.DescribeSubnets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeSubnets)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["describe_tags"]) -> DescribeTagsPaginator:
         """
-        [Paginator.DescribeTags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeTags)
+        [Paginator.DescribeTags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeTags)
         """
 
     @overload
@@ -7114,7 +7399,7 @@ class EC2Client:
         self, operation_name: Literal["describe_traffic_mirror_filters"]
     ) -> DescribeTrafficMirrorFiltersPaginator:
         """
-        [Paginator.DescribeTrafficMirrorFilters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeTrafficMirrorFilters)
+        [Paginator.DescribeTrafficMirrorFilters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeTrafficMirrorFilters)
         """
 
     @overload
@@ -7122,7 +7407,7 @@ class EC2Client:
         self, operation_name: Literal["describe_traffic_mirror_sessions"]
     ) -> DescribeTrafficMirrorSessionsPaginator:
         """
-        [Paginator.DescribeTrafficMirrorSessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeTrafficMirrorSessions)
+        [Paginator.DescribeTrafficMirrorSessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeTrafficMirrorSessions)
         """
 
     @overload
@@ -7130,7 +7415,7 @@ class EC2Client:
         self, operation_name: Literal["describe_traffic_mirror_targets"]
     ) -> DescribeTrafficMirrorTargetsPaginator:
         """
-        [Paginator.DescribeTrafficMirrorTargets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeTrafficMirrorTargets)
+        [Paginator.DescribeTrafficMirrorTargets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeTrafficMirrorTargets)
         """
 
     @overload
@@ -7138,7 +7423,23 @@ class EC2Client:
         self, operation_name: Literal["describe_transit_gateway_attachments"]
     ) -> DescribeTransitGatewayAttachmentsPaginator:
         """
-        [Paginator.DescribeTransitGatewayAttachments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayAttachments)
+        [Paginator.DescribeTransitGatewayAttachments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayAttachments)
+        """
+
+    @overload
+    def get_paginator(
+        self, operation_name: Literal["describe_transit_gateway_connect_peers"]
+    ) -> DescribeTransitGatewayConnectPeersPaginator:
+        """
+        [Paginator.DescribeTransitGatewayConnectPeers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayConnectPeers)
+        """
+
+    @overload
+    def get_paginator(
+        self, operation_name: Literal["describe_transit_gateway_connects"]
+    ) -> DescribeTransitGatewayConnectsPaginator:
+        """
+        [Paginator.DescribeTransitGatewayConnects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayConnects)
         """
 
     @overload
@@ -7146,7 +7447,7 @@ class EC2Client:
         self, operation_name: Literal["describe_transit_gateway_multicast_domains"]
     ) -> DescribeTransitGatewayMulticastDomainsPaginator:
         """
-        [Paginator.DescribeTransitGatewayMulticastDomains documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayMulticastDomains)
+        [Paginator.DescribeTransitGatewayMulticastDomains documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayMulticastDomains)
         """
 
     @overload
@@ -7154,7 +7455,7 @@ class EC2Client:
         self, operation_name: Literal["describe_transit_gateway_peering_attachments"]
     ) -> DescribeTransitGatewayPeeringAttachmentsPaginator:
         """
-        [Paginator.DescribeTransitGatewayPeeringAttachments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayPeeringAttachments)
+        [Paginator.DescribeTransitGatewayPeeringAttachments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayPeeringAttachments)
         """
 
     @overload
@@ -7162,7 +7463,7 @@ class EC2Client:
         self, operation_name: Literal["describe_transit_gateway_route_tables"]
     ) -> DescribeTransitGatewayRouteTablesPaginator:
         """
-        [Paginator.DescribeTransitGatewayRouteTables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayRouteTables)
+        [Paginator.DescribeTransitGatewayRouteTables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayRouteTables)
         """
 
     @overload
@@ -7170,7 +7471,7 @@ class EC2Client:
         self, operation_name: Literal["describe_transit_gateway_vpc_attachments"]
     ) -> DescribeTransitGatewayVpcAttachmentsPaginator:
         """
-        [Paginator.DescribeTransitGatewayVpcAttachments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayVpcAttachments)
+        [Paginator.DescribeTransitGatewayVpcAttachments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeTransitGatewayVpcAttachments)
         """
 
     @overload
@@ -7178,7 +7479,7 @@ class EC2Client:
         self, operation_name: Literal["describe_transit_gateways"]
     ) -> DescribeTransitGatewaysPaginator:
         """
-        [Paginator.DescribeTransitGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeTransitGateways)
+        [Paginator.DescribeTransitGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeTransitGateways)
         """
 
     @overload
@@ -7186,7 +7487,7 @@ class EC2Client:
         self, operation_name: Literal["describe_volume_status"]
     ) -> DescribeVolumeStatusPaginator:
         """
-        [Paginator.DescribeVolumeStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeVolumeStatus)
+        [Paginator.DescribeVolumeStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeVolumeStatus)
         """
 
     @overload
@@ -7194,7 +7495,7 @@ class EC2Client:
         self, operation_name: Literal["describe_volumes"]
     ) -> DescribeVolumesPaginator:
         """
-        [Paginator.DescribeVolumes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeVolumes)
+        [Paginator.DescribeVolumes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeVolumes)
         """
 
     @overload
@@ -7202,7 +7503,7 @@ class EC2Client:
         self, operation_name: Literal["describe_volumes_modifications"]
     ) -> DescribeVolumesModificationsPaginator:
         """
-        [Paginator.DescribeVolumesModifications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeVolumesModifications)
+        [Paginator.DescribeVolumesModifications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeVolumesModifications)
         """
 
     @overload
@@ -7210,7 +7511,7 @@ class EC2Client:
         self, operation_name: Literal["describe_vpc_classic_link_dns_support"]
     ) -> DescribeVpcClassicLinkDnsSupportPaginator:
         """
-        [Paginator.DescribeVpcClassicLinkDnsSupport documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeVpcClassicLinkDnsSupport)
+        [Paginator.DescribeVpcClassicLinkDnsSupport documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeVpcClassicLinkDnsSupport)
         """
 
     @overload
@@ -7218,7 +7519,7 @@ class EC2Client:
         self, operation_name: Literal["describe_vpc_endpoint_connection_notifications"]
     ) -> DescribeVpcEndpointConnectionNotificationsPaginator:
         """
-        [Paginator.DescribeVpcEndpointConnectionNotifications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointConnectionNotifications)
+        [Paginator.DescribeVpcEndpointConnectionNotifications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointConnectionNotifications)
         """
 
     @overload
@@ -7226,7 +7527,7 @@ class EC2Client:
         self, operation_name: Literal["describe_vpc_endpoint_connections"]
     ) -> DescribeVpcEndpointConnectionsPaginator:
         """
-        [Paginator.DescribeVpcEndpointConnections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointConnections)
+        [Paginator.DescribeVpcEndpointConnections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointConnections)
         """
 
     @overload
@@ -7234,7 +7535,7 @@ class EC2Client:
         self, operation_name: Literal["describe_vpc_endpoint_service_configurations"]
     ) -> DescribeVpcEndpointServiceConfigurationsPaginator:
         """
-        [Paginator.DescribeVpcEndpointServiceConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointServiceConfigurations)
+        [Paginator.DescribeVpcEndpointServiceConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointServiceConfigurations)
         """
 
     @overload
@@ -7242,7 +7543,7 @@ class EC2Client:
         self, operation_name: Literal["describe_vpc_endpoint_service_permissions"]
     ) -> DescribeVpcEndpointServicePermissionsPaginator:
         """
-        [Paginator.DescribeVpcEndpointServicePermissions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointServicePermissions)
+        [Paginator.DescribeVpcEndpointServicePermissions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointServicePermissions)
         """
 
     @overload
@@ -7250,7 +7551,7 @@ class EC2Client:
         self, operation_name: Literal["describe_vpc_endpoint_services"]
     ) -> DescribeVpcEndpointServicesPaginator:
         """
-        [Paginator.DescribeVpcEndpointServices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointServices)
+        [Paginator.DescribeVpcEndpointServices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpointServices)
         """
 
     @overload
@@ -7258,7 +7559,7 @@ class EC2Client:
         self, operation_name: Literal["describe_vpc_endpoints"]
     ) -> DescribeVpcEndpointsPaginator:
         """
-        [Paginator.DescribeVpcEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpoints)
+        [Paginator.DescribeVpcEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeVpcEndpoints)
         """
 
     @overload
@@ -7266,13 +7567,13 @@ class EC2Client:
         self, operation_name: Literal["describe_vpc_peering_connections"]
     ) -> DescribeVpcPeeringConnectionsPaginator:
         """
-        [Paginator.DescribeVpcPeeringConnections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeVpcPeeringConnections)
+        [Paginator.DescribeVpcPeeringConnections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeVpcPeeringConnections)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["describe_vpcs"]) -> DescribeVpcsPaginator:
         """
-        [Paginator.DescribeVpcs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.DescribeVpcs)
+        [Paginator.DescribeVpcs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.DescribeVpcs)
         """
 
     @overload
@@ -7280,7 +7581,7 @@ class EC2Client:
         self, operation_name: Literal["get_associated_ipv6_pool_cidrs"]
     ) -> GetAssociatedIpv6PoolCidrsPaginator:
         """
-        [Paginator.GetAssociatedIpv6PoolCidrs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.GetAssociatedIpv6PoolCidrs)
+        [Paginator.GetAssociatedIpv6PoolCidrs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.GetAssociatedIpv6PoolCidrs)
         """
 
     @overload
@@ -7288,7 +7589,7 @@ class EC2Client:
         self, operation_name: Literal["get_groups_for_capacity_reservation"]
     ) -> GetGroupsForCapacityReservationPaginator:
         """
-        [Paginator.GetGroupsForCapacityReservation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.GetGroupsForCapacityReservation)
+        [Paginator.GetGroupsForCapacityReservation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.GetGroupsForCapacityReservation)
         """
 
     @overload
@@ -7296,7 +7597,7 @@ class EC2Client:
         self, operation_name: Literal["get_managed_prefix_list_associations"]
     ) -> GetManagedPrefixListAssociationsPaginator:
         """
-        [Paginator.GetManagedPrefixListAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.GetManagedPrefixListAssociations)
+        [Paginator.GetManagedPrefixListAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.GetManagedPrefixListAssociations)
         """
 
     @overload
@@ -7304,7 +7605,7 @@ class EC2Client:
         self, operation_name: Literal["get_managed_prefix_list_entries"]
     ) -> GetManagedPrefixListEntriesPaginator:
         """
-        [Paginator.GetManagedPrefixListEntries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.GetManagedPrefixListEntries)
+        [Paginator.GetManagedPrefixListEntries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.GetManagedPrefixListEntries)
         """
 
     @overload
@@ -7312,7 +7613,7 @@ class EC2Client:
         self, operation_name: Literal["get_transit_gateway_attachment_propagations"]
     ) -> GetTransitGatewayAttachmentPropagationsPaginator:
         """
-        [Paginator.GetTransitGatewayAttachmentPropagations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayAttachmentPropagations)
+        [Paginator.GetTransitGatewayAttachmentPropagations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayAttachmentPropagations)
         """
 
     @overload
@@ -7320,7 +7621,7 @@ class EC2Client:
         self, operation_name: Literal["get_transit_gateway_multicast_domain_associations"]
     ) -> GetTransitGatewayMulticastDomainAssociationsPaginator:
         """
-        [Paginator.GetTransitGatewayMulticastDomainAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayMulticastDomainAssociations)
+        [Paginator.GetTransitGatewayMulticastDomainAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayMulticastDomainAssociations)
         """
 
     @overload
@@ -7328,7 +7629,7 @@ class EC2Client:
         self, operation_name: Literal["get_transit_gateway_prefix_list_references"]
     ) -> GetTransitGatewayPrefixListReferencesPaginator:
         """
-        [Paginator.GetTransitGatewayPrefixListReferences documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayPrefixListReferences)
+        [Paginator.GetTransitGatewayPrefixListReferences documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayPrefixListReferences)
         """
 
     @overload
@@ -7336,7 +7637,7 @@ class EC2Client:
         self, operation_name: Literal["get_transit_gateway_route_table_associations"]
     ) -> GetTransitGatewayRouteTableAssociationsPaginator:
         """
-        [Paginator.GetTransitGatewayRouteTableAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayRouteTableAssociations)
+        [Paginator.GetTransitGatewayRouteTableAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayRouteTableAssociations)
         """
 
     @overload
@@ -7344,7 +7645,7 @@ class EC2Client:
         self, operation_name: Literal["get_transit_gateway_route_table_propagations"]
     ) -> GetTransitGatewayRouteTablePropagationsPaginator:
         """
-        [Paginator.GetTransitGatewayRouteTablePropagations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayRouteTablePropagations)
+        [Paginator.GetTransitGatewayRouteTablePropagations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.GetTransitGatewayRouteTablePropagations)
         """
 
     @overload
@@ -7352,7 +7653,7 @@ class EC2Client:
         self, operation_name: Literal["search_local_gateway_routes"]
     ) -> SearchLocalGatewayRoutesPaginator:
         """
-        [Paginator.SearchLocalGatewayRoutes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.SearchLocalGatewayRoutes)
+        [Paginator.SearchLocalGatewayRoutes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.SearchLocalGatewayRoutes)
         """
 
     @overload
@@ -7360,13 +7661,13 @@ class EC2Client:
         self, operation_name: Literal["search_transit_gateway_multicast_groups"]
     ) -> SearchTransitGatewayMulticastGroupsPaginator:
         """
-        [Paginator.SearchTransitGatewayMulticastGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Paginator.SearchTransitGatewayMulticastGroups)
+        [Paginator.SearchTransitGatewayMulticastGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Paginator.SearchTransitGatewayMulticastGroups)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["bundle_task_complete"]) -> BundleTaskCompleteWaiter:
         """
-        [Waiter.BundleTaskComplete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.BundleTaskComplete)
+        [Waiter.BundleTaskComplete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.BundleTaskComplete)
         """
 
     @overload
@@ -7374,7 +7675,7 @@ class EC2Client:
         self, waiter_name: Literal["conversion_task_cancelled"]
     ) -> ConversionTaskCancelledWaiter:
         """
-        [Waiter.ConversionTaskCancelled documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.ConversionTaskCancelled)
+        [Waiter.ConversionTaskCancelled documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.ConversionTaskCancelled)
         """
 
     @overload
@@ -7382,7 +7683,7 @@ class EC2Client:
         self, waiter_name: Literal["conversion_task_completed"]
     ) -> ConversionTaskCompletedWaiter:
         """
-        [Waiter.ConversionTaskCompleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.ConversionTaskCompleted)
+        [Waiter.ConversionTaskCompleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.ConversionTaskCompleted)
         """
 
     @overload
@@ -7390,7 +7691,7 @@ class EC2Client:
         self, waiter_name: Literal["conversion_task_deleted"]
     ) -> ConversionTaskDeletedWaiter:
         """
-        [Waiter.ConversionTaskDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.ConversionTaskDeleted)
+        [Waiter.ConversionTaskDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.ConversionTaskDeleted)
         """
 
     @overload
@@ -7398,7 +7699,7 @@ class EC2Client:
         self, waiter_name: Literal["customer_gateway_available"]
     ) -> CustomerGatewayAvailableWaiter:
         """
-        [Waiter.CustomerGatewayAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.CustomerGatewayAvailable)
+        [Waiter.CustomerGatewayAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.CustomerGatewayAvailable)
         """
 
     @overload
@@ -7406,7 +7707,7 @@ class EC2Client:
         self, waiter_name: Literal["export_task_cancelled"]
     ) -> ExportTaskCancelledWaiter:
         """
-        [Waiter.ExportTaskCancelled documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.ExportTaskCancelled)
+        [Waiter.ExportTaskCancelled documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.ExportTaskCancelled)
         """
 
     @overload
@@ -7414,55 +7715,55 @@ class EC2Client:
         self, waiter_name: Literal["export_task_completed"]
     ) -> ExportTaskCompletedWaiter:
         """
-        [Waiter.ExportTaskCompleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.ExportTaskCompleted)
+        [Waiter.ExportTaskCompleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.ExportTaskCompleted)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["image_available"]) -> ImageAvailableWaiter:
         """
-        [Waiter.ImageAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.ImageAvailable)
+        [Waiter.ImageAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.ImageAvailable)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["image_exists"]) -> ImageExistsWaiter:
         """
-        [Waiter.ImageExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.ImageExists)
+        [Waiter.ImageExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.ImageExists)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["instance_exists"]) -> InstanceExistsWaiter:
         """
-        [Waiter.InstanceExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.InstanceExists)
+        [Waiter.InstanceExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.InstanceExists)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["instance_running"]) -> InstanceRunningWaiter:
         """
-        [Waiter.InstanceRunning documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.InstanceRunning)
+        [Waiter.InstanceRunning documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.InstanceRunning)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["instance_status_ok"]) -> InstanceStatusOkWaiter:
         """
-        [Waiter.InstanceStatusOk documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.InstanceStatusOk)
+        [Waiter.InstanceStatusOk documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.InstanceStatusOk)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["instance_stopped"]) -> InstanceStoppedWaiter:
         """
-        [Waiter.InstanceStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.InstanceStopped)
+        [Waiter.InstanceStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.InstanceStopped)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["instance_terminated"]) -> InstanceTerminatedWaiter:
         """
-        [Waiter.InstanceTerminated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.InstanceTerminated)
+        [Waiter.InstanceTerminated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.InstanceTerminated)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["key_pair_exists"]) -> KeyPairExistsWaiter:
         """
-        [Waiter.KeyPairExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.KeyPairExists)
+        [Waiter.KeyPairExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.KeyPairExists)
         """
 
     @overload
@@ -7470,7 +7771,7 @@ class EC2Client:
         self, waiter_name: Literal["nat_gateway_available"]
     ) -> NatGatewayAvailableWaiter:
         """
-        [Waiter.NatGatewayAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.NatGatewayAvailable)
+        [Waiter.NatGatewayAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.NatGatewayAvailable)
         """
 
     @overload
@@ -7478,7 +7779,7 @@ class EC2Client:
         self, waiter_name: Literal["network_interface_available"]
     ) -> NetworkInterfaceAvailableWaiter:
         """
-        [Waiter.NetworkInterfaceAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.NetworkInterfaceAvailable)
+        [Waiter.NetworkInterfaceAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.NetworkInterfaceAvailable)
         """
 
     @overload
@@ -7486,7 +7787,7 @@ class EC2Client:
         self, waiter_name: Literal["password_data_available"]
     ) -> PasswordDataAvailableWaiter:
         """
-        [Waiter.PasswordDataAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.PasswordDataAvailable)
+        [Waiter.PasswordDataAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.PasswordDataAvailable)
         """
 
     @overload
@@ -7494,13 +7795,13 @@ class EC2Client:
         self, waiter_name: Literal["security_group_exists"]
     ) -> SecurityGroupExistsWaiter:
         """
-        [Waiter.SecurityGroupExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.SecurityGroupExists)
+        [Waiter.SecurityGroupExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.SecurityGroupExists)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["snapshot_completed"]) -> SnapshotCompletedWaiter:
         """
-        [Waiter.SnapshotCompleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.SnapshotCompleted)
+        [Waiter.SnapshotCompleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.SnapshotCompleted)
         """
 
     @overload
@@ -7508,49 +7809,49 @@ class EC2Client:
         self, waiter_name: Literal["spot_instance_request_fulfilled"]
     ) -> SpotInstanceRequestFulfilledWaiter:
         """
-        [Waiter.SpotInstanceRequestFulfilled documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.SpotInstanceRequestFulfilled)
+        [Waiter.SpotInstanceRequestFulfilled documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.SpotInstanceRequestFulfilled)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["subnet_available"]) -> SubnetAvailableWaiter:
         """
-        [Waiter.SubnetAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.SubnetAvailable)
+        [Waiter.SubnetAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.SubnetAvailable)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["system_status_ok"]) -> SystemStatusOkWaiter:
         """
-        [Waiter.SystemStatusOk documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.SystemStatusOk)
+        [Waiter.SystemStatusOk documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.SystemStatusOk)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["volume_available"]) -> VolumeAvailableWaiter:
         """
-        [Waiter.VolumeAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.VolumeAvailable)
+        [Waiter.VolumeAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.VolumeAvailable)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["volume_deleted"]) -> VolumeDeletedWaiter:
         """
-        [Waiter.VolumeDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.VolumeDeleted)
+        [Waiter.VolumeDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.VolumeDeleted)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["volume_in_use"]) -> VolumeInUseWaiter:
         """
-        [Waiter.VolumeInUse documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.VolumeInUse)
+        [Waiter.VolumeInUse documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.VolumeInUse)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["vpc_available"]) -> VpcAvailableWaiter:
         """
-        [Waiter.VpcAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.VpcAvailable)
+        [Waiter.VpcAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.VpcAvailable)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["vpc_exists"]) -> VpcExistsWaiter:
         """
-        [Waiter.VpcExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.VpcExists)
+        [Waiter.VpcExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.VpcExists)
         """
 
     @overload
@@ -7558,7 +7859,7 @@ class EC2Client:
         self, waiter_name: Literal["vpc_peering_connection_deleted"]
     ) -> VpcPeeringConnectionDeletedWaiter:
         """
-        [Waiter.VpcPeeringConnectionDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.VpcPeeringConnectionDeleted)
+        [Waiter.VpcPeeringConnectionDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.VpcPeeringConnectionDeleted)
         """
 
     @overload
@@ -7566,7 +7867,7 @@ class EC2Client:
         self, waiter_name: Literal["vpc_peering_connection_exists"]
     ) -> VpcPeeringConnectionExistsWaiter:
         """
-        [Waiter.VpcPeeringConnectionExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.VpcPeeringConnectionExists)
+        [Waiter.VpcPeeringConnectionExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.VpcPeeringConnectionExists)
         """
 
     @overload
@@ -7574,7 +7875,7 @@ class EC2Client:
         self, waiter_name: Literal["vpn_connection_available"]
     ) -> VpnConnectionAvailableWaiter:
         """
-        [Waiter.VpnConnectionAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.VpnConnectionAvailable)
+        [Waiter.VpnConnectionAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.VpnConnectionAvailable)
         """
 
     @overload
@@ -7582,5 +7883,5 @@ class EC2Client:
         self, waiter_name: Literal["vpn_connection_deleted"]
     ) -> VpnConnectionDeletedWaiter:
         """
-        [Waiter.VpnConnectionDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.VpnConnectionDeleted)
+        [Waiter.VpnConnectionDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.VpnConnectionDeleted)
         """

@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for route53resolver service client paginators.
 
@@ -9,6 +8,7 @@ Usage::
 
     from mypy_boto3_route53resolver import Route53ResolverClient
     from mypy_boto3_route53resolver.paginator import (
+        ListResolverDnssecConfigsPaginator,
         ListResolverEndpointIpAddressesPaginator,
         ListResolverEndpointsPaginator,
         ListResolverQueryLogConfigAssociationsPaginator,
@@ -20,6 +20,7 @@ Usage::
 
     client: Route53ResolverClient = boto3.client("route53resolver")
 
+    list_resolver_dnssec_configs_paginator: ListResolverDnssecConfigsPaginator = client.get_paginator("list_resolver_dnssec_configs")
     list_resolver_endpoint_ip_addresses_paginator: ListResolverEndpointIpAddressesPaginator = client.get_paginator("list_resolver_endpoint_ip_addresses")
     list_resolver_endpoints_paginator: ListResolverEndpointsPaginator = client.get_paginator("list_resolver_endpoints")
     list_resolver_query_log_config_associations_paginator: ListResolverQueryLogConfigAssociationsPaginator = client.get_paginator("list_resolver_query_log_config_associations")
@@ -36,6 +37,7 @@ from botocore.paginate import Paginator as Boto3Paginator
 
 from mypy_boto3_route53resolver.type_defs import (
     FilterTypeDef,
+    ListResolverDnssecConfigsResponseTypeDef,
     ListResolverEndpointIpAddressesResponseTypeDef,
     ListResolverEndpointsResponseTypeDef,
     ListResolverQueryLogConfigAssociationsResponseTypeDef,
@@ -53,6 +55,7 @@ else:
 
 
 __all__ = (
+    "ListResolverDnssecConfigsPaginator",
     "ListResolverEndpointIpAddressesPaginator",
     "ListResolverEndpointsPaginator",
     "ListResolverQueryLogConfigAssociationsPaginator",
@@ -63,35 +66,48 @@ __all__ = (
 )
 
 
+class ListResolverDnssecConfigsPaginator(Boto3Paginator):
+    """
+    [Paginator.ListResolverDnssecConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverDnssecConfigs)
+    """
+
+    def paginate(
+        self, Filters: List[FilterTypeDef] = None, PaginationConfig: PaginatorConfigTypeDef = None
+    ) -> Iterator[ListResolverDnssecConfigsResponseTypeDef]:
+        """
+        [ListResolverDnssecConfigs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverDnssecConfigs.paginate)
+        """
+
+
 class ListResolverEndpointIpAddressesPaginator(Boto3Paginator):
     """
-    [Paginator.ListResolverEndpointIpAddresses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverEndpointIpAddresses)
+    [Paginator.ListResolverEndpointIpAddresses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverEndpointIpAddresses)
     """
 
     def paginate(
         self, ResolverEndpointId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListResolverEndpointIpAddressesResponseTypeDef]:
         """
-        [ListResolverEndpointIpAddresses.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverEndpointIpAddresses.paginate)
+        [ListResolverEndpointIpAddresses.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverEndpointIpAddresses.paginate)
         """
 
 
 class ListResolverEndpointsPaginator(Boto3Paginator):
     """
-    [Paginator.ListResolverEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverEndpoints)
+    [Paginator.ListResolverEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverEndpoints)
     """
 
     def paginate(
         self, Filters: List[FilterTypeDef] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListResolverEndpointsResponseTypeDef]:
         """
-        [ListResolverEndpoints.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverEndpoints.paginate)
+        [ListResolverEndpoints.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverEndpoints.paginate)
         """
 
 
 class ListResolverQueryLogConfigAssociationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListResolverQueryLogConfigAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverQueryLogConfigAssociations)
+    [Paginator.ListResolverQueryLogConfigAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverQueryLogConfigAssociations)
     """
 
     def paginate(
@@ -102,13 +118,13 @@ class ListResolverQueryLogConfigAssociationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListResolverQueryLogConfigAssociationsResponseTypeDef]:
         """
-        [ListResolverQueryLogConfigAssociations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverQueryLogConfigAssociations.paginate)
+        [ListResolverQueryLogConfigAssociations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverQueryLogConfigAssociations.paginate)
         """
 
 
 class ListResolverQueryLogConfigsPaginator(Boto3Paginator):
     """
-    [Paginator.ListResolverQueryLogConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverQueryLogConfigs)
+    [Paginator.ListResolverQueryLogConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverQueryLogConfigs)
     """
 
     def paginate(
@@ -119,44 +135,44 @@ class ListResolverQueryLogConfigsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListResolverQueryLogConfigsResponseTypeDef]:
         """
-        [ListResolverQueryLogConfigs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverQueryLogConfigs.paginate)
+        [ListResolverQueryLogConfigs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverQueryLogConfigs.paginate)
         """
 
 
 class ListResolverRuleAssociationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListResolverRuleAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverRuleAssociations)
+    [Paginator.ListResolverRuleAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverRuleAssociations)
     """
 
     def paginate(
         self, Filters: List[FilterTypeDef] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListResolverRuleAssociationsResponseTypeDef]:
         """
-        [ListResolverRuleAssociations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverRuleAssociations.paginate)
+        [ListResolverRuleAssociations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverRuleAssociations.paginate)
         """
 
 
 class ListResolverRulesPaginator(Boto3Paginator):
     """
-    [Paginator.ListResolverRules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverRules)
+    [Paginator.ListResolverRules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverRules)
     """
 
     def paginate(
         self, Filters: List[FilterTypeDef] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListResolverRulesResponseTypeDef]:
         """
-        [ListResolverRules.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverRules.paginate)
+        [ListResolverRules.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53resolver.html#Route53Resolver.Paginator.ListResolverRules.paginate)
         """
 
 
 class ListTagsForResourcePaginator(Boto3Paginator):
     """
-    [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53resolver.html#Route53Resolver.Paginator.ListTagsForResource)
+    [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53resolver.html#Route53Resolver.Paginator.ListTagsForResource)
     """
 
     def paginate(
         self, ResourceArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTagsForResourceResponseTypeDef]:
         """
-        [ListTagsForResource.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53resolver.html#Route53Resolver.Paginator.ListTagsForResource.paginate)
+        [ListTagsForResource.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53resolver.html#Route53Resolver.Paginator.ListTagsForResource.paginate)
         """

@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for storagegateway service client
 
@@ -146,7 +145,7 @@ class Exceptions:
 
 class StorageGatewayClient:
     """
-    [StorageGateway.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client)
+    [StorageGateway.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client)
     """
 
     meta: ClientMeta
@@ -164,40 +163,40 @@ class StorageGatewayClient:
         Tags: List["TagTypeDef"] = None,
     ) -> ActivateGatewayOutputTypeDef:
         """
-        [Client.activate_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.activate_gateway)
+        [Client.activate_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.activate_gateway)
         """
 
     def add_cache(self, GatewayARN: str, DiskIds: List[str]) -> AddCacheOutputTypeDef:
         """
-        [Client.add_cache documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.add_cache)
+        [Client.add_cache documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.add_cache)
         """
 
     def add_tags_to_resource(
         self, ResourceARN: str, Tags: List["TagTypeDef"]
     ) -> AddTagsToResourceOutputTypeDef:
         """
-        [Client.add_tags_to_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.add_tags_to_resource)
+        [Client.add_tags_to_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.add_tags_to_resource)
         """
 
     def add_upload_buffer(
         self, GatewayARN: str, DiskIds: List[str]
     ) -> AddUploadBufferOutputTypeDef:
         """
-        [Client.add_upload_buffer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.add_upload_buffer)
+        [Client.add_upload_buffer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.add_upload_buffer)
         """
 
     def add_working_storage(
         self, GatewayARN: str, DiskIds: List[str]
     ) -> AddWorkingStorageOutputTypeDef:
         """
-        [Client.add_working_storage documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.add_working_storage)
+        [Client.add_working_storage documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.add_working_storage)
         """
 
     def assign_tape_pool(
         self, TapeARN: str, PoolId: str, BypassGovernanceRetention: bool = None
     ) -> AssignTapePoolOutputTypeDef:
         """
-        [Client.assign_tape_pool documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.assign_tape_pool)
+        [Client.assign_tape_pool documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.assign_tape_pool)
         """
 
     def attach_volume(
@@ -209,22 +208,22 @@ class StorageGatewayClient:
         DiskId: str = None,
     ) -> AttachVolumeOutputTypeDef:
         """
-        [Client.attach_volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.attach_volume)
+        [Client.attach_volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.attach_volume)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.can_paginate)
         """
 
     def cancel_archival(self, GatewayARN: str, TapeARN: str) -> CancelArchivalOutputTypeDef:
         """
-        [Client.cancel_archival documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.cancel_archival)
+        [Client.cancel_archival documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.cancel_archival)
         """
 
     def cancel_retrieval(self, GatewayARN: str, TapeARN: str) -> CancelRetrievalOutputTypeDef:
         """
-        [Client.cancel_retrieval documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.cancel_retrieval)
+        [Client.cancel_retrieval documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.cancel_retrieval)
         """
 
     def create_cached_iscsi_volume(
@@ -241,7 +240,7 @@ class StorageGatewayClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateCachediSCSIVolumeOutputTypeDef:
         """
-        [Client.create_cached_iscsi_volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.create_cached_iscsi_volume)
+        [Client.create_cached_iscsi_volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.create_cached_iscsi_volume)
         """
 
     def create_nfs_file_share(
@@ -274,7 +273,7 @@ class StorageGatewayClient:
         NotificationPolicy: str = None,
     ) -> CreateNFSFileShareOutputTypeDef:
         """
-        [Client.create_nfs_file_share documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.create_nfs_file_share)
+        [Client.create_nfs_file_share documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.create_nfs_file_share)
         """
 
     def create_smb_file_share(
@@ -312,21 +311,21 @@ class StorageGatewayClient:
         NotificationPolicy: str = None,
     ) -> CreateSMBFileShareOutputTypeDef:
         """
-        [Client.create_smb_file_share documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.create_smb_file_share)
+        [Client.create_smb_file_share documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.create_smb_file_share)
         """
 
     def create_snapshot(
         self, VolumeARN: str, SnapshotDescription: str, Tags: List["TagTypeDef"] = None
     ) -> CreateSnapshotOutputTypeDef:
         """
-        [Client.create_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.create_snapshot)
+        [Client.create_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.create_snapshot)
         """
 
     def create_snapshot_from_volume_recovery_point(
         self, VolumeARN: str, SnapshotDescription: str, Tags: List["TagTypeDef"] = None
     ) -> CreateSnapshotFromVolumeRecoveryPointOutputTypeDef:
         """
-        [Client.create_snapshot_from_volume_recovery_point documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.create_snapshot_from_volume_recovery_point)
+        [Client.create_snapshot_from_volume_recovery_point documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.create_snapshot_from_volume_recovery_point)
         """
 
     def create_stored_iscsi_volume(
@@ -342,7 +341,7 @@ class StorageGatewayClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateStorediSCSIVolumeOutputTypeDef:
         """
-        [Client.create_stored_iscsi_volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.create_stored_iscsi_volume)
+        [Client.create_stored_iscsi_volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.create_stored_iscsi_volume)
         """
 
     def create_tape_pool(
@@ -354,7 +353,7 @@ class StorageGatewayClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateTapePoolOutputTypeDef:
         """
-        [Client.create_tape_pool documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.create_tape_pool)
+        [Client.create_tape_pool documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.create_tape_pool)
         """
 
     def create_tape_with_barcode(
@@ -369,7 +368,7 @@ class StorageGatewayClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateTapeWithBarcodeOutputTypeDef:
         """
-        [Client.create_tape_with_barcode documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.create_tape_with_barcode)
+        [Client.create_tape_with_barcode documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.create_tape_with_barcode)
         """
 
     def create_tapes(
@@ -386,178 +385,178 @@ class StorageGatewayClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateTapesOutputTypeDef:
         """
-        [Client.create_tapes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.create_tapes)
+        [Client.create_tapes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.create_tapes)
         """
 
     def delete_automatic_tape_creation_policy(
         self, GatewayARN: str
     ) -> DeleteAutomaticTapeCreationPolicyOutputTypeDef:
         """
-        [Client.delete_automatic_tape_creation_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.delete_automatic_tape_creation_policy)
+        [Client.delete_automatic_tape_creation_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.delete_automatic_tape_creation_policy)
         """
 
     def delete_bandwidth_rate_limit(
         self, GatewayARN: str, BandwidthType: str
     ) -> DeleteBandwidthRateLimitOutputTypeDef:
         """
-        [Client.delete_bandwidth_rate_limit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.delete_bandwidth_rate_limit)
+        [Client.delete_bandwidth_rate_limit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.delete_bandwidth_rate_limit)
         """
 
     def delete_chap_credentials(
         self, TargetARN: str, InitiatorName: str
     ) -> DeleteChapCredentialsOutputTypeDef:
         """
-        [Client.delete_chap_credentials documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.delete_chap_credentials)
+        [Client.delete_chap_credentials documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.delete_chap_credentials)
         """
 
     def delete_file_share(
         self, FileShareARN: str, ForceDelete: bool = None
     ) -> DeleteFileShareOutputTypeDef:
         """
-        [Client.delete_file_share documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.delete_file_share)
+        [Client.delete_file_share documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.delete_file_share)
         """
 
     def delete_gateway(self, GatewayARN: str) -> DeleteGatewayOutputTypeDef:
         """
-        [Client.delete_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.delete_gateway)
+        [Client.delete_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.delete_gateway)
         """
 
     def delete_snapshot_schedule(self, VolumeARN: str) -> DeleteSnapshotScheduleOutputTypeDef:
         """
-        [Client.delete_snapshot_schedule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.delete_snapshot_schedule)
+        [Client.delete_snapshot_schedule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.delete_snapshot_schedule)
         """
 
     def delete_tape(
         self, GatewayARN: str, TapeARN: str, BypassGovernanceRetention: bool = None
     ) -> DeleteTapeOutputTypeDef:
         """
-        [Client.delete_tape documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.delete_tape)
+        [Client.delete_tape documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.delete_tape)
         """
 
     def delete_tape_archive(
         self, TapeARN: str, BypassGovernanceRetention: bool = None
     ) -> DeleteTapeArchiveOutputTypeDef:
         """
-        [Client.delete_tape_archive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.delete_tape_archive)
+        [Client.delete_tape_archive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.delete_tape_archive)
         """
 
     def delete_tape_pool(self, PoolARN: str) -> DeleteTapePoolOutputTypeDef:
         """
-        [Client.delete_tape_pool documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.delete_tape_pool)
+        [Client.delete_tape_pool documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.delete_tape_pool)
         """
 
     def delete_volume(self, VolumeARN: str) -> DeleteVolumeOutputTypeDef:
         """
-        [Client.delete_volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.delete_volume)
+        [Client.delete_volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.delete_volume)
         """
 
     def describe_availability_monitor_test(
         self, GatewayARN: str
     ) -> DescribeAvailabilityMonitorTestOutputTypeDef:
         """
-        [Client.describe_availability_monitor_test documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.describe_availability_monitor_test)
+        [Client.describe_availability_monitor_test documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.describe_availability_monitor_test)
         """
 
     def describe_bandwidth_rate_limit(
         self, GatewayARN: str
     ) -> DescribeBandwidthRateLimitOutputTypeDef:
         """
-        [Client.describe_bandwidth_rate_limit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.describe_bandwidth_rate_limit)
+        [Client.describe_bandwidth_rate_limit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.describe_bandwidth_rate_limit)
         """
 
     def describe_bandwidth_rate_limit_schedule(
         self, GatewayARN: str
     ) -> DescribeBandwidthRateLimitScheduleOutputTypeDef:
         """
-        [Client.describe_bandwidth_rate_limit_schedule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.describe_bandwidth_rate_limit_schedule)
+        [Client.describe_bandwidth_rate_limit_schedule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.describe_bandwidth_rate_limit_schedule)
         """
 
     def describe_cache(self, GatewayARN: str) -> DescribeCacheOutputTypeDef:
         """
-        [Client.describe_cache documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.describe_cache)
+        [Client.describe_cache documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.describe_cache)
         """
 
     def describe_cached_iscsi_volumes(
         self, VolumeARNs: List[str]
     ) -> DescribeCachediSCSIVolumesOutputTypeDef:
         """
-        [Client.describe_cached_iscsi_volumes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.describe_cached_iscsi_volumes)
+        [Client.describe_cached_iscsi_volumes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.describe_cached_iscsi_volumes)
         """
 
     def describe_chap_credentials(self, TargetARN: str) -> DescribeChapCredentialsOutputTypeDef:
         """
-        [Client.describe_chap_credentials documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.describe_chap_credentials)
+        [Client.describe_chap_credentials documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.describe_chap_credentials)
         """
 
     def describe_gateway_information(
         self, GatewayARN: str
     ) -> DescribeGatewayInformationOutputTypeDef:
         """
-        [Client.describe_gateway_information documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.describe_gateway_information)
+        [Client.describe_gateway_information documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.describe_gateway_information)
         """
 
     def describe_maintenance_start_time(
         self, GatewayARN: str
     ) -> DescribeMaintenanceStartTimeOutputTypeDef:
         """
-        [Client.describe_maintenance_start_time documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.describe_maintenance_start_time)
+        [Client.describe_maintenance_start_time documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.describe_maintenance_start_time)
         """
 
     def describe_nfs_file_shares(
         self, FileShareARNList: List[str]
     ) -> DescribeNFSFileSharesOutputTypeDef:
         """
-        [Client.describe_nfs_file_shares documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.describe_nfs_file_shares)
+        [Client.describe_nfs_file_shares documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.describe_nfs_file_shares)
         """
 
     def describe_smb_file_shares(
         self, FileShareARNList: List[str]
     ) -> DescribeSMBFileSharesOutputTypeDef:
         """
-        [Client.describe_smb_file_shares documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.describe_smb_file_shares)
+        [Client.describe_smb_file_shares documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.describe_smb_file_shares)
         """
 
     def describe_smb_settings(self, GatewayARN: str) -> DescribeSMBSettingsOutputTypeDef:
         """
-        [Client.describe_smb_settings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.describe_smb_settings)
+        [Client.describe_smb_settings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.describe_smb_settings)
         """
 
     def describe_snapshot_schedule(self, VolumeARN: str) -> DescribeSnapshotScheduleOutputTypeDef:
         """
-        [Client.describe_snapshot_schedule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.describe_snapshot_schedule)
+        [Client.describe_snapshot_schedule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.describe_snapshot_schedule)
         """
 
     def describe_stored_iscsi_volumes(
         self, VolumeARNs: List[str]
     ) -> DescribeStorediSCSIVolumesOutputTypeDef:
         """
-        [Client.describe_stored_iscsi_volumes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.describe_stored_iscsi_volumes)
+        [Client.describe_stored_iscsi_volumes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.describe_stored_iscsi_volumes)
         """
 
     def describe_tape_archives(
         self, TapeARNs: List[str] = None, Marker: str = None, Limit: int = None
     ) -> DescribeTapeArchivesOutputTypeDef:
         """
-        [Client.describe_tape_archives documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.describe_tape_archives)
+        [Client.describe_tape_archives documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.describe_tape_archives)
         """
 
     def describe_tape_recovery_points(
         self, GatewayARN: str, Marker: str = None, Limit: int = None
     ) -> DescribeTapeRecoveryPointsOutputTypeDef:
         """
-        [Client.describe_tape_recovery_points documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.describe_tape_recovery_points)
+        [Client.describe_tape_recovery_points documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.describe_tape_recovery_points)
         """
 
     def describe_tapes(
         self, GatewayARN: str, TapeARNs: List[str] = None, Marker: str = None, Limit: int = None
     ) -> DescribeTapesOutputTypeDef:
         """
-        [Client.describe_tapes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.describe_tapes)
+        [Client.describe_tapes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.describe_tapes)
         """
 
     def describe_upload_buffer(self, GatewayARN: str) -> DescribeUploadBufferOutputTypeDef:
         """
-        [Client.describe_upload_buffer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.describe_upload_buffer)
+        [Client.describe_upload_buffer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.describe_upload_buffer)
         """
 
     def describe_vtl_devices(
@@ -568,22 +567,22 @@ class StorageGatewayClient:
         Limit: int = None,
     ) -> DescribeVTLDevicesOutputTypeDef:
         """
-        [Client.describe_vtl_devices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.describe_vtl_devices)
+        [Client.describe_vtl_devices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.describe_vtl_devices)
         """
 
     def describe_working_storage(self, GatewayARN: str) -> DescribeWorkingStorageOutputTypeDef:
         """
-        [Client.describe_working_storage documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.describe_working_storage)
+        [Client.describe_working_storage documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.describe_working_storage)
         """
 
     def detach_volume(self, VolumeARN: str, ForceDetach: bool = None) -> DetachVolumeOutputTypeDef:
         """
-        [Client.detach_volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.detach_volume)
+        [Client.detach_volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.detach_volume)
         """
 
     def disable_gateway(self, GatewayARN: str) -> DisableGatewayOutputTypeDef:
         """
-        [Client.disable_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.disable_gateway)
+        [Client.disable_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.disable_gateway)
         """
 
     def generate_presigned_url(
@@ -594,7 +593,7 @@ class StorageGatewayClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.generate_presigned_url)
         """
 
     def join_domain(
@@ -608,145 +607,145 @@ class StorageGatewayClient:
         TimeoutInSeconds: int = None,
     ) -> JoinDomainOutputTypeDef:
         """
-        [Client.join_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.join_domain)
+        [Client.join_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.join_domain)
         """
 
     def list_automatic_tape_creation_policies(
         self, GatewayARN: str = None
     ) -> ListAutomaticTapeCreationPoliciesOutputTypeDef:
         """
-        [Client.list_automatic_tape_creation_policies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.list_automatic_tape_creation_policies)
+        [Client.list_automatic_tape_creation_policies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.list_automatic_tape_creation_policies)
         """
 
     def list_file_shares(
         self, GatewayARN: str = None, Limit: int = None, Marker: str = None
     ) -> ListFileSharesOutputTypeDef:
         """
-        [Client.list_file_shares documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.list_file_shares)
+        [Client.list_file_shares documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.list_file_shares)
         """
 
     def list_gateways(self, Marker: str = None, Limit: int = None) -> ListGatewaysOutputTypeDef:
         """
-        [Client.list_gateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.list_gateways)
+        [Client.list_gateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.list_gateways)
         """
 
     def list_local_disks(self, GatewayARN: str) -> ListLocalDisksOutputTypeDef:
         """
-        [Client.list_local_disks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.list_local_disks)
+        [Client.list_local_disks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.list_local_disks)
         """
 
     def list_tags_for_resource(
         self, ResourceARN: str, Marker: str = None, Limit: int = None
     ) -> ListTagsForResourceOutputTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.list_tags_for_resource)
         """
 
     def list_tape_pools(
         self, PoolARNs: List[str] = None, Marker: str = None, Limit: int = None
     ) -> ListTapePoolsOutputTypeDef:
         """
-        [Client.list_tape_pools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.list_tape_pools)
+        [Client.list_tape_pools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.list_tape_pools)
         """
 
     def list_tapes(
         self, TapeARNs: List[str] = None, Marker: str = None, Limit: int = None
     ) -> ListTapesOutputTypeDef:
         """
-        [Client.list_tapes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.list_tapes)
+        [Client.list_tapes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.list_tapes)
         """
 
     def list_volume_initiators(self, VolumeARN: str) -> ListVolumeInitiatorsOutputTypeDef:
         """
-        [Client.list_volume_initiators documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.list_volume_initiators)
+        [Client.list_volume_initiators documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.list_volume_initiators)
         """
 
     def list_volume_recovery_points(self, GatewayARN: str) -> ListVolumeRecoveryPointsOutputTypeDef:
         """
-        [Client.list_volume_recovery_points documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.list_volume_recovery_points)
+        [Client.list_volume_recovery_points documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.list_volume_recovery_points)
         """
 
     def list_volumes(
         self, GatewayARN: str = None, Marker: str = None, Limit: int = None
     ) -> ListVolumesOutputTypeDef:
         """
-        [Client.list_volumes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.list_volumes)
+        [Client.list_volumes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.list_volumes)
         """
 
     def notify_when_uploaded(self, FileShareARN: str) -> NotifyWhenUploadedOutputTypeDef:
         """
-        [Client.notify_when_uploaded documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.notify_when_uploaded)
+        [Client.notify_when_uploaded documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.notify_when_uploaded)
         """
 
     def refresh_cache(
         self, FileShareARN: str, FolderList: List[str] = None, Recursive: bool = None
     ) -> RefreshCacheOutputTypeDef:
         """
-        [Client.refresh_cache documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.refresh_cache)
+        [Client.refresh_cache documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.refresh_cache)
         """
 
     def remove_tags_from_resource(
         self, ResourceARN: str, TagKeys: List[str]
     ) -> RemoveTagsFromResourceOutputTypeDef:
         """
-        [Client.remove_tags_from_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.remove_tags_from_resource)
+        [Client.remove_tags_from_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.remove_tags_from_resource)
         """
 
     def reset_cache(self, GatewayARN: str) -> ResetCacheOutputTypeDef:
         """
-        [Client.reset_cache documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.reset_cache)
+        [Client.reset_cache documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.reset_cache)
         """
 
     def retrieve_tape_archive(
         self, TapeARN: str, GatewayARN: str
     ) -> RetrieveTapeArchiveOutputTypeDef:
         """
-        [Client.retrieve_tape_archive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.retrieve_tape_archive)
+        [Client.retrieve_tape_archive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.retrieve_tape_archive)
         """
 
     def retrieve_tape_recovery_point(
         self, TapeARN: str, GatewayARN: str
     ) -> RetrieveTapeRecoveryPointOutputTypeDef:
         """
-        [Client.retrieve_tape_recovery_point documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.retrieve_tape_recovery_point)
+        [Client.retrieve_tape_recovery_point documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.retrieve_tape_recovery_point)
         """
 
     def set_local_console_password(
         self, GatewayARN: str, LocalConsolePassword: str
     ) -> SetLocalConsolePasswordOutputTypeDef:
         """
-        [Client.set_local_console_password documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.set_local_console_password)
+        [Client.set_local_console_password documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.set_local_console_password)
         """
 
     def set_smb_guest_password(
         self, GatewayARN: str, Password: str
     ) -> SetSMBGuestPasswordOutputTypeDef:
         """
-        [Client.set_smb_guest_password documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.set_smb_guest_password)
+        [Client.set_smb_guest_password documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.set_smb_guest_password)
         """
 
     def shutdown_gateway(self, GatewayARN: str) -> ShutdownGatewayOutputTypeDef:
         """
-        [Client.shutdown_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.shutdown_gateway)
+        [Client.shutdown_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.shutdown_gateway)
         """
 
     def start_availability_monitor_test(
         self, GatewayARN: str
     ) -> StartAvailabilityMonitorTestOutputTypeDef:
         """
-        [Client.start_availability_monitor_test documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.start_availability_monitor_test)
+        [Client.start_availability_monitor_test documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.start_availability_monitor_test)
         """
 
     def start_gateway(self, GatewayARN: str) -> StartGatewayOutputTypeDef:
         """
-        [Client.start_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.start_gateway)
+        [Client.start_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.start_gateway)
         """
 
     def update_automatic_tape_creation_policy(
         self, AutomaticTapeCreationRules: List["AutomaticTapeCreationRuleTypeDef"], GatewayARN: str
     ) -> UpdateAutomaticTapeCreationPolicyOutputTypeDef:
         """
-        [Client.update_automatic_tape_creation_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.update_automatic_tape_creation_policy)
+        [Client.update_automatic_tape_creation_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.update_automatic_tape_creation_policy)
         """
 
     def update_bandwidth_rate_limit(
@@ -756,7 +755,7 @@ class StorageGatewayClient:
         AverageDownloadRateLimitInBitsPerSec: int = None,
     ) -> UpdateBandwidthRateLimitOutputTypeDef:
         """
-        [Client.update_bandwidth_rate_limit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.update_bandwidth_rate_limit)
+        [Client.update_bandwidth_rate_limit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.update_bandwidth_rate_limit)
         """
 
     def update_bandwidth_rate_limit_schedule(
@@ -765,7 +764,7 @@ class StorageGatewayClient:
         BandwidthRateLimitIntervals: List["BandwidthRateLimitIntervalTypeDef"],
     ) -> UpdateBandwidthRateLimitScheduleOutputTypeDef:
         """
-        [Client.update_bandwidth_rate_limit_schedule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.update_bandwidth_rate_limit_schedule)
+        [Client.update_bandwidth_rate_limit_schedule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.update_bandwidth_rate_limit_schedule)
         """
 
     def update_chap_credentials(
@@ -776,7 +775,7 @@ class StorageGatewayClient:
         SecretToAuthenticateTarget: str = None,
     ) -> UpdateChapCredentialsOutputTypeDef:
         """
-        [Client.update_chap_credentials documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.update_chap_credentials)
+        [Client.update_chap_credentials documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.update_chap_credentials)
         """
 
     def update_gateway_information(
@@ -787,12 +786,12 @@ class StorageGatewayClient:
         CloudWatchLogGroupARN: str = None,
     ) -> UpdateGatewayInformationOutputTypeDef:
         """
-        [Client.update_gateway_information documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.update_gateway_information)
+        [Client.update_gateway_information documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.update_gateway_information)
         """
 
     def update_gateway_software_now(self, GatewayARN: str) -> UpdateGatewaySoftwareNowOutputTypeDef:
         """
-        [Client.update_gateway_software_now documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.update_gateway_software_now)
+        [Client.update_gateway_software_now documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.update_gateway_software_now)
         """
 
     def update_maintenance_start_time(
@@ -804,7 +803,7 @@ class StorageGatewayClient:
         DayOfMonth: int = None,
     ) -> UpdateMaintenanceStartTimeOutputTypeDef:
         """
-        [Client.update_maintenance_start_time documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.update_maintenance_start_time)
+        [Client.update_maintenance_start_time documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.update_maintenance_start_time)
         """
 
     def update_nfs_file_share(
@@ -833,7 +832,7 @@ class StorageGatewayClient:
         NotificationPolicy: str = None,
     ) -> UpdateNFSFileShareOutputTypeDef:
         """
-        [Client.update_nfs_file_share documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.update_nfs_file_share)
+        [Client.update_nfs_file_share documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.update_nfs_file_share)
         """
 
     def update_smb_file_share(
@@ -866,14 +865,14 @@ class StorageGatewayClient:
         NotificationPolicy: str = None,
     ) -> UpdateSMBFileShareOutputTypeDef:
         """
-        [Client.update_smb_file_share documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.update_smb_file_share)
+        [Client.update_smb_file_share documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.update_smb_file_share)
         """
 
     def update_smb_file_share_visibility(
         self, GatewayARN: str, FileSharesVisible: bool
     ) -> UpdateSMBFileShareVisibilityOutputTypeDef:
         """
-        [Client.update_smb_file_share_visibility documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.update_smb_file_share_visibility)
+        [Client.update_smb_file_share_visibility documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.update_smb_file_share_visibility)
         """
 
     def update_smb_security_strategy(
@@ -882,7 +881,7 @@ class StorageGatewayClient:
         SMBSecurityStrategy: Literal["ClientSpecified", "MandatorySigning", "MandatoryEncryption"],
     ) -> UpdateSMBSecurityStrategyOutputTypeDef:
         """
-        [Client.update_smb_security_strategy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.update_smb_security_strategy)
+        [Client.update_smb_security_strategy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.update_smb_security_strategy)
         """
 
     def update_snapshot_schedule(
@@ -894,14 +893,14 @@ class StorageGatewayClient:
         Tags: List["TagTypeDef"] = None,
     ) -> UpdateSnapshotScheduleOutputTypeDef:
         """
-        [Client.update_snapshot_schedule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.update_snapshot_schedule)
+        [Client.update_snapshot_schedule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.update_snapshot_schedule)
         """
 
     def update_vtl_device_type(
         self, VTLDeviceARN: str, DeviceType: str
     ) -> UpdateVTLDeviceTypeOutputTypeDef:
         """
-        [Client.update_vtl_device_type documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Client.update_vtl_device_type)
+        [Client.update_vtl_device_type documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Client.update_vtl_device_type)
         """
 
     @overload
@@ -909,7 +908,7 @@ class StorageGatewayClient:
         self, operation_name: Literal["describe_tape_archives"]
     ) -> DescribeTapeArchivesPaginator:
         """
-        [Paginator.DescribeTapeArchives documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Paginator.DescribeTapeArchives)
+        [Paginator.DescribeTapeArchives documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Paginator.DescribeTapeArchives)
         """
 
     @overload
@@ -917,13 +916,13 @@ class StorageGatewayClient:
         self, operation_name: Literal["describe_tape_recovery_points"]
     ) -> DescribeTapeRecoveryPointsPaginator:
         """
-        [Paginator.DescribeTapeRecoveryPoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Paginator.DescribeTapeRecoveryPoints)
+        [Paginator.DescribeTapeRecoveryPoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Paginator.DescribeTapeRecoveryPoints)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["describe_tapes"]) -> DescribeTapesPaginator:
         """
-        [Paginator.DescribeTapes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Paginator.DescribeTapes)
+        [Paginator.DescribeTapes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Paginator.DescribeTapes)
         """
 
     @overload
@@ -931,19 +930,19 @@ class StorageGatewayClient:
         self, operation_name: Literal["describe_vtl_devices"]
     ) -> DescribeVTLDevicesPaginator:
         """
-        [Paginator.DescribeVTLDevices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Paginator.DescribeVTLDevices)
+        [Paginator.DescribeVTLDevices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Paginator.DescribeVTLDevices)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_file_shares"]) -> ListFileSharesPaginator:
         """
-        [Paginator.ListFileShares documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Paginator.ListFileShares)
+        [Paginator.ListFileShares documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Paginator.ListFileShares)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_gateways"]) -> ListGatewaysPaginator:
         """
-        [Paginator.ListGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Paginator.ListGateways)
+        [Paginator.ListGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Paginator.ListGateways)
         """
 
     @overload
@@ -951,23 +950,23 @@ class StorageGatewayClient:
         self, operation_name: Literal["list_tags_for_resource"]
     ) -> ListTagsForResourcePaginator:
         """
-        [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Paginator.ListTagsForResource)
+        [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Paginator.ListTagsForResource)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_tape_pools"]) -> ListTapePoolsPaginator:
         """
-        [Paginator.ListTapePools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Paginator.ListTapePools)
+        [Paginator.ListTapePools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Paginator.ListTapePools)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_tapes"]) -> ListTapesPaginator:
         """
-        [Paginator.ListTapes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Paginator.ListTapes)
+        [Paginator.ListTapes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Paginator.ListTapes)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_volumes"]) -> ListVolumesPaginator:
         """
-        [Paginator.ListVolumes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Paginator.ListVolumes)
+        [Paginator.ListVolumes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Paginator.ListVolumes)
         """

@@ -32,6 +32,7 @@ __all__ = (
     "IdentityProviderDetailsTypeDef",
     "ListedServerTypeDef",
     "ListedUserTypeDef",
+    "PosixProfileTypeDef",
     "SshPublicKeyTypeDef",
     "TagTypeDef",
     "CreateServerResponseTypeDef",
@@ -77,6 +78,7 @@ _OptionalDescribedServerTypeDef = TypedDict(
     "_OptionalDescribedServerTypeDef",
     {
         "Certificate": str,
+        "Domain": Literal["S3", "EFS"],
         "EndpointDetails": "EndpointDetailsTypeDef",
         "EndpointType": Literal["PUBLIC", "VPC", "VPC_ENDPOINT"],
         "HostKeyFingerprint": str,
@@ -108,6 +110,7 @@ _OptionalDescribedUserTypeDef = TypedDict(
         "HomeDirectoryMappings": List["HomeDirectoryMapEntryTypeDef"],
         "HomeDirectoryType": Literal["PATH", "LOGICAL"],
         "Policy": str,
+        "PosixProfile": "PosixProfileTypeDef",
         "Role": str,
         "SshPublicKeys": List["SshPublicKeyTypeDef"],
         "Tags": List["TagTypeDef"],
@@ -145,6 +148,7 @@ _RequiredListedServerTypeDef = TypedDict("_RequiredListedServerTypeDef", {"Arn":
 _OptionalListedServerTypeDef = TypedDict(
     "_OptionalListedServerTypeDef",
     {
+        "Domain": Literal["S3", "EFS"],
         "IdentityProviderType": Literal["SERVICE_MANAGED", "API_GATEWAY"],
         "EndpointType": Literal["PUBLIC", "VPC", "VPC_ENDPOINT"],
         "LoggingRole": str,
@@ -177,6 +181,16 @@ _OptionalListedUserTypeDef = TypedDict(
 
 
 class ListedUserTypeDef(_RequiredListedUserTypeDef, _OptionalListedUserTypeDef):
+    pass
+
+
+_RequiredPosixProfileTypeDef = TypedDict("_RequiredPosixProfileTypeDef", {"Uid": int, "Gid": int})
+_OptionalPosixProfileTypeDef = TypedDict(
+    "_OptionalPosixProfileTypeDef", {"SecondaryGids": List[int]}, total=False
+)
+
+
+class PosixProfileTypeDef(_RequiredPosixProfileTypeDef, _OptionalPosixProfileTypeDef):
     pass
 
 

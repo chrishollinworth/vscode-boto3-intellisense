@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for importexport service client paginators.
 
@@ -28,12 +27,12 @@ __all__ = ("ListJobsPaginator",)
 
 class ListJobsPaginator(Boto3Paginator):
     """
-    [Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/importexport.html#ImportExport.Paginator.ListJobs)
+    [Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/importexport.html#ImportExport.Paginator.ListJobs)
     """
 
     def paginate(
         self, APIVersion: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListJobsOutputTypeDef]:
         """
-        [ListJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/importexport.html#ImportExport.Paginator.ListJobs.paginate)
+        [ListJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/importexport.html#ImportExport.Paginator.ListJobs.paginate)
         """

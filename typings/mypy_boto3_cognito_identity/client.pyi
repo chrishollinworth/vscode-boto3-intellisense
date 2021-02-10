@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for cognito-identity service client
 
@@ -25,6 +24,7 @@ from mypy_boto3_cognito_identity.type_defs import (
     GetIdResponseTypeDef,
     GetOpenIdTokenForDeveloperIdentityResponseTypeDef,
     GetOpenIdTokenResponseTypeDef,
+    GetPrincipalTagAttributeMapResponseTypeDef,
     IdentityDescriptionTypeDef,
     IdentityPoolTypeDef,
     ListIdentitiesResponseTypeDef,
@@ -33,6 +33,7 @@ from mypy_boto3_cognito_identity.type_defs import (
     LookupDeveloperIdentityResponseTypeDef,
     MergeDeveloperIdentitiesResponseTypeDef,
     RoleMappingTypeDef,
+    SetPrincipalTagAttributeMapResponseTypeDef,
 )
 
 if sys.version_info >= (3, 8):
@@ -69,7 +70,7 @@ class Exceptions:
 
 class CognitoIdentityClient:
     """
-    [CognitoIdentity.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cognito-identity.html#CognitoIdentity.Client)
+    [CognitoIdentity.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-identity.html#CognitoIdentity.Client)
     """
 
     meta: ClientMeta
@@ -77,7 +78,7 @@ class CognitoIdentityClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cognito-identity.html#CognitoIdentity.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-identity.html#CognitoIdentity.Client.can_paginate)
         """
 
     def create_identity_pool(
@@ -93,27 +94,27 @@ class CognitoIdentityClient:
         IdentityPoolTags: Dict[str, str] = None,
     ) -> IdentityPoolTypeDef:
         """
-        [Client.create_identity_pool documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cognito-identity.html#CognitoIdentity.Client.create_identity_pool)
+        [Client.create_identity_pool documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-identity.html#CognitoIdentity.Client.create_identity_pool)
         """
 
     def delete_identities(self, IdentityIdsToDelete: List[str]) -> DeleteIdentitiesResponseTypeDef:
         """
-        [Client.delete_identities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cognito-identity.html#CognitoIdentity.Client.delete_identities)
+        [Client.delete_identities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-identity.html#CognitoIdentity.Client.delete_identities)
         """
 
     def delete_identity_pool(self, IdentityPoolId: str) -> None:
         """
-        [Client.delete_identity_pool documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cognito-identity.html#CognitoIdentity.Client.delete_identity_pool)
+        [Client.delete_identity_pool documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-identity.html#CognitoIdentity.Client.delete_identity_pool)
         """
 
     def describe_identity(self, IdentityId: str) -> "IdentityDescriptionTypeDef":
         """
-        [Client.describe_identity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cognito-identity.html#CognitoIdentity.Client.describe_identity)
+        [Client.describe_identity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-identity.html#CognitoIdentity.Client.describe_identity)
         """
 
     def describe_identity_pool(self, IdentityPoolId: str) -> IdentityPoolTypeDef:
         """
-        [Client.describe_identity_pool documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cognito-identity.html#CognitoIdentity.Client.describe_identity_pool)
+        [Client.describe_identity_pool documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-identity.html#CognitoIdentity.Client.describe_identity_pool)
         """
 
     def generate_presigned_url(
@@ -124,33 +125,33 @@ class CognitoIdentityClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cognito-identity.html#CognitoIdentity.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-identity.html#CognitoIdentity.Client.generate_presigned_url)
         """
 
     def get_credentials_for_identity(
         self, IdentityId: str, Logins: Dict[str, str] = None, CustomRoleArn: str = None
     ) -> GetCredentialsForIdentityResponseTypeDef:
         """
-        [Client.get_credentials_for_identity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cognito-identity.html#CognitoIdentity.Client.get_credentials_for_identity)
+        [Client.get_credentials_for_identity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-identity.html#CognitoIdentity.Client.get_credentials_for_identity)
         """
 
     def get_id(
         self, IdentityPoolId: str, AccountId: str = None, Logins: Dict[str, str] = None
     ) -> GetIdResponseTypeDef:
         """
-        [Client.get_id documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cognito-identity.html#CognitoIdentity.Client.get_id)
+        [Client.get_id documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-identity.html#CognitoIdentity.Client.get_id)
         """
 
     def get_identity_pool_roles(self, IdentityPoolId: str) -> GetIdentityPoolRolesResponseTypeDef:
         """
-        [Client.get_identity_pool_roles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cognito-identity.html#CognitoIdentity.Client.get_identity_pool_roles)
+        [Client.get_identity_pool_roles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-identity.html#CognitoIdentity.Client.get_identity_pool_roles)
         """
 
     def get_open_id_token(
         self, IdentityId: str, Logins: Dict[str, str] = None
     ) -> GetOpenIdTokenResponseTypeDef:
         """
-        [Client.get_open_id_token documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cognito-identity.html#CognitoIdentity.Client.get_open_id_token)
+        [Client.get_open_id_token documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-identity.html#CognitoIdentity.Client.get_open_id_token)
         """
 
     def get_open_id_token_for_developer_identity(
@@ -158,29 +159,37 @@ class CognitoIdentityClient:
         IdentityPoolId: str,
         Logins: Dict[str, str],
         IdentityId: str = None,
+        PrincipalTags: Dict[str, str] = None,
         TokenDuration: int = None,
     ) -> GetOpenIdTokenForDeveloperIdentityResponseTypeDef:
         """
-        [Client.get_open_id_token_for_developer_identity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cognito-identity.html#CognitoIdentity.Client.get_open_id_token_for_developer_identity)
+        [Client.get_open_id_token_for_developer_identity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-identity.html#CognitoIdentity.Client.get_open_id_token_for_developer_identity)
+        """
+
+    def get_principal_tag_attribute_map(
+        self, IdentityPoolId: str, IdentityProviderName: str
+    ) -> GetPrincipalTagAttributeMapResponseTypeDef:
+        """
+        [Client.get_principal_tag_attribute_map documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-identity.html#CognitoIdentity.Client.get_principal_tag_attribute_map)
         """
 
     def list_identities(
         self, IdentityPoolId: str, MaxResults: int, NextToken: str = None, HideDisabled: bool = None
     ) -> ListIdentitiesResponseTypeDef:
         """
-        [Client.list_identities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cognito-identity.html#CognitoIdentity.Client.list_identities)
+        [Client.list_identities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-identity.html#CognitoIdentity.Client.list_identities)
         """
 
     def list_identity_pools(
         self, MaxResults: int, NextToken: str = None
     ) -> ListIdentityPoolsResponseTypeDef:
         """
-        [Client.list_identity_pools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cognito-identity.html#CognitoIdentity.Client.list_identity_pools)
+        [Client.list_identity_pools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-identity.html#CognitoIdentity.Client.list_identity_pools)
         """
 
     def list_tags_for_resource(self, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cognito-identity.html#CognitoIdentity.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-identity.html#CognitoIdentity.Client.list_tags_for_resource)
         """
 
     def lookup_developer_identity(
@@ -192,7 +201,7 @@ class CognitoIdentityClient:
         NextToken: str = None,
     ) -> LookupDeveloperIdentityResponseTypeDef:
         """
-        [Client.lookup_developer_identity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cognito-identity.html#CognitoIdentity.Client.lookup_developer_identity)
+        [Client.lookup_developer_identity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-identity.html#CognitoIdentity.Client.lookup_developer_identity)
         """
 
     def merge_developer_identities(
@@ -203,7 +212,7 @@ class CognitoIdentityClient:
         IdentityPoolId: str,
     ) -> MergeDeveloperIdentitiesResponseTypeDef:
         """
-        [Client.merge_developer_identities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cognito-identity.html#CognitoIdentity.Client.merge_developer_identities)
+        [Client.merge_developer_identities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-identity.html#CognitoIdentity.Client.merge_developer_identities)
         """
 
     def set_identity_pool_roles(
@@ -213,12 +222,23 @@ class CognitoIdentityClient:
         RoleMappings: Dict[str, "RoleMappingTypeDef"] = None,
     ) -> None:
         """
-        [Client.set_identity_pool_roles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cognito-identity.html#CognitoIdentity.Client.set_identity_pool_roles)
+        [Client.set_identity_pool_roles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-identity.html#CognitoIdentity.Client.set_identity_pool_roles)
+        """
+
+    def set_principal_tag_attribute_map(
+        self,
+        IdentityPoolId: str,
+        IdentityProviderName: str,
+        UseDefaults: bool = None,
+        PrincipalTags: Dict[str, str] = None,
+    ) -> SetPrincipalTagAttributeMapResponseTypeDef:
+        """
+        [Client.set_principal_tag_attribute_map documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-identity.html#CognitoIdentity.Client.set_principal_tag_attribute_map)
         """
 
     def tag_resource(self, ResourceArn: str, Tags: Dict[str, str]) -> Dict[str, Any]:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cognito-identity.html#CognitoIdentity.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-identity.html#CognitoIdentity.Client.tag_resource)
         """
 
     def unlink_developer_identity(
@@ -229,19 +249,19 @@ class CognitoIdentityClient:
         DeveloperUserIdentifier: str,
     ) -> None:
         """
-        [Client.unlink_developer_identity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cognito-identity.html#CognitoIdentity.Client.unlink_developer_identity)
+        [Client.unlink_developer_identity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-identity.html#CognitoIdentity.Client.unlink_developer_identity)
         """
 
     def unlink_identity(
         self, IdentityId: str, Logins: Dict[str, str], LoginsToRemove: List[str]
     ) -> None:
         """
-        [Client.unlink_identity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cognito-identity.html#CognitoIdentity.Client.unlink_identity)
+        [Client.unlink_identity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-identity.html#CognitoIdentity.Client.unlink_identity)
         """
 
     def untag_resource(self, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cognito-identity.html#CognitoIdentity.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-identity.html#CognitoIdentity.Client.untag_resource)
         """
 
     def update_identity_pool(
@@ -258,12 +278,12 @@ class CognitoIdentityClient:
         IdentityPoolTags: Dict[str, str] = None,
     ) -> IdentityPoolTypeDef:
         """
-        [Client.update_identity_pool documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cognito-identity.html#CognitoIdentity.Client.update_identity_pool)
+        [Client.update_identity_pool documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-identity.html#CognitoIdentity.Client.update_identity_pool)
         """
 
     def get_paginator(
         self, operation_name: Literal["list_identity_pools"]
     ) -> ListIdentityPoolsPaginator:
         """
-        [Paginator.ListIdentityPools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cognito-identity.html#CognitoIdentity.Paginator.ListIdentityPools)
+        [Paginator.ListIdentityPools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-identity.html#CognitoIdentity.Paginator.ListIdentityPools)
         """

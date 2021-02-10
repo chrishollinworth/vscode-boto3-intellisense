@@ -176,6 +176,8 @@ DocDbSettingsTypeDef = TypedDict(
         "ExtractDocId": bool,
         "DocsToInvestigate": int,
         "KmsKeyId": str,
+        "SecretsManagerAccessRoleArn": str,
+        "SecretsManagerSecretId": str,
     },
     total=False,
 )
@@ -281,6 +283,8 @@ IBMDb2SettingsTypeDef = TypedDict(
         "CurrentLsn": str,
         "MaxKBytesPerRead": int,
         "Username": str,
+        "SecretsManagerAccessRoleArn": str,
+        "SecretsManagerSecretId": str,
     },
     total=False,
 )
@@ -335,6 +339,8 @@ MicrosoftSQLServerSettingsTypeDef = TypedDict(
         "ServerName": str,
         "Username": str,
         "UseBcpFullLoad": bool,
+        "SecretsManagerAccessRoleArn": str,
+        "SecretsManagerSecretId": str,
     },
     total=False,
 )
@@ -354,6 +360,8 @@ MongoDbSettingsTypeDef = TypedDict(
         "DocsToInvestigate": str,
         "AuthSource": str,
         "KmsKeyId": str,
+        "SecretsManagerAccessRoleArn": str,
+        "SecretsManagerSecretId": str,
     },
     total=False,
 )
@@ -372,6 +380,8 @@ MySQLSettingsTypeDef = TypedDict(
         "ServerName": str,
         "ServerTimezone": str,
         "Username": str,
+        "SecretsManagerAccessRoleArn": str,
+        "SecretsManagerSecretId": str,
     },
     total=False,
 )
@@ -429,6 +439,10 @@ OracleSettingsTypeDef = TypedDict(
         "SecurityDbEncryptionName": str,
         "ServerName": str,
         "Username": str,
+        "SecretsManagerAccessRoleArn": str,
+        "SecretsManagerSecretId": str,
+        "SecretsManagerOracleAsmAccessRoleArn": str,
+        "SecretsManagerOracleAsmSecretId": str,
     },
     total=False,
 )
@@ -477,6 +491,8 @@ PostgreSQLSettingsTypeDef = TypedDict(
         "ServerName": str,
         "Username": str,
         "SlotName": str,
+        "SecretsManagerAccessRoleArn": str,
+        "SecretsManagerSecretId": str,
     },
     total=False,
 )
@@ -512,6 +528,8 @@ RedshiftSettingsTypeDef = TypedDict(
         "TruncateColumns": bool,
         "Username": str,
         "WriteBufferSize": int,
+        "SecretsManagerAccessRoleArn": str,
+        "SecretsManagerSecretId": str,
     },
     total=False,
 )
@@ -720,6 +738,10 @@ S3SettingsTypeDef = TypedDict(
             "YYYYMMDD", "YYYYMMDDHH", "YYYYMM", "MMYYYYDD", "DDMMYYYY"
         ],
         "DatePartitionDelimiter": Literal["SLASH", "UNDERSCORE", "DASH", "NONE"],
+        "UseCsvNoSupValue": bool,
+        "CsvNoSupValue": str,
+        "PreserveTransactions": bool,
+        "CdcPath": str,
     },
     total=False,
 )
@@ -748,7 +770,15 @@ SupportedEndpointTypeTypeDef = TypedDict(
 
 SybaseSettingsTypeDef = TypedDict(
     "SybaseSettingsTypeDef",
-    {"DatabaseName": str, "Password": str, "Port": int, "ServerName": str, "Username": str},
+    {
+        "DatabaseName": str,
+        "Password": str,
+        "Port": int,
+        "ServerName": str,
+        "Username": str,
+        "SecretsManagerAccessRoleArn": str,
+        "SecretsManagerSecretId": str,
+    },
     total=False,
 )
 

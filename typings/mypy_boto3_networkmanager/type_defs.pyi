@@ -4,9 +4,9 @@ Main interface for networkmanager service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_networkmanager.type_defs import BandwidthTypeDef
+    from mypy_boto3_networkmanager.type_defs import AWSLocationTypeDef
 
-    data: BandwidthTypeDef = {...}
+    data: AWSLocationTypeDef = {...}
     ```
 """
 import sys
@@ -24,7 +24,9 @@ else:
 
 
 __all__ = (
+    "AWSLocationTypeDef",
     "BandwidthTypeDef",
+    "ConnectionTypeDef",
     "CustomerGatewayAssociationTypeDef",
     "DeviceTypeDef",
     "GlobalNetworkTypeDef",
@@ -33,14 +35,18 @@ __all__ = (
     "LocationTypeDef",
     "SiteTypeDef",
     "TagTypeDef",
+    "TransitGatewayConnectPeerAssociationTypeDef",
     "TransitGatewayRegistrationStateReasonTypeDef",
     "TransitGatewayRegistrationTypeDef",
     "AssociateCustomerGatewayResponseTypeDef",
     "AssociateLinkResponseTypeDef",
+    "AssociateTransitGatewayConnectPeerResponseTypeDef",
+    "CreateConnectionResponseTypeDef",
     "CreateDeviceResponseTypeDef",
     "CreateGlobalNetworkResponseTypeDef",
     "CreateLinkResponseTypeDef",
     "CreateSiteResponseTypeDef",
+    "DeleteConnectionResponseTypeDef",
     "DeleteDeviceResponseTypeDef",
     "DeleteGlobalNetworkResponseTypeDef",
     "DeleteLinkResponseTypeDef",
@@ -49,23 +55,47 @@ __all__ = (
     "DescribeGlobalNetworksResponseTypeDef",
     "DisassociateCustomerGatewayResponseTypeDef",
     "DisassociateLinkResponseTypeDef",
+    "DisassociateTransitGatewayConnectPeerResponseTypeDef",
+    "GetConnectionsResponseTypeDef",
     "GetCustomerGatewayAssociationsResponseTypeDef",
     "GetDevicesResponseTypeDef",
     "GetLinkAssociationsResponseTypeDef",
     "GetLinksResponseTypeDef",
     "GetSitesResponseTypeDef",
+    "GetTransitGatewayConnectPeerAssociationsResponseTypeDef",
     "GetTransitGatewayRegistrationsResponseTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "PaginatorConfigTypeDef",
     "RegisterTransitGatewayResponseTypeDef",
+    "UpdateConnectionResponseTypeDef",
     "UpdateDeviceResponseTypeDef",
     "UpdateGlobalNetworkResponseTypeDef",
     "UpdateLinkResponseTypeDef",
     "UpdateSiteResponseTypeDef",
 )
 
+AWSLocationTypeDef = TypedDict("AWSLocationTypeDef", {"Zone": str, "SubnetArn": str}, total=False)
+
 BandwidthTypeDef = TypedDict(
     "BandwidthTypeDef", {"UploadSpeed": int, "DownloadSpeed": int}, total=False
+)
+
+ConnectionTypeDef = TypedDict(
+    "ConnectionTypeDef",
+    {
+        "ConnectionId": str,
+        "ConnectionArn": str,
+        "GlobalNetworkId": str,
+        "DeviceId": str,
+        "ConnectedDeviceId": str,
+        "LinkId": str,
+        "ConnectedLinkId": str,
+        "Description": str,
+        "CreatedAt": datetime,
+        "State": Literal["PENDING", "AVAILABLE", "DELETING", "UPDATING"],
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
 )
 
 CustomerGatewayAssociationTypeDef = TypedDict(
@@ -86,6 +116,7 @@ DeviceTypeDef = TypedDict(
         "DeviceId": str,
         "DeviceArn": str,
         "GlobalNetworkId": str,
+        "AWSLocation": "AWSLocationTypeDef",
         "Description": str,
         "Type": str,
         "Vendor": str,
@@ -163,6 +194,18 @@ SiteTypeDef = TypedDict(
 
 TagTypeDef = TypedDict("TagTypeDef", {"Key": str, "Value": str}, total=False)
 
+TransitGatewayConnectPeerAssociationTypeDef = TypedDict(
+    "TransitGatewayConnectPeerAssociationTypeDef",
+    {
+        "TransitGatewayConnectPeerArn": str,
+        "GlobalNetworkId": str,
+        "DeviceId": str,
+        "LinkId": str,
+        "State": Literal["PENDING", "AVAILABLE", "DELETING", "DELETED"],
+    },
+    total=False,
+)
+
 TransitGatewayRegistrationStateReasonTypeDef = TypedDict(
     "TransitGatewayRegistrationStateReasonTypeDef",
     {"Code": Literal["PENDING", "AVAILABLE", "DELETING", "DELETED", "FAILED"], "Message": str},
@@ -189,6 +232,16 @@ AssociateLinkResponseTypeDef = TypedDict(
     "AssociateLinkResponseTypeDef", {"LinkAssociation": "LinkAssociationTypeDef"}, total=False
 )
 
+AssociateTransitGatewayConnectPeerResponseTypeDef = TypedDict(
+    "AssociateTransitGatewayConnectPeerResponseTypeDef",
+    {"TransitGatewayConnectPeerAssociation": "TransitGatewayConnectPeerAssociationTypeDef"},
+    total=False,
+)
+
+CreateConnectionResponseTypeDef = TypedDict(
+    "CreateConnectionResponseTypeDef", {"Connection": "ConnectionTypeDef"}, total=False
+)
+
 CreateDeviceResponseTypeDef = TypedDict(
     "CreateDeviceResponseTypeDef", {"Device": "DeviceTypeDef"}, total=False
 )
@@ -203,6 +256,10 @@ CreateLinkResponseTypeDef = TypedDict(
 
 CreateSiteResponseTypeDef = TypedDict(
     "CreateSiteResponseTypeDef", {"Site": "SiteTypeDef"}, total=False
+)
+
+DeleteConnectionResponseTypeDef = TypedDict(
+    "DeleteConnectionResponseTypeDef", {"Connection": "ConnectionTypeDef"}, total=False
 )
 
 DeleteDeviceResponseTypeDef = TypedDict(
@@ -243,6 +300,18 @@ DisassociateLinkResponseTypeDef = TypedDict(
     "DisassociateLinkResponseTypeDef", {"LinkAssociation": "LinkAssociationTypeDef"}, total=False
 )
 
+DisassociateTransitGatewayConnectPeerResponseTypeDef = TypedDict(
+    "DisassociateTransitGatewayConnectPeerResponseTypeDef",
+    {"TransitGatewayConnectPeerAssociation": "TransitGatewayConnectPeerAssociationTypeDef"},
+    total=False,
+)
+
+GetConnectionsResponseTypeDef = TypedDict(
+    "GetConnectionsResponseTypeDef",
+    {"Connections": List["ConnectionTypeDef"], "NextToken": str},
+    total=False,
+)
+
 GetCustomerGatewayAssociationsResponseTypeDef = TypedDict(
     "GetCustomerGatewayAssociationsResponseTypeDef",
     {"CustomerGatewayAssociations": List["CustomerGatewayAssociationTypeDef"], "NextToken": str},
@@ -267,6 +336,17 @@ GetSitesResponseTypeDef = TypedDict(
     "GetSitesResponseTypeDef", {"Sites": List["SiteTypeDef"], "NextToken": str}, total=False
 )
 
+GetTransitGatewayConnectPeerAssociationsResponseTypeDef = TypedDict(
+    "GetTransitGatewayConnectPeerAssociationsResponseTypeDef",
+    {
+        "TransitGatewayConnectPeerAssociations": List[
+            "TransitGatewayConnectPeerAssociationTypeDef"
+        ],
+        "NextToken": str,
+    },
+    total=False,
+)
+
 GetTransitGatewayRegistrationsResponseTypeDef = TypedDict(
     "GetTransitGatewayRegistrationsResponseTypeDef",
     {"TransitGatewayRegistrations": List["TransitGatewayRegistrationTypeDef"], "NextToken": str},
@@ -285,6 +365,10 @@ RegisterTransitGatewayResponseTypeDef = TypedDict(
     "RegisterTransitGatewayResponseTypeDef",
     {"TransitGatewayRegistration": "TransitGatewayRegistrationTypeDef"},
     total=False,
+)
+
+UpdateConnectionResponseTypeDef = TypedDict(
+    "UpdateConnectionResponseTypeDef", {"Connection": "ConnectionTypeDef"}, total=False
 )
 
 UpdateDeviceResponseTypeDef = TypedDict(

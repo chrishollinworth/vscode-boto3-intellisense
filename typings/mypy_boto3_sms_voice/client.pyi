@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for sms-voice service client
 
@@ -46,7 +45,7 @@ class Exceptions:
 
 class SMSVoiceClient:
     """
-    [SMSVoice.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms-voice.html#SMSVoice.Client)
+    [SMSVoice.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sms-voice.html#SMSVoice.Client)
     """
 
     meta: ClientMeta
@@ -54,12 +53,12 @@ class SMSVoiceClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms-voice.html#SMSVoice.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sms-voice.html#SMSVoice.Client.can_paginate)
         """
 
     def create_configuration_set(self, ConfigurationSetName: str = None) -> Dict[str, Any]:
         """
-        [Client.create_configuration_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms-voice.html#SMSVoice.Client.create_configuration_set)
+        [Client.create_configuration_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sms-voice.html#SMSVoice.Client.create_configuration_set)
         """
 
     def create_configuration_set_event_destination(
@@ -69,19 +68,19 @@ class SMSVoiceClient:
         EventDestinationName: str = None,
     ) -> Dict[str, Any]:
         """
-        [Client.create_configuration_set_event_destination documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms-voice.html#SMSVoice.Client.create_configuration_set_event_destination)
+        [Client.create_configuration_set_event_destination documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sms-voice.html#SMSVoice.Client.create_configuration_set_event_destination)
         """
 
     def delete_configuration_set(self, ConfigurationSetName: str) -> Dict[str, Any]:
         """
-        [Client.delete_configuration_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms-voice.html#SMSVoice.Client.delete_configuration_set)
+        [Client.delete_configuration_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sms-voice.html#SMSVoice.Client.delete_configuration_set)
         """
 
     def delete_configuration_set_event_destination(
         self, ConfigurationSetName: str, EventDestinationName: str
     ) -> Dict[str, Any]:
         """
-        [Client.delete_configuration_set_event_destination documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms-voice.html#SMSVoice.Client.delete_configuration_set_event_destination)
+        [Client.delete_configuration_set_event_destination documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sms-voice.html#SMSVoice.Client.delete_configuration_set_event_destination)
         """
 
     def generate_presigned_url(
@@ -92,21 +91,21 @@ class SMSVoiceClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms-voice.html#SMSVoice.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sms-voice.html#SMSVoice.Client.generate_presigned_url)
         """
 
     def get_configuration_set_event_destinations(
         self, ConfigurationSetName: str
     ) -> GetConfigurationSetEventDestinationsResponseTypeDef:
         """
-        [Client.get_configuration_set_event_destinations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms-voice.html#SMSVoice.Client.get_configuration_set_event_destinations)
+        [Client.get_configuration_set_event_destinations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sms-voice.html#SMSVoice.Client.get_configuration_set_event_destinations)
         """
 
     def list_configuration_sets(
         self, NextToken: str = None, PageSize: str = None
     ) -> ListConfigurationSetsResponseTypeDef:
         """
-        [Client.list_configuration_sets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms-voice.html#SMSVoice.Client.list_configuration_sets)
+        [Client.list_configuration_sets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sms-voice.html#SMSVoice.Client.list_configuration_sets)
         """
 
     def send_voice_message(
@@ -118,7 +117,7 @@ class SMSVoiceClient:
         OriginationPhoneNumber: str = None,
     ) -> SendVoiceMessageResponseTypeDef:
         """
-        [Client.send_voice_message documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms-voice.html#SMSVoice.Client.send_voice_message)
+        [Client.send_voice_message documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sms-voice.html#SMSVoice.Client.send_voice_message)
         """
 
     def update_configuration_set_event_destination(
@@ -128,5 +127,5 @@ class SMSVoiceClient:
         EventDestination: EventDestinationDefinitionTypeDef = None,
     ) -> Dict[str, Any]:
         """
-        [Client.update_configuration_set_event_destination documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sms-voice.html#SMSVoice.Client.update_configuration_set_event_destination)
+        [Client.update_configuration_set_event_destination documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sms-voice.html#SMSVoice.Client.update_configuration_set_event_destination)
         """

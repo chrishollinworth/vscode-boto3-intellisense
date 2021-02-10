@@ -41,6 +41,7 @@ __all__ = (
     "Av1SettingsTypeDef",
     "AvailBlankingTypeDef",
     "AvcIntraSettingsTypeDef",
+    "AvcIntraUhdSettingsTypeDef",
     "BurninDestinationSettingsTypeDef",
     "CaptionDescriptionPresetTypeDef",
     "CaptionDescriptionTypeDef",
@@ -787,7 +788,8 @@ AvailBlankingTypeDef = TypedDict("AvailBlankingTypeDef", {"AvailBlankingImage": 
 AvcIntraSettingsTypeDef = TypedDict(
     "AvcIntraSettingsTypeDef",
     {
-        "AvcIntraClass": Literal["CLASS_50", "CLASS_100", "CLASS_200"],
+        "AvcIntraClass": Literal["CLASS_50", "CLASS_100", "CLASS_200", "CLASS_4K_2K"],
+        "AvcIntraUhdSettings": "AvcIntraUhdSettingsTypeDef",
         "FramerateControl": Literal["INITIALIZE_FROM_SOURCE", "SPECIFIED"],
         "FramerateConversionAlgorithm": Literal["DUPLICATE_DROP", "INTERPOLATE", "FRAMEFORMER"],
         "FramerateDenominator": int,
@@ -795,9 +797,16 @@ AvcIntraSettingsTypeDef = TypedDict(
         "InterlaceMode": Literal[
             "PROGRESSIVE", "TOP_FIELD", "BOTTOM_FIELD", "FOLLOW_TOP_FIELD", "FOLLOW_BOTTOM_FIELD"
         ],
+        "ScanTypeConversionMode": Literal["INTERLACED", "INTERLACED_OPTIMIZE"],
         "SlowPal": Literal["DISABLED", "ENABLED"],
         "Telecine": Literal["NONE", "HARD"],
     },
+    total=False,
+)
+
+AvcIntraUhdSettingsTypeDef = TypedDict(
+    "AvcIntraUhdSettingsTypeDef",
+    {"QualityTuningLevel": Literal["SINGLE_PASS", "MULTI_PASS"]},
     total=False,
 )
 
@@ -1485,6 +1494,7 @@ CaptionSourceSettingsTypeDef = TypedDict(
             "STL",
             "SRT",
             "SMI",
+            "SMPTE_TT",
             "TELETEXT",
             "NULL_SOURCE",
             "IMSC",
@@ -1548,6 +1558,7 @@ CmfcSettingsTypeDef = TypedDict(
     "CmfcSettingsTypeDef",
     {
         "AudioDuration": Literal["DEFAULT_CODEC_DURATION", "MATCH_VIDEO_DURATION"],
+        "IFrameOnlyManifest": Literal["INCLUDE", "EXCLUDE"],
         "Scte35Esam": Literal["INSERT", "NONE"],
         "Scte35Source": Literal["PASSTHROUGH", "NONE"],
     },
@@ -1881,6 +1892,7 @@ H264SettingsTypeDef = TypedDict(
         "QvbrSettings": "H264QvbrSettingsTypeDef",
         "RateControlMode": Literal["VBR", "CBR", "QVBR"],
         "RepeatPps": Literal["DISABLED", "ENABLED"],
+        "ScanTypeConversionMode": Literal["INTERLACED", "INTERLACED_OPTIMIZE"],
         "SceneChangeDetect": Literal["DISABLED", "ENABLED", "TRANSITION_DETECTION"],
         "Slices": int,
         "SlowPal": Literal["DISABLED", "ENABLED"],
@@ -1958,6 +1970,7 @@ H265SettingsTypeDef = TypedDict(
         "QvbrSettings": "H265QvbrSettingsTypeDef",
         "RateControlMode": Literal["VBR", "CBR", "QVBR"],
         "SampleAdaptiveOffsetFilterMode": Literal["DEFAULT", "ADAPTIVE", "OFF"],
+        "ScanTypeConversionMode": Literal["INTERLACED", "INTERLACED_OPTIMIZE"],
         "SceneChangeDetect": Literal["DISABLED", "ENABLED", "TRANSITION_DETECTION"],
         "Slices": int,
         "SlowPal": Literal["DISABLED", "ENABLED"],
@@ -2684,6 +2697,7 @@ Mpeg2SettingsTypeDef = TypedDict(
         "ParNumerator": int,
         "QualityTuningLevel": Literal["SINGLE_PASS", "MULTI_PASS"],
         "RateControlMode": Literal["VBR", "CBR"],
+        "ScanTypeConversionMode": Literal["INTERLACED", "INTERLACED_OPTIMIZE"],
         "SceneChangeDetect": Literal["DISABLED", "ENABLED"],
         "SlowPal": Literal["DISABLED", "ENABLED"],
         "Softness": int,
@@ -2802,7 +2816,9 @@ OpusSettingsTypeDef = TypedDict(
 )
 
 OutputChannelMappingTypeDef = TypedDict(
-    "OutputChannelMappingTypeDef", {"InputChannels": List[int]}, total=False
+    "OutputChannelMappingTypeDef",
+    {"InputChannels": List[int], "InputChannelsFineTune": List[float]},
+    total=False,
 )
 
 OutputDetailTypeDef = TypedDict(
@@ -2921,6 +2937,7 @@ ProresSettingsTypeDef = TypedDict(
         "ParControl": Literal["INITIALIZE_FROM_SOURCE", "SPECIFIED"],
         "ParDenominator": int,
         "ParNumerator": int,
+        "ScanTypeConversionMode": Literal["INTERLACED", "INTERLACED_OPTIMIZE"],
         "SlowPal": Literal["DISABLED", "ENABLED"],
         "Telecine": Literal["NONE", "HARD"],
     },
@@ -3140,6 +3157,7 @@ Vc3SettingsTypeDef = TypedDict(
         "FramerateDenominator": int,
         "FramerateNumerator": int,
         "InterlaceMode": Literal["INTERLACED", "PROGRESSIVE"],
+        "ScanTypeConversionMode": Literal["INTERLACED", "INTERLACED_OPTIMIZE"],
         "SlowPal": Literal["DISABLED", "ENABLED"],
         "Telecine": Literal["NONE", "HARD"],
         "Vc3Class": Literal["CLASS_145_8BIT", "CLASS_220_8BIT", "CLASS_220_10BIT"],

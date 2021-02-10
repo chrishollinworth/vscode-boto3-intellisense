@@ -1,7 +1,12 @@
 from mypy_boto3_dlm.type_defs import (
+    ActionTypeDef,
     CreateRuleTypeDef,
+    CrossRegionCopyActionTypeDef,
     CrossRegionCopyRetainRuleTypeDef,
     CrossRegionCopyRuleTypeDef,
+    EncryptionConfigurationTypeDef,
+    EventParametersTypeDef,
+    EventSourceTypeDef,
     FastRestoreRuleTypeDef,
     LifecyclePolicySummaryTypeDef,
     LifecyclePolicyTypeDef,
@@ -9,6 +14,7 @@ from mypy_boto3_dlm.type_defs import (
     PolicyDetailsTypeDef,
     RetainRuleTypeDef,
     ScheduleTypeDef,
+    ShareRuleTypeDef,
     TagTypeDef,
     CreateLifecyclePolicyResponseTypeDef,
     GetLifecyclePoliciesResponseTypeDef,
@@ -17,9 +23,14 @@ from mypy_boto3_dlm.type_defs import (
 )
 
 __all__ = (
+    "ActionTypeDef",
     "CreateRuleTypeDef",
+    "CrossRegionCopyActionTypeDef",
     "CrossRegionCopyRetainRuleTypeDef",
     "CrossRegionCopyRuleTypeDef",
+    "EncryptionConfigurationTypeDef",
+    "EventParametersTypeDef",
+    "EventSourceTypeDef",
     "FastRestoreRuleTypeDef",
     "LifecyclePolicySummaryTypeDef",
     "LifecyclePolicyTypeDef",
@@ -27,6 +38,7 @@ __all__ = (
     "PolicyDetailsTypeDef",
     "RetainRuleTypeDef",
     "ScheduleTypeDef",
+    "ShareRuleTypeDef",
     "TagTypeDef",
     "CreateLifecyclePolicyResponseTypeDef",
     "GetLifecyclePoliciesResponseTypeDef",

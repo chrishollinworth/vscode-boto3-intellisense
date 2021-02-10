@@ -29,6 +29,10 @@ __all__ = (
     "ComponentSummaryTypeDef",
     "ComponentTypeDef",
     "ComponentVersionTypeDef",
+    "ContainerDistributionConfigurationTypeDef",
+    "ContainerRecipeSummaryTypeDef",
+    "ContainerRecipeTypeDef",
+    "ContainerTypeDef",
     "DistributionConfigurationSummaryTypeDef",
     "DistributionConfigurationTypeDef",
     "DistributionTypeDef",
@@ -49,14 +53,17 @@ __all__ = (
     "OutputResourcesTypeDef",
     "S3LogsTypeDef",
     "ScheduleTypeDef",
+    "TargetContainerRepositoryTypeDef",
     "CancelImageCreationResponseTypeDef",
     "CreateComponentResponseTypeDef",
+    "CreateContainerRecipeResponseTypeDef",
     "CreateDistributionConfigurationResponseTypeDef",
     "CreateImagePipelineResponseTypeDef",
     "CreateImageRecipeResponseTypeDef",
     "CreateImageResponseTypeDef",
     "CreateInfrastructureConfigurationResponseTypeDef",
     "DeleteComponentResponseTypeDef",
+    "DeleteContainerRecipeResponseTypeDef",
     "DeleteDistributionConfigurationResponseTypeDef",
     "DeleteImagePipelineResponseTypeDef",
     "DeleteImageRecipeResponseTypeDef",
@@ -65,6 +72,8 @@ __all__ = (
     "FilterTypeDef",
     "GetComponentPolicyResponseTypeDef",
     "GetComponentResponseTypeDef",
+    "GetContainerRecipePolicyResponseTypeDef",
+    "GetContainerRecipeResponseTypeDef",
     "GetDistributionConfigurationResponseTypeDef",
     "GetImagePipelineResponseTypeDef",
     "GetImagePolicyResponseTypeDef",
@@ -75,6 +84,7 @@ __all__ = (
     "ImportComponentResponseTypeDef",
     "ListComponentBuildVersionsResponseTypeDef",
     "ListComponentsResponseTypeDef",
+    "ListContainerRecipesResponseTypeDef",
     "ListDistributionConfigurationsResponseTypeDef",
     "ListImageBuildVersionsResponseTypeDef",
     "ListImagePipelineImagesResponseTypeDef",
@@ -84,6 +94,7 @@ __all__ = (
     "ListInfrastructureConfigurationsResponseTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "PutComponentPolicyResponseTypeDef",
+    "PutContainerRecipePolicyResponseTypeDef",
     "PutImagePolicyResponseTypeDef",
     "PutImageRecipePolicyResponseTypeDef",
     "StartImagePipelineExecutionResponseTypeDef",
@@ -175,6 +186,66 @@ ComponentVersionTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredContainerDistributionConfigurationTypeDef = TypedDict(
+    "_RequiredContainerDistributionConfigurationTypeDef",
+    {"targetRepository": "TargetContainerRepositoryTypeDef"},
+)
+_OptionalContainerDistributionConfigurationTypeDef = TypedDict(
+    "_OptionalContainerDistributionConfigurationTypeDef",
+    {"description": str, "containerTags": List[str]},
+    total=False,
+)
+
+
+class ContainerDistributionConfigurationTypeDef(
+    _RequiredContainerDistributionConfigurationTypeDef,
+    _OptionalContainerDistributionConfigurationTypeDef,
+):
+    pass
+
+
+ContainerRecipeSummaryTypeDef = TypedDict(
+    "ContainerRecipeSummaryTypeDef",
+    {
+        "arn": str,
+        "containerType": Literal["DOCKER"],
+        "name": str,
+        "platform": Literal["Windows", "Linux"],
+        "owner": str,
+        "parentImage": str,
+        "dateCreated": str,
+        "tags": Dict[str, str],
+    },
+    total=False,
+)
+
+ContainerRecipeTypeDef = TypedDict(
+    "ContainerRecipeTypeDef",
+    {
+        "arn": str,
+        "containerType": Literal["DOCKER"],
+        "name": str,
+        "description": str,
+        "platform": Literal["Windows", "Linux"],
+        "owner": str,
+        "version": str,
+        "components": List["ComponentConfigurationTypeDef"],
+        "dockerfileTemplateData": str,
+        "kmsKeyId": str,
+        "encrypted": bool,
+        "parentImage": str,
+        "dateCreated": str,
+        "tags": Dict[str, str],
+        "workingDirectory": str,
+        "targetRepository": "TargetContainerRepositoryTypeDef",
+    },
+    total=False,
+)
+
+ContainerTypeDef = TypedDict(
+    "ContainerTypeDef", {"region": str, "imageUris": List[str]}, total=False
+)
+
 DistributionConfigurationSummaryTypeDef = TypedDict(
     "DistributionConfigurationSummaryTypeDef",
     {
@@ -184,6 +255,7 @@ DistributionConfigurationSummaryTypeDef = TypedDict(
         "dateCreated": str,
         "dateUpdated": str,
         "tags": Dict[str, str],
+        "regions": List[str],
     },
     total=False,
 )
@@ -217,6 +289,7 @@ _OptionalDistributionTypeDef = TypedDict(
     "_OptionalDistributionTypeDef",
     {
         "amiDistributionConfiguration": "AmiDistributionConfigurationTypeDef",
+        "containerDistributionConfiguration": "ContainerDistributionConfigurationTypeDef",
         "licenseConfigurationArns": List[str],
     },
     total=False,
@@ -250,6 +323,7 @@ ImagePipelineTypeDef = TypedDict(
         "platform": Literal["Windows", "Linux"],
         "enhancedImageMetadataEnabled": bool,
         "imageRecipeArn": str,
+        "containerRecipeArn": str,
         "infrastructureConfigurationArn": str,
         "distributionConfigurationArn": str,
         "imageTestsConfiguration": "ImageTestsConfigurationTypeDef",
@@ -282,6 +356,7 @@ ImageRecipeTypeDef = TypedDict(
     "ImageRecipeTypeDef",
     {
         "arn": str,
+        "type": Literal["AMI", "DOCKER"],
         "name": str,
         "description": str,
         "platform": Literal["Windows", "Linux"],
@@ -323,6 +398,7 @@ ImageSummaryTypeDef = TypedDict(
     {
         "arn": str,
         "name": str,
+        "type": Literal["AMI", "DOCKER"],
         "version": str,
         "platform": Literal["Windows", "Linux"],
         "osVersion": str,
@@ -345,6 +421,7 @@ ImageTypeDef = TypedDict(
     "ImageTypeDef",
     {
         "arn": str,
+        "type": Literal["AMI", "DOCKER"],
         "name": str,
         "version": str,
         "platform": Literal["Windows", "Linux"],
@@ -352,6 +429,7 @@ ImageTypeDef = TypedDict(
         "osVersion": str,
         "state": "ImageStateTypeDef",
         "imageRecipe": "ImageRecipeTypeDef",
+        "containerRecipe": "ContainerRecipeTypeDef",
         "sourcePipelineName": str,
         "sourcePipelineArn": str,
         "infrastructureConfiguration": "InfrastructureConfigurationTypeDef",
@@ -369,6 +447,7 @@ ImageVersionTypeDef = TypedDict(
     {
         "arn": str,
         "name": str,
+        "type": Literal["AMI", "DOCKER"],
         "version": str,
         "platform": Literal["Windows", "Linux"],
         "osVersion": str,
@@ -434,7 +513,9 @@ LaunchPermissionConfigurationTypeDef = TypedDict(
 LoggingTypeDef = TypedDict("LoggingTypeDef", {"s3Logs": "S3LogsTypeDef"}, total=False)
 
 OutputResourcesTypeDef = TypedDict(
-    "OutputResourcesTypeDef", {"amis": List["AmiTypeDef"]}, total=False
+    "OutputResourcesTypeDef",
+    {"amis": List["AmiTypeDef"], "containers": List["ContainerTypeDef"]},
+    total=False,
 )
 
 S3LogsTypeDef = TypedDict("S3LogsTypeDef", {"s3BucketName": str, "s3KeyPrefix": str}, total=False)
@@ -450,6 +531,10 @@ ScheduleTypeDef = TypedDict(
     total=False,
 )
 
+TargetContainerRepositoryTypeDef = TypedDict(
+    "TargetContainerRepositoryTypeDef", {"service": Literal["ECR"], "repositoryName": str}
+)
+
 CancelImageCreationResponseTypeDef = TypedDict(
     "CancelImageCreationResponseTypeDef",
     {"requestId": str, "clientToken": str, "imageBuildVersionArn": str},
@@ -459,6 +544,12 @@ CancelImageCreationResponseTypeDef = TypedDict(
 CreateComponentResponseTypeDef = TypedDict(
     "CreateComponentResponseTypeDef",
     {"requestId": str, "clientToken": str, "componentBuildVersionArn": str},
+    total=False,
+)
+
+CreateContainerRecipeResponseTypeDef = TypedDict(
+    "CreateContainerRecipeResponseTypeDef",
+    {"requestId": str, "clientToken": str, "containerRecipeArn": str},
     total=False,
 )
 
@@ -498,6 +589,12 @@ DeleteComponentResponseTypeDef = TypedDict(
     total=False,
 )
 
+DeleteContainerRecipeResponseTypeDef = TypedDict(
+    "DeleteContainerRecipeResponseTypeDef",
+    {"requestId": str, "containerRecipeArn": str},
+    total=False,
+)
+
 DeleteDistributionConfigurationResponseTypeDef = TypedDict(
     "DeleteDistributionConfigurationResponseTypeDef",
     {"requestId": str, "distributionConfigurationArn": str},
@@ -530,6 +627,16 @@ GetComponentPolicyResponseTypeDef = TypedDict(
 
 GetComponentResponseTypeDef = TypedDict(
     "GetComponentResponseTypeDef", {"requestId": str, "component": "ComponentTypeDef"}, total=False
+)
+
+GetContainerRecipePolicyResponseTypeDef = TypedDict(
+    "GetContainerRecipePolicyResponseTypeDef", {"requestId": str, "policy": str}, total=False
+)
+
+GetContainerRecipeResponseTypeDef = TypedDict(
+    "GetContainerRecipeResponseTypeDef",
+    {"requestId": str, "containerRecipe": "ContainerRecipeTypeDef"},
+    total=False,
 )
 
 GetDistributionConfigurationResponseTypeDef = TypedDict(
@@ -583,6 +690,16 @@ ListComponentBuildVersionsResponseTypeDef = TypedDict(
 ListComponentsResponseTypeDef = TypedDict(
     "ListComponentsResponseTypeDef",
     {"requestId": str, "componentVersionList": List["ComponentVersionTypeDef"], "nextToken": str},
+    total=False,
+)
+
+ListContainerRecipesResponseTypeDef = TypedDict(
+    "ListContainerRecipesResponseTypeDef",
+    {
+        "requestId": str,
+        "containerRecipeSummaryList": List["ContainerRecipeSummaryTypeDef"],
+        "nextToken": str,
+    },
     total=False,
 )
 
@@ -646,6 +763,12 @@ ListTagsForResourceResponseTypeDef = TypedDict(
 
 PutComponentPolicyResponseTypeDef = TypedDict(
     "PutComponentPolicyResponseTypeDef", {"requestId": str, "componentArn": str}, total=False
+)
+
+PutContainerRecipePolicyResponseTypeDef = TypedDict(
+    "PutContainerRecipePolicyResponseTypeDef",
+    {"requestId": str, "containerRecipeArn": str},
+    total=False,
 )
 
 PutImagePolicyResponseTypeDef = TypedDict(

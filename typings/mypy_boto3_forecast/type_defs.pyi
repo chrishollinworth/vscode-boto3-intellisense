@@ -352,7 +352,10 @@ class S3ConfigTypeDef(_RequiredS3ConfigTypeDef, _OptionalS3ConfigTypeDef):
 
 SchemaAttributeTypeDef = TypedDict(
     "SchemaAttributeTypeDef",
-    {"AttributeName": str, "AttributeType": Literal["string", "integer", "float", "timestamp"]},
+    {
+        "AttributeName": str,
+        "AttributeType": Literal["string", "integer", "float", "timestamp", "geolocation"],
+    },
     total=False,
 )
 
@@ -460,6 +463,9 @@ DescribeDatasetImportJobResponseTypeDef = TypedDict(
         "DatasetImportJobArn": str,
         "DatasetArn": str,
         "TimestampFormat": str,
+        "TimeZone": str,
+        "UseGeolocationForTimeZone": bool,
+        "GeolocationFormat": str,
         "DataSource": "DataSourceTypeDef",
         "FieldStatistics": Dict[str, "StatisticsTypeDef"],
         "DataSize": float,

@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for cloud9 service client paginators.
 
@@ -41,7 +40,7 @@ __all__ = ("DescribeEnvironmentMembershipsPaginator", "ListEnvironmentsPaginator
 
 class DescribeEnvironmentMembershipsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeEnvironmentMemberships documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloud9.html#Cloud9.Paginator.DescribeEnvironmentMemberships)
+    [Paginator.DescribeEnvironmentMemberships documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloud9.html#Cloud9.Paginator.DescribeEnvironmentMemberships)
     """
 
     def paginate(
@@ -52,18 +51,18 @@ class DescribeEnvironmentMembershipsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeEnvironmentMembershipsResultTypeDef]:
         """
-        [DescribeEnvironmentMemberships.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloud9.html#Cloud9.Paginator.DescribeEnvironmentMemberships.paginate)
+        [DescribeEnvironmentMemberships.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloud9.html#Cloud9.Paginator.DescribeEnvironmentMemberships.paginate)
         """
 
 
 class ListEnvironmentsPaginator(Boto3Paginator):
     """
-    [Paginator.ListEnvironments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloud9.html#Cloud9.Paginator.ListEnvironments)
+    [Paginator.ListEnvironments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloud9.html#Cloud9.Paginator.ListEnvironments)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListEnvironmentsResultTypeDef]:
         """
-        [ListEnvironments.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloud9.html#Cloud9.Paginator.ListEnvironments.paginate)
+        [ListEnvironments.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloud9.html#Cloud9.Paginator.ListEnvironments.paginate)
         """

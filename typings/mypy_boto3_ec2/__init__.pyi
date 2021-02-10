@@ -12,6 +12,7 @@ Usage::
         ConversionTaskCompletedWaiter,
         ConversionTaskDeletedWaiter,
         CustomerGatewayAvailableWaiter,
+        DescribeAddressesAttributePaginator,
         DescribeByoipCidrsPaginator,
         DescribeCapacityReservationsPaginator,
         DescribeCarrierGatewaysPaginator,
@@ -54,6 +55,8 @@ Usage::
         DescribeMovingAddressesPaginator,
         DescribeNatGatewaysPaginator,
         DescribeNetworkAclsPaginator,
+        DescribeNetworkInsightsAnalysesPaginator,
+        DescribeNetworkInsightsPathsPaginator,
         DescribeNetworkInterfacePermissionsPaginator,
         DescribeNetworkInterfacesPaginator,
         DescribePrefixListsPaginator,
@@ -77,6 +80,8 @@ Usage::
         DescribeTrafficMirrorSessionsPaginator,
         DescribeTrafficMirrorTargetsPaginator,
         DescribeTransitGatewayAttachmentsPaginator,
+        DescribeTransitGatewayConnectPeersPaginator,
+        DescribeTransitGatewayConnectsPaginator,
         DescribeTransitGatewayMulticastDomainsPaginator,
         DescribeTransitGatewayPeeringAttachmentsPaginator,
         DescribeTransitGatewayRouteTablesPaginator,
@@ -178,6 +183,7 @@ Usage::
     vpn_connection_available_waiter: VpnConnectionAvailableWaiter = client.get_waiter("vpn_connection_available")
     vpn_connection_deleted_waiter: VpnConnectionDeletedWaiter = client.get_waiter("vpn_connection_deleted")
 
+    describe_addresses_attribute_paginator: DescribeAddressesAttributePaginator = client.get_paginator("describe_addresses_attribute")
     describe_byoip_cidrs_paginator: DescribeByoipCidrsPaginator = client.get_paginator("describe_byoip_cidrs")
     describe_capacity_reservations_paginator: DescribeCapacityReservationsPaginator = client.get_paginator("describe_capacity_reservations")
     describe_carrier_gateways_paginator: DescribeCarrierGatewaysPaginator = client.get_paginator("describe_carrier_gateways")
@@ -220,6 +226,8 @@ Usage::
     describe_moving_addresses_paginator: DescribeMovingAddressesPaginator = client.get_paginator("describe_moving_addresses")
     describe_nat_gateways_paginator: DescribeNatGatewaysPaginator = client.get_paginator("describe_nat_gateways")
     describe_network_acls_paginator: DescribeNetworkAclsPaginator = client.get_paginator("describe_network_acls")
+    describe_network_insights_analyses_paginator: DescribeNetworkInsightsAnalysesPaginator = client.get_paginator("describe_network_insights_analyses")
+    describe_network_insights_paths_paginator: DescribeNetworkInsightsPathsPaginator = client.get_paginator("describe_network_insights_paths")
     describe_network_interface_permissions_paginator: DescribeNetworkInterfacePermissionsPaginator = client.get_paginator("describe_network_interface_permissions")
     describe_network_interfaces_paginator: DescribeNetworkInterfacesPaginator = client.get_paginator("describe_network_interfaces")
     describe_prefix_lists_paginator: DescribePrefixListsPaginator = client.get_paginator("describe_prefix_lists")
@@ -243,6 +251,8 @@ Usage::
     describe_traffic_mirror_sessions_paginator: DescribeTrafficMirrorSessionsPaginator = client.get_paginator("describe_traffic_mirror_sessions")
     describe_traffic_mirror_targets_paginator: DescribeTrafficMirrorTargetsPaginator = client.get_paginator("describe_traffic_mirror_targets")
     describe_transit_gateway_attachments_paginator: DescribeTransitGatewayAttachmentsPaginator = client.get_paginator("describe_transit_gateway_attachments")
+    describe_transit_gateway_connect_peers_paginator: DescribeTransitGatewayConnectPeersPaginator = client.get_paginator("describe_transit_gateway_connect_peers")
+    describe_transit_gateway_connects_paginator: DescribeTransitGatewayConnectsPaginator = client.get_paginator("describe_transit_gateway_connects")
     describe_transit_gateway_multicast_domains_paginator: DescribeTransitGatewayMulticastDomainsPaginator = client.get_paginator("describe_transit_gateway_multicast_domains")
     describe_transit_gateway_peering_attachments_paginator: DescribeTransitGatewayPeeringAttachmentsPaginator = client.get_paginator("describe_transit_gateway_peering_attachments")
     describe_transit_gateway_route_tables_paginator: DescribeTransitGatewayRouteTablesPaginator = client.get_paginator("describe_transit_gateway_route_tables")
@@ -275,6 +285,7 @@ Usage::
 """
 from mypy_boto3_ec2.client import EC2Client
 from mypy_boto3_ec2.paginator import (
+    DescribeAddressesAttributePaginator,
     DescribeByoipCidrsPaginator,
     DescribeCapacityReservationsPaginator,
     DescribeCarrierGatewaysPaginator,
@@ -317,6 +328,8 @@ from mypy_boto3_ec2.paginator import (
     DescribeMovingAddressesPaginator,
     DescribeNatGatewaysPaginator,
     DescribeNetworkAclsPaginator,
+    DescribeNetworkInsightsAnalysesPaginator,
+    DescribeNetworkInsightsPathsPaginator,
     DescribeNetworkInterfacePermissionsPaginator,
     DescribeNetworkInterfacesPaginator,
     DescribePrefixListsPaginator,
@@ -340,6 +353,8 @@ from mypy_boto3_ec2.paginator import (
     DescribeTrafficMirrorSessionsPaginator,
     DescribeTrafficMirrorTargetsPaginator,
     DescribeTransitGatewayAttachmentsPaginator,
+    DescribeTransitGatewayConnectPeersPaginator,
+    DescribeTransitGatewayConnectsPaginator,
     DescribeTransitGatewayMulticastDomainsPaginator,
     DescribeTransitGatewayPeeringAttachmentsPaginator,
     DescribeTransitGatewayRouteTablesPaginator,
@@ -418,6 +433,7 @@ __all__ = (
     "ConversionTaskCompletedWaiter",
     "ConversionTaskDeletedWaiter",
     "CustomerGatewayAvailableWaiter",
+    "DescribeAddressesAttributePaginator",
     "DescribeByoipCidrsPaginator",
     "DescribeCapacityReservationsPaginator",
     "DescribeCarrierGatewaysPaginator",
@@ -460,6 +476,8 @@ __all__ = (
     "DescribeMovingAddressesPaginator",
     "DescribeNatGatewaysPaginator",
     "DescribeNetworkAclsPaginator",
+    "DescribeNetworkInsightsAnalysesPaginator",
+    "DescribeNetworkInsightsPathsPaginator",
     "DescribeNetworkInterfacePermissionsPaginator",
     "DescribeNetworkInterfacesPaginator",
     "DescribePrefixListsPaginator",
@@ -483,6 +501,8 @@ __all__ = (
     "DescribeTrafficMirrorSessionsPaginator",
     "DescribeTrafficMirrorTargetsPaginator",
     "DescribeTransitGatewayAttachmentsPaginator",
+    "DescribeTransitGatewayConnectPeersPaginator",
+    "DescribeTransitGatewayConnectsPaginator",
     "DescribeTransitGatewayMulticastDomainsPaginator",
     "DescribeTransitGatewayPeeringAttachmentsPaginator",
     "DescribeTransitGatewayRouteTablesPaginator",

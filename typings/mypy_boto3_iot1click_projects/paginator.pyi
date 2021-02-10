@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for iot1click-projects service client paginators.
 
@@ -34,25 +33,25 @@ __all__ = ("ListPlacementsPaginator", "ListProjectsPaginator")
 
 class ListPlacementsPaginator(Boto3Paginator):
     """
-    [Paginator.ListPlacements documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot1click-projects.html#IoT1ClickProjects.Paginator.ListPlacements)
+    [Paginator.ListPlacements documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot1click-projects.html#IoT1ClickProjects.Paginator.ListPlacements)
     """
 
     def paginate(
         self, projectName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPlacementsResponseTypeDef]:
         """
-        [ListPlacements.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot1click-projects.html#IoT1ClickProjects.Paginator.ListPlacements.paginate)
+        [ListPlacements.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot1click-projects.html#IoT1ClickProjects.Paginator.ListPlacements.paginate)
         """
 
 
 class ListProjectsPaginator(Boto3Paginator):
     """
-    [Paginator.ListProjects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot1click-projects.html#IoT1ClickProjects.Paginator.ListProjects)
+    [Paginator.ListProjects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot1click-projects.html#IoT1ClickProjects.Paginator.ListProjects)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListProjectsResponseTypeDef]:
         """
-        [ListProjects.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iot1click-projects.html#IoT1ClickProjects.Paginator.ListProjects.paginate)
+        [ListProjects.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iot1click-projects.html#IoT1ClickProjects.Paginator.ListProjects.paginate)
         """

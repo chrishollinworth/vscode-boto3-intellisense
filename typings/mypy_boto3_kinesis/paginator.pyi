@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for kinesis service client paginators.
 
@@ -47,20 +46,20 @@ __all__ = (
 
 class DescribeStreamPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeStream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Paginator.DescribeStream)
+    [Paginator.DescribeStream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Paginator.DescribeStream)
     """
 
     def paginate(
         self, StreamName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeStreamOutputTypeDef]:
         """
-        [DescribeStream.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Paginator.DescribeStream.paginate)
+        [DescribeStream.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Paginator.DescribeStream.paginate)
         """
 
 
 class ListShardsPaginator(Boto3Paginator):
     """
-    [Paginator.ListShards documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Paginator.ListShards)
+    [Paginator.ListShards documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Paginator.ListShards)
     """
 
     def paginate(
@@ -72,13 +71,13 @@ class ListShardsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListShardsOutputTypeDef]:
         """
-        [ListShards.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Paginator.ListShards.paginate)
+        [ListShards.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Paginator.ListShards.paginate)
         """
 
 
 class ListStreamConsumersPaginator(Boto3Paginator):
     """
-    [Paginator.ListStreamConsumers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Paginator.ListStreamConsumers)
+    [Paginator.ListStreamConsumers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Paginator.ListStreamConsumers)
     """
 
     def paginate(
@@ -88,18 +87,18 @@ class ListStreamConsumersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListStreamConsumersOutputTypeDef]:
         """
-        [ListStreamConsumers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Paginator.ListStreamConsumers.paginate)
+        [ListStreamConsumers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Paginator.ListStreamConsumers.paginate)
         """
 
 
 class ListStreamsPaginator(Boto3Paginator):
     """
-    [Paginator.ListStreams documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Paginator.ListStreams)
+    [Paginator.ListStreams documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Paginator.ListStreams)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListStreamsOutputTypeDef]:
         """
-        [ListStreams.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Paginator.ListStreams.paginate)
+        [ListStreams.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Paginator.ListStreams.paginate)
         """

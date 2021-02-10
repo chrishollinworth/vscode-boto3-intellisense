@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for lex-models service client paginators.
 
@@ -76,7 +75,7 @@ __all__ = (
 
 class GetBotAliasesPaginator(Boto3Paginator):
     """
-    [Paginator.GetBotAliases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetBotAliases)
+    [Paginator.GetBotAliases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetBotAliases)
     """
 
     def paginate(
@@ -86,13 +85,13 @@ class GetBotAliasesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetBotAliasesResponseTypeDef]:
         """
-        [GetBotAliases.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetBotAliases.paginate)
+        [GetBotAliases.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetBotAliases.paginate)
         """
 
 
 class GetBotChannelAssociationsPaginator(Boto3Paginator):
     """
-    [Paginator.GetBotChannelAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetBotChannelAssociations)
+    [Paginator.GetBotChannelAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetBotChannelAssociations)
     """
 
     def paginate(
@@ -103,39 +102,39 @@ class GetBotChannelAssociationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetBotChannelAssociationsResponseTypeDef]:
         """
-        [GetBotChannelAssociations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetBotChannelAssociations.paginate)
+        [GetBotChannelAssociations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetBotChannelAssociations.paginate)
         """
 
 
 class GetBotVersionsPaginator(Boto3Paginator):
     """
-    [Paginator.GetBotVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetBotVersions)
+    [Paginator.GetBotVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetBotVersions)
     """
 
     def paginate(
         self, name: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetBotVersionsResponseTypeDef]:
         """
-        [GetBotVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetBotVersions.paginate)
+        [GetBotVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetBotVersions.paginate)
         """
 
 
 class GetBotsPaginator(Boto3Paginator):
     """
-    [Paginator.GetBots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetBots)
+    [Paginator.GetBots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetBots)
     """
 
     def paginate(
         self, nameContains: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetBotsResponseTypeDef]:
         """
-        [GetBots.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetBots.paginate)
+        [GetBots.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetBots.paginate)
         """
 
 
 class GetBuiltinIntentsPaginator(Boto3Paginator):
     """
-    [Paginator.GetBuiltinIntents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetBuiltinIntents)
+    [Paginator.GetBuiltinIntents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetBuiltinIntents)
     """
 
     def paginate(
@@ -156,13 +155,13 @@ class GetBuiltinIntentsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetBuiltinIntentsResponseTypeDef]:
         """
-        [GetBuiltinIntents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetBuiltinIntents.paginate)
+        [GetBuiltinIntents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetBuiltinIntents.paginate)
         """
 
 
 class GetBuiltinSlotTypesPaginator(Boto3Paginator):
     """
-    [Paginator.GetBuiltinSlotTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetBuiltinSlotTypes)
+    [Paginator.GetBuiltinSlotTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetBuiltinSlotTypes)
     """
 
     def paginate(
@@ -183,57 +182,57 @@ class GetBuiltinSlotTypesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetBuiltinSlotTypesResponseTypeDef]:
         """
-        [GetBuiltinSlotTypes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetBuiltinSlotTypes.paginate)
+        [GetBuiltinSlotTypes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetBuiltinSlotTypes.paginate)
         """
 
 
 class GetIntentVersionsPaginator(Boto3Paginator):
     """
-    [Paginator.GetIntentVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetIntentVersions)
+    [Paginator.GetIntentVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetIntentVersions)
     """
 
     def paginate(
         self, name: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetIntentVersionsResponseTypeDef]:
         """
-        [GetIntentVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetIntentVersions.paginate)
+        [GetIntentVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetIntentVersions.paginate)
         """
 
 
 class GetIntentsPaginator(Boto3Paginator):
     """
-    [Paginator.GetIntents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetIntents)
+    [Paginator.GetIntents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetIntents)
     """
 
     def paginate(
         self, nameContains: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetIntentsResponseTypeDef]:
         """
-        [GetIntents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetIntents.paginate)
+        [GetIntents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetIntents.paginate)
         """
 
 
 class GetSlotTypeVersionsPaginator(Boto3Paginator):
     """
-    [Paginator.GetSlotTypeVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetSlotTypeVersions)
+    [Paginator.GetSlotTypeVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetSlotTypeVersions)
     """
 
     def paginate(
         self, name: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetSlotTypeVersionsResponseTypeDef]:
         """
-        [GetSlotTypeVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetSlotTypeVersions.paginate)
+        [GetSlotTypeVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetSlotTypeVersions.paginate)
         """
 
 
 class GetSlotTypesPaginator(Boto3Paginator):
     """
-    [Paginator.GetSlotTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetSlotTypes)
+    [Paginator.GetSlotTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetSlotTypes)
     """
 
     def paginate(
         self, nameContains: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetSlotTypesResponseTypeDef]:
         """
-        [GetSlotTypes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetSlotTypes.paginate)
+        [GetSlotTypes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lex-models.html#LexModelBuildingService.Paginator.GetSlotTypes.paginate)
         """

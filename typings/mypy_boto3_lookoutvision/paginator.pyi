@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for lookoutvision service client paginators.
 
@@ -7,14 +6,14 @@ Usage::
     ```python
     import boto3
 
-    from mypy_boto3_lookoutvision import LookoutForVisionClient
+    from mypy_boto3_lookoutvision import LookoutforVisionClient
     from mypy_boto3_lookoutvision.paginator import (
         ListDatasetEntriesPaginator,
         ListModelsPaginator,
         ListProjectsPaginator,
     )
 
-    client: LookoutForVisionClient = boto3.client("lookoutvision")
+    client: LookoutforVisionClient = boto3.client("lookoutvision")
 
     list_dataset_entries_paginator: ListDatasetEntriesPaginator = client.get_paginator("list_dataset_entries")
     list_models_paginator: ListModelsPaginator = client.get_paginator("list_models")
@@ -38,7 +37,7 @@ __all__ = ("ListDatasetEntriesPaginator", "ListModelsPaginator", "ListProjectsPa
 
 class ListDatasetEntriesPaginator(Boto3Paginator):
     """
-    [Paginator.ListDatasetEntries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lookoutvision.html#LookoutForVision.Paginator.ListDatasetEntries)
+    [Paginator.ListDatasetEntries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lookoutvision.html#LookoutforVision.Paginator.ListDatasetEntries)
     """
 
     def paginate(
@@ -53,31 +52,31 @@ class ListDatasetEntriesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListDatasetEntriesResponseTypeDef]:
         """
-        [ListDatasetEntries.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lookoutvision.html#LookoutForVision.Paginator.ListDatasetEntries.paginate)
+        [ListDatasetEntries.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lookoutvision.html#LookoutforVision.Paginator.ListDatasetEntries.paginate)
         """
 
 
 class ListModelsPaginator(Boto3Paginator):
     """
-    [Paginator.ListModels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lookoutvision.html#LookoutForVision.Paginator.ListModels)
+    [Paginator.ListModels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lookoutvision.html#LookoutforVision.Paginator.ListModels)
     """
 
     def paginate(
         self, ProjectName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListModelsResponseTypeDef]:
         """
-        [ListModels.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lookoutvision.html#LookoutForVision.Paginator.ListModels.paginate)
+        [ListModels.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lookoutvision.html#LookoutforVision.Paginator.ListModels.paginate)
         """
 
 
 class ListProjectsPaginator(Boto3Paginator):
     """
-    [Paginator.ListProjects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lookoutvision.html#LookoutForVision.Paginator.ListProjects)
+    [Paginator.ListProjects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lookoutvision.html#LookoutforVision.Paginator.ListProjects)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListProjectsResponseTypeDef]:
         """
-        [ListProjects.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lookoutvision.html#LookoutForVision.Paginator.ListProjects.paginate)
+        [ListProjects.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lookoutvision.html#LookoutforVision.Paginator.ListProjects.paginate)
         """

@@ -817,6 +817,7 @@ GetEmailIdentityResponseTypeDef = TypedDict(
         "MailFromAttributes": "MailFromAttributesTypeDef",
         "Policies": Dict[str, str],
         "Tags": List["TagTypeDef"],
+        "ConfigurationSetName": str,
     },
     total=False,
 )

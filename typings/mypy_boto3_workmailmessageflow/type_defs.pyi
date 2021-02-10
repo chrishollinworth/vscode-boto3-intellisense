@@ -10,7 +10,8 @@ Usage::
     ```
 """
 import sys
-from typing import IO
+
+from botocore.response import StreamingBody
 
 if sys.version_info >= (3, 8):
     from typing import TypedDict
@@ -21,5 +22,5 @@ else:
 __all__ = ("GetRawMessageContentResponseTypeDef",)
 
 GetRawMessageContentResponseTypeDef = TypedDict(
-    "GetRawMessageContentResponseTypeDef", {"messageContent": IO[bytes]}
+    "GetRawMessageContentResponseTypeDef", {"messageContent": StreamingBody}
 )

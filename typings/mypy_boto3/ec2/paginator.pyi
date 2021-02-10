@@ -1,4 +1,5 @@
 from mypy_boto3_ec2.paginator import (
+    DescribeAddressesAttributePaginator,
     DescribeByoipCidrsPaginator,
     DescribeCapacityReservationsPaginator,
     DescribeCarrierGatewaysPaginator,
@@ -41,6 +42,8 @@ from mypy_boto3_ec2.paginator import (
     DescribeMovingAddressesPaginator,
     DescribeNatGatewaysPaginator,
     DescribeNetworkAclsPaginator,
+    DescribeNetworkInsightsAnalysesPaginator,
+    DescribeNetworkInsightsPathsPaginator,
     DescribeNetworkInterfacePermissionsPaginator,
     DescribeNetworkInterfacesPaginator,
     DescribePrefixListsPaginator,
@@ -64,6 +67,8 @@ from mypy_boto3_ec2.paginator import (
     DescribeTrafficMirrorSessionsPaginator,
     DescribeTrafficMirrorTargetsPaginator,
     DescribeTransitGatewayAttachmentsPaginator,
+    DescribeTransitGatewayConnectPeersPaginator,
+    DescribeTransitGatewayConnectsPaginator,
     DescribeTransitGatewayMulticastDomainsPaginator,
     DescribeTransitGatewayPeeringAttachmentsPaginator,
     DescribeTransitGatewayRouteTablesPaginator,
@@ -95,6 +100,7 @@ from mypy_boto3_ec2.paginator import (
 )
 
 __all__ = (
+    "DescribeAddressesAttributePaginator",
     "DescribeByoipCidrsPaginator",
     "DescribeCapacityReservationsPaginator",
     "DescribeCarrierGatewaysPaginator",
@@ -137,6 +143,8 @@ __all__ = (
     "DescribeMovingAddressesPaginator",
     "DescribeNatGatewaysPaginator",
     "DescribeNetworkAclsPaginator",
+    "DescribeNetworkInsightsAnalysesPaginator",
+    "DescribeNetworkInsightsPathsPaginator",
     "DescribeNetworkInterfacePermissionsPaginator",
     "DescribeNetworkInterfacesPaginator",
     "DescribePrefixListsPaginator",
@@ -160,6 +168,8 @@ __all__ = (
     "DescribeTrafficMirrorSessionsPaginator",
     "DescribeTrafficMirrorTargetsPaginator",
     "DescribeTransitGatewayAttachmentsPaginator",
+    "DescribeTransitGatewayConnectPeersPaginator",
+    "DescribeTransitGatewayConnectsPaginator",
     "DescribeTransitGatewayMulticastDomainsPaginator",
     "DescribeTransitGatewayPeeringAttachmentsPaginator",
     "DescribeTransitGatewayRouteTablesPaginator",

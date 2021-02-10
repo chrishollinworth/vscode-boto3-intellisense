@@ -117,19 +117,19 @@ CloudFormationCollectionTypeDef = TypedDict(
 
 CloudFormationHealthTypeDef = TypedDict(
     "CloudFormationHealthTypeDef",
-    {"Insight": "InsightHealthTypeDef", "StackName": str},
+    {"StackName": str, "Insight": "InsightHealthTypeDef"},
     total=False,
 )
 
 CloudWatchMetricsDetailTypeDef = TypedDict(
     "CloudWatchMetricsDetailTypeDef",
     {
-        "Dimensions": List["CloudWatchMetricsDimensionTypeDef"],
         "MetricName": str,
         "Namespace": str,
-        "Period": int,
+        "Dimensions": List["CloudWatchMetricsDimensionTypeDef"],
         "Stat": Literal["Sum", "Average", "SampleCount", "Minimum", "Maximum", "p99", "p90", "p50"],
         "Unit": str,
+        "Period": int,
     },
     total=False,
 )
@@ -143,7 +143,7 @@ EndTimeRangeTypeDef = TypedDict(
 )
 
 EventResourceTypeDef = TypedDict(
-    "EventResourceTypeDef", {"Arn": str, "Name": str, "Type": str}, total=False
+    "EventResourceTypeDef", {"Type": str, "Name": str, "Arn": str}, total=False
 )
 
 EventTimeRangeTypeDef = TypedDict(
@@ -153,16 +153,16 @@ EventTimeRangeTypeDef = TypedDict(
 EventTypeDef = TypedDict(
     "EventTypeDef",
     {
+        "ResourceCollection": "ResourceCollectionTypeDef",
+        "Id": str,
+        "Time": datetime,
+        "EventSource": str,
+        "Name": str,
         "DataSource": Literal["AWS_CLOUD_TRAIL", "AWS_CODE_DEPLOY"],
         "EventClass": Literal[
             "INFRASTRUCTURE", "DEPLOYMENT", "SECURITY_CHANGE", "CONFIG_CHANGE", "SCHEMA_CHANGE"
         ],
-        "EventSource": str,
-        "Id": str,
-        "Name": str,
-        "ResourceCollection": "ResourceCollectionTypeDef",
         "Resources": List["EventResourceTypeDef"],
-        "Time": datetime,
     },
     total=False,
 )
@@ -170,9 +170,9 @@ EventTypeDef = TypedDict(
 InsightHealthTypeDef = TypedDict(
     "InsightHealthTypeDef",
     {
-        "MeanTimeToRecoverInMilliseconds": int,
         "OpenProactiveInsights": int,
         "OpenReactiveInsights": int,
+        "MeanTimeToRecoverInMilliseconds": int,
     },
     total=False,
 )
@@ -191,12 +191,12 @@ class InsightTimeRangeTypeDef(_RequiredInsightTimeRangeTypeDef, _OptionalInsight
 
 ListInsightsAnyStatusFilterTypeDef = TypedDict(
     "ListInsightsAnyStatusFilterTypeDef",
-    {"StartTimeRange": "StartTimeRangeTypeDef", "Type": Literal["REACTIVE", "PROACTIVE"]},
+    {"Type": Literal["REACTIVE", "PROACTIVE"], "StartTimeRange": "StartTimeRangeTypeDef"},
 )
 
 ListInsightsClosedStatusFilterTypeDef = TypedDict(
     "ListInsightsClosedStatusFilterTypeDef",
-    {"EndTimeRange": "EndTimeRangeTypeDef", "Type": Literal["REACTIVE", "PROACTIVE"]},
+    {"Type": Literal["REACTIVE", "PROACTIVE"], "EndTimeRange": "EndTimeRangeTypeDef"},
 )
 
 ListInsightsOngoingStatusFilterTypeDef = TypedDict(
@@ -209,7 +209,7 @@ NotificationChannelConfigTypeDef = TypedDict(
 
 NotificationChannelTypeDef = TypedDict(
     "NotificationChannelTypeDef",
-    {"Config": "NotificationChannelConfigTypeDef", "Id": str},
+    {"Id": str, "Config": "NotificationChannelConfigTypeDef"},
     total=False,
 )
 
@@ -240,16 +240,16 @@ class PredictionTimeRangeTypeDef(
 ProactiveAnomalySummaryTypeDef = TypedDict(
     "ProactiveAnomalySummaryTypeDef",
     {
-        "AnomalyTimeRange": "AnomalyTimeRangeTypeDef",
-        "AssociatedInsightId": str,
         "Id": str,
-        "Limit": float,
-        "PredictionTimeRange": "PredictionTimeRangeTypeDef",
-        "ResourceCollection": "ResourceCollectionTypeDef",
         "Severity": Literal["LOW", "MEDIUM", "HIGH"],
-        "SourceDetails": "AnomalySourceDetailsTypeDef",
         "Status": Literal["ONGOING", "CLOSED"],
         "UpdateTime": datetime,
+        "AnomalyTimeRange": "AnomalyTimeRangeTypeDef",
+        "PredictionTimeRange": "PredictionTimeRangeTypeDef",
+        "SourceDetails": "AnomalySourceDetailsTypeDef",
+        "AssociatedInsightId": str,
+        "ResourceCollection": "ResourceCollectionTypeDef",
+        "Limit": float,
     },
     total=False,
 )
@@ -257,16 +257,16 @@ ProactiveAnomalySummaryTypeDef = TypedDict(
 ProactiveAnomalyTypeDef = TypedDict(
     "ProactiveAnomalyTypeDef",
     {
-        "AnomalyTimeRange": "AnomalyTimeRangeTypeDef",
-        "AssociatedInsightId": str,
         "Id": str,
-        "Limit": float,
-        "PredictionTimeRange": "PredictionTimeRangeTypeDef",
-        "ResourceCollection": "ResourceCollectionTypeDef",
         "Severity": Literal["LOW", "MEDIUM", "HIGH"],
-        "SourceDetails": "AnomalySourceDetailsTypeDef",
         "Status": Literal["ONGOING", "CLOSED"],
         "UpdateTime": datetime,
+        "AnomalyTimeRange": "AnomalyTimeRangeTypeDef",
+        "PredictionTimeRange": "PredictionTimeRangeTypeDef",
+        "SourceDetails": "AnomalySourceDetailsTypeDef",
+        "AssociatedInsightId": str,
+        "ResourceCollection": "ResourceCollectionTypeDef",
+        "Limit": float,
     },
     total=False,
 )
@@ -275,12 +275,12 @@ ProactiveInsightSummaryTypeDef = TypedDict(
     "ProactiveInsightSummaryTypeDef",
     {
         "Id": str,
-        "InsightTimeRange": "InsightTimeRangeTypeDef",
         "Name": str,
-        "PredictionTimeRange": "PredictionTimeRangeTypeDef",
-        "ResourceCollection": "ResourceCollectionTypeDef",
         "Severity": Literal["LOW", "MEDIUM", "HIGH"],
         "Status": Literal["ONGOING", "CLOSED"],
+        "InsightTimeRange": "InsightTimeRangeTypeDef",
+        "PredictionTimeRange": "PredictionTimeRangeTypeDef",
+        "ResourceCollection": "ResourceCollectionTypeDef",
     },
     total=False,
 )
@@ -289,13 +289,13 @@ ProactiveInsightTypeDef = TypedDict(
     "ProactiveInsightTypeDef",
     {
         "Id": str,
-        "InsightTimeRange": "InsightTimeRangeTypeDef",
         "Name": str,
+        "Severity": Literal["LOW", "MEDIUM", "HIGH"],
+        "Status": Literal["ONGOING", "CLOSED"],
+        "InsightTimeRange": "InsightTimeRangeTypeDef",
         "PredictionTimeRange": "PredictionTimeRangeTypeDef",
         "ResourceCollection": "ResourceCollectionTypeDef",
-        "Severity": Literal["LOW", "MEDIUM", "HIGH"],
         "SsmOpsItemId": str,
-        "Status": Literal["ONGOING", "CLOSED"],
     },
     total=False,
 )
@@ -303,13 +303,13 @@ ProactiveInsightTypeDef = TypedDict(
 ReactiveAnomalySummaryTypeDef = TypedDict(
     "ReactiveAnomalySummaryTypeDef",
     {
-        "AnomalyTimeRange": "AnomalyTimeRangeTypeDef",
-        "AssociatedInsightId": str,
         "Id": str,
-        "ResourceCollection": "ResourceCollectionTypeDef",
         "Severity": Literal["LOW", "MEDIUM", "HIGH"],
-        "SourceDetails": "AnomalySourceDetailsTypeDef",
         "Status": Literal["ONGOING", "CLOSED"],
+        "AnomalyTimeRange": "AnomalyTimeRangeTypeDef",
+        "SourceDetails": "AnomalySourceDetailsTypeDef",
+        "AssociatedInsightId": str,
+        "ResourceCollection": "ResourceCollectionTypeDef",
     },
     total=False,
 )
@@ -317,13 +317,13 @@ ReactiveAnomalySummaryTypeDef = TypedDict(
 ReactiveAnomalyTypeDef = TypedDict(
     "ReactiveAnomalyTypeDef",
     {
-        "AnomalyTimeRange": "AnomalyTimeRangeTypeDef",
-        "AssociatedInsightId": str,
         "Id": str,
-        "ResourceCollection": "ResourceCollectionTypeDef",
         "Severity": Literal["LOW", "MEDIUM", "HIGH"],
-        "SourceDetails": "AnomalySourceDetailsTypeDef",
         "Status": Literal["ONGOING", "CLOSED"],
+        "AnomalyTimeRange": "AnomalyTimeRangeTypeDef",
+        "SourceDetails": "AnomalySourceDetailsTypeDef",
+        "AssociatedInsightId": str,
+        "ResourceCollection": "ResourceCollectionTypeDef",
     },
     total=False,
 )
@@ -332,11 +332,11 @@ ReactiveInsightSummaryTypeDef = TypedDict(
     "ReactiveInsightSummaryTypeDef",
     {
         "Id": str,
-        "InsightTimeRange": "InsightTimeRangeTypeDef",
         "Name": str,
-        "ResourceCollection": "ResourceCollectionTypeDef",
         "Severity": Literal["LOW", "MEDIUM", "HIGH"],
         "Status": Literal["ONGOING", "CLOSED"],
+        "InsightTimeRange": "InsightTimeRangeTypeDef",
+        "ResourceCollection": "ResourceCollectionTypeDef",
     },
     total=False,
 )
@@ -345,12 +345,12 @@ ReactiveInsightTypeDef = TypedDict(
     "ReactiveInsightTypeDef",
     {
         "Id": str,
-        "InsightTimeRange": "InsightTimeRangeTypeDef",
         "Name": str,
-        "ResourceCollection": "ResourceCollectionTypeDef",
         "Severity": Literal["LOW", "MEDIUM", "HIGH"],
-        "SsmOpsItemId": str,
         "Status": Literal["ONGOING", "CLOSED"],
+        "InsightTimeRange": "InsightTimeRangeTypeDef",
+        "ResourceCollection": "ResourceCollectionTypeDef",
+        "SsmOpsItemId": str,
     },
     total=False,
 )
@@ -397,8 +397,8 @@ RecommendationTypeDef = TypedDict(
         "Link": str,
         "Name": str,
         "Reason": str,
-        "RelatedAnomalies": List["RecommendationRelatedAnomalyTypeDef"],
         "RelatedEvents": List["RecommendationRelatedEventTypeDef"],
+        "RelatedAnomalies": List["RecommendationRelatedAnomalyTypeDef"],
     },
     total=False,
 )
@@ -428,19 +428,22 @@ UpdateCloudFormationCollectionFilterTypeDef = TypedDict(
 )
 
 AddNotificationChannelResponseTypeDef = TypedDict(
-    "AddNotificationChannelResponseTypeDef", {"Id": str}, total=False
+    "AddNotificationChannelResponseTypeDef", {"Id": str}
 )
 
 DescribeAccountHealthResponseTypeDef = TypedDict(
     "DescribeAccountHealthResponseTypeDef",
-    {"MetricsAnalyzed": int, "OpenProactiveInsights": int, "OpenReactiveInsights": int},
-    total=False,
+    {
+        "OpenReactiveInsights": int,
+        "OpenProactiveInsights": int,
+        "MetricsAnalyzed": int,
+        "ResourceHours": int,
+    },
 )
 
 DescribeAccountOverviewResponseTypeDef = TypedDict(
     "DescribeAccountOverviewResponseTypeDef",
-    {"MeanTimeToRecoverInMilliseconds": int, "ProactiveInsights": int, "ReactiveInsights": int},
-    total=False,
+    {"ReactiveInsights": int, "ProactiveInsights": int, "MeanTimeToRecoverInMilliseconds": int},
 )
 
 DescribeAnomalyResponseTypeDef = TypedDict(
@@ -455,11 +458,21 @@ DescribeInsightResponseTypeDef = TypedDict(
     total=False,
 )
 
-DescribeResourceCollectionHealthResponseTypeDef = TypedDict(
-    "DescribeResourceCollectionHealthResponseTypeDef",
-    {"CloudFormation": List["CloudFormationHealthTypeDef"], "NextToken": str},
-    total=False,
+_RequiredDescribeResourceCollectionHealthResponseTypeDef = TypedDict(
+    "_RequiredDescribeResourceCollectionHealthResponseTypeDef",
+    {"CloudFormation": List["CloudFormationHealthTypeDef"]},
 )
+_OptionalDescribeResourceCollectionHealthResponseTypeDef = TypedDict(
+    "_OptionalDescribeResourceCollectionHealthResponseTypeDef", {"NextToken": str}, total=False
+)
+
+
+class DescribeResourceCollectionHealthResponseTypeDef(
+    _RequiredDescribeResourceCollectionHealthResponseTypeDef,
+    _OptionalDescribeResourceCollectionHealthResponseTypeDef,
+):
+    pass
+
 
 DescribeServiceIntegrationResponseTypeDef = TypedDict(
     "DescribeServiceIntegrationResponseTypeDef",
@@ -469,13 +482,14 @@ DescribeServiceIntegrationResponseTypeDef = TypedDict(
 
 GetResourceCollectionResponseTypeDef = TypedDict(
     "GetResourceCollectionResponseTypeDef",
-    {"NextToken": str, "ResourceCollection": "ResourceCollectionFilterTypeDef"},
+    {"ResourceCollection": "ResourceCollectionFilterTypeDef", "NextToken": str},
     total=False,
 )
 
 InsightFeedbackTypeDef = TypedDict(
     "InsightFeedbackTypeDef",
     {
+        "Id": str,
         "Feedback": Literal[
             "VALID_COLLECTION",
             "RECOMMENDATION_USEFUL",
@@ -483,7 +497,6 @@ InsightFeedbackTypeDef = TypedDict(
             "DATA_NOISY_ANOMALY",
             "DATA_INCORRECT",
         ],
-        "Id": str,
     },
     total=False,
 )
@@ -491,9 +504,9 @@ InsightFeedbackTypeDef = TypedDict(
 ListAnomaliesForInsightResponseTypeDef = TypedDict(
     "ListAnomaliesForInsightResponseTypeDef",
     {
-        "NextToken": str,
         "ProactiveAnomalies": List["ProactiveAnomalySummaryTypeDef"],
         "ReactiveAnomalies": List["ReactiveAnomalySummaryTypeDef"],
+        "NextToken": str,
     },
     total=False,
 )
@@ -501,28 +514,38 @@ ListAnomaliesForInsightResponseTypeDef = TypedDict(
 ListEventsFiltersTypeDef = TypedDict(
     "ListEventsFiltersTypeDef",
     {
-        "DataSource": Literal["AWS_CLOUD_TRAIL", "AWS_CODE_DEPLOY"],
+        "InsightId": str,
+        "EventTimeRange": "EventTimeRangeTypeDef",
         "EventClass": Literal[
             "INFRASTRUCTURE", "DEPLOYMENT", "SECURITY_CHANGE", "CONFIG_CHANGE", "SCHEMA_CHANGE"
         ],
         "EventSource": str,
-        "EventTimeRange": "EventTimeRangeTypeDef",
-        "InsightId": str,
+        "DataSource": Literal["AWS_CLOUD_TRAIL", "AWS_CODE_DEPLOY"],
         "ResourceCollection": "ResourceCollectionTypeDef",
     },
     total=False,
 )
 
-ListEventsResponseTypeDef = TypedDict(
-    "ListEventsResponseTypeDef", {"Events": List["EventTypeDef"], "NextToken": str}, total=False
+_RequiredListEventsResponseTypeDef = TypedDict(
+    "_RequiredListEventsResponseTypeDef", {"Events": List["EventTypeDef"]}
 )
+_OptionalListEventsResponseTypeDef = TypedDict(
+    "_OptionalListEventsResponseTypeDef", {"NextToken": str}, total=False
+)
+
+
+class ListEventsResponseTypeDef(
+    _RequiredListEventsResponseTypeDef, _OptionalListEventsResponseTypeDef
+):
+    pass
+
 
 ListInsightsResponseTypeDef = TypedDict(
     "ListInsightsResponseTypeDef",
     {
-        "NextToken": str,
         "ProactiveInsights": List["ProactiveInsightSummaryTypeDef"],
         "ReactiveInsights": List["ReactiveInsightSummaryTypeDef"],
+        "NextToken": str,
     },
     total=False,
 )
@@ -530,9 +553,9 @@ ListInsightsResponseTypeDef = TypedDict(
 ListInsightsStatusFilterTypeDef = TypedDict(
     "ListInsightsStatusFilterTypeDef",
     {
-        "Any": "ListInsightsAnyStatusFilterTypeDef",
-        "Closed": "ListInsightsClosedStatusFilterTypeDef",
         "Ongoing": "ListInsightsOngoingStatusFilterTypeDef",
+        "Closed": "ListInsightsClosedStatusFilterTypeDef",
+        "Any": "ListInsightsAnyStatusFilterTypeDef",
     },
     total=False,
 )
@@ -545,7 +568,7 @@ ListNotificationChannelsResponseTypeDef = TypedDict(
 
 ListRecommendationsResponseTypeDef = TypedDict(
     "ListRecommendationsResponseTypeDef",
-    {"NextToken": str, "Recommendations": List["RecommendationTypeDef"]},
+    {"Recommendations": List["RecommendationTypeDef"], "NextToken": str},
     total=False,
 )
 
@@ -556,9 +579,9 @@ PaginatorConfigTypeDef = TypedDict(
 SearchInsightsFiltersTypeDef = TypedDict(
     "SearchInsightsFiltersTypeDef",
     {
-        "ResourceCollection": "ResourceCollectionTypeDef",
         "Severities": List[Literal["LOW", "MEDIUM", "HIGH"]],
         "Statuses": List[Literal["ONGOING", "CLOSED"]],
+        "ResourceCollection": "ResourceCollectionTypeDef",
     },
     total=False,
 )
@@ -566,9 +589,9 @@ SearchInsightsFiltersTypeDef = TypedDict(
 SearchInsightsResponseTypeDef = TypedDict(
     "SearchInsightsResponseTypeDef",
     {
-        "NextToken": str,
         "ProactiveInsights": List["ProactiveInsightSummaryTypeDef"],
         "ReactiveInsights": List["ReactiveInsightSummaryTypeDef"],
+        "NextToken": str,
     },
     total=False,
 )

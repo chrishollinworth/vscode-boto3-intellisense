@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for elasticbeanstalk service client paginators.
 
@@ -58,7 +57,7 @@ __all__ = (
 
 class DescribeApplicationVersionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeApplicationVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Paginator.DescribeApplicationVersions)
+    [Paginator.DescribeApplicationVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Paginator.DescribeApplicationVersions)
     """
 
     def paginate(
@@ -68,13 +67,13 @@ class DescribeApplicationVersionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ApplicationVersionDescriptionsMessageTypeDef]:
         """
-        [DescribeApplicationVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Paginator.DescribeApplicationVersions.paginate)
+        [DescribeApplicationVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Paginator.DescribeApplicationVersions.paginate)
         """
 
 
 class DescribeEnvironmentManagedActionHistoryPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeEnvironmentManagedActionHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Paginator.DescribeEnvironmentManagedActionHistory)
+    [Paginator.DescribeEnvironmentManagedActionHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Paginator.DescribeEnvironmentManagedActionHistory)
     """
 
     def paginate(
@@ -84,13 +83,13 @@ class DescribeEnvironmentManagedActionHistoryPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeEnvironmentManagedActionHistoryResultTypeDef]:
         """
-        [DescribeEnvironmentManagedActionHistory.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Paginator.DescribeEnvironmentManagedActionHistory.paginate)
+        [DescribeEnvironmentManagedActionHistory.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Paginator.DescribeEnvironmentManagedActionHistory.paginate)
         """
 
 
 class DescribeEnvironmentsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeEnvironments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Paginator.DescribeEnvironments)
+    [Paginator.DescribeEnvironments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Paginator.DescribeEnvironments)
     """
 
     def paginate(
@@ -104,13 +103,13 @@ class DescribeEnvironmentsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[EnvironmentDescriptionsMessageTypeDef]:
         """
-        [DescribeEnvironments.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Paginator.DescribeEnvironments.paginate)
+        [DescribeEnvironments.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Paginator.DescribeEnvironments.paginate)
         """
 
 
 class DescribeEventsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Paginator.DescribeEvents)
+    [Paginator.DescribeEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Paginator.DescribeEvents)
     """
 
     def paginate(
@@ -128,13 +127,13 @@ class DescribeEventsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[EventDescriptionsMessageTypeDef]:
         """
-        [DescribeEvents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Paginator.DescribeEvents.paginate)
+        [DescribeEvents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Paginator.DescribeEvents.paginate)
         """
 
 
 class ListPlatformVersionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListPlatformVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Paginator.ListPlatformVersions)
+    [Paginator.ListPlatformVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Paginator.ListPlatformVersions)
     """
 
     def paginate(
@@ -143,5 +142,5 @@ class ListPlatformVersionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListPlatformVersionsResultTypeDef]:
         """
-        [ListPlatformVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Paginator.ListPlatformVersions.paginate)
+        [ListPlatformVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Paginator.ListPlatformVersions.paginate)
         """

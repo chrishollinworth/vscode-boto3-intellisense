@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for s3control service client
 
@@ -86,7 +85,7 @@ class Exceptions:
 
 class S3ControlClient:
     """
-    [S3Control.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3control.html#S3Control.Client)
+    [S3Control.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3control.html#S3Control.Client)
     """
 
     meta: ClientMeta
@@ -94,7 +93,7 @@ class S3ControlClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3control.html#S3Control.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3control.html#S3Control.Client.can_paginate)
         """
 
     def create_access_point(
@@ -106,7 +105,7 @@ class S3ControlClient:
         PublicAccessBlockConfiguration: "PublicAccessBlockConfigurationTypeDef" = None,
     ) -> CreateAccessPointResultTypeDef:
         """
-        [Client.create_access_point documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3control.html#S3Control.Client.create_access_point)
+        [Client.create_access_point documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3control.html#S3Control.Client.create_access_point)
         """
 
     def create_bucket(
@@ -123,7 +122,7 @@ class S3ControlClient:
         OutpostId: str = None,
     ) -> CreateBucketResultTypeDef:
         """
-        [Client.create_bucket documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3control.html#S3Control.Client.create_bucket)
+        [Client.create_bucket documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3control.html#S3Control.Client.create_bucket)
         """
 
     def create_job(
@@ -140,64 +139,64 @@ class S3ControlClient:
         Tags: List["S3TagTypeDef"] = None,
     ) -> CreateJobResultTypeDef:
         """
-        [Client.create_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3control.html#S3Control.Client.create_job)
+        [Client.create_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3control.html#S3Control.Client.create_job)
         """
 
     def delete_access_point(self, AccountId: str, Name: str) -> None:
         """
-        [Client.delete_access_point documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3control.html#S3Control.Client.delete_access_point)
+        [Client.delete_access_point documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3control.html#S3Control.Client.delete_access_point)
         """
 
     def delete_access_point_policy(self, AccountId: str, Name: str) -> None:
         """
-        [Client.delete_access_point_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3control.html#S3Control.Client.delete_access_point_policy)
+        [Client.delete_access_point_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3control.html#S3Control.Client.delete_access_point_policy)
         """
 
     def delete_bucket(self, AccountId: str, Bucket: str) -> None:
         """
-        [Client.delete_bucket documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3control.html#S3Control.Client.delete_bucket)
+        [Client.delete_bucket documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3control.html#S3Control.Client.delete_bucket)
         """
 
     def delete_bucket_lifecycle_configuration(self, AccountId: str, Bucket: str) -> None:
         """
-        [Client.delete_bucket_lifecycle_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3control.html#S3Control.Client.delete_bucket_lifecycle_configuration)
+        [Client.delete_bucket_lifecycle_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3control.html#S3Control.Client.delete_bucket_lifecycle_configuration)
         """
 
     def delete_bucket_policy(self, AccountId: str, Bucket: str) -> None:
         """
-        [Client.delete_bucket_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3control.html#S3Control.Client.delete_bucket_policy)
+        [Client.delete_bucket_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3control.html#S3Control.Client.delete_bucket_policy)
         """
 
     def delete_bucket_tagging(self, AccountId: str, Bucket: str) -> None:
         """
-        [Client.delete_bucket_tagging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3control.html#S3Control.Client.delete_bucket_tagging)
+        [Client.delete_bucket_tagging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3control.html#S3Control.Client.delete_bucket_tagging)
         """
 
     def delete_job_tagging(self, AccountId: str, JobId: str) -> Dict[str, Any]:
         """
-        [Client.delete_job_tagging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3control.html#S3Control.Client.delete_job_tagging)
+        [Client.delete_job_tagging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3control.html#S3Control.Client.delete_job_tagging)
         """
 
     def delete_public_access_block(self, AccountId: str) -> None:
         """
-        [Client.delete_public_access_block documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3control.html#S3Control.Client.delete_public_access_block)
+        [Client.delete_public_access_block documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3control.html#S3Control.Client.delete_public_access_block)
         """
 
     def delete_storage_lens_configuration(self, ConfigId: str, AccountId: str) -> None:
         """
-        [Client.delete_storage_lens_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3control.html#S3Control.Client.delete_storage_lens_configuration)
+        [Client.delete_storage_lens_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3control.html#S3Control.Client.delete_storage_lens_configuration)
         """
 
     def delete_storage_lens_configuration_tagging(
         self, ConfigId: str, AccountId: str
     ) -> Dict[str, Any]:
         """
-        [Client.delete_storage_lens_configuration_tagging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3control.html#S3Control.Client.delete_storage_lens_configuration_tagging)
+        [Client.delete_storage_lens_configuration_tagging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3control.html#S3Control.Client.delete_storage_lens_configuration_tagging)
         """
 
     def describe_job(self, AccountId: str, JobId: str) -> DescribeJobResultTypeDef:
         """
-        [Client.describe_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3control.html#S3Control.Client.describe_job)
+        [Client.describe_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3control.html#S3Control.Client.describe_job)
         """
 
     def generate_presigned_url(
@@ -208,79 +207,79 @@ class S3ControlClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3control.html#S3Control.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3control.html#S3Control.Client.generate_presigned_url)
         """
 
     def get_access_point(self, AccountId: str, Name: str) -> GetAccessPointResultTypeDef:
         """
-        [Client.get_access_point documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3control.html#S3Control.Client.get_access_point)
+        [Client.get_access_point documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3control.html#S3Control.Client.get_access_point)
         """
 
     def get_access_point_policy(
         self, AccountId: str, Name: str
     ) -> GetAccessPointPolicyResultTypeDef:
         """
-        [Client.get_access_point_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3control.html#S3Control.Client.get_access_point_policy)
+        [Client.get_access_point_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3control.html#S3Control.Client.get_access_point_policy)
         """
 
     def get_access_point_policy_status(
         self, AccountId: str, Name: str
     ) -> GetAccessPointPolicyStatusResultTypeDef:
         """
-        [Client.get_access_point_policy_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3control.html#S3Control.Client.get_access_point_policy_status)
+        [Client.get_access_point_policy_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3control.html#S3Control.Client.get_access_point_policy_status)
         """
 
     def get_bucket(self, AccountId: str, Bucket: str) -> GetBucketResultTypeDef:
         """
-        [Client.get_bucket documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3control.html#S3Control.Client.get_bucket)
+        [Client.get_bucket documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3control.html#S3Control.Client.get_bucket)
         """
 
     def get_bucket_lifecycle_configuration(
         self, AccountId: str, Bucket: str
     ) -> GetBucketLifecycleConfigurationResultTypeDef:
         """
-        [Client.get_bucket_lifecycle_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3control.html#S3Control.Client.get_bucket_lifecycle_configuration)
+        [Client.get_bucket_lifecycle_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3control.html#S3Control.Client.get_bucket_lifecycle_configuration)
         """
 
     def get_bucket_policy(self, AccountId: str, Bucket: str) -> GetBucketPolicyResultTypeDef:
         """
-        [Client.get_bucket_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3control.html#S3Control.Client.get_bucket_policy)
+        [Client.get_bucket_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3control.html#S3Control.Client.get_bucket_policy)
         """
 
     def get_bucket_tagging(self, AccountId: str, Bucket: str) -> GetBucketTaggingResultTypeDef:
         """
-        [Client.get_bucket_tagging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3control.html#S3Control.Client.get_bucket_tagging)
+        [Client.get_bucket_tagging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3control.html#S3Control.Client.get_bucket_tagging)
         """
 
     def get_job_tagging(self, AccountId: str, JobId: str) -> GetJobTaggingResultTypeDef:
         """
-        [Client.get_job_tagging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3control.html#S3Control.Client.get_job_tagging)
+        [Client.get_job_tagging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3control.html#S3Control.Client.get_job_tagging)
         """
 
     def get_public_access_block(self, AccountId: str) -> GetPublicAccessBlockOutputTypeDef:
         """
-        [Client.get_public_access_block documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3control.html#S3Control.Client.get_public_access_block)
+        [Client.get_public_access_block documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3control.html#S3Control.Client.get_public_access_block)
         """
 
     def get_storage_lens_configuration(
         self, ConfigId: str, AccountId: str
     ) -> GetStorageLensConfigurationResultTypeDef:
         """
-        [Client.get_storage_lens_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3control.html#S3Control.Client.get_storage_lens_configuration)
+        [Client.get_storage_lens_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3control.html#S3Control.Client.get_storage_lens_configuration)
         """
 
     def get_storage_lens_configuration_tagging(
         self, ConfigId: str, AccountId: str
     ) -> GetStorageLensConfigurationTaggingResultTypeDef:
         """
-        [Client.get_storage_lens_configuration_tagging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3control.html#S3Control.Client.get_storage_lens_configuration_tagging)
+        [Client.get_storage_lens_configuration_tagging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3control.html#S3Control.Client.get_storage_lens_configuration_tagging)
         """
 
     def list_access_points(
         self, AccountId: str, Bucket: str = None, NextToken: str = None, MaxResults: int = None
     ) -> ListAccessPointsResultTypeDef:
         """
-        [Client.list_access_points documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3control.html#S3Control.Client.list_access_points)
+        [Client.list_access_points documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3control.html#S3Control.Client.list_access_points)
         """
 
     def list_jobs(
@@ -307,26 +306,26 @@ class S3ControlClient:
         MaxResults: int = None,
     ) -> ListJobsResultTypeDef:
         """
-        [Client.list_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3control.html#S3Control.Client.list_jobs)
+        [Client.list_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3control.html#S3Control.Client.list_jobs)
         """
 
     def list_regional_buckets(
         self, AccountId: str, NextToken: str = None, MaxResults: int = None, OutpostId: str = None
     ) -> ListRegionalBucketsResultTypeDef:
         """
-        [Client.list_regional_buckets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3control.html#S3Control.Client.list_regional_buckets)
+        [Client.list_regional_buckets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3control.html#S3Control.Client.list_regional_buckets)
         """
 
     def list_storage_lens_configurations(
         self, AccountId: str, NextToken: str = None
     ) -> ListStorageLensConfigurationsResultTypeDef:
         """
-        [Client.list_storage_lens_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3control.html#S3Control.Client.list_storage_lens_configurations)
+        [Client.list_storage_lens_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3control.html#S3Control.Client.list_storage_lens_configurations)
         """
 
     def put_access_point_policy(self, AccountId: str, Name: str, Policy: str) -> None:
         """
-        [Client.put_access_point_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3control.html#S3Control.Client.put_access_point_policy)
+        [Client.put_access_point_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3control.html#S3Control.Client.put_access_point_policy)
         """
 
     def put_bucket_lifecycle_configuration(
@@ -336,26 +335,26 @@ class S3ControlClient:
         LifecycleConfiguration: LifecycleConfigurationTypeDef = None,
     ) -> None:
         """
-        [Client.put_bucket_lifecycle_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3control.html#S3Control.Client.put_bucket_lifecycle_configuration)
+        [Client.put_bucket_lifecycle_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3control.html#S3Control.Client.put_bucket_lifecycle_configuration)
         """
 
     def put_bucket_policy(
         self, AccountId: str, Bucket: str, Policy: str, ConfirmRemoveSelfBucketAccess: bool = None
     ) -> None:
         """
-        [Client.put_bucket_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3control.html#S3Control.Client.put_bucket_policy)
+        [Client.put_bucket_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3control.html#S3Control.Client.put_bucket_policy)
         """
 
     def put_bucket_tagging(self, AccountId: str, Bucket: str, Tagging: TaggingTypeDef) -> None:
         """
-        [Client.put_bucket_tagging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3control.html#S3Control.Client.put_bucket_tagging)
+        [Client.put_bucket_tagging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3control.html#S3Control.Client.put_bucket_tagging)
         """
 
     def put_job_tagging(
         self, AccountId: str, JobId: str, Tags: List["S3TagTypeDef"]
     ) -> Dict[str, Any]:
         """
-        [Client.put_job_tagging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3control.html#S3Control.Client.put_job_tagging)
+        [Client.put_job_tagging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3control.html#S3Control.Client.put_job_tagging)
         """
 
     def put_public_access_block(
@@ -364,7 +363,7 @@ class S3ControlClient:
         AccountId: str,
     ) -> None:
         """
-        [Client.put_public_access_block documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3control.html#S3Control.Client.put_public_access_block)
+        [Client.put_public_access_block documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3control.html#S3Control.Client.put_public_access_block)
         """
 
     def put_storage_lens_configuration(
@@ -375,21 +374,21 @@ class S3ControlClient:
         Tags: List["StorageLensTagTypeDef"] = None,
     ) -> None:
         """
-        [Client.put_storage_lens_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3control.html#S3Control.Client.put_storage_lens_configuration)
+        [Client.put_storage_lens_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3control.html#S3Control.Client.put_storage_lens_configuration)
         """
 
     def put_storage_lens_configuration_tagging(
         self, ConfigId: str, AccountId: str, Tags: List["StorageLensTagTypeDef"]
     ) -> Dict[str, Any]:
         """
-        [Client.put_storage_lens_configuration_tagging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3control.html#S3Control.Client.put_storage_lens_configuration_tagging)
+        [Client.put_storage_lens_configuration_tagging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3control.html#S3Control.Client.put_storage_lens_configuration_tagging)
         """
 
     def update_job_priority(
         self, AccountId: str, JobId: str, Priority: int
     ) -> UpdateJobPriorityResultTypeDef:
         """
-        [Client.update_job_priority documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3control.html#S3Control.Client.update_job_priority)
+        [Client.update_job_priority documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3control.html#S3Control.Client.update_job_priority)
         """
 
     def update_job_status(
@@ -400,5 +399,5 @@ class S3ControlClient:
         StatusUpdateReason: str = None,
     ) -> UpdateJobStatusResultTypeDef:
         """
-        [Client.update_job_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/s3control.html#S3Control.Client.update_job_status)
+        [Client.update_job_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/s3control.html#S3Control.Client.update_job_status)
         """

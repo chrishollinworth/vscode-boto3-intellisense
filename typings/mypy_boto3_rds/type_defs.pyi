@@ -29,6 +29,7 @@ __all__ = (
     "AvailableProcessorFeatureTypeDef",
     "CertificateTypeDef",
     "CharacterSetTypeDef",
+    "ClusterPendingModifiedValuesTypeDef",
     "ConnectionPoolConfigurationInfoTypeDef",
     "CustomAvailabilityZoneTypeDef",
     "DBClusterBacktrackTypeDef",
@@ -43,6 +44,7 @@ __all__ = (
     "DBClusterTypeDef",
     "DBEngineVersionTypeDef",
     "DBInstanceAutomatedBackupTypeDef",
+    "DBInstanceAutomatedBackupsReplicationTypeDef",
     "DBInstanceRoleTypeDef",
     "DBInstanceStatusInfoTypeDef",
     "DBInstanceTypeDef",
@@ -214,9 +216,11 @@ __all__ = (
     "SourceRegionMessageTypeDef",
     "StartActivityStreamResponseTypeDef",
     "StartDBClusterResultTypeDef",
+    "StartDBInstanceAutomatedBackupsReplicationResultTypeDef",
     "StartDBInstanceResultTypeDef",
     "StopActivityStreamResponseTypeDef",
     "StopDBClusterResultTypeDef",
+    "StopDBInstanceAutomatedBackupsReplicationResultTypeDef",
     "StopDBInstanceResultTypeDef",
     "TagListMessageTypeDef",
     "UserAuthConfigTypeDef",
@@ -252,6 +256,18 @@ CertificateTypeDef = TypedDict(
 
 CharacterSetTypeDef = TypedDict(
     "CharacterSetTypeDef", {"CharacterSetName": str, "CharacterSetDescription": str}, total=False
+)
+
+ClusterPendingModifiedValuesTypeDef = TypedDict(
+    "ClusterPendingModifiedValuesTypeDef",
+    {
+        "PendingCloudwatchLogsExports": "PendingCloudwatchLogsExportsTypeDef",
+        "DBClusterIdentifier": str,
+        "MasterUserPassword": str,
+        "IAMDatabaseAuthenticationEnabled": bool,
+        "EngineVersion": str,
+    },
+    total=False,
 )
 
 ConnectionPoolConfigurationInfoTypeDef = TypedDict(
@@ -442,6 +458,7 @@ DBClusterTypeDef = TypedDict(
             "enabled", "disabled", "enabling", "disabling", "unknown"
         ],
         "GlobalWriteForwardingRequested": bool,
+        "PendingModifiedValues": "ClusterPendingModifiedValuesTypeDef",
     },
     total=False,
 )
@@ -497,7 +514,18 @@ DBInstanceAutomatedBackupTypeDef = TypedDict(
         "KmsKeyId": str,
         "Timezone": str,
         "IAMDatabaseAuthenticationEnabled": bool,
+        "BackupRetentionPeriod": int,
+        "DBInstanceAutomatedBackupsArn": str,
+        "DBInstanceAutomatedBackupsReplications": List[
+            "DBInstanceAutomatedBackupsReplicationTypeDef"
+        ],
     },
+    total=False,
+)
+
+DBInstanceAutomatedBackupsReplicationTypeDef = TypedDict(
+    "DBInstanceAutomatedBackupsReplicationTypeDef",
+    {"DBInstanceAutomatedBackupsArn": str},
     total=False,
 )
 
@@ -575,6 +603,10 @@ DBInstanceTypeDef = TypedDict(
         "ListenerEndpoint": "EndpointTypeDef",
         "MaxAllocatedStorage": int,
         "TagList": List["TagTypeDef"],
+        "DBInstanceAutomatedBackupsReplications": List[
+            "DBInstanceAutomatedBackupsReplicationTypeDef"
+        ],
+        "CustomerOwnedIpEnabled": bool,
     },
     total=False,
 )
@@ -1072,6 +1104,7 @@ PendingModifiedValuesTypeDef = TypedDict(
         "DBSubnetGroupName": str,
         "PendingCloudwatchLogsExports": "PendingCloudwatchLogsExportsTypeDef",
         "ProcessorFeatures": List["ProcessorFeatureTypeDef"],
+        "IAMDatabaseAuthenticationEnabled": bool,
     },
     total=False,
 )
@@ -1154,7 +1187,14 @@ ScalingConfigurationInfoTypeDef = TypedDict(
 )
 
 SourceRegionTypeDef = TypedDict(
-    "SourceRegionTypeDef", {"RegionName": str, "Endpoint": str, "Status": str}, total=False
+    "SourceRegionTypeDef",
+    {
+        "RegionName": str,
+        "Endpoint": str,
+        "Status": str,
+        "SupportsDBInstanceAutomatedBackupsReplication": bool,
+    },
+    total=False,
 )
 
 SubnetTypeDef = TypedDict(
@@ -1852,6 +1892,12 @@ StartDBClusterResultTypeDef = TypedDict(
     "StartDBClusterResultTypeDef", {"DBCluster": "DBClusterTypeDef"}, total=False
 )
 
+StartDBInstanceAutomatedBackupsReplicationResultTypeDef = TypedDict(
+    "StartDBInstanceAutomatedBackupsReplicationResultTypeDef",
+    {"DBInstanceAutomatedBackup": "DBInstanceAutomatedBackupTypeDef"},
+    total=False,
+)
+
 StartDBInstanceResultTypeDef = TypedDict(
     "StartDBInstanceResultTypeDef", {"DBInstance": "DBInstanceTypeDef"}, total=False
 )
@@ -1868,6 +1914,12 @@ StopActivityStreamResponseTypeDef = TypedDict(
 
 StopDBClusterResultTypeDef = TypedDict(
     "StopDBClusterResultTypeDef", {"DBCluster": "DBClusterTypeDef"}, total=False
+)
+
+StopDBInstanceAutomatedBackupsReplicationResultTypeDef = TypedDict(
+    "StopDBInstanceAutomatedBackupsReplicationResultTypeDef",
+    {"DBInstanceAutomatedBackup": "DBInstanceAutomatedBackupTypeDef"},
+    total=False,
 )
 
 StopDBInstanceResultTypeDef = TypedDict(

@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for mwaa service client
 
@@ -58,7 +57,7 @@ class Exceptions:
 
 class MWAAClient:
     """
-    [MWAA.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mwaa.html#MWAA.Client)
+    [MWAA.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mwaa.html#MWAA.Client)
     """
 
     meta: ClientMeta
@@ -66,12 +65,12 @@ class MWAAClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mwaa.html#MWAA.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mwaa.html#MWAA.Client.can_paginate)
         """
 
     def create_cli_token(self, Name: str) -> CreateCliTokenResponseTypeDef:
         """
-        [Client.create_cli_token documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mwaa.html#MWAA.Client.create_cli_token)
+        [Client.create_cli_token documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mwaa.html#MWAA.Client.create_cli_token)
         """
 
     def create_environment(
@@ -96,17 +95,17 @@ class MWAAClient:
         WeeklyMaintenanceWindowStart: str = None,
     ) -> CreateEnvironmentOutputTypeDef:
         """
-        [Client.create_environment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mwaa.html#MWAA.Client.create_environment)
+        [Client.create_environment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mwaa.html#MWAA.Client.create_environment)
         """
 
     def create_web_login_token(self, Name: str) -> CreateWebLoginTokenResponseTypeDef:
         """
-        [Client.create_web_login_token documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mwaa.html#MWAA.Client.create_web_login_token)
+        [Client.create_web_login_token documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mwaa.html#MWAA.Client.create_web_login_token)
         """
 
     def delete_environment(self, Name: str) -> Dict[str, Any]:
         """
-        [Client.delete_environment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mwaa.html#MWAA.Client.delete_environment)
+        [Client.delete_environment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mwaa.html#MWAA.Client.delete_environment)
         """
 
     def generate_presigned_url(
@@ -117,41 +116,41 @@ class MWAAClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mwaa.html#MWAA.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mwaa.html#MWAA.Client.generate_presigned_url)
         """
 
     def get_environment(self, Name: str) -> GetEnvironmentOutputTypeDef:
         """
-        [Client.get_environment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mwaa.html#MWAA.Client.get_environment)
+        [Client.get_environment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mwaa.html#MWAA.Client.get_environment)
         """
 
     def list_environments(
         self, MaxResults: int = None, NextToken: str = None
     ) -> ListEnvironmentsOutputTypeDef:
         """
-        [Client.list_environments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mwaa.html#MWAA.Client.list_environments)
+        [Client.list_environments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mwaa.html#MWAA.Client.list_environments)
         """
 
     def list_tags_for_resource(self, ResourceArn: str) -> ListTagsForResourceOutputTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mwaa.html#MWAA.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mwaa.html#MWAA.Client.list_tags_for_resource)
         """
 
     def publish_metrics(
         self, EnvironmentName: str, MetricData: List[MetricDatumTypeDef]
     ) -> Dict[str, Any]:
         """
-        [Client.publish_metrics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mwaa.html#MWAA.Client.publish_metrics)
+        [Client.publish_metrics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mwaa.html#MWAA.Client.publish_metrics)
         """
 
     def tag_resource(self, ResourceArn: str, Tags: Dict[str, str]) -> Dict[str, Any]:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mwaa.html#MWAA.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mwaa.html#MWAA.Client.tag_resource)
         """
 
     def untag_resource(self, ResourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mwaa.html#MWAA.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mwaa.html#MWAA.Client.untag_resource)
         """
 
     def update_environment(
@@ -174,12 +173,12 @@ class MWAAClient:
         WeeklyMaintenanceWindowStart: str = None,
     ) -> UpdateEnvironmentOutputTypeDef:
         """
-        [Client.update_environment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mwaa.html#MWAA.Client.update_environment)
+        [Client.update_environment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mwaa.html#MWAA.Client.update_environment)
         """
 
     def get_paginator(
         self, operation_name: Literal["list_environments"]
     ) -> ListEnvironmentsPaginator:
         """
-        [Paginator.ListEnvironments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mwaa.html#MWAA.Paginator.ListEnvironments)
+        [Paginator.ListEnvironments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mwaa.html#MWAA.Paginator.ListEnvironments)
         """

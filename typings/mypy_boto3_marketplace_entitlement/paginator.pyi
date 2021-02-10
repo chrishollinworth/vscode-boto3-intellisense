@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for marketplace-entitlement service client paginators.
 
@@ -38,7 +37,7 @@ __all__ = ("GetEntitlementsPaginator",)
 
 class GetEntitlementsPaginator(Boto3Paginator):
     """
-    [Paginator.GetEntitlements documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/marketplace-entitlement.html#MarketplaceEntitlementService.Paginator.GetEntitlements)
+    [Paginator.GetEntitlements documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/marketplace-entitlement.html#MarketplaceEntitlementService.Paginator.GetEntitlements)
     """
 
     def paginate(
@@ -48,5 +47,5 @@ class GetEntitlementsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetEntitlementsResultTypeDef]:
         """
-        [GetEntitlements.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/marketplace-entitlement.html#MarketplaceEntitlementService.Paginator.GetEntitlements.paginate)
+        [GetEntitlements.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/marketplace-entitlement.html#MarketplaceEntitlementService.Paginator.GetEntitlements.paginate)
         """

@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for pricing service client
 
@@ -56,7 +55,7 @@ class Exceptions:
 
 class PricingClient:
     """
-    [Pricing.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/pricing.html#Pricing.Client)
+    [Pricing.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/pricing.html#Pricing.Client)
     """
 
     meta: ClientMeta
@@ -64,7 +63,7 @@ class PricingClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/pricing.html#Pricing.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/pricing.html#Pricing.Client.can_paginate)
         """
 
     def describe_services(
@@ -75,7 +74,7 @@ class PricingClient:
         MaxResults: int = None,
     ) -> DescribeServicesResponseTypeDef:
         """
-        [Client.describe_services documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/pricing.html#Pricing.Client.describe_services)
+        [Client.describe_services documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/pricing.html#Pricing.Client.describe_services)
         """
 
     def generate_presigned_url(
@@ -86,14 +85,14 @@ class PricingClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/pricing.html#Pricing.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/pricing.html#Pricing.Client.generate_presigned_url)
         """
 
     def get_attribute_values(
         self, ServiceCode: str, AttributeName: str, NextToken: str = None, MaxResults: int = None
     ) -> GetAttributeValuesResponseTypeDef:
         """
-        [Client.get_attribute_values documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/pricing.html#Pricing.Client.get_attribute_values)
+        [Client.get_attribute_values documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/pricing.html#Pricing.Client.get_attribute_values)
         """
 
     def get_products(
@@ -105,7 +104,7 @@ class PricingClient:
         MaxResults: int = None,
     ) -> GetProductsResponseTypeDef:
         """
-        [Client.get_products documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/pricing.html#Pricing.Client.get_products)
+        [Client.get_products documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/pricing.html#Pricing.Client.get_products)
         """
 
     @overload
@@ -113,7 +112,7 @@ class PricingClient:
         self, operation_name: Literal["describe_services"]
     ) -> DescribeServicesPaginator:
         """
-        [Paginator.DescribeServices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/pricing.html#Pricing.Paginator.DescribeServices)
+        [Paginator.DescribeServices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/pricing.html#Pricing.Paginator.DescribeServices)
         """
 
     @overload
@@ -121,11 +120,11 @@ class PricingClient:
         self, operation_name: Literal["get_attribute_values"]
     ) -> GetAttributeValuesPaginator:
         """
-        [Paginator.GetAttributeValues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/pricing.html#Pricing.Paginator.GetAttributeValues)
+        [Paginator.GetAttributeValues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/pricing.html#Pricing.Paginator.GetAttributeValues)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_products"]) -> GetProductsPaginator:
         """
-        [Paginator.GetProducts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/pricing.html#Pricing.Paginator.GetProducts)
+        [Paginator.GetProducts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/pricing.html#Pricing.Paginator.GetProducts)
         """

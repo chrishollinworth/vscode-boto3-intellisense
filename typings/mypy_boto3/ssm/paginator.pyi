@@ -40,6 +40,8 @@ from mypy_boto3_ssm.paginator import (
     ListComplianceSummariesPaginator,
     ListDocumentVersionsPaginator,
     ListDocumentsPaginator,
+    ListOpsItemEventsPaginator,
+    ListOpsMetadataPaginator,
     ListResourceComplianceSummariesPaginator,
     ListResourceDataSyncPaginator,
 )
@@ -86,6 +88,8 @@ __all__ = (
     "ListComplianceSummariesPaginator",
     "ListDocumentVersionsPaginator",
     "ListDocumentsPaginator",
+    "ListOpsItemEventsPaginator",
+    "ListOpsMetadataPaginator",
     "ListResourceComplianceSummariesPaginator",
     "ListResourceDataSyncPaginator",
 )

@@ -8,6 +8,7 @@ from mypy_boto3_outposts.type_defs import (
     GetOutpostOutputTypeDef,
     ListOutpostsOutputTypeDef,
     ListSitesOutputTypeDef,
+    ListTagsForResourceResponseTypeDef,
 )
 
 __all__ = (
@@ -20,4 +21,5 @@ __all__ = (
     "GetOutpostOutputTypeDef",
     "ListOutpostsOutputTypeDef",
     "ListSitesOutputTypeDef",
+    "ListTagsForResourceResponseTypeDef",
 )

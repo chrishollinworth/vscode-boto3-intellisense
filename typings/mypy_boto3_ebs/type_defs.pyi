@@ -11,7 +11,9 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import IO, List
+from typing import List
+
+from botocore.response import StreamingBody
 
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -55,7 +57,7 @@ GetSnapshotBlockResponseTypeDef = TypedDict(
     "GetSnapshotBlockResponseTypeDef",
     {
         "DataLength": int,
-        "BlockData": IO[bytes],
+        "BlockData": StreamingBody,
         "Checksum": str,
         "ChecksumAlgorithm": Literal["SHA256"],
     },

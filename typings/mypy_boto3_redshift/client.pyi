@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for redshift service client
 
@@ -262,7 +261,7 @@ class Exceptions:
 
 class RedshiftClient:
     """
-    [Redshift.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client)
+    [Redshift.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client)
     """
 
     meta: ClientMeta
@@ -272,7 +271,7 @@ class RedshiftClient:
         self, ReservedNodeId: str, TargetReservedNodeOfferingId: str
     ) -> AcceptReservedNodeExchangeOutputMessageTypeDef:
         """
-        [Client.accept_reserved_node_exchange documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.accept_reserved_node_exchange)
+        [Client.accept_reserved_node_exchange documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.accept_reserved_node_exchange)
         """
 
     def authorize_cluster_security_group_ingress(
@@ -283,7 +282,7 @@ class RedshiftClient:
         EC2SecurityGroupOwnerId: str = None,
     ) -> AuthorizeClusterSecurityGroupIngressResultTypeDef:
         """
-        [Client.authorize_cluster_security_group_ingress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.authorize_cluster_security_group_ingress)
+        [Client.authorize_cluster_security_group_ingress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.authorize_cluster_security_group_ingress)
         """
 
     def authorize_snapshot_access(
@@ -293,14 +292,14 @@ class RedshiftClient:
         SnapshotClusterIdentifier: str = None,
     ) -> AuthorizeSnapshotAccessResultTypeDef:
         """
-        [Client.authorize_snapshot_access documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.authorize_snapshot_access)
+        [Client.authorize_snapshot_access documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.authorize_snapshot_access)
         """
 
     def batch_delete_cluster_snapshots(
         self, Identifiers: List[DeleteClusterSnapshotMessageTypeDef]
     ) -> BatchDeleteClusterSnapshotsResultTypeDef:
         """
-        [Client.batch_delete_cluster_snapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.batch_delete_cluster_snapshots)
+        [Client.batch_delete_cluster_snapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.batch_delete_cluster_snapshots)
         """
 
     def batch_modify_cluster_snapshots(
@@ -310,17 +309,17 @@ class RedshiftClient:
         Force: bool = None,
     ) -> BatchModifyClusterSnapshotsOutputMessageTypeDef:
         """
-        [Client.batch_modify_cluster_snapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.batch_modify_cluster_snapshots)
+        [Client.batch_modify_cluster_snapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.batch_modify_cluster_snapshots)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.can_paginate)
         """
 
     def cancel_resize(self, ClusterIdentifier: str) -> ResizeProgressMessageTypeDef:
         """
-        [Client.cancel_resize documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.cancel_resize)
+        [Client.cancel_resize documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.cancel_resize)
         """
 
     def copy_cluster_snapshot(
@@ -331,7 +330,7 @@ class RedshiftClient:
         ManualSnapshotRetentionPeriod: int = None,
     ) -> CopyClusterSnapshotResultTypeDef:
         """
-        [Client.copy_cluster_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.copy_cluster_snapshot)
+        [Client.copy_cluster_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.copy_cluster_snapshot)
         """
 
     def create_cluster(
@@ -366,9 +365,10 @@ class RedshiftClient:
         IamRoles: List[str] = None,
         MaintenanceTrackName: str = None,
         SnapshotScheduleIdentifier: str = None,
+        AvailabilityZoneRelocation: bool = None,
     ) -> CreateClusterResultTypeDef:
         """
-        [Client.create_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.create_cluster)
+        [Client.create_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.create_cluster)
         """
 
     def create_cluster_parameter_group(
@@ -379,14 +379,14 @@ class RedshiftClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateClusterParameterGroupResultTypeDef:
         """
-        [Client.create_cluster_parameter_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.create_cluster_parameter_group)
+        [Client.create_cluster_parameter_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.create_cluster_parameter_group)
         """
 
     def create_cluster_security_group(
         self, ClusterSecurityGroupName: str, Description: str, Tags: List["TagTypeDef"] = None
     ) -> CreateClusterSecurityGroupResultTypeDef:
         """
-        [Client.create_cluster_security_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.create_cluster_security_group)
+        [Client.create_cluster_security_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.create_cluster_security_group)
         """
 
     def create_cluster_snapshot(
@@ -397,7 +397,7 @@ class RedshiftClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateClusterSnapshotResultTypeDef:
         """
-        [Client.create_cluster_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.create_cluster_snapshot)
+        [Client.create_cluster_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.create_cluster_snapshot)
         """
 
     def create_cluster_subnet_group(
@@ -408,7 +408,7 @@ class RedshiftClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateClusterSubnetGroupResultTypeDef:
         """
-        [Client.create_cluster_subnet_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.create_cluster_subnet_group)
+        [Client.create_cluster_subnet_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.create_cluster_subnet_group)
         """
 
     def create_event_subscription(
@@ -423,14 +423,14 @@ class RedshiftClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateEventSubscriptionResultTypeDef:
         """
-        [Client.create_event_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.create_event_subscription)
+        [Client.create_event_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.create_event_subscription)
         """
 
     def create_hsm_client_certificate(
         self, HsmClientCertificateIdentifier: str, Tags: List["TagTypeDef"] = None
     ) -> CreateHsmClientCertificateResultTypeDef:
         """
-        [Client.create_hsm_client_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.create_hsm_client_certificate)
+        [Client.create_hsm_client_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.create_hsm_client_certificate)
         """
 
     def create_hsm_configuration(
@@ -444,7 +444,7 @@ class RedshiftClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateHsmConfigurationResultTypeDef:
         """
-        [Client.create_hsm_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.create_hsm_configuration)
+        [Client.create_hsm_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.create_hsm_configuration)
         """
 
     def create_scheduled_action(
@@ -459,14 +459,14 @@ class RedshiftClient:
         Enable: bool = None,
     ) -> "ScheduledActionTypeDef":
         """
-        [Client.create_scheduled_action documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.create_scheduled_action)
+        [Client.create_scheduled_action documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.create_scheduled_action)
         """
 
     def create_snapshot_copy_grant(
         self, SnapshotCopyGrantName: str, KmsKeyId: str = None, Tags: List["TagTypeDef"] = None
     ) -> CreateSnapshotCopyGrantResultTypeDef:
         """
-        [Client.create_snapshot_copy_grant documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.create_snapshot_copy_grant)
+        [Client.create_snapshot_copy_grant documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.create_snapshot_copy_grant)
         """
 
     def create_snapshot_schedule(
@@ -479,12 +479,12 @@ class RedshiftClient:
         NextInvocations: int = None,
     ) -> "SnapshotScheduleTypeDef":
         """
-        [Client.create_snapshot_schedule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.create_snapshot_schedule)
+        [Client.create_snapshot_schedule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.create_snapshot_schedule)
         """
 
     def create_tags(self, ResourceName: str, Tags: List["TagTypeDef"]) -> None:
         """
-        [Client.create_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.create_tags)
+        [Client.create_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.create_tags)
         """
 
     def create_usage_limit(
@@ -498,7 +498,7 @@ class RedshiftClient:
         Tags: List["TagTypeDef"] = None,
     ) -> "UsageLimitTypeDef":
         """
-        [Client.create_usage_limit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.create_usage_limit)
+        [Client.create_usage_limit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.create_usage_limit)
         """
 
     def delete_cluster(
@@ -509,83 +509,83 @@ class RedshiftClient:
         FinalClusterSnapshotRetentionPeriod: int = None,
     ) -> DeleteClusterResultTypeDef:
         """
-        [Client.delete_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.delete_cluster)
+        [Client.delete_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.delete_cluster)
         """
 
     def delete_cluster_parameter_group(self, ParameterGroupName: str) -> None:
         """
-        [Client.delete_cluster_parameter_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.delete_cluster_parameter_group)
+        [Client.delete_cluster_parameter_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.delete_cluster_parameter_group)
         """
 
     def delete_cluster_security_group(self, ClusterSecurityGroupName: str) -> None:
         """
-        [Client.delete_cluster_security_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.delete_cluster_security_group)
+        [Client.delete_cluster_security_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.delete_cluster_security_group)
         """
 
     def delete_cluster_snapshot(
         self, SnapshotIdentifier: str, SnapshotClusterIdentifier: str = None
     ) -> DeleteClusterSnapshotResultTypeDef:
         """
-        [Client.delete_cluster_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.delete_cluster_snapshot)
+        [Client.delete_cluster_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.delete_cluster_snapshot)
         """
 
     def delete_cluster_subnet_group(self, ClusterSubnetGroupName: str) -> None:
         """
-        [Client.delete_cluster_subnet_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.delete_cluster_subnet_group)
+        [Client.delete_cluster_subnet_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.delete_cluster_subnet_group)
         """
 
     def delete_event_subscription(self, SubscriptionName: str) -> None:
         """
-        [Client.delete_event_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.delete_event_subscription)
+        [Client.delete_event_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.delete_event_subscription)
         """
 
     def delete_hsm_client_certificate(self, HsmClientCertificateIdentifier: str) -> None:
         """
-        [Client.delete_hsm_client_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.delete_hsm_client_certificate)
+        [Client.delete_hsm_client_certificate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.delete_hsm_client_certificate)
         """
 
     def delete_hsm_configuration(self, HsmConfigurationIdentifier: str) -> None:
         """
-        [Client.delete_hsm_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.delete_hsm_configuration)
+        [Client.delete_hsm_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.delete_hsm_configuration)
         """
 
     def delete_scheduled_action(self, ScheduledActionName: str) -> None:
         """
-        [Client.delete_scheduled_action documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.delete_scheduled_action)
+        [Client.delete_scheduled_action documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.delete_scheduled_action)
         """
 
     def delete_snapshot_copy_grant(self, SnapshotCopyGrantName: str) -> None:
         """
-        [Client.delete_snapshot_copy_grant documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.delete_snapshot_copy_grant)
+        [Client.delete_snapshot_copy_grant documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.delete_snapshot_copy_grant)
         """
 
     def delete_snapshot_schedule(self, ScheduleIdentifier: str) -> None:
         """
-        [Client.delete_snapshot_schedule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.delete_snapshot_schedule)
+        [Client.delete_snapshot_schedule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.delete_snapshot_schedule)
         """
 
     def delete_tags(self, ResourceName: str, TagKeys: List[str]) -> None:
         """
-        [Client.delete_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.delete_tags)
+        [Client.delete_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.delete_tags)
         """
 
     def delete_usage_limit(self, UsageLimitId: str) -> None:
         """
-        [Client.delete_usage_limit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.delete_usage_limit)
+        [Client.delete_usage_limit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.delete_usage_limit)
         """
 
     def describe_account_attributes(
         self, AttributeNames: List[str] = None
     ) -> AccountAttributeListTypeDef:
         """
-        [Client.describe_account_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.describe_account_attributes)
+        [Client.describe_account_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.describe_account_attributes)
         """
 
     def describe_cluster_db_revisions(
         self, ClusterIdentifier: str = None, MaxRecords: int = None, Marker: str = None
     ) -> ClusterDbRevisionsMessageTypeDef:
         """
-        [Client.describe_cluster_db_revisions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.describe_cluster_db_revisions)
+        [Client.describe_cluster_db_revisions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.describe_cluster_db_revisions)
         """
 
     def describe_cluster_parameter_groups(
@@ -597,7 +597,7 @@ class RedshiftClient:
         TagValues: List[str] = None,
     ) -> ClusterParameterGroupsMessageTypeDef:
         """
-        [Client.describe_cluster_parameter_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.describe_cluster_parameter_groups)
+        [Client.describe_cluster_parameter_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.describe_cluster_parameter_groups)
         """
 
     def describe_cluster_parameters(
@@ -608,7 +608,7 @@ class RedshiftClient:
         Marker: str = None,
     ) -> ClusterParameterGroupDetailsTypeDef:
         """
-        [Client.describe_cluster_parameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.describe_cluster_parameters)
+        [Client.describe_cluster_parameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.describe_cluster_parameters)
         """
 
     def describe_cluster_security_groups(
@@ -620,7 +620,7 @@ class RedshiftClient:
         TagValues: List[str] = None,
     ) -> ClusterSecurityGroupMessageTypeDef:
         """
-        [Client.describe_cluster_security_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.describe_cluster_security_groups)
+        [Client.describe_cluster_security_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.describe_cluster_security_groups)
         """
 
     def describe_cluster_snapshots(
@@ -639,7 +639,7 @@ class RedshiftClient:
         SortingEntities: List[SnapshotSortingEntityTypeDef] = None,
     ) -> SnapshotMessageTypeDef:
         """
-        [Client.describe_cluster_snapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.describe_cluster_snapshots)
+        [Client.describe_cluster_snapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.describe_cluster_snapshots)
         """
 
     def describe_cluster_subnet_groups(
@@ -651,14 +651,14 @@ class RedshiftClient:
         TagValues: List[str] = None,
     ) -> ClusterSubnetGroupMessageTypeDef:
         """
-        [Client.describe_cluster_subnet_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.describe_cluster_subnet_groups)
+        [Client.describe_cluster_subnet_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.describe_cluster_subnet_groups)
         """
 
     def describe_cluster_tracks(
         self, MaintenanceTrackName: str = None, MaxRecords: int = None, Marker: str = None
     ) -> TrackListMessageTypeDef:
         """
-        [Client.describe_cluster_tracks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.describe_cluster_tracks)
+        [Client.describe_cluster_tracks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.describe_cluster_tracks)
         """
 
     def describe_cluster_versions(
@@ -669,7 +669,7 @@ class RedshiftClient:
         Marker: str = None,
     ) -> ClusterVersionsMessageTypeDef:
         """
-        [Client.describe_cluster_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.describe_cluster_versions)
+        [Client.describe_cluster_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.describe_cluster_versions)
         """
 
     def describe_clusters(
@@ -681,19 +681,19 @@ class RedshiftClient:
         TagValues: List[str] = None,
     ) -> ClustersMessageTypeDef:
         """
-        [Client.describe_clusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.describe_clusters)
+        [Client.describe_clusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.describe_clusters)
         """
 
     def describe_default_cluster_parameters(
         self, ParameterGroupFamily: str, MaxRecords: int = None, Marker: str = None
     ) -> DescribeDefaultClusterParametersResultTypeDef:
         """
-        [Client.describe_default_cluster_parameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.describe_default_cluster_parameters)
+        [Client.describe_default_cluster_parameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.describe_default_cluster_parameters)
         """
 
     def describe_event_categories(self, SourceType: str = None) -> EventCategoriesMessageTypeDef:
         """
-        [Client.describe_event_categories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.describe_event_categories)
+        [Client.describe_event_categories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.describe_event_categories)
         """
 
     def describe_event_subscriptions(
@@ -705,7 +705,7 @@ class RedshiftClient:
         TagValues: List[str] = None,
     ) -> EventSubscriptionsMessageTypeDef:
         """
-        [Client.describe_event_subscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.describe_event_subscriptions)
+        [Client.describe_event_subscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.describe_event_subscriptions)
         """
 
     def describe_events(
@@ -725,7 +725,7 @@ class RedshiftClient:
         Marker: str = None,
     ) -> EventsMessageTypeDef:
         """
-        [Client.describe_events documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.describe_events)
+        [Client.describe_events documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.describe_events)
         """
 
     def describe_hsm_client_certificates(
@@ -737,7 +737,7 @@ class RedshiftClient:
         TagValues: List[str] = None,
     ) -> HsmClientCertificateMessageTypeDef:
         """
-        [Client.describe_hsm_client_certificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.describe_hsm_client_certificates)
+        [Client.describe_hsm_client_certificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.describe_hsm_client_certificates)
         """
 
     def describe_hsm_configurations(
@@ -749,12 +749,12 @@ class RedshiftClient:
         TagValues: List[str] = None,
     ) -> HsmConfigurationMessageTypeDef:
         """
-        [Client.describe_hsm_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.describe_hsm_configurations)
+        [Client.describe_hsm_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.describe_hsm_configurations)
         """
 
     def describe_logging_status(self, ClusterIdentifier: str) -> LoggingStatusTypeDef:
         """
-        [Client.describe_logging_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.describe_logging_status)
+        [Client.describe_logging_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.describe_logging_status)
         """
 
     def describe_node_configuration_options(
@@ -768,7 +768,7 @@ class RedshiftClient:
         MaxRecords: int = None,
     ) -> NodeConfigurationOptionsMessageTypeDef:
         """
-        [Client.describe_node_configuration_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.describe_node_configuration_options)
+        [Client.describe_node_configuration_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.describe_node_configuration_options)
         """
 
     def describe_orderable_cluster_options(
@@ -779,26 +779,26 @@ class RedshiftClient:
         Marker: str = None,
     ) -> OrderableClusterOptionsMessageTypeDef:
         """
-        [Client.describe_orderable_cluster_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.describe_orderable_cluster_options)
+        [Client.describe_orderable_cluster_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.describe_orderable_cluster_options)
         """
 
     def describe_reserved_node_offerings(
         self, ReservedNodeOfferingId: str = None, MaxRecords: int = None, Marker: str = None
     ) -> ReservedNodeOfferingsMessageTypeDef:
         """
-        [Client.describe_reserved_node_offerings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.describe_reserved_node_offerings)
+        [Client.describe_reserved_node_offerings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.describe_reserved_node_offerings)
         """
 
     def describe_reserved_nodes(
         self, ReservedNodeId: str = None, MaxRecords: int = None, Marker: str = None
     ) -> ReservedNodesMessageTypeDef:
         """
-        [Client.describe_reserved_nodes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.describe_reserved_nodes)
+        [Client.describe_reserved_nodes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.describe_reserved_nodes)
         """
 
     def describe_resize(self, ClusterIdentifier: str) -> ResizeProgressMessageTypeDef:
         """
-        [Client.describe_resize documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.describe_resize)
+        [Client.describe_resize documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.describe_resize)
         """
 
     def describe_scheduled_actions(
@@ -813,7 +813,7 @@ class RedshiftClient:
         MaxRecords: int = None,
     ) -> ScheduledActionsMessageTypeDef:
         """
-        [Client.describe_scheduled_actions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.describe_scheduled_actions)
+        [Client.describe_scheduled_actions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.describe_scheduled_actions)
         """
 
     def describe_snapshot_copy_grants(
@@ -825,7 +825,7 @@ class RedshiftClient:
         TagValues: List[str] = None,
     ) -> SnapshotCopyGrantMessageTypeDef:
         """
-        [Client.describe_snapshot_copy_grants documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.describe_snapshot_copy_grants)
+        [Client.describe_snapshot_copy_grants documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.describe_snapshot_copy_grants)
         """
 
     def describe_snapshot_schedules(
@@ -838,12 +838,12 @@ class RedshiftClient:
         MaxRecords: int = None,
     ) -> DescribeSnapshotSchedulesOutputMessageTypeDef:
         """
-        [Client.describe_snapshot_schedules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.describe_snapshot_schedules)
+        [Client.describe_snapshot_schedules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.describe_snapshot_schedules)
         """
 
     def describe_storage(self) -> CustomerStorageMessageTypeDef:
         """
-        [Client.describe_storage documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.describe_storage)
+        [Client.describe_storage documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.describe_storage)
         """
 
     def describe_table_restore_status(
@@ -854,7 +854,7 @@ class RedshiftClient:
         Marker: str = None,
     ) -> TableRestoreStatusMessageTypeDef:
         """
-        [Client.describe_table_restore_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.describe_table_restore_status)
+        [Client.describe_table_restore_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.describe_table_restore_status)
         """
 
     def describe_tags(
@@ -867,7 +867,7 @@ class RedshiftClient:
         TagValues: List[str] = None,
     ) -> TaggedResourceListMessageTypeDef:
         """
-        [Client.describe_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.describe_tags)
+        [Client.describe_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.describe_tags)
         """
 
     def describe_usage_limits(
@@ -881,24 +881,24 @@ class RedshiftClient:
         TagValues: List[str] = None,
     ) -> UsageLimitListTypeDef:
         """
-        [Client.describe_usage_limits documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.describe_usage_limits)
+        [Client.describe_usage_limits documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.describe_usage_limits)
         """
 
     def disable_logging(self, ClusterIdentifier: str) -> LoggingStatusTypeDef:
         """
-        [Client.disable_logging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.disable_logging)
+        [Client.disable_logging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.disable_logging)
         """
 
     def disable_snapshot_copy(self, ClusterIdentifier: str) -> DisableSnapshotCopyResultTypeDef:
         """
-        [Client.disable_snapshot_copy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.disable_snapshot_copy)
+        [Client.disable_snapshot_copy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.disable_snapshot_copy)
         """
 
     def enable_logging(
         self, ClusterIdentifier: str, BucketName: str, S3KeyPrefix: str = None
     ) -> LoggingStatusTypeDef:
         """
-        [Client.enable_logging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.enable_logging)
+        [Client.enable_logging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.enable_logging)
         """
 
     def enable_snapshot_copy(
@@ -910,7 +910,7 @@ class RedshiftClient:
         ManualSnapshotRetentionPeriod: int = None,
     ) -> EnableSnapshotCopyResultTypeDef:
         """
-        [Client.enable_snapshot_copy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.enable_snapshot_copy)
+        [Client.enable_snapshot_copy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.enable_snapshot_copy)
         """
 
     def generate_presigned_url(
@@ -921,7 +921,7 @@ class RedshiftClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.generate_presigned_url)
         """
 
     def get_cluster_credentials(
@@ -934,14 +934,14 @@ class RedshiftClient:
         DbGroups: List[str] = None,
     ) -> ClusterCredentialsTypeDef:
         """
-        [Client.get_cluster_credentials documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.get_cluster_credentials)
+        [Client.get_cluster_credentials documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.get_cluster_credentials)
         """
 
     def get_reserved_node_exchange_offerings(
         self, ReservedNodeId: str, MaxRecords: int = None, Marker: str = None
     ) -> GetReservedNodeExchangeOfferingsOutputMessageTypeDef:
         """
-        [Client.get_reserved_node_exchange_offerings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.get_reserved_node_exchange_offerings)
+        [Client.get_reserved_node_exchange_offerings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.get_reserved_node_exchange_offerings)
         """
 
     def modify_cluster(
@@ -968,16 +968,19 @@ class RedshiftClient:
         MaintenanceTrackName: str = None,
         Encrypted: bool = None,
         KmsKeyId: str = None,
+        AvailabilityZoneRelocation: bool = None,
+        AvailabilityZone: str = None,
+        Port: int = None,
     ) -> ModifyClusterResultTypeDef:
         """
-        [Client.modify_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.modify_cluster)
+        [Client.modify_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.modify_cluster)
         """
 
     def modify_cluster_db_revision(
         self, ClusterIdentifier: str, RevisionTarget: str
     ) -> ModifyClusterDbRevisionResultTypeDef:
         """
-        [Client.modify_cluster_db_revision documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.modify_cluster_db_revision)
+        [Client.modify_cluster_db_revision documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.modify_cluster_db_revision)
         """
 
     def modify_cluster_iam_roles(
@@ -987,7 +990,7 @@ class RedshiftClient:
         RemoveIamRoles: List[str] = None,
     ) -> ModifyClusterIamRolesResultTypeDef:
         """
-        [Client.modify_cluster_iam_roles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.modify_cluster_iam_roles)
+        [Client.modify_cluster_iam_roles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.modify_cluster_iam_roles)
         """
 
     def modify_cluster_maintenance(
@@ -1000,21 +1003,21 @@ class RedshiftClient:
         DeferMaintenanceDuration: int = None,
     ) -> ModifyClusterMaintenanceResultTypeDef:
         """
-        [Client.modify_cluster_maintenance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.modify_cluster_maintenance)
+        [Client.modify_cluster_maintenance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.modify_cluster_maintenance)
         """
 
     def modify_cluster_parameter_group(
         self, ParameterGroupName: str, Parameters: List["ParameterTypeDef"]
     ) -> ClusterParameterGroupNameMessageTypeDef:
         """
-        [Client.modify_cluster_parameter_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.modify_cluster_parameter_group)
+        [Client.modify_cluster_parameter_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.modify_cluster_parameter_group)
         """
 
     def modify_cluster_snapshot(
         self, SnapshotIdentifier: str, ManualSnapshotRetentionPeriod: int = None, Force: bool = None
     ) -> ModifyClusterSnapshotResultTypeDef:
         """
-        [Client.modify_cluster_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.modify_cluster_snapshot)
+        [Client.modify_cluster_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.modify_cluster_snapshot)
         """
 
     def modify_cluster_snapshot_schedule(
@@ -1024,14 +1027,14 @@ class RedshiftClient:
         DisassociateSchedule: bool = None,
     ) -> None:
         """
-        [Client.modify_cluster_snapshot_schedule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.modify_cluster_snapshot_schedule)
+        [Client.modify_cluster_snapshot_schedule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.modify_cluster_snapshot_schedule)
         """
 
     def modify_cluster_subnet_group(
         self, ClusterSubnetGroupName: str, SubnetIds: List[str], Description: str = None
     ) -> ModifyClusterSubnetGroupResultTypeDef:
         """
-        [Client.modify_cluster_subnet_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.modify_cluster_subnet_group)
+        [Client.modify_cluster_subnet_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.modify_cluster_subnet_group)
         """
 
     def modify_event_subscription(
@@ -1045,7 +1048,7 @@ class RedshiftClient:
         Enabled: bool = None,
     ) -> ModifyEventSubscriptionResultTypeDef:
         """
-        [Client.modify_event_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.modify_event_subscription)
+        [Client.modify_event_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.modify_event_subscription)
         """
 
     def modify_scheduled_action(
@@ -1060,21 +1063,21 @@ class RedshiftClient:
         Enable: bool = None,
     ) -> "ScheduledActionTypeDef":
         """
-        [Client.modify_scheduled_action documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.modify_scheduled_action)
+        [Client.modify_scheduled_action documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.modify_scheduled_action)
         """
 
     def modify_snapshot_copy_retention_period(
         self, ClusterIdentifier: str, RetentionPeriod: int, Manual: bool = None
     ) -> ModifySnapshotCopyRetentionPeriodResultTypeDef:
         """
-        [Client.modify_snapshot_copy_retention_period documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.modify_snapshot_copy_retention_period)
+        [Client.modify_snapshot_copy_retention_period documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.modify_snapshot_copy_retention_period)
         """
 
     def modify_snapshot_schedule(
         self, ScheduleIdentifier: str, ScheduleDefinitions: List[str]
     ) -> "SnapshotScheduleTypeDef":
         """
-        [Client.modify_snapshot_schedule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.modify_snapshot_schedule)
+        [Client.modify_snapshot_schedule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.modify_snapshot_schedule)
         """
 
     def modify_usage_limit(
@@ -1084,24 +1087,24 @@ class RedshiftClient:
         BreachAction: Literal["log", "emit-metric", "disable"] = None,
     ) -> "UsageLimitTypeDef":
         """
-        [Client.modify_usage_limit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.modify_usage_limit)
+        [Client.modify_usage_limit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.modify_usage_limit)
         """
 
     def pause_cluster(self, ClusterIdentifier: str) -> PauseClusterResultTypeDef:
         """
-        [Client.pause_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.pause_cluster)
+        [Client.pause_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.pause_cluster)
         """
 
     def purchase_reserved_node_offering(
         self, ReservedNodeOfferingId: str, NodeCount: int = None
     ) -> PurchaseReservedNodeOfferingResultTypeDef:
         """
-        [Client.purchase_reserved_node_offering documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.purchase_reserved_node_offering)
+        [Client.purchase_reserved_node_offering documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.purchase_reserved_node_offering)
         """
 
     def reboot_cluster(self, ClusterIdentifier: str) -> RebootClusterResultTypeDef:
         """
-        [Client.reboot_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.reboot_cluster)
+        [Client.reboot_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.reboot_cluster)
         """
 
     def reset_cluster_parameter_group(
@@ -1111,7 +1114,7 @@ class RedshiftClient:
         Parameters: List["ParameterTypeDef"] = None,
     ) -> ClusterParameterGroupNameMessageTypeDef:
         """
-        [Client.reset_cluster_parameter_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.reset_cluster_parameter_group)
+        [Client.reset_cluster_parameter_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.reset_cluster_parameter_group)
         """
 
     def resize_cluster(
@@ -1123,7 +1126,7 @@ class RedshiftClient:
         Classic: bool = None,
     ) -> ResizeClusterResultTypeDef:
         """
-        [Client.resize_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.resize_cluster)
+        [Client.resize_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.resize_cluster)
         """
 
     def restore_from_cluster_snapshot(
@@ -1154,9 +1157,10 @@ class RedshiftClient:
         MaintenanceTrackName: str = None,
         SnapshotScheduleIdentifier: str = None,
         NumberOfNodes: int = None,
+        AvailabilityZoneRelocation: bool = None,
     ) -> RestoreFromClusterSnapshotResultTypeDef:
         """
-        [Client.restore_from_cluster_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.restore_from_cluster_snapshot)
+        [Client.restore_from_cluster_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.restore_from_cluster_snapshot)
         """
 
     def restore_table_from_cluster_snapshot(
@@ -1171,12 +1175,12 @@ class RedshiftClient:
         TargetSchemaName: str = None,
     ) -> RestoreTableFromClusterSnapshotResultTypeDef:
         """
-        [Client.restore_table_from_cluster_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.restore_table_from_cluster_snapshot)
+        [Client.restore_table_from_cluster_snapshot documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.restore_table_from_cluster_snapshot)
         """
 
     def resume_cluster(self, ClusterIdentifier: str) -> ResumeClusterResultTypeDef:
         """
-        [Client.resume_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.resume_cluster)
+        [Client.resume_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.resume_cluster)
         """
 
     def revoke_cluster_security_group_ingress(
@@ -1187,7 +1191,7 @@ class RedshiftClient:
         EC2SecurityGroupOwnerId: str = None,
     ) -> RevokeClusterSecurityGroupIngressResultTypeDef:
         """
-        [Client.revoke_cluster_security_group_ingress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.revoke_cluster_security_group_ingress)
+        [Client.revoke_cluster_security_group_ingress documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.revoke_cluster_security_group_ingress)
         """
 
     def revoke_snapshot_access(
@@ -1197,12 +1201,12 @@ class RedshiftClient:
         SnapshotClusterIdentifier: str = None,
     ) -> RevokeSnapshotAccessResultTypeDef:
         """
-        [Client.revoke_snapshot_access documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.revoke_snapshot_access)
+        [Client.revoke_snapshot_access documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.revoke_snapshot_access)
         """
 
     def rotate_encryption_key(self, ClusterIdentifier: str) -> RotateEncryptionKeyResultTypeDef:
         """
-        [Client.rotate_encryption_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Client.rotate_encryption_key)
+        [Client.rotate_encryption_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Client.rotate_encryption_key)
         """
 
     @overload
@@ -1210,7 +1214,7 @@ class RedshiftClient:
         self, operation_name: Literal["describe_cluster_db_revisions"]
     ) -> DescribeClusterDbRevisionsPaginator:
         """
-        [Paginator.DescribeClusterDbRevisions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Paginator.DescribeClusterDbRevisions)
+        [Paginator.DescribeClusterDbRevisions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Paginator.DescribeClusterDbRevisions)
         """
 
     @overload
@@ -1218,7 +1222,7 @@ class RedshiftClient:
         self, operation_name: Literal["describe_cluster_parameter_groups"]
     ) -> DescribeClusterParameterGroupsPaginator:
         """
-        [Paginator.DescribeClusterParameterGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Paginator.DescribeClusterParameterGroups)
+        [Paginator.DescribeClusterParameterGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Paginator.DescribeClusterParameterGroups)
         """
 
     @overload
@@ -1226,7 +1230,7 @@ class RedshiftClient:
         self, operation_name: Literal["describe_cluster_parameters"]
     ) -> DescribeClusterParametersPaginator:
         """
-        [Paginator.DescribeClusterParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Paginator.DescribeClusterParameters)
+        [Paginator.DescribeClusterParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Paginator.DescribeClusterParameters)
         """
 
     @overload
@@ -1234,7 +1238,7 @@ class RedshiftClient:
         self, operation_name: Literal["describe_cluster_security_groups"]
     ) -> DescribeClusterSecurityGroupsPaginator:
         """
-        [Paginator.DescribeClusterSecurityGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Paginator.DescribeClusterSecurityGroups)
+        [Paginator.DescribeClusterSecurityGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Paginator.DescribeClusterSecurityGroups)
         """
 
     @overload
@@ -1242,7 +1246,7 @@ class RedshiftClient:
         self, operation_name: Literal["describe_cluster_snapshots"]
     ) -> DescribeClusterSnapshotsPaginator:
         """
-        [Paginator.DescribeClusterSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Paginator.DescribeClusterSnapshots)
+        [Paginator.DescribeClusterSnapshots documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Paginator.DescribeClusterSnapshots)
         """
 
     @overload
@@ -1250,7 +1254,7 @@ class RedshiftClient:
         self, operation_name: Literal["describe_cluster_subnet_groups"]
     ) -> DescribeClusterSubnetGroupsPaginator:
         """
-        [Paginator.DescribeClusterSubnetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Paginator.DescribeClusterSubnetGroups)
+        [Paginator.DescribeClusterSubnetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Paginator.DescribeClusterSubnetGroups)
         """
 
     @overload
@@ -1258,7 +1262,7 @@ class RedshiftClient:
         self, operation_name: Literal["describe_cluster_tracks"]
     ) -> DescribeClusterTracksPaginator:
         """
-        [Paginator.DescribeClusterTracks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Paginator.DescribeClusterTracks)
+        [Paginator.DescribeClusterTracks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Paginator.DescribeClusterTracks)
         """
 
     @overload
@@ -1266,7 +1270,7 @@ class RedshiftClient:
         self, operation_name: Literal["describe_cluster_versions"]
     ) -> DescribeClusterVersionsPaginator:
         """
-        [Paginator.DescribeClusterVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Paginator.DescribeClusterVersions)
+        [Paginator.DescribeClusterVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Paginator.DescribeClusterVersions)
         """
 
     @overload
@@ -1274,7 +1278,7 @@ class RedshiftClient:
         self, operation_name: Literal["describe_clusters"]
     ) -> DescribeClustersPaginator:
         """
-        [Paginator.DescribeClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Paginator.DescribeClusters)
+        [Paginator.DescribeClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Paginator.DescribeClusters)
         """
 
     @overload
@@ -1282,7 +1286,7 @@ class RedshiftClient:
         self, operation_name: Literal["describe_default_cluster_parameters"]
     ) -> DescribeDefaultClusterParametersPaginator:
         """
-        [Paginator.DescribeDefaultClusterParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Paginator.DescribeDefaultClusterParameters)
+        [Paginator.DescribeDefaultClusterParameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Paginator.DescribeDefaultClusterParameters)
         """
 
     @overload
@@ -1290,13 +1294,13 @@ class RedshiftClient:
         self, operation_name: Literal["describe_event_subscriptions"]
     ) -> DescribeEventSubscriptionsPaginator:
         """
-        [Paginator.DescribeEventSubscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Paginator.DescribeEventSubscriptions)
+        [Paginator.DescribeEventSubscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Paginator.DescribeEventSubscriptions)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["describe_events"]) -> DescribeEventsPaginator:
         """
-        [Paginator.DescribeEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Paginator.DescribeEvents)
+        [Paginator.DescribeEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Paginator.DescribeEvents)
         """
 
     @overload
@@ -1304,7 +1308,7 @@ class RedshiftClient:
         self, operation_name: Literal["describe_hsm_client_certificates"]
     ) -> DescribeHsmClientCertificatesPaginator:
         """
-        [Paginator.DescribeHsmClientCertificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Paginator.DescribeHsmClientCertificates)
+        [Paginator.DescribeHsmClientCertificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Paginator.DescribeHsmClientCertificates)
         """
 
     @overload
@@ -1312,7 +1316,7 @@ class RedshiftClient:
         self, operation_name: Literal["describe_hsm_configurations"]
     ) -> DescribeHsmConfigurationsPaginator:
         """
-        [Paginator.DescribeHsmConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Paginator.DescribeHsmConfigurations)
+        [Paginator.DescribeHsmConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Paginator.DescribeHsmConfigurations)
         """
 
     @overload
@@ -1320,7 +1324,7 @@ class RedshiftClient:
         self, operation_name: Literal["describe_node_configuration_options"]
     ) -> DescribeNodeConfigurationOptionsPaginator:
         """
-        [Paginator.DescribeNodeConfigurationOptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Paginator.DescribeNodeConfigurationOptions)
+        [Paginator.DescribeNodeConfigurationOptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Paginator.DescribeNodeConfigurationOptions)
         """
 
     @overload
@@ -1328,7 +1332,7 @@ class RedshiftClient:
         self, operation_name: Literal["describe_orderable_cluster_options"]
     ) -> DescribeOrderableClusterOptionsPaginator:
         """
-        [Paginator.DescribeOrderableClusterOptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Paginator.DescribeOrderableClusterOptions)
+        [Paginator.DescribeOrderableClusterOptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Paginator.DescribeOrderableClusterOptions)
         """
 
     @overload
@@ -1336,7 +1340,7 @@ class RedshiftClient:
         self, operation_name: Literal["describe_reserved_node_offerings"]
     ) -> DescribeReservedNodeOfferingsPaginator:
         """
-        [Paginator.DescribeReservedNodeOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Paginator.DescribeReservedNodeOfferings)
+        [Paginator.DescribeReservedNodeOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Paginator.DescribeReservedNodeOfferings)
         """
 
     @overload
@@ -1344,7 +1348,7 @@ class RedshiftClient:
         self, operation_name: Literal["describe_reserved_nodes"]
     ) -> DescribeReservedNodesPaginator:
         """
-        [Paginator.DescribeReservedNodes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Paginator.DescribeReservedNodes)
+        [Paginator.DescribeReservedNodes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Paginator.DescribeReservedNodes)
         """
 
     @overload
@@ -1352,7 +1356,7 @@ class RedshiftClient:
         self, operation_name: Literal["describe_scheduled_actions"]
     ) -> DescribeScheduledActionsPaginator:
         """
-        [Paginator.DescribeScheduledActions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Paginator.DescribeScheduledActions)
+        [Paginator.DescribeScheduledActions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Paginator.DescribeScheduledActions)
         """
 
     @overload
@@ -1360,7 +1364,7 @@ class RedshiftClient:
         self, operation_name: Literal["describe_snapshot_copy_grants"]
     ) -> DescribeSnapshotCopyGrantsPaginator:
         """
-        [Paginator.DescribeSnapshotCopyGrants documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Paginator.DescribeSnapshotCopyGrants)
+        [Paginator.DescribeSnapshotCopyGrants documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Paginator.DescribeSnapshotCopyGrants)
         """
 
     @overload
@@ -1368,7 +1372,7 @@ class RedshiftClient:
         self, operation_name: Literal["describe_snapshot_schedules"]
     ) -> DescribeSnapshotSchedulesPaginator:
         """
-        [Paginator.DescribeSnapshotSchedules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Paginator.DescribeSnapshotSchedules)
+        [Paginator.DescribeSnapshotSchedules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Paginator.DescribeSnapshotSchedules)
         """
 
     @overload
@@ -1376,13 +1380,13 @@ class RedshiftClient:
         self, operation_name: Literal["describe_table_restore_status"]
     ) -> DescribeTableRestoreStatusPaginator:
         """
-        [Paginator.DescribeTableRestoreStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Paginator.DescribeTableRestoreStatus)
+        [Paginator.DescribeTableRestoreStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Paginator.DescribeTableRestoreStatus)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["describe_tags"]) -> DescribeTagsPaginator:
         """
-        [Paginator.DescribeTags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Paginator.DescribeTags)
+        [Paginator.DescribeTags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Paginator.DescribeTags)
         """
 
     @overload
@@ -1390,7 +1394,7 @@ class RedshiftClient:
         self, operation_name: Literal["describe_usage_limits"]
     ) -> DescribeUsageLimitsPaginator:
         """
-        [Paginator.DescribeUsageLimits documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Paginator.DescribeUsageLimits)
+        [Paginator.DescribeUsageLimits documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Paginator.DescribeUsageLimits)
         """
 
     @overload
@@ -1398,29 +1402,29 @@ class RedshiftClient:
         self, operation_name: Literal["get_reserved_node_exchange_offerings"]
     ) -> GetReservedNodeExchangeOfferingsPaginator:
         """
-        [Paginator.GetReservedNodeExchangeOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Paginator.GetReservedNodeExchangeOfferings)
+        [Paginator.GetReservedNodeExchangeOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Paginator.GetReservedNodeExchangeOfferings)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["cluster_available"]) -> ClusterAvailableWaiter:
         """
-        [Waiter.ClusterAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Waiter.ClusterAvailable)
+        [Waiter.ClusterAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Waiter.ClusterAvailable)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["cluster_deleted"]) -> ClusterDeletedWaiter:
         """
-        [Waiter.ClusterDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Waiter.ClusterDeleted)
+        [Waiter.ClusterDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Waiter.ClusterDeleted)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["cluster_restored"]) -> ClusterRestoredWaiter:
         """
-        [Waiter.ClusterRestored documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Waiter.ClusterRestored)
+        [Waiter.ClusterRestored documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Waiter.ClusterRestored)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["snapshot_available"]) -> SnapshotAvailableWaiter:
         """
-        [Waiter.SnapshotAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift.html#Redshift.Waiter.SnapshotAvailable)
+        [Waiter.SnapshotAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift.html#Redshift.Waiter.SnapshotAvailable)
         """

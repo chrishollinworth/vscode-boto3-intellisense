@@ -61,7 +61,15 @@ __all__ = (
 )
 
 AliasListEntryTypeDef = TypedDict(
-    "AliasListEntryTypeDef", {"AliasName": str, "AliasArn": str, "TargetKeyId": str}, total=False
+    "AliasListEntryTypeDef",
+    {
+        "AliasName": str,
+        "AliasArn": str,
+        "TargetKeyId": str,
+        "CreationDate": datetime,
+        "LastUpdatedDate": datetime,
+    },
+    total=False,
 )
 
 CustomKeyStoresListEntryTypeDef = TypedDict(

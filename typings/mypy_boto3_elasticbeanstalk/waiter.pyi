@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
 """
 Main interface for elasticbeanstalk service client waiters.
 
@@ -33,7 +32,7 @@ __all__ = ("EnvironmentExistsWaiter", "EnvironmentTerminatedWaiter", "Environmen
 
 class EnvironmentExistsWaiter(Boto3Waiter):
     """
-    [Waiter.EnvironmentExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Waiter.EnvironmentExists)
+    [Waiter.EnvironmentExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Waiter.EnvironmentExists)
     """
 
     def wait(
@@ -49,13 +48,13 @@ class EnvironmentExistsWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [EnvironmentExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Waiter.EnvironmentExists.wait)
+        [EnvironmentExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Waiter.EnvironmentExists.wait)
         """
 
 
 class EnvironmentTerminatedWaiter(Boto3Waiter):
     """
-    [Waiter.EnvironmentTerminated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Waiter.EnvironmentTerminated)
+    [Waiter.EnvironmentTerminated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Waiter.EnvironmentTerminated)
     """
 
     def wait(
@@ -71,13 +70,13 @@ class EnvironmentTerminatedWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [EnvironmentTerminated.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Waiter.EnvironmentTerminated.wait)
+        [EnvironmentTerminated.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Waiter.EnvironmentTerminated.wait)
         """
 
 
 class EnvironmentUpdatedWaiter(Boto3Waiter):
     """
-    [Waiter.EnvironmentUpdated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Waiter.EnvironmentUpdated)
+    [Waiter.EnvironmentUpdated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Waiter.EnvironmentUpdated)
     """
 
     def wait(
@@ -93,5 +92,5 @@ class EnvironmentUpdatedWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [EnvironmentUpdated.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Waiter.EnvironmentUpdated.wait)
+        [EnvironmentUpdated.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elasticbeanstalk.html#ElasticBeanstalk.Waiter.EnvironmentUpdated.wait)
         """

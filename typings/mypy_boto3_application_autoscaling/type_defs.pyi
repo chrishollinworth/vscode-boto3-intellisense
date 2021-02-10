@@ -303,6 +303,7 @@ _RequiredScheduledActionTypeDef = TypedDict(
 _OptionalScheduledActionTypeDef = TypedDict(
     "_OptionalScheduledActionTypeDef",
     {
+        "Timezone": str,
         "ScalableDimension": Literal[
             "ecs:service:DesiredCount",
             "ec2:spot-fleet-request:TargetCapacity",

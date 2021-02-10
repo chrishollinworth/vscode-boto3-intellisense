@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for sso-admin service client
 
@@ -84,7 +83,7 @@ class Exceptions:
 
 class SSOAdminClient:
     """
-    [SSOAdmin.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Client)
+    [SSOAdmin.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Client)
     """
 
     meta: ClientMeta
@@ -94,12 +93,12 @@ class SSOAdminClient:
         self, InstanceArn: str, PermissionSetArn: str, ManagedPolicyArn: str
     ) -> Dict[str, Any]:
         """
-        [Client.attach_managed_policy_to_permission_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Client.attach_managed_policy_to_permission_set)
+        [Client.attach_managed_policy_to_permission_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Client.attach_managed_policy_to_permission_set)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Client.can_paginate)
         """
 
     def create_account_assignment(
@@ -112,7 +111,7 @@ class SSOAdminClient:
         PrincipalId: str,
     ) -> CreateAccountAssignmentResponseTypeDef:
         """
-        [Client.create_account_assignment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Client.create_account_assignment)
+        [Client.create_account_assignment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Client.create_account_assignment)
         """
 
     def create_instance_access_control_attribute_configuration(
@@ -121,7 +120,7 @@ class SSOAdminClient:
         InstanceAccessControlAttributeConfiguration: "InstanceAccessControlAttributeConfigurationTypeDef",
     ) -> Dict[str, Any]:
         """
-        [Client.create_instance_access_control_attribute_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Client.create_instance_access_control_attribute_configuration)
+        [Client.create_instance_access_control_attribute_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Client.create_instance_access_control_attribute_configuration)
         """
 
     def create_permission_set(
@@ -134,7 +133,7 @@ class SSOAdminClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreatePermissionSetResponseTypeDef:
         """
-        [Client.create_permission_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Client.create_permission_set)
+        [Client.create_permission_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Client.create_permission_set)
         """
 
     def delete_account_assignment(
@@ -147,68 +146,68 @@ class SSOAdminClient:
         PrincipalId: str,
     ) -> DeleteAccountAssignmentResponseTypeDef:
         """
-        [Client.delete_account_assignment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Client.delete_account_assignment)
+        [Client.delete_account_assignment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Client.delete_account_assignment)
         """
 
     def delete_inline_policy_from_permission_set(
         self, InstanceArn: str, PermissionSetArn: str
     ) -> Dict[str, Any]:
         """
-        [Client.delete_inline_policy_from_permission_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Client.delete_inline_policy_from_permission_set)
+        [Client.delete_inline_policy_from_permission_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Client.delete_inline_policy_from_permission_set)
         """
 
     def delete_instance_access_control_attribute_configuration(
         self, InstanceArn: str
     ) -> Dict[str, Any]:
         """
-        [Client.delete_instance_access_control_attribute_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Client.delete_instance_access_control_attribute_configuration)
+        [Client.delete_instance_access_control_attribute_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Client.delete_instance_access_control_attribute_configuration)
         """
 
     def delete_permission_set(self, InstanceArn: str, PermissionSetArn: str) -> Dict[str, Any]:
         """
-        [Client.delete_permission_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Client.delete_permission_set)
+        [Client.delete_permission_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Client.delete_permission_set)
         """
 
     def describe_account_assignment_creation_status(
         self, InstanceArn: str, AccountAssignmentCreationRequestId: str
     ) -> DescribeAccountAssignmentCreationStatusResponseTypeDef:
         """
-        [Client.describe_account_assignment_creation_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Client.describe_account_assignment_creation_status)
+        [Client.describe_account_assignment_creation_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Client.describe_account_assignment_creation_status)
         """
 
     def describe_account_assignment_deletion_status(
         self, InstanceArn: str, AccountAssignmentDeletionRequestId: str
     ) -> DescribeAccountAssignmentDeletionStatusResponseTypeDef:
         """
-        [Client.describe_account_assignment_deletion_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Client.describe_account_assignment_deletion_status)
+        [Client.describe_account_assignment_deletion_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Client.describe_account_assignment_deletion_status)
         """
 
     def describe_instance_access_control_attribute_configuration(
         self, InstanceArn: str
     ) -> DescribeInstanceAccessControlAttributeConfigurationResponseTypeDef:
         """
-        [Client.describe_instance_access_control_attribute_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Client.describe_instance_access_control_attribute_configuration)
+        [Client.describe_instance_access_control_attribute_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Client.describe_instance_access_control_attribute_configuration)
         """
 
     def describe_permission_set(
         self, InstanceArn: str, PermissionSetArn: str
     ) -> DescribePermissionSetResponseTypeDef:
         """
-        [Client.describe_permission_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Client.describe_permission_set)
+        [Client.describe_permission_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Client.describe_permission_set)
         """
 
     def describe_permission_set_provisioning_status(
         self, InstanceArn: str, ProvisionPermissionSetRequestId: str
     ) -> DescribePermissionSetProvisioningStatusResponseTypeDef:
         """
-        [Client.describe_permission_set_provisioning_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Client.describe_permission_set_provisioning_status)
+        [Client.describe_permission_set_provisioning_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Client.describe_permission_set_provisioning_status)
         """
 
     def detach_managed_policy_from_permission_set(
         self, InstanceArn: str, PermissionSetArn: str, ManagedPolicyArn: str
     ) -> Dict[str, Any]:
         """
-        [Client.detach_managed_policy_from_permission_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Client.detach_managed_policy_from_permission_set)
+        [Client.detach_managed_policy_from_permission_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Client.detach_managed_policy_from_permission_set)
         """
 
     def generate_presigned_url(
@@ -219,14 +218,14 @@ class SSOAdminClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Client.generate_presigned_url)
         """
 
     def get_inline_policy_for_permission_set(
         self, InstanceArn: str, PermissionSetArn: str
     ) -> GetInlinePolicyForPermissionSetResponseTypeDef:
         """
-        [Client.get_inline_policy_for_permission_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Client.get_inline_policy_for_permission_set)
+        [Client.get_inline_policy_for_permission_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Client.get_inline_policy_for_permission_set)
         """
 
     def list_account_assignment_creation_status(
@@ -237,7 +236,7 @@ class SSOAdminClient:
         Filter: OperationStatusFilterTypeDef = None,
     ) -> ListAccountAssignmentCreationStatusResponseTypeDef:
         """
-        [Client.list_account_assignment_creation_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Client.list_account_assignment_creation_status)
+        [Client.list_account_assignment_creation_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Client.list_account_assignment_creation_status)
         """
 
     def list_account_assignment_deletion_status(
@@ -248,7 +247,7 @@ class SSOAdminClient:
         Filter: OperationStatusFilterTypeDef = None,
     ) -> ListAccountAssignmentDeletionStatusResponseTypeDef:
         """
-        [Client.list_account_assignment_deletion_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Client.list_account_assignment_deletion_status)
+        [Client.list_account_assignment_deletion_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Client.list_account_assignment_deletion_status)
         """
 
     def list_account_assignments(
@@ -260,7 +259,7 @@ class SSOAdminClient:
         NextToken: str = None,
     ) -> ListAccountAssignmentsResponseTypeDef:
         """
-        [Client.list_account_assignments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Client.list_account_assignments)
+        [Client.list_account_assignments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Client.list_account_assignments)
         """
 
     def list_accounts_for_provisioned_permission_set(
@@ -274,21 +273,21 @@ class SSOAdminClient:
         NextToken: str = None,
     ) -> ListAccountsForProvisionedPermissionSetResponseTypeDef:
         """
-        [Client.list_accounts_for_provisioned_permission_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Client.list_accounts_for_provisioned_permission_set)
+        [Client.list_accounts_for_provisioned_permission_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Client.list_accounts_for_provisioned_permission_set)
         """
 
     def list_instances(
         self, MaxResults: int = None, NextToken: str = None
     ) -> ListInstancesResponseTypeDef:
         """
-        [Client.list_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Client.list_instances)
+        [Client.list_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Client.list_instances)
         """
 
     def list_managed_policies_in_permission_set(
         self, InstanceArn: str, PermissionSetArn: str, MaxResults: int = None, NextToken: str = None
     ) -> ListManagedPoliciesInPermissionSetResponseTypeDef:
         """
-        [Client.list_managed_policies_in_permission_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Client.list_managed_policies_in_permission_set)
+        [Client.list_managed_policies_in_permission_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Client.list_managed_policies_in_permission_set)
         """
 
     def list_permission_set_provisioning_status(
@@ -299,14 +298,14 @@ class SSOAdminClient:
         Filter: OperationStatusFilterTypeDef = None,
     ) -> ListPermissionSetProvisioningStatusResponseTypeDef:
         """
-        [Client.list_permission_set_provisioning_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Client.list_permission_set_provisioning_status)
+        [Client.list_permission_set_provisioning_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Client.list_permission_set_provisioning_status)
         """
 
     def list_permission_sets(
         self, InstanceArn: str, NextToken: str = None, MaxResults: int = None
     ) -> ListPermissionSetsResponseTypeDef:
         """
-        [Client.list_permission_sets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Client.list_permission_sets)
+        [Client.list_permission_sets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Client.list_permission_sets)
         """
 
     def list_permission_sets_provisioned_to_account(
@@ -320,14 +319,14 @@ class SSOAdminClient:
         NextToken: str = None,
     ) -> ListPermissionSetsProvisionedToAccountResponseTypeDef:
         """
-        [Client.list_permission_sets_provisioned_to_account documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Client.list_permission_sets_provisioned_to_account)
+        [Client.list_permission_sets_provisioned_to_account documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Client.list_permission_sets_provisioned_to_account)
         """
 
     def list_tags_for_resource(
         self, InstanceArn: str, ResourceArn: str, NextToken: str = None
     ) -> ListTagsForResourceResponseTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Client.list_tags_for_resource)
         """
 
     def provision_permission_set(
@@ -338,28 +337,28 @@ class SSOAdminClient:
         TargetId: str = None,
     ) -> ProvisionPermissionSetResponseTypeDef:
         """
-        [Client.provision_permission_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Client.provision_permission_set)
+        [Client.provision_permission_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Client.provision_permission_set)
         """
 
     def put_inline_policy_to_permission_set(
         self, InstanceArn: str, PermissionSetArn: str, InlinePolicy: str
     ) -> Dict[str, Any]:
         """
-        [Client.put_inline_policy_to_permission_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Client.put_inline_policy_to_permission_set)
+        [Client.put_inline_policy_to_permission_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Client.put_inline_policy_to_permission_set)
         """
 
     def tag_resource(
         self, InstanceArn: str, ResourceArn: str, Tags: List["TagTypeDef"]
     ) -> Dict[str, Any]:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Client.tag_resource)
         """
 
     def untag_resource(
         self, InstanceArn: str, ResourceArn: str, TagKeys: List[str]
     ) -> Dict[str, Any]:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Client.untag_resource)
         """
 
     def update_instance_access_control_attribute_configuration(
@@ -368,7 +367,7 @@ class SSOAdminClient:
         InstanceAccessControlAttributeConfiguration: "InstanceAccessControlAttributeConfigurationTypeDef",
     ) -> Dict[str, Any]:
         """
-        [Client.update_instance_access_control_attribute_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Client.update_instance_access_control_attribute_configuration)
+        [Client.update_instance_access_control_attribute_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Client.update_instance_access_control_attribute_configuration)
         """
 
     def update_permission_set(
@@ -380,7 +379,7 @@ class SSOAdminClient:
         RelayState: str = None,
     ) -> Dict[str, Any]:
         """
-        [Client.update_permission_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Client.update_permission_set)
+        [Client.update_permission_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Client.update_permission_set)
         """
 
     @overload
@@ -388,7 +387,7 @@ class SSOAdminClient:
         self, operation_name: Literal["list_account_assignment_creation_status"]
     ) -> ListAccountAssignmentCreationStatusPaginator:
         """
-        [Paginator.ListAccountAssignmentCreationStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountAssignmentCreationStatus)
+        [Paginator.ListAccountAssignmentCreationStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountAssignmentCreationStatus)
         """
 
     @overload
@@ -396,7 +395,7 @@ class SSOAdminClient:
         self, operation_name: Literal["list_account_assignment_deletion_status"]
     ) -> ListAccountAssignmentDeletionStatusPaginator:
         """
-        [Paginator.ListAccountAssignmentDeletionStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountAssignmentDeletionStatus)
+        [Paginator.ListAccountAssignmentDeletionStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountAssignmentDeletionStatus)
         """
 
     @overload
@@ -404,7 +403,7 @@ class SSOAdminClient:
         self, operation_name: Literal["list_account_assignments"]
     ) -> ListAccountAssignmentsPaginator:
         """
-        [Paginator.ListAccountAssignments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountAssignments)
+        [Paginator.ListAccountAssignments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountAssignments)
         """
 
     @overload
@@ -412,13 +411,13 @@ class SSOAdminClient:
         self, operation_name: Literal["list_accounts_for_provisioned_permission_set"]
     ) -> ListAccountsForProvisionedPermissionSetPaginator:
         """
-        [Paginator.ListAccountsForProvisionedPermissionSet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountsForProvisionedPermissionSet)
+        [Paginator.ListAccountsForProvisionedPermissionSet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Paginator.ListAccountsForProvisionedPermissionSet)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_instances"]) -> ListInstancesPaginator:
         """
-        [Paginator.ListInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Paginator.ListInstances)
+        [Paginator.ListInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Paginator.ListInstances)
         """
 
     @overload
@@ -426,7 +425,7 @@ class SSOAdminClient:
         self, operation_name: Literal["list_managed_policies_in_permission_set"]
     ) -> ListManagedPoliciesInPermissionSetPaginator:
         """
-        [Paginator.ListManagedPoliciesInPermissionSet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Paginator.ListManagedPoliciesInPermissionSet)
+        [Paginator.ListManagedPoliciesInPermissionSet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Paginator.ListManagedPoliciesInPermissionSet)
         """
 
     @overload
@@ -434,7 +433,7 @@ class SSOAdminClient:
         self, operation_name: Literal["list_permission_set_provisioning_status"]
     ) -> ListPermissionSetProvisioningStatusPaginator:
         """
-        [Paginator.ListPermissionSetProvisioningStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Paginator.ListPermissionSetProvisioningStatus)
+        [Paginator.ListPermissionSetProvisioningStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Paginator.ListPermissionSetProvisioningStatus)
         """
 
     @overload
@@ -442,7 +441,7 @@ class SSOAdminClient:
         self, operation_name: Literal["list_permission_sets"]
     ) -> ListPermissionSetsPaginator:
         """
-        [Paginator.ListPermissionSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Paginator.ListPermissionSets)
+        [Paginator.ListPermissionSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Paginator.ListPermissionSets)
         """
 
     @overload
@@ -450,7 +449,7 @@ class SSOAdminClient:
         self, operation_name: Literal["list_permission_sets_provisioned_to_account"]
     ) -> ListPermissionSetsProvisionedToAccountPaginator:
         """
-        [Paginator.ListPermissionSetsProvisionedToAccount documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Paginator.ListPermissionSetsProvisionedToAccount)
+        [Paginator.ListPermissionSetsProvisionedToAccount documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Paginator.ListPermissionSetsProvisionedToAccount)
         """
 
     @overload
@@ -458,5 +457,5 @@ class SSOAdminClient:
         self, operation_name: Literal["list_tags_for_resource"]
     ) -> ListTagsForResourcePaginator:
         """
-        [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sso-admin.html#SSOAdmin.Paginator.ListTagsForResource)
+        [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sso-admin.html#SSOAdmin.Paginator.ListTagsForResource)
         """

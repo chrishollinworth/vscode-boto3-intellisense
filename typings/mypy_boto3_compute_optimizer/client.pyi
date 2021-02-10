@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for compute-optimizer service client
 
@@ -19,15 +18,19 @@ from botocore.client import ClientMeta
 
 from mypy_boto3_compute_optimizer.type_defs import (
     DescribeRecommendationExportJobsResponseTypeDef,
+    EBSFilterTypeDef,
     ExportAutoScalingGroupRecommendationsResponseTypeDef,
     ExportEC2InstanceRecommendationsResponseTypeDef,
     FilterTypeDef,
     GetAutoScalingGroupRecommendationsResponseTypeDef,
+    GetEBSVolumeRecommendationsResponseTypeDef,
     GetEC2InstanceRecommendationsResponseTypeDef,
     GetEC2RecommendationProjectedMetricsResponseTypeDef,
     GetEnrollmentStatusResponseTypeDef,
+    GetLambdaFunctionRecommendationsResponseTypeDef,
     GetRecommendationSummariesResponseTypeDef,
     JobFilterTypeDef,
+    LambdaFunctionRecommendationFilterTypeDef,
     S3DestinationConfigTypeDef,
     UpdateEnrollmentStatusResponseTypeDef,
 )
@@ -64,7 +67,7 @@ class Exceptions:
 
 class ComputeOptimizerClient:
     """
-    [ComputeOptimizer.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/compute-optimizer.html#ComputeOptimizer.Client)
+    [ComputeOptimizer.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client)
     """
 
     meta: ClientMeta
@@ -72,7 +75,7 @@ class ComputeOptimizerClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/compute-optimizer.html#ComputeOptimizer.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client.can_paginate)
         """
 
     def describe_recommendation_export_jobs(
@@ -83,7 +86,7 @@ class ComputeOptimizerClient:
         maxResults: int = None,
     ) -> DescribeRecommendationExportJobsResponseTypeDef:
         """
-        [Client.describe_recommendation_export_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/compute-optimizer.html#ComputeOptimizer.Client.describe_recommendation_export_jobs)
+        [Client.describe_recommendation_export_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client.describe_recommendation_export_jobs)
         """
 
     def export_auto_scaling_group_recommendations(
@@ -136,7 +139,7 @@ class ComputeOptimizerClient:
         includeMemberAccounts: bool = None,
     ) -> ExportAutoScalingGroupRecommendationsResponseTypeDef:
         """
-        [Client.export_auto_scaling_group_recommendations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/compute-optimizer.html#ComputeOptimizer.Client.export_auto_scaling_group_recommendations)
+        [Client.export_auto_scaling_group_recommendations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client.export_auto_scaling_group_recommendations)
         """
 
     def export_ec2_instance_recommendations(
@@ -185,7 +188,7 @@ class ComputeOptimizerClient:
         includeMemberAccounts: bool = None,
     ) -> ExportEC2InstanceRecommendationsResponseTypeDef:
         """
-        [Client.export_ec2_instance_recommendations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/compute-optimizer.html#ComputeOptimizer.Client.export_ec2_instance_recommendations)
+        [Client.export_ec2_instance_recommendations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client.export_ec2_instance_recommendations)
         """
 
     def generate_presigned_url(
@@ -196,7 +199,7 @@ class ComputeOptimizerClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/compute-optimizer.html#ComputeOptimizer.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client.generate_presigned_url)
         """
 
     def get_auto_scaling_group_recommendations(
@@ -208,7 +211,19 @@ class ComputeOptimizerClient:
         filters: List[FilterTypeDef] = None,
     ) -> GetAutoScalingGroupRecommendationsResponseTypeDef:
         """
-        [Client.get_auto_scaling_group_recommendations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/compute-optimizer.html#ComputeOptimizer.Client.get_auto_scaling_group_recommendations)
+        [Client.get_auto_scaling_group_recommendations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client.get_auto_scaling_group_recommendations)
+        """
+
+    def get_ebs_volume_recommendations(
+        self,
+        volumeArns: List[str] = None,
+        nextToken: str = None,
+        maxResults: int = None,
+        filters: List[EBSFilterTypeDef] = None,
+        accountIds: List[str] = None,
+    ) -> GetEBSVolumeRecommendationsResponseTypeDef:
+        """
+        [Client.get_ebs_volume_recommendations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client.get_ebs_volume_recommendations)
         """
 
     def get_ec2_instance_recommendations(
@@ -220,7 +235,7 @@ class ComputeOptimizerClient:
         accountIds: List[str] = None,
     ) -> GetEC2InstanceRecommendationsResponseTypeDef:
         """
-        [Client.get_ec2_instance_recommendations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/compute-optimizer.html#ComputeOptimizer.Client.get_ec2_instance_recommendations)
+        [Client.get_ec2_instance_recommendations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client.get_ec2_instance_recommendations)
         """
 
     def get_ec2_recommendation_projected_metrics(
@@ -232,19 +247,31 @@ class ComputeOptimizerClient:
         endTime: datetime,
     ) -> GetEC2RecommendationProjectedMetricsResponseTypeDef:
         """
-        [Client.get_ec2_recommendation_projected_metrics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/compute-optimizer.html#ComputeOptimizer.Client.get_ec2_recommendation_projected_metrics)
+        [Client.get_ec2_recommendation_projected_metrics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client.get_ec2_recommendation_projected_metrics)
         """
 
     def get_enrollment_status(self) -> GetEnrollmentStatusResponseTypeDef:
         """
-        [Client.get_enrollment_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/compute-optimizer.html#ComputeOptimizer.Client.get_enrollment_status)
+        [Client.get_enrollment_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client.get_enrollment_status)
+        """
+
+    def get_lambda_function_recommendations(
+        self,
+        functionArns: List[str] = None,
+        accountIds: List[str] = None,
+        filters: List[LambdaFunctionRecommendationFilterTypeDef] = None,
+        nextToken: str = None,
+        maxResults: int = None,
+    ) -> GetLambdaFunctionRecommendationsResponseTypeDef:
+        """
+        [Client.get_lambda_function_recommendations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client.get_lambda_function_recommendations)
         """
 
     def get_recommendation_summaries(
         self, accountIds: List[str] = None, nextToken: str = None, maxResults: int = None
     ) -> GetRecommendationSummariesResponseTypeDef:
         """
-        [Client.get_recommendation_summaries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/compute-optimizer.html#ComputeOptimizer.Client.get_recommendation_summaries)
+        [Client.get_recommendation_summaries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client.get_recommendation_summaries)
         """
 
     def update_enrollment_status(
@@ -253,5 +280,5 @@ class ComputeOptimizerClient:
         includeMemberAccounts: bool = None,
     ) -> UpdateEnrollmentStatusResponseTypeDef:
         """
-        [Client.update_enrollment_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/compute-optimizer.html#ComputeOptimizer.Client.update_enrollment_status)
+        [Client.update_enrollment_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/compute-optimizer.html#ComputeOptimizer.Client.update_enrollment_status)
         """

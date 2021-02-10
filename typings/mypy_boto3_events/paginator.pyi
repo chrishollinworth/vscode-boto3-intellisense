@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for events service client paginators.
 
@@ -37,7 +36,7 @@ __all__ = ("ListRuleNamesByTargetPaginator", "ListRulesPaginator", "ListTargetsB
 
 class ListRuleNamesByTargetPaginator(Boto3Paginator):
     """
-    [Paginator.ListRuleNamesByTarget documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/events.html#EventBridge.Paginator.ListRuleNamesByTarget)
+    [Paginator.ListRuleNamesByTarget documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Paginator.ListRuleNamesByTarget)
     """
 
     def paginate(
@@ -47,13 +46,13 @@ class ListRuleNamesByTargetPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListRuleNamesByTargetResponseTypeDef]:
         """
-        [ListRuleNamesByTarget.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/events.html#EventBridge.Paginator.ListRuleNamesByTarget.paginate)
+        [ListRuleNamesByTarget.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Paginator.ListRuleNamesByTarget.paginate)
         """
 
 
 class ListRulesPaginator(Boto3Paginator):
     """
-    [Paginator.ListRules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/events.html#EventBridge.Paginator.ListRules)
+    [Paginator.ListRules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Paginator.ListRules)
     """
 
     def paginate(
@@ -63,18 +62,18 @@ class ListRulesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListRulesResponseTypeDef]:
         """
-        [ListRules.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/events.html#EventBridge.Paginator.ListRules.paginate)
+        [ListRules.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Paginator.ListRules.paginate)
         """
 
 
 class ListTargetsByRulePaginator(Boto3Paginator):
     """
-    [Paginator.ListTargetsByRule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/events.html#EventBridge.Paginator.ListTargetsByRule)
+    [Paginator.ListTargetsByRule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Paginator.ListTargetsByRule)
     """
 
     def paginate(
         self, Rule: str, EventBusName: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTargetsByRuleResponseTypeDef]:
         """
-        [ListTargetsByRule.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/events.html#EventBridge.Paginator.ListTargetsByRule.paginate)
+        [ListTargetsByRule.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/events.html#EventBridge.Paginator.ListTargetsByRule.paginate)
         """

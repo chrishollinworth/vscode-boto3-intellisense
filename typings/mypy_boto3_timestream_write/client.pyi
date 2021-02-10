@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for timestream-write service client
 
@@ -57,7 +56,7 @@ class Exceptions:
 
 class TimestreamWriteClient:
     """
-    [TimestreamWrite.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/timestream-write.html#TimestreamWrite.Client)
+    [TimestreamWrite.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-write.html#TimestreamWrite.Client)
     """
 
     meta: ClientMeta
@@ -65,14 +64,14 @@ class TimestreamWriteClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/timestream-write.html#TimestreamWrite.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-write.html#TimestreamWrite.Client.can_paginate)
         """
 
     def create_database(
         self, DatabaseName: str, KmsKeyId: str = None, Tags: List["TagTypeDef"] = None
     ) -> CreateDatabaseResponseTypeDef:
         """
-        [Client.create_database documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/timestream-write.html#TimestreamWrite.Client.create_database)
+        [Client.create_database documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-write.html#TimestreamWrite.Client.create_database)
         """
 
     def create_table(
@@ -83,32 +82,32 @@ class TimestreamWriteClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateTableResponseTypeDef:
         """
-        [Client.create_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/timestream-write.html#TimestreamWrite.Client.create_table)
+        [Client.create_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-write.html#TimestreamWrite.Client.create_table)
         """
 
     def delete_database(self, DatabaseName: str) -> None:
         """
-        [Client.delete_database documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/timestream-write.html#TimestreamWrite.Client.delete_database)
+        [Client.delete_database documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-write.html#TimestreamWrite.Client.delete_database)
         """
 
     def delete_table(self, DatabaseName: str, TableName: str) -> None:
         """
-        [Client.delete_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/timestream-write.html#TimestreamWrite.Client.delete_table)
+        [Client.delete_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-write.html#TimestreamWrite.Client.delete_table)
         """
 
     def describe_database(self, DatabaseName: str) -> DescribeDatabaseResponseTypeDef:
         """
-        [Client.describe_database documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/timestream-write.html#TimestreamWrite.Client.describe_database)
+        [Client.describe_database documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-write.html#TimestreamWrite.Client.describe_database)
         """
 
     def describe_endpoints(self) -> DescribeEndpointsResponseTypeDef:
         """
-        [Client.describe_endpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/timestream-write.html#TimestreamWrite.Client.describe_endpoints)
+        [Client.describe_endpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-write.html#TimestreamWrite.Client.describe_endpoints)
         """
 
     def describe_table(self, DatabaseName: str, TableName: str) -> DescribeTableResponseTypeDef:
         """
-        [Client.describe_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/timestream-write.html#TimestreamWrite.Client.describe_table)
+        [Client.describe_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-write.html#TimestreamWrite.Client.describe_table)
         """
 
     def generate_presigned_url(
@@ -119,48 +118,48 @@ class TimestreamWriteClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/timestream-write.html#TimestreamWrite.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-write.html#TimestreamWrite.Client.generate_presigned_url)
         """
 
     def list_databases(
         self, NextToken: str = None, MaxResults: int = None
     ) -> ListDatabasesResponseTypeDef:
         """
-        [Client.list_databases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/timestream-write.html#TimestreamWrite.Client.list_databases)
+        [Client.list_databases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-write.html#TimestreamWrite.Client.list_databases)
         """
 
     def list_tables(
         self, DatabaseName: str = None, NextToken: str = None, MaxResults: int = None
     ) -> ListTablesResponseTypeDef:
         """
-        [Client.list_tables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/timestream-write.html#TimestreamWrite.Client.list_tables)
+        [Client.list_tables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-write.html#TimestreamWrite.Client.list_tables)
         """
 
     def list_tags_for_resource(self, ResourceARN: str) -> ListTagsForResourceResponseTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/timestream-write.html#TimestreamWrite.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-write.html#TimestreamWrite.Client.list_tags_for_resource)
         """
 
     def tag_resource(self, ResourceARN: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/timestream-write.html#TimestreamWrite.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-write.html#TimestreamWrite.Client.tag_resource)
         """
 
     def untag_resource(self, ResourceARN: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/timestream-write.html#TimestreamWrite.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-write.html#TimestreamWrite.Client.untag_resource)
         """
 
     def update_database(self, DatabaseName: str, KmsKeyId: str) -> UpdateDatabaseResponseTypeDef:
         """
-        [Client.update_database documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/timestream-write.html#TimestreamWrite.Client.update_database)
+        [Client.update_database documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-write.html#TimestreamWrite.Client.update_database)
         """
 
     def update_table(
         self, DatabaseName: str, TableName: str, RetentionProperties: "RetentionPropertiesTypeDef"
     ) -> UpdateTableResponseTypeDef:
         """
-        [Client.update_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/timestream-write.html#TimestreamWrite.Client.update_table)
+        [Client.update_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-write.html#TimestreamWrite.Client.update_table)
         """
 
     def write_records(
@@ -171,5 +170,5 @@ class TimestreamWriteClient:
         CommonAttributes: RecordTypeDef = None,
     ) -> None:
         """
-        [Client.write_records documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/timestream-write.html#TimestreamWrite.Client.write_records)
+        [Client.write_records documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-write.html#TimestreamWrite.Client.write_records)
         """

@@ -1,4 +1,5 @@
 from mypy_boto3_iot.paginator import (
+    GetBehaviorModelTrainingSummariesPaginator,
     ListActiveViolationsPaginator,
     ListAttachedPoliciesPaginator,
     ListAuditFindingsPaginator,
@@ -11,6 +12,9 @@ from mypy_boto3_iot.paginator import (
     ListCACertificatesPaginator,
     ListCertificatesPaginator,
     ListCertificatesByCAPaginator,
+    ListCustomMetricsPaginator,
+    ListDetectMitigationActionsExecutionsPaginator,
+    ListDetectMitigationActionsTasksPaginator,
     ListDimensionsPaginator,
     ListDomainConfigurationsPaginator,
     ListIndicesPaginator,
@@ -50,6 +54,7 @@ from mypy_boto3_iot.paginator import (
 )
 
 __all__ = (
+    "GetBehaviorModelTrainingSummariesPaginator",
     "ListActiveViolationsPaginator",
     "ListAttachedPoliciesPaginator",
     "ListAuditFindingsPaginator",
@@ -62,6 +67,9 @@ __all__ = (
     "ListCACertificatesPaginator",
     "ListCertificatesPaginator",
     "ListCertificatesByCAPaginator",
+    "ListCustomMetricsPaginator",
+    "ListDetectMitigationActionsExecutionsPaginator",
+    "ListDetectMitigationActionsTasksPaginator",
     "ListDimensionsPaginator",
     "ListDomainConfigurationsPaginator",
     "ListIndicesPaginator",

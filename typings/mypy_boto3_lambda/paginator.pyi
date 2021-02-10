@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for lambda service client paginators.
 
@@ -76,7 +75,7 @@ __all__ = (
 
 class ListAliasesPaginator(Boto3Paginator):
     """
-    [Paginator.ListAliases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lambda.html#Lambda.Paginator.ListAliases)
+    [Paginator.ListAliases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lambda.html#Lambda.Paginator.ListAliases)
     """
 
     def paginate(
@@ -86,26 +85,26 @@ class ListAliasesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListAliasesResponseTypeDef]:
         """
-        [ListAliases.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lambda.html#Lambda.Paginator.ListAliases.paginate)
+        [ListAliases.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lambda.html#Lambda.Paginator.ListAliases.paginate)
         """
 
 
 class ListCodeSigningConfigsPaginator(Boto3Paginator):
     """
-    [Paginator.ListCodeSigningConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lambda.html#Lambda.Paginator.ListCodeSigningConfigs)
+    [Paginator.ListCodeSigningConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lambda.html#Lambda.Paginator.ListCodeSigningConfigs)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListCodeSigningConfigsResponseTypeDef]:
         """
-        [ListCodeSigningConfigs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lambda.html#Lambda.Paginator.ListCodeSigningConfigs.paginate)
+        [ListCodeSigningConfigs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lambda.html#Lambda.Paginator.ListCodeSigningConfigs.paginate)
         """
 
 
 class ListEventSourceMappingsPaginator(Boto3Paginator):
     """
-    [Paginator.ListEventSourceMappings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lambda.html#Lambda.Paginator.ListEventSourceMappings)
+    [Paginator.ListEventSourceMappings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lambda.html#Lambda.Paginator.ListEventSourceMappings)
     """
 
     def paginate(
@@ -115,26 +114,26 @@ class ListEventSourceMappingsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListEventSourceMappingsResponseTypeDef]:
         """
-        [ListEventSourceMappings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lambda.html#Lambda.Paginator.ListEventSourceMappings.paginate)
+        [ListEventSourceMappings.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lambda.html#Lambda.Paginator.ListEventSourceMappings.paginate)
         """
 
 
 class ListFunctionEventInvokeConfigsPaginator(Boto3Paginator):
     """
-    [Paginator.ListFunctionEventInvokeConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lambda.html#Lambda.Paginator.ListFunctionEventInvokeConfigs)
+    [Paginator.ListFunctionEventInvokeConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lambda.html#Lambda.Paginator.ListFunctionEventInvokeConfigs)
     """
 
     def paginate(
         self, FunctionName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListFunctionEventInvokeConfigsResponseTypeDef]:
         """
-        [ListFunctionEventInvokeConfigs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lambda.html#Lambda.Paginator.ListFunctionEventInvokeConfigs.paginate)
+        [ListFunctionEventInvokeConfigs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lambda.html#Lambda.Paginator.ListFunctionEventInvokeConfigs.paginate)
         """
 
 
 class ListFunctionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListFunctions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lambda.html#Lambda.Paginator.ListFunctions)
+    [Paginator.ListFunctions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lambda.html#Lambda.Paginator.ListFunctions)
     """
 
     def paginate(
@@ -144,26 +143,26 @@ class ListFunctionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListFunctionsResponseTypeDef]:
         """
-        [ListFunctions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lambda.html#Lambda.Paginator.ListFunctions.paginate)
+        [ListFunctions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lambda.html#Lambda.Paginator.ListFunctions.paginate)
         """
 
 
 class ListFunctionsByCodeSigningConfigPaginator(Boto3Paginator):
     """
-    [Paginator.ListFunctionsByCodeSigningConfig documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lambda.html#Lambda.Paginator.ListFunctionsByCodeSigningConfig)
+    [Paginator.ListFunctionsByCodeSigningConfig documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lambda.html#Lambda.Paginator.ListFunctionsByCodeSigningConfig)
     """
 
     def paginate(
         self, CodeSigningConfigArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListFunctionsByCodeSigningConfigResponseTypeDef]:
         """
-        [ListFunctionsByCodeSigningConfig.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lambda.html#Lambda.Paginator.ListFunctionsByCodeSigningConfig.paginate)
+        [ListFunctionsByCodeSigningConfig.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lambda.html#Lambda.Paginator.ListFunctionsByCodeSigningConfig.paginate)
         """
 
 
 class ListLayerVersionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListLayerVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lambda.html#Lambda.Paginator.ListLayerVersions)
+    [Paginator.ListLayerVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lambda.html#Lambda.Paginator.ListLayerVersions)
     """
 
     def paginate(
@@ -176,6 +175,7 @@ class ListLayerVersionsPaginator(Boto3Paginator):
             "nodejs8.10",
             "nodejs10.x",
             "nodejs12.x",
+            "nodejs14.x",
             "java8",
             "java8.al2",
             "java11",
@@ -197,13 +197,13 @@ class ListLayerVersionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListLayerVersionsResponseTypeDef]:
         """
-        [ListLayerVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lambda.html#Lambda.Paginator.ListLayerVersions.paginate)
+        [ListLayerVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lambda.html#Lambda.Paginator.ListLayerVersions.paginate)
         """
 
 
 class ListLayersPaginator(Boto3Paginator):
     """
-    [Paginator.ListLayers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lambda.html#Lambda.Paginator.ListLayers)
+    [Paginator.ListLayers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lambda.html#Lambda.Paginator.ListLayers)
     """
 
     def paginate(
@@ -215,6 +215,7 @@ class ListLayersPaginator(Boto3Paginator):
             "nodejs8.10",
             "nodejs10.x",
             "nodejs12.x",
+            "nodejs14.x",
             "java8",
             "java8.al2",
             "java11",
@@ -236,31 +237,31 @@ class ListLayersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListLayersResponseTypeDef]:
         """
-        [ListLayers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lambda.html#Lambda.Paginator.ListLayers.paginate)
+        [ListLayers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lambda.html#Lambda.Paginator.ListLayers.paginate)
         """
 
 
 class ListProvisionedConcurrencyConfigsPaginator(Boto3Paginator):
     """
-    [Paginator.ListProvisionedConcurrencyConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lambda.html#Lambda.Paginator.ListProvisionedConcurrencyConfigs)
+    [Paginator.ListProvisionedConcurrencyConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lambda.html#Lambda.Paginator.ListProvisionedConcurrencyConfigs)
     """
 
     def paginate(
         self, FunctionName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListProvisionedConcurrencyConfigsResponseTypeDef]:
         """
-        [ListProvisionedConcurrencyConfigs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lambda.html#Lambda.Paginator.ListProvisionedConcurrencyConfigs.paginate)
+        [ListProvisionedConcurrencyConfigs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lambda.html#Lambda.Paginator.ListProvisionedConcurrencyConfigs.paginate)
         """
 
 
 class ListVersionsByFunctionPaginator(Boto3Paginator):
     """
-    [Paginator.ListVersionsByFunction documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lambda.html#Lambda.Paginator.ListVersionsByFunction)
+    [Paginator.ListVersionsByFunction documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lambda.html#Lambda.Paginator.ListVersionsByFunction)
     """
 
     def paginate(
         self, FunctionName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListVersionsByFunctionResponseTypeDef]:
         """
-        [ListVersionsByFunction.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lambda.html#Lambda.Paginator.ListVersionsByFunction.paginate)
+        [ListVersionsByFunction.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lambda.html#Lambda.Paginator.ListVersionsByFunction.paginate)
         """

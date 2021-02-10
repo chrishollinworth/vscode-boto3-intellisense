@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for eks service client
 
@@ -103,7 +102,7 @@ class Exceptions:
 
 class EKSClient:
     """
-    [EKS.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/eks.html#EKS.Client)
+    [EKS.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/eks.html#EKS.Client)
     """
 
     meta: ClientMeta
@@ -111,7 +110,7 @@ class EKSClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/eks.html#EKS.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/eks.html#EKS.Client.can_paginate)
         """
 
     def create_addon(
@@ -125,7 +124,7 @@ class EKSClient:
         tags: Dict[str, str] = None,
     ) -> CreateAddonResponseTypeDef:
         """
-        [Client.create_addon documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/eks.html#EKS.Client.create_addon)
+        [Client.create_addon documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/eks.html#EKS.Client.create_addon)
         """
 
     def create_cluster(
@@ -141,7 +140,7 @@ class EKSClient:
         encryptionConfig: List["EncryptionConfigTypeDef"] = None,
     ) -> CreateClusterResponseTypeDef:
         """
-        [Client.create_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/eks.html#EKS.Client.create_cluster)
+        [Client.create_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/eks.html#EKS.Client.create_cluster)
         """
 
     def create_fargate_profile(
@@ -155,7 +154,7 @@ class EKSClient:
         tags: Dict[str, str] = None,
     ) -> CreateFargateProfileResponseTypeDef:
         """
-        [Client.create_fargate_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/eks.html#EKS.Client.create_fargate_profile)
+        [Client.create_fargate_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/eks.html#EKS.Client.create_fargate_profile)
         """
 
     def create_nodegroup(
@@ -178,36 +177,36 @@ class EKSClient:
         releaseVersion: str = None,
     ) -> CreateNodegroupResponseTypeDef:
         """
-        [Client.create_nodegroup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/eks.html#EKS.Client.create_nodegroup)
+        [Client.create_nodegroup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/eks.html#EKS.Client.create_nodegroup)
         """
 
     def delete_addon(self, clusterName: str, addonName: str) -> DeleteAddonResponseTypeDef:
         """
-        [Client.delete_addon documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/eks.html#EKS.Client.delete_addon)
+        [Client.delete_addon documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/eks.html#EKS.Client.delete_addon)
         """
 
     def delete_cluster(self, name: str) -> DeleteClusterResponseTypeDef:
         """
-        [Client.delete_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/eks.html#EKS.Client.delete_cluster)
+        [Client.delete_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/eks.html#EKS.Client.delete_cluster)
         """
 
     def delete_fargate_profile(
         self, clusterName: str, fargateProfileName: str
     ) -> DeleteFargateProfileResponseTypeDef:
         """
-        [Client.delete_fargate_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/eks.html#EKS.Client.delete_fargate_profile)
+        [Client.delete_fargate_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/eks.html#EKS.Client.delete_fargate_profile)
         """
 
     def delete_nodegroup(
         self, clusterName: str, nodegroupName: str
     ) -> DeleteNodegroupResponseTypeDef:
         """
-        [Client.delete_nodegroup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/eks.html#EKS.Client.delete_nodegroup)
+        [Client.delete_nodegroup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/eks.html#EKS.Client.delete_nodegroup)
         """
 
     def describe_addon(self, clusterName: str, addonName: str) -> DescribeAddonResponseTypeDef:
         """
-        [Client.describe_addon documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/eks.html#EKS.Client.describe_addon)
+        [Client.describe_addon documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/eks.html#EKS.Client.describe_addon)
         """
 
     def describe_addon_versions(
@@ -218,33 +217,33 @@ class EKSClient:
         addonName: str = None,
     ) -> DescribeAddonVersionsResponseTypeDef:
         """
-        [Client.describe_addon_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/eks.html#EKS.Client.describe_addon_versions)
+        [Client.describe_addon_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/eks.html#EKS.Client.describe_addon_versions)
         """
 
     def describe_cluster(self, name: str) -> DescribeClusterResponseTypeDef:
         """
-        [Client.describe_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/eks.html#EKS.Client.describe_cluster)
+        [Client.describe_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/eks.html#EKS.Client.describe_cluster)
         """
 
     def describe_fargate_profile(
         self, clusterName: str, fargateProfileName: str
     ) -> DescribeFargateProfileResponseTypeDef:
         """
-        [Client.describe_fargate_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/eks.html#EKS.Client.describe_fargate_profile)
+        [Client.describe_fargate_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/eks.html#EKS.Client.describe_fargate_profile)
         """
 
     def describe_nodegroup(
         self, clusterName: str, nodegroupName: str
     ) -> DescribeNodegroupResponseTypeDef:
         """
-        [Client.describe_nodegroup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/eks.html#EKS.Client.describe_nodegroup)
+        [Client.describe_nodegroup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/eks.html#EKS.Client.describe_nodegroup)
         """
 
     def describe_update(
         self, name: str, updateId: str, nodegroupName: str = None, addonName: str = None
     ) -> DescribeUpdateResponseTypeDef:
         """
-        [Client.describe_update documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/eks.html#EKS.Client.describe_update)
+        [Client.describe_update documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/eks.html#EKS.Client.describe_update)
         """
 
     def generate_presigned_url(
@@ -255,40 +254,40 @@ class EKSClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/eks.html#EKS.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/eks.html#EKS.Client.generate_presigned_url)
         """
 
     def list_addons(
         self, clusterName: str, maxResults: int = None, nextToken: str = None
     ) -> ListAddonsResponseTypeDef:
         """
-        [Client.list_addons documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/eks.html#EKS.Client.list_addons)
+        [Client.list_addons documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/eks.html#EKS.Client.list_addons)
         """
 
     def list_clusters(
         self, maxResults: int = None, nextToken: str = None
     ) -> ListClustersResponseTypeDef:
         """
-        [Client.list_clusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/eks.html#EKS.Client.list_clusters)
+        [Client.list_clusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/eks.html#EKS.Client.list_clusters)
         """
 
     def list_fargate_profiles(
         self, clusterName: str, maxResults: int = None, nextToken: str = None
     ) -> ListFargateProfilesResponseTypeDef:
         """
-        [Client.list_fargate_profiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/eks.html#EKS.Client.list_fargate_profiles)
+        [Client.list_fargate_profiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/eks.html#EKS.Client.list_fargate_profiles)
         """
 
     def list_nodegroups(
         self, clusterName: str, maxResults: int = None, nextToken: str = None
     ) -> ListNodegroupsResponseTypeDef:
         """
-        [Client.list_nodegroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/eks.html#EKS.Client.list_nodegroups)
+        [Client.list_nodegroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/eks.html#EKS.Client.list_nodegroups)
         """
 
     def list_tags_for_resource(self, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/eks.html#EKS.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/eks.html#EKS.Client.list_tags_for_resource)
         """
 
     def list_updates(
@@ -300,17 +299,17 @@ class EKSClient:
         maxResults: int = None,
     ) -> ListUpdatesResponseTypeDef:
         """
-        [Client.list_updates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/eks.html#EKS.Client.list_updates)
+        [Client.list_updates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/eks.html#EKS.Client.list_updates)
         """
 
     def tag_resource(self, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/eks.html#EKS.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/eks.html#EKS.Client.tag_resource)
         """
 
     def untag_resource(self, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/eks.html#EKS.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/eks.html#EKS.Client.untag_resource)
         """
 
     def update_addon(
@@ -323,7 +322,7 @@ class EKSClient:
         clientRequestToken: str = None,
     ) -> UpdateAddonResponseTypeDef:
         """
-        [Client.update_addon documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/eks.html#EKS.Client.update_addon)
+        [Client.update_addon documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/eks.html#EKS.Client.update_addon)
         """
 
     def update_cluster_config(
@@ -334,14 +333,14 @@ class EKSClient:
         clientRequestToken: str = None,
     ) -> UpdateClusterConfigResponseTypeDef:
         """
-        [Client.update_cluster_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/eks.html#EKS.Client.update_cluster_config)
+        [Client.update_cluster_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/eks.html#EKS.Client.update_cluster_config)
         """
 
     def update_cluster_version(
         self, name: str, version: str, clientRequestToken: str = None
     ) -> UpdateClusterVersionResponseTypeDef:
         """
-        [Client.update_cluster_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/eks.html#EKS.Client.update_cluster_version)
+        [Client.update_cluster_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/eks.html#EKS.Client.update_cluster_version)
         """
 
     def update_nodegroup_config(
@@ -353,7 +352,7 @@ class EKSClient:
         clientRequestToken: str = None,
     ) -> UpdateNodegroupConfigResponseTypeDef:
         """
-        [Client.update_nodegroup_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/eks.html#EKS.Client.update_nodegroup_config)
+        [Client.update_nodegroup_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/eks.html#EKS.Client.update_nodegroup_config)
         """
 
     def update_nodegroup_version(
@@ -367,7 +366,7 @@ class EKSClient:
         clientRequestToken: str = None,
     ) -> UpdateNodegroupVersionResponseTypeDef:
         """
-        [Client.update_nodegroup_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/eks.html#EKS.Client.update_nodegroup_version)
+        [Client.update_nodegroup_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/eks.html#EKS.Client.update_nodegroup_version)
         """
 
     @overload
@@ -375,19 +374,19 @@ class EKSClient:
         self, operation_name: Literal["describe_addon_versions"]
     ) -> DescribeAddonVersionsPaginator:
         """
-        [Paginator.DescribeAddonVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/eks.html#EKS.Paginator.DescribeAddonVersions)
+        [Paginator.DescribeAddonVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/eks.html#EKS.Paginator.DescribeAddonVersions)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_addons"]) -> ListAddonsPaginator:
         """
-        [Paginator.ListAddons documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/eks.html#EKS.Paginator.ListAddons)
+        [Paginator.ListAddons documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/eks.html#EKS.Paginator.ListAddons)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_clusters"]) -> ListClustersPaginator:
         """
-        [Paginator.ListClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/eks.html#EKS.Paginator.ListClusters)
+        [Paginator.ListClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/eks.html#EKS.Paginator.ListClusters)
         """
 
     @overload
@@ -395,53 +394,53 @@ class EKSClient:
         self, operation_name: Literal["list_fargate_profiles"]
     ) -> ListFargateProfilesPaginator:
         """
-        [Paginator.ListFargateProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/eks.html#EKS.Paginator.ListFargateProfiles)
+        [Paginator.ListFargateProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/eks.html#EKS.Paginator.ListFargateProfiles)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_nodegroups"]) -> ListNodegroupsPaginator:
         """
-        [Paginator.ListNodegroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/eks.html#EKS.Paginator.ListNodegroups)
+        [Paginator.ListNodegroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/eks.html#EKS.Paginator.ListNodegroups)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_updates"]) -> ListUpdatesPaginator:
         """
-        [Paginator.ListUpdates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/eks.html#EKS.Paginator.ListUpdates)
+        [Paginator.ListUpdates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/eks.html#EKS.Paginator.ListUpdates)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["addon_active"]) -> AddonActiveWaiter:
         """
-        [Waiter.AddonActive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/eks.html#EKS.Waiter.AddonActive)
+        [Waiter.AddonActive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/eks.html#EKS.Waiter.AddonActive)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["addon_deleted"]) -> AddonDeletedWaiter:
         """
-        [Waiter.AddonDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/eks.html#EKS.Waiter.AddonDeleted)
+        [Waiter.AddonDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/eks.html#EKS.Waiter.AddonDeleted)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["cluster_active"]) -> ClusterActiveWaiter:
         """
-        [Waiter.ClusterActive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/eks.html#EKS.Waiter.ClusterActive)
+        [Waiter.ClusterActive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/eks.html#EKS.Waiter.ClusterActive)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["cluster_deleted"]) -> ClusterDeletedWaiter:
         """
-        [Waiter.ClusterDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/eks.html#EKS.Waiter.ClusterDeleted)
+        [Waiter.ClusterDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/eks.html#EKS.Waiter.ClusterDeleted)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["nodegroup_active"]) -> NodegroupActiveWaiter:
         """
-        [Waiter.NodegroupActive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/eks.html#EKS.Waiter.NodegroupActive)
+        [Waiter.NodegroupActive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/eks.html#EKS.Waiter.NodegroupActive)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["nodegroup_deleted"]) -> NodegroupDeletedWaiter:
         """
-        [Waiter.NodegroupDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/eks.html#EKS.Waiter.NodegroupDeleted)
+        [Waiter.NodegroupDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/eks.html#EKS.Waiter.NodegroupDeleted)
         """

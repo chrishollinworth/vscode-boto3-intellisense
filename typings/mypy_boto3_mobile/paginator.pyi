@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for mobile service client paginators.
 
@@ -34,25 +33,25 @@ __all__ = ("ListBundlesPaginator", "ListProjectsPaginator")
 
 class ListBundlesPaginator(Boto3Paginator):
     """
-    [Paginator.ListBundles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mobile.html#Mobile.Paginator.ListBundles)
+    [Paginator.ListBundles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mobile.html#Mobile.Paginator.ListBundles)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListBundlesResultTypeDef]:
         """
-        [ListBundles.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mobile.html#Mobile.Paginator.ListBundles.paginate)
+        [ListBundles.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mobile.html#Mobile.Paginator.ListBundles.paginate)
         """
 
 
 class ListProjectsPaginator(Boto3Paginator):
     """
-    [Paginator.ListProjects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mobile.html#Mobile.Paginator.ListProjects)
+    [Paginator.ListProjects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mobile.html#Mobile.Paginator.ListProjects)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListProjectsResultTypeDef]:
         """
-        [ListProjects.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mobile.html#Mobile.Paginator.ListProjects.paginate)
+        [ListProjects.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mobile.html#Mobile.Paginator.ListProjects.paginate)
         """

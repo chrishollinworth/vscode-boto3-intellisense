@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for sagemaker-a2i-runtime service client
 
@@ -55,7 +54,7 @@ class Exceptions:
 
 class AugmentedAIRuntimeClient:
     """
-    [AugmentedAIRuntime.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker-a2i-runtime.html#AugmentedAIRuntime.Client)
+    [AugmentedAIRuntime.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker-a2i-runtime.html#AugmentedAIRuntime.Client)
     """
 
     meta: ClientMeta
@@ -63,17 +62,17 @@ class AugmentedAIRuntimeClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker-a2i-runtime.html#AugmentedAIRuntime.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker-a2i-runtime.html#AugmentedAIRuntime.Client.can_paginate)
         """
 
     def delete_human_loop(self, HumanLoopName: str) -> Dict[str, Any]:
         """
-        [Client.delete_human_loop documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker-a2i-runtime.html#AugmentedAIRuntime.Client.delete_human_loop)
+        [Client.delete_human_loop documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker-a2i-runtime.html#AugmentedAIRuntime.Client.delete_human_loop)
         """
 
     def describe_human_loop(self, HumanLoopName: str) -> DescribeHumanLoopResponseTypeDef:
         """
-        [Client.describe_human_loop documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker-a2i-runtime.html#AugmentedAIRuntime.Client.describe_human_loop)
+        [Client.describe_human_loop documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker-a2i-runtime.html#AugmentedAIRuntime.Client.describe_human_loop)
         """
 
     def generate_presigned_url(
@@ -84,7 +83,7 @@ class AugmentedAIRuntimeClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker-a2i-runtime.html#AugmentedAIRuntime.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker-a2i-runtime.html#AugmentedAIRuntime.Client.generate_presigned_url)
         """
 
     def list_human_loops(
@@ -97,7 +96,7 @@ class AugmentedAIRuntimeClient:
         MaxResults: int = None,
     ) -> ListHumanLoopsResponseTypeDef:
         """
-        [Client.list_human_loops documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker-a2i-runtime.html#AugmentedAIRuntime.Client.list_human_loops)
+        [Client.list_human_loops documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker-a2i-runtime.html#AugmentedAIRuntime.Client.list_human_loops)
         """
 
     def start_human_loop(
@@ -108,15 +107,15 @@ class AugmentedAIRuntimeClient:
         DataAttributes: HumanLoopDataAttributesTypeDef = None,
     ) -> StartHumanLoopResponseTypeDef:
         """
-        [Client.start_human_loop documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker-a2i-runtime.html#AugmentedAIRuntime.Client.start_human_loop)
+        [Client.start_human_loop documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker-a2i-runtime.html#AugmentedAIRuntime.Client.start_human_loop)
         """
 
     def stop_human_loop(self, HumanLoopName: str) -> Dict[str, Any]:
         """
-        [Client.stop_human_loop documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker-a2i-runtime.html#AugmentedAIRuntime.Client.stop_human_loop)
+        [Client.stop_human_loop documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker-a2i-runtime.html#AugmentedAIRuntime.Client.stop_human_loop)
         """
 
     def get_paginator(self, operation_name: Literal["list_human_loops"]) -> ListHumanLoopsPaginator:
         """
-        [Paginator.ListHumanLoops documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker-a2i-runtime.html#AugmentedAIRuntime.Paginator.ListHumanLoops)
+        [Paginator.ListHumanLoops documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker-a2i-runtime.html#AugmentedAIRuntime.Paginator.ListHumanLoops)
         """

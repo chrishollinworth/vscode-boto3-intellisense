@@ -4,13 +4,13 @@ Main interface for qldb-session service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_qldb_session.type_defs import CommitTransactionResultTypeDef
+    from mypy_boto3_qldb_session.type_defs import AbortTransactionResultTypeDef
 
-    data: CommitTransactionResultTypeDef = {...}
+    data: AbortTransactionResultTypeDef = {...}
     ```
 """
 import sys
-from typing import IO, Any, Dict, List, Union
+from typing import IO, List, Union
 
 if sys.version_info >= (3, 8):
     from typing import TypedDict
@@ -19,12 +19,16 @@ else:
 
 
 __all__ = (
+    "AbortTransactionResultTypeDef",
     "CommitTransactionResultTypeDef",
+    "EndSessionResultTypeDef",
     "ExecuteStatementResultTypeDef",
     "FetchPageResultTypeDef",
+    "IOUsageTypeDef",
     "PageTypeDef",
     "StartSessionResultTypeDef",
     "StartTransactionResultTypeDef",
+    "TimingInformationTypeDef",
     "ValueHolderTypeDef",
     "CommitTransactionRequestTypeDef",
     "ExecuteStatementRequestTypeDef",
@@ -33,28 +37,65 @@ __all__ = (
     "StartSessionRequestTypeDef",
 )
 
+AbortTransactionResultTypeDef = TypedDict(
+    "AbortTransactionResultTypeDef", {"TimingInformation": "TimingInformationTypeDef"}, total=False
+)
+
 CommitTransactionResultTypeDef = TypedDict(
     "CommitTransactionResultTypeDef",
-    {"TransactionId": str, "CommitDigest": Union[bytes, IO[bytes]]},
+    {
+        "TransactionId": str,
+        "CommitDigest": Union[bytes, IO[bytes]],
+        "TimingInformation": "TimingInformationTypeDef",
+        "ConsumedIOs": "IOUsageTypeDef",
+    },
     total=False,
 )
 
-ExecuteStatementResultTypeDef = TypedDict(
-    "ExecuteStatementResultTypeDef", {"FirstPage": "PageTypeDef"}, total=False
+EndSessionResultTypeDef = TypedDict(
+    "EndSessionResultTypeDef", {"TimingInformation": "TimingInformationTypeDef"}, total=False
 )
 
-FetchPageResultTypeDef = TypedDict("FetchPageResultTypeDef", {"Page": "PageTypeDef"}, total=False)
+ExecuteStatementResultTypeDef = TypedDict(
+    "ExecuteStatementResultTypeDef",
+    {
+        "FirstPage": "PageTypeDef",
+        "TimingInformation": "TimingInformationTypeDef",
+        "ConsumedIOs": "IOUsageTypeDef",
+    },
+    total=False,
+)
+
+FetchPageResultTypeDef = TypedDict(
+    "FetchPageResultTypeDef",
+    {
+        "Page": "PageTypeDef",
+        "TimingInformation": "TimingInformationTypeDef",
+        "ConsumedIOs": "IOUsageTypeDef",
+    },
+    total=False,
+)
+
+IOUsageTypeDef = TypedDict("IOUsageTypeDef", {"ReadIOs": int, "WriteIOs": int}, total=False)
 
 PageTypeDef = TypedDict(
     "PageTypeDef", {"Values": List["ValueHolderTypeDef"], "NextPageToken": str}, total=False
 )
 
 StartSessionResultTypeDef = TypedDict(
-    "StartSessionResultTypeDef", {"SessionToken": str}, total=False
+    "StartSessionResultTypeDef",
+    {"SessionToken": str, "TimingInformation": "TimingInformationTypeDef"},
+    total=False,
 )
 
 StartTransactionResultTypeDef = TypedDict(
-    "StartTransactionResultTypeDef", {"TransactionId": str}, total=False
+    "StartTransactionResultTypeDef",
+    {"TransactionId": str, "TimingInformation": "TimingInformationTypeDef"},
+    total=False,
+)
+
+TimingInformationTypeDef = TypedDict(
+    "TimingInformationTypeDef", {"ProcessingTimeMilliseconds": int}, total=False
 )
 
 ValueHolderTypeDef = TypedDict(
@@ -91,9 +132,9 @@ SendCommandResultTypeDef = TypedDict(
     {
         "StartSession": "StartSessionResultTypeDef",
         "StartTransaction": "StartTransactionResultTypeDef",
-        "EndSession": Dict[str, Any],
+        "EndSession": "EndSessionResultTypeDef",
         "CommitTransaction": "CommitTransactionResultTypeDef",
-        "AbortTransaction": Dict[str, Any],
+        "AbortTransaction": "AbortTransactionResultTypeDef",
         "ExecuteStatement": "ExecuteStatementResultTypeDef",
         "FetchPage": "FetchPageResultTypeDef",
     },

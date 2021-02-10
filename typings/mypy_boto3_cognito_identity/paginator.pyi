@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for cognito-identity service client paginators.
 
@@ -31,12 +30,12 @@ __all__ = ("ListIdentityPoolsPaginator",)
 
 class ListIdentityPoolsPaginator(Boto3Paginator):
     """
-    [Paginator.ListIdentityPools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cognito-identity.html#CognitoIdentity.Paginator.ListIdentityPools)
+    [Paginator.ListIdentityPools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-identity.html#CognitoIdentity.Paginator.ListIdentityPools)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListIdentityPoolsResponseTypeDef]:
         """
-        [ListIdentityPools.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cognito-identity.html#CognitoIdentity.Paginator.ListIdentityPools.paginate)
+        [ListIdentityPools.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-identity.html#CognitoIdentity.Paginator.ListIdentityPools.paginate)
         """

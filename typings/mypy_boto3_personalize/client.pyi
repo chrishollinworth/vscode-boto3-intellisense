@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for personalize service client
 
@@ -102,7 +101,7 @@ class Exceptions:
 
 class PersonalizeClient:
     """
-    [Personalize.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Client)
+    [Personalize.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Client)
     """
 
     meta: ClientMeta
@@ -110,7 +109,7 @@ class PersonalizeClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Client.can_paginate)
         """
 
     def create_batch_inference_job(
@@ -125,7 +124,7 @@ class PersonalizeClient:
         batchInferenceJobConfig: "BatchInferenceJobConfigTypeDef" = None,
     ) -> CreateBatchInferenceJobResponseTypeDef:
         """
-        [Client.create_batch_inference_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Client.create_batch_inference_job)
+        [Client.create_batch_inference_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Client.create_batch_inference_job)
         """
 
     def create_campaign(
@@ -136,47 +135,47 @@ class PersonalizeClient:
         campaignConfig: "CampaignConfigTypeDef" = None,
     ) -> CreateCampaignResponseTypeDef:
         """
-        [Client.create_campaign documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Client.create_campaign)
+        [Client.create_campaign documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Client.create_campaign)
         """
 
     def create_dataset(
         self, name: str, schemaArn: str, datasetGroupArn: str, datasetType: str
     ) -> CreateDatasetResponseTypeDef:
         """
-        [Client.create_dataset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Client.create_dataset)
+        [Client.create_dataset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Client.create_dataset)
         """
 
     def create_dataset_group(
         self, name: str, roleArn: str = None, kmsKeyArn: str = None
     ) -> CreateDatasetGroupResponseTypeDef:
         """
-        [Client.create_dataset_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Client.create_dataset_group)
+        [Client.create_dataset_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Client.create_dataset_group)
         """
 
     def create_dataset_import_job(
         self, jobName: str, datasetArn: str, dataSource: "DataSourceTypeDef", roleArn: str
     ) -> CreateDatasetImportJobResponseTypeDef:
         """
-        [Client.create_dataset_import_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Client.create_dataset_import_job)
+        [Client.create_dataset_import_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Client.create_dataset_import_job)
         """
 
     def create_event_tracker(
         self, name: str, datasetGroupArn: str
     ) -> CreateEventTrackerResponseTypeDef:
         """
-        [Client.create_event_tracker documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Client.create_event_tracker)
+        [Client.create_event_tracker documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Client.create_event_tracker)
         """
 
     def create_filter(
         self, name: str, datasetGroupArn: str, filterExpression: str
     ) -> CreateFilterResponseTypeDef:
         """
-        [Client.create_filter documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Client.create_filter)
+        [Client.create_filter documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Client.create_filter)
         """
 
     def create_schema(self, name: str, schema: str) -> CreateSchemaResponseTypeDef:
         """
-        [Client.create_schema documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Client.create_schema)
+        [Client.create_schema documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Client.create_schema)
         """
 
     def create_solution(
@@ -190,122 +189,122 @@ class PersonalizeClient:
         solutionConfig: "SolutionConfigTypeDef" = None,
     ) -> CreateSolutionResponseTypeDef:
         """
-        [Client.create_solution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Client.create_solution)
+        [Client.create_solution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Client.create_solution)
         """
 
     def create_solution_version(
         self, solutionArn: str, trainingMode: Literal["FULL", "UPDATE"] = None
     ) -> CreateSolutionVersionResponseTypeDef:
         """
-        [Client.create_solution_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Client.create_solution_version)
+        [Client.create_solution_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Client.create_solution_version)
         """
 
     def delete_campaign(self, campaignArn: str) -> None:
         """
-        [Client.delete_campaign documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Client.delete_campaign)
+        [Client.delete_campaign documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Client.delete_campaign)
         """
 
     def delete_dataset(self, datasetArn: str) -> None:
         """
-        [Client.delete_dataset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Client.delete_dataset)
+        [Client.delete_dataset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Client.delete_dataset)
         """
 
     def delete_dataset_group(self, datasetGroupArn: str) -> None:
         """
-        [Client.delete_dataset_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Client.delete_dataset_group)
+        [Client.delete_dataset_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Client.delete_dataset_group)
         """
 
     def delete_event_tracker(self, eventTrackerArn: str) -> None:
         """
-        [Client.delete_event_tracker documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Client.delete_event_tracker)
+        [Client.delete_event_tracker documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Client.delete_event_tracker)
         """
 
     def delete_filter(self, filterArn: str) -> None:
         """
-        [Client.delete_filter documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Client.delete_filter)
+        [Client.delete_filter documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Client.delete_filter)
         """
 
     def delete_schema(self, schemaArn: str) -> None:
         """
-        [Client.delete_schema documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Client.delete_schema)
+        [Client.delete_schema documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Client.delete_schema)
         """
 
     def delete_solution(self, solutionArn: str) -> None:
         """
-        [Client.delete_solution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Client.delete_solution)
+        [Client.delete_solution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Client.delete_solution)
         """
 
     def describe_algorithm(self, algorithmArn: str) -> DescribeAlgorithmResponseTypeDef:
         """
-        [Client.describe_algorithm documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Client.describe_algorithm)
+        [Client.describe_algorithm documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Client.describe_algorithm)
         """
 
     def describe_batch_inference_job(
         self, batchInferenceJobArn: str
     ) -> DescribeBatchInferenceJobResponseTypeDef:
         """
-        [Client.describe_batch_inference_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Client.describe_batch_inference_job)
+        [Client.describe_batch_inference_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Client.describe_batch_inference_job)
         """
 
     def describe_campaign(self, campaignArn: str) -> DescribeCampaignResponseTypeDef:
         """
-        [Client.describe_campaign documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Client.describe_campaign)
+        [Client.describe_campaign documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Client.describe_campaign)
         """
 
     def describe_dataset(self, datasetArn: str) -> DescribeDatasetResponseTypeDef:
         """
-        [Client.describe_dataset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Client.describe_dataset)
+        [Client.describe_dataset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Client.describe_dataset)
         """
 
     def describe_dataset_group(self, datasetGroupArn: str) -> DescribeDatasetGroupResponseTypeDef:
         """
-        [Client.describe_dataset_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Client.describe_dataset_group)
+        [Client.describe_dataset_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Client.describe_dataset_group)
         """
 
     def describe_dataset_import_job(
         self, datasetImportJobArn: str
     ) -> DescribeDatasetImportJobResponseTypeDef:
         """
-        [Client.describe_dataset_import_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Client.describe_dataset_import_job)
+        [Client.describe_dataset_import_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Client.describe_dataset_import_job)
         """
 
     def describe_event_tracker(self, eventTrackerArn: str) -> DescribeEventTrackerResponseTypeDef:
         """
-        [Client.describe_event_tracker documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Client.describe_event_tracker)
+        [Client.describe_event_tracker documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Client.describe_event_tracker)
         """
 
     def describe_feature_transformation(
         self, featureTransformationArn: str
     ) -> DescribeFeatureTransformationResponseTypeDef:
         """
-        [Client.describe_feature_transformation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Client.describe_feature_transformation)
+        [Client.describe_feature_transformation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Client.describe_feature_transformation)
         """
 
     def describe_filter(self, filterArn: str) -> DescribeFilterResponseTypeDef:
         """
-        [Client.describe_filter documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Client.describe_filter)
+        [Client.describe_filter documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Client.describe_filter)
         """
 
     def describe_recipe(self, recipeArn: str) -> DescribeRecipeResponseTypeDef:
         """
-        [Client.describe_recipe documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Client.describe_recipe)
+        [Client.describe_recipe documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Client.describe_recipe)
         """
 
     def describe_schema(self, schemaArn: str) -> DescribeSchemaResponseTypeDef:
         """
-        [Client.describe_schema documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Client.describe_schema)
+        [Client.describe_schema documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Client.describe_schema)
         """
 
     def describe_solution(self, solutionArn: str) -> DescribeSolutionResponseTypeDef:
         """
-        [Client.describe_solution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Client.describe_solution)
+        [Client.describe_solution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Client.describe_solution)
         """
 
     def describe_solution_version(
         self, solutionVersionArn: str
     ) -> DescribeSolutionVersionResponseTypeDef:
         """
-        [Client.describe_solution_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Client.describe_solution_version)
+        [Client.describe_solution_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Client.describe_solution_version)
         """
 
     def generate_presigned_url(
@@ -316,61 +315,61 @@ class PersonalizeClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Client.generate_presigned_url)
         """
 
     def get_solution_metrics(self, solutionVersionArn: str) -> GetSolutionMetricsResponseTypeDef:
         """
-        [Client.get_solution_metrics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Client.get_solution_metrics)
+        [Client.get_solution_metrics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Client.get_solution_metrics)
         """
 
     def list_batch_inference_jobs(
         self, solutionVersionArn: str = None, nextToken: str = None, maxResults: int = None
     ) -> ListBatchInferenceJobsResponseTypeDef:
         """
-        [Client.list_batch_inference_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Client.list_batch_inference_jobs)
+        [Client.list_batch_inference_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Client.list_batch_inference_jobs)
         """
 
     def list_campaigns(
         self, solutionArn: str = None, nextToken: str = None, maxResults: int = None
     ) -> ListCampaignsResponseTypeDef:
         """
-        [Client.list_campaigns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Client.list_campaigns)
+        [Client.list_campaigns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Client.list_campaigns)
         """
 
     def list_dataset_groups(
         self, nextToken: str = None, maxResults: int = None
     ) -> ListDatasetGroupsResponseTypeDef:
         """
-        [Client.list_dataset_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Client.list_dataset_groups)
+        [Client.list_dataset_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Client.list_dataset_groups)
         """
 
     def list_dataset_import_jobs(
         self, datasetArn: str = None, nextToken: str = None, maxResults: int = None
     ) -> ListDatasetImportJobsResponseTypeDef:
         """
-        [Client.list_dataset_import_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Client.list_dataset_import_jobs)
+        [Client.list_dataset_import_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Client.list_dataset_import_jobs)
         """
 
     def list_datasets(
         self, datasetGroupArn: str = None, nextToken: str = None, maxResults: int = None
     ) -> ListDatasetsResponseTypeDef:
         """
-        [Client.list_datasets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Client.list_datasets)
+        [Client.list_datasets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Client.list_datasets)
         """
 
     def list_event_trackers(
         self, datasetGroupArn: str = None, nextToken: str = None, maxResults: int = None
     ) -> ListEventTrackersResponseTypeDef:
         """
-        [Client.list_event_trackers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Client.list_event_trackers)
+        [Client.list_event_trackers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Client.list_event_trackers)
         """
 
     def list_filters(
         self, datasetGroupArn: str = None, nextToken: str = None, maxResults: int = None
     ) -> ListFiltersResponseTypeDef:
         """
-        [Client.list_filters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Client.list_filters)
+        [Client.list_filters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Client.list_filters)
         """
 
     def list_recipes(
@@ -380,28 +379,28 @@ class PersonalizeClient:
         maxResults: int = None,
     ) -> ListRecipesResponseTypeDef:
         """
-        [Client.list_recipes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Client.list_recipes)
+        [Client.list_recipes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Client.list_recipes)
         """
 
     def list_schemas(
         self, nextToken: str = None, maxResults: int = None
     ) -> ListSchemasResponseTypeDef:
         """
-        [Client.list_schemas documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Client.list_schemas)
+        [Client.list_schemas documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Client.list_schemas)
         """
 
     def list_solution_versions(
         self, solutionArn: str = None, nextToken: str = None, maxResults: int = None
     ) -> ListSolutionVersionsResponseTypeDef:
         """
-        [Client.list_solution_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Client.list_solution_versions)
+        [Client.list_solution_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Client.list_solution_versions)
         """
 
     def list_solutions(
         self, datasetGroupArn: str = None, nextToken: str = None, maxResults: int = None
     ) -> ListSolutionsResponseTypeDef:
         """
-        [Client.list_solutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Client.list_solutions)
+        [Client.list_solutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Client.list_solutions)
         """
 
     def update_campaign(
@@ -412,7 +411,7 @@ class PersonalizeClient:
         campaignConfig: "CampaignConfigTypeDef" = None,
     ) -> UpdateCampaignResponseTypeDef:
         """
-        [Client.update_campaign documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Client.update_campaign)
+        [Client.update_campaign documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Client.update_campaign)
         """
 
     @overload
@@ -420,13 +419,13 @@ class PersonalizeClient:
         self, operation_name: Literal["list_batch_inference_jobs"]
     ) -> ListBatchInferenceJobsPaginator:
         """
-        [Paginator.ListBatchInferenceJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Paginator.ListBatchInferenceJobs)
+        [Paginator.ListBatchInferenceJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Paginator.ListBatchInferenceJobs)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_campaigns"]) -> ListCampaignsPaginator:
         """
-        [Paginator.ListCampaigns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Paginator.ListCampaigns)
+        [Paginator.ListCampaigns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Paginator.ListCampaigns)
         """
 
     @overload
@@ -434,7 +433,7 @@ class PersonalizeClient:
         self, operation_name: Literal["list_dataset_groups"]
     ) -> ListDatasetGroupsPaginator:
         """
-        [Paginator.ListDatasetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Paginator.ListDatasetGroups)
+        [Paginator.ListDatasetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Paginator.ListDatasetGroups)
         """
 
     @overload
@@ -442,13 +441,13 @@ class PersonalizeClient:
         self, operation_name: Literal["list_dataset_import_jobs"]
     ) -> ListDatasetImportJobsPaginator:
         """
-        [Paginator.ListDatasetImportJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Paginator.ListDatasetImportJobs)
+        [Paginator.ListDatasetImportJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Paginator.ListDatasetImportJobs)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_datasets"]) -> ListDatasetsPaginator:
         """
-        [Paginator.ListDatasets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Paginator.ListDatasets)
+        [Paginator.ListDatasets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Paginator.ListDatasets)
         """
 
     @overload
@@ -456,19 +455,19 @@ class PersonalizeClient:
         self, operation_name: Literal["list_event_trackers"]
     ) -> ListEventTrackersPaginator:
         """
-        [Paginator.ListEventTrackers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Paginator.ListEventTrackers)
+        [Paginator.ListEventTrackers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Paginator.ListEventTrackers)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_recipes"]) -> ListRecipesPaginator:
         """
-        [Paginator.ListRecipes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Paginator.ListRecipes)
+        [Paginator.ListRecipes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Paginator.ListRecipes)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_schemas"]) -> ListSchemasPaginator:
         """
-        [Paginator.ListSchemas documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Paginator.ListSchemas)
+        [Paginator.ListSchemas documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Paginator.ListSchemas)
         """
 
     @overload
@@ -476,11 +475,11 @@ class PersonalizeClient:
         self, operation_name: Literal["list_solution_versions"]
     ) -> ListSolutionVersionsPaginator:
         """
-        [Paginator.ListSolutionVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Paginator.ListSolutionVersions)
+        [Paginator.ListSolutionVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Paginator.ListSolutionVersions)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_solutions"]) -> ListSolutionsPaginator:
         """
-        [Paginator.ListSolutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/personalize.html#Personalize.Paginator.ListSolutions)
+        [Paginator.ListSolutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/personalize.html#Personalize.Paginator.ListSolutions)
         """

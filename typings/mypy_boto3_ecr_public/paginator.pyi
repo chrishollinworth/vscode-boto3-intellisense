@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for ecr-public service client paginators.
 
@@ -46,7 +45,7 @@ __all__ = (
 
 class DescribeImageTagsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeImageTags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr-public.html#ECRPublic.Paginator.DescribeImageTags)
+    [Paginator.DescribeImageTags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Paginator.DescribeImageTags)
     """
 
     def paginate(
@@ -56,13 +55,13 @@ class DescribeImageTagsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeImageTagsResponseTypeDef]:
         """
-        [DescribeImageTags.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr-public.html#ECRPublic.Paginator.DescribeImageTags.paginate)
+        [DescribeImageTags.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Paginator.DescribeImageTags.paginate)
         """
 
 
 class DescribeImagesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeImages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr-public.html#ECRPublic.Paginator.DescribeImages)
+    [Paginator.DescribeImages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Paginator.DescribeImages)
     """
 
     def paginate(
@@ -73,26 +72,26 @@ class DescribeImagesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeImagesResponseTypeDef]:
         """
-        [DescribeImages.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr-public.html#ECRPublic.Paginator.DescribeImages.paginate)
+        [DescribeImages.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Paginator.DescribeImages.paginate)
         """
 
 
 class DescribeRegistriesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeRegistries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr-public.html#ECRPublic.Paginator.DescribeRegistries)
+    [Paginator.DescribeRegistries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Paginator.DescribeRegistries)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeRegistriesResponseTypeDef]:
         """
-        [DescribeRegistries.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr-public.html#ECRPublic.Paginator.DescribeRegistries.paginate)
+        [DescribeRegistries.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Paginator.DescribeRegistries.paginate)
         """
 
 
 class DescribeRepositoriesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeRepositories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr-public.html#ECRPublic.Paginator.DescribeRepositories)
+    [Paginator.DescribeRepositories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Paginator.DescribeRepositories)
     """
 
     def paginate(
@@ -102,5 +101,5 @@ class DescribeRepositoriesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeRepositoriesResponseTypeDef]:
         """
-        [DescribeRepositories.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr-public.html#ECRPublic.Paginator.DescribeRepositories.paginate)
+        [DescribeRepositories.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Paginator.DescribeRepositories.paginate)
         """

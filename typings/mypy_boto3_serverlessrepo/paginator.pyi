@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for serverlessrepo service client paginators.
 
@@ -41,7 +40,7 @@ __all__ = (
 
 class ListApplicationDependenciesPaginator(Boto3Paginator):
     """
-    [Paginator.ListApplicationDependencies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Paginator.ListApplicationDependencies)
+    [Paginator.ListApplicationDependencies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Paginator.ListApplicationDependencies)
     """
 
     def paginate(
@@ -51,31 +50,31 @@ class ListApplicationDependenciesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListApplicationDependenciesResponseTypeDef]:
         """
-        [ListApplicationDependencies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Paginator.ListApplicationDependencies.paginate)
+        [ListApplicationDependencies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Paginator.ListApplicationDependencies.paginate)
         """
 
 
 class ListApplicationVersionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListApplicationVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Paginator.ListApplicationVersions)
+    [Paginator.ListApplicationVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Paginator.ListApplicationVersions)
     """
 
     def paginate(
         self, ApplicationId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListApplicationVersionsResponseTypeDef]:
         """
-        [ListApplicationVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Paginator.ListApplicationVersions.paginate)
+        [ListApplicationVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Paginator.ListApplicationVersions.paginate)
         """
 
 
 class ListApplicationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListApplications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Paginator.ListApplications)
+    [Paginator.ListApplications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Paginator.ListApplications)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListApplicationsResponseTypeDef]:
         """
-        [ListApplications.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Paginator.ListApplications.paginate)
+        [ListApplications.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/serverlessrepo.html#ServerlessApplicationRepository.Paginator.ListApplications.paginate)
         """

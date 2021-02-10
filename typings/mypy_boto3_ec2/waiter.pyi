@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
 """
 Main interface for ec2 service client waiters.
 
@@ -123,7 +122,7 @@ __all__ = (
 
 class BundleTaskCompleteWaiter(Boto3Waiter):
     """
-    [Waiter.BundleTaskComplete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.BundleTaskComplete)
+    [Waiter.BundleTaskComplete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.BundleTaskComplete)
     """
 
     def wait(
@@ -134,13 +133,13 @@ class BundleTaskCompleteWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [BundleTaskComplete.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.BundleTaskComplete.wait)
+        [BundleTaskComplete.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.BundleTaskComplete.wait)
         """
 
 
 class ConversionTaskCancelledWaiter(Boto3Waiter):
     """
-    [Waiter.ConversionTaskCancelled documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.ConversionTaskCancelled)
+    [Waiter.ConversionTaskCancelled documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.ConversionTaskCancelled)
     """
 
     def wait(
@@ -150,13 +149,13 @@ class ConversionTaskCancelledWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [ConversionTaskCancelled.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.ConversionTaskCancelled.wait)
+        [ConversionTaskCancelled.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.ConversionTaskCancelled.wait)
         """
 
 
 class ConversionTaskCompletedWaiter(Boto3Waiter):
     """
-    [Waiter.ConversionTaskCompleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.ConversionTaskCompleted)
+    [Waiter.ConversionTaskCompleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.ConversionTaskCompleted)
     """
 
     def wait(
@@ -166,13 +165,13 @@ class ConversionTaskCompletedWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [ConversionTaskCompleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.ConversionTaskCompleted.wait)
+        [ConversionTaskCompleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.ConversionTaskCompleted.wait)
         """
 
 
 class ConversionTaskDeletedWaiter(Boto3Waiter):
     """
-    [Waiter.ConversionTaskDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.ConversionTaskDeleted)
+    [Waiter.ConversionTaskDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.ConversionTaskDeleted)
     """
 
     def wait(
@@ -182,13 +181,13 @@ class ConversionTaskDeletedWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [ConversionTaskDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.ConversionTaskDeleted.wait)
+        [ConversionTaskDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.ConversionTaskDeleted.wait)
         """
 
 
 class CustomerGatewayAvailableWaiter(Boto3Waiter):
     """
-    [Waiter.CustomerGatewayAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.CustomerGatewayAvailable)
+    [Waiter.CustomerGatewayAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.CustomerGatewayAvailable)
     """
 
     def wait(
@@ -199,13 +198,13 @@ class CustomerGatewayAvailableWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [CustomerGatewayAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.CustomerGatewayAvailable.wait)
+        [CustomerGatewayAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.CustomerGatewayAvailable.wait)
         """
 
 
 class ExportTaskCancelledWaiter(Boto3Waiter):
     """
-    [Waiter.ExportTaskCancelled documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.ExportTaskCancelled)
+    [Waiter.ExportTaskCancelled documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.ExportTaskCancelled)
     """
 
     def wait(
@@ -215,13 +214,13 @@ class ExportTaskCancelledWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [ExportTaskCancelled.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.ExportTaskCancelled.wait)
+        [ExportTaskCancelled.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.ExportTaskCancelled.wait)
         """
 
 
 class ExportTaskCompletedWaiter(Boto3Waiter):
     """
-    [Waiter.ExportTaskCompleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.ExportTaskCompleted)
+    [Waiter.ExportTaskCompleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.ExportTaskCompleted)
     """
 
     def wait(
@@ -231,13 +230,13 @@ class ExportTaskCompletedWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [ExportTaskCompleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.ExportTaskCompleted.wait)
+        [ExportTaskCompleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.ExportTaskCompleted.wait)
         """
 
 
 class ImageAvailableWaiter(Boto3Waiter):
     """
-    [Waiter.ImageAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.ImageAvailable)
+    [Waiter.ImageAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.ImageAvailable)
     """
 
     def wait(
@@ -250,13 +249,13 @@ class ImageAvailableWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [ImageAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.ImageAvailable.wait)
+        [ImageAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.ImageAvailable.wait)
         """
 
 
 class ImageExistsWaiter(Boto3Waiter):
     """
-    [Waiter.ImageExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.ImageExists)
+    [Waiter.ImageExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.ImageExists)
     """
 
     def wait(
@@ -269,13 +268,13 @@ class ImageExistsWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [ImageExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.ImageExists.wait)
+        [ImageExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.ImageExists.wait)
         """
 
 
 class InstanceExistsWaiter(Boto3Waiter):
     """
-    [Waiter.InstanceExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.InstanceExists)
+    [Waiter.InstanceExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.InstanceExists)
     """
 
     def wait(
@@ -288,13 +287,13 @@ class InstanceExistsWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [InstanceExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.InstanceExists.wait)
+        [InstanceExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.InstanceExists.wait)
         """
 
 
 class InstanceRunningWaiter(Boto3Waiter):
     """
-    [Waiter.InstanceRunning documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.InstanceRunning)
+    [Waiter.InstanceRunning documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.InstanceRunning)
     """
 
     def wait(
@@ -307,13 +306,13 @@ class InstanceRunningWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [InstanceRunning.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.InstanceRunning.wait)
+        [InstanceRunning.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.InstanceRunning.wait)
         """
 
 
 class InstanceStatusOkWaiter(Boto3Waiter):
     """
-    [Waiter.InstanceStatusOk documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.InstanceStatusOk)
+    [Waiter.InstanceStatusOk documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.InstanceStatusOk)
     """
 
     def wait(
@@ -327,13 +326,13 @@ class InstanceStatusOkWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [InstanceStatusOk.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.InstanceStatusOk.wait)
+        [InstanceStatusOk.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.InstanceStatusOk.wait)
         """
 
 
 class InstanceStoppedWaiter(Boto3Waiter):
     """
-    [Waiter.InstanceStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.InstanceStopped)
+    [Waiter.InstanceStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.InstanceStopped)
     """
 
     def wait(
@@ -346,13 +345,13 @@ class InstanceStoppedWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [InstanceStopped.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.InstanceStopped.wait)
+        [InstanceStopped.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.InstanceStopped.wait)
         """
 
 
 class InstanceTerminatedWaiter(Boto3Waiter):
     """
-    [Waiter.InstanceTerminated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.InstanceTerminated)
+    [Waiter.InstanceTerminated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.InstanceTerminated)
     """
 
     def wait(
@@ -365,13 +364,13 @@ class InstanceTerminatedWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [InstanceTerminated.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.InstanceTerminated.wait)
+        [InstanceTerminated.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.InstanceTerminated.wait)
         """
 
 
 class KeyPairExistsWaiter(Boto3Waiter):
     """
-    [Waiter.KeyPairExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.KeyPairExists)
+    [Waiter.KeyPairExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.KeyPairExists)
     """
 
     def wait(
@@ -383,13 +382,13 @@ class KeyPairExistsWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [KeyPairExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.KeyPairExists.wait)
+        [KeyPairExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.KeyPairExists.wait)
         """
 
 
 class NatGatewayAvailableWaiter(Boto3Waiter):
     """
-    [Waiter.NatGatewayAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.NatGatewayAvailable)
+    [Waiter.NatGatewayAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.NatGatewayAvailable)
     """
 
     def wait(
@@ -402,13 +401,13 @@ class NatGatewayAvailableWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [NatGatewayAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.NatGatewayAvailable.wait)
+        [NatGatewayAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.NatGatewayAvailable.wait)
         """
 
 
 class NetworkInterfaceAvailableWaiter(Boto3Waiter):
     """
-    [Waiter.NetworkInterfaceAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.NetworkInterfaceAvailable)
+    [Waiter.NetworkInterfaceAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.NetworkInterfaceAvailable)
     """
 
     def wait(
@@ -421,26 +420,26 @@ class NetworkInterfaceAvailableWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [NetworkInterfaceAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.NetworkInterfaceAvailable.wait)
+        [NetworkInterfaceAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.NetworkInterfaceAvailable.wait)
         """
 
 
 class PasswordDataAvailableWaiter(Boto3Waiter):
     """
-    [Waiter.PasswordDataAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.PasswordDataAvailable)
+    [Waiter.PasswordDataAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.PasswordDataAvailable)
     """
 
     def wait(
         self, InstanceId: str, DryRun: bool = None, WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [PasswordDataAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.PasswordDataAvailable.wait)
+        [PasswordDataAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.PasswordDataAvailable.wait)
         """
 
 
 class SecurityGroupExistsWaiter(Boto3Waiter):
     """
-    [Waiter.SecurityGroupExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.SecurityGroupExists)
+    [Waiter.SecurityGroupExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.SecurityGroupExists)
     """
 
     def wait(
@@ -454,13 +453,13 @@ class SecurityGroupExistsWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [SecurityGroupExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.SecurityGroupExists.wait)
+        [SecurityGroupExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.SecurityGroupExists.wait)
         """
 
 
 class SnapshotCompletedWaiter(Boto3Waiter):
     """
-    [Waiter.SnapshotCompleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.SnapshotCompleted)
+    [Waiter.SnapshotCompleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.SnapshotCompleted)
     """
 
     def wait(
@@ -475,13 +474,13 @@ class SnapshotCompletedWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [SnapshotCompleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.SnapshotCompleted.wait)
+        [SnapshotCompleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.SnapshotCompleted.wait)
         """
 
 
 class SpotInstanceRequestFulfilledWaiter(Boto3Waiter):
     """
-    [Waiter.SpotInstanceRequestFulfilled documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.SpotInstanceRequestFulfilled)
+    [Waiter.SpotInstanceRequestFulfilled documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.SpotInstanceRequestFulfilled)
     """
 
     def wait(
@@ -494,13 +493,13 @@ class SpotInstanceRequestFulfilledWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [SpotInstanceRequestFulfilled.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.SpotInstanceRequestFulfilled.wait)
+        [SpotInstanceRequestFulfilled.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.SpotInstanceRequestFulfilled.wait)
         """
 
 
 class SubnetAvailableWaiter(Boto3Waiter):
     """
-    [Waiter.SubnetAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.SubnetAvailable)
+    [Waiter.SubnetAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.SubnetAvailable)
     """
 
     def wait(
@@ -513,13 +512,13 @@ class SubnetAvailableWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [SubnetAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.SubnetAvailable.wait)
+        [SubnetAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.SubnetAvailable.wait)
         """
 
 
 class SystemStatusOkWaiter(Boto3Waiter):
     """
-    [Waiter.SystemStatusOk documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.SystemStatusOk)
+    [Waiter.SystemStatusOk documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.SystemStatusOk)
     """
 
     def wait(
@@ -533,13 +532,13 @@ class SystemStatusOkWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [SystemStatusOk.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.SystemStatusOk.wait)
+        [SystemStatusOk.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.SystemStatusOk.wait)
         """
 
 
 class VolumeAvailableWaiter(Boto3Waiter):
     """
-    [Waiter.VolumeAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.VolumeAvailable)
+    [Waiter.VolumeAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.VolumeAvailable)
     """
 
     def wait(
@@ -552,13 +551,13 @@ class VolumeAvailableWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [VolumeAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.VolumeAvailable.wait)
+        [VolumeAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.VolumeAvailable.wait)
         """
 
 
 class VolumeDeletedWaiter(Boto3Waiter):
     """
-    [Waiter.VolumeDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.VolumeDeleted)
+    [Waiter.VolumeDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.VolumeDeleted)
     """
 
     def wait(
@@ -571,13 +570,13 @@ class VolumeDeletedWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [VolumeDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.VolumeDeleted.wait)
+        [VolumeDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.VolumeDeleted.wait)
         """
 
 
 class VolumeInUseWaiter(Boto3Waiter):
     """
-    [Waiter.VolumeInUse documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.VolumeInUse)
+    [Waiter.VolumeInUse documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.VolumeInUse)
     """
 
     def wait(
@@ -590,13 +589,13 @@ class VolumeInUseWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [VolumeInUse.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.VolumeInUse.wait)
+        [VolumeInUse.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.VolumeInUse.wait)
         """
 
 
 class VpcAvailableWaiter(Boto3Waiter):
     """
-    [Waiter.VpcAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.VpcAvailable)
+    [Waiter.VpcAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.VpcAvailable)
     """
 
     def wait(
@@ -609,13 +608,13 @@ class VpcAvailableWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [VpcAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.VpcAvailable.wait)
+        [VpcAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.VpcAvailable.wait)
         """
 
 
 class VpcExistsWaiter(Boto3Waiter):
     """
-    [Waiter.VpcExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.VpcExists)
+    [Waiter.VpcExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.VpcExists)
     """
 
     def wait(
@@ -628,13 +627,13 @@ class VpcExistsWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [VpcExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.VpcExists.wait)
+        [VpcExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.VpcExists.wait)
         """
 
 
 class VpcPeeringConnectionDeletedWaiter(Boto3Waiter):
     """
-    [Waiter.VpcPeeringConnectionDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.VpcPeeringConnectionDeleted)
+    [Waiter.VpcPeeringConnectionDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.VpcPeeringConnectionDeleted)
     """
 
     def wait(
@@ -647,13 +646,13 @@ class VpcPeeringConnectionDeletedWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [VpcPeeringConnectionDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.VpcPeeringConnectionDeleted.wait)
+        [VpcPeeringConnectionDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.VpcPeeringConnectionDeleted.wait)
         """
 
 
 class VpcPeeringConnectionExistsWaiter(Boto3Waiter):
     """
-    [Waiter.VpcPeeringConnectionExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.VpcPeeringConnectionExists)
+    [Waiter.VpcPeeringConnectionExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.VpcPeeringConnectionExists)
     """
 
     def wait(
@@ -666,13 +665,13 @@ class VpcPeeringConnectionExistsWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [VpcPeeringConnectionExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.VpcPeeringConnectionExists.wait)
+        [VpcPeeringConnectionExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.VpcPeeringConnectionExists.wait)
         """
 
 
 class VpnConnectionAvailableWaiter(Boto3Waiter):
     """
-    [Waiter.VpnConnectionAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.VpnConnectionAvailable)
+    [Waiter.VpnConnectionAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.VpnConnectionAvailable)
     """
 
     def wait(
@@ -683,13 +682,13 @@ class VpnConnectionAvailableWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [VpnConnectionAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.VpnConnectionAvailable.wait)
+        [VpnConnectionAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.VpnConnectionAvailable.wait)
         """
 
 
 class VpnConnectionDeletedWaiter(Boto3Waiter):
     """
-    [Waiter.VpnConnectionDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.VpnConnectionDeleted)
+    [Waiter.VpnConnectionDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.VpnConnectionDeleted)
     """
 
     def wait(
@@ -700,5 +699,5 @@ class VpnConnectionDeletedWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [VpnConnectionDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2.html#EC2.Waiter.VpnConnectionDeleted.wait)
+        [VpnConnectionDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2.html#EC2.Waiter.VpnConnectionDeleted.wait)
         """

@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
 """
 Main interface for kinesis service client waiters.
 
@@ -28,7 +27,7 @@ __all__ = ("StreamExistsWaiter", "StreamNotExistsWaiter")
 
 class StreamExistsWaiter(Boto3Waiter):
     """
-    [Waiter.StreamExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Waiter.StreamExists)
+    [Waiter.StreamExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Waiter.StreamExists)
     """
 
     def wait(
@@ -39,13 +38,13 @@ class StreamExistsWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [StreamExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Waiter.StreamExists.wait)
+        [StreamExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Waiter.StreamExists.wait)
         """
 
 
 class StreamNotExistsWaiter(Boto3Waiter):
     """
-    [Waiter.StreamNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Waiter.StreamNotExists)
+    [Waiter.StreamNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Waiter.StreamNotExists)
     """
 
     def wait(
@@ -56,5 +55,5 @@ class StreamNotExistsWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [StreamNotExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Waiter.StreamNotExists.wait)
+        [StreamNotExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Waiter.StreamNotExists.wait)
         """

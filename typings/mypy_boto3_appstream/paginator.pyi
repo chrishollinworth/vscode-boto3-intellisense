@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for appstream service client paginators.
 
@@ -76,46 +75,46 @@ __all__ = (
 
 class DescribeDirectoryConfigsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeDirectoryConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Paginator.DescribeDirectoryConfigs)
+    [Paginator.DescribeDirectoryConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appstream.html#AppStream.Paginator.DescribeDirectoryConfigs)
     """
 
     def paginate(
         self, DirectoryNames: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeDirectoryConfigsResultTypeDef]:
         """
-        [DescribeDirectoryConfigs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Paginator.DescribeDirectoryConfigs.paginate)
+        [DescribeDirectoryConfigs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appstream.html#AppStream.Paginator.DescribeDirectoryConfigs.paginate)
         """
 
 
 class DescribeFleetsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeFleets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Paginator.DescribeFleets)
+    [Paginator.DescribeFleets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appstream.html#AppStream.Paginator.DescribeFleets)
     """
 
     def paginate(
         self, Names: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeFleetsResultTypeDef]:
         """
-        [DescribeFleets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Paginator.DescribeFleets.paginate)
+        [DescribeFleets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appstream.html#AppStream.Paginator.DescribeFleets.paginate)
         """
 
 
 class DescribeImageBuildersPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeImageBuilders documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Paginator.DescribeImageBuilders)
+    [Paginator.DescribeImageBuilders documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appstream.html#AppStream.Paginator.DescribeImageBuilders)
     """
 
     def paginate(
         self, Names: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeImageBuildersResultTypeDef]:
         """
-        [DescribeImageBuilders.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Paginator.DescribeImageBuilders.paginate)
+        [DescribeImageBuilders.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appstream.html#AppStream.Paginator.DescribeImageBuilders.paginate)
         """
 
 
 class DescribeImagesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeImages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Paginator.DescribeImages)
+    [Paginator.DescribeImages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appstream.html#AppStream.Paginator.DescribeImages)
     """
 
     def paginate(
@@ -126,13 +125,13 @@ class DescribeImagesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeImagesResultTypeDef]:
         """
-        [DescribeImages.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Paginator.DescribeImages.paginate)
+        [DescribeImages.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appstream.html#AppStream.Paginator.DescribeImages.paginate)
         """
 
 
 class DescribeSessionsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeSessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Paginator.DescribeSessions)
+    [Paginator.DescribeSessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appstream.html#AppStream.Paginator.DescribeSessions)
     """
 
     def paginate(
@@ -144,26 +143,26 @@ class DescribeSessionsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeSessionsResultTypeDef]:
         """
-        [DescribeSessions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Paginator.DescribeSessions.paginate)
+        [DescribeSessions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appstream.html#AppStream.Paginator.DescribeSessions.paginate)
         """
 
 
 class DescribeStacksPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeStacks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Paginator.DescribeStacks)
+    [Paginator.DescribeStacks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appstream.html#AppStream.Paginator.DescribeStacks)
     """
 
     def paginate(
         self, Names: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeStacksResultTypeDef]:
         """
-        [DescribeStacks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Paginator.DescribeStacks.paginate)
+        [DescribeStacks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appstream.html#AppStream.Paginator.DescribeStacks.paginate)
         """
 
 
 class DescribeUserStackAssociationsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeUserStackAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Paginator.DescribeUserStackAssociations)
+    [Paginator.DescribeUserStackAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appstream.html#AppStream.Paginator.DescribeUserStackAssociations)
     """
 
     def paginate(
@@ -174,13 +173,13 @@ class DescribeUserStackAssociationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeUserStackAssociationsResultTypeDef]:
         """
-        [DescribeUserStackAssociations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Paginator.DescribeUserStackAssociations.paginate)
+        [DescribeUserStackAssociations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appstream.html#AppStream.Paginator.DescribeUserStackAssociations.paginate)
         """
 
 
 class DescribeUsersPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeUsers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Paginator.DescribeUsers)
+    [Paginator.DescribeUsers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appstream.html#AppStream.Paginator.DescribeUsers)
     """
 
     def paginate(
@@ -189,31 +188,31 @@ class DescribeUsersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeUsersResultTypeDef]:
         """
-        [DescribeUsers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Paginator.DescribeUsers.paginate)
+        [DescribeUsers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appstream.html#AppStream.Paginator.DescribeUsers.paginate)
         """
 
 
 class ListAssociatedFleetsPaginator(Boto3Paginator):
     """
-    [Paginator.ListAssociatedFleets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Paginator.ListAssociatedFleets)
+    [Paginator.ListAssociatedFleets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appstream.html#AppStream.Paginator.ListAssociatedFleets)
     """
 
     def paginate(
         self, StackName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAssociatedFleetsResultTypeDef]:
         """
-        [ListAssociatedFleets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Paginator.ListAssociatedFleets.paginate)
+        [ListAssociatedFleets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appstream.html#AppStream.Paginator.ListAssociatedFleets.paginate)
         """
 
 
 class ListAssociatedStacksPaginator(Boto3Paginator):
     """
-    [Paginator.ListAssociatedStacks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Paginator.ListAssociatedStacks)
+    [Paginator.ListAssociatedStacks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appstream.html#AppStream.Paginator.ListAssociatedStacks)
     """
 
     def paginate(
         self, FleetName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAssociatedStacksResultTypeDef]:
         """
-        [ListAssociatedStacks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Paginator.ListAssociatedStacks.paginate)
+        [ListAssociatedStacks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appstream.html#AppStream.Paginator.ListAssociatedStacks.paginate)
         """

@@ -25,6 +25,8 @@ else:
 
 __all__ = (
     "ConditionExpressionTypeDef",
+    "CsvOptionsTypeDef",
+    "CsvOutputOptionsTypeDef",
     "DataCatalogInputDefinitionTypeDef",
     "DatasetTypeDef",
     "ExcelOptionsTypeDef",
@@ -33,6 +35,7 @@ __all__ = (
     "JobRunTypeDef",
     "JobTypeDef",
     "JsonOptionsTypeDef",
+    "OutputFormatOptionsTypeDef",
     "OutputTypeDef",
     "ProjectTypeDef",
     "RecipeActionTypeDef",
@@ -58,6 +61,7 @@ __all__ = (
     "DeleteScheduleResponseTypeDef",
     "DescribeDatasetResponseTypeDef",
     "DescribeJobResponseTypeDef",
+    "DescribeJobRunResponseTypeDef",
     "DescribeProjectResponseTypeDef",
     "DescribeRecipeResponseTypeDef",
     "DescribeScheduleResponseTypeDef",
@@ -97,6 +101,10 @@ class ConditionExpressionTypeDef(
 ):
     pass
 
+
+CsvOptionsTypeDef = TypedDict("CsvOptionsTypeDef", {"Delimiter": str}, total=False)
+
+CsvOutputOptionsTypeDef = TypedDict("CsvOutputOptionsTypeDef", {"Delimiter": str}, total=False)
 
 _RequiredDataCatalogInputDefinitionTypeDef = TypedDict(
     "_RequiredDataCatalogInputDefinitionTypeDef", {"DatabaseName": str, "TableName": str}
@@ -144,7 +152,7 @@ ExcelOptionsTypeDef = TypedDict(
 
 FormatOptionsTypeDef = TypedDict(
     "FormatOptionsTypeDef",
-    {"Json": "JsonOptionsTypeDef", "Excel": "ExcelOptionsTypeDef"},
+    {"Json": "JsonOptionsTypeDef", "Excel": "ExcelOptionsTypeDef", "Csv": "CsvOptionsTypeDef"},
     total=False,
 )
 
@@ -214,6 +222,10 @@ class JobTypeDef(_RequiredJobTypeDef, _OptionalJobTypeDef):
 
 JsonOptionsTypeDef = TypedDict("JsonOptionsTypeDef", {"MultiLine": bool}, total=False)
 
+OutputFormatOptionsTypeDef = TypedDict(
+    "OutputFormatOptionsTypeDef", {"Csv": "CsvOutputOptionsTypeDef"}, total=False
+)
+
 _RequiredOutputTypeDef = TypedDict("_RequiredOutputTypeDef", {"Location": "S3LocationTypeDef"})
 _OptionalOutputTypeDef = TypedDict(
     "_OptionalOutputTypeDef",
@@ -224,6 +236,7 @@ _OptionalOutputTypeDef = TypedDict(
         "Format": Literal["CSV", "JSON", "PARQUET", "GLUEPARQUET", "AVRO", "ORC", "XML"],
         "PartitionColumns": List[str],
         "Overwrite": bool,
+        "FormatOptions": "OutputFormatOptionsTypeDef",
         "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
@@ -472,6 +485,38 @@ _OptionalDescribeJobResponseTypeDef = TypedDict(
 
 class DescribeJobResponseTypeDef(
     _RequiredDescribeJobResponseTypeDef, _OptionalDescribeJobResponseTypeDef
+):
+    pass
+
+
+_RequiredDescribeJobRunResponseTypeDef = TypedDict(
+    "_RequiredDescribeJobRunResponseTypeDef", {"JobName": str}
+)
+_OptionalDescribeJobRunResponseTypeDef = TypedDict(
+    "_OptionalDescribeJobRunResponseTypeDef",
+    {
+        "Attempt": int,
+        "CompletedOn": datetime,
+        "DatasetName": str,
+        "ErrorMessage": str,
+        "ExecutionTime": int,
+        "RunId": str,
+        "State": Literal[
+            "STARTING", "RUNNING", "STOPPING", "STOPPED", "SUCCEEDED", "FAILED", "TIMEOUT"
+        ],
+        "LogSubscription": Literal["ENABLE", "DISABLE"],
+        "LogGroupName": str,
+        "Outputs": List["OutputTypeDef"],
+        "RecipeReference": "RecipeReferenceTypeDef",
+        "StartedBy": str,
+        "StartedOn": datetime,
+    },
+    total=False,
+)
+
+
+class DescribeJobRunResponseTypeDef(
+    _RequiredDescribeJobRunResponseTypeDef, _OptionalDescribeJobRunResponseTypeDef
 ):
     pass
 

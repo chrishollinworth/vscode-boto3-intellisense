@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for logs service client paginators.
 
@@ -72,20 +71,20 @@ __all__ = (
 
 class DescribeDestinationsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeDestinations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeDestinations)
+    [Paginator.DescribeDestinations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeDestinations)
     """
 
     def paginate(
         self, DestinationNamePrefix: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeDestinationsResponseTypeDef]:
         """
-        [DescribeDestinations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeDestinations.paginate)
+        [DescribeDestinations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeDestinations.paginate)
         """
 
 
 class DescribeExportTasksPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeExportTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeExportTasks)
+    [Paginator.DescribeExportTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeExportTasks)
     """
 
     def paginate(
@@ -97,26 +96,26 @@ class DescribeExportTasksPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeExportTasksResponseTypeDef]:
         """
-        [DescribeExportTasks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeExportTasks.paginate)
+        [DescribeExportTasks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeExportTasks.paginate)
         """
 
 
 class DescribeLogGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeLogGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeLogGroups)
+    [Paginator.DescribeLogGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeLogGroups)
     """
 
     def paginate(
         self, logGroupNamePrefix: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeLogGroupsResponseTypeDef]:
         """
-        [DescribeLogGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeLogGroups.paginate)
+        [DescribeLogGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeLogGroups.paginate)
         """
 
 
 class DescribeLogStreamsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeLogStreams documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeLogStreams)
+    [Paginator.DescribeLogStreams documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeLogStreams)
     """
 
     def paginate(
@@ -128,13 +127,13 @@ class DescribeLogStreamsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeLogStreamsResponseTypeDef]:
         """
-        [DescribeLogStreams.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeLogStreams.paginate)
+        [DescribeLogStreams.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeLogStreams.paginate)
         """
 
 
 class DescribeMetricFiltersPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeMetricFilters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeMetricFilters)
+    [Paginator.DescribeMetricFilters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeMetricFilters)
     """
 
     def paginate(
@@ -146,13 +145,13 @@ class DescribeMetricFiltersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeMetricFiltersResponseTypeDef]:
         """
-        [DescribeMetricFilters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeMetricFilters.paginate)
+        [DescribeMetricFilters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeMetricFilters.paginate)
         """
 
 
 class DescribeQueriesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeQueries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeQueries)
+    [Paginator.DescribeQueries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeQueries)
     """
 
     def paginate(
@@ -162,26 +161,26 @@ class DescribeQueriesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeQueriesResponseTypeDef]:
         """
-        [DescribeQueries.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeQueries.paginate)
+        [DescribeQueries.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeQueries.paginate)
         """
 
 
 class DescribeResourcePoliciesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeResourcePolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeResourcePolicies)
+    [Paginator.DescribeResourcePolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeResourcePolicies)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeResourcePoliciesResponseTypeDef]:
         """
-        [DescribeResourcePolicies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeResourcePolicies.paginate)
+        [DescribeResourcePolicies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeResourcePolicies.paginate)
         """
 
 
 class DescribeSubscriptionFiltersPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeSubscriptionFilters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeSubscriptionFilters)
+    [Paginator.DescribeSubscriptionFilters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeSubscriptionFilters)
     """
 
     def paginate(
@@ -191,13 +190,13 @@ class DescribeSubscriptionFiltersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeSubscriptionFiltersResponseTypeDef]:
         """
-        [DescribeSubscriptionFilters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeSubscriptionFilters.paginate)
+        [DescribeSubscriptionFilters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/logs.html#CloudWatchLogs.Paginator.DescribeSubscriptionFilters.paginate)
         """
 
 
 class FilterLogEventsPaginator(Boto3Paginator):
     """
-    [Paginator.FilterLogEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/logs.html#CloudWatchLogs.Paginator.FilterLogEvents)
+    [Paginator.FilterLogEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/logs.html#CloudWatchLogs.Paginator.FilterLogEvents)
     """
 
     def paginate(
@@ -212,5 +211,5 @@ class FilterLogEventsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[FilterLogEventsResponseTypeDef]:
         """
-        [FilterLogEvents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/logs.html#CloudWatchLogs.Paginator.FilterLogEvents.paginate)
+        [FilterLogEvents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/logs.html#CloudWatchLogs.Paginator.FilterLogEvents.paginate)
         """

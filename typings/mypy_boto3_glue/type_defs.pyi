@@ -39,6 +39,7 @@ __all__ = (
     "CodeGenNodeArgTypeDef",
     "CodeGenNodeTypeDef",
     "ColumnErrorTypeDef",
+    "ColumnImportanceTypeDef",
     "ColumnStatisticsDataTypeDef",
     "ColumnStatisticsErrorTypeDef",
     "ColumnStatisticsTypeDef",
@@ -413,6 +414,10 @@ ColumnErrorTypeDef = TypedDict(
     "ColumnErrorTypeDef", {"ColumnName": str, "Error": "ErrorDetailTypeDef"}, total=False
 )
 
+ColumnImportanceTypeDef = TypedDict(
+    "ColumnImportanceTypeDef", {"ColumnName": str, "Importance": float}, total=False
+)
+
 _RequiredColumnStatisticsDataTypeDef = TypedDict(
     "_RequiredColumnStatisticsDataTypeDef",
     {"Type": Literal["BOOLEAN", "DATE", "DECIMAL", "DOUBLE", "LONG", "STRING", "BINARY"]},
@@ -510,7 +515,9 @@ ConnectionTypeDef = TypedDict(
     {
         "Name": str,
         "Description": str,
-        "ConnectionType": Literal["JDBC", "SFTP", "MONGODB", "KAFKA", "NETWORK"],
+        "ConnectionType": Literal[
+            "JDBC", "SFTP", "MONGODB", "KAFKA", "NETWORK", "MARKETPLACE", "CUSTOM"
+        ],
         "MatchCriteria": List[str],
         "ConnectionProperties": Dict[
             Literal[
@@ -535,6 +542,10 @@ ConnectionTypeDef = TypedDict(
                 "KAFKA_SSL_ENABLED",
                 "KAFKA_CUSTOM_CERT",
                 "KAFKA_SKIP_CUSTOM_CERT_VALIDATION",
+                "SECRET_ID",
+                "CONNECTOR_URL",
+                "CONNECTOR_TYPE",
+                "CONNECTOR_CLASS_NAME",
             ],
             str,
         ],
@@ -834,6 +845,7 @@ FindMatchesMetricsTypeDef = TypedDict(
         "Recall": float,
         "F1": float,
         "ConfusionMatrix": "ConfusionMatrixTypeDef",
+        "ColumnImportances": List["ColumnImportanceTypeDef"],
     },
     total=False,
 )
@@ -1682,7 +1694,9 @@ _RequiredConnectionInputTypeDef = TypedDict(
     "_RequiredConnectionInputTypeDef",
     {
         "Name": str,
-        "ConnectionType": Literal["JDBC", "SFTP", "MONGODB", "KAFKA", "NETWORK"],
+        "ConnectionType": Literal[
+            "JDBC", "SFTP", "MONGODB", "KAFKA", "NETWORK", "MARKETPLACE", "CUSTOM"
+        ],
         "ConnectionProperties": Dict[
             Literal[
                 "HOST",
@@ -1706,6 +1720,10 @@ _RequiredConnectionInputTypeDef = TypedDict(
                 "KAFKA_SSL_ENABLED",
                 "KAFKA_CUSTOM_CERT",
                 "KAFKA_SKIP_CUSTOM_CERT_VALIDATION",
+                "SECRET_ID",
+                "CONNECTOR_URL",
+                "CONNECTOR_TYPE",
+                "CONNECTOR_CLASS_NAME",
             ],
             str,
         ],
@@ -1956,7 +1974,9 @@ GetConnectionsFilterTypeDef = TypedDict(
     "GetConnectionsFilterTypeDef",
     {
         "MatchCriteria": List[str],
-        "ConnectionType": Literal["JDBC", "SFTP", "MONGODB", "KAFKA", "NETWORK"],
+        "ConnectionType": Literal[
+            "JDBC", "SFTP", "MONGODB", "KAFKA", "NETWORK", "MARKETPLACE", "CUSTOM"
+        ],
     },
     total=False,
 )

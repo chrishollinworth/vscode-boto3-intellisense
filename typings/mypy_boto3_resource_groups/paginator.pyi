@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for resource-groups service client paginators.
 
@@ -40,7 +39,7 @@ __all__ = ("ListGroupResourcesPaginator", "ListGroupsPaginator", "SearchResource
 
 class ListGroupResourcesPaginator(Boto3Paginator):
     """
-    [Paginator.ListGroupResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/resource-groups.html#ResourceGroups.Paginator.ListGroupResources)
+    [Paginator.ListGroupResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/resource-groups.html#ResourceGroups.Paginator.ListGroupResources)
     """
 
     def paginate(
@@ -51,13 +50,13 @@ class ListGroupResourcesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListGroupResourcesOutputTypeDef]:
         """
-        [ListGroupResources.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/resource-groups.html#ResourceGroups.Paginator.ListGroupResources.paginate)
+        [ListGroupResources.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/resource-groups.html#ResourceGroups.Paginator.ListGroupResources.paginate)
         """
 
 
 class ListGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.ListGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/resource-groups.html#ResourceGroups.Paginator.ListGroups)
+    [Paginator.ListGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/resource-groups.html#ResourceGroups.Paginator.ListGroups)
     """
 
     def paginate(
@@ -66,18 +65,18 @@ class ListGroupsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListGroupsOutputTypeDef]:
         """
-        [ListGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/resource-groups.html#ResourceGroups.Paginator.ListGroups.paginate)
+        [ListGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/resource-groups.html#ResourceGroups.Paginator.ListGroups.paginate)
         """
 
 
 class SearchResourcesPaginator(Boto3Paginator):
     """
-    [Paginator.SearchResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/resource-groups.html#ResourceGroups.Paginator.SearchResources)
+    [Paginator.SearchResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/resource-groups.html#ResourceGroups.Paginator.SearchResources)
     """
 
     def paginate(
         self, ResourceQuery: "ResourceQueryTypeDef", PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[SearchResourcesOutputTypeDef]:
         """
-        [SearchResources.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/resource-groups.html#ResourceGroups.Paginator.SearchResources.paginate)
+        [SearchResources.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/resource-groups.html#ResourceGroups.Paginator.SearchResources.paginate)
         """

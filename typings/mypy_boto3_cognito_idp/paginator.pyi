@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for cognito-idp service client paginators.
 
@@ -65,98 +64,98 @@ __all__ = (
 
 class AdminListGroupsForUserPaginator(Boto3Paginator):
     """
-    [Paginator.AdminListGroupsForUser documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.AdminListGroupsForUser)
+    [Paginator.AdminListGroupsForUser documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.AdminListGroupsForUser)
     """
 
     def paginate(
         self, Username: str, UserPoolId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[AdminListGroupsForUserResponseTypeDef]:
         """
-        [AdminListGroupsForUser.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.AdminListGroupsForUser.paginate)
+        [AdminListGroupsForUser.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.AdminListGroupsForUser.paginate)
         """
 
 
 class AdminListUserAuthEventsPaginator(Boto3Paginator):
     """
-    [Paginator.AdminListUserAuthEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.AdminListUserAuthEvents)
+    [Paginator.AdminListUserAuthEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.AdminListUserAuthEvents)
     """
 
     def paginate(
         self, UserPoolId: str, Username: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[AdminListUserAuthEventsResponseTypeDef]:
         """
-        [AdminListUserAuthEvents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.AdminListUserAuthEvents.paginate)
+        [AdminListUserAuthEvents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.AdminListUserAuthEvents.paginate)
         """
 
 
 class ListGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.ListGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListGroups)
+    [Paginator.ListGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListGroups)
     """
 
     def paginate(
         self, UserPoolId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListGroupsResponseTypeDef]:
         """
-        [ListGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListGroups.paginate)
+        [ListGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListGroups.paginate)
         """
 
 
 class ListIdentityProvidersPaginator(Boto3Paginator):
     """
-    [Paginator.ListIdentityProviders documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListIdentityProviders)
+    [Paginator.ListIdentityProviders documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListIdentityProviders)
     """
 
     def paginate(
         self, UserPoolId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListIdentityProvidersResponseTypeDef]:
         """
-        [ListIdentityProviders.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListIdentityProviders.paginate)
+        [ListIdentityProviders.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListIdentityProviders.paginate)
         """
 
 
 class ListResourceServersPaginator(Boto3Paginator):
     """
-    [Paginator.ListResourceServers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListResourceServers)
+    [Paginator.ListResourceServers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListResourceServers)
     """
 
     def paginate(
         self, UserPoolId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListResourceServersResponseTypeDef]:
         """
-        [ListResourceServers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListResourceServers.paginate)
+        [ListResourceServers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListResourceServers.paginate)
         """
 
 
 class ListUserPoolClientsPaginator(Boto3Paginator):
     """
-    [Paginator.ListUserPoolClients documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListUserPoolClients)
+    [Paginator.ListUserPoolClients documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListUserPoolClients)
     """
 
     def paginate(
         self, UserPoolId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListUserPoolClientsResponseTypeDef]:
         """
-        [ListUserPoolClients.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListUserPoolClients.paginate)
+        [ListUserPoolClients.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListUserPoolClients.paginate)
         """
 
 
 class ListUserPoolsPaginator(Boto3Paginator):
     """
-    [Paginator.ListUserPools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListUserPools)
+    [Paginator.ListUserPools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListUserPools)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListUserPoolsResponseTypeDef]:
         """
-        [ListUserPools.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListUserPools.paginate)
+        [ListUserPools.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListUserPools.paginate)
         """
 
 
 class ListUsersPaginator(Boto3Paginator):
     """
-    [Paginator.ListUsers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListUsers)
+    [Paginator.ListUsers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListUsers)
     """
 
     def paginate(
@@ -167,18 +166,18 @@ class ListUsersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListUsersResponseTypeDef]:
         """
-        [ListUsers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListUsers.paginate)
+        [ListUsers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListUsers.paginate)
         """
 
 
 class ListUsersInGroupPaginator(Boto3Paginator):
     """
-    [Paginator.ListUsersInGroup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListUsersInGroup)
+    [Paginator.ListUsersInGroup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListUsersInGroup)
     """
 
     def paginate(
         self, UserPoolId: str, GroupName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListUsersInGroupResponseTypeDef]:
         """
-        [ListUsersInGroup.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListUsersInGroup.paginate)
+        [ListUsersInGroup.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cognito-idp.html#CognitoIdentityProvider.Paginator.ListUsersInGroup.paginate)
         """

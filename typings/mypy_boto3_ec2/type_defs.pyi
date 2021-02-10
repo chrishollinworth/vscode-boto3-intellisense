@@ -27,8 +27,17 @@ __all__ = (
     "AccountAttributeTypeDef",
     "AccountAttributeValueTypeDef",
     "ActiveInstanceTypeDef",
+    "AddressAttributeTypeDef",
     "AddressTypeDef",
     "AllowedPrincipalTypeDef",
+    "AlternatePathHintTypeDef",
+    "AnalysisAclRuleTypeDef",
+    "AnalysisComponentTypeDef",
+    "AnalysisLoadBalancerListenerTypeDef",
+    "AnalysisLoadBalancerTargetTypeDef",
+    "AnalysisPacketHeaderTypeDef",
+    "AnalysisRouteTableRouteTypeDef",
+    "AnalysisSecurityGroupRuleTypeDef",
     "AssignedPrivateIpAddressTypeDef",
     "AssociatedRoleTypeDef",
     "AssociatedTargetNetworkTypeDef",
@@ -125,6 +134,7 @@ __all__ = (
     "EnableFastSnapshotRestoreSuccessItemTypeDef",
     "EnclaveOptionsTypeDef",
     "EventInformationTypeDef",
+    "ExplanationTypeDef",
     "ExportImageTaskTypeDef",
     "ExportTaskS3LocationTypeDef",
     "ExportTaskTypeDef",
@@ -275,6 +285,8 @@ __all__ = (
     "NetworkAclTypeDef",
     "NetworkCardInfoTypeDef",
     "NetworkInfoTypeDef",
+    "NetworkInsightsAnalysisTypeDef",
+    "NetworkInsightsPathTypeDef",
     "NetworkInterfaceAssociationTypeDef",
     "NetworkInterfaceAttachmentTypeDef",
     "NetworkInterfaceIpv6AddressTypeDef",
@@ -283,6 +295,7 @@ __all__ = (
     "NetworkInterfacePrivateIpAddressTypeDef",
     "NetworkInterfaceTypeDef",
     "OnDemandOptionsTypeDef",
+    "PathComponentTypeDef",
     "PciIdTypeDef",
     "PeeringAttachmentStatusTypeDef",
     "PeeringConnectionOptionsTypeDef",
@@ -319,6 +332,7 @@ __all__ = (
     "ProductCodeTypeDef",
     "PropagatingVgwTypeDef",
     "ProvisionedBandwidthTypeDef",
+    "PtrUpdateStatusTypeDef",
     "PublicIpv4PoolRangeTypeDef",
     "PublicIpv4PoolTypeDef",
     "PurchaseTypeDef",
@@ -404,12 +418,18 @@ __all__ = (
     "TrafficMirrorTargetTypeDef",
     "TransitGatewayAssociationTypeDef",
     "TransitGatewayAttachmentAssociationTypeDef",
+    "TransitGatewayAttachmentBgpConfigurationTypeDef",
     "TransitGatewayAttachmentPropagationTypeDef",
     "TransitGatewayAttachmentTypeDef",
+    "TransitGatewayConnectOptionsTypeDef",
+    "TransitGatewayConnectPeerConfigurationTypeDef",
+    "TransitGatewayConnectPeerTypeDef",
+    "TransitGatewayConnectTypeDef",
     "TransitGatewayMulticastDeregisteredGroupMembersTypeDef",
     "TransitGatewayMulticastDeregisteredGroupSourcesTypeDef",
     "TransitGatewayMulticastDomainAssociationTypeDef",
     "TransitGatewayMulticastDomainAssociationsTypeDef",
+    "TransitGatewayMulticastDomainOptionsTypeDef",
     "TransitGatewayMulticastDomainTypeDef",
     "TransitGatewayMulticastGroupTypeDef",
     "TransitGatewayMulticastRegisteredGroupMembersTypeDef",
@@ -468,6 +488,7 @@ __all__ = (
     "VpnStaticRouteTypeDef",
     "VpnTunnelOptionsSpecificationTypeDef",
     "AcceptReservedInstancesExchangeQuoteResultTypeDef",
+    "AcceptTransitGatewayMulticastDomainAssociationsResultTypeDef",
     "AcceptTransitGatewayPeeringAttachmentResultTypeDef",
     "AcceptTransitGatewayVpcAttachmentResultTypeDef",
     "AcceptVpcEndpointConnectionsResultTypeDef",
@@ -533,6 +554,7 @@ __all__ = (
     "CreateManagedPrefixListResultTypeDef",
     "CreateNatGatewayResultTypeDef",
     "CreateNetworkAclResultTypeDef",
+    "CreateNetworkInsightsPathResultTypeDef",
     "CreateNetworkInterfacePermissionResultTypeDef",
     "CreateNetworkInterfaceResultTypeDef",
     "CreatePlacementGroupResultTypeDef",
@@ -547,6 +569,10 @@ __all__ = (
     "CreateTrafficMirrorFilterRuleResultTypeDef",
     "CreateTrafficMirrorSessionResultTypeDef",
     "CreateTrafficMirrorTargetResultTypeDef",
+    "CreateTransitGatewayConnectPeerResultTypeDef",
+    "CreateTransitGatewayConnectRequestOptionsTypeDef",
+    "CreateTransitGatewayConnectResultTypeDef",
+    "CreateTransitGatewayMulticastDomainRequestOptionsTypeDef",
     "CreateTransitGatewayMulticastDomainResultTypeDef",
     "CreateTransitGatewayPeeringAttachmentResultTypeDef",
     "CreateTransitGatewayPrefixListReferenceResultTypeDef",
@@ -576,12 +602,16 @@ __all__ = (
     "DeleteLocalGatewayRouteTableVpcAssociationResultTypeDef",
     "DeleteManagedPrefixListResultTypeDef",
     "DeleteNatGatewayResultTypeDef",
+    "DeleteNetworkInsightsAnalysisResultTypeDef",
+    "DeleteNetworkInsightsPathResultTypeDef",
     "DeleteNetworkInterfacePermissionResultTypeDef",
     "DeleteQueuedReservedInstancesResultTypeDef",
     "DeleteTrafficMirrorFilterResultTypeDef",
     "DeleteTrafficMirrorFilterRuleResultTypeDef",
     "DeleteTrafficMirrorSessionResultTypeDef",
     "DeleteTrafficMirrorTargetResultTypeDef",
+    "DeleteTransitGatewayConnectPeerResultTypeDef",
+    "DeleteTransitGatewayConnectResultTypeDef",
     "DeleteTransitGatewayMulticastDomainResultTypeDef",
     "DeleteTransitGatewayPeeringAttachmentResultTypeDef",
     "DeleteTransitGatewayPrefixListReferenceResultTypeDef",
@@ -599,6 +629,7 @@ __all__ = (
     "DeregisterTransitGatewayMulticastGroupMembersResultTypeDef",
     "DeregisterTransitGatewayMulticastGroupSourcesResultTypeDef",
     "DescribeAccountAttributesResultTypeDef",
+    "DescribeAddressesAttributeResultTypeDef",
     "DescribeAddressesResultTypeDef",
     "DescribeAggregateIdFormatResultTypeDef",
     "DescribeAvailabilityZonesResultTypeDef",
@@ -657,6 +688,8 @@ __all__ = (
     "DescribeMovingAddressesResultTypeDef",
     "DescribeNatGatewaysResultTypeDef",
     "DescribeNetworkAclsResultTypeDef",
+    "DescribeNetworkInsightsAnalysesResultTypeDef",
+    "DescribeNetworkInsightsPathsResultTypeDef",
     "DescribeNetworkInterfaceAttributeResultTypeDef",
     "DescribeNetworkInterfacePermissionsResultTypeDef",
     "DescribeNetworkInterfacesResultTypeDef",
@@ -689,6 +722,8 @@ __all__ = (
     "DescribeTrafficMirrorSessionsResultTypeDef",
     "DescribeTrafficMirrorTargetsResultTypeDef",
     "DescribeTransitGatewayAttachmentsResultTypeDef",
+    "DescribeTransitGatewayConnectPeersResultTypeDef",
+    "DescribeTransitGatewayConnectsResultTypeDef",
     "DescribeTransitGatewayMulticastDomainsResultTypeDef",
     "DescribeTransitGatewayPeeringAttachmentsResultTypeDef",
     "DescribeTransitGatewayRouteTablesResultTypeDef",
@@ -784,6 +819,7 @@ __all__ = (
     "LaunchTemplateSpecificationTypeDef",
     "LicenseConfigurationRequestTypeDef",
     "LoadPermissionModificationsTypeDef",
+    "ModifyAddressAttributeResultTypeDef",
     "ModifyAvailabilityZoneGroupResultTypeDef",
     "ModifyCapacityReservationResultTypeDef",
     "ModifyClientVpnEndpointResultTypeDef",
@@ -839,6 +875,7 @@ __all__ = (
     "RegisterInstanceTagAttributeRequestTypeDef",
     "RegisterTransitGatewayMulticastGroupMembersResultTypeDef",
     "RegisterTransitGatewayMulticastGroupSourcesResultTypeDef",
+    "RejectTransitGatewayMulticastDomainAssociationsResultTypeDef",
     "RejectTransitGatewayPeeringAttachmentResultTypeDef",
     "RejectTransitGatewayVpcAttachmentResultTypeDef",
     "RejectVpcEndpointConnectionsResultTypeDef",
@@ -854,6 +891,7 @@ __all__ = (
     "RequestSpotInstancesResultTypeDef",
     "RequestSpotLaunchSpecificationTypeDef",
     "ReservedInstanceLimitPriceTypeDef",
+    "ResetAddressAttributeResultTypeDef",
     "ResetEbsDefaultKmsKeyIdResultTypeDef",
     "ResetFpgaImageAttributeResultTypeDef",
     "RestoreAddressToClassicResultTypeDef",
@@ -872,6 +910,7 @@ __all__ = (
     "SnapshotDiskContainerTypeDef",
     "SpotOptionsRequestTypeDef",
     "StartInstancesResultTypeDef",
+    "StartNetworkInsightsAnalysisResultTypeDef",
     "StartVpcEndpointServicePrivateDnsVerificationResultTypeDef",
     "StopInstancesResultTypeDef",
     "StorageLocationTypeDef",
@@ -881,6 +920,7 @@ __all__ = (
     "TerminateClientVpnConnectionsResultTypeDef",
     "TerminateInstancesResultTypeDef",
     "TrafficMirrorPortRangeRequestTypeDef",
+    "TransitGatewayConnectRequestBgpOptionsTypeDef",
     "TransitGatewayRequestOptionsTypeDef",
     "UnassignIpv6AddressesResultTypeDef",
     "UnmonitorInstancesResultTypeDef",
@@ -912,6 +952,17 @@ ActiveInstanceTypeDef = TypedDict(
     total=False,
 )
 
+AddressAttributeTypeDef = TypedDict(
+    "AddressAttributeTypeDef",
+    {
+        "PublicIp": str,
+        "AllocationId": str,
+        "PtrRecord": str,
+        "PtrRecordUpdate": "PtrUpdateStatusTypeDef",
+    },
+    total=False,
+)
+
 AddressTypeDef = TypedDict(
     "AddressTypeDef",
     {
@@ -938,6 +989,81 @@ AllowedPrincipalTypeDef = TypedDict(
     {
         "PrincipalType": Literal["All", "Service", "OrganizationUnit", "Account", "User", "Role"],
         "Principal": str,
+    },
+    total=False,
+)
+
+AlternatePathHintTypeDef = TypedDict(
+    "AlternatePathHintTypeDef", {"ComponentId": str, "ComponentArn": str}, total=False
+)
+
+AnalysisAclRuleTypeDef = TypedDict(
+    "AnalysisAclRuleTypeDef",
+    {
+        "Cidr": str,
+        "Egress": bool,
+        "PortRange": "PortRangeTypeDef",
+        "Protocol": str,
+        "RuleAction": str,
+        "RuleNumber": int,
+    },
+    total=False,
+)
+
+AnalysisComponentTypeDef = TypedDict(
+    "AnalysisComponentTypeDef", {"Id": str, "Arn": str}, total=False
+)
+
+AnalysisLoadBalancerListenerTypeDef = TypedDict(
+    "AnalysisLoadBalancerListenerTypeDef",
+    {"LoadBalancerPort": int, "InstancePort": int},
+    total=False,
+)
+
+AnalysisLoadBalancerTargetTypeDef = TypedDict(
+    "AnalysisLoadBalancerTargetTypeDef",
+    {"Address": str, "AvailabilityZone": str, "Instance": "AnalysisComponentTypeDef", "Port": int},
+    total=False,
+)
+
+AnalysisPacketHeaderTypeDef = TypedDict(
+    "AnalysisPacketHeaderTypeDef",
+    {
+        "DestinationAddresses": List[str],
+        "DestinationPortRanges": List["PortRangeTypeDef"],
+        "Protocol": str,
+        "SourceAddresses": List[str],
+        "SourcePortRanges": List["PortRangeTypeDef"],
+    },
+    total=False,
+)
+
+AnalysisRouteTableRouteTypeDef = TypedDict(
+    "AnalysisRouteTableRouteTypeDef",
+    {
+        "DestinationCidr": str,
+        "DestinationPrefixListId": str,
+        "EgressOnlyInternetGatewayId": str,
+        "GatewayId": str,
+        "InstanceId": str,
+        "NatGatewayId": str,
+        "NetworkInterfaceId": str,
+        "Origin": str,
+        "TransitGatewayId": str,
+        "VpcPeeringConnectionId": str,
+    },
+    total=False,
+)
+
+AnalysisSecurityGroupRuleTypeDef = TypedDict(
+    "AnalysisSecurityGroupRuleTypeDef",
+    {
+        "Cidr": str,
+        "Direction": str,
+        "SecurityGroupId": str,
+        "PortRange": "PortRangeTypeDef",
+        "PrefixListId": str,
+        "Protocol": str,
     },
     total=False,
 )
@@ -1192,6 +1318,7 @@ CapacityReservationTypeDef = TypedDict(
         "EbsOptimized": bool,
         "EphemeralStorage": bool,
         "State": Literal["active", "expired", "cancelled", "pending", "failed"],
+        "StartDate": datetime,
         "EndDate": datetime,
         "EndDateType": Literal["unlimited", "limited"],
         "InstanceMatchCriteria": Literal["open", "targeted"],
@@ -1644,6 +1771,7 @@ CreateFleetInstanceTypeDef = TypedDict(
             "c5n.4xlarge",
             "c5n.9xlarge",
             "c5n.18xlarge",
+            "c5n.metal",
             "c6g.metal",
             "c6g.medium",
             "c6g.large",
@@ -1662,6 +1790,14 @@ CreateFleetInstanceTypeDef = TypedDict(
             "c6gd.8xlarge",
             "c6gd.12xlarge",
             "c6gd.16xlarge",
+            "c6gn.medium",
+            "c6gn.large",
+            "c6gn.xlarge",
+            "c6gn.2xlarge",
+            "c6gn.4xlarge",
+            "c6gn.8xlarge",
+            "c6gn.12xlarge",
+            "c6gn.16xlarge",
             "cc1.4xlarge",
             "cc2.8xlarge",
             "g2.2xlarge",
@@ -1670,6 +1806,9 @@ CreateFleetInstanceTypeDef = TypedDict(
             "g3.8xlarge",
             "g3.16xlarge",
             "g3s.xlarge",
+            "g4ad.4xlarge",
+            "g4ad.8xlarge",
+            "g4ad.16xlarge",
             "g4dn.xlarge",
             "g4dn.2xlarge",
             "g4dn.4xlarge",
@@ -2161,6 +2300,7 @@ DescribeFleetsInstancesTypeDef = TypedDict(
             "c5n.4xlarge",
             "c5n.9xlarge",
             "c5n.18xlarge",
+            "c5n.metal",
             "c6g.metal",
             "c6g.medium",
             "c6g.large",
@@ -2179,6 +2319,14 @@ DescribeFleetsInstancesTypeDef = TypedDict(
             "c6gd.8xlarge",
             "c6gd.12xlarge",
             "c6gd.16xlarge",
+            "c6gn.medium",
+            "c6gn.large",
+            "c6gn.xlarge",
+            "c6gn.2xlarge",
+            "c6gn.4xlarge",
+            "c6gn.8xlarge",
+            "c6gn.12xlarge",
+            "c6gn.16xlarge",
             "cc1.4xlarge",
             "cc2.8xlarge",
             "g2.2xlarge",
@@ -2187,6 +2335,9 @@ DescribeFleetsInstancesTypeDef = TypedDict(
             "g3.8xlarge",
             "g3.16xlarge",
             "g3s.xlarge",
+            "g4ad.4xlarge",
+            "g4ad.8xlarge",
+            "g4ad.16xlarge",
             "g4dn.xlarge",
             "g4dn.2xlarge",
             "g4dn.4xlarge",
@@ -2440,6 +2591,7 @@ EbsBlockDeviceTypeDef = TypedDict(
         "VolumeType": Literal["standard", "io1", "io2", "gp2", "sc1", "st1", "gp3"],
         "KmsKeyId": str,
         "Throughput": int,
+        "OutpostArn": str,
         "Encrypted": bool,
     },
     total=False,
@@ -2584,6 +2736,58 @@ EnclaveOptionsTypeDef = TypedDict("EnclaveOptionsTypeDef", {"Enabled": bool}, to
 EventInformationTypeDef = TypedDict(
     "EventInformationTypeDef",
     {"EventDescription": str, "EventSubType": str, "InstanceId": str},
+    total=False,
+)
+
+ExplanationTypeDef = TypedDict(
+    "ExplanationTypeDef",
+    {
+        "Acl": "AnalysisComponentTypeDef",
+        "AclRule": "AnalysisAclRuleTypeDef",
+        "Address": str,
+        "Addresses": List[str],
+        "AttachedTo": "AnalysisComponentTypeDef",
+        "AvailabilityZones": List[str],
+        "Cidrs": List[str],
+        "Component": "AnalysisComponentTypeDef",
+        "CustomerGateway": "AnalysisComponentTypeDef",
+        "Destination": "AnalysisComponentTypeDef",
+        "DestinationVpc": "AnalysisComponentTypeDef",
+        "Direction": str,
+        "ExplanationCode": str,
+        "IngressRouteTable": "AnalysisComponentTypeDef",
+        "InternetGateway": "AnalysisComponentTypeDef",
+        "LoadBalancerArn": str,
+        "ClassicLoadBalancerListener": "AnalysisLoadBalancerListenerTypeDef",
+        "LoadBalancerListenerPort": int,
+        "LoadBalancerTarget": "AnalysisLoadBalancerTargetTypeDef",
+        "LoadBalancerTargetGroup": "AnalysisComponentTypeDef",
+        "LoadBalancerTargetGroups": List["AnalysisComponentTypeDef"],
+        "LoadBalancerTargetPort": int,
+        "ElasticLoadBalancerListener": "AnalysisComponentTypeDef",
+        "MissingComponent": str,
+        "NatGateway": "AnalysisComponentTypeDef",
+        "NetworkInterface": "AnalysisComponentTypeDef",
+        "PacketField": str,
+        "VpcPeeringConnection": "AnalysisComponentTypeDef",
+        "Port": int,
+        "PortRanges": List["PortRangeTypeDef"],
+        "PrefixList": "AnalysisComponentTypeDef",
+        "Protocols": List[str],
+        "RouteTableRoute": "AnalysisRouteTableRouteTypeDef",
+        "RouteTable": "AnalysisComponentTypeDef",
+        "SecurityGroup": "AnalysisComponentTypeDef",
+        "SecurityGroupRule": "AnalysisSecurityGroupRuleTypeDef",
+        "SecurityGroups": List["AnalysisComponentTypeDef"],
+        "SourceVpc": "AnalysisComponentTypeDef",
+        "State": str,
+        "Subnet": "AnalysisComponentTypeDef",
+        "SubnetRouteTable": "AnalysisComponentTypeDef",
+        "Vpc": "AnalysisComponentTypeDef",
+        "VpcEndpoint": "AnalysisComponentTypeDef",
+        "VpnConnection": "AnalysisComponentTypeDef",
+        "VpnGateway": "AnalysisComponentTypeDef",
+    },
     total=False,
 )
 
@@ -2899,6 +3103,7 @@ FleetLaunchTemplateOverridesRequestTypeDef = TypedDict(
             "c5n.4xlarge",
             "c5n.9xlarge",
             "c5n.18xlarge",
+            "c5n.metal",
             "c6g.metal",
             "c6g.medium",
             "c6g.large",
@@ -2917,6 +3122,14 @@ FleetLaunchTemplateOverridesRequestTypeDef = TypedDict(
             "c6gd.8xlarge",
             "c6gd.12xlarge",
             "c6gd.16xlarge",
+            "c6gn.medium",
+            "c6gn.large",
+            "c6gn.xlarge",
+            "c6gn.2xlarge",
+            "c6gn.4xlarge",
+            "c6gn.8xlarge",
+            "c6gn.12xlarge",
+            "c6gn.16xlarge",
             "cc1.4xlarge",
             "cc2.8xlarge",
             "g2.2xlarge",
@@ -2925,6 +3138,9 @@ FleetLaunchTemplateOverridesRequestTypeDef = TypedDict(
             "g3.8xlarge",
             "g3.16xlarge",
             "g3s.xlarge",
+            "g4ad.4xlarge",
+            "g4ad.8xlarge",
+            "g4ad.16xlarge",
             "g4dn.xlarge",
             "g4dn.2xlarge",
             "g4dn.4xlarge",
@@ -3291,6 +3507,7 @@ FleetLaunchTemplateOverridesTypeDef = TypedDict(
             "c5n.4xlarge",
             "c5n.9xlarge",
             "c5n.18xlarge",
+            "c5n.metal",
             "c6g.metal",
             "c6g.medium",
             "c6g.large",
@@ -3309,6 +3526,14 @@ FleetLaunchTemplateOverridesTypeDef = TypedDict(
             "c6gd.8xlarge",
             "c6gd.12xlarge",
             "c6gd.16xlarge",
+            "c6gn.medium",
+            "c6gn.large",
+            "c6gn.xlarge",
+            "c6gn.2xlarge",
+            "c6gn.4xlarge",
+            "c6gn.8xlarge",
+            "c6gn.12xlarge",
+            "c6gn.16xlarge",
             "cc1.4xlarge",
             "cc2.8xlarge",
             "g2.2xlarge",
@@ -3317,6 +3542,9 @@ FleetLaunchTemplateOverridesTypeDef = TypedDict(
             "g3.8xlarge",
             "g3.16xlarge",
             "g3s.xlarge",
+            "g4ad.4xlarge",
+            "g4ad.8xlarge",
+            "g4ad.16xlarge",
             "g4dn.xlarge",
             "g4dn.2xlarge",
             "g4dn.4xlarge",
@@ -4287,6 +4515,7 @@ InstanceTypeDef = TypedDict(
             "c5n.4xlarge",
             "c5n.9xlarge",
             "c5n.18xlarge",
+            "c5n.metal",
             "c6g.metal",
             "c6g.medium",
             "c6g.large",
@@ -4305,6 +4534,14 @@ InstanceTypeDef = TypedDict(
             "c6gd.8xlarge",
             "c6gd.12xlarge",
             "c6gd.16xlarge",
+            "c6gn.medium",
+            "c6gn.large",
+            "c6gn.xlarge",
+            "c6gn.2xlarge",
+            "c6gn.4xlarge",
+            "c6gn.8xlarge",
+            "c6gn.12xlarge",
+            "c6gn.16xlarge",
             "cc1.4xlarge",
             "cc2.8xlarge",
             "g2.2xlarge",
@@ -4313,6 +4550,9 @@ InstanceTypeDef = TypedDict(
             "g3.8xlarge",
             "g3.16xlarge",
             "g3s.xlarge",
+            "g4ad.4xlarge",
+            "g4ad.8xlarge",
+            "g4ad.16xlarge",
             "g4dn.xlarge",
             "g4dn.2xlarge",
             "g4dn.4xlarge",
@@ -4719,6 +4959,7 @@ InstanceTypeInfoTypeDef = TypedDict(
             "c5n.4xlarge",
             "c5n.9xlarge",
             "c5n.18xlarge",
+            "c5n.metal",
             "c6g.metal",
             "c6g.medium",
             "c6g.large",
@@ -4737,6 +4978,14 @@ InstanceTypeInfoTypeDef = TypedDict(
             "c6gd.8xlarge",
             "c6gd.12xlarge",
             "c6gd.16xlarge",
+            "c6gn.medium",
+            "c6gn.large",
+            "c6gn.xlarge",
+            "c6gn.2xlarge",
+            "c6gn.4xlarge",
+            "c6gn.8xlarge",
+            "c6gn.12xlarge",
+            "c6gn.16xlarge",
             "cc1.4xlarge",
             "cc2.8xlarge",
             "g2.2xlarge",
@@ -4745,6 +4994,9 @@ InstanceTypeInfoTypeDef = TypedDict(
             "g3.8xlarge",
             "g3.16xlarge",
             "g3s.xlarge",
+            "g4ad.4xlarge",
+            "g4ad.8xlarge",
+            "g4ad.16xlarge",
             "g4dn.xlarge",
             "g4dn.2xlarge",
             "g4dn.4xlarge",
@@ -5127,6 +5379,7 @@ InstanceTypeOfferingTypeDef = TypedDict(
             "c5n.4xlarge",
             "c5n.9xlarge",
             "c5n.18xlarge",
+            "c5n.metal",
             "c6g.metal",
             "c6g.medium",
             "c6g.large",
@@ -5145,6 +5398,14 @@ InstanceTypeOfferingTypeDef = TypedDict(
             "c6gd.8xlarge",
             "c6gd.12xlarge",
             "c6gd.16xlarge",
+            "c6gn.medium",
+            "c6gn.large",
+            "c6gn.xlarge",
+            "c6gn.2xlarge",
+            "c6gn.4xlarge",
+            "c6gn.8xlarge",
+            "c6gn.12xlarge",
+            "c6gn.16xlarge",
             "cc1.4xlarge",
             "cc2.8xlarge",
             "g2.2xlarge",
@@ -5153,6 +5414,9 @@ InstanceTypeOfferingTypeDef = TypedDict(
             "g3.8xlarge",
             "g3.16xlarge",
             "g3s.xlarge",
+            "g4ad.4xlarge",
+            "g4ad.8xlarge",
+            "g4ad.16xlarge",
             "g4dn.xlarge",
             "g4dn.2xlarge",
             "g4dn.4xlarge",
@@ -5590,6 +5854,7 @@ LaunchSpecificationTypeDef = TypedDict(
             "c5n.4xlarge",
             "c5n.9xlarge",
             "c5n.18xlarge",
+            "c5n.metal",
             "c6g.metal",
             "c6g.medium",
             "c6g.large",
@@ -5608,6 +5873,14 @@ LaunchSpecificationTypeDef = TypedDict(
             "c6gd.8xlarge",
             "c6gd.12xlarge",
             "c6gd.16xlarge",
+            "c6gn.medium",
+            "c6gn.large",
+            "c6gn.xlarge",
+            "c6gn.2xlarge",
+            "c6gn.4xlarge",
+            "c6gn.8xlarge",
+            "c6gn.12xlarge",
+            "c6gn.16xlarge",
             "cc1.4xlarge",
             "cc2.8xlarge",
             "g2.2xlarge",
@@ -5616,6 +5889,9 @@ LaunchSpecificationTypeDef = TypedDict(
             "g3.8xlarge",
             "g3.16xlarge",
             "g3s.xlarge",
+            "g4ad.4xlarge",
+            "g4ad.8xlarge",
+            "g4ad.16xlarge",
             "g4dn.xlarge",
             "g4dn.2xlarge",
             "g4dn.4xlarge",
@@ -6213,6 +6489,7 @@ LaunchTemplateOverridesTypeDef = TypedDict(
             "c5n.4xlarge",
             "c5n.9xlarge",
             "c5n.18xlarge",
+            "c5n.metal",
             "c6g.metal",
             "c6g.medium",
             "c6g.large",
@@ -6231,6 +6508,14 @@ LaunchTemplateOverridesTypeDef = TypedDict(
             "c6gd.8xlarge",
             "c6gd.12xlarge",
             "c6gd.16xlarge",
+            "c6gn.medium",
+            "c6gn.large",
+            "c6gn.xlarge",
+            "c6gn.2xlarge",
+            "c6gn.4xlarge",
+            "c6gn.8xlarge",
+            "c6gn.12xlarge",
+            "c6gn.16xlarge",
             "cc1.4xlarge",
             "cc2.8xlarge",
             "g2.2xlarge",
@@ -6239,6 +6524,9 @@ LaunchTemplateOverridesTypeDef = TypedDict(
             "g3.8xlarge",
             "g3.16xlarge",
             "g3s.xlarge",
+            "g4ad.4xlarge",
+            "g4ad.8xlarge",
+            "g4ad.16xlarge",
             "g4dn.xlarge",
             "g4dn.2xlarge",
             "g4dn.4xlarge",
@@ -6481,6 +6769,8 @@ LaunchTemplateTagSpecificationRequestTypeDef = TypedDict(
             "natgateway",
             "network-acl",
             "network-interface",
+            "network-insights-analysis",
+            "network-insights-path",
             "placement-group",
             "reserved-instances",
             "route-table",
@@ -6494,6 +6784,7 @@ LaunchTemplateTagSpecificationRequestTypeDef = TypedDict(
             "traffic-mirror-target",
             "transit-gateway",
             "transit-gateway-attachment",
+            "transit-gateway-connect-peer",
             "transit-gateway-multicast-domain",
             "transit-gateway-route-table",
             "volume",
@@ -6535,6 +6826,8 @@ LaunchTemplateTagSpecificationTypeDef = TypedDict(
             "natgateway",
             "network-acl",
             "network-interface",
+            "network-insights-analysis",
+            "network-insights-path",
             "placement-group",
             "reserved-instances",
             "route-table",
@@ -6548,6 +6841,7 @@ LaunchTemplateTagSpecificationTypeDef = TypedDict(
             "traffic-mirror-target",
             "transit-gateway",
             "transit-gateway-attachment",
+            "transit-gateway-connect-peer",
             "transit-gateway-multicast-domain",
             "transit-gateway-route-table",
             "volume",
@@ -6844,6 +7138,43 @@ NetworkInfoTypeDef = TypedDict(
     total=False,
 )
 
+NetworkInsightsAnalysisTypeDef = TypedDict(
+    "NetworkInsightsAnalysisTypeDef",
+    {
+        "NetworkInsightsAnalysisId": str,
+        "NetworkInsightsAnalysisArn": str,
+        "NetworkInsightsPathId": str,
+        "FilterInArns": List[str],
+        "StartDate": datetime,
+        "Status": Literal["running", "succeeded", "failed"],
+        "StatusMessage": str,
+        "NetworkPathFound": bool,
+        "ForwardPathComponents": List["PathComponentTypeDef"],
+        "ReturnPathComponents": List["PathComponentTypeDef"],
+        "Explanations": List["ExplanationTypeDef"],
+        "AlternatePathHints": List["AlternatePathHintTypeDef"],
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+NetworkInsightsPathTypeDef = TypedDict(
+    "NetworkInsightsPathTypeDef",
+    {
+        "NetworkInsightsPathId": str,
+        "NetworkInsightsPathArn": str,
+        "CreatedDate": datetime,
+        "Source": str,
+        "Destination": str,
+        "SourceIp": str,
+        "DestinationIp": str,
+        "Protocol": Literal["tcp", "udp"],
+        "DestinationPort": int,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
 NetworkInterfaceAssociationTypeDef = TypedDict(
     "NetworkInterfaceAssociationTypeDef",
     {
@@ -6944,6 +7275,24 @@ OnDemandOptionsTypeDef = TypedDict(
         "SingleAvailabilityZone": bool,
         "MinTargetCapacity": int,
         "MaxTotalPrice": str,
+    },
+    total=False,
+)
+
+PathComponentTypeDef = TypedDict(
+    "PathComponentTypeDef",
+    {
+        "SequenceNumber": int,
+        "AclRule": "AnalysisAclRuleTypeDef",
+        "Component": "AnalysisComponentTypeDef",
+        "DestinationVpc": "AnalysisComponentTypeDef",
+        "OutboundHeader": "AnalysisPacketHeaderTypeDef",
+        "InboundHeader": "AnalysisPacketHeaderTypeDef",
+        "RouteTableRoute": "AnalysisRouteTableRouteTypeDef",
+        "SecurityGroupRule": "AnalysisSecurityGroupRuleTypeDef",
+        "SourceVpc": "AnalysisComponentTypeDef",
+        "Subnet": "AnalysisComponentTypeDef",
+        "Vpc": "AnalysisComponentTypeDef",
     },
     total=False,
 )
@@ -7138,6 +7487,10 @@ ProvisionedBandwidthTypeDef = TypedDict(
         "Status": str,
     },
     total=False,
+)
+
+PtrUpdateStatusTypeDef = TypedDict(
+    "PtrUpdateStatusTypeDef", {"Value": str, "Status": str, "Reason": str}, total=False
 )
 
 PublicIpv4PoolRangeTypeDef = TypedDict(
@@ -7413,6 +7766,7 @@ ReservedInstancesConfigurationTypeDef = TypedDict(
             "c5n.4xlarge",
             "c5n.9xlarge",
             "c5n.18xlarge",
+            "c5n.metal",
             "c6g.metal",
             "c6g.medium",
             "c6g.large",
@@ -7431,6 +7785,14 @@ ReservedInstancesConfigurationTypeDef = TypedDict(
             "c6gd.8xlarge",
             "c6gd.12xlarge",
             "c6gd.16xlarge",
+            "c6gn.medium",
+            "c6gn.large",
+            "c6gn.xlarge",
+            "c6gn.2xlarge",
+            "c6gn.4xlarge",
+            "c6gn.8xlarge",
+            "c6gn.12xlarge",
+            "c6gn.16xlarge",
             "cc1.4xlarge",
             "cc2.8xlarge",
             "g2.2xlarge",
@@ -7439,6 +7801,9 @@ ReservedInstancesConfigurationTypeDef = TypedDict(
             "g3.8xlarge",
             "g3.16xlarge",
             "g3s.xlarge",
+            "g4ad.4xlarge",
+            "g4ad.8xlarge",
+            "g4ad.16xlarge",
             "g4dn.xlarge",
             "g4dn.2xlarge",
             "g4dn.4xlarge",
@@ -7847,6 +8212,7 @@ ReservedInstancesOfferingTypeDef = TypedDict(
             "c5n.4xlarge",
             "c5n.9xlarge",
             "c5n.18xlarge",
+            "c5n.metal",
             "c6g.metal",
             "c6g.medium",
             "c6g.large",
@@ -7865,6 +8231,14 @@ ReservedInstancesOfferingTypeDef = TypedDict(
             "c6gd.8xlarge",
             "c6gd.12xlarge",
             "c6gd.16xlarge",
+            "c6gn.medium",
+            "c6gn.large",
+            "c6gn.xlarge",
+            "c6gn.2xlarge",
+            "c6gn.4xlarge",
+            "c6gn.8xlarge",
+            "c6gn.12xlarge",
+            "c6gn.16xlarge",
             "cc1.4xlarge",
             "cc2.8xlarge",
             "g2.2xlarge",
@@ -7873,6 +8247,9 @@ ReservedInstancesOfferingTypeDef = TypedDict(
             "g3.8xlarge",
             "g3.16xlarge",
             "g3s.xlarge",
+            "g4ad.4xlarge",
+            "g4ad.8xlarge",
+            "g4ad.16xlarge",
             "g4dn.xlarge",
             "g4dn.2xlarge",
             "g4dn.4xlarge",
@@ -8258,6 +8635,7 @@ ReservedInstancesTypeDef = TypedDict(
             "c5n.4xlarge",
             "c5n.9xlarge",
             "c5n.18xlarge",
+            "c5n.metal",
             "c6g.metal",
             "c6g.medium",
             "c6g.large",
@@ -8276,6 +8654,14 @@ ReservedInstancesTypeDef = TypedDict(
             "c6gd.8xlarge",
             "c6gd.12xlarge",
             "c6gd.16xlarge",
+            "c6gn.medium",
+            "c6gn.large",
+            "c6gn.xlarge",
+            "c6gn.2xlarge",
+            "c6gn.4xlarge",
+            "c6gn.8xlarge",
+            "c6gn.12xlarge",
+            "c6gn.16xlarge",
             "cc1.4xlarge",
             "cc2.8xlarge",
             "g2.2xlarge",
@@ -8284,6 +8670,9 @@ ReservedInstancesTypeDef = TypedDict(
             "g3.8xlarge",
             "g3.16xlarge",
             "g3s.xlarge",
+            "g4ad.4xlarge",
+            "g4ad.8xlarge",
+            "g4ad.16xlarge",
             "g4dn.xlarge",
             "g4dn.2xlarge",
             "g4dn.4xlarge",
@@ -8689,6 +9078,7 @@ ResponseLaunchTemplateDataTypeDef = TypedDict(
             "c5n.4xlarge",
             "c5n.9xlarge",
             "c5n.18xlarge",
+            "c5n.metal",
             "c6g.metal",
             "c6g.medium",
             "c6g.large",
@@ -8707,6 +9097,14 @@ ResponseLaunchTemplateDataTypeDef = TypedDict(
             "c6gd.8xlarge",
             "c6gd.12xlarge",
             "c6gd.16xlarge",
+            "c6gn.medium",
+            "c6gn.large",
+            "c6gn.xlarge",
+            "c6gn.2xlarge",
+            "c6gn.4xlarge",
+            "c6gn.8xlarge",
+            "c6gn.12xlarge",
+            "c6gn.16xlarge",
             "cc1.4xlarge",
             "cc2.8xlarge",
             "g2.2xlarge",
@@ -8715,6 +9113,9 @@ ResponseLaunchTemplateDataTypeDef = TypedDict(
             "g3.8xlarge",
             "g3.16xlarge",
             "g3s.xlarge",
+            "g4ad.4xlarge",
+            "g4ad.8xlarge",
+            "g4ad.16xlarge",
             "g4dn.xlarge",
             "g4dn.2xlarge",
             "g4dn.4xlarge",
@@ -9182,6 +9583,7 @@ SnapshotInfoTypeDef = TypedDict(
         "Progress": str,
         "OwnerId": str,
         "SnapshotId": str,
+        "OutpostArn": str,
     },
     total=False,
 )
@@ -9220,6 +9622,7 @@ SnapshotTypeDef = TypedDict(
         "VolumeId": str,
         "VolumeSize": int,
         "OwnerAlias": str,
+        "OutpostArn": str,
         "Tags": List["TagTypeDef"],
     },
     total=False,
@@ -9451,6 +9854,7 @@ SpotFleetLaunchSpecificationTypeDef = TypedDict(
             "c5n.4xlarge",
             "c5n.9xlarge",
             "c5n.18xlarge",
+            "c5n.metal",
             "c6g.metal",
             "c6g.medium",
             "c6g.large",
@@ -9469,6 +9873,14 @@ SpotFleetLaunchSpecificationTypeDef = TypedDict(
             "c6gd.8xlarge",
             "c6gd.12xlarge",
             "c6gd.16xlarge",
+            "c6gn.medium",
+            "c6gn.large",
+            "c6gn.xlarge",
+            "c6gn.2xlarge",
+            "c6gn.4xlarge",
+            "c6gn.8xlarge",
+            "c6gn.12xlarge",
+            "c6gn.16xlarge",
             "cc1.4xlarge",
             "cc2.8xlarge",
             "g2.2xlarge",
@@ -9477,6 +9889,9 @@ SpotFleetLaunchSpecificationTypeDef = TypedDict(
             "g3.8xlarge",
             "g3.16xlarge",
             "g3s.xlarge",
+            "g4ad.4xlarge",
+            "g4ad.8xlarge",
+            "g4ad.16xlarge",
             "g4dn.xlarge",
             "g4dn.2xlarge",
             "g4dn.4xlarge",
@@ -9735,6 +10150,8 @@ SpotFleetTagSpecificationTypeDef = TypedDict(
             "natgateway",
             "network-acl",
             "network-interface",
+            "network-insights-analysis",
+            "network-insights-path",
             "placement-group",
             "reserved-instances",
             "route-table",
@@ -9748,6 +10165,7 @@ SpotFleetTagSpecificationTypeDef = TypedDict(
             "traffic-mirror-target",
             "transit-gateway",
             "transit-gateway-attachment",
+            "transit-gateway-connect-peer",
             "transit-gateway-multicast-domain",
             "transit-gateway-route-table",
             "volume",
@@ -10042,6 +10460,7 @@ SpotPriceTypeDef = TypedDict(
             "c5n.4xlarge",
             "c5n.9xlarge",
             "c5n.18xlarge",
+            "c5n.metal",
             "c6g.metal",
             "c6g.medium",
             "c6g.large",
@@ -10060,6 +10479,14 @@ SpotPriceTypeDef = TypedDict(
             "c6gd.8xlarge",
             "c6gd.12xlarge",
             "c6gd.16xlarge",
+            "c6gn.medium",
+            "c6gn.large",
+            "c6gn.xlarge",
+            "c6gn.2xlarge",
+            "c6gn.4xlarge",
+            "c6gn.8xlarge",
+            "c6gn.12xlarge",
+            "c6gn.16xlarge",
             "cc1.4xlarge",
             "cc2.8xlarge",
             "g2.2xlarge",
@@ -10068,6 +10495,9 @@ SpotPriceTypeDef = TypedDict(
             "g3.8xlarge",
             "g3.16xlarge",
             "g3s.xlarge",
+            "g4ad.4xlarge",
+            "g4ad.8xlarge",
+            "g4ad.16xlarge",
             "g4dn.xlarge",
             "g4dn.2xlarge",
             "g4dn.4xlarge",
@@ -10263,7 +10693,15 @@ SubnetAssociationTypeDef = TypedDict(
     "SubnetAssociationTypeDef",
     {
         "SubnetId": str,
-        "State": Literal["associating", "associated", "disassociating", "disassociated"],
+        "State": Literal[
+            "pendingAcceptance",
+            "associating",
+            "associated",
+            "disassociating",
+            "disassociated",
+            "rejected",
+            "failed",
+        ],
     },
     total=False,
 )
@@ -10350,6 +10788,8 @@ TagDescriptionTypeDef = TypedDict(
             "natgateway",
             "network-acl",
             "network-interface",
+            "network-insights-analysis",
+            "network-insights-path",
             "placement-group",
             "reserved-instances",
             "route-table",
@@ -10363,6 +10803,7 @@ TagDescriptionTypeDef = TypedDict(
             "traffic-mirror-target",
             "transit-gateway",
             "transit-gateway-attachment",
+            "transit-gateway-connect-peer",
             "transit-gateway-multicast-domain",
             "transit-gateway-route-table",
             "volume",
@@ -10404,6 +10845,8 @@ TagSpecificationTypeDef = TypedDict(
             "natgateway",
             "network-acl",
             "network-interface",
+            "network-insights-analysis",
+            "network-insights-path",
             "placement-group",
             "reserved-instances",
             "route-table",
@@ -10417,6 +10860,7 @@ TagSpecificationTypeDef = TypedDict(
             "traffic-mirror-target",
             "transit-gateway",
             "transit-gateway-attachment",
+            "transit-gateway-connect-peer",
             "transit-gateway-multicast-domain",
             "transit-gateway-route-table",
             "volume",
@@ -10556,7 +11000,9 @@ TransitGatewayAssociationTypeDef = TypedDict(
         "TransitGatewayRouteTableId": str,
         "TransitGatewayAttachmentId": str,
         "ResourceId": str,
-        "ResourceType": Literal["vpc", "vpn", "direct-connect-gateway", "peering", "tgw-peering"],
+        "ResourceType": Literal[
+            "vpc", "vpn", "direct-connect-gateway", "connect", "peering", "tgw-peering"
+        ],
         "State": Literal["associating", "associated", "disassociating", "disassociated"],
     },
     total=False,
@@ -10567,6 +11013,18 @@ TransitGatewayAttachmentAssociationTypeDef = TypedDict(
     {
         "TransitGatewayRouteTableId": str,
         "State": Literal["associating", "associated", "disassociating", "disassociated"],
+    },
+    total=False,
+)
+
+TransitGatewayAttachmentBgpConfigurationTypeDef = TypedDict(
+    "TransitGatewayAttachmentBgpConfigurationTypeDef",
+    {
+        "TransitGatewayAsn": int,
+        "PeerAsn": int,
+        "TransitGatewayAddress": str,
+        "PeerAddress": str,
+        "BgpStatus": Literal["up", "down"],
     },
     total=False,
 )
@@ -10587,7 +11045,9 @@ TransitGatewayAttachmentTypeDef = TypedDict(
         "TransitGatewayId": str,
         "TransitGatewayOwnerId": str,
         "ResourceOwnerId": str,
-        "ResourceType": Literal["vpc", "vpn", "direct-connect-gateway", "peering", "tgw-peering"],
+        "ResourceType": Literal[
+            "vpc", "vpn", "direct-connect-gateway", "connect", "peering", "tgw-peering"
+        ],
         "ResourceId": str,
         "State": Literal[
             "initiating",
@@ -10606,6 +11066,63 @@ TransitGatewayAttachmentTypeDef = TypedDict(
         ],
         "Association": "TransitGatewayAttachmentAssociationTypeDef",
         "CreationTime": datetime,
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+TransitGatewayConnectOptionsTypeDef = TypedDict(
+    "TransitGatewayConnectOptionsTypeDef", {"Protocol": Literal["gre"]}, total=False
+)
+
+TransitGatewayConnectPeerConfigurationTypeDef = TypedDict(
+    "TransitGatewayConnectPeerConfigurationTypeDef",
+    {
+        "TransitGatewayAddress": str,
+        "PeerAddress": str,
+        "InsideCidrBlocks": List[str],
+        "Protocol": Literal["gre"],
+        "BgpConfigurations": List["TransitGatewayAttachmentBgpConfigurationTypeDef"],
+    },
+    total=False,
+)
+
+TransitGatewayConnectPeerTypeDef = TypedDict(
+    "TransitGatewayConnectPeerTypeDef",
+    {
+        "TransitGatewayAttachmentId": str,
+        "TransitGatewayConnectPeerId": str,
+        "State": Literal["pending", "available", "deleting", "deleted"],
+        "CreationTime": datetime,
+        "ConnectPeerConfiguration": "TransitGatewayConnectPeerConfigurationTypeDef",
+        "Tags": List["TagTypeDef"],
+    },
+    total=False,
+)
+
+TransitGatewayConnectTypeDef = TypedDict(
+    "TransitGatewayConnectTypeDef",
+    {
+        "TransitGatewayAttachmentId": str,
+        "TransportTransitGatewayAttachmentId": str,
+        "TransitGatewayId": str,
+        "State": Literal[
+            "initiating",
+            "initiatingRequest",
+            "pendingAcceptance",
+            "rollingBack",
+            "pending",
+            "available",
+            "modifying",
+            "deleting",
+            "deleted",
+            "failed",
+            "rejected",
+            "rejecting",
+            "failing",
+        ],
+        "CreationTime": datetime,
+        "Options": "TransitGatewayConnectOptionsTypeDef",
         "Tags": List["TagTypeDef"],
     },
     total=False,
@@ -10636,7 +11153,10 @@ TransitGatewayMulticastDomainAssociationTypeDef = TypedDict(
     {
         "TransitGatewayAttachmentId": str,
         "ResourceId": str,
-        "ResourceType": Literal["vpc", "vpn", "direct-connect-gateway", "peering", "tgw-peering"],
+        "ResourceType": Literal[
+            "vpc", "vpn", "direct-connect-gateway", "connect", "peering", "tgw-peering"
+        ],
+        "ResourceOwnerId": str,
         "Subnet": "SubnetAssociationTypeDef",
     },
     total=False,
@@ -10648,8 +11168,21 @@ TransitGatewayMulticastDomainAssociationsTypeDef = TypedDict(
         "TransitGatewayMulticastDomainId": str,
         "TransitGatewayAttachmentId": str,
         "ResourceId": str,
-        "ResourceType": Literal["vpc", "vpn", "direct-connect-gateway", "peering", "tgw-peering"],
+        "ResourceType": Literal[
+            "vpc", "vpn", "direct-connect-gateway", "connect", "peering", "tgw-peering"
+        ],
+        "ResourceOwnerId": str,
         "Subnets": List["SubnetAssociationTypeDef"],
+    },
+    total=False,
+)
+
+TransitGatewayMulticastDomainOptionsTypeDef = TypedDict(
+    "TransitGatewayMulticastDomainOptionsTypeDef",
+    {
+        "Igmpv2Support": Literal["enable", "disable"],
+        "StaticSourcesSupport": Literal["enable", "disable"],
+        "AutoAcceptSharedAssociations": Literal["enable", "disable"],
     },
     total=False,
 )
@@ -10659,6 +11192,9 @@ TransitGatewayMulticastDomainTypeDef = TypedDict(
     {
         "TransitGatewayMulticastDomainId": str,
         "TransitGatewayId": str,
+        "TransitGatewayMulticastDomainArn": str,
+        "OwnerId": str,
+        "Options": "TransitGatewayMulticastDomainOptionsTypeDef",
         "State": Literal["pending", "available", "deleting", "deleted"],
         "CreationTime": datetime,
         "Tags": List["TagTypeDef"],
@@ -10673,7 +11209,10 @@ TransitGatewayMulticastGroupTypeDef = TypedDict(
         "TransitGatewayAttachmentId": str,
         "SubnetId": str,
         "ResourceId": str,
-        "ResourceType": Literal["vpc", "vpn", "direct-connect-gateway", "peering", "tgw-peering"],
+        "ResourceType": Literal[
+            "vpc", "vpn", "direct-connect-gateway", "connect", "peering", "tgw-peering"
+        ],
+        "ResourceOwnerId": str,
         "NetworkInterfaceId": str,
         "GroupMember": bool,
         "GroupSource": bool,
@@ -10707,6 +11246,7 @@ TransitGatewayOptionsTypeDef = TypedDict(
     "TransitGatewayOptionsTypeDef",
     {
         "AmazonSideAsn": int,
+        "TransitGatewayCidrBlocks": List[str],
         "AutoAcceptSharedAttachments": Literal["enable", "disable"],
         "DefaultRouteTableAssociation": Literal["enable", "disable"],
         "AssociationDefaultRouteTableId": str,
@@ -10751,7 +11291,9 @@ TransitGatewayPrefixListAttachmentTypeDef = TypedDict(
     "TransitGatewayPrefixListAttachmentTypeDef",
     {
         "TransitGatewayAttachmentId": str,
-        "ResourceType": Literal["vpc", "vpn", "direct-connect-gateway", "peering", "tgw-peering"],
+        "ResourceType": Literal[
+            "vpc", "vpn", "direct-connect-gateway", "connect", "peering", "tgw-peering"
+        ],
         "ResourceId": str,
     },
     total=False,
@@ -10775,7 +11317,9 @@ TransitGatewayPropagationTypeDef = TypedDict(
     {
         "TransitGatewayAttachmentId": str,
         "ResourceId": str,
-        "ResourceType": Literal["vpc", "vpn", "direct-connect-gateway", "peering", "tgw-peering"],
+        "ResourceType": Literal[
+            "vpc", "vpn", "direct-connect-gateway", "connect", "peering", "tgw-peering"
+        ],
         "TransitGatewayRouteTableId": str,
         "State": Literal["enabling", "enabled", "disabling", "disabled"],
     },
@@ -10787,7 +11331,9 @@ TransitGatewayRouteAttachmentTypeDef = TypedDict(
     {
         "ResourceId": str,
         "TransitGatewayAttachmentId": str,
-        "ResourceType": Literal["vpc", "vpn", "direct-connect-gateway", "peering", "tgw-peering"],
+        "ResourceType": Literal[
+            "vpc", "vpn", "direct-connect-gateway", "connect", "peering", "tgw-peering"
+        ],
     },
     total=False,
 )
@@ -10797,7 +11343,9 @@ TransitGatewayRouteTableAssociationTypeDef = TypedDict(
     {
         "TransitGatewayAttachmentId": str,
         "ResourceId": str,
-        "ResourceType": Literal["vpc", "vpn", "direct-connect-gateway", "peering", "tgw-peering"],
+        "ResourceType": Literal[
+            "vpc", "vpn", "direct-connect-gateway", "connect", "peering", "tgw-peering"
+        ],
         "State": Literal["associating", "associated", "disassociating", "disassociated"],
     },
     total=False,
@@ -10808,7 +11356,9 @@ TransitGatewayRouteTablePropagationTypeDef = TypedDict(
     {
         "TransitGatewayAttachmentId": str,
         "ResourceId": str,
-        "ResourceType": Literal["vpc", "vpn", "direct-connect-gateway", "peering", "tgw-peering"],
+        "ResourceType": Literal[
+            "vpc", "vpn", "direct-connect-gateway", "connect", "peering", "tgw-peering"
+        ],
         "State": Literal["enabling", "enabled", "disabling", "disabled"],
     },
     total=False,
@@ -11031,10 +11581,12 @@ VolumeModificationTypeDef = TypedDict(
         "TargetIops": int,
         "TargetVolumeType": Literal["standard", "io1", "io2", "gp2", "sc1", "st1", "gp3"],
         "TargetThroughput": int,
+        "TargetMultiAttachEnabled": bool,
         "OriginalSize": int,
         "OriginalIops": int,
         "OriginalVolumeType": Literal["standard", "io1", "io2", "gp2", "sc1", "st1", "gp3"],
         "OriginalThroughput": int,
+        "OriginalMultiAttachEnabled": bool,
         "Progress": int,
         "StartTime": datetime,
         "EndTime": datetime,
@@ -11373,6 +11925,12 @@ VpnTunnelOptionsSpecificationTypeDef = TypedDict(
 
 AcceptReservedInstancesExchangeQuoteResultTypeDef = TypedDict(
     "AcceptReservedInstancesExchangeQuoteResultTypeDef", {"ExchangeId": str}, total=False
+)
+
+AcceptTransitGatewayMulticastDomainAssociationsResultTypeDef = TypedDict(
+    "AcceptTransitGatewayMulticastDomainAssociationsResultTypeDef",
+    {"Associations": "TransitGatewayMulticastDomainAssociationsTypeDef"},
+    total=False,
 )
 
 AcceptTransitGatewayPeeringAttachmentResultTypeDef = TypedDict(
@@ -11747,6 +12305,12 @@ CreateNetworkAclResultTypeDef = TypedDict(
     "CreateNetworkAclResultTypeDef", {"NetworkAcl": "NetworkAclTypeDef"}, total=False
 )
 
+CreateNetworkInsightsPathResultTypeDef = TypedDict(
+    "CreateNetworkInsightsPathResultTypeDef",
+    {"NetworkInsightsPath": "NetworkInsightsPathTypeDef"},
+    total=False,
+)
+
 CreateNetworkInterfacePermissionResultTypeDef = TypedDict(
     "CreateNetworkInterfacePermissionResultTypeDef",
     {"InterfacePermission": "NetworkInterfacePermissionTypeDef"},
@@ -11814,6 +12378,32 @@ CreateTrafficMirrorSessionResultTypeDef = TypedDict(
 CreateTrafficMirrorTargetResultTypeDef = TypedDict(
     "CreateTrafficMirrorTargetResultTypeDef",
     {"TrafficMirrorTarget": "TrafficMirrorTargetTypeDef", "ClientToken": str},
+    total=False,
+)
+
+CreateTransitGatewayConnectPeerResultTypeDef = TypedDict(
+    "CreateTransitGatewayConnectPeerResultTypeDef",
+    {"TransitGatewayConnectPeer": "TransitGatewayConnectPeerTypeDef"},
+    total=False,
+)
+
+CreateTransitGatewayConnectRequestOptionsTypeDef = TypedDict(
+    "CreateTransitGatewayConnectRequestOptionsTypeDef", {"Protocol": Literal["gre"]}
+)
+
+CreateTransitGatewayConnectResultTypeDef = TypedDict(
+    "CreateTransitGatewayConnectResultTypeDef",
+    {"TransitGatewayConnect": "TransitGatewayConnectTypeDef"},
+    total=False,
+)
+
+CreateTransitGatewayMulticastDomainRequestOptionsTypeDef = TypedDict(
+    "CreateTransitGatewayMulticastDomainRequestOptionsTypeDef",
+    {
+        "Igmpv2Support": Literal["enable", "disable"],
+        "StaticSourcesSupport": Literal["enable", "disable"],
+        "AutoAcceptSharedAssociations": Literal["enable", "disable"],
+    },
     total=False,
 )
 
@@ -11975,6 +12565,14 @@ DeleteNatGatewayResultTypeDef = TypedDict(
     "DeleteNatGatewayResultTypeDef", {"NatGatewayId": str}, total=False
 )
 
+DeleteNetworkInsightsAnalysisResultTypeDef = TypedDict(
+    "DeleteNetworkInsightsAnalysisResultTypeDef", {"NetworkInsightsAnalysisId": str}, total=False
+)
+
+DeleteNetworkInsightsPathResultTypeDef = TypedDict(
+    "DeleteNetworkInsightsPathResultTypeDef", {"NetworkInsightsPathId": str}, total=False
+)
+
 DeleteNetworkInterfacePermissionResultTypeDef = TypedDict(
     "DeleteNetworkInterfacePermissionResultTypeDef", {"Return": bool}, total=False
 )
@@ -12002,6 +12600,18 @@ DeleteTrafficMirrorSessionResultTypeDef = TypedDict(
 
 DeleteTrafficMirrorTargetResultTypeDef = TypedDict(
     "DeleteTrafficMirrorTargetResultTypeDef", {"TrafficMirrorTargetId": str}, total=False
+)
+
+DeleteTransitGatewayConnectPeerResultTypeDef = TypedDict(
+    "DeleteTransitGatewayConnectPeerResultTypeDef",
+    {"TransitGatewayConnectPeer": "TransitGatewayConnectPeerTypeDef"},
+    total=False,
+)
+
+DeleteTransitGatewayConnectResultTypeDef = TypedDict(
+    "DeleteTransitGatewayConnectResultTypeDef",
+    {"TransitGatewayConnect": "TransitGatewayConnectTypeDef"},
+    total=False,
 )
 
 DeleteTransitGatewayMulticastDomainResultTypeDef = TypedDict(
@@ -12095,6 +12705,12 @@ DeregisterTransitGatewayMulticastGroupSourcesResultTypeDef = TypedDict(
 DescribeAccountAttributesResultTypeDef = TypedDict(
     "DescribeAccountAttributesResultTypeDef",
     {"AccountAttributes": List["AccountAttributeTypeDef"]},
+    total=False,
+)
+
+DescribeAddressesAttributeResultTypeDef = TypedDict(
+    "DescribeAddressesAttributeResultTypeDef",
+    {"Addresses": List["AddressAttributeTypeDef"], "NextToken": str},
     total=False,
 )
 
@@ -12458,6 +13074,18 @@ DescribeNetworkAclsResultTypeDef = TypedDict(
     total=False,
 )
 
+DescribeNetworkInsightsAnalysesResultTypeDef = TypedDict(
+    "DescribeNetworkInsightsAnalysesResultTypeDef",
+    {"NetworkInsightsAnalyses": List["NetworkInsightsAnalysisTypeDef"], "NextToken": str},
+    total=False,
+)
+
+DescribeNetworkInsightsPathsResultTypeDef = TypedDict(
+    "DescribeNetworkInsightsPathsResultTypeDef",
+    {"NetworkInsightsPaths": List["NetworkInsightsPathTypeDef"], "NextToken": str},
+    total=False,
+)
+
 DescribeNetworkInterfaceAttributeResultTypeDef = TypedDict(
     "DescribeNetworkInterfaceAttributeResultTypeDef",
     {
@@ -12667,6 +13295,18 @@ DescribeTrafficMirrorTargetsResultTypeDef = TypedDict(
 DescribeTransitGatewayAttachmentsResultTypeDef = TypedDict(
     "DescribeTransitGatewayAttachmentsResultTypeDef",
     {"TransitGatewayAttachments": List["TransitGatewayAttachmentTypeDef"], "NextToken": str},
+    total=False,
+)
+
+DescribeTransitGatewayConnectPeersResultTypeDef = TypedDict(
+    "DescribeTransitGatewayConnectPeersResultTypeDef",
+    {"TransitGatewayConnectPeers": List["TransitGatewayConnectPeerTypeDef"], "NextToken": str},
+    total=False,
+)
+
+DescribeTransitGatewayConnectsResultTypeDef = TypedDict(
+    "DescribeTransitGatewayConnectsResultTypeDef",
+    {"TransitGatewayConnects": List["TransitGatewayConnectTypeDef"], "NextToken": str},
     total=False,
 )
 
@@ -13439,6 +14079,7 @@ ImportInstanceLaunchSpecificationTypeDef = TypedDict(
             "c5n.4xlarge",
             "c5n.9xlarge",
             "c5n.18xlarge",
+            "c5n.metal",
             "c6g.metal",
             "c6g.medium",
             "c6g.large",
@@ -13457,6 +14098,14 @@ ImportInstanceLaunchSpecificationTypeDef = TypedDict(
             "c6gd.8xlarge",
             "c6gd.12xlarge",
             "c6gd.16xlarge",
+            "c6gn.medium",
+            "c6gn.large",
+            "c6gn.xlarge",
+            "c6gn.2xlarge",
+            "c6gn.4xlarge",
+            "c6gn.8xlarge",
+            "c6gn.12xlarge",
+            "c6gn.16xlarge",
             "cc1.4xlarge",
             "cc2.8xlarge",
             "g2.2xlarge",
@@ -13465,6 +14114,9 @@ ImportInstanceLaunchSpecificationTypeDef = TypedDict(
             "g3.8xlarge",
             "g3.16xlarge",
             "g3s.xlarge",
+            "g4ad.4xlarge",
+            "g4ad.8xlarge",
+            "g4ad.16xlarge",
             "g4dn.xlarge",
             "g4dn.2xlarge",
             "g4dn.4xlarge",
@@ -13743,6 +14395,10 @@ LoadPermissionModificationsTypeDef = TypedDict(
     total=False,
 )
 
+ModifyAddressAttributeResultTypeDef = TypedDict(
+    "ModifyAddressAttributeResultTypeDef", {"Address": "AddressAttributeTypeDef"}, total=False
+)
+
 ModifyAvailabilityZoneGroupResultTypeDef = TypedDict(
     "ModifyAvailabilityZoneGroupResultTypeDef", {"Return": bool}, total=False
 )
@@ -13849,6 +14505,8 @@ ModifyTrafficMirrorSessionResultTypeDef = TypedDict(
 ModifyTransitGatewayOptionsTypeDef = TypedDict(
     "ModifyTransitGatewayOptionsTypeDef",
     {
+        "AddTransitGatewayCidrBlocks": List[str],
+        "RemoveTransitGatewayCidrBlocks": List[str],
         "VpnEcmpSupport": Literal["enable", "disable"],
         "DnsSupport": Literal["enable", "disable"],
         "AutoAcceptSharedAttachments": Literal["enable", "disable"],
@@ -14072,6 +14730,12 @@ RegisterTransitGatewayMulticastGroupMembersResultTypeDef = TypedDict(
 RegisterTransitGatewayMulticastGroupSourcesResultTypeDef = TypedDict(
     "RegisterTransitGatewayMulticastGroupSourcesResultTypeDef",
     {"RegisteredMulticastGroupSources": "TransitGatewayMulticastRegisteredGroupSourcesTypeDef"},
+    total=False,
+)
+
+RejectTransitGatewayMulticastDomainAssociationsResultTypeDef = TypedDict(
+    "RejectTransitGatewayMulticastDomainAssociationsResultTypeDef",
+    {"Associations": "TransitGatewayMulticastDomainAssociationsTypeDef"},
     total=False,
 )
 
@@ -14337,6 +15001,7 @@ RequestLaunchTemplateDataTypeDef = TypedDict(
             "c5n.4xlarge",
             "c5n.9xlarge",
             "c5n.18xlarge",
+            "c5n.metal",
             "c6g.metal",
             "c6g.medium",
             "c6g.large",
@@ -14355,6 +15020,14 @@ RequestLaunchTemplateDataTypeDef = TypedDict(
             "c6gd.8xlarge",
             "c6gd.12xlarge",
             "c6gd.16xlarge",
+            "c6gn.medium",
+            "c6gn.large",
+            "c6gn.xlarge",
+            "c6gn.2xlarge",
+            "c6gn.4xlarge",
+            "c6gn.8xlarge",
+            "c6gn.12xlarge",
+            "c6gn.16xlarge",
             "cc1.4xlarge",
             "cc2.8xlarge",
             "g2.2xlarge",
@@ -14363,6 +15036,9 @@ RequestLaunchTemplateDataTypeDef = TypedDict(
             "g3.8xlarge",
             "g3.16xlarge",
             "g3s.xlarge",
+            "g4ad.4xlarge",
+            "g4ad.8xlarge",
+            "g4ad.16xlarge",
             "g4dn.xlarge",
             "g4dn.2xlarge",
             "g4dn.4xlarge",
@@ -14760,6 +15436,7 @@ RequestSpotLaunchSpecificationTypeDef = TypedDict(
             "c5n.4xlarge",
             "c5n.9xlarge",
             "c5n.18xlarge",
+            "c5n.metal",
             "c6g.metal",
             "c6g.medium",
             "c6g.large",
@@ -14778,6 +15455,14 @@ RequestSpotLaunchSpecificationTypeDef = TypedDict(
             "c6gd.8xlarge",
             "c6gd.12xlarge",
             "c6gd.16xlarge",
+            "c6gn.medium",
+            "c6gn.large",
+            "c6gn.xlarge",
+            "c6gn.2xlarge",
+            "c6gn.4xlarge",
+            "c6gn.8xlarge",
+            "c6gn.12xlarge",
+            "c6gn.16xlarge",
             "cc1.4xlarge",
             "cc2.8xlarge",
             "g2.2xlarge",
@@ -14786,6 +15471,9 @@ RequestSpotLaunchSpecificationTypeDef = TypedDict(
             "g3.8xlarge",
             "g3.16xlarge",
             "g3s.xlarge",
+            "g4ad.4xlarge",
+            "g4ad.8xlarge",
+            "g4ad.16xlarge",
             "g4dn.xlarge",
             "g4dn.2xlarge",
             "g4dn.4xlarge",
@@ -14956,6 +15644,10 @@ ReservedInstanceLimitPriceTypeDef = TypedDict(
     total=False,
 )
 
+ResetAddressAttributeResultTypeDef = TypedDict(
+    "ResetAddressAttributeResultTypeDef", {"Address": "AddressAttributeTypeDef"}, total=False
+)
+
 ResetEbsDefaultKmsKeyIdResultTypeDef = TypedDict(
     "ResetEbsDefaultKmsKeyIdResultTypeDef", {"KmsKeyId": str}, total=False
 )
@@ -15096,6 +15788,12 @@ StartInstancesResultTypeDef = TypedDict(
     total=False,
 )
 
+StartNetworkInsightsAnalysisResultTypeDef = TypedDict(
+    "StartNetworkInsightsAnalysisResultTypeDef",
+    {"NetworkInsightsAnalysis": "NetworkInsightsAnalysisTypeDef"},
+    total=False,
+)
+
 StartVpcEndpointServicePrivateDnsVerificationResultTypeDef = TypedDict(
     "StartVpcEndpointServicePrivateDnsVerificationResultTypeDef", {"ReturnValue": bool}, total=False
 )
@@ -15173,6 +15871,10 @@ TrafficMirrorPortRangeRequestTypeDef = TypedDict(
     "TrafficMirrorPortRangeRequestTypeDef", {"FromPort": int, "ToPort": int}, total=False
 )
 
+TransitGatewayConnectRequestBgpOptionsTypeDef = TypedDict(
+    "TransitGatewayConnectRequestBgpOptionsTypeDef", {"PeerAsn": int}, total=False
+)
+
 TransitGatewayRequestOptionsTypeDef = TypedDict(
     "TransitGatewayRequestOptionsTypeDef",
     {
@@ -15183,6 +15885,7 @@ TransitGatewayRequestOptionsTypeDef = TypedDict(
         "VpnEcmpSupport": Literal["enable", "disable"],
         "DnsSupport": Literal["enable", "disable"],
         "MulticastSupport": Literal["enable", "disable"],
+        "TransitGatewayCidrBlocks": List[str],
     },
     total=False,
 )

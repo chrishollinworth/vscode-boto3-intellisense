@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for support service client
 
@@ -67,7 +66,7 @@ class Exceptions:
 
 class SupportClient:
     """
-    [Support.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/support.html#Support.Client)
+    [Support.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/support.html#Support.Client)
     """
 
     meta: ClientMeta
@@ -77,7 +76,7 @@ class SupportClient:
         self, attachments: List["AttachmentTypeDef"], attachmentSetId: str = None
     ) -> AddAttachmentsToSetResponseTypeDef:
         """
-        [Client.add_attachments_to_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/support.html#Support.Client.add_attachments_to_set)
+        [Client.add_attachments_to_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/support.html#Support.Client.add_attachments_to_set)
         """
 
     def add_communication_to_case(
@@ -88,12 +87,12 @@ class SupportClient:
         attachmentSetId: str = None,
     ) -> AddCommunicationToCaseResponseTypeDef:
         """
-        [Client.add_communication_to_case documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/support.html#Support.Client.add_communication_to_case)
+        [Client.add_communication_to_case documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/support.html#Support.Client.add_communication_to_case)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/support.html#Support.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/support.html#Support.Client.can_paginate)
         """
 
     def create_case(
@@ -109,12 +108,12 @@ class SupportClient:
         attachmentSetId: str = None,
     ) -> CreateCaseResponseTypeDef:
         """
-        [Client.create_case documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/support.html#Support.Client.create_case)
+        [Client.create_case documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/support.html#Support.Client.create_case)
         """
 
     def describe_attachment(self, attachmentId: str) -> DescribeAttachmentResponseTypeDef:
         """
-        [Client.describe_attachment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/support.html#Support.Client.describe_attachment)
+        [Client.describe_attachment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/support.html#Support.Client.describe_attachment)
         """
 
     def describe_cases(
@@ -130,7 +129,7 @@ class SupportClient:
         includeCommunications: bool = None,
     ) -> DescribeCasesResponseTypeDef:
         """
-        [Client.describe_cases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/support.html#Support.Client.describe_cases)
+        [Client.describe_cases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/support.html#Support.Client.describe_cases)
         """
 
     def describe_communications(
@@ -142,49 +141,49 @@ class SupportClient:
         maxResults: int = None,
     ) -> DescribeCommunicationsResponseTypeDef:
         """
-        [Client.describe_communications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/support.html#Support.Client.describe_communications)
+        [Client.describe_communications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/support.html#Support.Client.describe_communications)
         """
 
     def describe_services(
         self, serviceCodeList: List[str] = None, language: str = None
     ) -> DescribeServicesResponseTypeDef:
         """
-        [Client.describe_services documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/support.html#Support.Client.describe_services)
+        [Client.describe_services documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/support.html#Support.Client.describe_services)
         """
 
     def describe_severity_levels(
         self, language: str = None
     ) -> DescribeSeverityLevelsResponseTypeDef:
         """
-        [Client.describe_severity_levels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/support.html#Support.Client.describe_severity_levels)
+        [Client.describe_severity_levels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/support.html#Support.Client.describe_severity_levels)
         """
 
     def describe_trusted_advisor_check_refresh_statuses(
         self, checkIds: List[str]
     ) -> DescribeTrustedAdvisorCheckRefreshStatusesResponseTypeDef:
         """
-        [Client.describe_trusted_advisor_check_refresh_statuses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/support.html#Support.Client.describe_trusted_advisor_check_refresh_statuses)
+        [Client.describe_trusted_advisor_check_refresh_statuses documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/support.html#Support.Client.describe_trusted_advisor_check_refresh_statuses)
         """
 
     def describe_trusted_advisor_check_result(
         self, checkId: str, language: str = None
     ) -> DescribeTrustedAdvisorCheckResultResponseTypeDef:
         """
-        [Client.describe_trusted_advisor_check_result documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/support.html#Support.Client.describe_trusted_advisor_check_result)
+        [Client.describe_trusted_advisor_check_result documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/support.html#Support.Client.describe_trusted_advisor_check_result)
         """
 
     def describe_trusted_advisor_check_summaries(
         self, checkIds: List[str]
     ) -> DescribeTrustedAdvisorCheckSummariesResponseTypeDef:
         """
-        [Client.describe_trusted_advisor_check_summaries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/support.html#Support.Client.describe_trusted_advisor_check_summaries)
+        [Client.describe_trusted_advisor_check_summaries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/support.html#Support.Client.describe_trusted_advisor_check_summaries)
         """
 
     def describe_trusted_advisor_checks(
         self, language: str
     ) -> DescribeTrustedAdvisorChecksResponseTypeDef:
         """
-        [Client.describe_trusted_advisor_checks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/support.html#Support.Client.describe_trusted_advisor_checks)
+        [Client.describe_trusted_advisor_checks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/support.html#Support.Client.describe_trusted_advisor_checks)
         """
 
     def generate_presigned_url(
@@ -195,25 +194,25 @@ class SupportClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/support.html#Support.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/support.html#Support.Client.generate_presigned_url)
         """
 
     def refresh_trusted_advisor_check(
         self, checkId: str
     ) -> RefreshTrustedAdvisorCheckResponseTypeDef:
         """
-        [Client.refresh_trusted_advisor_check documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/support.html#Support.Client.refresh_trusted_advisor_check)
+        [Client.refresh_trusted_advisor_check documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/support.html#Support.Client.refresh_trusted_advisor_check)
         """
 
     def resolve_case(self, caseId: str = None) -> ResolveCaseResponseTypeDef:
         """
-        [Client.resolve_case documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/support.html#Support.Client.resolve_case)
+        [Client.resolve_case documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/support.html#Support.Client.resolve_case)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["describe_cases"]) -> DescribeCasesPaginator:
         """
-        [Paginator.DescribeCases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/support.html#Support.Paginator.DescribeCases)
+        [Paginator.DescribeCases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/support.html#Support.Paginator.DescribeCases)
         """
 
     @overload
@@ -221,5 +220,5 @@ class SupportClient:
         self, operation_name: Literal["describe_communications"]
     ) -> DescribeCommunicationsPaginator:
         """
-        [Paginator.DescribeCommunications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/support.html#Support.Paginator.DescribeCommunications)
+        [Paginator.DescribeCommunications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/support.html#Support.Paginator.DescribeCommunications)
         """

@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for fsx service client paginators.
 
@@ -42,7 +41,7 @@ __all__ = (
 
 class DescribeBackupsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeBackups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/fsx.html#FSx.Paginator.DescribeBackups)
+    [Paginator.DescribeBackups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/fsx.html#FSx.Paginator.DescribeBackups)
     """
 
     def paginate(
@@ -52,31 +51,31 @@ class DescribeBackupsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeBackupsResponseTypeDef]:
         """
-        [DescribeBackups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/fsx.html#FSx.Paginator.DescribeBackups.paginate)
+        [DescribeBackups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/fsx.html#FSx.Paginator.DescribeBackups.paginate)
         """
 
 
 class DescribeFileSystemsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeFileSystems documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/fsx.html#FSx.Paginator.DescribeFileSystems)
+    [Paginator.DescribeFileSystems documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/fsx.html#FSx.Paginator.DescribeFileSystems)
     """
 
     def paginate(
         self, FileSystemIds: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeFileSystemsResponseTypeDef]:
         """
-        [DescribeFileSystems.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/fsx.html#FSx.Paginator.DescribeFileSystems.paginate)
+        [DescribeFileSystems.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/fsx.html#FSx.Paginator.DescribeFileSystems.paginate)
         """
 
 
 class ListTagsForResourcePaginator(Boto3Paginator):
     """
-    [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/fsx.html#FSx.Paginator.ListTagsForResource)
+    [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/fsx.html#FSx.Paginator.ListTagsForResource)
     """
 
     def paginate(
         self, ResourceARN: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTagsForResourceResponseTypeDef]:
         """
-        [ListTagsForResource.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/fsx.html#FSx.Paginator.ListTagsForResource.paginate)
+        [ListTagsForResource.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/fsx.html#FSx.Paginator.ListTagsForResource.paginate)
         """

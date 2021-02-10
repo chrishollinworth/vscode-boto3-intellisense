@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import
 """
 Main interface for dynamodb service ServiceResource
 
@@ -20,6 +19,7 @@ from datetime import datetime
 from decimal import Decimal
 from typing import Any, Dict, Iterator, List, Set, Union
 
+from boto3.dynamodb.conditions import ConditionBase
 from boto3.dynamodb.table import BatchWriter
 from boto3.resources.base import ServiceResource as Boto3ServiceResource
 from boto3.resources.collection import ResourceCollection
@@ -62,7 +62,7 @@ __all__ = ("DynamoDBServiceResource", "Table", "ServiceResourceTablesCollection"
 
 class ServiceResourceTablesCollection(ResourceCollection):
     """
-    [ServiceResource.tables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.ServiceResource.tables)
+    [ServiceResource.tables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.ServiceResource.tables)
     """
 
     def all(self) -> "ServiceResourceTablesCollection":
@@ -88,7 +88,7 @@ class ServiceResourceTablesCollection(ResourceCollection):
 
 class Table(Boto3ServiceResource):
     """
-    [Table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.ServiceResource.Table)
+    [Table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.ServiceResource.Table)
     """
 
     attribute_definitions: List[Any]
@@ -116,12 +116,12 @@ class Table(Boto3ServiceResource):
 
     def batch_writer(self, overwrite_by_pkeys: List[str] = None) -> BatchWriter:
         """
-        [Table.batch_writer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Table.batch_writer)
+        [Table.batch_writer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.Table.batch_writer)
         """
 
     def delete(self) -> DeleteTableOutputTypeDef:
         """
-        [Table.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Table.delete)
+        [Table.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.Table.delete)
         """
 
     def delete_item(
@@ -173,12 +173,12 @@ class Table(Boto3ServiceResource):
         ] = None,
     ) -> DeleteItemOutputTypeDef:
         """
-        [Table.delete_item documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Table.delete_item)
+        [Table.delete_item documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.Table.delete_item)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [Table.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Table.get_available_subresources)
+        [Table.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.Table.get_available_subresources)
         """
 
     def get_item(
@@ -209,12 +209,12 @@ class Table(Boto3ServiceResource):
         ExpressionAttributeNames: Dict[str, str] = None,
     ) -> GetItemOutputTypeDef:
         """
-        [Table.get_item documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Table.get_item)
+        [Table.get_item documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.Table.get_item)
         """
 
     def load(self) -> None:
         """
-        [Table.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Table.load)
+        [Table.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.Table.load)
         """
 
     def put_item(
@@ -266,7 +266,7 @@ class Table(Boto3ServiceResource):
         ] = None,
     ) -> PutItemOutputTypeDef:
         """
-        [Table.put_item documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Table.put_item)
+        [Table.put_item documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.Table.put_item)
         """
 
     def query(
@@ -303,8 +303,8 @@ class Table(Boto3ServiceResource):
         ] = None,
         ReturnConsumedCapacity: Literal["INDEXES", "TOTAL", "NONE"] = None,
         ProjectionExpression: str = None,
-        FilterExpression: str = None,
-        KeyConditionExpression: str = None,
+        FilterExpression: Union[str, ConditionBase] = None,
+        KeyConditionExpression: Union[str, ConditionBase] = None,
         ExpressionAttributeNames: Dict[str, str] = None,
         ExpressionAttributeValues: Dict[
             str,
@@ -327,12 +327,12 @@ class Table(Boto3ServiceResource):
         ] = None,
     ) -> QueryOutputTypeDef:
         """
-        [Table.query documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Table.query)
+        [Table.query documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.Table.query)
         """
 
     def reload(self) -> None:
         """
-        [Table.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Table.reload)
+        [Table.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.Table.reload)
         """
 
     def scan(
@@ -368,7 +368,7 @@ class Table(Boto3ServiceResource):
         TotalSegments: int = None,
         Segment: int = None,
         ProjectionExpression: str = None,
-        FilterExpression: str = None,
+        FilterExpression: Union[str, ConditionBase] = None,
         ExpressionAttributeNames: Dict[str, str] = None,
         ExpressionAttributeValues: Dict[
             str,
@@ -392,7 +392,7 @@ class Table(Boto3ServiceResource):
         ConsistentRead: bool = None,
     ) -> ScanOutputTypeDef:
         """
-        [Table.scan documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Table.scan)
+        [Table.scan documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.Table.scan)
         """
 
     def update(
@@ -406,7 +406,7 @@ class Table(Boto3ServiceResource):
         ReplicaUpdates: List[ReplicationGroupUpdateTypeDef] = None,
     ) -> "_Table":
         """
-        [Table.update documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Table.update)
+        [Table.update documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.Table.update)
         """
 
     def update_item(
@@ -460,17 +460,17 @@ class Table(Boto3ServiceResource):
         ] = None,
     ) -> UpdateItemOutputTypeDef:
         """
-        [Table.update_item documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Table.update_item)
+        [Table.update_item documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.Table.update_item)
         """
 
     def wait_until_exists(self) -> None:
         """
-        [Table.wait_until_exists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Table.wait_until_exists)
+        [Table.wait_until_exists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.Table.wait_until_exists)
         """
 
     def wait_until_not_exists(self) -> None:
         """
-        [Table.wait_until_not_exists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Table.wait_until_not_exists)
+        [Table.wait_until_not_exists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.Table.wait_until_not_exists)
         """
 
 
@@ -479,14 +479,14 @@ _Table = Table
 
 class DynamoDBServiceResource(Boto3ServiceResource):
     """
-    [DynamoDB.ServiceResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.ServiceResource)
+    [DynamoDB.ServiceResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.ServiceResource)
     """
 
     tables: ServiceResourceTablesCollection
 
     def Table(self, name: str) -> _Table:
         """
-        [ServiceResource.Table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.ServiceResource.Table)
+        [ServiceResource.Table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.ServiceResource.Table)
         """
 
     def batch_get_item(
@@ -495,7 +495,7 @@ class DynamoDBServiceResource(Boto3ServiceResource):
         ReturnConsumedCapacity: Literal["INDEXES", "TOTAL", "NONE"] = None,
     ) -> BatchGetItemOutputTypeDef:
         """
-        [ServiceResource.batch_get_item documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.ServiceResource.batch_get_item)
+        [ServiceResource.batch_get_item documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.ServiceResource.batch_get_item)
         """
 
     def batch_write_item(
@@ -505,7 +505,7 @@ class DynamoDBServiceResource(Boto3ServiceResource):
         ReturnItemCollectionMetrics: Literal["SIZE", "NONE"] = None,
     ) -> BatchWriteItemOutputTypeDef:
         """
-        [ServiceResource.batch_write_item documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.ServiceResource.batch_write_item)
+        [ServiceResource.batch_write_item documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.ServiceResource.batch_write_item)
         """
 
     def create_table(
@@ -522,10 +522,10 @@ class DynamoDBServiceResource(Boto3ServiceResource):
         Tags: List["TagTypeDef"] = None,
     ) -> _Table:
         """
-        [ServiceResource.create_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.ServiceResource.create_table)
+        [ServiceResource.create_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.ServiceResource.create_table)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [ServiceResource.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.ServiceResource.get_available_subresources)
+        [ServiceResource.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.ServiceResource.get_available_subresources)
         """

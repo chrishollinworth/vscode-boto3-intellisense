@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
 """
 Main interface for elasticache service client waiters.
 
@@ -37,7 +36,7 @@ __all__ = (
 
 class CacheClusterAvailableWaiter(Boto3Waiter):
     """
-    [Waiter.CacheClusterAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticache.html#ElastiCache.Waiter.CacheClusterAvailable)
+    [Waiter.CacheClusterAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elasticache.html#ElastiCache.Waiter.CacheClusterAvailable)
     """
 
     def wait(
@@ -50,13 +49,13 @@ class CacheClusterAvailableWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [CacheClusterAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticache.html#ElastiCache.Waiter.CacheClusterAvailable.wait)
+        [CacheClusterAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elasticache.html#ElastiCache.Waiter.CacheClusterAvailable.wait)
         """
 
 
 class CacheClusterDeletedWaiter(Boto3Waiter):
     """
-    [Waiter.CacheClusterDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticache.html#ElastiCache.Waiter.CacheClusterDeleted)
+    [Waiter.CacheClusterDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elasticache.html#ElastiCache.Waiter.CacheClusterDeleted)
     """
 
     def wait(
@@ -69,13 +68,13 @@ class CacheClusterDeletedWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [CacheClusterDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticache.html#ElastiCache.Waiter.CacheClusterDeleted.wait)
+        [CacheClusterDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elasticache.html#ElastiCache.Waiter.CacheClusterDeleted.wait)
         """
 
 
 class ReplicationGroupAvailableWaiter(Boto3Waiter):
     """
-    [Waiter.ReplicationGroupAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticache.html#ElastiCache.Waiter.ReplicationGroupAvailable)
+    [Waiter.ReplicationGroupAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elasticache.html#ElastiCache.Waiter.ReplicationGroupAvailable)
     """
 
     def wait(
@@ -86,13 +85,13 @@ class ReplicationGroupAvailableWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [ReplicationGroupAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticache.html#ElastiCache.Waiter.ReplicationGroupAvailable.wait)
+        [ReplicationGroupAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elasticache.html#ElastiCache.Waiter.ReplicationGroupAvailable.wait)
         """
 
 
 class ReplicationGroupDeletedWaiter(Boto3Waiter):
     """
-    [Waiter.ReplicationGroupDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticache.html#ElastiCache.Waiter.ReplicationGroupDeleted)
+    [Waiter.ReplicationGroupDeleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elasticache.html#ElastiCache.Waiter.ReplicationGroupDeleted)
     """
 
     def wait(
@@ -103,5 +102,5 @@ class ReplicationGroupDeletedWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [ReplicationGroupDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elasticache.html#ElastiCache.Waiter.ReplicationGroupDeleted.wait)
+        [ReplicationGroupDeleted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elasticache.html#ElastiCache.Waiter.ReplicationGroupDeleted.wait)
         """

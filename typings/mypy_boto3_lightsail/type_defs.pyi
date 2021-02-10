@@ -237,6 +237,7 @@ __all__ = (
     "ReleaseStaticIpResultTypeDef",
     "ResetDistributionCacheResultTypeDef",
     "SendContactMethodVerificationResultTypeDef",
+    "SetIpAddressTypeResultTypeDef",
     "StartInstanceResultTypeDef",
     "StartRelationalDatabaseResultTypeDef",
     "StopInstanceResultTypeDef",
@@ -1024,6 +1025,7 @@ InstancePortInfoTypeDef = TypedDict(
         "commonName": str,
         "accessDirection": Literal["inbound", "outbound"],
         "cidrs": List[str],
+        "ipv6Cidrs": List[str],
         "cidrListAliases": List[str],
     },
     total=False,
@@ -1037,6 +1039,7 @@ InstancePortStateTypeDef = TypedDict(
         "protocol": Literal["tcp", "all", "udp", "icmp"],
         "state": Literal["open", "closed"],
         "cidrs": List[str],
+        "ipv6Cidrs": List[str],
         "cidrListAliases": List[str],
     },
     total=False,
@@ -1130,7 +1133,8 @@ InstanceTypeDef = TypedDict(
         "isStaticIp": bool,
         "privateIpAddress": str,
         "publicIpAddress": str,
-        "ipv6Address": str,
+        "ipv6Addresses": List[str],
+        "ipAddressType": Literal["dualstack", "ipv4"],
         "hardware": "InstanceHardwareTypeDef",
         "networking": "InstanceNetworkingTypeDef",
         "state": "InstanceStateTypeDef",
@@ -1216,6 +1220,7 @@ LightsailDistributionTypeDef = TypedDict(
         "cacheBehaviorSettings": "CacheSettingsTypeDef",
         "cacheBehaviors": List["CacheBehaviorPerPathTypeDef"],
         "ableToUpdateBundle": bool,
+        "ipAddressType": Literal["dualstack", "ipv4"],
         "tags": List["TagTypeDef"],
     },
     total=False,
@@ -1376,6 +1381,7 @@ LoadBalancerTypeDef = TypedDict(
             ],
             str,
         ],
+        "ipAddressType": Literal["dualstack", "ipv4"],
     },
     total=False,
 )
@@ -1551,6 +1557,7 @@ OperationTypeDef = TypedDict(
             "AttachCertificateToDistribution",
             "DetachCertificateFromDistribution",
             "UpdateDistributionBundle",
+            "SetIpAddressType",
             "CreateCertificate",
             "DeleteCertificate",
             "CreateContainerService",
@@ -2628,6 +2635,7 @@ PortInfoTypeDef = TypedDict(
         "toPort": int,
         "protocol": Literal["tcp", "all", "udp", "icmp"],
         "cidrs": List[str],
+        "ipv6Cidrs": List[str],
         "cidrListAliases": List[str],
     },
     total=False,
@@ -2667,6 +2675,10 @@ SendContactMethodVerificationResultTypeDef = TypedDict(
     "SendContactMethodVerificationResultTypeDef",
     {"operations": List["OperationTypeDef"]},
     total=False,
+)
+
+SetIpAddressTypeResultTypeDef = TypedDict(
+    "SetIpAddressTypeResultTypeDef", {"operations": List["OperationTypeDef"]}, total=False
 )
 
 StartInstanceResultTypeDef = TypedDict(

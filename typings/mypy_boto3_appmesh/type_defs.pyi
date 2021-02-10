@@ -31,6 +31,7 @@ __all__ = (
     "BackendTypeDef",
     "ClientPolicyTlsTypeDef",
     "ClientPolicyTypeDef",
+    "ClientTlsCertificateTypeDef",
     "DnsServiceDiscoveryTypeDef",
     "DurationTypeDef",
     "EgressFilterTypeDef",
@@ -66,7 +67,10 @@ __all__ = (
     "ListenerTlsAcmCertificateTypeDef",
     "ListenerTlsCertificateTypeDef",
     "ListenerTlsFileCertificateTypeDef",
+    "ListenerTlsSdsCertificateTypeDef",
     "ListenerTlsTypeDef",
+    "ListenerTlsValidationContextTrustTypeDef",
+    "ListenerTlsValidationContextTypeDef",
     "ListenerTypeDef",
     "LoggingTypeDef",
     "MatchRangeTypeDef",
@@ -83,18 +87,22 @@ __all__ = (
     "RouteSpecTypeDef",
     "RouteStatusTypeDef",
     "ServiceDiscoveryTypeDef",
+    "SubjectAlternativeNameMatchersTypeDef",
+    "SubjectAlternativeNamesTypeDef",
     "TagRefTypeDef",
     "TcpRouteActionTypeDef",
     "TcpRouteTypeDef",
     "TcpTimeoutTypeDef",
     "TlsValidationContextAcmTrustTypeDef",
     "TlsValidationContextFileTrustTypeDef",
+    "TlsValidationContextSdsTrustTypeDef",
     "TlsValidationContextTrustTypeDef",
     "TlsValidationContextTypeDef",
     "VirtualGatewayAccessLogTypeDef",
     "VirtualGatewayBackendDefaultsTypeDef",
     "VirtualGatewayClientPolicyTlsTypeDef",
     "VirtualGatewayClientPolicyTypeDef",
+    "VirtualGatewayClientTlsCertificateTypeDef",
     "VirtualGatewayConnectionPoolTypeDef",
     "VirtualGatewayDataTypeDef",
     "VirtualGatewayFileAccessLogTypeDef",
@@ -105,7 +113,10 @@ __all__ = (
     "VirtualGatewayListenerTlsAcmCertificateTypeDef",
     "VirtualGatewayListenerTlsCertificateTypeDef",
     "VirtualGatewayListenerTlsFileCertificateTypeDef",
+    "VirtualGatewayListenerTlsSdsCertificateTypeDef",
     "VirtualGatewayListenerTlsTypeDef",
+    "VirtualGatewayListenerTlsValidationContextTrustTypeDef",
+    "VirtualGatewayListenerTlsValidationContextTypeDef",
     "VirtualGatewayListenerTypeDef",
     "VirtualGatewayLoggingTypeDef",
     "VirtualGatewayPortMappingTypeDef",
@@ -114,6 +125,7 @@ __all__ = (
     "VirtualGatewayStatusTypeDef",
     "VirtualGatewayTlsValidationContextAcmTrustTypeDef",
     "VirtualGatewayTlsValidationContextFileTrustTypeDef",
+    "VirtualGatewayTlsValidationContextSdsTrustTypeDef",
     "VirtualGatewayTlsValidationContextTrustTypeDef",
     "VirtualGatewayTlsValidationContextTypeDef",
     "VirtualNodeConnectionPoolTypeDef",
@@ -212,7 +224,9 @@ _RequiredClientPolicyTlsTypeDef = TypedDict(
     "_RequiredClientPolicyTlsTypeDef", {"validation": "TlsValidationContextTypeDef"}
 )
 _OptionalClientPolicyTlsTypeDef = TypedDict(
-    "_OptionalClientPolicyTlsTypeDef", {"enforce": bool, "ports": List[int]}, total=False
+    "_OptionalClientPolicyTlsTypeDef",
+    {"certificate": "ClientTlsCertificateTypeDef", "enforce": bool, "ports": List[int]},
+    total=False,
 )
 
 
@@ -222,6 +236,12 @@ class ClientPolicyTlsTypeDef(_RequiredClientPolicyTlsTypeDef, _OptionalClientPol
 
 ClientPolicyTypeDef = TypedDict(
     "ClientPolicyTypeDef", {"tls": "ClientPolicyTlsTypeDef"}, total=False
+)
+
+ClientTlsCertificateTypeDef = TypedDict(
+    "ClientTlsCertificateTypeDef",
+    {"file": "ListenerTlsFileCertificateTypeDef", "sds": "ListenerTlsSdsCertificateTypeDef"},
+    total=False,
 )
 
 DnsServiceDiscoveryTypeDef = TypedDict("DnsServiceDiscoveryTypeDef", {"hostname": str})
@@ -489,7 +509,11 @@ ListenerTlsAcmCertificateTypeDef = TypedDict(
 
 ListenerTlsCertificateTypeDef = TypedDict(
     "ListenerTlsCertificateTypeDef",
-    {"acm": "ListenerTlsAcmCertificateTypeDef", "file": "ListenerTlsFileCertificateTypeDef"},
+    {
+        "acm": "ListenerTlsAcmCertificateTypeDef",
+        "file": "ListenerTlsFileCertificateTypeDef",
+        "sds": "ListenerTlsSdsCertificateTypeDef",
+    },
     total=False,
 )
 
@@ -497,13 +521,50 @@ ListenerTlsFileCertificateTypeDef = TypedDict(
     "ListenerTlsFileCertificateTypeDef", {"certificateChain": str, "privateKey": str}
 )
 
-ListenerTlsTypeDef = TypedDict(
-    "ListenerTlsTypeDef",
+ListenerTlsSdsCertificateTypeDef = TypedDict(
+    "ListenerTlsSdsCertificateTypeDef", {"secretName": str}
+)
+
+_RequiredListenerTlsTypeDef = TypedDict(
+    "_RequiredListenerTlsTypeDef",
     {
         "certificate": "ListenerTlsCertificateTypeDef",
         "mode": Literal["STRICT", "PERMISSIVE", "DISABLED"],
     },
 )
+_OptionalListenerTlsTypeDef = TypedDict(
+    "_OptionalListenerTlsTypeDef",
+    {"validation": "ListenerTlsValidationContextTypeDef"},
+    total=False,
+)
+
+
+class ListenerTlsTypeDef(_RequiredListenerTlsTypeDef, _OptionalListenerTlsTypeDef):
+    pass
+
+
+ListenerTlsValidationContextTrustTypeDef = TypedDict(
+    "ListenerTlsValidationContextTrustTypeDef",
+    {"file": "TlsValidationContextFileTrustTypeDef", "sds": "TlsValidationContextSdsTrustTypeDef"},
+    total=False,
+)
+
+_RequiredListenerTlsValidationContextTypeDef = TypedDict(
+    "_RequiredListenerTlsValidationContextTypeDef",
+    {"trust": "ListenerTlsValidationContextTrustTypeDef"},
+)
+_OptionalListenerTlsValidationContextTypeDef = TypedDict(
+    "_OptionalListenerTlsValidationContextTypeDef",
+    {"subjectAlternativeNames": "SubjectAlternativeNamesTypeDef"},
+    total=False,
+)
+
+
+class ListenerTlsValidationContextTypeDef(
+    _RequiredListenerTlsValidationContextTypeDef, _OptionalListenerTlsValidationContextTypeDef
+):
+    pass
+
 
 _RequiredListenerTypeDef = TypedDict(
     "_RequiredListenerTypeDef", {"portMapping": "PortMappingTypeDef"}
@@ -645,6 +706,14 @@ ServiceDiscoveryTypeDef = TypedDict(
     total=False,
 )
 
+SubjectAlternativeNameMatchersTypeDef = TypedDict(
+    "SubjectAlternativeNameMatchersTypeDef", {"exact": List[str]}
+)
+
+SubjectAlternativeNamesTypeDef = TypedDict(
+    "SubjectAlternativeNamesTypeDef", {"match": "SubjectAlternativeNameMatchersTypeDef"}
+)
+
 TagRefTypeDef = TypedDict("TagRefTypeDef", {"key": str, "value": str})
 
 TcpRouteActionTypeDef = TypedDict(
@@ -673,15 +742,35 @@ TlsValidationContextFileTrustTypeDef = TypedDict(
     "TlsValidationContextFileTrustTypeDef", {"certificateChain": str}
 )
 
+TlsValidationContextSdsTrustTypeDef = TypedDict(
+    "TlsValidationContextSdsTrustTypeDef", {"secretName": str}
+)
+
 TlsValidationContextTrustTypeDef = TypedDict(
     "TlsValidationContextTrustTypeDef",
-    {"acm": "TlsValidationContextAcmTrustTypeDef", "file": "TlsValidationContextFileTrustTypeDef"},
+    {
+        "acm": "TlsValidationContextAcmTrustTypeDef",
+        "file": "TlsValidationContextFileTrustTypeDef",
+        "sds": "TlsValidationContextSdsTrustTypeDef",
+    },
     total=False,
 )
 
-TlsValidationContextTypeDef = TypedDict(
-    "TlsValidationContextTypeDef", {"trust": "TlsValidationContextTrustTypeDef"}
+_RequiredTlsValidationContextTypeDef = TypedDict(
+    "_RequiredTlsValidationContextTypeDef", {"trust": "TlsValidationContextTrustTypeDef"}
 )
+_OptionalTlsValidationContextTypeDef = TypedDict(
+    "_OptionalTlsValidationContextTypeDef",
+    {"subjectAlternativeNames": "SubjectAlternativeNamesTypeDef"},
+    total=False,
+)
+
+
+class TlsValidationContextTypeDef(
+    _RequiredTlsValidationContextTypeDef, _OptionalTlsValidationContextTypeDef
+):
+    pass
+
 
 VirtualGatewayAccessLogTypeDef = TypedDict(
     "VirtualGatewayAccessLogTypeDef", {"file": "VirtualGatewayFileAccessLogTypeDef"}, total=False
@@ -699,7 +788,11 @@ _RequiredVirtualGatewayClientPolicyTlsTypeDef = TypedDict(
 )
 _OptionalVirtualGatewayClientPolicyTlsTypeDef = TypedDict(
     "_OptionalVirtualGatewayClientPolicyTlsTypeDef",
-    {"enforce": bool, "ports": List[int]},
+    {
+        "certificate": "VirtualGatewayClientTlsCertificateTypeDef",
+        "enforce": bool,
+        "ports": List[int],
+    },
     total=False,
 )
 
@@ -713,6 +806,15 @@ class VirtualGatewayClientPolicyTlsTypeDef(
 VirtualGatewayClientPolicyTypeDef = TypedDict(
     "VirtualGatewayClientPolicyTypeDef",
     {"tls": "VirtualGatewayClientPolicyTlsTypeDef"},
+    total=False,
+)
+
+VirtualGatewayClientTlsCertificateTypeDef = TypedDict(
+    "VirtualGatewayClientTlsCertificateTypeDef",
+    {
+        "file": "VirtualGatewayListenerTlsFileCertificateTypeDef",
+        "sds": "VirtualGatewayListenerTlsSdsCertificateTypeDef",
+    },
     total=False,
 )
 
@@ -792,6 +894,7 @@ VirtualGatewayListenerTlsCertificateTypeDef = TypedDict(
     {
         "acm": "VirtualGatewayListenerTlsAcmCertificateTypeDef",
         "file": "VirtualGatewayListenerTlsFileCertificateTypeDef",
+        "sds": "VirtualGatewayListenerTlsSdsCertificateTypeDef",
     },
     total=False,
 )
@@ -800,13 +903,56 @@ VirtualGatewayListenerTlsFileCertificateTypeDef = TypedDict(
     "VirtualGatewayListenerTlsFileCertificateTypeDef", {"certificateChain": str, "privateKey": str}
 )
 
-VirtualGatewayListenerTlsTypeDef = TypedDict(
-    "VirtualGatewayListenerTlsTypeDef",
+VirtualGatewayListenerTlsSdsCertificateTypeDef = TypedDict(
+    "VirtualGatewayListenerTlsSdsCertificateTypeDef", {"secretName": str}
+)
+
+_RequiredVirtualGatewayListenerTlsTypeDef = TypedDict(
+    "_RequiredVirtualGatewayListenerTlsTypeDef",
     {
         "certificate": "VirtualGatewayListenerTlsCertificateTypeDef",
         "mode": Literal["STRICT", "PERMISSIVE", "DISABLED"],
     },
 )
+_OptionalVirtualGatewayListenerTlsTypeDef = TypedDict(
+    "_OptionalVirtualGatewayListenerTlsTypeDef",
+    {"validation": "VirtualGatewayListenerTlsValidationContextTypeDef"},
+    total=False,
+)
+
+
+class VirtualGatewayListenerTlsTypeDef(
+    _RequiredVirtualGatewayListenerTlsTypeDef, _OptionalVirtualGatewayListenerTlsTypeDef
+):
+    pass
+
+
+VirtualGatewayListenerTlsValidationContextTrustTypeDef = TypedDict(
+    "VirtualGatewayListenerTlsValidationContextTrustTypeDef",
+    {
+        "file": "VirtualGatewayTlsValidationContextFileTrustTypeDef",
+        "sds": "VirtualGatewayTlsValidationContextSdsTrustTypeDef",
+    },
+    total=False,
+)
+
+_RequiredVirtualGatewayListenerTlsValidationContextTypeDef = TypedDict(
+    "_RequiredVirtualGatewayListenerTlsValidationContextTypeDef",
+    {"trust": "VirtualGatewayListenerTlsValidationContextTrustTypeDef"},
+)
+_OptionalVirtualGatewayListenerTlsValidationContextTypeDef = TypedDict(
+    "_OptionalVirtualGatewayListenerTlsValidationContextTypeDef",
+    {"subjectAlternativeNames": "SubjectAlternativeNamesTypeDef"},
+    total=False,
+)
+
+
+class VirtualGatewayListenerTlsValidationContextTypeDef(
+    _RequiredVirtualGatewayListenerTlsValidationContextTypeDef,
+    _OptionalVirtualGatewayListenerTlsValidationContextTypeDef,
+):
+    pass
+
 
 _RequiredVirtualGatewayListenerTypeDef = TypedDict(
     "_RequiredVirtualGatewayListenerTypeDef", {"portMapping": "VirtualGatewayPortMappingTypeDef"}
@@ -881,19 +1027,37 @@ VirtualGatewayTlsValidationContextFileTrustTypeDef = TypedDict(
     "VirtualGatewayTlsValidationContextFileTrustTypeDef", {"certificateChain": str}
 )
 
+VirtualGatewayTlsValidationContextSdsTrustTypeDef = TypedDict(
+    "VirtualGatewayTlsValidationContextSdsTrustTypeDef", {"secretName": str}
+)
+
 VirtualGatewayTlsValidationContextTrustTypeDef = TypedDict(
     "VirtualGatewayTlsValidationContextTrustTypeDef",
     {
         "acm": "VirtualGatewayTlsValidationContextAcmTrustTypeDef",
         "file": "VirtualGatewayTlsValidationContextFileTrustTypeDef",
+        "sds": "VirtualGatewayTlsValidationContextSdsTrustTypeDef",
     },
     total=False,
 )
 
-VirtualGatewayTlsValidationContextTypeDef = TypedDict(
-    "VirtualGatewayTlsValidationContextTypeDef",
+_RequiredVirtualGatewayTlsValidationContextTypeDef = TypedDict(
+    "_RequiredVirtualGatewayTlsValidationContextTypeDef",
     {"trust": "VirtualGatewayTlsValidationContextTrustTypeDef"},
 )
+_OptionalVirtualGatewayTlsValidationContextTypeDef = TypedDict(
+    "_OptionalVirtualGatewayTlsValidationContextTypeDef",
+    {"subjectAlternativeNames": "SubjectAlternativeNamesTypeDef"},
+    total=False,
+)
+
+
+class VirtualGatewayTlsValidationContextTypeDef(
+    _RequiredVirtualGatewayTlsValidationContextTypeDef,
+    _OptionalVirtualGatewayTlsValidationContextTypeDef,
+):
+    pass
+
 
 VirtualNodeConnectionPoolTypeDef = TypedDict(
     "VirtualNodeConnectionPoolTypeDef",

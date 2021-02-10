@@ -11,7 +11,9 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import IO, Any, Dict
+from typing import Any, Dict
+
+from botocore.response import StreamingBody
 
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -38,7 +40,7 @@ ResponseMetadata = TypedDict(
 
 GetMediaOutputTypeDef = TypedDict(
     "GetMediaOutputTypeDef",
-    {"ContentType": str, "Payload": IO[bytes], "ResponseMetadata": "ResponseMetadata"},
+    {"ContentType": str, "Payload": StreamingBody, "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 

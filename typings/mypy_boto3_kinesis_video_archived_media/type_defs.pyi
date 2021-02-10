@@ -11,7 +11,9 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import IO, Any, Dict, List
+from typing import Any, Dict, List
+
+from botocore.response import StreamingBody
 
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -108,7 +110,7 @@ FragmentSelectorTypeDef = TypedDict(
 
 GetClipOutputTypeDef = TypedDict(
     "GetClipOutputTypeDef",
-    {"ContentType": str, "Payload": IO[bytes], "ResponseMetadata": "ResponseMetadata"},
+    {"ContentType": str, "Payload": StreamingBody, "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 
@@ -126,7 +128,7 @@ GetHLSStreamingSessionURLOutputTypeDef = TypedDict(
 
 GetMediaForFragmentListOutputTypeDef = TypedDict(
     "GetMediaForFragmentListOutputTypeDef",
-    {"ContentType": str, "Payload": IO[bytes], "ResponseMetadata": "ResponseMetadata"},
+    {"ContentType": str, "Payload": StreamingBody, "ResponseMetadata": "ResponseMetadata"},
     total=False,
 )
 

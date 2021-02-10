@@ -3,7 +3,7 @@ from mypy_boto3_lookoutvision import (
     ListDatasetEntriesPaginator,
     ListModelsPaginator,
     ListProjectsPaginator,
-    LookoutForVisionClient,
+    LookoutforVisionClient,
 )
 
 __all__ = (
@@ -11,5 +11,5 @@ __all__ = (
     "ListDatasetEntriesPaginator",
     "ListModelsPaginator",
     "ListProjectsPaginator",
-    "LookoutForVisionClient",
+    "LookoutforVisionClient",
 )

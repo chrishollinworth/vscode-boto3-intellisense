@@ -34,6 +34,8 @@ __all__ = (
     "ExportAssetToSignedUrlResponseDetailsTypeDef",
     "ExportAssetsToS3RequestDetailsTypeDef",
     "ExportAssetsToS3ResponseDetailsTypeDef",
+    "ExportRevisionsToS3RequestDetailsTypeDef",
+    "ExportRevisionsToS3ResponseDetailsTypeDef",
     "ExportServerSideEncryptionTypeDef",
     "ImportAssetFromSignedUrlJobErrorDetailsTypeDef",
     "ImportAssetFromSignedUrlRequestDetailsTypeDef",
@@ -44,6 +46,7 @@ __all__ = (
     "JobErrorTypeDef",
     "OriginDetailsTypeDef",
     "ResponseDetailsTypeDef",
+    "RevisionDestinationEntryTypeDef",
     "RevisionEntryTypeDef",
     "S3SnapshotAssetTypeDef",
     "CreateDataSetResponseTypeDef",
@@ -204,6 +207,42 @@ class ExportAssetsToS3ResponseDetailsTypeDef(
     pass
 
 
+_RequiredExportRevisionsToS3RequestDetailsTypeDef = TypedDict(
+    "_RequiredExportRevisionsToS3RequestDetailsTypeDef",
+    {"DataSetId": str, "RevisionDestinations": List["RevisionDestinationEntryTypeDef"]},
+)
+_OptionalExportRevisionsToS3RequestDetailsTypeDef = TypedDict(
+    "_OptionalExportRevisionsToS3RequestDetailsTypeDef",
+    {"Encryption": "ExportServerSideEncryptionTypeDef"},
+    total=False,
+)
+
+
+class ExportRevisionsToS3RequestDetailsTypeDef(
+    _RequiredExportRevisionsToS3RequestDetailsTypeDef,
+    _OptionalExportRevisionsToS3RequestDetailsTypeDef,
+):
+    pass
+
+
+_RequiredExportRevisionsToS3ResponseDetailsTypeDef = TypedDict(
+    "_RequiredExportRevisionsToS3ResponseDetailsTypeDef",
+    {"DataSetId": str, "RevisionDestinations": List["RevisionDestinationEntryTypeDef"]},
+)
+_OptionalExportRevisionsToS3ResponseDetailsTypeDef = TypedDict(
+    "_OptionalExportRevisionsToS3ResponseDetailsTypeDef",
+    {"Encryption": "ExportServerSideEncryptionTypeDef"},
+    total=False,
+)
+
+
+class ExportRevisionsToS3ResponseDetailsTypeDef(
+    _RequiredExportRevisionsToS3ResponseDetailsTypeDef,
+    _OptionalExportRevisionsToS3ResponseDetailsTypeDef,
+):
+    pass
+
+
 _RequiredExportServerSideEncryptionTypeDef = TypedDict(
     "_RequiredExportServerSideEncryptionTypeDef", {"Type": Literal["aws:kms", "AES256"]}
 )
@@ -268,6 +307,7 @@ _RequiredJobEntryTypeDef = TypedDict(
             "IMPORT_ASSET_FROM_SIGNED_URL",
             "EXPORT_ASSETS_TO_S3",
             "EXPORT_ASSET_TO_SIGNED_URL",
+            "EXPORT_REVISIONS_TO_S3",
         ],
         "UpdatedAt": datetime,
     },
@@ -320,11 +360,26 @@ ResponseDetailsTypeDef = TypedDict(
     {
         "ExportAssetToSignedUrl": "ExportAssetToSignedUrlResponseDetailsTypeDef",
         "ExportAssetsToS3": "ExportAssetsToS3ResponseDetailsTypeDef",
+        "ExportRevisionsToS3": "ExportRevisionsToS3ResponseDetailsTypeDef",
         "ImportAssetFromSignedUrl": "ImportAssetFromSignedUrlResponseDetailsTypeDef",
         "ImportAssetsFromS3": "ImportAssetsFromS3ResponseDetailsTypeDef",
     },
     total=False,
 )
+
+_RequiredRevisionDestinationEntryTypeDef = TypedDict(
+    "_RequiredRevisionDestinationEntryTypeDef", {"Bucket": str, "RevisionId": str}
+)
+_OptionalRevisionDestinationEntryTypeDef = TypedDict(
+    "_OptionalRevisionDestinationEntryTypeDef", {"KeyPattern": str}, total=False
+)
+
+
+class RevisionDestinationEntryTypeDef(
+    _RequiredRevisionDestinationEntryTypeDef, _OptionalRevisionDestinationEntryTypeDef
+):
+    pass
+
 
 _RequiredRevisionEntryTypeDef = TypedDict(
     "_RequiredRevisionEntryTypeDef",
@@ -375,6 +430,7 @@ CreateJobResponseTypeDef = TypedDict(
             "IMPORT_ASSET_FROM_SIGNED_URL",
             "EXPORT_ASSETS_TO_S3",
             "EXPORT_ASSET_TO_SIGNED_URL",
+            "EXPORT_REVISIONS_TO_S3",
         ],
         "UpdatedAt": datetime,
     },
@@ -446,6 +502,7 @@ GetJobResponseTypeDef = TypedDict(
             "IMPORT_ASSET_FROM_SIGNED_URL",
             "EXPORT_ASSETS_TO_S3",
             "EXPORT_ASSET_TO_SIGNED_URL",
+            "EXPORT_REVISIONS_TO_S3",
         ],
         "UpdatedAt": datetime,
     },
@@ -503,6 +560,7 @@ RequestDetailsTypeDef = TypedDict(
     {
         "ExportAssetToSignedUrl": "ExportAssetToSignedUrlRequestDetailsTypeDef",
         "ExportAssetsToS3": "ExportAssetsToS3RequestDetailsTypeDef",
+        "ExportRevisionsToS3": "ExportRevisionsToS3RequestDetailsTypeDef",
         "ImportAssetFromSignedUrl": "ImportAssetFromSignedUrlRequestDetailsTypeDef",
         "ImportAssetsFromS3": "ImportAssetsFromS3RequestDetailsTypeDef",
     },

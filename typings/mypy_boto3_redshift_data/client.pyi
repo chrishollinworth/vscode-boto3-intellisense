@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for redshift-data service client
 
@@ -63,7 +62,7 @@ class Exceptions:
 
 class RedshiftDataAPIServiceClient:
     """
-    [RedshiftDataAPIService.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift-data.html#RedshiftDataAPIService.Client)
+    [RedshiftDataAPIService.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift-data.html#RedshiftDataAPIService.Client)
     """
 
     meta: ClientMeta
@@ -71,17 +70,17 @@ class RedshiftDataAPIServiceClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift-data.html#RedshiftDataAPIService.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift-data.html#RedshiftDataAPIService.Client.can_paginate)
         """
 
     def cancel_statement(self, Id: str) -> CancelStatementResponseTypeDef:
         """
-        [Client.cancel_statement documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift-data.html#RedshiftDataAPIService.Client.cancel_statement)
+        [Client.cancel_statement documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift-data.html#RedshiftDataAPIService.Client.cancel_statement)
         """
 
     def describe_statement(self, Id: str) -> DescribeStatementResponseTypeDef:
         """
-        [Client.describe_statement documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift-data.html#RedshiftDataAPIService.Client.describe_statement)
+        [Client.describe_statement documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift-data.html#RedshiftDataAPIService.Client.describe_statement)
         """
 
     def describe_table(
@@ -96,7 +95,7 @@ class RedshiftDataAPIServiceClient:
         Table: str = None,
     ) -> DescribeTableResponseTypeDef:
         """
-        [Client.describe_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift-data.html#RedshiftDataAPIService.Client.describe_table)
+        [Client.describe_table documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift-data.html#RedshiftDataAPIService.Client.describe_table)
         """
 
     def execute_statement(
@@ -110,7 +109,7 @@ class RedshiftDataAPIServiceClient:
         WithEvent: bool = None,
     ) -> ExecuteStatementOutputTypeDef:
         """
-        [Client.execute_statement documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift-data.html#RedshiftDataAPIService.Client.execute_statement)
+        [Client.execute_statement documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift-data.html#RedshiftDataAPIService.Client.execute_statement)
         """
 
     def generate_presigned_url(
@@ -121,14 +120,14 @@ class RedshiftDataAPIServiceClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift-data.html#RedshiftDataAPIService.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift-data.html#RedshiftDataAPIService.Client.generate_presigned_url)
         """
 
     def get_statement_result(
         self, Id: str, NextToken: str = None
     ) -> GetStatementResultResponseTypeDef:
         """
-        [Client.get_statement_result documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift-data.html#RedshiftDataAPIService.Client.get_statement_result)
+        [Client.get_statement_result documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift-data.html#RedshiftDataAPIService.Client.get_statement_result)
         """
 
     def list_databases(
@@ -141,7 +140,7 @@ class RedshiftDataAPIServiceClient:
         SecretArn: str = None,
     ) -> ListDatabasesResponseTypeDef:
         """
-        [Client.list_databases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift-data.html#RedshiftDataAPIService.Client.list_databases)
+        [Client.list_databases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift-data.html#RedshiftDataAPIService.Client.list_databases)
         """
 
     def list_schemas(
@@ -155,7 +154,7 @@ class RedshiftDataAPIServiceClient:
         SecretArn: str = None,
     ) -> ListSchemasResponseTypeDef:
         """
-        [Client.list_schemas documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift-data.html#RedshiftDataAPIService.Client.list_schemas)
+        [Client.list_schemas documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift-data.html#RedshiftDataAPIService.Client.list_schemas)
         """
 
     def list_statements(
@@ -168,7 +167,7 @@ class RedshiftDataAPIServiceClient:
         ] = None,
     ) -> ListStatementsResponseTypeDef:
         """
-        [Client.list_statements documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift-data.html#RedshiftDataAPIService.Client.list_statements)
+        [Client.list_statements documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift-data.html#RedshiftDataAPIService.Client.list_statements)
         """
 
     def list_tables(
@@ -183,13 +182,13 @@ class RedshiftDataAPIServiceClient:
         TablePattern: str = None,
     ) -> ListTablesResponseTypeDef:
         """
-        [Client.list_tables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift-data.html#RedshiftDataAPIService.Client.list_tables)
+        [Client.list_tables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift-data.html#RedshiftDataAPIService.Client.list_tables)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["describe_table"]) -> DescribeTablePaginator:
         """
-        [Paginator.DescribeTable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.DescribeTable)
+        [Paginator.DescribeTable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.DescribeTable)
         """
 
     @overload
@@ -197,29 +196,29 @@ class RedshiftDataAPIServiceClient:
         self, operation_name: Literal["get_statement_result"]
     ) -> GetStatementResultPaginator:
         """
-        [Paginator.GetStatementResult documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.GetStatementResult)
+        [Paginator.GetStatementResult documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.GetStatementResult)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_databases"]) -> ListDatabasesPaginator:
         """
-        [Paginator.ListDatabases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListDatabases)
+        [Paginator.ListDatabases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListDatabases)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_schemas"]) -> ListSchemasPaginator:
         """
-        [Paginator.ListSchemas documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListSchemas)
+        [Paginator.ListSchemas documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListSchemas)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_statements"]) -> ListStatementsPaginator:
         """
-        [Paginator.ListStatements documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListStatements)
+        [Paginator.ListStatements documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListStatements)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_tables"]) -> ListTablesPaginator:
         """
-        [Paginator.ListTables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListTables)
+        [Paginator.ListTables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/redshift-data.html#RedshiftDataAPIService.Paginator.ListTables)
         """

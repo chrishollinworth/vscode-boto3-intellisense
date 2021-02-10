@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for connect-contact-lens service client
 
@@ -41,7 +40,7 @@ class Exceptions:
 
 class ConnectContactLensClient:
     """
-    [ConnectContactLens.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connect-contact-lens.html#ConnectContactLens.Client)
+    [ConnectContactLens.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/connect-contact-lens.html#ConnectContactLens.Client)
     """
 
     meta: ClientMeta
@@ -49,7 +48,7 @@ class ConnectContactLensClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connect-contact-lens.html#ConnectContactLens.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/connect-contact-lens.html#ConnectContactLens.Client.can_paginate)
         """
 
     def generate_presigned_url(
@@ -60,12 +59,12 @@ class ConnectContactLensClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connect-contact-lens.html#ConnectContactLens.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/connect-contact-lens.html#ConnectContactLens.Client.generate_presigned_url)
         """
 
     def list_realtime_contact_analysis_segments(
         self, InstanceId: str, ContactId: str, MaxResults: int = None, NextToken: str = None
     ) -> ListRealtimeContactAnalysisSegmentsResponseTypeDef:
         """
-        [Client.list_realtime_contact_analysis_segments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/connect-contact-lens.html#ConnectContactLens.Client.list_realtime_contact_analysis_segments)
+        [Client.list_realtime_contact_analysis_segments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/connect-contact-lens.html#ConnectContactLens.Client.list_realtime_contact_analysis_segments)
         """

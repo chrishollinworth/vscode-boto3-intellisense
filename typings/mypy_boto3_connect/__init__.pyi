@@ -20,7 +20,9 @@ Usage::
         ListLexBotsPaginator,
         ListPhoneNumbersPaginator,
         ListPromptsPaginator,
+        ListQueueQuickConnectsPaginator,
         ListQueuesPaginator,
+        ListQuickConnectsPaginator,
         ListRoutingProfileQueuesPaginator,
         ListRoutingProfilesPaginator,
         ListSecurityKeysPaginator,
@@ -47,7 +49,9 @@ Usage::
     list_lex_bots_paginator: ListLexBotsPaginator = client.get_paginator("list_lex_bots")
     list_phone_numbers_paginator: ListPhoneNumbersPaginator = client.get_paginator("list_phone_numbers")
     list_prompts_paginator: ListPromptsPaginator = client.get_paginator("list_prompts")
+    list_queue_quick_connects_paginator: ListQueueQuickConnectsPaginator = client.get_paginator("list_queue_quick_connects")
     list_queues_paginator: ListQueuesPaginator = client.get_paginator("list_queues")
+    list_quick_connects_paginator: ListQuickConnectsPaginator = client.get_paginator("list_quick_connects")
     list_routing_profile_queues_paginator: ListRoutingProfileQueuesPaginator = client.get_paginator("list_routing_profile_queues")
     list_routing_profiles_paginator: ListRoutingProfilesPaginator = client.get_paginator("list_routing_profiles")
     list_security_keys_paginator: ListSecurityKeysPaginator = client.get_paginator("list_security_keys")
@@ -71,7 +75,9 @@ from mypy_boto3_connect.paginator import (
     ListLexBotsPaginator,
     ListPhoneNumbersPaginator,
     ListPromptsPaginator,
+    ListQueueQuickConnectsPaginator,
     ListQueuesPaginator,
+    ListQuickConnectsPaginator,
     ListRoutingProfileQueuesPaginator,
     ListRoutingProfilesPaginator,
     ListSecurityKeysPaginator,
@@ -99,7 +105,9 @@ __all__ = (
     "ListLexBotsPaginator",
     "ListPhoneNumbersPaginator",
     "ListPromptsPaginator",
+    "ListQueueQuickConnectsPaginator",
     "ListQueuesPaginator",
+    "ListQuickConnectsPaginator",
     "ListRoutingProfileQueuesPaginator",
     "ListRoutingProfilesPaginator",
     "ListSecurityKeysPaginator",

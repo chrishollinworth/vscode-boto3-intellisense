@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for opsworks service client paginators.
 
@@ -28,7 +27,7 @@ __all__ = ("DescribeEcsClustersPaginator",)
 
 class DescribeEcsClustersPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeEcsClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Paginator.DescribeEcsClusters)
+    [Paginator.DescribeEcsClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Paginator.DescribeEcsClusters)
     """
 
     def paginate(
@@ -38,5 +37,5 @@ class DescribeEcsClustersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeEcsClustersResultTypeDef]:
         """
-        [DescribeEcsClusters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Paginator.DescribeEcsClusters.paginate)
+        [DescribeEcsClusters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Paginator.DescribeEcsClusters.paginate)
         """

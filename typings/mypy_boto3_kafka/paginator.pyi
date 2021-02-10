@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for kafka service client paginators.
 
@@ -57,90 +56,90 @@ __all__ = (
 
 class ListClusterOperationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListClusterOperations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kafka.html#Kafka.Paginator.ListClusterOperations)
+    [Paginator.ListClusterOperations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kafka.html#Kafka.Paginator.ListClusterOperations)
     """
 
     def paginate(
         self, ClusterArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListClusterOperationsResponseTypeDef]:
         """
-        [ListClusterOperations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kafka.html#Kafka.Paginator.ListClusterOperations.paginate)
+        [ListClusterOperations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kafka.html#Kafka.Paginator.ListClusterOperations.paginate)
         """
 
 
 class ListClustersPaginator(Boto3Paginator):
     """
-    [Paginator.ListClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kafka.html#Kafka.Paginator.ListClusters)
+    [Paginator.ListClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kafka.html#Kafka.Paginator.ListClusters)
     """
 
     def paginate(
         self, ClusterNameFilter: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListClustersResponseTypeDef]:
         """
-        [ListClusters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kafka.html#Kafka.Paginator.ListClusters.paginate)
+        [ListClusters.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kafka.html#Kafka.Paginator.ListClusters.paginate)
         """
 
 
 class ListConfigurationRevisionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListConfigurationRevisions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kafka.html#Kafka.Paginator.ListConfigurationRevisions)
+    [Paginator.ListConfigurationRevisions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kafka.html#Kafka.Paginator.ListConfigurationRevisions)
     """
 
     def paginate(
         self, Arn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListConfigurationRevisionsResponseTypeDef]:
         """
-        [ListConfigurationRevisions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kafka.html#Kafka.Paginator.ListConfigurationRevisions.paginate)
+        [ListConfigurationRevisions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kafka.html#Kafka.Paginator.ListConfigurationRevisions.paginate)
         """
 
 
 class ListConfigurationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kafka.html#Kafka.Paginator.ListConfigurations)
+    [Paginator.ListConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kafka.html#Kafka.Paginator.ListConfigurations)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListConfigurationsResponseTypeDef]:
         """
-        [ListConfigurations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kafka.html#Kafka.Paginator.ListConfigurations.paginate)
+        [ListConfigurations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kafka.html#Kafka.Paginator.ListConfigurations.paginate)
         """
 
 
 class ListKafkaVersionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListKafkaVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kafka.html#Kafka.Paginator.ListKafkaVersions)
+    [Paginator.ListKafkaVersions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kafka.html#Kafka.Paginator.ListKafkaVersions)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListKafkaVersionsResponseTypeDef]:
         """
-        [ListKafkaVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kafka.html#Kafka.Paginator.ListKafkaVersions.paginate)
+        [ListKafkaVersions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kafka.html#Kafka.Paginator.ListKafkaVersions.paginate)
         """
 
 
 class ListNodesPaginator(Boto3Paginator):
     """
-    [Paginator.ListNodes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kafka.html#Kafka.Paginator.ListNodes)
+    [Paginator.ListNodes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kafka.html#Kafka.Paginator.ListNodes)
     """
 
     def paginate(
         self, ClusterArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListNodesResponseTypeDef]:
         """
-        [ListNodes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kafka.html#Kafka.Paginator.ListNodes.paginate)
+        [ListNodes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kafka.html#Kafka.Paginator.ListNodes.paginate)
         """
 
 
 class ListScramSecretsPaginator(Boto3Paginator):
     """
-    [Paginator.ListScramSecrets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kafka.html#Kafka.Paginator.ListScramSecrets)
+    [Paginator.ListScramSecrets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kafka.html#Kafka.Paginator.ListScramSecrets)
     """
 
     def paginate(
         self, ClusterArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListScramSecretsResponseTypeDef]:
         """
-        [ListScramSecrets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kafka.html#Kafka.Paginator.ListScramSecrets.paginate)
+        [ListScramSecrets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kafka.html#Kafka.Paginator.ListScramSecrets.paginate)
         """

@@ -49,6 +49,8 @@ Usage::
         ListComplianceSummariesPaginator,
         ListDocumentVersionsPaginator,
         ListDocumentsPaginator,
+        ListOpsItemEventsPaginator,
+        ListOpsMetadataPaginator,
         ListResourceComplianceSummariesPaginator,
         ListResourceDataSyncPaginator,
         SSMClient,
@@ -102,6 +104,8 @@ Usage::
     list_compliance_summaries_paginator: ListComplianceSummariesPaginator = client.get_paginator("list_compliance_summaries")
     list_document_versions_paginator: ListDocumentVersionsPaginator = client.get_paginator("list_document_versions")
     list_documents_paginator: ListDocumentsPaginator = client.get_paginator("list_documents")
+    list_ops_item_events_paginator: ListOpsItemEventsPaginator = client.get_paginator("list_ops_item_events")
+    list_ops_metadata_paginator: ListOpsMetadataPaginator = client.get_paginator("list_ops_metadata")
     list_resource_compliance_summaries_paginator: ListResourceComplianceSummariesPaginator = client.get_paginator("list_resource_compliance_summaries")
     list_resource_data_sync_paginator: ListResourceDataSyncPaginator = client.get_paginator("list_resource_data_sync")
     ```
@@ -149,6 +153,8 @@ from mypy_boto3_ssm.paginator import (
     ListComplianceSummariesPaginator,
     ListDocumentsPaginator,
     ListDocumentVersionsPaginator,
+    ListOpsItemEventsPaginator,
+    ListOpsMetadataPaginator,
     ListResourceComplianceSummariesPaginator,
     ListResourceDataSyncPaginator,
 )
@@ -201,6 +207,8 @@ __all__ = (
     "ListComplianceSummariesPaginator",
     "ListDocumentVersionsPaginator",
     "ListDocumentsPaginator",
+    "ListOpsItemEventsPaginator",
+    "ListOpsMetadataPaginator",
     "ListResourceComplianceSummariesPaginator",
     "ListResourceDataSyncPaginator",
     "SSMClient",

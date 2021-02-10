@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for kinesis service client
 
@@ -83,7 +82,7 @@ class Exceptions:
 
 class KinesisClient:
     """
-    [Kinesis.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Client)
+    [Kinesis.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client)
     """
 
     meta: ClientMeta
@@ -91,58 +90,58 @@ class KinesisClient:
 
     def add_tags_to_stream(self, StreamName: str, Tags: Dict[str, str]) -> None:
         """
-        [Client.add_tags_to_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Client.add_tags_to_stream)
+        [Client.add_tags_to_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.add_tags_to_stream)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.can_paginate)
         """
 
     def create_stream(self, StreamName: str, ShardCount: int) -> None:
         """
-        [Client.create_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Client.create_stream)
+        [Client.create_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.create_stream)
         """
 
     def decrease_stream_retention_period(self, StreamName: str, RetentionPeriodHours: int) -> None:
         """
-        [Client.decrease_stream_retention_period documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Client.decrease_stream_retention_period)
+        [Client.decrease_stream_retention_period documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.decrease_stream_retention_period)
         """
 
     def delete_stream(self, StreamName: str, EnforceConsumerDeletion: bool = None) -> None:
         """
-        [Client.delete_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Client.delete_stream)
+        [Client.delete_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.delete_stream)
         """
 
     def deregister_stream_consumer(
         self, StreamARN: str = None, ConsumerName: str = None, ConsumerARN: str = None
     ) -> None:
         """
-        [Client.deregister_stream_consumer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Client.deregister_stream_consumer)
+        [Client.deregister_stream_consumer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.deregister_stream_consumer)
         """
 
     def describe_limits(self) -> DescribeLimitsOutputTypeDef:
         """
-        [Client.describe_limits documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Client.describe_limits)
+        [Client.describe_limits documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.describe_limits)
         """
 
     def describe_stream(
         self, StreamName: str, Limit: int = None, ExclusiveStartShardId: str = None
     ) -> DescribeStreamOutputTypeDef:
         """
-        [Client.describe_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Client.describe_stream)
+        [Client.describe_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.describe_stream)
         """
 
     def describe_stream_consumer(
         self, StreamARN: str = None, ConsumerName: str = None, ConsumerARN: str = None
     ) -> DescribeStreamConsumerOutputTypeDef:
         """
-        [Client.describe_stream_consumer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Client.describe_stream_consumer)
+        [Client.describe_stream_consumer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.describe_stream_consumer)
         """
 
     def describe_stream_summary(self, StreamName: str) -> DescribeStreamSummaryOutputTypeDef:
         """
-        [Client.describe_stream_summary documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Client.describe_stream_summary)
+        [Client.describe_stream_summary documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.describe_stream_summary)
         """
 
     def disable_enhanced_monitoring(
@@ -162,7 +161,7 @@ class KinesisClient:
         ],
     ) -> EnhancedMonitoringOutputTypeDef:
         """
-        [Client.disable_enhanced_monitoring documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Client.disable_enhanced_monitoring)
+        [Client.disable_enhanced_monitoring documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.disable_enhanced_monitoring)
         """
 
     def enable_enhanced_monitoring(
@@ -182,7 +181,7 @@ class KinesisClient:
         ],
     ) -> EnhancedMonitoringOutputTypeDef:
         """
-        [Client.enable_enhanced_monitoring documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Client.enable_enhanced_monitoring)
+        [Client.enable_enhanced_monitoring documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.enable_enhanced_monitoring)
         """
 
     def generate_presigned_url(
@@ -193,12 +192,12 @@ class KinesisClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.generate_presigned_url)
         """
 
     def get_records(self, ShardIterator: str, Limit: int = None) -> GetRecordsOutputTypeDef:
         """
-        [Client.get_records documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Client.get_records)
+        [Client.get_records documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.get_records)
         """
 
     def get_shard_iterator(
@@ -212,12 +211,12 @@ class KinesisClient:
         Timestamp: datetime = None,
     ) -> GetShardIteratorOutputTypeDef:
         """
-        [Client.get_shard_iterator documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Client.get_shard_iterator)
+        [Client.get_shard_iterator documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.get_shard_iterator)
         """
 
     def increase_stream_retention_period(self, StreamName: str, RetentionPeriodHours: int) -> None:
         """
-        [Client.increase_stream_retention_period documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Client.increase_stream_retention_period)
+        [Client.increase_stream_retention_period documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.increase_stream_retention_period)
         """
 
     def list_shards(
@@ -230,7 +229,7 @@ class KinesisClient:
         ShardFilter: ShardFilterTypeDef = None,
     ) -> ListShardsOutputTypeDef:
         """
-        [Client.list_shards documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Client.list_shards)
+        [Client.list_shards documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.list_shards)
         """
 
     def list_stream_consumers(
@@ -241,26 +240,26 @@ class KinesisClient:
         StreamCreationTimestamp: datetime = None,
     ) -> ListStreamConsumersOutputTypeDef:
         """
-        [Client.list_stream_consumers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Client.list_stream_consumers)
+        [Client.list_stream_consumers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.list_stream_consumers)
         """
 
     def list_streams(
         self, Limit: int = None, ExclusiveStartStreamName: str = None
     ) -> ListStreamsOutputTypeDef:
         """
-        [Client.list_streams documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Client.list_streams)
+        [Client.list_streams documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.list_streams)
         """
 
     def list_tags_for_stream(
         self, StreamName: str, ExclusiveStartTagKey: str = None, Limit: int = None
     ) -> ListTagsForStreamOutputTypeDef:
         """
-        [Client.list_tags_for_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Client.list_tags_for_stream)
+        [Client.list_tags_for_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.list_tags_for_stream)
         """
 
     def merge_shards(self, StreamName: str, ShardToMerge: str, AdjacentShardToMerge: str) -> None:
         """
-        [Client.merge_shards documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Client.merge_shards)
+        [Client.merge_shards documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.merge_shards)
         """
 
     def put_record(
@@ -272,71 +271,71 @@ class KinesisClient:
         SequenceNumberForOrdering: str = None,
     ) -> PutRecordOutputTypeDef:
         """
-        [Client.put_record documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Client.put_record)
+        [Client.put_record documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.put_record)
         """
 
     def put_records(
         self, Records: List[PutRecordsRequestEntryTypeDef], StreamName: str
     ) -> PutRecordsOutputTypeDef:
         """
-        [Client.put_records documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Client.put_records)
+        [Client.put_records documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.put_records)
         """
 
     def register_stream_consumer(
         self, StreamARN: str, ConsumerName: str
     ) -> RegisterStreamConsumerOutputTypeDef:
         """
-        [Client.register_stream_consumer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Client.register_stream_consumer)
+        [Client.register_stream_consumer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.register_stream_consumer)
         """
 
     def remove_tags_from_stream(self, StreamName: str, TagKeys: List[str]) -> None:
         """
-        [Client.remove_tags_from_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Client.remove_tags_from_stream)
+        [Client.remove_tags_from_stream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.remove_tags_from_stream)
         """
 
     def split_shard(self, StreamName: str, ShardToSplit: str, NewStartingHashKey: str) -> None:
         """
-        [Client.split_shard documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Client.split_shard)
+        [Client.split_shard documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.split_shard)
         """
 
     def start_stream_encryption(
         self, StreamName: str, EncryptionType: Literal["NONE", "KMS"], KeyId: str
     ) -> None:
         """
-        [Client.start_stream_encryption documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Client.start_stream_encryption)
+        [Client.start_stream_encryption documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.start_stream_encryption)
         """
 
     def stop_stream_encryption(
         self, StreamName: str, EncryptionType: Literal["NONE", "KMS"], KeyId: str
     ) -> None:
         """
-        [Client.stop_stream_encryption documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Client.stop_stream_encryption)
+        [Client.stop_stream_encryption documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.stop_stream_encryption)
         """
 
     def subscribe_to_shard(
         self, ConsumerARN: str, ShardId: str, StartingPosition: StartingPositionTypeDef
     ) -> SubscribeToShardOutputTypeDef:
         """
-        [Client.subscribe_to_shard documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Client.subscribe_to_shard)
+        [Client.subscribe_to_shard documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.subscribe_to_shard)
         """
 
     def update_shard_count(
         self, StreamName: str, TargetShardCount: int, ScalingType: Literal["UNIFORM_SCALING"]
     ) -> UpdateShardCountOutputTypeDef:
         """
-        [Client.update_shard_count documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Client.update_shard_count)
+        [Client.update_shard_count documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Client.update_shard_count)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["describe_stream"]) -> DescribeStreamPaginator:
         """
-        [Paginator.DescribeStream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Paginator.DescribeStream)
+        [Paginator.DescribeStream documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Paginator.DescribeStream)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_shards"]) -> ListShardsPaginator:
         """
-        [Paginator.ListShards documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Paginator.ListShards)
+        [Paginator.ListShards documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Paginator.ListShards)
         """
 
     @overload
@@ -344,23 +343,23 @@ class KinesisClient:
         self, operation_name: Literal["list_stream_consumers"]
     ) -> ListStreamConsumersPaginator:
         """
-        [Paginator.ListStreamConsumers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Paginator.ListStreamConsumers)
+        [Paginator.ListStreamConsumers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Paginator.ListStreamConsumers)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_streams"]) -> ListStreamsPaginator:
         """
-        [Paginator.ListStreams documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Paginator.ListStreams)
+        [Paginator.ListStreams documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Paginator.ListStreams)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["stream_exists"]) -> StreamExistsWaiter:
         """
-        [Waiter.StreamExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Waiter.StreamExists)
+        [Waiter.StreamExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Waiter.StreamExists)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["stream_not_exists"]) -> StreamNotExistsWaiter:
         """
-        [Waiter.StreamNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis.html#Kinesis.Waiter.StreamNotExists)
+        [Waiter.StreamNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis.html#Kinesis.Waiter.StreamNotExists)
         """

@@ -1,7 +1,7 @@
 from mypy_boto3_servicecatalog_appregistry.client import (
-    ServiceCatalogAppRegistryClient,
+    AppRegistryClient,
 )
 
 __all__ = (
-    "ServiceCatalogAppRegistryClient",
+    "AppRegistryClient",
 )

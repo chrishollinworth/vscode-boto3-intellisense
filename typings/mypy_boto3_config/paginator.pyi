@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for config service client paginators.
 
@@ -108,7 +107,7 @@ __all__ = (
 
 class DescribeAggregateComplianceByConfigRulesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeAggregateComplianceByConfigRules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.DescribeAggregateComplianceByConfigRules)
+    [Paginator.DescribeAggregateComplianceByConfigRules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.DescribeAggregateComplianceByConfigRules)
     """
 
     def paginate(
@@ -118,26 +117,26 @@ class DescribeAggregateComplianceByConfigRulesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeAggregateComplianceByConfigRulesResponseTypeDef]:
         """
-        [DescribeAggregateComplianceByConfigRules.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.DescribeAggregateComplianceByConfigRules.paginate)
+        [DescribeAggregateComplianceByConfigRules.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.DescribeAggregateComplianceByConfigRules.paginate)
         """
 
 
 class DescribeAggregationAuthorizationsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeAggregationAuthorizations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.DescribeAggregationAuthorizations)
+    [Paginator.DescribeAggregationAuthorizations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.DescribeAggregationAuthorizations)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeAggregationAuthorizationsResponseTypeDef]:
         """
-        [DescribeAggregationAuthorizations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.DescribeAggregationAuthorizations.paginate)
+        [DescribeAggregationAuthorizations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.DescribeAggregationAuthorizations.paginate)
         """
 
 
 class DescribeComplianceByConfigRulePaginator(Boto3Paginator):
     """
-    [Paginator.DescribeComplianceByConfigRule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.DescribeComplianceByConfigRule)
+    [Paginator.DescribeComplianceByConfigRule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.DescribeComplianceByConfigRule)
     """
 
     def paginate(
@@ -149,13 +148,13 @@ class DescribeComplianceByConfigRulePaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeComplianceByConfigRuleResponseTypeDef]:
         """
-        [DescribeComplianceByConfigRule.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.DescribeComplianceByConfigRule.paginate)
+        [DescribeComplianceByConfigRule.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.DescribeComplianceByConfigRule.paginate)
         """
 
 
 class DescribeComplianceByResourcePaginator(Boto3Paginator):
     """
-    [Paginator.DescribeComplianceByResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.DescribeComplianceByResource)
+    [Paginator.DescribeComplianceByResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.DescribeComplianceByResource)
     """
 
     def paginate(
@@ -169,39 +168,39 @@ class DescribeComplianceByResourcePaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeComplianceByResourceResponseTypeDef]:
         """
-        [DescribeComplianceByResource.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.DescribeComplianceByResource.paginate)
+        [DescribeComplianceByResource.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.DescribeComplianceByResource.paginate)
         """
 
 
 class DescribeConfigRuleEvaluationStatusPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeConfigRuleEvaluationStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.DescribeConfigRuleEvaluationStatus)
+    [Paginator.DescribeConfigRuleEvaluationStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.DescribeConfigRuleEvaluationStatus)
     """
 
     def paginate(
         self, ConfigRuleNames: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeConfigRuleEvaluationStatusResponseTypeDef]:
         """
-        [DescribeConfigRuleEvaluationStatus.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.DescribeConfigRuleEvaluationStatus.paginate)
+        [DescribeConfigRuleEvaluationStatus.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.DescribeConfigRuleEvaluationStatus.paginate)
         """
 
 
 class DescribeConfigRulesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeConfigRules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.DescribeConfigRules)
+    [Paginator.DescribeConfigRules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.DescribeConfigRules)
     """
 
     def paginate(
         self, ConfigRuleNames: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeConfigRulesResponseTypeDef]:
         """
-        [DescribeConfigRules.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.DescribeConfigRules.paginate)
+        [DescribeConfigRules.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.DescribeConfigRules.paginate)
         """
 
 
 class DescribeConfigurationAggregatorSourcesStatusPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeConfigurationAggregatorSourcesStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.DescribeConfigurationAggregatorSourcesStatus)
+    [Paginator.DescribeConfigurationAggregatorSourcesStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.DescribeConfigurationAggregatorSourcesStatus)
     """
 
     def paginate(
@@ -211,13 +210,13 @@ class DescribeConfigurationAggregatorSourcesStatusPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeConfigurationAggregatorSourcesStatusResponseTypeDef]:
         """
-        [DescribeConfigurationAggregatorSourcesStatus.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.DescribeConfigurationAggregatorSourcesStatus.paginate)
+        [DescribeConfigurationAggregatorSourcesStatus.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.DescribeConfigurationAggregatorSourcesStatus.paginate)
         """
 
 
 class DescribeConfigurationAggregatorsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeConfigurationAggregators documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.DescribeConfigurationAggregators)
+    [Paginator.DescribeConfigurationAggregators documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.DescribeConfigurationAggregators)
     """
 
     def paginate(
@@ -226,26 +225,26 @@ class DescribeConfigurationAggregatorsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeConfigurationAggregatorsResponseTypeDef]:
         """
-        [DescribeConfigurationAggregators.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.DescribeConfigurationAggregators.paginate)
+        [DescribeConfigurationAggregators.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.DescribeConfigurationAggregators.paginate)
         """
 
 
 class DescribePendingAggregationRequestsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribePendingAggregationRequests documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.DescribePendingAggregationRequests)
+    [Paginator.DescribePendingAggregationRequests documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.DescribePendingAggregationRequests)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribePendingAggregationRequestsResponseTypeDef]:
         """
-        [DescribePendingAggregationRequests.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.DescribePendingAggregationRequests.paginate)
+        [DescribePendingAggregationRequests.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.DescribePendingAggregationRequests.paginate)
         """
 
 
 class DescribeRemediationExecutionStatusPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeRemediationExecutionStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.DescribeRemediationExecutionStatus)
+    [Paginator.DescribeRemediationExecutionStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.DescribeRemediationExecutionStatus)
     """
 
     def paginate(
@@ -255,13 +254,13 @@ class DescribeRemediationExecutionStatusPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeRemediationExecutionStatusResponseTypeDef]:
         """
-        [DescribeRemediationExecutionStatus.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.DescribeRemediationExecutionStatus.paginate)
+        [DescribeRemediationExecutionStatus.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.DescribeRemediationExecutionStatus.paginate)
         """
 
 
 class DescribeRetentionConfigurationsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeRetentionConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.DescribeRetentionConfigurations)
+    [Paginator.DescribeRetentionConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.DescribeRetentionConfigurations)
     """
 
     def paginate(
@@ -270,13 +269,13 @@ class DescribeRetentionConfigurationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeRetentionConfigurationsResponseTypeDef]:
         """
-        [DescribeRetentionConfigurations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.DescribeRetentionConfigurations.paginate)
+        [DescribeRetentionConfigurations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.DescribeRetentionConfigurations.paginate)
         """
 
 
 class GetAggregateComplianceDetailsByConfigRulePaginator(Boto3Paginator):
     """
-    [Paginator.GetAggregateComplianceDetailsByConfigRule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.GetAggregateComplianceDetailsByConfigRule)
+    [Paginator.GetAggregateComplianceDetailsByConfigRule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.GetAggregateComplianceDetailsByConfigRule)
     """
 
     def paginate(
@@ -291,13 +290,13 @@ class GetAggregateComplianceDetailsByConfigRulePaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetAggregateComplianceDetailsByConfigRuleResponseTypeDef]:
         """
-        [GetAggregateComplianceDetailsByConfigRule.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.GetAggregateComplianceDetailsByConfigRule.paginate)
+        [GetAggregateComplianceDetailsByConfigRule.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.GetAggregateComplianceDetailsByConfigRule.paginate)
         """
 
 
 class GetComplianceDetailsByConfigRulePaginator(Boto3Paginator):
     """
-    [Paginator.GetComplianceDetailsByConfigRule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.GetComplianceDetailsByConfigRule)
+    [Paginator.GetComplianceDetailsByConfigRule documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.GetComplianceDetailsByConfigRule)
     """
 
     def paginate(
@@ -310,13 +309,13 @@ class GetComplianceDetailsByConfigRulePaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetComplianceDetailsByConfigRuleResponseTypeDef]:
         """
-        [GetComplianceDetailsByConfigRule.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.GetComplianceDetailsByConfigRule.paginate)
+        [GetComplianceDetailsByConfigRule.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.GetComplianceDetailsByConfigRule.paginate)
         """
 
 
 class GetComplianceDetailsByResourcePaginator(Boto3Paginator):
     """
-    [Paginator.GetComplianceDetailsByResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.GetComplianceDetailsByResource)
+    [Paginator.GetComplianceDetailsByResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.GetComplianceDetailsByResource)
     """
 
     def paginate(
@@ -329,13 +328,13 @@ class GetComplianceDetailsByResourcePaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetComplianceDetailsByResourceResponseTypeDef]:
         """
-        [GetComplianceDetailsByResource.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.GetComplianceDetailsByResource.paginate)
+        [GetComplianceDetailsByResource.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.GetComplianceDetailsByResource.paginate)
         """
 
 
 class GetResourceConfigHistoryPaginator(Boto3Paginator):
     """
-    [Paginator.GetResourceConfigHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.GetResourceConfigHistory)
+    [Paginator.GetResourceConfigHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.GetResourceConfigHistory)
     """
 
     def paginate(
@@ -406,6 +405,9 @@ class GetResourceConfigHistoryPaginator(Boto3Paginator):
             "AWS::CloudFront::Distribution",
             "AWS::CloudFront::StreamingDistribution",
             "AWS::Lambda::Function",
+            "AWS::NetworkFirewall::Firewall",
+            "AWS::NetworkFirewall::FirewallPolicy",
+            "AWS::NetworkFirewall::RuleGroup",
             "AWS::ElasticBeanstalk::Application",
             "AWS::ElasticBeanstalk::ApplicationVersion",
             "AWS::ElasticBeanstalk::Environment",
@@ -442,13 +444,13 @@ class GetResourceConfigHistoryPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetResourceConfigHistoryResponseTypeDef]:
         """
-        [GetResourceConfigHistory.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.GetResourceConfigHistory.paginate)
+        [GetResourceConfigHistory.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.GetResourceConfigHistory.paginate)
         """
 
 
 class ListAggregateDiscoveredResourcesPaginator(Boto3Paginator):
     """
-    [Paginator.ListAggregateDiscoveredResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.ListAggregateDiscoveredResources)
+    [Paginator.ListAggregateDiscoveredResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.ListAggregateDiscoveredResources)
     """
 
     def paginate(
@@ -520,6 +522,9 @@ class ListAggregateDiscoveredResourcesPaginator(Boto3Paginator):
             "AWS::CloudFront::Distribution",
             "AWS::CloudFront::StreamingDistribution",
             "AWS::Lambda::Function",
+            "AWS::NetworkFirewall::Firewall",
+            "AWS::NetworkFirewall::FirewallPolicy",
+            "AWS::NetworkFirewall::RuleGroup",
             "AWS::ElasticBeanstalk::Application",
             "AWS::ElasticBeanstalk::ApplicationVersion",
             "AWS::ElasticBeanstalk::Environment",
@@ -553,13 +558,13 @@ class ListAggregateDiscoveredResourcesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListAggregateDiscoveredResourcesResponseTypeDef]:
         """
-        [ListAggregateDiscoveredResources.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.ListAggregateDiscoveredResources.paginate)
+        [ListAggregateDiscoveredResources.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.ListAggregateDiscoveredResources.paginate)
         """
 
 
 class ListDiscoveredResourcesPaginator(Boto3Paginator):
     """
-    [Paginator.ListDiscoveredResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.ListDiscoveredResources)
+    [Paginator.ListDiscoveredResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.ListDiscoveredResources)
     """
 
     def paginate(
@@ -630,6 +635,9 @@ class ListDiscoveredResourcesPaginator(Boto3Paginator):
             "AWS::CloudFront::Distribution",
             "AWS::CloudFront::StreamingDistribution",
             "AWS::Lambda::Function",
+            "AWS::NetworkFirewall::Firewall",
+            "AWS::NetworkFirewall::FirewallPolicy",
+            "AWS::NetworkFirewall::RuleGroup",
             "AWS::ElasticBeanstalk::Application",
             "AWS::ElasticBeanstalk::ApplicationVersion",
             "AWS::ElasticBeanstalk::Environment",
@@ -666,5 +674,5 @@ class ListDiscoveredResourcesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListDiscoveredResourcesResponseTypeDef]:
         """
-        [ListDiscoveredResources.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/config.html#ConfigService.Paginator.ListDiscoveredResources.paginate)
+        [ListDiscoveredResources.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/config.html#ConfigService.Paginator.ListDiscoveredResources.paginate)
         """

@@ -7,6 +7,7 @@ Usage::
     import boto3
     from mypy_boto3_route53resolver import (
         Client,
+        ListResolverDnssecConfigsPaginator,
         ListResolverEndpointIpAddressesPaginator,
         ListResolverEndpointsPaginator,
         ListResolverQueryLogConfigAssociationsPaginator,
@@ -22,6 +23,7 @@ Usage::
     client: Route53ResolverClient = boto3.client("route53resolver")
     session_client: Route53ResolverClient = session.client("route53resolver")
 
+    list_resolver_dnssec_configs_paginator: ListResolverDnssecConfigsPaginator = client.get_paginator("list_resolver_dnssec_configs")
     list_resolver_endpoint_ip_addresses_paginator: ListResolverEndpointIpAddressesPaginator = client.get_paginator("list_resolver_endpoint_ip_addresses")
     list_resolver_endpoints_paginator: ListResolverEndpointsPaginator = client.get_paginator("list_resolver_endpoints")
     list_resolver_query_log_config_associations_paginator: ListResolverQueryLogConfigAssociationsPaginator = client.get_paginator("list_resolver_query_log_config_associations")
@@ -33,6 +35,7 @@ Usage::
 """
 from mypy_boto3_route53resolver.client import Route53ResolverClient
 from mypy_boto3_route53resolver.paginator import (
+    ListResolverDnssecConfigsPaginator,
     ListResolverEndpointIpAddressesPaginator,
     ListResolverEndpointsPaginator,
     ListResolverQueryLogConfigAssociationsPaginator,
@@ -47,6 +50,7 @@ Client = Route53ResolverClient
 
 __all__ = (
     "Client",
+    "ListResolverDnssecConfigsPaginator",
     "ListResolverEndpointIpAddressesPaginator",
     "ListResolverEndpointsPaginator",
     "ListResolverQueryLogConfigAssociationsPaginator",

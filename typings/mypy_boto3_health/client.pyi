@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for health service client
 
@@ -70,7 +69,7 @@ class Exceptions:
 
 class HealthClient:
     """
-    [Health.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/health.html#Health.Client)
+    [Health.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/health.html#Health.Client)
     """
 
     meta: ClientMeta
@@ -78,14 +77,14 @@ class HealthClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/health.html#Health.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/health.html#Health.Client.can_paginate)
         """
 
     def describe_affected_accounts_for_organization(
         self, eventArn: str, nextToken: str = None, maxResults: int = None
     ) -> DescribeAffectedAccountsForOrganizationResponseTypeDef:
         """
-        [Client.describe_affected_accounts_for_organization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/health.html#Health.Client.describe_affected_accounts_for_organization)
+        [Client.describe_affected_accounts_for_organization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/health.html#Health.Client.describe_affected_accounts_for_organization)
         """
 
     def describe_affected_entities(
@@ -96,7 +95,7 @@ class HealthClient:
         maxResults: int = None,
     ) -> DescribeAffectedEntitiesResponseTypeDef:
         """
-        [Client.describe_affected_entities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/health.html#Health.Client.describe_affected_entities)
+        [Client.describe_affected_entities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/health.html#Health.Client.describe_affected_entities)
         """
 
     def describe_affected_entities_for_organization(
@@ -107,14 +106,14 @@ class HealthClient:
         maxResults: int = None,
     ) -> DescribeAffectedEntitiesForOrganizationResponseTypeDef:
         """
-        [Client.describe_affected_entities_for_organization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/health.html#Health.Client.describe_affected_entities_for_organization)
+        [Client.describe_affected_entities_for_organization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/health.html#Health.Client.describe_affected_entities_for_organization)
         """
 
     def describe_entity_aggregates(
         self, eventArns: List[str] = None
     ) -> DescribeEntityAggregatesResponseTypeDef:
         """
-        [Client.describe_entity_aggregates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/health.html#Health.Client.describe_entity_aggregates)
+        [Client.describe_entity_aggregates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/health.html#Health.Client.describe_entity_aggregates)
         """
 
     def describe_event_aggregates(
@@ -125,21 +124,21 @@ class HealthClient:
         nextToken: str = None,
     ) -> DescribeEventAggregatesResponseTypeDef:
         """
-        [Client.describe_event_aggregates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/health.html#Health.Client.describe_event_aggregates)
+        [Client.describe_event_aggregates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/health.html#Health.Client.describe_event_aggregates)
         """
 
     def describe_event_details(
         self, eventArns: List[str], locale: str = None
     ) -> DescribeEventDetailsResponseTypeDef:
         """
-        [Client.describe_event_details documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/health.html#Health.Client.describe_event_details)
+        [Client.describe_event_details documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/health.html#Health.Client.describe_event_details)
         """
 
     def describe_event_details_for_organization(
         self, organizationEventDetailFilters: List[EventAccountFilterTypeDef], locale: str = None
     ) -> DescribeEventDetailsForOrganizationResponseTypeDef:
         """
-        [Client.describe_event_details_for_organization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/health.html#Health.Client.describe_event_details_for_organization)
+        [Client.describe_event_details_for_organization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/health.html#Health.Client.describe_event_details_for_organization)
         """
 
     def describe_event_types(
@@ -150,7 +149,7 @@ class HealthClient:
         maxResults: int = None,
     ) -> DescribeEventTypesResponseTypeDef:
         """
-        [Client.describe_event_types documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/health.html#Health.Client.describe_event_types)
+        [Client.describe_event_types documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/health.html#Health.Client.describe_event_types)
         """
 
     def describe_events(
@@ -161,7 +160,7 @@ class HealthClient:
         locale: str = None,
     ) -> DescribeEventsResponseTypeDef:
         """
-        [Client.describe_events documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/health.html#Health.Client.describe_events)
+        [Client.describe_events documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/health.html#Health.Client.describe_events)
         """
 
     def describe_events_for_organization(
@@ -172,24 +171,24 @@ class HealthClient:
         locale: str = None,
     ) -> DescribeEventsForOrganizationResponseTypeDef:
         """
-        [Client.describe_events_for_organization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/health.html#Health.Client.describe_events_for_organization)
+        [Client.describe_events_for_organization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/health.html#Health.Client.describe_events_for_organization)
         """
 
     def describe_health_service_status_for_organization(
         self,
     ) -> DescribeHealthServiceStatusForOrganizationResponseTypeDef:
         """
-        [Client.describe_health_service_status_for_organization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/health.html#Health.Client.describe_health_service_status_for_organization)
+        [Client.describe_health_service_status_for_organization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/health.html#Health.Client.describe_health_service_status_for_organization)
         """
 
     def disable_health_service_access_for_organization(self) -> None:
         """
-        [Client.disable_health_service_access_for_organization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/health.html#Health.Client.disable_health_service_access_for_organization)
+        [Client.disable_health_service_access_for_organization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/health.html#Health.Client.disable_health_service_access_for_organization)
         """
 
     def enable_health_service_access_for_organization(self) -> None:
         """
-        [Client.enable_health_service_access_for_organization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/health.html#Health.Client.enable_health_service_access_for_organization)
+        [Client.enable_health_service_access_for_organization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/health.html#Health.Client.enable_health_service_access_for_organization)
         """
 
     def generate_presigned_url(
@@ -200,7 +199,7 @@ class HealthClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/health.html#Health.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/health.html#Health.Client.generate_presigned_url)
         """
 
     @overload
@@ -208,7 +207,7 @@ class HealthClient:
         self, operation_name: Literal["describe_affected_accounts_for_organization"]
     ) -> DescribeAffectedAccountsForOrganizationPaginator:
         """
-        [Paginator.DescribeAffectedAccountsForOrganization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/health.html#Health.Paginator.DescribeAffectedAccountsForOrganization)
+        [Paginator.DescribeAffectedAccountsForOrganization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/health.html#Health.Paginator.DescribeAffectedAccountsForOrganization)
         """
 
     @overload
@@ -216,7 +215,7 @@ class HealthClient:
         self, operation_name: Literal["describe_affected_entities"]
     ) -> DescribeAffectedEntitiesPaginator:
         """
-        [Paginator.DescribeAffectedEntities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/health.html#Health.Paginator.DescribeAffectedEntities)
+        [Paginator.DescribeAffectedEntities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/health.html#Health.Paginator.DescribeAffectedEntities)
         """
 
     @overload
@@ -224,7 +223,7 @@ class HealthClient:
         self, operation_name: Literal["describe_affected_entities_for_organization"]
     ) -> DescribeAffectedEntitiesForOrganizationPaginator:
         """
-        [Paginator.DescribeAffectedEntitiesForOrganization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/health.html#Health.Paginator.DescribeAffectedEntitiesForOrganization)
+        [Paginator.DescribeAffectedEntitiesForOrganization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/health.html#Health.Paginator.DescribeAffectedEntitiesForOrganization)
         """
 
     @overload
@@ -232,7 +231,7 @@ class HealthClient:
         self, operation_name: Literal["describe_event_aggregates"]
     ) -> DescribeEventAggregatesPaginator:
         """
-        [Paginator.DescribeEventAggregates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/health.html#Health.Paginator.DescribeEventAggregates)
+        [Paginator.DescribeEventAggregates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/health.html#Health.Paginator.DescribeEventAggregates)
         """
 
     @overload
@@ -240,13 +239,13 @@ class HealthClient:
         self, operation_name: Literal["describe_event_types"]
     ) -> DescribeEventTypesPaginator:
         """
-        [Paginator.DescribeEventTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/health.html#Health.Paginator.DescribeEventTypes)
+        [Paginator.DescribeEventTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/health.html#Health.Paginator.DescribeEventTypes)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["describe_events"]) -> DescribeEventsPaginator:
         """
-        [Paginator.DescribeEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/health.html#Health.Paginator.DescribeEvents)
+        [Paginator.DescribeEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/health.html#Health.Paginator.DescribeEvents)
         """
 
     @overload
@@ -254,5 +253,5 @@ class HealthClient:
         self, operation_name: Literal["describe_events_for_organization"]
     ) -> DescribeEventsForOrganizationPaginator:
         """
-        [Paginator.DescribeEventsForOrganization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/health.html#Health.Paginator.DescribeEventsForOrganization)
+        [Paginator.DescribeEventsForOrganization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/health.html#Health.Paginator.DescribeEventsForOrganization)
         """

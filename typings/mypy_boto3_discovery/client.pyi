@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for discovery service client
 
@@ -85,7 +84,7 @@ class Exceptions:
 
 class ApplicationDiscoveryServiceClient:
     """
-    [ApplicationDiscoveryService.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/discovery.html#ApplicationDiscoveryService.Client)
+    [ApplicationDiscoveryService.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/discovery.html#ApplicationDiscoveryService.Client)
     """
 
     meta: ClientMeta
@@ -95,43 +94,43 @@ class ApplicationDiscoveryServiceClient:
         self, applicationConfigurationId: str, configurationIds: List[str]
     ) -> Dict[str, Any]:
         """
-        [Client.associate_configuration_items_to_application documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/discovery.html#ApplicationDiscoveryService.Client.associate_configuration_items_to_application)
+        [Client.associate_configuration_items_to_application documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/discovery.html#ApplicationDiscoveryService.Client.associate_configuration_items_to_application)
         """
 
     def batch_delete_import_data(
         self, importTaskIds: List[str]
     ) -> BatchDeleteImportDataResponseTypeDef:
         """
-        [Client.batch_delete_import_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/discovery.html#ApplicationDiscoveryService.Client.batch_delete_import_data)
+        [Client.batch_delete_import_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/discovery.html#ApplicationDiscoveryService.Client.batch_delete_import_data)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/discovery.html#ApplicationDiscoveryService.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/discovery.html#ApplicationDiscoveryService.Client.can_paginate)
         """
 
     def create_application(
         self, name: str, description: str = None
     ) -> CreateApplicationResponseTypeDef:
         """
-        [Client.create_application documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/discovery.html#ApplicationDiscoveryService.Client.create_application)
+        [Client.create_application documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/discovery.html#ApplicationDiscoveryService.Client.create_application)
         """
 
     def create_tags(self, configurationIds: List[str], tags: List[TagTypeDef]) -> Dict[str, Any]:
         """
-        [Client.create_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/discovery.html#ApplicationDiscoveryService.Client.create_tags)
+        [Client.create_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/discovery.html#ApplicationDiscoveryService.Client.create_tags)
         """
 
     def delete_applications(self, configurationIds: List[str]) -> Dict[str, Any]:
         """
-        [Client.delete_applications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/discovery.html#ApplicationDiscoveryService.Client.delete_applications)
+        [Client.delete_applications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/discovery.html#ApplicationDiscoveryService.Client.delete_applications)
         """
 
     def delete_tags(
         self, configurationIds: List[str], tags: List[TagTypeDef] = None
     ) -> Dict[str, Any]:
         """
-        [Client.delete_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/discovery.html#ApplicationDiscoveryService.Client.delete_tags)
+        [Client.delete_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/discovery.html#ApplicationDiscoveryService.Client.delete_tags)
         """
 
     def describe_agents(
@@ -142,28 +141,28 @@ class ApplicationDiscoveryServiceClient:
         nextToken: str = None,
     ) -> DescribeAgentsResponseTypeDef:
         """
-        [Client.describe_agents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/discovery.html#ApplicationDiscoveryService.Client.describe_agents)
+        [Client.describe_agents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/discovery.html#ApplicationDiscoveryService.Client.describe_agents)
         """
 
     def describe_configurations(
         self, configurationIds: List[str]
     ) -> DescribeConfigurationsResponseTypeDef:
         """
-        [Client.describe_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/discovery.html#ApplicationDiscoveryService.Client.describe_configurations)
+        [Client.describe_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/discovery.html#ApplicationDiscoveryService.Client.describe_configurations)
         """
 
     def describe_continuous_exports(
         self, exportIds: List[str] = None, maxResults: int = None, nextToken: str = None
     ) -> DescribeContinuousExportsResponseTypeDef:
         """
-        [Client.describe_continuous_exports documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/discovery.html#ApplicationDiscoveryService.Client.describe_continuous_exports)
+        [Client.describe_continuous_exports documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/discovery.html#ApplicationDiscoveryService.Client.describe_continuous_exports)
         """
 
     def describe_export_configurations(
         self, exportIds: List[str] = None, maxResults: int = None, nextToken: str = None
     ) -> DescribeExportConfigurationsResponseTypeDef:
         """
-        [Client.describe_export_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/discovery.html#ApplicationDiscoveryService.Client.describe_export_configurations)
+        [Client.describe_export_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/discovery.html#ApplicationDiscoveryService.Client.describe_export_configurations)
         """
 
     def describe_export_tasks(
@@ -174,7 +173,7 @@ class ApplicationDiscoveryServiceClient:
         nextToken: str = None,
     ) -> DescribeExportTasksResponseTypeDef:
         """
-        [Client.describe_export_tasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/discovery.html#ApplicationDiscoveryService.Client.describe_export_tasks)
+        [Client.describe_export_tasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/discovery.html#ApplicationDiscoveryService.Client.describe_export_tasks)
         """
 
     def describe_import_tasks(
@@ -184,26 +183,26 @@ class ApplicationDiscoveryServiceClient:
         nextToken: str = None,
     ) -> DescribeImportTasksResponseTypeDef:
         """
-        [Client.describe_import_tasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/discovery.html#ApplicationDiscoveryService.Client.describe_import_tasks)
+        [Client.describe_import_tasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/discovery.html#ApplicationDiscoveryService.Client.describe_import_tasks)
         """
 
     def describe_tags(
         self, filters: List[TagFilterTypeDef] = None, maxResults: int = None, nextToken: str = None
     ) -> DescribeTagsResponseTypeDef:
         """
-        [Client.describe_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/discovery.html#ApplicationDiscoveryService.Client.describe_tags)
+        [Client.describe_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/discovery.html#ApplicationDiscoveryService.Client.describe_tags)
         """
 
     def disassociate_configuration_items_from_application(
         self, applicationConfigurationId: str, configurationIds: List[str]
     ) -> Dict[str, Any]:
         """
-        [Client.disassociate_configuration_items_from_application documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/discovery.html#ApplicationDiscoveryService.Client.disassociate_configuration_items_from_application)
+        [Client.disassociate_configuration_items_from_application documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/discovery.html#ApplicationDiscoveryService.Client.disassociate_configuration_items_from_application)
         """
 
     def export_configurations(self) -> ExportConfigurationsResponseTypeDef:
         """
-        [Client.export_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/discovery.html#ApplicationDiscoveryService.Client.export_configurations)
+        [Client.export_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/discovery.html#ApplicationDiscoveryService.Client.export_configurations)
         """
 
     def generate_presigned_url(
@@ -214,12 +213,12 @@ class ApplicationDiscoveryServiceClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/discovery.html#ApplicationDiscoveryService.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/discovery.html#ApplicationDiscoveryService.Client.generate_presigned_url)
         """
 
     def get_discovery_summary(self) -> GetDiscoverySummaryResponseTypeDef:
         """
-        [Client.get_discovery_summary documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/discovery.html#ApplicationDiscoveryService.Client.get_discovery_summary)
+        [Client.get_discovery_summary documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/discovery.html#ApplicationDiscoveryService.Client.get_discovery_summary)
         """
 
     def list_configurations(
@@ -231,7 +230,7 @@ class ApplicationDiscoveryServiceClient:
         orderBy: List[OrderByElementTypeDef] = None,
     ) -> ListConfigurationsResponseTypeDef:
         """
-        [Client.list_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/discovery.html#ApplicationDiscoveryService.Client.list_configurations)
+        [Client.list_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/discovery.html#ApplicationDiscoveryService.Client.list_configurations)
         """
 
     def list_server_neighbors(
@@ -243,19 +242,19 @@ class ApplicationDiscoveryServiceClient:
         nextToken: str = None,
     ) -> ListServerNeighborsResponseTypeDef:
         """
-        [Client.list_server_neighbors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/discovery.html#ApplicationDiscoveryService.Client.list_server_neighbors)
+        [Client.list_server_neighbors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/discovery.html#ApplicationDiscoveryService.Client.list_server_neighbors)
         """
 
     def start_continuous_export(self) -> StartContinuousExportResponseTypeDef:
         """
-        [Client.start_continuous_export documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/discovery.html#ApplicationDiscoveryService.Client.start_continuous_export)
+        [Client.start_continuous_export documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/discovery.html#ApplicationDiscoveryService.Client.start_continuous_export)
         """
 
     def start_data_collection_by_agent_ids(
         self, agentIds: List[str]
     ) -> StartDataCollectionByAgentIdsResponseTypeDef:
         """
-        [Client.start_data_collection_by_agent_ids documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/discovery.html#ApplicationDiscoveryService.Client.start_data_collection_by_agent_ids)
+        [Client.start_data_collection_by_agent_ids documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/discovery.html#ApplicationDiscoveryService.Client.start_data_collection_by_agent_ids)
         """
 
     def start_export_task(
@@ -266,39 +265,39 @@ class ApplicationDiscoveryServiceClient:
         endTime: datetime = None,
     ) -> StartExportTaskResponseTypeDef:
         """
-        [Client.start_export_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/discovery.html#ApplicationDiscoveryService.Client.start_export_task)
+        [Client.start_export_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/discovery.html#ApplicationDiscoveryService.Client.start_export_task)
         """
 
     def start_import_task(
         self, name: str, importUrl: str, clientRequestToken: str = None
     ) -> StartImportTaskResponseTypeDef:
         """
-        [Client.start_import_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/discovery.html#ApplicationDiscoveryService.Client.start_import_task)
+        [Client.start_import_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/discovery.html#ApplicationDiscoveryService.Client.start_import_task)
         """
 
     def stop_continuous_export(self, exportId: str) -> StopContinuousExportResponseTypeDef:
         """
-        [Client.stop_continuous_export documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/discovery.html#ApplicationDiscoveryService.Client.stop_continuous_export)
+        [Client.stop_continuous_export documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/discovery.html#ApplicationDiscoveryService.Client.stop_continuous_export)
         """
 
     def stop_data_collection_by_agent_ids(
         self, agentIds: List[str]
     ) -> StopDataCollectionByAgentIdsResponseTypeDef:
         """
-        [Client.stop_data_collection_by_agent_ids documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/discovery.html#ApplicationDiscoveryService.Client.stop_data_collection_by_agent_ids)
+        [Client.stop_data_collection_by_agent_ids documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/discovery.html#ApplicationDiscoveryService.Client.stop_data_collection_by_agent_ids)
         """
 
     def update_application(
         self, configurationId: str, name: str = None, description: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.update_application documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/discovery.html#ApplicationDiscoveryService.Client.update_application)
+        [Client.update_application documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/discovery.html#ApplicationDiscoveryService.Client.update_application)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["describe_agents"]) -> DescribeAgentsPaginator:
         """
-        [Paginator.DescribeAgents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeAgents)
+        [Paginator.DescribeAgents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeAgents)
         """
 
     @overload
@@ -306,7 +305,7 @@ class ApplicationDiscoveryServiceClient:
         self, operation_name: Literal["describe_continuous_exports"]
     ) -> DescribeContinuousExportsPaginator:
         """
-        [Paginator.DescribeContinuousExports documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeContinuousExports)
+        [Paginator.DescribeContinuousExports documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeContinuousExports)
         """
 
     @overload
@@ -314,7 +313,7 @@ class ApplicationDiscoveryServiceClient:
         self, operation_name: Literal["describe_export_configurations"]
     ) -> DescribeExportConfigurationsPaginator:
         """
-        [Paginator.DescribeExportConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeExportConfigurations)
+        [Paginator.DescribeExportConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeExportConfigurations)
         """
 
     @overload
@@ -322,13 +321,13 @@ class ApplicationDiscoveryServiceClient:
         self, operation_name: Literal["describe_export_tasks"]
     ) -> DescribeExportTasksPaginator:
         """
-        [Paginator.DescribeExportTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeExportTasks)
+        [Paginator.DescribeExportTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeExportTasks)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["describe_tags"]) -> DescribeTagsPaginator:
         """
-        [Paginator.DescribeTags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeTags)
+        [Paginator.DescribeTags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeTags)
         """
 
     @overload
@@ -336,5 +335,5 @@ class ApplicationDiscoveryServiceClient:
         self, operation_name: Literal["list_configurations"]
     ) -> ListConfigurationsPaginator:
         """
-        [Paginator.ListConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.ListConfigurations)
+        [Paginator.ListConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.ListConfigurations)
         """

@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
 """
 Main interface for glacier service client waiters.
 
@@ -28,25 +27,25 @@ __all__ = ("VaultExistsWaiter", "VaultNotExistsWaiter")
 
 class VaultExistsWaiter(Boto3Waiter):
     """
-    [Waiter.VaultExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Waiter.VaultExists)
+    [Waiter.VaultExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Waiter.VaultExists)
     """
 
     def wait(
         self, accountId: str, vaultName: str, WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [VaultExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Waiter.VaultExists.wait)
+        [VaultExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Waiter.VaultExists.wait)
         """
 
 
 class VaultNotExistsWaiter(Boto3Waiter):
     """
-    [Waiter.VaultNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Waiter.VaultNotExists)
+    [Waiter.VaultNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Waiter.VaultNotExists)
     """
 
     def wait(
         self, accountId: str, vaultName: str, WaiterConfig: WaiterConfigTypeDef = None
     ) -> None:
         """
-        [VaultNotExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Waiter.VaultNotExists.wait)
+        [VaultNotExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Waiter.VaultNotExists.wait)
         """

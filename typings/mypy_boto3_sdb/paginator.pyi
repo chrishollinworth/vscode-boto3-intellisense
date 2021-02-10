@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for sdb service client paginators.
 
@@ -34,20 +33,20 @@ __all__ = ("ListDomainsPaginator", "SelectPaginator")
 
 class ListDomainsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDomains documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sdb.html#SimpleDB.Paginator.ListDomains)
+    [Paginator.ListDomains documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sdb.html#SimpleDB.Paginator.ListDomains)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDomainsResultTypeDef]:
         """
-        [ListDomains.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sdb.html#SimpleDB.Paginator.ListDomains.paginate)
+        [ListDomains.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sdb.html#SimpleDB.Paginator.ListDomains.paginate)
         """
 
 
 class SelectPaginator(Boto3Paginator):
     """
-    [Paginator.Select documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sdb.html#SimpleDB.Paginator.Select)
+    [Paginator.Select documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sdb.html#SimpleDB.Paginator.Select)
     """
 
     def paginate(
@@ -57,5 +56,5 @@ class SelectPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[SelectResultTypeDef]:
         """
-        [Select.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sdb.html#SimpleDB.Paginator.Select.paginate)
+        [Select.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sdb.html#SimpleDB.Paginator.Select.paginate)
         """

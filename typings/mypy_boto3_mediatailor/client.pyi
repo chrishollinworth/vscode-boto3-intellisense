@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for mediatailor service client
 
@@ -54,7 +53,7 @@ class Exceptions:
 
 class MediaTailorClient:
     """
-    [MediaTailor.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediatailor.html#MediaTailor.Client)
+    [MediaTailor.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediatailor.html#MediaTailor.Client)
     """
 
     meta: ClientMeta
@@ -62,12 +61,12 @@ class MediaTailorClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediatailor.html#MediaTailor.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediatailor.html#MediaTailor.Client.can_paginate)
         """
 
     def delete_playback_configuration(self, Name: str) -> Dict[str, Any]:
         """
-        [Client.delete_playback_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediatailor.html#MediaTailor.Client.delete_playback_configuration)
+        [Client.delete_playback_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediatailor.html#MediaTailor.Client.delete_playback_configuration)
         """
 
     def generate_presigned_url(
@@ -78,24 +77,24 @@ class MediaTailorClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediatailor.html#MediaTailor.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediatailor.html#MediaTailor.Client.generate_presigned_url)
         """
 
     def get_playback_configuration(self, Name: str) -> GetPlaybackConfigurationResponseTypeDef:
         """
-        [Client.get_playback_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediatailor.html#MediaTailor.Client.get_playback_configuration)
+        [Client.get_playback_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediatailor.html#MediaTailor.Client.get_playback_configuration)
         """
 
     def list_playback_configurations(
         self, MaxResults: int = None, NextToken: str = None
     ) -> ListPlaybackConfigurationsResponseTypeDef:
         """
-        [Client.list_playback_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediatailor.html#MediaTailor.Client.list_playback_configurations)
+        [Client.list_playback_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediatailor.html#MediaTailor.Client.list_playback_configurations)
         """
 
     def list_tags_for_resource(self, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediatailor.html#MediaTailor.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediatailor.html#MediaTailor.Client.list_tags_for_resource)
         """
 
     def put_playback_configuration(
@@ -115,22 +114,22 @@ class MediaTailorClient:
         VideoContentSourceUrl: str = None,
     ) -> PutPlaybackConfigurationResponseTypeDef:
         """
-        [Client.put_playback_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediatailor.html#MediaTailor.Client.put_playback_configuration)
+        [Client.put_playback_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediatailor.html#MediaTailor.Client.put_playback_configuration)
         """
 
     def tag_resource(self, ResourceArn: str, Tags: Dict[str, str]) -> None:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediatailor.html#MediaTailor.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediatailor.html#MediaTailor.Client.tag_resource)
         """
 
     def untag_resource(self, ResourceArn: str, TagKeys: List[str]) -> None:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediatailor.html#MediaTailor.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediatailor.html#MediaTailor.Client.untag_resource)
         """
 
     def get_paginator(
         self, operation_name: Literal["list_playback_configurations"]
     ) -> ListPlaybackConfigurationsPaginator:
         """
-        [Paginator.ListPlaybackConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediatailor.html#MediaTailor.Paginator.ListPlaybackConfigurations)
+        [Paginator.ListPlaybackConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediatailor.html#MediaTailor.Paginator.ListPlaybackConfigurations)
         """

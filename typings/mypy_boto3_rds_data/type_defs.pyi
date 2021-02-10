@@ -168,7 +168,7 @@ ExecuteStatementResponseTypeDef = TypedDict(
 
 ResultSetOptionsTypeDef = TypedDict(
     "ResultSetOptionsTypeDef",
-    {"decimalReturnType": Literal["DOUBLE_OR_LONG", "STRING"]},
+    {"decimalReturnType": Literal["STRING", "DOUBLE_OR_LONG"]},
     total=False,
 )
 
@@ -180,7 +180,7 @@ SqlParameterTypeDef = TypedDict(
     "SqlParameterTypeDef",
     {
         "name": str,
-        "typeHint": Literal["DATE", "DECIMAL", "TIME", "TIMESTAMP"],
+        "typeHint": Literal["JSON", "UUID", "TIMESTAMP", "DATE", "TIME", "DECIMAL"],
         "value": "FieldTypeDef",
     },
     total=False,

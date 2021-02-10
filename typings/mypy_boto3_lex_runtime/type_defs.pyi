@@ -10,7 +10,9 @@ Usage::
     ```
 """
 import sys
-from typing import IO, Dict, List
+from typing import Dict, List
+
+from botocore.response import StreamingBody
 
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -173,7 +175,7 @@ PostContentResponseTypeDef = TypedDict(
         ],
         "slotToElicit": str,
         "inputTranscript": str,
-        "audioStream": IO[bytes],
+        "audioStream": StreamingBody,
         "botVersion": str,
         "sessionId": str,
         "activeContexts": str,
@@ -227,7 +229,7 @@ PutSessionResponseTypeDef = TypedDict(
             "Failed",
         ],
         "slotToElicit": str,
-        "audioStream": IO[bytes],
+        "audioStream": StreamingBody,
         "sessionId": str,
         "activeContexts": str,
     },

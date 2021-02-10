@@ -7,18 +7,18 @@ Usage::
     import boto3
     from mypy_boto3_sagemaker_featurestore_runtime import (
         Client,
-        SageMakerFeatureStoreRuntimeClient,
+        SagemakerFeatureStoreRuntimeClient,
     )
 
     session = boto3.Session()
 
-    client: SageMakerFeatureStoreRuntimeClient = boto3.client("sagemaker-featurestore-runtime")
-    session_client: SageMakerFeatureStoreRuntimeClient = session.client("sagemaker-featurestore-runtime")
+    client: SagemakerFeatureStoreRuntimeClient = boto3.client("sagemaker-featurestore-runtime")
+    session_client: SagemakerFeatureStoreRuntimeClient = session.client("sagemaker-featurestore-runtime")
     ```
 """
-from mypy_boto3_sagemaker_featurestore_runtime.client import SageMakerFeatureStoreRuntimeClient
+from mypy_boto3_sagemaker_featurestore_runtime.client import SagemakerFeatureStoreRuntimeClient
 
-Client = SageMakerFeatureStoreRuntimeClient
+Client = SagemakerFeatureStoreRuntimeClient
 
 
-__all__ = ("Client", "SageMakerFeatureStoreRuntimeClient")
+__all__ = ("Client", "SagemakerFeatureStoreRuntimeClient")

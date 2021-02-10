@@ -1,5 +1,6 @@
 from mypy_boto3_route53resolver.type_defs import (
     IpAddressResponseTypeDef,
+    ResolverDnssecConfigTypeDef,
     ResolverEndpointTypeDef,
     ResolverQueryLogConfigAssociationTypeDef,
     ResolverQueryLogConfigTypeDef,
@@ -20,6 +21,7 @@ from mypy_boto3_route53resolver.type_defs import (
     DisassociateResolverQueryLogConfigResponseTypeDef,
     DisassociateResolverRuleResponseTypeDef,
     FilterTypeDef,
+    GetResolverDnssecConfigResponseTypeDef,
     GetResolverEndpointResponseTypeDef,
     GetResolverQueryLogConfigAssociationResponseTypeDef,
     GetResolverQueryLogConfigPolicyResponseTypeDef,
@@ -29,6 +31,7 @@ from mypy_boto3_route53resolver.type_defs import (
     GetResolverRuleResponseTypeDef,
     IpAddressRequestTypeDef,
     IpAddressUpdateTypeDef,
+    ListResolverDnssecConfigsResponseTypeDef,
     ListResolverEndpointIpAddressesResponseTypeDef,
     ListResolverEndpointsResponseTypeDef,
     ListResolverQueryLogConfigAssociationsResponseTypeDef,
@@ -40,12 +43,14 @@ from mypy_boto3_route53resolver.type_defs import (
     PutResolverQueryLogConfigPolicyResponseTypeDef,
     PutResolverRulePolicyResponseTypeDef,
     ResolverRuleConfigTypeDef,
+    UpdateResolverDnssecConfigResponseTypeDef,
     UpdateResolverEndpointResponseTypeDef,
     UpdateResolverRuleResponseTypeDef,
 )
 
 __all__ = (
     "IpAddressResponseTypeDef",
+    "ResolverDnssecConfigTypeDef",
     "ResolverEndpointTypeDef",
     "ResolverQueryLogConfigAssociationTypeDef",
     "ResolverQueryLogConfigTypeDef",
@@ -66,6 +71,7 @@ __all__ = (
     "DisassociateResolverQueryLogConfigResponseTypeDef",
     "DisassociateResolverRuleResponseTypeDef",
     "FilterTypeDef",
+    "GetResolverDnssecConfigResponseTypeDef",
     "GetResolverEndpointResponseTypeDef",
     "GetResolverQueryLogConfigAssociationResponseTypeDef",
     "GetResolverQueryLogConfigPolicyResponseTypeDef",
@@ -75,6 +81,7 @@ __all__ = (
     "GetResolverRuleResponseTypeDef",
     "IpAddressRequestTypeDef",
     "IpAddressUpdateTypeDef",
+    "ListResolverDnssecConfigsResponseTypeDef",
     "ListResolverEndpointIpAddressesResponseTypeDef",
     "ListResolverEndpointsResponseTypeDef",
     "ListResolverQueryLogConfigAssociationsResponseTypeDef",
@@ -86,6 +93,7 @@ __all__ = (
     "PutResolverQueryLogConfigPolicyResponseTypeDef",
     "PutResolverRulePolicyResponseTypeDef",
     "ResolverRuleConfigTypeDef",
+    "UpdateResolverDnssecConfigResponseTypeDef",
     "UpdateResolverEndpointResponseTypeDef",
     "UpdateResolverRuleResponseTypeDef",
 )

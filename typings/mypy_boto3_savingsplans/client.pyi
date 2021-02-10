@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for savingsplans service client
 
@@ -57,7 +56,7 @@ class Exceptions:
 
 class SavingsPlansClient:
     """
-    [SavingsPlans.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/savingsplans.html#SavingsPlans.Client)
+    [SavingsPlans.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/savingsplans.html#SavingsPlans.Client)
     """
 
     meta: ClientMeta
@@ -65,7 +64,7 @@ class SavingsPlansClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/savingsplans.html#SavingsPlans.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/savingsplans.html#SavingsPlans.Client.can_paginate)
         """
 
     def create_savings_plan(
@@ -78,12 +77,12 @@ class SavingsPlansClient:
         tags: Dict[str, str] = None,
     ) -> CreateSavingsPlanResponseTypeDef:
         """
-        [Client.create_savings_plan documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/savingsplans.html#SavingsPlans.Client.create_savings_plan)
+        [Client.create_savings_plan documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/savingsplans.html#SavingsPlans.Client.create_savings_plan)
         """
 
     def delete_queued_savings_plan(self, savingsPlanId: str) -> Dict[str, Any]:
         """
-        [Client.delete_queued_savings_plan documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/savingsplans.html#SavingsPlans.Client.delete_queued_savings_plan)
+        [Client.delete_queued_savings_plan documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/savingsplans.html#SavingsPlans.Client.delete_queued_savings_plan)
         """
 
     def describe_savings_plan_rates(
@@ -94,7 +93,7 @@ class SavingsPlansClient:
         maxResults: int = None,
     ) -> DescribeSavingsPlanRatesResponseTypeDef:
         """
-        [Client.describe_savings_plan_rates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/savingsplans.html#SavingsPlans.Client.describe_savings_plan_rates)
+        [Client.describe_savings_plan_rates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/savingsplans.html#SavingsPlans.Client.describe_savings_plan_rates)
         """
 
     def describe_savings_plans(
@@ -111,7 +110,7 @@ class SavingsPlansClient:
         filters: List[SavingsPlanFilterTypeDef] = None,
     ) -> DescribeSavingsPlansResponseTypeDef:
         """
-        [Client.describe_savings_plans documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/savingsplans.html#SavingsPlans.Client.describe_savings_plans)
+        [Client.describe_savings_plans documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/savingsplans.html#SavingsPlans.Client.describe_savings_plans)
         """
 
     def describe_savings_plans_offering_rates(
@@ -130,7 +129,7 @@ class SavingsPlansClient:
         maxResults: int = None,
     ) -> DescribeSavingsPlansOfferingRatesResponseTypeDef:
         """
-        [Client.describe_savings_plans_offering_rates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/savingsplans.html#SavingsPlans.Client.describe_savings_plans_offering_rates)
+        [Client.describe_savings_plans_offering_rates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/savingsplans.html#SavingsPlans.Client.describe_savings_plans_offering_rates)
         """
 
     def describe_savings_plans_offerings(
@@ -150,7 +149,7 @@ class SavingsPlansClient:
         maxResults: int = None,
     ) -> DescribeSavingsPlansOfferingsResponseTypeDef:
         """
-        [Client.describe_savings_plans_offerings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/savingsplans.html#SavingsPlans.Client.describe_savings_plans_offerings)
+        [Client.describe_savings_plans_offerings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/savingsplans.html#SavingsPlans.Client.describe_savings_plans_offerings)
         """
 
     def generate_presigned_url(
@@ -161,20 +160,20 @@ class SavingsPlansClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/savingsplans.html#SavingsPlans.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/savingsplans.html#SavingsPlans.Client.generate_presigned_url)
         """
 
     def list_tags_for_resource(self, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/savingsplans.html#SavingsPlans.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/savingsplans.html#SavingsPlans.Client.list_tags_for_resource)
         """
 
     def tag_resource(self, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/savingsplans.html#SavingsPlans.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/savingsplans.html#SavingsPlans.Client.tag_resource)
         """
 
     def untag_resource(self, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/savingsplans.html#SavingsPlans.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/savingsplans.html#SavingsPlans.Client.untag_resource)
         """

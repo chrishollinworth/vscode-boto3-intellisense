@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for amplify service client paginators.
 
@@ -45,51 +44,51 @@ __all__ = (
 
 class ListAppsPaginator(Boto3Paginator):
     """
-    [Paginator.ListApps documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/amplify.html#Amplify.Paginator.ListApps)
+    [Paginator.ListApps documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Paginator.ListApps)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAppsResultTypeDef]:
         """
-        [ListApps.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/amplify.html#Amplify.Paginator.ListApps.paginate)
+        [ListApps.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Paginator.ListApps.paginate)
         """
 
 
 class ListBranchesPaginator(Boto3Paginator):
     """
-    [Paginator.ListBranches documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/amplify.html#Amplify.Paginator.ListBranches)
+    [Paginator.ListBranches documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Paginator.ListBranches)
     """
 
     def paginate(
         self, appId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListBranchesResultTypeDef]:
         """
-        [ListBranches.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/amplify.html#Amplify.Paginator.ListBranches.paginate)
+        [ListBranches.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Paginator.ListBranches.paginate)
         """
 
 
 class ListDomainAssociationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDomainAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/amplify.html#Amplify.Paginator.ListDomainAssociations)
+    [Paginator.ListDomainAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Paginator.ListDomainAssociations)
     """
 
     def paginate(
         self, appId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDomainAssociationsResultTypeDef]:
         """
-        [ListDomainAssociations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/amplify.html#Amplify.Paginator.ListDomainAssociations.paginate)
+        [ListDomainAssociations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Paginator.ListDomainAssociations.paginate)
         """
 
 
 class ListJobsPaginator(Boto3Paginator):
     """
-    [Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/amplify.html#Amplify.Paginator.ListJobs)
+    [Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Paginator.ListJobs)
     """
 
     def paginate(
         self, appId: str, branchName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListJobsResultTypeDef]:
         """
-        [ListJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/amplify.html#Amplify.Paginator.ListJobs.paginate)
+        [ListJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/amplify.html#Amplify.Paginator.ListJobs.paginate)
         """

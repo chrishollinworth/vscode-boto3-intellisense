@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for sts service client
 
@@ -53,7 +52,7 @@ class Exceptions:
 
 class STSClient:
     """
-    [STS.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sts.html#STS.Client)
+    [STS.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sts.html#STS.Client)
     """
 
     meta: ClientMeta
@@ -73,7 +72,7 @@ class STSClient:
         TokenCode: str = None,
     ) -> AssumeRoleResponseTypeDef:
         """
-        [Client.assume_role documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sts.html#STS.Client.assume_role)
+        [Client.assume_role documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sts.html#STS.Client.assume_role)
         """
 
     def assume_role_with_saml(
@@ -86,7 +85,7 @@ class STSClient:
         DurationSeconds: int = None,
     ) -> AssumeRoleWithSAMLResponseTypeDef:
         """
-        [Client.assume_role_with_saml documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sts.html#STS.Client.assume_role_with_saml)
+        [Client.assume_role_with_saml documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sts.html#STS.Client.assume_role_with_saml)
         """
 
     def assume_role_with_web_identity(
@@ -100,19 +99,19 @@ class STSClient:
         DurationSeconds: int = None,
     ) -> AssumeRoleWithWebIdentityResponseTypeDef:
         """
-        [Client.assume_role_with_web_identity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sts.html#STS.Client.assume_role_with_web_identity)
+        [Client.assume_role_with_web_identity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sts.html#STS.Client.assume_role_with_web_identity)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sts.html#STS.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sts.html#STS.Client.can_paginate)
         """
 
     def decode_authorization_message(
         self, EncodedMessage: str
     ) -> DecodeAuthorizationMessageResponseTypeDef:
         """
-        [Client.decode_authorization_message documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sts.html#STS.Client.decode_authorization_message)
+        [Client.decode_authorization_message documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sts.html#STS.Client.decode_authorization_message)
         """
 
     def generate_presigned_url(
@@ -123,17 +122,17 @@ class STSClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sts.html#STS.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sts.html#STS.Client.generate_presigned_url)
         """
 
     def get_access_key_info(self, AccessKeyId: str) -> GetAccessKeyInfoResponseTypeDef:
         """
-        [Client.get_access_key_info documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sts.html#STS.Client.get_access_key_info)
+        [Client.get_access_key_info documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sts.html#STS.Client.get_access_key_info)
         """
 
     def get_caller_identity(self) -> GetCallerIdentityResponseTypeDef:
         """
-        [Client.get_caller_identity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sts.html#STS.Client.get_caller_identity)
+        [Client.get_caller_identity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sts.html#STS.Client.get_caller_identity)
         """
 
     def get_federation_token(
@@ -145,12 +144,12 @@ class STSClient:
         Tags: List[TagTypeDef] = None,
     ) -> GetFederationTokenResponseTypeDef:
         """
-        [Client.get_federation_token documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sts.html#STS.Client.get_federation_token)
+        [Client.get_federation_token documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sts.html#STS.Client.get_federation_token)
         """
 
     def get_session_token(
         self, DurationSeconds: int = None, SerialNumber: str = None, TokenCode: str = None
     ) -> GetSessionTokenResponseTypeDef:
         """
-        [Client.get_session_token documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sts.html#STS.Client.get_session_token)
+        [Client.get_session_token documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sts.html#STS.Client.get_session_token)
         """

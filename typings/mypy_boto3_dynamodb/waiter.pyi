@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
 """
 Main interface for dynamodb service client waiters.
 
@@ -28,21 +27,21 @@ __all__ = ("TableExistsWaiter", "TableNotExistsWaiter")
 
 class TableExistsWaiter(Boto3Waiter):
     """
-    [Waiter.TableExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Waiter.TableExists)
+    [Waiter.TableExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.Waiter.TableExists)
     """
 
     def wait(self, TableName: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [TableExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Waiter.TableExists.wait)
+        [TableExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.Waiter.TableExists.wait)
         """
 
 
 class TableNotExistsWaiter(Boto3Waiter):
     """
-    [Waiter.TableNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Waiter.TableNotExists)
+    [Waiter.TableNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.Waiter.TableNotExists)
     """
 
     def wait(self, TableName: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [TableNotExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/dynamodb.html#DynamoDB.Waiter.TableNotExists.wait)
+        [TableNotExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/dynamodb.html#DynamoDB.Waiter.TableNotExists.wait)
         """

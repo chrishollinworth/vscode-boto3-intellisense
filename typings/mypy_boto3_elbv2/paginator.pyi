@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for elbv2 service client paginators.
 
@@ -57,33 +56,33 @@ __all__ = (
 
 class DescribeAccountLimitsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeAccountLimits documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeAccountLimits)
+    [Paginator.DescribeAccountLimits documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeAccountLimits)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeAccountLimitsOutputTypeDef]:
         """
-        [DescribeAccountLimits.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeAccountLimits.paginate)
+        [DescribeAccountLimits.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeAccountLimits.paginate)
         """
 
 
 class DescribeListenerCertificatesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeListenerCertificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeListenerCertificates)
+    [Paginator.DescribeListenerCertificates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeListenerCertificates)
     """
 
     def paginate(
         self, ListenerArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeListenerCertificatesOutputTypeDef]:
         """
-        [DescribeListenerCertificates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeListenerCertificates.paginate)
+        [DescribeListenerCertificates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeListenerCertificates.paginate)
         """
 
 
 class DescribeListenersPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeListeners documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeListeners)
+    [Paginator.DescribeListeners documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeListeners)
     """
 
     def paginate(
@@ -93,13 +92,13 @@ class DescribeListenersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeListenersOutputTypeDef]:
         """
-        [DescribeListeners.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeListeners.paginate)
+        [DescribeListeners.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeListeners.paginate)
         """
 
 
 class DescribeLoadBalancersPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeLoadBalancers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeLoadBalancers)
+    [Paginator.DescribeLoadBalancers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeLoadBalancers)
     """
 
     def paginate(
@@ -109,13 +108,13 @@ class DescribeLoadBalancersPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeLoadBalancersOutputTypeDef]:
         """
-        [DescribeLoadBalancers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeLoadBalancers.paginate)
+        [DescribeLoadBalancers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeLoadBalancers.paginate)
         """
 
 
 class DescribeRulesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeRules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeRules)
+    [Paginator.DescribeRules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeRules)
     """
 
     def paginate(
@@ -125,26 +124,26 @@ class DescribeRulesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeRulesOutputTypeDef]:
         """
-        [DescribeRules.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeRules.paginate)
+        [DescribeRules.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeRules.paginate)
         """
 
 
 class DescribeSSLPoliciesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeSSLPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeSSLPolicies)
+    [Paginator.DescribeSSLPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeSSLPolicies)
     """
 
     def paginate(
         self, Names: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeSSLPoliciesOutputTypeDef]:
         """
-        [DescribeSSLPolicies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeSSLPolicies.paginate)
+        [DescribeSSLPolicies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeSSLPolicies.paginate)
         """
 
 
 class DescribeTargetGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeTargetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeTargetGroups)
+    [Paginator.DescribeTargetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeTargetGroups)
     """
 
     def paginate(
@@ -155,5 +154,5 @@ class DescribeTargetGroupsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeTargetGroupsOutputTypeDef]:
         """
-        [DescribeTargetGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeTargetGroups.paginate)
+        [DescribeTargetGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elbv2.html#ElasticLoadBalancingv2.Paginator.DescribeTargetGroups.paginate)
         """

@@ -1,7 +1,7 @@
 from mypy_boto3_devops_guru import (
     Client,
     DescribeResourceCollectionHealthPaginator,
-    DevOpsGuruClient,
+    DevopsGuruClient,
     GetResourceCollectionPaginator,
     ListAnomaliesForInsightPaginator,
     ListEventsPaginator,
@@ -14,7 +14,7 @@ from mypy_boto3_devops_guru import (
 __all__ = (
     "Client",
     "DescribeResourceCollectionHealthPaginator",
-    "DevOpsGuruClient",
+    "DevopsGuruClient",
     "GetResourceCollectionPaginator",
     "ListAnomaliesForInsightPaginator",
     "ListEventsPaginator",

@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for cloudtrail service client
 
@@ -65,7 +64,9 @@ class Exceptions:
     ClientError: Type[BotocoreClientError]
     CloudTrailARNInvalidException: Type[BotocoreClientError]
     CloudTrailAccessNotEnabledException: Type[BotocoreClientError]
+    CloudTrailInvalidClientTokenIdException: Type[BotocoreClientError]
     CloudWatchLogsDeliveryUnavailableException: Type[BotocoreClientError]
+    ConflictException: Type[BotocoreClientError]
     InsightNotEnabledException: Type[BotocoreClientError]
     InsufficientDependencyServiceAccessPermissionException: Type[BotocoreClientError]
     InsufficientEncryptionPolicyException: Type[BotocoreClientError]
@@ -109,7 +110,7 @@ class Exceptions:
 
 class CloudTrailClient:
     """
-    [CloudTrail.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudtrail.html#CloudTrail.Client)
+    [CloudTrail.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Client)
     """
 
     meta: ClientMeta
@@ -117,12 +118,12 @@ class CloudTrailClient:
 
     def add_tags(self, ResourceId: str, TagsList: List["TagTypeDef"] = None) -> Dict[str, Any]:
         """
-        [Client.add_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudtrail.html#CloudTrail.Client.add_tags)
+        [Client.add_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Client.add_tags)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudtrail.html#CloudTrail.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Client.can_paginate)
         """
 
     def create_trail(
@@ -141,19 +142,19 @@ class CloudTrailClient:
         TagsList: List["TagTypeDef"] = None,
     ) -> CreateTrailResponseTypeDef:
         """
-        [Client.create_trail documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudtrail.html#CloudTrail.Client.create_trail)
+        [Client.create_trail documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Client.create_trail)
         """
 
     def delete_trail(self, Name: str) -> Dict[str, Any]:
         """
-        [Client.delete_trail documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudtrail.html#CloudTrail.Client.delete_trail)
+        [Client.delete_trail documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Client.delete_trail)
         """
 
     def describe_trails(
         self, trailNameList: List[str] = None, includeShadowTrails: bool = None
     ) -> DescribeTrailsResponseTypeDef:
         """
-        [Client.describe_trails documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudtrail.html#CloudTrail.Client.describe_trails)
+        [Client.describe_trails documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Client.describe_trails)
         """
 
     def generate_presigned_url(
@@ -164,46 +165,46 @@ class CloudTrailClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudtrail.html#CloudTrail.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Client.generate_presigned_url)
         """
 
     def get_event_selectors(self, TrailName: str) -> GetEventSelectorsResponseTypeDef:
         """
-        [Client.get_event_selectors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudtrail.html#CloudTrail.Client.get_event_selectors)
+        [Client.get_event_selectors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Client.get_event_selectors)
         """
 
     def get_insight_selectors(self, TrailName: str) -> GetInsightSelectorsResponseTypeDef:
         """
-        [Client.get_insight_selectors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudtrail.html#CloudTrail.Client.get_insight_selectors)
+        [Client.get_insight_selectors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Client.get_insight_selectors)
         """
 
     def get_trail(self, Name: str) -> GetTrailResponseTypeDef:
         """
-        [Client.get_trail documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudtrail.html#CloudTrail.Client.get_trail)
+        [Client.get_trail documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Client.get_trail)
         """
 
     def get_trail_status(self, Name: str) -> GetTrailStatusResponseTypeDef:
         """
-        [Client.get_trail_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudtrail.html#CloudTrail.Client.get_trail_status)
+        [Client.get_trail_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Client.get_trail_status)
         """
 
     def list_public_keys(
         self, StartTime: datetime = None, EndTime: datetime = None, NextToken: str = None
     ) -> ListPublicKeysResponseTypeDef:
         """
-        [Client.list_public_keys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudtrail.html#CloudTrail.Client.list_public_keys)
+        [Client.list_public_keys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Client.list_public_keys)
         """
 
     def list_tags(
         self, ResourceIdList: List[str], NextToken: str = None
     ) -> ListTagsResponseTypeDef:
         """
-        [Client.list_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudtrail.html#CloudTrail.Client.list_tags)
+        [Client.list_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Client.list_tags)
         """
 
     def list_trails(self, NextToken: str = None) -> ListTrailsResponseTypeDef:
         """
-        [Client.list_trails documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudtrail.html#CloudTrail.Client.list_trails)
+        [Client.list_trails documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Client.list_trails)
         """
 
     def lookup_events(
@@ -216,7 +217,7 @@ class CloudTrailClient:
         NextToken: str = None,
     ) -> LookupEventsResponseTypeDef:
         """
-        [Client.lookup_events documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudtrail.html#CloudTrail.Client.lookup_events)
+        [Client.lookup_events documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Client.lookup_events)
         """
 
     def put_event_selectors(
@@ -226,29 +227,29 @@ class CloudTrailClient:
         AdvancedEventSelectors: List["AdvancedEventSelectorTypeDef"] = None,
     ) -> PutEventSelectorsResponseTypeDef:
         """
-        [Client.put_event_selectors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudtrail.html#CloudTrail.Client.put_event_selectors)
+        [Client.put_event_selectors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Client.put_event_selectors)
         """
 
     def put_insight_selectors(
         self, TrailName: str, InsightSelectors: List["InsightSelectorTypeDef"]
     ) -> PutInsightSelectorsResponseTypeDef:
         """
-        [Client.put_insight_selectors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudtrail.html#CloudTrail.Client.put_insight_selectors)
+        [Client.put_insight_selectors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Client.put_insight_selectors)
         """
 
     def remove_tags(self, ResourceId: str, TagsList: List["TagTypeDef"] = None) -> Dict[str, Any]:
         """
-        [Client.remove_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudtrail.html#CloudTrail.Client.remove_tags)
+        [Client.remove_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Client.remove_tags)
         """
 
     def start_logging(self, Name: str) -> Dict[str, Any]:
         """
-        [Client.start_logging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudtrail.html#CloudTrail.Client.start_logging)
+        [Client.start_logging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Client.start_logging)
         """
 
     def stop_logging(self, Name: str) -> Dict[str, Any]:
         """
-        [Client.stop_logging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudtrail.html#CloudTrail.Client.stop_logging)
+        [Client.stop_logging documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Client.stop_logging)
         """
 
     def update_trail(
@@ -266,29 +267,29 @@ class CloudTrailClient:
         IsOrganizationTrail: bool = None,
     ) -> UpdateTrailResponseTypeDef:
         """
-        [Client.update_trail documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudtrail.html#CloudTrail.Client.update_trail)
+        [Client.update_trail documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Client.update_trail)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_public_keys"]) -> ListPublicKeysPaginator:
         """
-        [Paginator.ListPublicKeys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudtrail.html#CloudTrail.Paginator.ListPublicKeys)
+        [Paginator.ListPublicKeys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Paginator.ListPublicKeys)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_tags"]) -> ListTagsPaginator:
         """
-        [Paginator.ListTags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudtrail.html#CloudTrail.Paginator.ListTags)
+        [Paginator.ListTags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Paginator.ListTags)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_trails"]) -> ListTrailsPaginator:
         """
-        [Paginator.ListTrails documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudtrail.html#CloudTrail.Paginator.ListTrails)
+        [Paginator.ListTrails documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Paginator.ListTrails)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["lookup_events"]) -> LookupEventsPaginator:
         """
-        [Paginator.LookupEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudtrail.html#CloudTrail.Paginator.LookupEvents)
+        [Paginator.LookupEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Paginator.LookupEvents)
         """

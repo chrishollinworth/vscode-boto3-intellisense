@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for forecast service client paginators.
 
@@ -58,90 +57,90 @@ __all__ = (
 
 class ListDatasetGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDatasetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/forecast.html#ForecastService.Paginator.ListDatasetGroups)
+    [Paginator.ListDatasetGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Paginator.ListDatasetGroups)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDatasetGroupsResponseTypeDef]:
         """
-        [ListDatasetGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/forecast.html#ForecastService.Paginator.ListDatasetGroups.paginate)
+        [ListDatasetGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Paginator.ListDatasetGroups.paginate)
         """
 
 
 class ListDatasetImportJobsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDatasetImportJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/forecast.html#ForecastService.Paginator.ListDatasetImportJobs)
+    [Paginator.ListDatasetImportJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Paginator.ListDatasetImportJobs)
     """
 
     def paginate(
         self, Filters: List[FilterTypeDef] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDatasetImportJobsResponseTypeDef]:
         """
-        [ListDatasetImportJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/forecast.html#ForecastService.Paginator.ListDatasetImportJobs.paginate)
+        [ListDatasetImportJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Paginator.ListDatasetImportJobs.paginate)
         """
 
 
 class ListDatasetsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDatasets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/forecast.html#ForecastService.Paginator.ListDatasets)
+    [Paginator.ListDatasets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Paginator.ListDatasets)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDatasetsResponseTypeDef]:
         """
-        [ListDatasets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/forecast.html#ForecastService.Paginator.ListDatasets.paginate)
+        [ListDatasets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Paginator.ListDatasets.paginate)
         """
 
 
 class ListForecastExportJobsPaginator(Boto3Paginator):
     """
-    [Paginator.ListForecastExportJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/forecast.html#ForecastService.Paginator.ListForecastExportJobs)
+    [Paginator.ListForecastExportJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Paginator.ListForecastExportJobs)
     """
 
     def paginate(
         self, Filters: List[FilterTypeDef] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListForecastExportJobsResponseTypeDef]:
         """
-        [ListForecastExportJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/forecast.html#ForecastService.Paginator.ListForecastExportJobs.paginate)
+        [ListForecastExportJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Paginator.ListForecastExportJobs.paginate)
         """
 
 
 class ListForecastsPaginator(Boto3Paginator):
     """
-    [Paginator.ListForecasts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/forecast.html#ForecastService.Paginator.ListForecasts)
+    [Paginator.ListForecasts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Paginator.ListForecasts)
     """
 
     def paginate(
         self, Filters: List[FilterTypeDef] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListForecastsResponseTypeDef]:
         """
-        [ListForecasts.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/forecast.html#ForecastService.Paginator.ListForecasts.paginate)
+        [ListForecasts.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Paginator.ListForecasts.paginate)
         """
 
 
 class ListPredictorBacktestExportJobsPaginator(Boto3Paginator):
     """
-    [Paginator.ListPredictorBacktestExportJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/forecast.html#ForecastService.Paginator.ListPredictorBacktestExportJobs)
+    [Paginator.ListPredictorBacktestExportJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Paginator.ListPredictorBacktestExportJobs)
     """
 
     def paginate(
         self, Filters: List[FilterTypeDef] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPredictorBacktestExportJobsResponseTypeDef]:
         """
-        [ListPredictorBacktestExportJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/forecast.html#ForecastService.Paginator.ListPredictorBacktestExportJobs.paginate)
+        [ListPredictorBacktestExportJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Paginator.ListPredictorBacktestExportJobs.paginate)
         """
 
 
 class ListPredictorsPaginator(Boto3Paginator):
     """
-    [Paginator.ListPredictors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/forecast.html#ForecastService.Paginator.ListPredictors)
+    [Paginator.ListPredictors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Paginator.ListPredictors)
     """
 
     def paginate(
         self, Filters: List[FilterTypeDef] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPredictorsResponseTypeDef]:
         """
-        [ListPredictors.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/forecast.html#ForecastService.Paginator.ListPredictors.paginate)
+        [ListPredictors.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecast.html#ForecastService.Paginator.ListPredictors.paginate)
         """

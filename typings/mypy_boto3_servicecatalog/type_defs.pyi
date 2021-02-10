@@ -35,6 +35,7 @@ __all__ = (
     "OrganizationNodeTypeDef",
     "ParameterConstraintsTypeDef",
     "PortfolioDetailTypeDef",
+    "PortfolioShareDetailTypeDef",
     "PrincipalTypeDef",
     "ProductViewAggregationValueTypeDef",
     "ProductViewDetailTypeDef",
@@ -86,6 +87,7 @@ __all__ = (
     "DescribeCopyProductStatusOutputTypeDef",
     "DescribePortfolioOutputTypeDef",
     "DescribePortfolioShareStatusOutputTypeDef",
+    "DescribePortfolioSharesOutputTypeDef",
     "DescribeProductAsAdminOutputTypeDef",
     "DescribeProductOutputTypeDef",
     "DescribeProductViewOutputTypeDef",
@@ -135,6 +137,7 @@ __all__ = (
     "TerminateProvisionedProductOutputTypeDef",
     "UpdateConstraintOutputTypeDef",
     "UpdatePortfolioOutputTypeDef",
+    "UpdatePortfolioShareOutputTypeDef",
     "UpdateProductOutputTypeDef",
     "UpdateProvisionedProductOutputTypeDef",
     "UpdateProvisionedProductPropertiesOutputTypeDef",
@@ -207,7 +210,17 @@ OrganizationNodeTypeDef = TypedDict(
 )
 
 ParameterConstraintsTypeDef = TypedDict(
-    "ParameterConstraintsTypeDef", {"AllowedValues": List[str]}, total=False
+    "ParameterConstraintsTypeDef",
+    {
+        "AllowedValues": List[str],
+        "AllowedPattern": str,
+        "ConstraintDescription": str,
+        "MaxLength": str,
+        "MinLength": str,
+        "MaxValue": str,
+        "MinValue": str,
+    },
+    total=False,
 )
 
 PortfolioDetailTypeDef = TypedDict(
@@ -219,6 +232,19 @@ PortfolioDetailTypeDef = TypedDict(
         "Description": str,
         "CreatedTime": datetime,
         "ProviderName": str,
+    },
+    total=False,
+)
+
+PortfolioShareDetailTypeDef = TypedDict(
+    "PortfolioShareDetailTypeDef",
+    {
+        "PrincipalId": str,
+        "Type": Literal[
+            "ACCOUNT", "ORGANIZATION", "ORGANIZATIONAL_UNIT", "ORGANIZATION_MEMBER_ACCOUNT"
+        ],
+        "Accepted": bool,
+        "ShareTagOptions": bool,
     },
     total=False,
 )
@@ -550,7 +576,9 @@ StackInstanceTypeDef = TypedDict(
 )
 
 TagOptionDetailTypeDef = TypedDict(
-    "TagOptionDetailTypeDef", {"Key": str, "Value": str, "Active": bool, "Id": str}, total=False
+    "TagOptionDetailTypeDef",
+    {"Key": str, "Value": str, "Active": bool, "Id": str, "Owner": str},
+    total=False,
 )
 
 TagOptionSummaryTypeDef = TypedDict(
@@ -723,6 +751,16 @@ DescribePortfolioShareStatusOutputTypeDef = TypedDict(
             "NOT_STARTED", "IN_PROGRESS", "COMPLETED", "COMPLETED_WITH_ERRORS", "ERROR"
         ],
         "ShareDetails": "ShareDetailsTypeDef",
+        "ResponseMetadata": "ResponseMetadata",
+    },
+    total=False,
+)
+
+DescribePortfolioSharesOutputTypeDef = TypedDict(
+    "DescribePortfolioSharesOutputTypeDef",
+    {
+        "NextPageToken": str,
+        "PortfolioShareDetails": List["PortfolioShareDetailTypeDef"],
         "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
@@ -1179,6 +1217,18 @@ UpdatePortfolioOutputTypeDef = TypedDict(
     {
         "PortfolioDetail": "PortfolioDetailTypeDef",
         "Tags": List["TagTypeDef"],
+        "ResponseMetadata": "ResponseMetadata",
+    },
+    total=False,
+)
+
+UpdatePortfolioShareOutputTypeDef = TypedDict(
+    "UpdatePortfolioShareOutputTypeDef",
+    {
+        "PortfolioShareToken": str,
+        "Status": Literal[
+            "NOT_STARTED", "IN_PROGRESS", "COMPLETED", "COMPLETED_WITH_ERRORS", "ERROR"
+        ],
         "ResponseMetadata": "ResponseMetadata",
     },
     total=False,

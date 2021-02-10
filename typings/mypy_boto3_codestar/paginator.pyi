@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for codestar service client paginators.
 
@@ -45,51 +44,51 @@ __all__ = (
 
 class ListProjectsPaginator(Boto3Paginator):
     """
-    [Paginator.ListProjects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar.html#CodeStar.Paginator.ListProjects)
+    [Paginator.ListProjects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar.html#CodeStar.Paginator.ListProjects)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListProjectsResultTypeDef]:
         """
-        [ListProjects.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar.html#CodeStar.Paginator.ListProjects.paginate)
+        [ListProjects.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar.html#CodeStar.Paginator.ListProjects.paginate)
         """
 
 
 class ListResourcesPaginator(Boto3Paginator):
     """
-    [Paginator.ListResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar.html#CodeStar.Paginator.ListResources)
+    [Paginator.ListResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar.html#CodeStar.Paginator.ListResources)
     """
 
     def paginate(
         self, projectId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListResourcesResultTypeDef]:
         """
-        [ListResources.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar.html#CodeStar.Paginator.ListResources.paginate)
+        [ListResources.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar.html#CodeStar.Paginator.ListResources.paginate)
         """
 
 
 class ListTeamMembersPaginator(Boto3Paginator):
     """
-    [Paginator.ListTeamMembers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar.html#CodeStar.Paginator.ListTeamMembers)
+    [Paginator.ListTeamMembers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar.html#CodeStar.Paginator.ListTeamMembers)
     """
 
     def paginate(
         self, projectId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTeamMembersResultTypeDef]:
         """
-        [ListTeamMembers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar.html#CodeStar.Paginator.ListTeamMembers.paginate)
+        [ListTeamMembers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar.html#CodeStar.Paginator.ListTeamMembers.paginate)
         """
 
 
 class ListUserProfilesPaginator(Boto3Paginator):
     """
-    [Paginator.ListUserProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar.html#CodeStar.Paginator.ListUserProfiles)
+    [Paginator.ListUserProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar.html#CodeStar.Paginator.ListUserProfiles)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListUserProfilesResultTypeDef]:
         """
-        [ListUserProfiles.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar.html#CodeStar.Paginator.ListUserProfiles.paginate)
+        [ListUserProfiles.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar.html#CodeStar.Paginator.ListUserProfiles.paginate)
         """

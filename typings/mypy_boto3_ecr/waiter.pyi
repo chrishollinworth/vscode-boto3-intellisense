@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
 """
 Main interface for ecr service client waiters.
 
@@ -34,7 +33,7 @@ __all__ = ("ImageScanCompleteWaiter", "LifecyclePolicyPreviewCompleteWaiter")
 
 class ImageScanCompleteWaiter(Boto3Waiter):
     """
-    [Waiter.ImageScanComplete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr.html#ECR.Waiter.ImageScanComplete)
+    [Waiter.ImageScanComplete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr.html#ECR.Waiter.ImageScanComplete)
     """
 
     def wait(
@@ -47,13 +46,13 @@ class ImageScanCompleteWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [ImageScanComplete.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr.html#ECR.Waiter.ImageScanComplete.wait)
+        [ImageScanComplete.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr.html#ECR.Waiter.ImageScanComplete.wait)
         """
 
 
 class LifecyclePolicyPreviewCompleteWaiter(Boto3Waiter):
     """
-    [Waiter.LifecyclePolicyPreviewComplete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr.html#ECR.Waiter.LifecyclePolicyPreviewComplete)
+    [Waiter.LifecyclePolicyPreviewComplete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr.html#ECR.Waiter.LifecyclePolicyPreviewComplete)
     """
 
     def wait(
@@ -67,5 +66,5 @@ class LifecyclePolicyPreviewCompleteWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [LifecyclePolicyPreviewComplete.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr.html#ECR.Waiter.LifecyclePolicyPreviewComplete.wait)
+        [LifecyclePolicyPreviewComplete.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr.html#ECR.Waiter.LifecyclePolicyPreviewComplete.wait)
         """

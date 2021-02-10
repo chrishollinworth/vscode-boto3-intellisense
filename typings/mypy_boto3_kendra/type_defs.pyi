@@ -57,6 +57,7 @@ __all__ = (
     "FacetResultTypeDef",
     "FaqStatisticsTypeDef",
     "FaqSummaryTypeDef",
+    "GoogleDriveConfigurationTypeDef",
     "HighlightTypeDef",
     "IndexConfigurationSummaryTypeDef",
     "IndexStatisticsTypeDef",
@@ -87,6 +88,7 @@ __all__ = (
     "TagTypeDef",
     "TextDocumentStatisticsTypeDef",
     "TextWithHighlightsTypeDef",
+    "ThesaurusSummaryTypeDef",
     "UserTokenConfigurationTypeDef",
     "BatchDeleteDocumentResponseTypeDef",
     "BatchPutDocumentResponseTypeDef",
@@ -94,10 +96,12 @@ __all__ = (
     "CreateDataSourceResponseTypeDef",
     "CreateFaqResponseTypeDef",
     "CreateIndexResponseTypeDef",
+    "CreateThesaurusResponseTypeDef",
     "DataSourceSyncJobMetricTargetTypeDef",
     "DescribeDataSourceResponseTypeDef",
     "DescribeFaqResponseTypeDef",
     "DescribeIndexResponseTypeDef",
+    "DescribeThesaurusResponseTypeDef",
     "AttributeFilterTypeDef",
     "DocumentTypeDef",
     "FacetTypeDef",
@@ -106,6 +110,7 @@ __all__ = (
     "ListFaqsResponseTypeDef",
     "ListIndicesResponseTypeDef",
     "ListTagsForResourceResponseTypeDef",
+    "ListThesauriResponseTypeDef",
     "QueryResultTypeDef",
     "RelevanceFeedbackTypeDef",
     "SortingConfigurationTypeDef",
@@ -326,6 +331,7 @@ DataSourceConfigurationTypeDef = TypedDict(
         "OneDriveConfiguration": "OneDriveConfigurationTypeDef",
         "ServiceNowConfiguration": "ServiceNowConfigurationTypeDef",
         "ConfluenceConfiguration": "ConfluenceConfigurationTypeDef",
+        "GoogleDriveConfiguration": "GoogleDriveConfigurationTypeDef",
     },
     total=False,
 )
@@ -344,6 +350,7 @@ DataSourceSummaryTypeDef = TypedDict(
             "SERVICENOW",
             "CUSTOM",
             "CONFLUENCE",
+            "GOOGLEDRIVE",
         ],
         "CreatedAt": datetime,
         "UpdatedAt": datetime,
@@ -497,10 +504,37 @@ FaqSummaryTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredGoogleDriveConfigurationTypeDef = TypedDict(
+    "_RequiredGoogleDriveConfigurationTypeDef", {"SecretArn": str}
+)
+_OptionalGoogleDriveConfigurationTypeDef = TypedDict(
+    "_OptionalGoogleDriveConfigurationTypeDef",
+    {
+        "InclusionPatterns": List[str],
+        "ExclusionPatterns": List[str],
+        "FieldMappings": List["DataSourceToIndexFieldMappingTypeDef"],
+        "ExcludeMimeTypes": List[str],
+        "ExcludeUserAccounts": List[str],
+        "ExcludeSharedDrives": List[str],
+    },
+    total=False,
+)
+
+
+class GoogleDriveConfigurationTypeDef(
+    _RequiredGoogleDriveConfigurationTypeDef, _OptionalGoogleDriveConfigurationTypeDef
+):
+    pass
+
+
 _RequiredHighlightTypeDef = TypedDict(
     "_RequiredHighlightTypeDef", {"BeginOffset": int, "EndOffset": int}
 )
-_OptionalHighlightTypeDef = TypedDict("_OptionalHighlightTypeDef", {"TopAnswer": bool}, total=False)
+_OptionalHighlightTypeDef = TypedDict(
+    "_OptionalHighlightTypeDef",
+    {"TopAnswer": bool, "Type": Literal["STANDARD", "THESAURUS_SYNONYM"]},
+    total=False,
+)
 
 
 class HighlightTypeDef(_RequiredHighlightTypeDef, _OptionalHighlightTypeDef):
@@ -610,6 +644,7 @@ QueryResultItemTypeDef = TypedDict(
         "DocumentURI": str,
         "DocumentAttributes": List["DocumentAttributeTypeDef"],
         "ScoreAttributes": "ScoreAttributesTypeDef",
+        "FeedbackToken": str,
     },
     total=False,
 )
@@ -923,6 +958,20 @@ TextWithHighlightsTypeDef = TypedDict(
     "TextWithHighlightsTypeDef", {"Text": str, "Highlights": List["HighlightTypeDef"]}, total=False
 )
 
+ThesaurusSummaryTypeDef = TypedDict(
+    "ThesaurusSummaryTypeDef",
+    {
+        "Id": str,
+        "Name": str,
+        "Status": Literal[
+            "CREATING", "ACTIVE", "DELETING", "UPDATING", "ACTIVE_BUT_UPDATE_FAILED", "FAILED"
+        ],
+        "CreatedAt": datetime,
+        "UpdatedAt": datetime,
+    },
+    total=False,
+)
+
 UserTokenConfigurationTypeDef = TypedDict(
     "UserTokenConfigurationTypeDef",
     {
@@ -952,6 +1001,10 @@ CreateFaqResponseTypeDef = TypedDict("CreateFaqResponseTypeDef", {"Id": str}, to
 
 CreateIndexResponseTypeDef = TypedDict("CreateIndexResponseTypeDef", {"Id": str}, total=False)
 
+CreateThesaurusResponseTypeDef = TypedDict(
+    "CreateThesaurusResponseTypeDef", {"Id": str}, total=False
+)
+
 DataSourceSyncJobMetricTargetTypeDef = TypedDict(
     "DataSourceSyncJobMetricTargetTypeDef", {"DataSourceId": str, "DataSourceSyncJobId": str}
 )
@@ -971,6 +1024,7 @@ DescribeDataSourceResponseTypeDef = TypedDict(
             "SERVICENOW",
             "CUSTOM",
             "CONFLUENCE",
+            "GOOGLEDRIVE",
         ],
         "Configuration": "DataSourceConfigurationTypeDef",
         "CreatedAt": datetime,
@@ -1022,6 +1076,28 @@ DescribeIndexResponseTypeDef = TypedDict(
         "CapacityUnits": "CapacityUnitsConfigurationTypeDef",
         "UserTokenConfigurations": List["UserTokenConfigurationTypeDef"],
         "UserContextPolicy": Literal["ATTRIBUTE_FILTER", "USER_TOKEN"],
+    },
+    total=False,
+)
+
+DescribeThesaurusResponseTypeDef = TypedDict(
+    "DescribeThesaurusResponseTypeDef",
+    {
+        "Id": str,
+        "IndexId": str,
+        "Name": str,
+        "Description": str,
+        "Status": Literal[
+            "CREATING", "ACTIVE", "DELETING", "UPDATING", "ACTIVE_BUT_UPDATE_FAILED", "FAILED"
+        ],
+        "ErrorMessage": str,
+        "CreatedAt": datetime,
+        "UpdatedAt": datetime,
+        "RoleArn": str,
+        "SourceS3Path": "S3PathTypeDef",
+        "FileSizeBytes": int,
+        "TermCount": int,
+        "SynonymRuleCount": int,
     },
     total=False,
 )
@@ -1090,6 +1166,12 @@ ListIndicesResponseTypeDef = TypedDict(
 
 ListTagsForResourceResponseTypeDef = TypedDict(
     "ListTagsForResourceResponseTypeDef", {"Tags": List["TagTypeDef"]}, total=False
+)
+
+ListThesauriResponseTypeDef = TypedDict(
+    "ListThesauriResponseTypeDef",
+    {"NextToken": str, "ThesaurusSummaryItems": List["ThesaurusSummaryTypeDef"]},
+    total=False,
 )
 
 QueryResultTypeDef = TypedDict(

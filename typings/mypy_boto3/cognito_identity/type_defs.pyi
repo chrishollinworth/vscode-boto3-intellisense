@@ -13,6 +13,7 @@ from mypy_boto3_cognito_identity.type_defs import (
     GetIdentityPoolRolesResponseTypeDef,
     GetOpenIdTokenForDeveloperIdentityResponseTypeDef,
     GetOpenIdTokenResponseTypeDef,
+    GetPrincipalTagAttributeMapResponseTypeDef,
     IdentityPoolTypeDef,
     ListIdentitiesResponseTypeDef,
     ListIdentityPoolsResponseTypeDef,
@@ -20,6 +21,7 @@ from mypy_boto3_cognito_identity.type_defs import (
     LookupDeveloperIdentityResponseTypeDef,
     MergeDeveloperIdentitiesResponseTypeDef,
     PaginatorConfigTypeDef,
+    SetPrincipalTagAttributeMapResponseTypeDef,
 )
 
 __all__ = (
@@ -37,6 +39,7 @@ __all__ = (
     "GetIdentityPoolRolesResponseTypeDef",
     "GetOpenIdTokenForDeveloperIdentityResponseTypeDef",
     "GetOpenIdTokenResponseTypeDef",
+    "GetPrincipalTagAttributeMapResponseTypeDef",
     "IdentityPoolTypeDef",
     "ListIdentitiesResponseTypeDef",
     "ListIdentityPoolsResponseTypeDef",
@@ -44,4 +47,5 @@ __all__ = (
     "LookupDeveloperIdentityResponseTypeDef",
     "MergeDeveloperIdentitiesResponseTypeDef",
     "PaginatorConfigTypeDef",
+    "SetPrincipalTagAttributeMapResponseTypeDef",
 )

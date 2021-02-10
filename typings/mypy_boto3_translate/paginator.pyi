@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for translate service client paginators.
 
@@ -28,12 +27,12 @@ __all__ = ("ListTerminologiesPaginator",)
 
 class ListTerminologiesPaginator(Boto3Paginator):
     """
-    [Paginator.ListTerminologies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/translate.html#Translate.Paginator.ListTerminologies)
+    [Paginator.ListTerminologies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/translate.html#Translate.Paginator.ListTerminologies)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTerminologiesResponseTypeDef]:
         """
-        [ListTerminologies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/translate.html#Translate.Paginator.ListTerminologies.paginate)
+        [ListTerminologies.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/translate.html#Translate.Paginator.ListTerminologies.paginate)
         """

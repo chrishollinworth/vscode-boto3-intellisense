@@ -1,6 +1,6 @@
 # might need to sudo rm -Rf typings/ sometimes
-sudo apt install python3-pip
-pip3 install -U virtualenv
+sudo apt install -y python3-pip
+sudo apt install -y python3-venv
 alias python='python3'
 
 python3 -m venv buildstubs_env
@@ -10,20 +10,20 @@ pip3 install --upgrade boto3 botocore
 rm -rf mypy_boto3_builder
 git clone --depth 1 https://github.com/chrishollinworth/mypy_boto3_builder.git
 cd mypy_boto3_builder
-
+pip install -r requirements.txt
 ./scripts/build.sh
 ./scripts/install.sh
 
-cd ./../scripts
+cd ..
 
-buildstubs_env/bin/python -m mypy_boto3
+buildstubs_env/bin/python3 -m mypy_boto3
 
 # workaround for https://github.com/vemel/mypy_boto3_builder/issues/39
 rm -rf ./../typings/boto3
 mkdir -p ./../typings/boto3
 cp buildstubs_env/lib/python*/site-packages/mypy_boto3/boto3_init_gen.py ./../typings/boto3/__init__.pyi
 
-cd ./../scripts
+#cd ..
 cat services.txt | while IFS=$' \t\n\r' read -r line || [[ -n "$line" ]]; do 
     
     if [ "$line" != "lambda" ]; then 

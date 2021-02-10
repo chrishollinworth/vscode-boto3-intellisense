@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for codestar service client
 
@@ -78,7 +77,7 @@ class Exceptions:
 
 class CodeStarClient:
     """
-    [CodeStar.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar.html#CodeStar.Client)
+    [CodeStar.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar.html#CodeStar.Client)
     """
 
     meta: ClientMeta
@@ -93,12 +92,12 @@ class CodeStarClient:
         remoteAccessAllowed: bool = None,
     ) -> AssociateTeamMemberResultTypeDef:
         """
-        [Client.associate_team_member documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar.html#CodeStar.Client.associate_team_member)
+        [Client.associate_team_member documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar.html#CodeStar.Client.associate_team_member)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar.html#CodeStar.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar.html#CodeStar.Client.can_paginate)
         """
 
     def create_project(
@@ -112,41 +111,41 @@ class CodeStarClient:
         tags: Dict[str, str] = None,
     ) -> CreateProjectResultTypeDef:
         """
-        [Client.create_project documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar.html#CodeStar.Client.create_project)
+        [Client.create_project documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar.html#CodeStar.Client.create_project)
         """
 
     def create_user_profile(
         self, userArn: str, displayName: str, emailAddress: str, sshPublicKey: str = None
     ) -> CreateUserProfileResultTypeDef:
         """
-        [Client.create_user_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar.html#CodeStar.Client.create_user_profile)
+        [Client.create_user_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar.html#CodeStar.Client.create_user_profile)
         """
 
     def delete_project(
         self, id: str, clientRequestToken: str = None, deleteStack: bool = None
     ) -> DeleteProjectResultTypeDef:
         """
-        [Client.delete_project documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar.html#CodeStar.Client.delete_project)
+        [Client.delete_project documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar.html#CodeStar.Client.delete_project)
         """
 
     def delete_user_profile(self, userArn: str) -> DeleteUserProfileResultTypeDef:
         """
-        [Client.delete_user_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar.html#CodeStar.Client.delete_user_profile)
+        [Client.delete_user_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar.html#CodeStar.Client.delete_user_profile)
         """
 
     def describe_project(self, id: str) -> DescribeProjectResultTypeDef:
         """
-        [Client.describe_project documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar.html#CodeStar.Client.describe_project)
+        [Client.describe_project documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar.html#CodeStar.Client.describe_project)
         """
 
     def describe_user_profile(self, userArn: str) -> DescribeUserProfileResultTypeDef:
         """
-        [Client.describe_user_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar.html#CodeStar.Client.describe_user_profile)
+        [Client.describe_user_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar.html#CodeStar.Client.describe_user_profile)
         """
 
     def disassociate_team_member(self, projectId: str, userArn: str) -> Dict[str, Any]:
         """
-        [Client.disassociate_team_member documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar.html#CodeStar.Client.disassociate_team_member)
+        [Client.disassociate_team_member documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar.html#CodeStar.Client.disassociate_team_member)
         """
 
     def generate_presigned_url(
@@ -157,57 +156,57 @@ class CodeStarClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar.html#CodeStar.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar.html#CodeStar.Client.generate_presigned_url)
         """
 
     def list_projects(
         self, nextToken: str = None, maxResults: int = None
     ) -> ListProjectsResultTypeDef:
         """
-        [Client.list_projects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar.html#CodeStar.Client.list_projects)
+        [Client.list_projects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar.html#CodeStar.Client.list_projects)
         """
 
     def list_resources(
         self, projectId: str, nextToken: str = None, maxResults: int = None
     ) -> ListResourcesResultTypeDef:
         """
-        [Client.list_resources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar.html#CodeStar.Client.list_resources)
+        [Client.list_resources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar.html#CodeStar.Client.list_resources)
         """
 
     def list_tags_for_project(
         self, id: str, nextToken: str = None, maxResults: int = None
     ) -> ListTagsForProjectResultTypeDef:
         """
-        [Client.list_tags_for_project documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar.html#CodeStar.Client.list_tags_for_project)
+        [Client.list_tags_for_project documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar.html#CodeStar.Client.list_tags_for_project)
         """
 
     def list_team_members(
         self, projectId: str, nextToken: str = None, maxResults: int = None
     ) -> ListTeamMembersResultTypeDef:
         """
-        [Client.list_team_members documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar.html#CodeStar.Client.list_team_members)
+        [Client.list_team_members documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar.html#CodeStar.Client.list_team_members)
         """
 
     def list_user_profiles(
         self, nextToken: str = None, maxResults: int = None
     ) -> ListUserProfilesResultTypeDef:
         """
-        [Client.list_user_profiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar.html#CodeStar.Client.list_user_profiles)
+        [Client.list_user_profiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar.html#CodeStar.Client.list_user_profiles)
         """
 
     def tag_project(self, id: str, tags: Dict[str, str]) -> TagProjectResultTypeDef:
         """
-        [Client.tag_project documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar.html#CodeStar.Client.tag_project)
+        [Client.tag_project documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar.html#CodeStar.Client.tag_project)
         """
 
     def untag_project(self, id: str, tags: List[str]) -> Dict[str, Any]:
         """
-        [Client.untag_project documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar.html#CodeStar.Client.untag_project)
+        [Client.untag_project documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar.html#CodeStar.Client.untag_project)
         """
 
     def update_project(self, id: str, name: str = None, description: str = None) -> Dict[str, Any]:
         """
-        [Client.update_project documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar.html#CodeStar.Client.update_project)
+        [Client.update_project documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar.html#CodeStar.Client.update_project)
         """
 
     def update_team_member(
@@ -218,7 +217,7 @@ class CodeStarClient:
         remoteAccessAllowed: bool = None,
     ) -> UpdateTeamMemberResultTypeDef:
         """
-        [Client.update_team_member documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar.html#CodeStar.Client.update_team_member)
+        [Client.update_team_member documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar.html#CodeStar.Client.update_team_member)
         """
 
     def update_user_profile(
@@ -229,19 +228,19 @@ class CodeStarClient:
         sshPublicKey: str = None,
     ) -> UpdateUserProfileResultTypeDef:
         """
-        [Client.update_user_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar.html#CodeStar.Client.update_user_profile)
+        [Client.update_user_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar.html#CodeStar.Client.update_user_profile)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_projects"]) -> ListProjectsPaginator:
         """
-        [Paginator.ListProjects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar.html#CodeStar.Paginator.ListProjects)
+        [Paginator.ListProjects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar.html#CodeStar.Paginator.ListProjects)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_resources"]) -> ListResourcesPaginator:
         """
-        [Paginator.ListResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar.html#CodeStar.Paginator.ListResources)
+        [Paginator.ListResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar.html#CodeStar.Paginator.ListResources)
         """
 
     @overload
@@ -249,7 +248,7 @@ class CodeStarClient:
         self, operation_name: Literal["list_team_members"]
     ) -> ListTeamMembersPaginator:
         """
-        [Paginator.ListTeamMembers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar.html#CodeStar.Paginator.ListTeamMembers)
+        [Paginator.ListTeamMembers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar.html#CodeStar.Paginator.ListTeamMembers)
         """
 
     @overload
@@ -257,5 +256,5 @@ class CodeStarClient:
         self, operation_name: Literal["list_user_profiles"]
     ) -> ListUserProfilesPaginator:
         """
-        [Paginator.ListUserProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar.html#CodeStar.Paginator.ListUserProfiles)
+        [Paginator.ListUserProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar.html#CodeStar.Paginator.ListUserProfiles)
         """

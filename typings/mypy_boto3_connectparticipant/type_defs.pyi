@@ -4,13 +4,13 @@ Main interface for connectparticipant service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_connectparticipant.type_defs import ConnectionCredentialsTypeDef
+    from mypy_boto3_connectparticipant.type_defs import AttachmentItemTypeDef
 
-    data: ConnectionCredentialsTypeDef = {...}
+    data: AttachmentItemTypeDef = {...}
     ```
 """
 import sys
-from typing import List
+from typing import Dict, List
 
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -23,14 +23,29 @@ else:
 
 
 __all__ = (
+    "AttachmentItemTypeDef",
     "ConnectionCredentialsTypeDef",
     "ItemTypeDef",
+    "UploadMetadataTypeDef",
     "WebsocketTypeDef",
     "CreateParticipantConnectionResponseTypeDef",
+    "GetAttachmentResponseTypeDef",
     "GetTranscriptResponseTypeDef",
     "SendEventResponseTypeDef",
     "SendMessageResponseTypeDef",
+    "StartAttachmentUploadResponseTypeDef",
     "StartPositionTypeDef",
+)
+
+AttachmentItemTypeDef = TypedDict(
+    "AttachmentItemTypeDef",
+    {
+        "ContentType": str,
+        "AttachmentId": str,
+        "AttachmentName": str,
+        "Status": Literal["APPROVED", "REJECTED", "IN_PROGRESS"],
+    },
+    total=False,
 )
 
 ConnectionCredentialsTypeDef = TypedDict(
@@ -44,11 +59,29 @@ ItemTypeDef = TypedDict(
         "Content": str,
         "ContentType": str,
         "Id": str,
-        "Type": Literal["MESSAGE", "EVENT", "CONNECTION_ACK"],
+        "Type": Literal[
+            "TYPING",
+            "PARTICIPANT_JOINED",
+            "PARTICIPANT_LEFT",
+            "CHAT_ENDED",
+            "TRANSFER_SUCCEEDED",
+            "TRANSFER_FAILED",
+            "MESSAGE",
+            "EVENT",
+            "ATTACHMENT",
+            "CONNECTION_ACK",
+        ],
         "ParticipantId": str,
         "DisplayName": str,
         "ParticipantRole": Literal["AGENT", "CUSTOMER", "SYSTEM"],
+        "Attachments": List["AttachmentItemTypeDef"],
     },
+    total=False,
+)
+
+UploadMetadataTypeDef = TypedDict(
+    "UploadMetadataTypeDef",
+    {"Url": str, "UrlExpiry": str, "HeadersToInclude": Dict[str, str]},
     total=False,
 )
 
@@ -58,6 +91,10 @@ CreateParticipantConnectionResponseTypeDef = TypedDict(
     "CreateParticipantConnectionResponseTypeDef",
     {"Websocket": "WebsocketTypeDef", "ConnectionCredentials": "ConnectionCredentialsTypeDef"},
     total=False,
+)
+
+GetAttachmentResponseTypeDef = TypedDict(
+    "GetAttachmentResponseTypeDef", {"Url": str, "UrlExpiry": str}, total=False
 )
 
 GetTranscriptResponseTypeDef = TypedDict(
@@ -72,6 +109,12 @@ SendEventResponseTypeDef = TypedDict(
 
 SendMessageResponseTypeDef = TypedDict(
     "SendMessageResponseTypeDef", {"Id": str, "AbsoluteTime": str}, total=False
+)
+
+StartAttachmentUploadResponseTypeDef = TypedDict(
+    "StartAttachmentUploadResponseTypeDef",
+    {"AttachmentId": str, "UploadMetadata": "UploadMetadataTypeDef"},
+    total=False,
 )
 
 StartPositionTypeDef = TypedDict(

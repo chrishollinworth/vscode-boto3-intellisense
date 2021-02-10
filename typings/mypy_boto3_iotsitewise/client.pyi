@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for iotsitewise service client
 
@@ -22,6 +21,7 @@ from mypy_boto3_iotsitewise.paginator import (
     GetAssetPropertyValueHistoryPaginator,
     ListAccessPoliciesPaginator,
     ListAssetModelsPaginator,
+    ListAssetRelationshipsPaginator,
     ListAssetsPaginator,
     ListAssociatedAssetsPaginator,
     ListDashboardsPaginator,
@@ -31,6 +31,8 @@ from mypy_boto3_iotsitewise.paginator import (
     ListProjectsPaginator,
 )
 from mypy_boto3_iotsitewise.type_defs import (
+    AssetModelCompositeModelDefinitionTypeDef,
+    AssetModelCompositeModelTypeDef,
     AssetModelHierarchyDefinitionTypeDef,
     AssetModelHierarchyTypeDef,
     AssetModelPropertyDefinitionTypeDef,
@@ -44,7 +46,6 @@ from mypy_boto3_iotsitewise.type_defs import (
     CreateDashboardResponseTypeDef,
     CreateGatewayResponseTypeDef,
     CreatePortalResponseTypeDef,
-    CreatePresignedPortalUrlResponseTypeDef,
     CreateProjectResponseTypeDef,
     DeleteAssetModelResponseTypeDef,
     DeleteAssetResponseTypeDef,
@@ -69,6 +70,7 @@ from mypy_boto3_iotsitewise.type_defs import (
     ImageTypeDef,
     ListAccessPoliciesResponseTypeDef,
     ListAssetModelsResponseTypeDef,
+    ListAssetRelationshipsResponseTypeDef,
     ListAssetsResponseTypeDef,
     ListAssociatedAssetsResponseTypeDef,
     ListDashboardsResponseTypeDef,
@@ -123,11 +125,12 @@ class Exceptions:
     ServiceUnavailableException: Type[BotocoreClientError]
     ThrottlingException: Type[BotocoreClientError]
     TooManyTagsException: Type[BotocoreClientError]
+    UnauthorizedException: Type[BotocoreClientError]
 
 
 class IoTSiteWiseClient:
     """
-    [IoTSiteWise.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client)
+    [IoTSiteWise.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client)
     """
 
     meta: ClientMeta
@@ -137,33 +140,33 @@ class IoTSiteWiseClient:
         self, assetId: str, hierarchyId: str, childAssetId: str, clientToken: str = None
     ) -> None:
         """
-        [Client.associate_assets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.associate_assets)
+        [Client.associate_assets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.associate_assets)
         """
 
     def batch_associate_project_assets(
         self, projectId: str, assetIds: List[str], clientToken: str = None
     ) -> BatchAssociateProjectAssetsResponseTypeDef:
         """
-        [Client.batch_associate_project_assets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.batch_associate_project_assets)
+        [Client.batch_associate_project_assets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.batch_associate_project_assets)
         """
 
     def batch_disassociate_project_assets(
         self, projectId: str, assetIds: List[str], clientToken: str = None
     ) -> BatchDisassociateProjectAssetsResponseTypeDef:
         """
-        [Client.batch_disassociate_project_assets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.batch_disassociate_project_assets)
+        [Client.batch_disassociate_project_assets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.batch_disassociate_project_assets)
         """
 
     def batch_put_asset_property_value(
         self, entries: List[PutAssetPropertyValueEntryTypeDef]
     ) -> BatchPutAssetPropertyValueResponseTypeDef:
         """
-        [Client.batch_put_asset_property_value documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.batch_put_asset_property_value)
+        [Client.batch_put_asset_property_value documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.batch_put_asset_property_value)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.can_paginate)
         """
 
     def create_access_policy(
@@ -175,7 +178,7 @@ class IoTSiteWiseClient:
         tags: Dict[str, str] = None,
     ) -> CreateAccessPolicyResponseTypeDef:
         """
-        [Client.create_access_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.create_access_policy)
+        [Client.create_access_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.create_access_policy)
         """
 
     def create_asset(
@@ -186,20 +189,21 @@ class IoTSiteWiseClient:
         tags: Dict[str, str] = None,
     ) -> CreateAssetResponseTypeDef:
         """
-        [Client.create_asset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.create_asset)
+        [Client.create_asset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.create_asset)
         """
 
     def create_asset_model(
         self,
         assetModelName: str,
         assetModelDescription: str = None,
-        assetModelProperties: List[AssetModelPropertyDefinitionTypeDef] = None,
+        assetModelProperties: List["AssetModelPropertyDefinitionTypeDef"] = None,
         assetModelHierarchies: List[AssetModelHierarchyDefinitionTypeDef] = None,
+        assetModelCompositeModels: List[AssetModelCompositeModelDefinitionTypeDef] = None,
         clientToken: str = None,
         tags: Dict[str, str] = None,
     ) -> CreateAssetModelResponseTypeDef:
         """
-        [Client.create_asset_model documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.create_asset_model)
+        [Client.create_asset_model documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.create_asset_model)
         """
 
     def create_dashboard(
@@ -212,7 +216,7 @@ class IoTSiteWiseClient:
         tags: Dict[str, str] = None,
     ) -> CreateDashboardResponseTypeDef:
         """
-        [Client.create_dashboard documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.create_dashboard)
+        [Client.create_dashboard documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.create_dashboard)
         """
 
     def create_gateway(
@@ -222,7 +226,7 @@ class IoTSiteWiseClient:
         tags: Dict[str, str] = None,
     ) -> CreateGatewayResponseTypeDef:
         """
-        [Client.create_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.create_gateway)
+        [Client.create_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.create_gateway)
         """
 
     def create_portal(
@@ -237,14 +241,7 @@ class IoTSiteWiseClient:
         portalAuthMode: Literal["IAM", "SSO"] = None,
     ) -> CreatePortalResponseTypeDef:
         """
-        [Client.create_portal documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.create_portal)
-        """
-
-    def create_presigned_portal_url(
-        self, portalId: str, sessionDurationSeconds: int = None
-    ) -> CreatePresignedPortalUrlResponseTypeDef:
-        """
-        [Client.create_presigned_portal_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.create_presigned_portal_url)
+        [Client.create_portal documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.create_portal)
         """
 
     def create_project(
@@ -256,112 +253,112 @@ class IoTSiteWiseClient:
         tags: Dict[str, str] = None,
     ) -> CreateProjectResponseTypeDef:
         """
-        [Client.create_project documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.create_project)
+        [Client.create_project documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.create_project)
         """
 
     def delete_access_policy(self, accessPolicyId: str, clientToken: str = None) -> Dict[str, Any]:
         """
-        [Client.delete_access_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.delete_access_policy)
+        [Client.delete_access_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.delete_access_policy)
         """
 
     def delete_asset(self, assetId: str, clientToken: str = None) -> DeleteAssetResponseTypeDef:
         """
-        [Client.delete_asset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.delete_asset)
+        [Client.delete_asset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.delete_asset)
         """
 
     def delete_asset_model(
         self, assetModelId: str, clientToken: str = None
     ) -> DeleteAssetModelResponseTypeDef:
         """
-        [Client.delete_asset_model documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.delete_asset_model)
+        [Client.delete_asset_model documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.delete_asset_model)
         """
 
     def delete_dashboard(self, dashboardId: str, clientToken: str = None) -> Dict[str, Any]:
         """
-        [Client.delete_dashboard documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.delete_dashboard)
+        [Client.delete_dashboard documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.delete_dashboard)
         """
 
     def delete_gateway(self, gatewayId: str) -> None:
         """
-        [Client.delete_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.delete_gateway)
+        [Client.delete_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.delete_gateway)
         """
 
     def delete_portal(self, portalId: str, clientToken: str = None) -> DeletePortalResponseTypeDef:
         """
-        [Client.delete_portal documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.delete_portal)
+        [Client.delete_portal documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.delete_portal)
         """
 
     def delete_project(self, projectId: str, clientToken: str = None) -> Dict[str, Any]:
         """
-        [Client.delete_project documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.delete_project)
+        [Client.delete_project documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.delete_project)
         """
 
     def describe_access_policy(self, accessPolicyId: str) -> DescribeAccessPolicyResponseTypeDef:
         """
-        [Client.describe_access_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.describe_access_policy)
+        [Client.describe_access_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.describe_access_policy)
         """
 
     def describe_asset(self, assetId: str) -> DescribeAssetResponseTypeDef:
         """
-        [Client.describe_asset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.describe_asset)
+        [Client.describe_asset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.describe_asset)
         """
 
     def describe_asset_model(self, assetModelId: str) -> DescribeAssetModelResponseTypeDef:
         """
-        [Client.describe_asset_model documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.describe_asset_model)
+        [Client.describe_asset_model documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.describe_asset_model)
         """
 
     def describe_asset_property(
         self, assetId: str, propertyId: str
     ) -> DescribeAssetPropertyResponseTypeDef:
         """
-        [Client.describe_asset_property documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.describe_asset_property)
+        [Client.describe_asset_property documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.describe_asset_property)
         """
 
     def describe_dashboard(self, dashboardId: str) -> DescribeDashboardResponseTypeDef:
         """
-        [Client.describe_dashboard documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.describe_dashboard)
+        [Client.describe_dashboard documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.describe_dashboard)
         """
 
     def describe_default_encryption_configuration(
         self,
     ) -> DescribeDefaultEncryptionConfigurationResponseTypeDef:
         """
-        [Client.describe_default_encryption_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.describe_default_encryption_configuration)
+        [Client.describe_default_encryption_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.describe_default_encryption_configuration)
         """
 
     def describe_gateway(self, gatewayId: str) -> DescribeGatewayResponseTypeDef:
         """
-        [Client.describe_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.describe_gateway)
+        [Client.describe_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.describe_gateway)
         """
 
     def describe_gateway_capability_configuration(
         self, gatewayId: str, capabilityNamespace: str
     ) -> DescribeGatewayCapabilityConfigurationResponseTypeDef:
         """
-        [Client.describe_gateway_capability_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.describe_gateway_capability_configuration)
+        [Client.describe_gateway_capability_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.describe_gateway_capability_configuration)
         """
 
     def describe_logging_options(self) -> DescribeLoggingOptionsResponseTypeDef:
         """
-        [Client.describe_logging_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.describe_logging_options)
+        [Client.describe_logging_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.describe_logging_options)
         """
 
     def describe_portal(self, portalId: str) -> DescribePortalResponseTypeDef:
         """
-        [Client.describe_portal documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.describe_portal)
+        [Client.describe_portal documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.describe_portal)
         """
 
     def describe_project(self, projectId: str) -> DescribeProjectResponseTypeDef:
         """
-        [Client.describe_project documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.describe_project)
+        [Client.describe_project documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.describe_project)
         """
 
     def disassociate_assets(
         self, assetId: str, hierarchyId: str, childAssetId: str, clientToken: str = None
     ) -> None:
         """
-        [Client.disassociate_assets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.disassociate_assets)
+        [Client.disassociate_assets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.disassociate_assets)
         """
 
     def generate_presigned_url(
@@ -372,7 +369,7 @@ class IoTSiteWiseClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.generate_presigned_url)
         """
 
     def get_asset_property_aggregates(
@@ -392,14 +389,14 @@ class IoTSiteWiseClient:
         maxResults: int = None,
     ) -> GetAssetPropertyAggregatesResponseTypeDef:
         """
-        [Client.get_asset_property_aggregates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.get_asset_property_aggregates)
+        [Client.get_asset_property_aggregates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.get_asset_property_aggregates)
         """
 
     def get_asset_property_value(
         self, assetId: str = None, propertyId: str = None, propertyAlias: str = None
     ) -> GetAssetPropertyValueResponseTypeDef:
         """
-        [Client.get_asset_property_value documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.get_asset_property_value)
+        [Client.get_asset_property_value documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.get_asset_property_value)
         """
 
     def get_asset_property_value_history(
@@ -415,7 +412,7 @@ class IoTSiteWiseClient:
         maxResults: int = None,
     ) -> GetAssetPropertyValueHistoryResponseTypeDef:
         """
-        [Client.get_asset_property_value_history documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.get_asset_property_value_history)
+        [Client.get_asset_property_value_history documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.get_asset_property_value_history)
         """
 
     def list_access_policies(
@@ -429,14 +426,25 @@ class IoTSiteWiseClient:
         maxResults: int = None,
     ) -> ListAccessPoliciesResponseTypeDef:
         """
-        [Client.list_access_policies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.list_access_policies)
+        [Client.list_access_policies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.list_access_policies)
         """
 
     def list_asset_models(
         self, nextToken: str = None, maxResults: int = None
     ) -> ListAssetModelsResponseTypeDef:
         """
-        [Client.list_asset_models documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.list_asset_models)
+        [Client.list_asset_models documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.list_asset_models)
+        """
+
+    def list_asset_relationships(
+        self,
+        assetId: str,
+        traversalType: Literal["PATH_TO_ROOT"],
+        nextToken: str = None,
+        maxResults: int = None,
+    ) -> ListAssetRelationshipsResponseTypeDef:
+        """
+        [Client.list_asset_relationships documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.list_asset_relationships)
         """
 
     def list_assets(
@@ -447,7 +455,7 @@ class IoTSiteWiseClient:
         filter: Literal["ALL", "TOP_LEVEL"] = None,
     ) -> ListAssetsResponseTypeDef:
         """
-        [Client.list_assets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.list_assets)
+        [Client.list_assets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.list_assets)
         """
 
     def list_associated_assets(
@@ -459,47 +467,47 @@ class IoTSiteWiseClient:
         maxResults: int = None,
     ) -> ListAssociatedAssetsResponseTypeDef:
         """
-        [Client.list_associated_assets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.list_associated_assets)
+        [Client.list_associated_assets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.list_associated_assets)
         """
 
     def list_dashboards(
         self, projectId: str, nextToken: str = None, maxResults: int = None
     ) -> ListDashboardsResponseTypeDef:
         """
-        [Client.list_dashboards documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.list_dashboards)
+        [Client.list_dashboards documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.list_dashboards)
         """
 
     def list_gateways(
         self, nextToken: str = None, maxResults: int = None
     ) -> ListGatewaysResponseTypeDef:
         """
-        [Client.list_gateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.list_gateways)
+        [Client.list_gateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.list_gateways)
         """
 
     def list_portals(
         self, nextToken: str = None, maxResults: int = None
     ) -> ListPortalsResponseTypeDef:
         """
-        [Client.list_portals documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.list_portals)
+        [Client.list_portals documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.list_portals)
         """
 
     def list_project_assets(
         self, projectId: str, nextToken: str = None, maxResults: int = None
     ) -> ListProjectAssetsResponseTypeDef:
         """
-        [Client.list_project_assets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.list_project_assets)
+        [Client.list_project_assets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.list_project_assets)
         """
 
     def list_projects(
         self, portalId: str, nextToken: str = None, maxResults: int = None
     ) -> ListProjectsResponseTypeDef:
         """
-        [Client.list_projects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.list_projects)
+        [Client.list_projects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.list_projects)
         """
 
     def list_tags_for_resource(self, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.list_tags_for_resource)
         """
 
     def put_default_encryption_configuration(
@@ -508,22 +516,22 @@ class IoTSiteWiseClient:
         kmsKeyId: str = None,
     ) -> PutDefaultEncryptionConfigurationResponseTypeDef:
         """
-        [Client.put_default_encryption_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.put_default_encryption_configuration)
+        [Client.put_default_encryption_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.put_default_encryption_configuration)
         """
 
     def put_logging_options(self, loggingOptions: "LoggingOptionsTypeDef") -> Dict[str, Any]:
         """
-        [Client.put_logging_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.put_logging_options)
+        [Client.put_logging_options documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.put_logging_options)
         """
 
     def tag_resource(self, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.tag_resource)
         """
 
     def untag_resource(self, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.untag_resource)
         """
 
     def update_access_policy(
@@ -535,14 +543,14 @@ class IoTSiteWiseClient:
         clientToken: str = None,
     ) -> Dict[str, Any]:
         """
-        [Client.update_access_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.update_access_policy)
+        [Client.update_access_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.update_access_policy)
         """
 
     def update_asset(
         self, assetId: str, assetName: str, clientToken: str = None
     ) -> UpdateAssetResponseTypeDef:
         """
-        [Client.update_asset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.update_asset)
+        [Client.update_asset documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.update_asset)
         """
 
     def update_asset_model(
@@ -552,10 +560,11 @@ class IoTSiteWiseClient:
         assetModelDescription: str = None,
         assetModelProperties: List["AssetModelPropertyTypeDef"] = None,
         assetModelHierarchies: List["AssetModelHierarchyTypeDef"] = None,
+        assetModelCompositeModels: List["AssetModelCompositeModelTypeDef"] = None,
         clientToken: str = None,
     ) -> UpdateAssetModelResponseTypeDef:
         """
-        [Client.update_asset_model documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.update_asset_model)
+        [Client.update_asset_model documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.update_asset_model)
         """
 
     def update_asset_property(
@@ -567,7 +576,7 @@ class IoTSiteWiseClient:
         clientToken: str = None,
     ) -> None:
         """
-        [Client.update_asset_property documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.update_asset_property)
+        [Client.update_asset_property documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.update_asset_property)
         """
 
     def update_dashboard(
@@ -579,19 +588,19 @@ class IoTSiteWiseClient:
         clientToken: str = None,
     ) -> Dict[str, Any]:
         """
-        [Client.update_dashboard documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.update_dashboard)
+        [Client.update_dashboard documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.update_dashboard)
         """
 
     def update_gateway(self, gatewayId: str, gatewayName: str) -> None:
         """
-        [Client.update_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.update_gateway)
+        [Client.update_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.update_gateway)
         """
 
     def update_gateway_capability_configuration(
         self, gatewayId: str, capabilityNamespace: str, capabilityConfiguration: str
     ) -> UpdateGatewayCapabilityConfigurationResponseTypeDef:
         """
-        [Client.update_gateway_capability_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.update_gateway_capability_configuration)
+        [Client.update_gateway_capability_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.update_gateway_capability_configuration)
         """
 
     def update_portal(
@@ -605,7 +614,7 @@ class IoTSiteWiseClient:
         clientToken: str = None,
     ) -> UpdatePortalResponseTypeDef:
         """
-        [Client.update_portal documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.update_portal)
+        [Client.update_portal documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.update_portal)
         """
 
     def update_project(
@@ -616,7 +625,7 @@ class IoTSiteWiseClient:
         clientToken: str = None,
     ) -> Dict[str, Any]:
         """
-        [Client.update_project documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Client.update_project)
+        [Client.update_project documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Client.update_project)
         """
 
     @overload
@@ -624,7 +633,7 @@ class IoTSiteWiseClient:
         self, operation_name: Literal["get_asset_property_aggregates"]
     ) -> GetAssetPropertyAggregatesPaginator:
         """
-        [Paginator.GetAssetPropertyAggregates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Paginator.GetAssetPropertyAggregates)
+        [Paginator.GetAssetPropertyAggregates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Paginator.GetAssetPropertyAggregates)
         """
 
     @overload
@@ -632,7 +641,7 @@ class IoTSiteWiseClient:
         self, operation_name: Literal["get_asset_property_value_history"]
     ) -> GetAssetPropertyValueHistoryPaginator:
         """
-        [Paginator.GetAssetPropertyValueHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Paginator.GetAssetPropertyValueHistory)
+        [Paginator.GetAssetPropertyValueHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Paginator.GetAssetPropertyValueHistory)
         """
 
     @overload
@@ -640,7 +649,7 @@ class IoTSiteWiseClient:
         self, operation_name: Literal["list_access_policies"]
     ) -> ListAccessPoliciesPaginator:
         """
-        [Paginator.ListAccessPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ListAccessPolicies)
+        [Paginator.ListAccessPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ListAccessPolicies)
         """
 
     @overload
@@ -648,13 +657,21 @@ class IoTSiteWiseClient:
         self, operation_name: Literal["list_asset_models"]
     ) -> ListAssetModelsPaginator:
         """
-        [Paginator.ListAssetModels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ListAssetModels)
+        [Paginator.ListAssetModels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ListAssetModels)
+        """
+
+    @overload
+    def get_paginator(
+        self, operation_name: Literal["list_asset_relationships"]
+    ) -> ListAssetRelationshipsPaginator:
+        """
+        [Paginator.ListAssetRelationships documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ListAssetRelationships)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_assets"]) -> ListAssetsPaginator:
         """
-        [Paginator.ListAssets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ListAssets)
+        [Paginator.ListAssets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ListAssets)
         """
 
     @overload
@@ -662,25 +679,25 @@ class IoTSiteWiseClient:
         self, operation_name: Literal["list_associated_assets"]
     ) -> ListAssociatedAssetsPaginator:
         """
-        [Paginator.ListAssociatedAssets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ListAssociatedAssets)
+        [Paginator.ListAssociatedAssets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ListAssociatedAssets)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_dashboards"]) -> ListDashboardsPaginator:
         """
-        [Paginator.ListDashboards documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ListDashboards)
+        [Paginator.ListDashboards documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ListDashboards)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_gateways"]) -> ListGatewaysPaginator:
         """
-        [Paginator.ListGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ListGateways)
+        [Paginator.ListGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ListGateways)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_portals"]) -> ListPortalsPaginator:
         """
-        [Paginator.ListPortals documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ListPortals)
+        [Paginator.ListPortals documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ListPortals)
         """
 
     @overload
@@ -688,25 +705,25 @@ class IoTSiteWiseClient:
         self, operation_name: Literal["list_project_assets"]
     ) -> ListProjectAssetsPaginator:
         """
-        [Paginator.ListProjectAssets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ListProjectAssets)
+        [Paginator.ListProjectAssets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ListProjectAssets)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_projects"]) -> ListProjectsPaginator:
         """
-        [Paginator.ListProjects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ListProjects)
+        [Paginator.ListProjects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Paginator.ListProjects)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["asset_active"]) -> AssetActiveWaiter:
         """
-        [Waiter.AssetActive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetActive)
+        [Waiter.AssetActive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetActive)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["asset_model_active"]) -> AssetModelActiveWaiter:
         """
-        [Waiter.AssetModelActive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetModelActive)
+        [Waiter.AssetModelActive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetModelActive)
         """
 
     @overload
@@ -714,23 +731,23 @@ class IoTSiteWiseClient:
         self, waiter_name: Literal["asset_model_not_exists"]
     ) -> AssetModelNotExistsWaiter:
         """
-        [Waiter.AssetModelNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetModelNotExists)
+        [Waiter.AssetModelNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetModelNotExists)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["asset_not_exists"]) -> AssetNotExistsWaiter:
         """
-        [Waiter.AssetNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetNotExists)
+        [Waiter.AssetNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Waiter.AssetNotExists)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["portal_active"]) -> PortalActiveWaiter:
         """
-        [Waiter.PortalActive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Waiter.PortalActive)
+        [Waiter.PortalActive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Waiter.PortalActive)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["portal_not_exists"]) -> PortalNotExistsWaiter:
         """
-        [Waiter.PortalNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotsitewise.html#IoTSiteWise.Waiter.PortalNotExists)
+        [Waiter.PortalNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotsitewise.html#IoTSiteWise.Waiter.PortalNotExists)
         """

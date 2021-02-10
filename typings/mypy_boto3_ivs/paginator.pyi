@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for ivs service client paginators.
 
@@ -45,51 +44,51 @@ __all__ = (
 
 class ListChannelsPaginator(Boto3Paginator):
     """
-    [Paginator.ListChannels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ivs.html#IVS.Paginator.ListChannels)
+    [Paginator.ListChannels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ivs.html#IVS.Paginator.ListChannels)
     """
 
     def paginate(
         self, filterByName: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListChannelsResponseTypeDef]:
         """
-        [ListChannels.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ivs.html#IVS.Paginator.ListChannels.paginate)
+        [ListChannels.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ivs.html#IVS.Paginator.ListChannels.paginate)
         """
 
 
 class ListPlaybackKeyPairsPaginator(Boto3Paginator):
     """
-    [Paginator.ListPlaybackKeyPairs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ivs.html#IVS.Paginator.ListPlaybackKeyPairs)
+    [Paginator.ListPlaybackKeyPairs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ivs.html#IVS.Paginator.ListPlaybackKeyPairs)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPlaybackKeyPairsResponseTypeDef]:
         """
-        [ListPlaybackKeyPairs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ivs.html#IVS.Paginator.ListPlaybackKeyPairs.paginate)
+        [ListPlaybackKeyPairs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ivs.html#IVS.Paginator.ListPlaybackKeyPairs.paginate)
         """
 
 
 class ListStreamKeysPaginator(Boto3Paginator):
     """
-    [Paginator.ListStreamKeys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ivs.html#IVS.Paginator.ListStreamKeys)
+    [Paginator.ListStreamKeys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ivs.html#IVS.Paginator.ListStreamKeys)
     """
 
     def paginate(
         self, channelArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListStreamKeysResponseTypeDef]:
         """
-        [ListStreamKeys.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ivs.html#IVS.Paginator.ListStreamKeys.paginate)
+        [ListStreamKeys.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ivs.html#IVS.Paginator.ListStreamKeys.paginate)
         """
 
 
 class ListStreamsPaginator(Boto3Paginator):
     """
-    [Paginator.ListStreams documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ivs.html#IVS.Paginator.ListStreams)
+    [Paginator.ListStreams documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ivs.html#IVS.Paginator.ListStreams)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListStreamsResponseTypeDef]:
         """
-        [ListStreams.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ivs.html#IVS.Paginator.ListStreams.paginate)
+        [ListStreams.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ivs.html#IVS.Paginator.ListStreams.paginate)
         """

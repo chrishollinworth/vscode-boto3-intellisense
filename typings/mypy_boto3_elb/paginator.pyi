@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for elb service client paginators.
 
@@ -34,25 +33,25 @@ __all__ = ("DescribeAccountLimitsPaginator", "DescribeLoadBalancersPaginator")
 
 class DescribeAccountLimitsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeAccountLimits documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elb.html#ElasticLoadBalancing.Paginator.DescribeAccountLimits)
+    [Paginator.DescribeAccountLimits documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elb.html#ElasticLoadBalancing.Paginator.DescribeAccountLimits)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeAccountLimitsOutputTypeDef]:
         """
-        [DescribeAccountLimits.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elb.html#ElasticLoadBalancing.Paginator.DescribeAccountLimits.paginate)
+        [DescribeAccountLimits.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elb.html#ElasticLoadBalancing.Paginator.DescribeAccountLimits.paginate)
         """
 
 
 class DescribeLoadBalancersPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeLoadBalancers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elb.html#ElasticLoadBalancing.Paginator.DescribeLoadBalancers)
+    [Paginator.DescribeLoadBalancers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elb.html#ElasticLoadBalancing.Paginator.DescribeLoadBalancers)
     """
 
     def paginate(
         self, LoadBalancerNames: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeAccessPointsOutputTypeDef]:
         """
-        [DescribeLoadBalancers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elb.html#ElasticLoadBalancing.Paginator.DescribeLoadBalancers.paginate)
+        [DescribeLoadBalancers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elb.html#ElasticLoadBalancing.Paginator.DescribeLoadBalancers.paginate)
         """

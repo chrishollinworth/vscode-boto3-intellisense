@@ -69,6 +69,7 @@ __all__ = (
     "DecimalParameterTypeDef",
     "ErrorInfoTypeDef",
     "ExportToCSVOptionTypeDef",
+    "FieldFolderTypeDef",
     "FilterOperationTypeDef",
     "GeoSpatialColumnGroupTypeDef",
     "GroupMemberTypeDef",
@@ -81,6 +82,7 @@ __all__ = (
     "IntegerParameterTypeDef",
     "JiraParametersTypeDef",
     "JoinInstructionTypeDef",
+    "JoinKeyPropertiesTypeDef",
     "LogicalTableSourceTypeDef",
     "LogicalTableTypeDef",
     "ManifestFileLocationTypeDef",
@@ -219,6 +221,7 @@ __all__ = (
     "ListThemesResponseTypeDef",
     "ListUserGroupsResponseTypeDef",
     "ListUsersResponseTypeDef",
+    "PaginatorConfigTypeDef",
     "ParametersTypeDef",
     "RegisterUserResponseTypeDef",
     "RestoreAnalysisResponseTypeDef",
@@ -603,6 +606,7 @@ DataSetTypeDef = TypedDict(
         "ImportMode": Literal["SPICE", "DIRECT_QUERY"],
         "ConsumedSpiceCapacityInBytes": int,
         "ColumnGroups": List["ColumnGroupTypeDef"],
+        "FieldFolders": Dict[str, "FieldFolderTypeDef"],
         "RowLevelPermissionDataSet": "RowLevelPermissionDataSetTypeDef",
         "ColumnLevelPermissionRules": List["ColumnLevelPermissionRuleTypeDef"],
     },
@@ -765,6 +769,10 @@ ExportToCSVOptionTypeDef = TypedDict(
     "ExportToCSVOptionTypeDef", {"AvailabilityStatus": Literal["ENABLED", "DISABLED"]}, total=False
 )
 
+FieldFolderTypeDef = TypedDict(
+    "FieldFolderTypeDef", {"description": str, "columns": List[str]}, total=False
+)
+
 FilterOperationTypeDef = TypedDict("FilterOperationTypeDef", {"ConditionExpression": str})
 
 GeoSpatialColumnGroupTypeDef = TypedDict(
@@ -843,8 +851,8 @@ IntegerParameterTypeDef = TypedDict("IntegerParameterTypeDef", {"Name": str, "Va
 
 JiraParametersTypeDef = TypedDict("JiraParametersTypeDef", {"SiteBaseUrl": str})
 
-JoinInstructionTypeDef = TypedDict(
-    "JoinInstructionTypeDef",
+_RequiredJoinInstructionTypeDef = TypedDict(
+    "_RequiredJoinInstructionTypeDef",
     {
         "LeftOperand": str,
         "RightOperand": str,
@@ -852,6 +860,21 @@ JoinInstructionTypeDef = TypedDict(
         "OnClause": str,
     },
 )
+_OptionalJoinInstructionTypeDef = TypedDict(
+    "_OptionalJoinInstructionTypeDef",
+    {
+        "LeftJoinKeyProperties": "JoinKeyPropertiesTypeDef",
+        "RightJoinKeyProperties": "JoinKeyPropertiesTypeDef",
+    },
+    total=False,
+)
+
+
+class JoinInstructionTypeDef(_RequiredJoinInstructionTypeDef, _OptionalJoinInstructionTypeDef):
+    pass
+
+
+JoinKeyPropertiesTypeDef = TypedDict("JoinKeyPropertiesTypeDef", {"UniqueKey": bool}, total=False)
 
 LogicalTableSourceTypeDef = TypedDict(
     "LogicalTableSourceTypeDef",
@@ -961,7 +984,7 @@ _RequiredRelationalTableTypeDef = TypedDict(
     {"DataSourceArn": str, "Name": str, "InputColumns": List["InputColumnTypeDef"]},
 )
 _OptionalRelationalTableTypeDef = TypedDict(
-    "_OptionalRelationalTableTypeDef", {"Schema": str}, total=False
+    "_OptionalRelationalTableTypeDef", {"Catalog": str, "Schema": str}, total=False
 )
 
 
@@ -2005,6 +2028,10 @@ ListUsersResponseTypeDef = TypedDict(
     "ListUsersResponseTypeDef",
     {"UserList": List["UserTypeDef"], "NextToken": str, "RequestId": str, "Status": int},
     total=False,
+)
+
+PaginatorConfigTypeDef = TypedDict(
+    "PaginatorConfigTypeDef", {"MaxItems": int, "PageSize": int, "StartingToken": str}, total=False
 )
 
 ParametersTypeDef = TypedDict(

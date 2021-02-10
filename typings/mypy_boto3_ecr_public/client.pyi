@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for ecr-public service client
 
@@ -91,7 +90,7 @@ class Exceptions:
 
 class ECRPublicClient:
     """
-    [ECRPublic.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr-public.html#ECRPublic.Client)
+    [ECRPublic.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Client)
     """
 
     meta: ClientMeta
@@ -101,47 +100,47 @@ class ECRPublicClient:
         self, repositoryName: str, layerDigests: List[str], registryId: str = None
     ) -> BatchCheckLayerAvailabilityResponseTypeDef:
         """
-        [Client.batch_check_layer_availability documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr-public.html#ECRPublic.Client.batch_check_layer_availability)
+        [Client.batch_check_layer_availability documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Client.batch_check_layer_availability)
         """
 
     def batch_delete_image(
         self, repositoryName: str, imageIds: List["ImageIdentifierTypeDef"], registryId: str = None
     ) -> BatchDeleteImageResponseTypeDef:
         """
-        [Client.batch_delete_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr-public.html#ECRPublic.Client.batch_delete_image)
+        [Client.batch_delete_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Client.batch_delete_image)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr-public.html#ECRPublic.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Client.can_paginate)
         """
 
     def complete_layer_upload(
         self, repositoryName: str, uploadId: str, layerDigests: List[str], registryId: str = None
     ) -> CompleteLayerUploadResponseTypeDef:
         """
-        [Client.complete_layer_upload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr-public.html#ECRPublic.Client.complete_layer_upload)
+        [Client.complete_layer_upload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Client.complete_layer_upload)
         """
 
     def create_repository(
         self, repositoryName: str, catalogData: RepositoryCatalogDataInputTypeDef = None
     ) -> CreateRepositoryResponseTypeDef:
         """
-        [Client.create_repository documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr-public.html#ECRPublic.Client.create_repository)
+        [Client.create_repository documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Client.create_repository)
         """
 
     def delete_repository(
         self, repositoryName: str, registryId: str = None, force: bool = None
     ) -> DeleteRepositoryResponseTypeDef:
         """
-        [Client.delete_repository documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr-public.html#ECRPublic.Client.delete_repository)
+        [Client.delete_repository documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Client.delete_repository)
         """
 
     def delete_repository_policy(
         self, repositoryName: str, registryId: str = None
     ) -> DeleteRepositoryPolicyResponseTypeDef:
         """
-        [Client.delete_repository_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr-public.html#ECRPublic.Client.delete_repository_policy)
+        [Client.delete_repository_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Client.delete_repository_policy)
         """
 
     def describe_image_tags(
@@ -152,7 +151,7 @@ class ECRPublicClient:
         maxResults: int = None,
     ) -> DescribeImageTagsResponseTypeDef:
         """
-        [Client.describe_image_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr-public.html#ECRPublic.Client.describe_image_tags)
+        [Client.describe_image_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Client.describe_image_tags)
         """
 
     def describe_images(
@@ -164,14 +163,14 @@ class ECRPublicClient:
         maxResults: int = None,
     ) -> DescribeImagesResponseTypeDef:
         """
-        [Client.describe_images documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr-public.html#ECRPublic.Client.describe_images)
+        [Client.describe_images documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Client.describe_images)
         """
 
     def describe_registries(
         self, nextToken: str = None, maxResults: int = None
     ) -> DescribeRegistriesResponseTypeDef:
         """
-        [Client.describe_registries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr-public.html#ECRPublic.Client.describe_registries)
+        [Client.describe_registries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Client.describe_registries)
         """
 
     def describe_repositories(
@@ -182,7 +181,7 @@ class ECRPublicClient:
         maxResults: int = None,
     ) -> DescribeRepositoriesResponseTypeDef:
         """
-        [Client.describe_repositories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr-public.html#ECRPublic.Client.describe_repositories)
+        [Client.describe_repositories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Client.describe_repositories)
         """
 
     def generate_presigned_url(
@@ -193,38 +192,38 @@ class ECRPublicClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr-public.html#ECRPublic.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Client.generate_presigned_url)
         """
 
     def get_authorization_token(self) -> GetAuthorizationTokenResponseTypeDef:
         """
-        [Client.get_authorization_token documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr-public.html#ECRPublic.Client.get_authorization_token)
+        [Client.get_authorization_token documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Client.get_authorization_token)
         """
 
     def get_registry_catalog_data(self) -> GetRegistryCatalogDataResponseTypeDef:
         """
-        [Client.get_registry_catalog_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr-public.html#ECRPublic.Client.get_registry_catalog_data)
+        [Client.get_registry_catalog_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Client.get_registry_catalog_data)
         """
 
     def get_repository_catalog_data(
         self, repositoryName: str, registryId: str = None
     ) -> GetRepositoryCatalogDataResponseTypeDef:
         """
-        [Client.get_repository_catalog_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr-public.html#ECRPublic.Client.get_repository_catalog_data)
+        [Client.get_repository_catalog_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Client.get_repository_catalog_data)
         """
 
     def get_repository_policy(
         self, repositoryName: str, registryId: str = None
     ) -> GetRepositoryPolicyResponseTypeDef:
         """
-        [Client.get_repository_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr-public.html#ECRPublic.Client.get_repository_policy)
+        [Client.get_repository_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Client.get_repository_policy)
         """
 
     def initiate_layer_upload(
         self, repositoryName: str, registryId: str = None
     ) -> InitiateLayerUploadResponseTypeDef:
         """
-        [Client.initiate_layer_upload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr-public.html#ECRPublic.Client.initiate_layer_upload)
+        [Client.initiate_layer_upload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Client.initiate_layer_upload)
         """
 
     def put_image(
@@ -237,14 +236,14 @@ class ECRPublicClient:
         imageDigest: str = None,
     ) -> PutImageResponseTypeDef:
         """
-        [Client.put_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr-public.html#ECRPublic.Client.put_image)
+        [Client.put_image documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Client.put_image)
         """
 
     def put_registry_catalog_data(
         self, displayName: str = None
     ) -> PutRegistryCatalogDataResponseTypeDef:
         """
-        [Client.put_registry_catalog_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr-public.html#ECRPublic.Client.put_registry_catalog_data)
+        [Client.put_registry_catalog_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Client.put_registry_catalog_data)
         """
 
     def put_repository_catalog_data(
@@ -254,14 +253,14 @@ class ECRPublicClient:
         registryId: str = None,
     ) -> PutRepositoryCatalogDataResponseTypeDef:
         """
-        [Client.put_repository_catalog_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr-public.html#ECRPublic.Client.put_repository_catalog_data)
+        [Client.put_repository_catalog_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Client.put_repository_catalog_data)
         """
 
     def set_repository_policy(
         self, repositoryName: str, policyText: str, registryId: str = None, force: bool = None
     ) -> SetRepositoryPolicyResponseTypeDef:
         """
-        [Client.set_repository_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr-public.html#ECRPublic.Client.set_repository_policy)
+        [Client.set_repository_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Client.set_repository_policy)
         """
 
     def upload_layer_part(
@@ -274,7 +273,7 @@ class ECRPublicClient:
         registryId: str = None,
     ) -> UploadLayerPartResponseTypeDef:
         """
-        [Client.upload_layer_part documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr-public.html#ECRPublic.Client.upload_layer_part)
+        [Client.upload_layer_part documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Client.upload_layer_part)
         """
 
     @overload
@@ -282,13 +281,13 @@ class ECRPublicClient:
         self, operation_name: Literal["describe_image_tags"]
     ) -> DescribeImageTagsPaginator:
         """
-        [Paginator.DescribeImageTags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr-public.html#ECRPublic.Paginator.DescribeImageTags)
+        [Paginator.DescribeImageTags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Paginator.DescribeImageTags)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["describe_images"]) -> DescribeImagesPaginator:
         """
-        [Paginator.DescribeImages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr-public.html#ECRPublic.Paginator.DescribeImages)
+        [Paginator.DescribeImages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Paginator.DescribeImages)
         """
 
     @overload
@@ -296,7 +295,7 @@ class ECRPublicClient:
         self, operation_name: Literal["describe_registries"]
     ) -> DescribeRegistriesPaginator:
         """
-        [Paginator.DescribeRegistries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr-public.html#ECRPublic.Paginator.DescribeRegistries)
+        [Paginator.DescribeRegistries documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Paginator.DescribeRegistries)
         """
 
     @overload
@@ -304,5 +303,5 @@ class ECRPublicClient:
         self, operation_name: Literal["describe_repositories"]
     ) -> DescribeRepositoriesPaginator:
         """
-        [Paginator.DescribeRepositories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecr-public.html#ECRPublic.Paginator.DescribeRepositories)
+        [Paginator.DescribeRepositories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecr-public.html#ECRPublic.Paginator.DescribeRepositories)
         """

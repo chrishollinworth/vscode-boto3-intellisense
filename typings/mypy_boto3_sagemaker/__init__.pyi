@@ -20,7 +20,11 @@ Usage::
         ListCodeRepositoriesPaginator,
         ListCompilationJobsPaginator,
         ListContextsPaginator,
+        ListDataQualityJobDefinitionsPaginator,
+        ListDeviceFleetsPaginator,
+        ListDevicesPaginator,
         ListDomainsPaginator,
+        ListEdgePackagingJobsPaginator,
         ListEndpointConfigsPaginator,
         ListEndpointsPaginator,
         ListExperimentsPaginator,
@@ -32,8 +36,11 @@ Usage::
         ListImagesPaginator,
         ListLabelingJobsForWorkteamPaginator,
         ListLabelingJobsPaginator,
+        ListModelBiasJobDefinitionsPaginator,
+        ListModelExplainabilityJobDefinitionsPaginator,
         ListModelPackageGroupsPaginator,
         ListModelPackagesPaginator,
+        ListModelQualityJobDefinitionsPaginator,
         ListModelsPaginator,
         ListMonitoringExecutionsPaginator,
         ListMonitoringSchedulesPaginator,
@@ -89,7 +96,11 @@ Usage::
     list_code_repositories_paginator: ListCodeRepositoriesPaginator = client.get_paginator("list_code_repositories")
     list_compilation_jobs_paginator: ListCompilationJobsPaginator = client.get_paginator("list_compilation_jobs")
     list_contexts_paginator: ListContextsPaginator = client.get_paginator("list_contexts")
+    list_data_quality_job_definitions_paginator: ListDataQualityJobDefinitionsPaginator = client.get_paginator("list_data_quality_job_definitions")
+    list_device_fleets_paginator: ListDeviceFleetsPaginator = client.get_paginator("list_device_fleets")
+    list_devices_paginator: ListDevicesPaginator = client.get_paginator("list_devices")
     list_domains_paginator: ListDomainsPaginator = client.get_paginator("list_domains")
+    list_edge_packaging_jobs_paginator: ListEdgePackagingJobsPaginator = client.get_paginator("list_edge_packaging_jobs")
     list_endpoint_configs_paginator: ListEndpointConfigsPaginator = client.get_paginator("list_endpoint_configs")
     list_endpoints_paginator: ListEndpointsPaginator = client.get_paginator("list_endpoints")
     list_experiments_paginator: ListExperimentsPaginator = client.get_paginator("list_experiments")
@@ -101,8 +112,11 @@ Usage::
     list_images_paginator: ListImagesPaginator = client.get_paginator("list_images")
     list_labeling_jobs_paginator: ListLabelingJobsPaginator = client.get_paginator("list_labeling_jobs")
     list_labeling_jobs_for_workteam_paginator: ListLabelingJobsForWorkteamPaginator = client.get_paginator("list_labeling_jobs_for_workteam")
+    list_model_bias_job_definitions_paginator: ListModelBiasJobDefinitionsPaginator = client.get_paginator("list_model_bias_job_definitions")
+    list_model_explainability_job_definitions_paginator: ListModelExplainabilityJobDefinitionsPaginator = client.get_paginator("list_model_explainability_job_definitions")
     list_model_package_groups_paginator: ListModelPackageGroupsPaginator = client.get_paginator("list_model_package_groups")
     list_model_packages_paginator: ListModelPackagesPaginator = client.get_paginator("list_model_packages")
+    list_model_quality_job_definitions_paginator: ListModelQualityJobDefinitionsPaginator = client.get_paginator("list_model_quality_job_definitions")
     list_models_paginator: ListModelsPaginator = client.get_paginator("list_models")
     list_monitoring_executions_paginator: ListMonitoringExecutionsPaginator = client.get_paginator("list_monitoring_executions")
     list_monitoring_schedules_paginator: ListMonitoringSchedulesPaginator = client.get_paginator("list_monitoring_schedules")
@@ -139,7 +153,11 @@ from mypy_boto3_sagemaker.paginator import (
     ListCodeRepositoriesPaginator,
     ListCompilationJobsPaginator,
     ListContextsPaginator,
+    ListDataQualityJobDefinitionsPaginator,
+    ListDeviceFleetsPaginator,
+    ListDevicesPaginator,
     ListDomainsPaginator,
+    ListEdgePackagingJobsPaginator,
     ListEndpointConfigsPaginator,
     ListEndpointsPaginator,
     ListExperimentsPaginator,
@@ -151,8 +169,11 @@ from mypy_boto3_sagemaker.paginator import (
     ListImageVersionsPaginator,
     ListLabelingJobsForWorkteamPaginator,
     ListLabelingJobsPaginator,
+    ListModelBiasJobDefinitionsPaginator,
+    ListModelExplainabilityJobDefinitionsPaginator,
     ListModelPackageGroupsPaginator,
     ListModelPackagesPaginator,
+    ListModelQualityJobDefinitionsPaginator,
     ListModelsPaginator,
     ListMonitoringExecutionsPaginator,
     ListMonitoringSchedulesPaginator,
@@ -204,7 +225,11 @@ __all__ = (
     "ListCodeRepositoriesPaginator",
     "ListCompilationJobsPaginator",
     "ListContextsPaginator",
+    "ListDataQualityJobDefinitionsPaginator",
+    "ListDeviceFleetsPaginator",
+    "ListDevicesPaginator",
     "ListDomainsPaginator",
+    "ListEdgePackagingJobsPaginator",
     "ListEndpointConfigsPaginator",
     "ListEndpointsPaginator",
     "ListExperimentsPaginator",
@@ -216,8 +241,11 @@ __all__ = (
     "ListImagesPaginator",
     "ListLabelingJobsForWorkteamPaginator",
     "ListLabelingJobsPaginator",
+    "ListModelBiasJobDefinitionsPaginator",
+    "ListModelExplainabilityJobDefinitionsPaginator",
     "ListModelPackageGroupsPaginator",
     "ListModelPackagesPaginator",
+    "ListModelQualityJobDefinitionsPaginator",
     "ListModelsPaginator",
     "ListMonitoringExecutionsPaginator",
     "ListMonitoringSchedulesPaginator",

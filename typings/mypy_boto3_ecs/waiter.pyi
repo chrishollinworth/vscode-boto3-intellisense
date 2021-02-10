@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
 """
 Main interface for ecs service client waiters.
 
@@ -46,7 +45,7 @@ __all__ = (
 
 class ServicesInactiveWaiter(Boto3Waiter):
     """
-    [Waiter.ServicesInactive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Waiter.ServicesInactive)
+    [Waiter.ServicesInactive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecs.html#ECS.Waiter.ServicesInactive)
     """
 
     def wait(
@@ -57,13 +56,13 @@ class ServicesInactiveWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [ServicesInactive.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Waiter.ServicesInactive.wait)
+        [ServicesInactive.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecs.html#ECS.Waiter.ServicesInactive.wait)
         """
 
 
 class ServicesStableWaiter(Boto3Waiter):
     """
-    [Waiter.ServicesStable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Waiter.ServicesStable)
+    [Waiter.ServicesStable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecs.html#ECS.Waiter.ServicesStable)
     """
 
     def wait(
@@ -74,13 +73,13 @@ class ServicesStableWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [ServicesStable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Waiter.ServicesStable.wait)
+        [ServicesStable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecs.html#ECS.Waiter.ServicesStable.wait)
         """
 
 
 class TasksRunningWaiter(Boto3Waiter):
     """
-    [Waiter.TasksRunning documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Waiter.TasksRunning)
+    [Waiter.TasksRunning documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecs.html#ECS.Waiter.TasksRunning)
     """
 
     def wait(
@@ -91,13 +90,13 @@ class TasksRunningWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [TasksRunning.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Waiter.TasksRunning.wait)
+        [TasksRunning.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecs.html#ECS.Waiter.TasksRunning.wait)
         """
 
 
 class TasksStoppedWaiter(Boto3Waiter):
     """
-    [Waiter.TasksStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Waiter.TasksStopped)
+    [Waiter.TasksStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecs.html#ECS.Waiter.TasksStopped)
     """
 
     def wait(
@@ -108,5 +107,5 @@ class TasksStoppedWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [TasksStopped.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ecs.html#ECS.Waiter.TasksStopped.wait)
+        [TasksStopped.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ecs.html#ECS.Waiter.TasksStopped.wait)
         """

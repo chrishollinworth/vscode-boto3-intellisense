@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for discovery service client paginators.
 
@@ -64,7 +63,7 @@ __all__ = (
 
 class DescribeAgentsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeAgents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeAgents)
+    [Paginator.DescribeAgents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeAgents)
     """
 
     def paginate(
@@ -74,39 +73,39 @@ class DescribeAgentsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeAgentsResponseTypeDef]:
         """
-        [DescribeAgents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeAgents.paginate)
+        [DescribeAgents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeAgents.paginate)
         """
 
 
 class DescribeContinuousExportsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeContinuousExports documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeContinuousExports)
+    [Paginator.DescribeContinuousExports documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeContinuousExports)
     """
 
     def paginate(
         self, exportIds: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeContinuousExportsResponseTypeDef]:
         """
-        [DescribeContinuousExports.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeContinuousExports.paginate)
+        [DescribeContinuousExports.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeContinuousExports.paginate)
         """
 
 
 class DescribeExportConfigurationsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeExportConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeExportConfigurations)
+    [Paginator.DescribeExportConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeExportConfigurations)
     """
 
     def paginate(
         self, exportIds: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeExportConfigurationsResponseTypeDef]:
         """
-        [DescribeExportConfigurations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeExportConfigurations.paginate)
+        [DescribeExportConfigurations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeExportConfigurations.paginate)
         """
 
 
 class DescribeExportTasksPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeExportTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeExportTasks)
+    [Paginator.DescribeExportTasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeExportTasks)
     """
 
     def paginate(
@@ -116,13 +115,13 @@ class DescribeExportTasksPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeExportTasksResponseTypeDef]:
         """
-        [DescribeExportTasks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeExportTasks.paginate)
+        [DescribeExportTasks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeExportTasks.paginate)
         """
 
 
 class DescribeTagsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeTags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeTags)
+    [Paginator.DescribeTags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeTags)
     """
 
     def paginate(
@@ -131,13 +130,13 @@ class DescribeTagsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeTagsResponseTypeDef]:
         """
-        [DescribeTags.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeTags.paginate)
+        [DescribeTags.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.DescribeTags.paginate)
         """
 
 
 class ListConfigurationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.ListConfigurations)
+    [Paginator.ListConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.ListConfigurations)
     """
 
     def paginate(
@@ -148,5 +147,5 @@ class ListConfigurationsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListConfigurationsResponseTypeDef]:
         """
-        [ListConfigurations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.ListConfigurations.paginate)
+        [ListConfigurations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/discovery.html#ApplicationDiscoveryService.Paginator.ListConfigurations.paginate)
         """

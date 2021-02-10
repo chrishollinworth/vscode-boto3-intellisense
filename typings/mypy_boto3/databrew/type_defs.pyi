@@ -1,5 +1,7 @@
 from mypy_boto3_databrew.type_defs import (
     ConditionExpressionTypeDef,
+    CsvOptionsTypeDef,
+    CsvOutputOptionsTypeDef,
     DataCatalogInputDefinitionTypeDef,
     DatasetTypeDef,
     ExcelOptionsTypeDef,
@@ -8,6 +10,7 @@ from mypy_boto3_databrew.type_defs import (
     JobRunTypeDef,
     JobTypeDef,
     JsonOptionsTypeDef,
+    OutputFormatOptionsTypeDef,
     OutputTypeDef,
     ProjectTypeDef,
     RecipeActionTypeDef,
@@ -33,6 +36,7 @@ from mypy_boto3_databrew.type_defs import (
     DeleteScheduleResponseTypeDef,
     DescribeDatasetResponseTypeDef,
     DescribeJobResponseTypeDef,
+    DescribeJobRunResponseTypeDef,
     DescribeProjectResponseTypeDef,
     DescribeRecipeResponseTypeDef,
     DescribeScheduleResponseTypeDef,
@@ -61,6 +65,8 @@ from mypy_boto3_databrew.type_defs import (
 
 __all__ = (
     "ConditionExpressionTypeDef",
+    "CsvOptionsTypeDef",
+    "CsvOutputOptionsTypeDef",
     "DataCatalogInputDefinitionTypeDef",
     "DatasetTypeDef",
     "ExcelOptionsTypeDef",
@@ -69,6 +75,7 @@ __all__ = (
     "JobRunTypeDef",
     "JobTypeDef",
     "JsonOptionsTypeDef",
+    "OutputFormatOptionsTypeDef",
     "OutputTypeDef",
     "ProjectTypeDef",
     "RecipeActionTypeDef",
@@ -94,6 +101,7 @@ __all__ = (
     "DeleteScheduleResponseTypeDef",
     "DescribeDatasetResponseTypeDef",
     "DescribeJobResponseTypeDef",
+    "DescribeJobRunResponseTypeDef",
     "DescribeProjectResponseTypeDef",
     "DescribeRecipeResponseTypeDef",
     "DescribeScheduleResponseTypeDef",

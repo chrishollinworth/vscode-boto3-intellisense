@@ -53,10 +53,20 @@ __all__ = (
     "UpdateTrailResponseTypeDef",
 )
 
-AdvancedEventSelectorTypeDef = TypedDict(
-    "AdvancedEventSelectorTypeDef",
-    {"Name": str, "FieldSelectors": List["AdvancedFieldSelectorTypeDef"]},
+_RequiredAdvancedEventSelectorTypeDef = TypedDict(
+    "_RequiredAdvancedEventSelectorTypeDef",
+    {"FieldSelectors": List["AdvancedFieldSelectorTypeDef"]},
 )
+_OptionalAdvancedEventSelectorTypeDef = TypedDict(
+    "_OptionalAdvancedEventSelectorTypeDef", {"Name": str}, total=False
+)
+
+
+class AdvancedEventSelectorTypeDef(
+    _RequiredAdvancedEventSelectorTypeDef, _OptionalAdvancedEventSelectorTypeDef
+):
+    pass
+
 
 _RequiredAdvancedFieldSelectorTypeDef = TypedDict(
     "_RequiredAdvancedFieldSelectorTypeDef", {"Field": str}

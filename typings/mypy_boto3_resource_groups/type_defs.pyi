@@ -30,9 +30,12 @@ __all__ = (
     "GroupIdentifierTypeDef",
     "GroupQueryTypeDef",
     "GroupTypeDef",
+    "ListGroupResourcesItemTypeDef",
+    "PendingResourceTypeDef",
     "QueryErrorTypeDef",
     "ResourceIdentifierTypeDef",
     "ResourceQueryTypeDef",
+    "ResourceStatusTypeDef",
     "ResponseMetadata",
     "CreateGroupOutputTypeDef",
     "DeleteGroupOutputTypeDef",
@@ -117,6 +120,14 @@ class GroupTypeDef(_RequiredGroupTypeDef, _OptionalGroupTypeDef):
     pass
 
 
+ListGroupResourcesItemTypeDef = TypedDict(
+    "ListGroupResourcesItemTypeDef",
+    {"Identifier": "ResourceIdentifierTypeDef", "Status": "ResourceStatusTypeDef"},
+    total=False,
+)
+
+PendingResourceTypeDef = TypedDict("PendingResourceTypeDef", {"ResourceArn": str}, total=False)
+
 QueryErrorTypeDef = TypedDict(
     "QueryErrorTypeDef",
     {
@@ -133,6 +144,10 @@ ResourceIdentifierTypeDef = TypedDict(
 ResourceQueryTypeDef = TypedDict(
     "ResourceQueryTypeDef",
     {"Type": Literal["TAG_FILTERS_1_0", "CLOUDFORMATION_STACK_1_0"], "Query": str},
+)
+
+ResourceStatusTypeDef = TypedDict(
+    "ResourceStatusTypeDef", {"Name": Literal["PENDING"]}, total=False
 )
 
 ResponseMetadata = TypedDict(
@@ -198,6 +213,7 @@ GroupResourcesOutputTypeDef = TypedDict(
     {
         "Succeeded": List[str],
         "Failed": List["FailedResourceTypeDef"],
+        "Pending": List["PendingResourceTypeDef"],
         "ResponseMetadata": "ResponseMetadata",
     },
     total=False,
@@ -206,6 +222,7 @@ GroupResourcesOutputTypeDef = TypedDict(
 ListGroupResourcesOutputTypeDef = TypedDict(
     "ListGroupResourcesOutputTypeDef",
     {
+        "Resources": List["ListGroupResourcesItemTypeDef"],
         "ResourceIdentifiers": List["ResourceIdentifierTypeDef"],
         "NextToken": str,
         "QueryErrors": List["QueryErrorTypeDef"],
@@ -255,6 +272,7 @@ UngroupResourcesOutputTypeDef = TypedDict(
     {
         "Succeeded": List[str],
         "Failed": List["FailedResourceTypeDef"],
+        "Pending": List["PendingResourceTypeDef"],
         "ResponseMetadata": "ResponseMetadata",
     },
     total=False,

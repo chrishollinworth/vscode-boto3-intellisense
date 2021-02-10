@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for mediapackage service client paginators.
 
@@ -37,20 +36,20 @@ __all__ = ("ListChannelsPaginator", "ListHarvestJobsPaginator", "ListOriginEndpo
 
 class ListChannelsPaginator(Boto3Paginator):
     """
-    [Paginator.ListChannels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediapackage.html#MediaPackage.Paginator.ListChannels)
+    [Paginator.ListChannels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediapackage.html#MediaPackage.Paginator.ListChannels)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListChannelsResponseTypeDef]:
         """
-        [ListChannels.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediapackage.html#MediaPackage.Paginator.ListChannels.paginate)
+        [ListChannels.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediapackage.html#MediaPackage.Paginator.ListChannels.paginate)
         """
 
 
 class ListHarvestJobsPaginator(Boto3Paginator):
     """
-    [Paginator.ListHarvestJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediapackage.html#MediaPackage.Paginator.ListHarvestJobs)
+    [Paginator.ListHarvestJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediapackage.html#MediaPackage.Paginator.ListHarvestJobs)
     """
 
     def paginate(
@@ -60,18 +59,18 @@ class ListHarvestJobsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListHarvestJobsResponseTypeDef]:
         """
-        [ListHarvestJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediapackage.html#MediaPackage.Paginator.ListHarvestJobs.paginate)
+        [ListHarvestJobs.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediapackage.html#MediaPackage.Paginator.ListHarvestJobs.paginate)
         """
 
 
 class ListOriginEndpointsPaginator(Boto3Paginator):
     """
-    [Paginator.ListOriginEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediapackage.html#MediaPackage.Paginator.ListOriginEndpoints)
+    [Paginator.ListOriginEndpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediapackage.html#MediaPackage.Paginator.ListOriginEndpoints)
     """
 
     def paginate(
         self, ChannelId: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListOriginEndpointsResponseTypeDef]:
         """
-        [ListOriginEndpoints.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediapackage.html#MediaPackage.Paginator.ListOriginEndpoints.paginate)
+        [ListOriginEndpoints.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediapackage.html#MediaPackage.Paginator.ListOriginEndpoints.paginate)
         """

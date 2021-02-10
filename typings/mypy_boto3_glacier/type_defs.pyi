@@ -10,7 +10,9 @@ Usage::
     ```
 """
 import sys
-from typing import IO, Any, Dict, List
+from typing import Any, Dict, List
+
+from botocore.response import StreamingBody
 
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -290,7 +292,7 @@ GetDataRetrievalPolicyOutputTypeDef = TypedDict(
 GetJobOutputOutputTypeDef = TypedDict(
     "GetJobOutputOutputTypeDef",
     {
-        "body": IO[bytes],
+        "body": StreamingBody,
         "checksum": str,
         "status": int,
         "contentRange": str,

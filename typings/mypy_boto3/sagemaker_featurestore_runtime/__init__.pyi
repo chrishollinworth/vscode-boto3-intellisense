@@ -1,9 +1,9 @@
 from mypy_boto3_sagemaker_featurestore_runtime import (
     Client,
-    SageMakerFeatureStoreRuntimeClient,
+    SagemakerFeatureStoreRuntimeClient,
 )
 
 __all__ = (
     "Client",
-    "SageMakerFeatureStoreRuntimeClient",
+    "SagemakerFeatureStoreRuntimeClient",
 )

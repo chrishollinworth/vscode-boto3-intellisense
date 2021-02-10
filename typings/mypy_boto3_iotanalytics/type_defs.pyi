@@ -32,6 +32,7 @@ __all__ = (
     "ChannelStorageTypeDef",
     "ChannelSummaryTypeDef",
     "ChannelTypeDef",
+    "ColumnTypeDef",
     "ContainerDatasetActionTypeDef",
     "CustomerManagedChannelS3StorageSummaryTypeDef",
     "CustomerManagedChannelS3StorageTypeDef",
@@ -59,6 +60,7 @@ __all__ = (
     "DeviceRegistryEnrichActivityTypeDef",
     "DeviceShadowEnrichActivityTypeDef",
     "EstimatedResourceSizeTypeDef",
+    "FileFormatConfigurationTypeDef",
     "FilterActivityTypeDef",
     "GlueConfigurationTypeDef",
     "IotEventsDestinationConfigurationTypeDef",
@@ -68,6 +70,7 @@ __all__ = (
     "LoggingOptionsTypeDef",
     "MathActivityTypeDef",
     "OutputFileUriValueTypeDef",
+    "ParquetConfigurationTypeDef",
     "PipelineActivityTypeDef",
     "PipelineSummaryTypeDef",
     "PipelineTypeDef",
@@ -78,6 +81,7 @@ __all__ = (
     "RetentionPeriodTypeDef",
     "S3DestinationConfigurationTypeDef",
     "ScheduleTypeDef",
+    "SchemaDefinitionTypeDef",
     "SelectAttributesActivityTypeDef",
     "SqlQueryDatasetActionTypeDef",
     "TagTypeDef",
@@ -85,6 +89,7 @@ __all__ = (
     "VariableTypeDef",
     "VersioningConfigurationTypeDef",
     "BatchPutMessageResponseTypeDef",
+    "ChannelMessagesTypeDef",
     "CreateChannelResponseTypeDef",
     "CreateDatasetContentResponseTypeDef",
     "CreateDatasetResponseTypeDef",
@@ -190,6 +195,8 @@ ChannelTypeDef = TypedDict(
     },
     total=False,
 )
+
+ColumnTypeDef = TypedDict("ColumnTypeDef", {"name": str, "type": str})
 
 _RequiredContainerDatasetActionTypeDef = TypedDict(
     "_RequiredContainerDatasetActionTypeDef",
@@ -389,6 +396,7 @@ DatastoreSummaryTypeDef = TypedDict(
         "creationTime": datetime,
         "lastUpdateTime": datetime,
         "lastMessageArrivalTime": datetime,
+        "fileFormatType": Literal["JSON", "PARQUET"],
     },
     total=False,
 )
@@ -404,6 +412,7 @@ DatastoreTypeDef = TypedDict(
         "creationTime": datetime,
         "lastUpdateTime": datetime,
         "lastMessageArrivalTime": datetime,
+        "fileFormatConfiguration": "FileFormatConfigurationTypeDef",
     },
     total=False,
 )
@@ -447,6 +456,12 @@ class DeviceShadowEnrichActivityTypeDef(
 EstimatedResourceSizeTypeDef = TypedDict(
     "EstimatedResourceSizeTypeDef",
     {"estimatedSizeInBytes": float, "estimatedOn": datetime},
+    total=False,
+)
+
+FileFormatConfigurationTypeDef = TypedDict(
+    "FileFormatConfigurationTypeDef",
+    {"jsonConfiguration": Dict[str, Any], "parquetConfiguration": "ParquetConfigurationTypeDef"},
     total=False,
 )
 
@@ -515,6 +530,10 @@ class MathActivityTypeDef(_RequiredMathActivityTypeDef, _OptionalMathActivityTyp
 
 
 OutputFileUriValueTypeDef = TypedDict("OutputFileUriValueTypeDef", {"fileName": str})
+
+ParquetConfigurationTypeDef = TypedDict(
+    "ParquetConfigurationTypeDef", {"schemaDefinition": "SchemaDefinitionTypeDef"}, total=False
+)
 
 PipelineActivityTypeDef = TypedDict(
     "PipelineActivityTypeDef",
@@ -610,6 +629,10 @@ class S3DestinationConfigurationTypeDef(
 
 ScheduleTypeDef = TypedDict("ScheduleTypeDef", {"expression": str}, total=False)
 
+SchemaDefinitionTypeDef = TypedDict(
+    "SchemaDefinitionTypeDef", {"columns": List["ColumnTypeDef"]}, total=False
+)
+
 _RequiredSelectAttributesActivityTypeDef = TypedDict(
     "_RequiredSelectAttributesActivityTypeDef", {"name": str, "attributes": List[str]}
 )
@@ -668,6 +691,8 @@ BatchPutMessageResponseTypeDef = TypedDict(
     {"batchPutMessageErrorEntries": List["BatchPutMessageErrorEntryTypeDef"]},
     total=False,
 )
+
+ChannelMessagesTypeDef = TypedDict("ChannelMessagesTypeDef", {"s3Paths": List[str]}, total=False)
 
 CreateChannelResponseTypeDef = TypedDict(
     "CreateChannelResponseTypeDef",

@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for elastic-inference service client paginators.
 
@@ -32,7 +31,7 @@ __all__ = ("DescribeAcceleratorsPaginator",)
 
 class DescribeAcceleratorsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeAccelerators documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elastic-inference.html#ElasticInference.Paginator.DescribeAccelerators)
+    [Paginator.DescribeAccelerators documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elastic-inference.html#ElasticInference.Paginator.DescribeAccelerators)
     """
 
     def paginate(
@@ -42,5 +41,5 @@ class DescribeAcceleratorsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeAcceleratorsResponseTypeDef]:
         """
-        [DescribeAccelerators.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elastic-inference.html#ElasticInference.Paginator.DescribeAccelerators.paginate)
+        [DescribeAccelerators.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elastic-inference.html#ElasticInference.Paginator.DescribeAccelerators.paginate)
         """

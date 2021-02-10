@@ -38,6 +38,7 @@ __all__ = (
     "GetIdentityPoolRolesResponseTypeDef",
     "GetOpenIdTokenForDeveloperIdentityResponseTypeDef",
     "GetOpenIdTokenResponseTypeDef",
+    "GetPrincipalTagAttributeMapResponseTypeDef",
     "IdentityPoolTypeDef",
     "ListIdentitiesResponseTypeDef",
     "ListIdentityPoolsResponseTypeDef",
@@ -45,6 +46,7 @@ __all__ = (
     "LookupDeveloperIdentityResponseTypeDef",
     "MergeDeveloperIdentitiesResponseTypeDef",
     "PaginatorConfigTypeDef",
+    "SetPrincipalTagAttributeMapResponseTypeDef",
 )
 
 CognitoIdentityProviderTypeDef = TypedDict(
@@ -147,6 +149,17 @@ GetOpenIdTokenResponseTypeDef = TypedDict(
     "GetOpenIdTokenResponseTypeDef", {"IdentityId": str, "Token": str}, total=False
 )
 
+GetPrincipalTagAttributeMapResponseTypeDef = TypedDict(
+    "GetPrincipalTagAttributeMapResponseTypeDef",
+    {
+        "IdentityPoolId": str,
+        "IdentityProviderName": str,
+        "UseDefaults": bool,
+        "PrincipalTags": Dict[str, str],
+    },
+    total=False,
+)
+
 _RequiredIdentityPoolTypeDef = TypedDict(
     "_RequiredIdentityPoolTypeDef",
     {"IdentityPoolId": str, "IdentityPoolName": str, "AllowUnauthenticatedIdentities": bool},
@@ -198,4 +211,15 @@ MergeDeveloperIdentitiesResponseTypeDef = TypedDict(
 
 PaginatorConfigTypeDef = TypedDict(
     "PaginatorConfigTypeDef", {"MaxItems": int, "PageSize": int, "StartingToken": str}, total=False
+)
+
+SetPrincipalTagAttributeMapResponseTypeDef = TypedDict(
+    "SetPrincipalTagAttributeMapResponseTypeDef",
+    {
+        "IdentityPoolId": str,
+        "IdentityProviderName": str,
+        "UseDefaults": bool,
+        "PrincipalTags": Dict[str, str],
+    },
+    total=False,
 )

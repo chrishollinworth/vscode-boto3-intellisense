@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
 """
 Main interface for opsworkscm service client waiters.
 
@@ -26,7 +25,7 @@ __all__ = ("NodeAssociatedWaiter",)
 
 class NodeAssociatedWaiter(Boto3Waiter):
     """
-    [Waiter.NodeAssociated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworkscm.html#OpsWorksCM.Waiter.NodeAssociated)
+    [Waiter.NodeAssociated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworkscm.html#OpsWorksCM.Waiter.NodeAssociated)
     """
 
     def wait(
@@ -36,5 +35,5 @@ class NodeAssociatedWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [NodeAssociated.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworkscm.html#OpsWorksCM.Waiter.NodeAssociated.wait)
+        [NodeAssociated.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworkscm.html#OpsWorksCM.Waiter.NodeAssociated.wait)
         """

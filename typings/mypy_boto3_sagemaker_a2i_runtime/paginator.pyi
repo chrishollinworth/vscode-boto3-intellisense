@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for sagemaker-a2i-runtime service client paginators.
 
@@ -39,7 +38,7 @@ __all__ = ("ListHumanLoopsPaginator",)
 
 class ListHumanLoopsPaginator(Boto3Paginator):
     """
-    [Paginator.ListHumanLoops documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker-a2i-runtime.html#AugmentedAIRuntime.Paginator.ListHumanLoops)
+    [Paginator.ListHumanLoops documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker-a2i-runtime.html#AugmentedAIRuntime.Paginator.ListHumanLoops)
     """
 
     def paginate(
@@ -51,5 +50,5 @@ class ListHumanLoopsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListHumanLoopsResponseTypeDef]:
         """
-        [ListHumanLoops.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sagemaker-a2i-runtime.html#AugmentedAIRuntime.Paginator.ListHumanLoops.paginate)
+        [ListHumanLoops.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sagemaker-a2i-runtime.html#AugmentedAIRuntime.Paginator.ListHumanLoops.paginate)
         """

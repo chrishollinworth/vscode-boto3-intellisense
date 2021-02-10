@@ -11,7 +11,9 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import IO, List
+from typing import List
+
+from botocore.response import StreamingBody
 
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -63,7 +65,7 @@ _RequiredGetObjectResponseTypeDef = TypedDict(
 _OptionalGetObjectResponseTypeDef = TypedDict(
     "_OptionalGetObjectResponseTypeDef",
     {
-        "Body": IO[bytes],
+        "Body": StreamingBody,
         "CacheControl": str,
         "ContentRange": str,
         "ContentLength": int,

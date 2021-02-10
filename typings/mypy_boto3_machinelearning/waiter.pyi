@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
 """
 Main interface for machinelearning service client waiters.
 
@@ -45,7 +44,7 @@ __all__ = (
 
 class BatchPredictionAvailableWaiter(Boto3Waiter):
     """
-    [Waiter.BatchPredictionAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/machinelearning.html#MachineLearning.Waiter.BatchPredictionAvailable)
+    [Waiter.BatchPredictionAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/machinelearning.html#MachineLearning.Waiter.BatchPredictionAvailable)
     """
 
     def wait(
@@ -73,13 +72,13 @@ class BatchPredictionAvailableWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [BatchPredictionAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/machinelearning.html#MachineLearning.Waiter.BatchPredictionAvailable.wait)
+        [BatchPredictionAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/machinelearning.html#MachineLearning.Waiter.BatchPredictionAvailable.wait)
         """
 
 
 class DataSourceAvailableWaiter(Boto3Waiter):
     """
-    [Waiter.DataSourceAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/machinelearning.html#MachineLearning.Waiter.DataSourceAvailable)
+    [Waiter.DataSourceAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/machinelearning.html#MachineLearning.Waiter.DataSourceAvailable)
     """
 
     def wait(
@@ -100,13 +99,13 @@ class DataSourceAvailableWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [DataSourceAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/machinelearning.html#MachineLearning.Waiter.DataSourceAvailable.wait)
+        [DataSourceAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/machinelearning.html#MachineLearning.Waiter.DataSourceAvailable.wait)
         """
 
 
 class EvaluationAvailableWaiter(Boto3Waiter):
     """
-    [Waiter.EvaluationAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/machinelearning.html#MachineLearning.Waiter.EvaluationAvailable)
+    [Waiter.EvaluationAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/machinelearning.html#MachineLearning.Waiter.EvaluationAvailable)
     """
 
     def wait(
@@ -134,13 +133,13 @@ class EvaluationAvailableWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [EvaluationAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/machinelearning.html#MachineLearning.Waiter.EvaluationAvailable.wait)
+        [EvaluationAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/machinelearning.html#MachineLearning.Waiter.EvaluationAvailable.wait)
         """
 
 
 class MLModelAvailableWaiter(Boto3Waiter):
     """
-    [Waiter.MLModelAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/machinelearning.html#MachineLearning.Waiter.MLModelAvailable)
+    [Waiter.MLModelAvailable documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/machinelearning.html#MachineLearning.Waiter.MLModelAvailable)
     """
 
     def wait(
@@ -170,5 +169,5 @@ class MLModelAvailableWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [MLModelAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/machinelearning.html#MachineLearning.Waiter.MLModelAvailable.wait)
+        [MLModelAvailable.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/machinelearning.html#MachineLearning.Waiter.MLModelAvailable.wait)
         """

@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
 """
 Main interface for appstream service client waiters.
 
@@ -30,7 +29,7 @@ __all__ = ("FleetStartedWaiter", "FleetStoppedWaiter")
 
 class FleetStartedWaiter(Boto3Waiter):
     """
-    [Waiter.FleetStarted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Waiter.FleetStarted)
+    [Waiter.FleetStarted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appstream.html#AppStream.Waiter.FleetStarted)
     """
 
     def wait(
@@ -40,13 +39,13 @@ class FleetStartedWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [FleetStarted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Waiter.FleetStarted.wait)
+        [FleetStarted.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appstream.html#AppStream.Waiter.FleetStarted.wait)
         """
 
 
 class FleetStoppedWaiter(Boto3Waiter):
     """
-    [Waiter.FleetStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Waiter.FleetStopped)
+    [Waiter.FleetStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appstream.html#AppStream.Waiter.FleetStopped)
     """
 
     def wait(
@@ -56,5 +55,5 @@ class FleetStoppedWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [FleetStopped.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appstream.html#AppStream.Waiter.FleetStopped.wait)
+        [FleetStopped.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appstream.html#AppStream.Waiter.FleetStopped.wait)
         """

@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for route53 service client
 
@@ -24,23 +23,30 @@ from mypy_boto3_route53.paginator import (
     ListVPCAssociationAuthorizationsPaginator,
 )
 from mypy_boto3_route53.type_defs import (
+    ActivateKeySigningKeyResponseTypeDef,
     AlarmIdentifierTypeDef,
     AssociateVPCWithHostedZoneResponseTypeDef,
     ChangeBatchTypeDef,
     ChangeResourceRecordSetsResponseTypeDef,
     CreateHealthCheckResponseTypeDef,
     CreateHostedZoneResponseTypeDef,
+    CreateKeySigningKeyResponseTypeDef,
     CreateQueryLoggingConfigResponseTypeDef,
     CreateReusableDelegationSetResponseTypeDef,
     CreateTrafficPolicyInstanceResponseTypeDef,
     CreateTrafficPolicyResponseTypeDef,
     CreateTrafficPolicyVersionResponseTypeDef,
     CreateVPCAssociationAuthorizationResponseTypeDef,
+    DeactivateKeySigningKeyResponseTypeDef,
     DeleteHostedZoneResponseTypeDef,
+    DeleteKeySigningKeyResponseTypeDef,
+    DisableHostedZoneDNSSECResponseTypeDef,
     DisassociateVPCFromHostedZoneResponseTypeDef,
+    EnableHostedZoneDNSSECResponseTypeDef,
     GetAccountLimitResponseTypeDef,
     GetChangeResponseTypeDef,
     GetCheckerIpRangesResponseTypeDef,
+    GetDNSSECResponseTypeDef,
     GetGeoLocationResponseTypeDef,
     GetHealthCheckCountResponseTypeDef,
     GetHealthCheckLastFailureReasonResponseTypeDef,
@@ -105,6 +111,7 @@ class Exceptions:
     ConcurrentModification: Type[BotocoreClientError]
     ConflictingDomainExists: Type[BotocoreClientError]
     ConflictingTypes: Type[BotocoreClientError]
+    DNSSECNotFound: Type[BotocoreClientError]
     DelegationSetAlreadyCreated: Type[BotocoreClientError]
     DelegationSetAlreadyReusable: Type[BotocoreClientError]
     DelegationSetInUse: Type[BotocoreClientError]
@@ -117,15 +124,24 @@ class Exceptions:
     HostedZoneNotEmpty: Type[BotocoreClientError]
     HostedZoneNotFound: Type[BotocoreClientError]
     HostedZoneNotPrivate: Type[BotocoreClientError]
+    HostedZonePartiallyDelegated: Type[BotocoreClientError]
     IncompatibleVersion: Type[BotocoreClientError]
     InsufficientCloudWatchLogsResourcePolicy: Type[BotocoreClientError]
     InvalidArgument: Type[BotocoreClientError]
     InvalidChangeBatch: Type[BotocoreClientError]
     InvalidDomainName: Type[BotocoreClientError]
     InvalidInput: Type[BotocoreClientError]
+    InvalidKMSArn: Type[BotocoreClientError]
+    InvalidKeySigningKeyName: Type[BotocoreClientError]
+    InvalidKeySigningKeyStatus: Type[BotocoreClientError]
     InvalidPaginationToken: Type[BotocoreClientError]
+    InvalidSigningStatus: Type[BotocoreClientError]
     InvalidTrafficPolicyDocument: Type[BotocoreClientError]
     InvalidVPCId: Type[BotocoreClientError]
+    KeySigningKeyAlreadyExists: Type[BotocoreClientError]
+    KeySigningKeyInParentDSRecord: Type[BotocoreClientError]
+    KeySigningKeyInUse: Type[BotocoreClientError]
+    KeySigningKeyWithActiveStatusNotFound: Type[BotocoreClientError]
     LastVPCAssociation: Type[BotocoreClientError]
     LimitsExceeded: Type[BotocoreClientError]
     NoSuchChange: Type[BotocoreClientError]
@@ -134,6 +150,7 @@ class Exceptions:
     NoSuchGeoLocation: Type[BotocoreClientError]
     NoSuchHealthCheck: Type[BotocoreClientError]
     NoSuchHostedZone: Type[BotocoreClientError]
+    NoSuchKeySigningKey: Type[BotocoreClientError]
     NoSuchQueryLoggingConfig: Type[BotocoreClientError]
     NoSuchTrafficPolicy: Type[BotocoreClientError]
     NoSuchTrafficPolicyInstance: Type[BotocoreClientError]
@@ -144,6 +161,7 @@ class Exceptions:
     ThrottlingException: Type[BotocoreClientError]
     TooManyHealthChecks: Type[BotocoreClientError]
     TooManyHostedZones: Type[BotocoreClientError]
+    TooManyKeySigningKeys: Type[BotocoreClientError]
     TooManyTrafficPolicies: Type[BotocoreClientError]
     TooManyTrafficPolicyInstances: Type[BotocoreClientError]
     TooManyTrafficPolicyVersionsForCurrentPolicy: Type[BotocoreClientError]
@@ -157,29 +175,36 @@ class Exceptions:
 
 class Route53Client:
     """
-    [Route53.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client)
+    [Route53.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client)
     """
 
     meta: ClientMeta
     exceptions: Exceptions
 
+    def activate_key_signing_key(
+        self, HostedZoneId: str, Name: str
+    ) -> ActivateKeySigningKeyResponseTypeDef:
+        """
+        [Client.activate_key_signing_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.activate_key_signing_key)
+        """
+
     def associate_vpc_with_hosted_zone(
         self, HostedZoneId: str, VPC: "VPCTypeDef", Comment: str = None
     ) -> AssociateVPCWithHostedZoneResponseTypeDef:
         """
-        [Client.associate_vpc_with_hosted_zone documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.associate_vpc_with_hosted_zone)
+        [Client.associate_vpc_with_hosted_zone documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.associate_vpc_with_hosted_zone)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.can_paginate)
         """
 
     def change_resource_record_sets(
         self, HostedZoneId: str, ChangeBatch: ChangeBatchTypeDef
     ) -> ChangeResourceRecordSetsResponseTypeDef:
         """
-        [Client.change_resource_record_sets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.change_resource_record_sets)
+        [Client.change_resource_record_sets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.change_resource_record_sets)
         """
 
     def change_tags_for_resource(
@@ -190,14 +215,14 @@ class Route53Client:
         RemoveTagKeys: List[str] = None,
     ) -> Dict[str, Any]:
         """
-        [Client.change_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.change_tags_for_resource)
+        [Client.change_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.change_tags_for_resource)
         """
 
     def create_health_check(
         self, CallerReference: str, HealthCheckConfig: "HealthCheckConfigTypeDef"
     ) -> CreateHealthCheckResponseTypeDef:
         """
-        [Client.create_health_check documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.create_health_check)
+        [Client.create_health_check documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.create_health_check)
         """
 
     def create_hosted_zone(
@@ -209,28 +234,40 @@ class Route53Client:
         DelegationSetId: str = None,
     ) -> CreateHostedZoneResponseTypeDef:
         """
-        [Client.create_hosted_zone documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.create_hosted_zone)
+        [Client.create_hosted_zone documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.create_hosted_zone)
+        """
+
+    def create_key_signing_key(
+        self,
+        CallerReference: str,
+        HostedZoneId: str,
+        KeyManagementServiceArn: str,
+        Name: str,
+        Status: str,
+    ) -> CreateKeySigningKeyResponseTypeDef:
+        """
+        [Client.create_key_signing_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.create_key_signing_key)
         """
 
     def create_query_logging_config(
         self, HostedZoneId: str, CloudWatchLogsLogGroupArn: str
     ) -> CreateQueryLoggingConfigResponseTypeDef:
         """
-        [Client.create_query_logging_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.create_query_logging_config)
+        [Client.create_query_logging_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.create_query_logging_config)
         """
 
     def create_reusable_delegation_set(
         self, CallerReference: str, HostedZoneId: str = None
     ) -> CreateReusableDelegationSetResponseTypeDef:
         """
-        [Client.create_reusable_delegation_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.create_reusable_delegation_set)
+        [Client.create_reusable_delegation_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.create_reusable_delegation_set)
         """
 
     def create_traffic_policy(
         self, Name: str, Document: str, Comment: str = None
     ) -> CreateTrafficPolicyResponseTypeDef:
         """
-        [Client.create_traffic_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.create_traffic_policy)
+        [Client.create_traffic_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.create_traffic_policy)
         """
 
     def create_traffic_policy_instance(
@@ -242,65 +279,91 @@ class Route53Client:
         TrafficPolicyVersion: int,
     ) -> CreateTrafficPolicyInstanceResponseTypeDef:
         """
-        [Client.create_traffic_policy_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.create_traffic_policy_instance)
+        [Client.create_traffic_policy_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.create_traffic_policy_instance)
         """
 
     def create_traffic_policy_version(
         self, Id: str, Document: str, Comment: str = None
     ) -> CreateTrafficPolicyVersionResponseTypeDef:
         """
-        [Client.create_traffic_policy_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.create_traffic_policy_version)
+        [Client.create_traffic_policy_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.create_traffic_policy_version)
         """
 
     def create_vpc_association_authorization(
         self, HostedZoneId: str, VPC: "VPCTypeDef"
     ) -> CreateVPCAssociationAuthorizationResponseTypeDef:
         """
-        [Client.create_vpc_association_authorization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.create_vpc_association_authorization)
+        [Client.create_vpc_association_authorization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.create_vpc_association_authorization)
+        """
+
+    def deactivate_key_signing_key(
+        self, HostedZoneId: str, Name: str
+    ) -> DeactivateKeySigningKeyResponseTypeDef:
+        """
+        [Client.deactivate_key_signing_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.deactivate_key_signing_key)
         """
 
     def delete_health_check(self, HealthCheckId: str) -> Dict[str, Any]:
         """
-        [Client.delete_health_check documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.delete_health_check)
+        [Client.delete_health_check documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.delete_health_check)
         """
 
     def delete_hosted_zone(self, Id: str) -> DeleteHostedZoneResponseTypeDef:
         """
-        [Client.delete_hosted_zone documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.delete_hosted_zone)
+        [Client.delete_hosted_zone documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.delete_hosted_zone)
+        """
+
+    def delete_key_signing_key(
+        self, HostedZoneId: str, Name: str
+    ) -> DeleteKeySigningKeyResponseTypeDef:
+        """
+        [Client.delete_key_signing_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.delete_key_signing_key)
         """
 
     def delete_query_logging_config(self, Id: str) -> Dict[str, Any]:
         """
-        [Client.delete_query_logging_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.delete_query_logging_config)
+        [Client.delete_query_logging_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.delete_query_logging_config)
         """
 
     def delete_reusable_delegation_set(self, Id: str) -> Dict[str, Any]:
         """
-        [Client.delete_reusable_delegation_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.delete_reusable_delegation_set)
+        [Client.delete_reusable_delegation_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.delete_reusable_delegation_set)
         """
 
     def delete_traffic_policy(self, Id: str, Version: int) -> Dict[str, Any]:
         """
-        [Client.delete_traffic_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.delete_traffic_policy)
+        [Client.delete_traffic_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.delete_traffic_policy)
         """
 
     def delete_traffic_policy_instance(self, Id: str) -> Dict[str, Any]:
         """
-        [Client.delete_traffic_policy_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.delete_traffic_policy_instance)
+        [Client.delete_traffic_policy_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.delete_traffic_policy_instance)
         """
 
     def delete_vpc_association_authorization(
         self, HostedZoneId: str, VPC: "VPCTypeDef"
     ) -> Dict[str, Any]:
         """
-        [Client.delete_vpc_association_authorization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.delete_vpc_association_authorization)
+        [Client.delete_vpc_association_authorization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.delete_vpc_association_authorization)
+        """
+
+    def disable_hosted_zone_dnssec(
+        self, HostedZoneId: str
+    ) -> DisableHostedZoneDNSSECResponseTypeDef:
+        """
+        [Client.disable_hosted_zone_dnssec documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.disable_hosted_zone_dnssec)
         """
 
     def disassociate_vpc_from_hosted_zone(
         self, HostedZoneId: str, VPC: "VPCTypeDef", Comment: str = None
     ) -> DisassociateVPCFromHostedZoneResponseTypeDef:
         """
-        [Client.disassociate_vpc_from_hosted_zone documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.disassociate_vpc_from_hosted_zone)
+        [Client.disassociate_vpc_from_hosted_zone documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.disassociate_vpc_from_hosted_zone)
+        """
+
+    def enable_hosted_zone_dnssec(self, HostedZoneId: str) -> EnableHostedZoneDNSSECResponseTypeDef:
+        """
+        [Client.enable_hosted_zone_dnssec documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.enable_hosted_zone_dnssec)
         """
 
     def generate_presigned_url(
@@ -311,7 +374,7 @@ class Route53Client:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.generate_presigned_url)
         """
 
     def get_account_limit(
@@ -325,95 +388,100 @@ class Route53Client:
         ],
     ) -> GetAccountLimitResponseTypeDef:
         """
-        [Client.get_account_limit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.get_account_limit)
+        [Client.get_account_limit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.get_account_limit)
         """
 
     def get_change(self, Id: str) -> GetChangeResponseTypeDef:
         """
-        [Client.get_change documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.get_change)
+        [Client.get_change documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.get_change)
         """
 
     def get_checker_ip_ranges(self) -> GetCheckerIpRangesResponseTypeDef:
         """
-        [Client.get_checker_ip_ranges documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.get_checker_ip_ranges)
+        [Client.get_checker_ip_ranges documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.get_checker_ip_ranges)
+        """
+
+    def get_dnssec(self, HostedZoneId: str) -> GetDNSSECResponseTypeDef:
+        """
+        [Client.get_dnssec documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.get_dnssec)
         """
 
     def get_geo_location(
         self, ContinentCode: str = None, CountryCode: str = None, SubdivisionCode: str = None
     ) -> GetGeoLocationResponseTypeDef:
         """
-        [Client.get_geo_location documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.get_geo_location)
+        [Client.get_geo_location documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.get_geo_location)
         """
 
     def get_health_check(self, HealthCheckId: str) -> GetHealthCheckResponseTypeDef:
         """
-        [Client.get_health_check documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.get_health_check)
+        [Client.get_health_check documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.get_health_check)
         """
 
     def get_health_check_count(self) -> GetHealthCheckCountResponseTypeDef:
         """
-        [Client.get_health_check_count documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.get_health_check_count)
+        [Client.get_health_check_count documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.get_health_check_count)
         """
 
     def get_health_check_last_failure_reason(
         self, HealthCheckId: str
     ) -> GetHealthCheckLastFailureReasonResponseTypeDef:
         """
-        [Client.get_health_check_last_failure_reason documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.get_health_check_last_failure_reason)
+        [Client.get_health_check_last_failure_reason documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.get_health_check_last_failure_reason)
         """
 
     def get_health_check_status(self, HealthCheckId: str) -> GetHealthCheckStatusResponseTypeDef:
         """
-        [Client.get_health_check_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.get_health_check_status)
+        [Client.get_health_check_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.get_health_check_status)
         """
 
     def get_hosted_zone(self, Id: str) -> GetHostedZoneResponseTypeDef:
         """
-        [Client.get_hosted_zone documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.get_hosted_zone)
+        [Client.get_hosted_zone documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.get_hosted_zone)
         """
 
     def get_hosted_zone_count(self) -> GetHostedZoneCountResponseTypeDef:
         """
-        [Client.get_hosted_zone_count documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.get_hosted_zone_count)
+        [Client.get_hosted_zone_count documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.get_hosted_zone_count)
         """
 
     def get_hosted_zone_limit(
         self, Type: Literal["MAX_RRSETS_BY_ZONE", "MAX_VPCS_ASSOCIATED_BY_ZONE"], HostedZoneId: str
     ) -> GetHostedZoneLimitResponseTypeDef:
         """
-        [Client.get_hosted_zone_limit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.get_hosted_zone_limit)
+        [Client.get_hosted_zone_limit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.get_hosted_zone_limit)
         """
 
     def get_query_logging_config(self, Id: str) -> GetQueryLoggingConfigResponseTypeDef:
         """
-        [Client.get_query_logging_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.get_query_logging_config)
+        [Client.get_query_logging_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.get_query_logging_config)
         """
 
     def get_reusable_delegation_set(self, Id: str) -> GetReusableDelegationSetResponseTypeDef:
         """
-        [Client.get_reusable_delegation_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.get_reusable_delegation_set)
+        [Client.get_reusable_delegation_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.get_reusable_delegation_set)
         """
 
     def get_reusable_delegation_set_limit(
         self, Type: Literal["MAX_ZONES_BY_REUSABLE_DELEGATION_SET"], DelegationSetId: str
     ) -> GetReusableDelegationSetLimitResponseTypeDef:
         """
-        [Client.get_reusable_delegation_set_limit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.get_reusable_delegation_set_limit)
+        [Client.get_reusable_delegation_set_limit documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.get_reusable_delegation_set_limit)
         """
 
     def get_traffic_policy(self, Id: str, Version: int) -> GetTrafficPolicyResponseTypeDef:
         """
-        [Client.get_traffic_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.get_traffic_policy)
+        [Client.get_traffic_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.get_traffic_policy)
         """
 
     def get_traffic_policy_instance(self, Id: str) -> GetTrafficPolicyInstanceResponseTypeDef:
         """
-        [Client.get_traffic_policy_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.get_traffic_policy_instance)
+        [Client.get_traffic_policy_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.get_traffic_policy_instance)
         """
 
     def get_traffic_policy_instance_count(self) -> GetTrafficPolicyInstanceCountResponseTypeDef:
         """
-        [Client.get_traffic_policy_instance_count documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.get_traffic_policy_instance_count)
+        [Client.get_traffic_policy_instance_count documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.get_traffic_policy_instance_count)
         """
 
     def list_geo_locations(
@@ -424,28 +492,28 @@ class Route53Client:
         MaxItems: str = None,
     ) -> ListGeoLocationsResponseTypeDef:
         """
-        [Client.list_geo_locations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.list_geo_locations)
+        [Client.list_geo_locations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.list_geo_locations)
         """
 
     def list_health_checks(
         self, Marker: str = None, MaxItems: str = None
     ) -> ListHealthChecksResponseTypeDef:
         """
-        [Client.list_health_checks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.list_health_checks)
+        [Client.list_health_checks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.list_health_checks)
         """
 
     def list_hosted_zones(
         self, Marker: str = None, MaxItems: str = None, DelegationSetId: str = None
     ) -> ListHostedZonesResponseTypeDef:
         """
-        [Client.list_hosted_zones documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.list_hosted_zones)
+        [Client.list_hosted_zones documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.list_hosted_zones)
         """
 
     def list_hosted_zones_by_name(
         self, DNSName: str = None, HostedZoneId: str = None, MaxItems: str = None
     ) -> ListHostedZonesByNameResponseTypeDef:
         """
-        [Client.list_hosted_zones_by_name documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.list_hosted_zones_by_name)
+        [Client.list_hosted_zones_by_name documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.list_hosted_zones_by_name)
         """
 
     def list_hosted_zones_by_vpc(
@@ -483,14 +551,14 @@ class Route53Client:
         NextToken: str = None,
     ) -> ListHostedZonesByVPCResponseTypeDef:
         """
-        [Client.list_hosted_zones_by_vpc documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.list_hosted_zones_by_vpc)
+        [Client.list_hosted_zones_by_vpc documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.list_hosted_zones_by_vpc)
         """
 
     def list_query_logging_configs(
         self, HostedZoneId: str = None, NextToken: str = None, MaxResults: str = None
     ) -> ListQueryLoggingConfigsResponseTypeDef:
         """
-        [Client.list_query_logging_configs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.list_query_logging_configs)
+        [Client.list_query_logging_configs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.list_query_logging_configs)
         """
 
     def list_resource_record_sets(
@@ -498,41 +566,53 @@ class Route53Client:
         HostedZoneId: str,
         StartRecordName: str = None,
         StartRecordType: Literal[
-            "SOA", "A", "TXT", "NS", "CNAME", "MX", "NAPTR", "PTR", "SRV", "SPF", "AAAA", "CAA"
+            "SOA",
+            "A",
+            "TXT",
+            "NS",
+            "CNAME",
+            "MX",
+            "NAPTR",
+            "PTR",
+            "SRV",
+            "SPF",
+            "AAAA",
+            "CAA",
+            "DS",
         ] = None,
         StartRecordIdentifier: str = None,
         MaxItems: str = None,
     ) -> ListResourceRecordSetsResponseTypeDef:
         """
-        [Client.list_resource_record_sets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.list_resource_record_sets)
+        [Client.list_resource_record_sets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.list_resource_record_sets)
         """
 
     def list_reusable_delegation_sets(
         self, Marker: str = None, MaxItems: str = None
     ) -> ListReusableDelegationSetsResponseTypeDef:
         """
-        [Client.list_reusable_delegation_sets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.list_reusable_delegation_sets)
+        [Client.list_reusable_delegation_sets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.list_reusable_delegation_sets)
         """
 
     def list_tags_for_resource(
         self, ResourceType: Literal["healthcheck", "hostedzone"], ResourceId: str
     ) -> ListTagsForResourceResponseTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.list_tags_for_resource)
         """
 
     def list_tags_for_resources(
         self, ResourceType: Literal["healthcheck", "hostedzone"], ResourceIds: List[str]
     ) -> ListTagsForResourcesResponseTypeDef:
         """
-        [Client.list_tags_for_resources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.list_tags_for_resources)
+        [Client.list_tags_for_resources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.list_tags_for_resources)
         """
 
     def list_traffic_policies(
         self, TrafficPolicyIdMarker: str = None, MaxItems: str = None
     ) -> ListTrafficPoliciesResponseTypeDef:
         """
-        [Client.list_traffic_policies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.list_traffic_policies)
+        [Client.list_traffic_policies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.list_traffic_policies)
         """
 
     def list_traffic_policy_instances(
@@ -540,12 +620,24 @@ class Route53Client:
         HostedZoneIdMarker: str = None,
         TrafficPolicyInstanceNameMarker: str = None,
         TrafficPolicyInstanceTypeMarker: Literal[
-            "SOA", "A", "TXT", "NS", "CNAME", "MX", "NAPTR", "PTR", "SRV", "SPF", "AAAA", "CAA"
+            "SOA",
+            "A",
+            "TXT",
+            "NS",
+            "CNAME",
+            "MX",
+            "NAPTR",
+            "PTR",
+            "SRV",
+            "SPF",
+            "AAAA",
+            "CAA",
+            "DS",
         ] = None,
         MaxItems: str = None,
     ) -> ListTrafficPolicyInstancesResponseTypeDef:
         """
-        [Client.list_traffic_policy_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.list_traffic_policy_instances)
+        [Client.list_traffic_policy_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.list_traffic_policy_instances)
         """
 
     def list_traffic_policy_instances_by_hosted_zone(
@@ -553,12 +645,24 @@ class Route53Client:
         HostedZoneId: str,
         TrafficPolicyInstanceNameMarker: str = None,
         TrafficPolicyInstanceTypeMarker: Literal[
-            "SOA", "A", "TXT", "NS", "CNAME", "MX", "NAPTR", "PTR", "SRV", "SPF", "AAAA", "CAA"
+            "SOA",
+            "A",
+            "TXT",
+            "NS",
+            "CNAME",
+            "MX",
+            "NAPTR",
+            "PTR",
+            "SRV",
+            "SPF",
+            "AAAA",
+            "CAA",
+            "DS",
         ] = None,
         MaxItems: str = None,
     ) -> ListTrafficPolicyInstancesByHostedZoneResponseTypeDef:
         """
-        [Client.list_traffic_policy_instances_by_hosted_zone documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.list_traffic_policy_instances_by_hosted_zone)
+        [Client.list_traffic_policy_instances_by_hosted_zone documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.list_traffic_policy_instances_by_hosted_zone)
         """
 
     def list_traffic_policy_instances_by_policy(
@@ -568,26 +672,38 @@ class Route53Client:
         HostedZoneIdMarker: str = None,
         TrafficPolicyInstanceNameMarker: str = None,
         TrafficPolicyInstanceTypeMarker: Literal[
-            "SOA", "A", "TXT", "NS", "CNAME", "MX", "NAPTR", "PTR", "SRV", "SPF", "AAAA", "CAA"
+            "SOA",
+            "A",
+            "TXT",
+            "NS",
+            "CNAME",
+            "MX",
+            "NAPTR",
+            "PTR",
+            "SRV",
+            "SPF",
+            "AAAA",
+            "CAA",
+            "DS",
         ] = None,
         MaxItems: str = None,
     ) -> ListTrafficPolicyInstancesByPolicyResponseTypeDef:
         """
-        [Client.list_traffic_policy_instances_by_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.list_traffic_policy_instances_by_policy)
+        [Client.list_traffic_policy_instances_by_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.list_traffic_policy_instances_by_policy)
         """
 
     def list_traffic_policy_versions(
         self, Id: str, TrafficPolicyVersionMarker: str = None, MaxItems: str = None
     ) -> ListTrafficPolicyVersionsResponseTypeDef:
         """
-        [Client.list_traffic_policy_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.list_traffic_policy_versions)
+        [Client.list_traffic_policy_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.list_traffic_policy_versions)
         """
 
     def list_vpc_association_authorizations(
         self, HostedZoneId: str, NextToken: str = None, MaxResults: str = None
     ) -> ListVPCAssociationAuthorizationsResponseTypeDef:
         """
-        [Client.list_vpc_association_authorizations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.list_vpc_association_authorizations)
+        [Client.list_vpc_association_authorizations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.list_vpc_association_authorizations)
         """
 
     def test_dns_answer(
@@ -595,14 +711,26 @@ class Route53Client:
         HostedZoneId: str,
         RecordName: str,
         RecordType: Literal[
-            "SOA", "A", "TXT", "NS", "CNAME", "MX", "NAPTR", "PTR", "SRV", "SPF", "AAAA", "CAA"
+            "SOA",
+            "A",
+            "TXT",
+            "NS",
+            "CNAME",
+            "MX",
+            "NAPTR",
+            "PTR",
+            "SRV",
+            "SPF",
+            "AAAA",
+            "CAA",
+            "DS",
         ],
         ResolverIP: str = None,
         EDNS0ClientSubnetIP: str = None,
         EDNS0ClientSubnetMask: str = None,
     ) -> TestDNSAnswerResponseTypeDef:
         """
-        [Client.test_dns_answer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.test_dns_answer)
+        [Client.test_dns_answer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.test_dns_answer)
         """
 
     def update_health_check(
@@ -639,28 +767,28 @@ class Route53Client:
         ] = None,
     ) -> UpdateHealthCheckResponseTypeDef:
         """
-        [Client.update_health_check documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.update_health_check)
+        [Client.update_health_check documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.update_health_check)
         """
 
     def update_hosted_zone_comment(
         self, Id: str, Comment: str = None
     ) -> UpdateHostedZoneCommentResponseTypeDef:
         """
-        [Client.update_hosted_zone_comment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.update_hosted_zone_comment)
+        [Client.update_hosted_zone_comment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.update_hosted_zone_comment)
         """
 
     def update_traffic_policy_comment(
         self, Id: str, Version: int, Comment: str
     ) -> UpdateTrafficPolicyCommentResponseTypeDef:
         """
-        [Client.update_traffic_policy_comment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.update_traffic_policy_comment)
+        [Client.update_traffic_policy_comment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.update_traffic_policy_comment)
         """
 
     def update_traffic_policy_instance(
         self, Id: str, TTL: int, TrafficPolicyId: str, TrafficPolicyVersion: int
     ) -> UpdateTrafficPolicyInstanceResponseTypeDef:
         """
-        [Client.update_traffic_policy_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Client.update_traffic_policy_instance)
+        [Client.update_traffic_policy_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Client.update_traffic_policy_instance)
         """
 
     @overload
@@ -668,7 +796,7 @@ class Route53Client:
         self, operation_name: Literal["list_health_checks"]
     ) -> ListHealthChecksPaginator:
         """
-        [Paginator.ListHealthChecks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Paginator.ListHealthChecks)
+        [Paginator.ListHealthChecks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Paginator.ListHealthChecks)
         """
 
     @overload
@@ -676,7 +804,7 @@ class Route53Client:
         self, operation_name: Literal["list_hosted_zones"]
     ) -> ListHostedZonesPaginator:
         """
-        [Paginator.ListHostedZones documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Paginator.ListHostedZones)
+        [Paginator.ListHostedZones documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Paginator.ListHostedZones)
         """
 
     @overload
@@ -684,7 +812,7 @@ class Route53Client:
         self, operation_name: Literal["list_query_logging_configs"]
     ) -> ListQueryLoggingConfigsPaginator:
         """
-        [Paginator.ListQueryLoggingConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Paginator.ListQueryLoggingConfigs)
+        [Paginator.ListQueryLoggingConfigs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Paginator.ListQueryLoggingConfigs)
         """
 
     @overload
@@ -692,7 +820,7 @@ class Route53Client:
         self, operation_name: Literal["list_resource_record_sets"]
     ) -> ListResourceRecordSetsPaginator:
         """
-        [Paginator.ListResourceRecordSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Paginator.ListResourceRecordSets)
+        [Paginator.ListResourceRecordSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Paginator.ListResourceRecordSets)
         """
 
     @overload
@@ -700,12 +828,12 @@ class Route53Client:
         self, operation_name: Literal["list_vpc_association_authorizations"]
     ) -> ListVPCAssociationAuthorizationsPaginator:
         """
-        [Paginator.ListVPCAssociationAuthorizations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Paginator.ListVPCAssociationAuthorizations)
+        [Paginator.ListVPCAssociationAuthorizations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Paginator.ListVPCAssociationAuthorizations)
         """
 
     def get_waiter(
         self, waiter_name: Literal["resource_record_sets_changed"]
     ) -> ResourceRecordSetsChangedWaiter:
         """
-        [Waiter.ResourceRecordSetsChanged documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53.html#Route53.Waiter.ResourceRecordSetsChanged)
+        [Waiter.ResourceRecordSetsChanged documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53.html#Route53.Waiter.ResourceRecordSetsChanged)
         """

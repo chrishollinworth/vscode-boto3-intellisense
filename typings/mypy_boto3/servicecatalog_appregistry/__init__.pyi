@@ -1,17 +1,17 @@
 from mypy_boto3_servicecatalog_appregistry import (
+    AppRegistryClient,
     Client,
     ListApplicationsPaginator,
     ListAssociatedAttributeGroupsPaginator,
     ListAssociatedResourcesPaginator,
     ListAttributeGroupsPaginator,
-    ServiceCatalogAppRegistryClient,
 )
 
 __all__ = (
+    "AppRegistryClient",
     "Client",
     "ListApplicationsPaginator",
     "ListAssociatedAttributeGroupsPaginator",
     "ListAssociatedResourcesPaginator",
     "ListAttributeGroupsPaginator",
-    "ServiceCatalogAppRegistryClient",
 )

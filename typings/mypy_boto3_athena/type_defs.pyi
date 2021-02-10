@@ -31,6 +31,7 @@ __all__ = (
     "DatabaseTypeDef",
     "DatumTypeDef",
     "EncryptionConfigurationTypeDef",
+    "EngineVersionTypeDef",
     "NamedQueryTypeDef",
     "QueryExecutionContextTypeDef",
     "QueryExecutionStatisticsTypeDef",
@@ -61,6 +62,7 @@ __all__ = (
     "GetWorkGroupOutputTypeDef",
     "ListDataCatalogsOutputTypeDef",
     "ListDatabasesOutputTypeDef",
+    "ListEngineVersionsOutputTypeDef",
     "ListNamedQueriesOutputTypeDef",
     "ListQueryExecutionsOutputTypeDef",
     "ListTableMetadataOutputTypeDef",
@@ -147,6 +149,12 @@ class EncryptionConfigurationTypeDef(
     pass
 
 
+EngineVersionTypeDef = TypedDict(
+    "EngineVersionTypeDef",
+    {"SelectedEngineVersion": str, "EffectiveEngineVersion": str},
+    total=False,
+)
+
 _RequiredNamedQueryTypeDef = TypedDict(
     "_RequiredNamedQueryTypeDef", {"Name": str, "Database": str, "QueryString": str}
 )
@@ -201,6 +209,7 @@ QueryExecutionTypeDef = TypedDict(
         "Status": "QueryExecutionStatusTypeDef",
         "Statistics": "QueryExecutionStatisticsTypeDef",
         "WorkGroup": str,
+        "EngineVersion": "EngineVersionTypeDef",
     },
     total=False,
 )
@@ -286,6 +295,7 @@ WorkGroupConfigurationTypeDef = TypedDict(
         "PublishCloudWatchMetricsEnabled": bool,
         "BytesScannedCutoffPerQuery": int,
         "RequesterPaysEnabled": bool,
+        "EngineVersion": "EngineVersionTypeDef",
     },
     total=False,
 )
@@ -297,6 +307,7 @@ WorkGroupSummaryTypeDef = TypedDict(
         "State": Literal["ENABLED", "DISABLED"],
         "Description": str,
         "CreationTime": datetime,
+        "EngineVersion": "EngineVersionTypeDef",
     },
     total=False,
 )
@@ -411,6 +422,16 @@ ListDatabasesOutputTypeDef = TypedDict(
     total=False,
 )
 
+ListEngineVersionsOutputTypeDef = TypedDict(
+    "ListEngineVersionsOutputTypeDef",
+    {
+        "EngineVersions": List["EngineVersionTypeDef"],
+        "NextToken": str,
+        "ResponseMetadata": "ResponseMetadata",
+    },
+    total=False,
+)
+
 ListNamedQueriesOutputTypeDef = TypedDict(
     "ListNamedQueriesOutputTypeDef",
     {"NamedQueryIds": List[str], "NextToken": str, "ResponseMetadata": "ResponseMetadata"},
@@ -468,6 +489,7 @@ WorkGroupConfigurationUpdatesTypeDef = TypedDict(
         "BytesScannedCutoffPerQuery": int,
         "RemoveBytesScannedCutoffPerQuery": bool,
         "RequesterPaysEnabled": bool,
+        "EngineVersion": "EngineVersionTypeDef",
     },
     total=False,
 )

@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
 """
 Main interface for acm-pca service client waiters.
 
@@ -34,7 +33,7 @@ __all__ = (
 
 class AuditReportCreatedWaiter(Boto3Waiter):
     """
-    [Waiter.AuditReportCreated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm-pca.html#ACMPCA.Waiter.AuditReportCreated)
+    [Waiter.AuditReportCreated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/acm-pca.html#ACMPCA.Waiter.AuditReportCreated)
     """
 
     def wait(
@@ -44,24 +43,24 @@ class AuditReportCreatedWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [AuditReportCreated.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm-pca.html#ACMPCA.Waiter.AuditReportCreated.wait)
+        [AuditReportCreated.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/acm-pca.html#ACMPCA.Waiter.AuditReportCreated.wait)
         """
 
 
 class CertificateAuthorityCSRCreatedWaiter(Boto3Waiter):
     """
-    [Waiter.CertificateAuthorityCSRCreated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm-pca.html#ACMPCA.Waiter.CertificateAuthorityCSRCreated)
+    [Waiter.CertificateAuthorityCSRCreated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/acm-pca.html#ACMPCA.Waiter.CertificateAuthorityCSRCreated)
     """
 
     def wait(self, CertificateAuthorityArn: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [CertificateAuthorityCSRCreated.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm-pca.html#ACMPCA.Waiter.CertificateAuthorityCSRCreated.wait)
+        [CertificateAuthorityCSRCreated.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/acm-pca.html#ACMPCA.Waiter.CertificateAuthorityCSRCreated.wait)
         """
 
 
 class CertificateIssuedWaiter(Boto3Waiter):
     """
-    [Waiter.CertificateIssued documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm-pca.html#ACMPCA.Waiter.CertificateIssued)
+    [Waiter.CertificateIssued documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/acm-pca.html#ACMPCA.Waiter.CertificateIssued)
     """
 
     def wait(
@@ -71,5 +70,5 @@ class CertificateIssuedWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [CertificateIssued.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm-pca.html#ACMPCA.Waiter.CertificateIssued.wait)
+        [CertificateIssued.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/acm-pca.html#ACMPCA.Waiter.CertificateIssued.wait)
         """

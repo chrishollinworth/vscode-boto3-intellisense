@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for kinesis-video-media service client
 
@@ -40,7 +39,7 @@ class Exceptions:
 
 class KinesisVideoMediaClient:
     """
-    [KinesisVideoMedia.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis-video-media.html#KinesisVideoMedia.Client)
+    [KinesisVideoMedia.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis-video-media.html#KinesisVideoMedia.Client)
     """
 
     meta: ClientMeta
@@ -48,7 +47,7 @@ class KinesisVideoMediaClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis-video-media.html#KinesisVideoMedia.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis-video-media.html#KinesisVideoMedia.Client.can_paginate)
         """
 
     def generate_presigned_url(
@@ -59,12 +58,12 @@ class KinesisVideoMediaClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis-video-media.html#KinesisVideoMedia.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis-video-media.html#KinesisVideoMedia.Client.generate_presigned_url)
         """
 
     def get_media(
         self, StartSelector: StartSelectorTypeDef, StreamName: str = None, StreamARN: str = None
     ) -> GetMediaOutputTypeDef:
         """
-        [Client.get_media documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis-video-media.html#KinesisVideoMedia.Client.get_media)
+        [Client.get_media documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis-video-media.html#KinesisVideoMedia.Client.get_media)
         """

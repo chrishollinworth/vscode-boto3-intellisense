@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for honeycode service client paginators.
 
@@ -46,20 +45,20 @@ __all__ = (
 
 class ListTableColumnsPaginator(Boto3Paginator):
     """
-    [Paginator.ListTableColumns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/honeycode.html#Honeycode.Paginator.ListTableColumns)
+    [Paginator.ListTableColumns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/honeycode.html#Honeycode.Paginator.ListTableColumns)
     """
 
     def paginate(
         self, workbookId: str, tableId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTableColumnsResultTypeDef]:
         """
-        [ListTableColumns.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/honeycode.html#Honeycode.Paginator.ListTableColumns.paginate)
+        [ListTableColumns.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/honeycode.html#Honeycode.Paginator.ListTableColumns.paginate)
         """
 
 
 class ListTableRowsPaginator(Boto3Paginator):
     """
-    [Paginator.ListTableRows documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/honeycode.html#Honeycode.Paginator.ListTableRows)
+    [Paginator.ListTableRows documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/honeycode.html#Honeycode.Paginator.ListTableRows)
     """
 
     def paginate(
@@ -70,26 +69,26 @@ class ListTableRowsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListTableRowsResultTypeDef]:
         """
-        [ListTableRows.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/honeycode.html#Honeycode.Paginator.ListTableRows.paginate)
+        [ListTableRows.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/honeycode.html#Honeycode.Paginator.ListTableRows.paginate)
         """
 
 
 class ListTablesPaginator(Boto3Paginator):
     """
-    [Paginator.ListTables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/honeycode.html#Honeycode.Paginator.ListTables)
+    [Paginator.ListTables documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/honeycode.html#Honeycode.Paginator.ListTables)
     """
 
     def paginate(
         self, workbookId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTablesResultTypeDef]:
         """
-        [ListTables.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/honeycode.html#Honeycode.Paginator.ListTables.paginate)
+        [ListTables.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/honeycode.html#Honeycode.Paginator.ListTables.paginate)
         """
 
 
 class QueryTableRowsPaginator(Boto3Paginator):
     """
-    [Paginator.QueryTableRows documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/honeycode.html#Honeycode.Paginator.QueryTableRows)
+    [Paginator.QueryTableRows documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/honeycode.html#Honeycode.Paginator.QueryTableRows)
     """
 
     def paginate(
@@ -100,5 +99,5 @@ class QueryTableRowsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[QueryTableRowsResultTypeDef]:
         """
-        [QueryTableRows.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/honeycode.html#Honeycode.Paginator.QueryTableRows.paginate)
+        [QueryTableRows.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/honeycode.html#Honeycode.Paginator.QueryTableRows.paginate)
         """

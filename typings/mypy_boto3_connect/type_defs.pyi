@@ -42,7 +42,10 @@ __all__ = (
     "HistoricalMetricDataTypeDef",
     "HistoricalMetricResultTypeDef",
     "HistoricalMetricTypeDef",
+    "HoursOfOperationConfigTypeDef",
     "HoursOfOperationSummaryTypeDef",
+    "HoursOfOperationTimeSliceTypeDef",
+    "HoursOfOperationTypeDef",
     "InstanceStatusReasonTypeDef",
     "InstanceStorageConfigTypeDef",
     "InstanceSummaryTypeDef",
@@ -53,10 +56,17 @@ __all__ = (
     "KinesisVideoStreamConfigTypeDef",
     "LexBotTypeDef",
     "MediaConcurrencyTypeDef",
+    "OutboundCallerConfigTypeDef",
+    "PhoneNumberQuickConnectConfigTypeDef",
     "PhoneNumberSummaryTypeDef",
     "PromptSummaryTypeDef",
+    "QueueQuickConnectConfigTypeDef",
     "QueueReferenceTypeDef",
     "QueueSummaryTypeDef",
+    "QueueTypeDef",
+    "QuickConnectConfigTypeDef",
+    "QuickConnectSummaryTypeDef",
+    "QuickConnectTypeDef",
     "RoutingProfileQueueConfigSummaryTypeDef",
     "RoutingProfileQueueReferenceTypeDef",
     "RoutingProfileSummaryTypeDef",
@@ -68,6 +78,7 @@ __all__ = (
     "UseCaseTypeDef",
     "UserIdentityInfoTypeDef",
     "UserPhoneConfigTypeDef",
+    "UserQuickConnectConfigTypeDef",
     "UserSummaryTypeDef",
     "UserTypeDef",
     "AssociateInstanceStorageConfigResponseTypeDef",
@@ -76,14 +87,19 @@ __all__ = (
     "CreateContactFlowResponseTypeDef",
     "CreateInstanceResponseTypeDef",
     "CreateIntegrationAssociationResponseTypeDef",
+    "CreateQueueResponseTypeDef",
+    "CreateQuickConnectResponseTypeDef",
     "CreateRoutingProfileResponseTypeDef",
     "CreateUseCaseResponseTypeDef",
     "CreateUserHierarchyGroupResponseTypeDef",
     "CreateUserResponseTypeDef",
     "DescribeContactFlowResponseTypeDef",
+    "DescribeHoursOfOperationResponseTypeDef",
     "DescribeInstanceAttributeResponseTypeDef",
     "DescribeInstanceResponseTypeDef",
     "DescribeInstanceStorageConfigResponseTypeDef",
+    "DescribeQueueResponseTypeDef",
+    "DescribeQuickConnectResponseTypeDef",
     "DescribeRoutingProfileResponseTypeDef",
     "DescribeUserHierarchyGroupResponseTypeDef",
     "DescribeUserHierarchyStructureResponseTypeDef",
@@ -105,7 +121,9 @@ __all__ = (
     "ListLexBotsResponseTypeDef",
     "ListPhoneNumbersResponseTypeDef",
     "ListPromptsResponseTypeDef",
+    "ListQueueQuickConnectsResponseTypeDef",
     "ListQueuesResponseTypeDef",
+    "ListQuickConnectsResponseTypeDef",
     "ListRoutingProfileQueuesResponseTypeDef",
     "ListRoutingProfilesResponseTypeDef",
     "ListSecurityKeysResponseTypeDef",
@@ -329,8 +347,38 @@ HistoricalMetricTypeDef = TypedDict(
     total=False,
 )
 
+HoursOfOperationConfigTypeDef = TypedDict(
+    "HoursOfOperationConfigTypeDef",
+    {
+        "Day": Literal[
+            "SUNDAY", "MONDAY", "TUESDAY", "WEDNESDAY", "THURSDAY", "FRIDAY", "SATURDAY"
+        ],
+        "StartTime": "HoursOfOperationTimeSliceTypeDef",
+        "EndTime": "HoursOfOperationTimeSliceTypeDef",
+    },
+    total=False,
+)
+
 HoursOfOperationSummaryTypeDef = TypedDict(
     "HoursOfOperationSummaryTypeDef", {"Id": str, "Arn": str, "Name": str}, total=False
+)
+
+HoursOfOperationTimeSliceTypeDef = TypedDict(
+    "HoursOfOperationTimeSliceTypeDef", {"Hours": int, "Minutes": int}, total=False
+)
+
+HoursOfOperationTypeDef = TypedDict(
+    "HoursOfOperationTypeDef",
+    {
+        "HoursOfOperationId": str,
+        "HoursOfOperationArn": str,
+        "Name": str,
+        "Description": str,
+        "TimeZone": str,
+        "Config": List["HoursOfOperationConfigTypeDef"],
+        "Tags": Dict[str, str],
+    },
+    total=False,
 )
 
 InstanceStatusReasonTypeDef = TypedDict(
@@ -421,6 +469,16 @@ LexBotTypeDef = TypedDict("LexBotTypeDef", {"Name": str, "LexRegion": str}, tota
 
 MediaConcurrencyTypeDef = TypedDict(
     "MediaConcurrencyTypeDef", {"Channel": Literal["VOICE", "CHAT", "TASK"], "Concurrency": int}
+)
+
+OutboundCallerConfigTypeDef = TypedDict(
+    "OutboundCallerConfigTypeDef",
+    {"OutboundCallerIdName": str, "OutboundCallerIdNumberId": str, "OutboundFlowId": str},
+    total=False,
+)
+
+PhoneNumberQuickConnectConfigTypeDef = TypedDict(
+    "PhoneNumberQuickConnectConfigTypeDef", {"PhoneNumber": str}
 )
 
 PhoneNumberSummaryTypeDef = TypedDict(
@@ -677,11 +735,76 @@ PromptSummaryTypeDef = TypedDict(
     "PromptSummaryTypeDef", {"Id": str, "Arn": str, "Name": str}, total=False
 )
 
+QueueQuickConnectConfigTypeDef = TypedDict(
+    "QueueQuickConnectConfigTypeDef", {"QueueId": str, "ContactFlowId": str}
+)
+
 QueueReferenceTypeDef = TypedDict("QueueReferenceTypeDef", {"Id": str, "Arn": str}, total=False)
 
 QueueSummaryTypeDef = TypedDict(
     "QueueSummaryTypeDef",
     {"Id": str, "Arn": str, "Name": str, "QueueType": Literal["STANDARD", "AGENT"]},
+    total=False,
+)
+
+QueueTypeDef = TypedDict(
+    "QueueTypeDef",
+    {
+        "Name": str,
+        "QueueArn": str,
+        "QueueId": str,
+        "Description": str,
+        "OutboundCallerConfig": "OutboundCallerConfigTypeDef",
+        "HoursOfOperationId": str,
+        "MaxContacts": int,
+        "Status": Literal["ENABLED", "DISABLED"],
+        "Tags": Dict[str, str],
+    },
+    total=False,
+)
+
+_RequiredQuickConnectConfigTypeDef = TypedDict(
+    "_RequiredQuickConnectConfigTypeDef",
+    {"QuickConnectType": Literal["USER", "QUEUE", "PHONE_NUMBER"]},
+)
+_OptionalQuickConnectConfigTypeDef = TypedDict(
+    "_OptionalQuickConnectConfigTypeDef",
+    {
+        "UserConfig": "UserQuickConnectConfigTypeDef",
+        "QueueConfig": "QueueQuickConnectConfigTypeDef",
+        "PhoneConfig": "PhoneNumberQuickConnectConfigTypeDef",
+    },
+    total=False,
+)
+
+
+class QuickConnectConfigTypeDef(
+    _RequiredQuickConnectConfigTypeDef, _OptionalQuickConnectConfigTypeDef
+):
+    pass
+
+
+QuickConnectSummaryTypeDef = TypedDict(
+    "QuickConnectSummaryTypeDef",
+    {
+        "Id": str,
+        "Arn": str,
+        "Name": str,
+        "QuickConnectType": Literal["USER", "QUEUE", "PHONE_NUMBER"],
+    },
+    total=False,
+)
+
+QuickConnectTypeDef = TypedDict(
+    "QuickConnectTypeDef",
+    {
+        "QuickConnectARN": str,
+        "QuickConnectId": str,
+        "Name": str,
+        "Description": str,
+        "QuickConnectConfig": "QuickConnectConfigTypeDef",
+        "Tags": Dict[str, str],
+    },
     total=False,
 )
 
@@ -769,6 +892,10 @@ class UserPhoneConfigTypeDef(_RequiredUserPhoneConfigTypeDef, _OptionalUserPhone
     pass
 
 
+UserQuickConnectConfigTypeDef = TypedDict(
+    "UserQuickConnectConfigTypeDef", {"UserId": str, "ContactFlowId": str}
+)
+
 UserSummaryTypeDef = TypedDict(
     "UserSummaryTypeDef", {"Id": str, "Arn": str, "Username": str}, total=False
 )
@@ -814,6 +941,16 @@ CreateIntegrationAssociationResponseTypeDef = TypedDict(
     total=False,
 )
 
+CreateQueueResponseTypeDef = TypedDict(
+    "CreateQueueResponseTypeDef", {"QueueArn": str, "QueueId": str}, total=False
+)
+
+CreateQuickConnectResponseTypeDef = TypedDict(
+    "CreateQuickConnectResponseTypeDef",
+    {"QuickConnectARN": str, "QuickConnectId": str},
+    total=False,
+)
+
 CreateRoutingProfileResponseTypeDef = TypedDict(
     "CreateRoutingProfileResponseTypeDef",
     {"RoutingProfileArn": str, "RoutingProfileId": str},
@@ -838,6 +975,12 @@ DescribeContactFlowResponseTypeDef = TypedDict(
     "DescribeContactFlowResponseTypeDef", {"ContactFlow": "ContactFlowTypeDef"}, total=False
 )
 
+DescribeHoursOfOperationResponseTypeDef = TypedDict(
+    "DescribeHoursOfOperationResponseTypeDef",
+    {"HoursOfOperation": "HoursOfOperationTypeDef"},
+    total=False,
+)
+
 DescribeInstanceAttributeResponseTypeDef = TypedDict(
     "DescribeInstanceAttributeResponseTypeDef", {"Attribute": "AttributeTypeDef"}, total=False
 )
@@ -850,6 +993,14 @@ DescribeInstanceStorageConfigResponseTypeDef = TypedDict(
     "DescribeInstanceStorageConfigResponseTypeDef",
     {"StorageConfig": "InstanceStorageConfigTypeDef"},
     total=False,
+)
+
+DescribeQueueResponseTypeDef = TypedDict(
+    "DescribeQueueResponseTypeDef", {"Queue": "QueueTypeDef"}, total=False
+)
+
+DescribeQuickConnectResponseTypeDef = TypedDict(
+    "DescribeQuickConnectResponseTypeDef", {"QuickConnect": "QuickConnectTypeDef"}, total=False
 )
 
 DescribeRoutingProfileResponseTypeDef = TypedDict(
@@ -981,9 +1132,21 @@ ListPromptsResponseTypeDef = TypedDict(
     total=False,
 )
 
+ListQueueQuickConnectsResponseTypeDef = TypedDict(
+    "ListQueueQuickConnectsResponseTypeDef",
+    {"NextToken": str, "QuickConnectSummaryList": List["QuickConnectSummaryTypeDef"]},
+    total=False,
+)
+
 ListQueuesResponseTypeDef = TypedDict(
     "ListQueuesResponseTypeDef",
     {"QueueSummaryList": List["QueueSummaryTypeDef"], "NextToken": str},
+    total=False,
+)
+
+ListQuickConnectsResponseTypeDef = TypedDict(
+    "ListQuickConnectsResponseTypeDef",
+    {"QuickConnectSummaryList": List["QuickConnectSummaryTypeDef"], "NextToken": str},
     total=False,
 )
 

@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for workmail service client paginators.
 
@@ -61,103 +60,103 @@ __all__ = (
 
 class ListAliasesPaginator(Boto3Paginator):
     """
-    [Paginator.ListAliases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workmail.html#WorkMail.Paginator.ListAliases)
+    [Paginator.ListAliases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/workmail.html#WorkMail.Paginator.ListAliases)
     """
 
     def paginate(
         self, OrganizationId: str, EntityId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAliasesResponseTypeDef]:
         """
-        [ListAliases.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workmail.html#WorkMail.Paginator.ListAliases.paginate)
+        [ListAliases.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/workmail.html#WorkMail.Paginator.ListAliases.paginate)
         """
 
 
 class ListGroupMembersPaginator(Boto3Paginator):
     """
-    [Paginator.ListGroupMembers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workmail.html#WorkMail.Paginator.ListGroupMembers)
+    [Paginator.ListGroupMembers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/workmail.html#WorkMail.Paginator.ListGroupMembers)
     """
 
     def paginate(
         self, OrganizationId: str, GroupId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListGroupMembersResponseTypeDef]:
         """
-        [ListGroupMembers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workmail.html#WorkMail.Paginator.ListGroupMembers.paginate)
+        [ListGroupMembers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/workmail.html#WorkMail.Paginator.ListGroupMembers.paginate)
         """
 
 
 class ListGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.ListGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workmail.html#WorkMail.Paginator.ListGroups)
+    [Paginator.ListGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/workmail.html#WorkMail.Paginator.ListGroups)
     """
 
     def paginate(
         self, OrganizationId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListGroupsResponseTypeDef]:
         """
-        [ListGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workmail.html#WorkMail.Paginator.ListGroups.paginate)
+        [ListGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/workmail.html#WorkMail.Paginator.ListGroups.paginate)
         """
 
 
 class ListMailboxPermissionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListMailboxPermissions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workmail.html#WorkMail.Paginator.ListMailboxPermissions)
+    [Paginator.ListMailboxPermissions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/workmail.html#WorkMail.Paginator.ListMailboxPermissions)
     """
 
     def paginate(
         self, OrganizationId: str, EntityId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListMailboxPermissionsResponseTypeDef]:
         """
-        [ListMailboxPermissions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workmail.html#WorkMail.Paginator.ListMailboxPermissions.paginate)
+        [ListMailboxPermissions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/workmail.html#WorkMail.Paginator.ListMailboxPermissions.paginate)
         """
 
 
 class ListOrganizationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListOrganizations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workmail.html#WorkMail.Paginator.ListOrganizations)
+    [Paginator.ListOrganizations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/workmail.html#WorkMail.Paginator.ListOrganizations)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListOrganizationsResponseTypeDef]:
         """
-        [ListOrganizations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workmail.html#WorkMail.Paginator.ListOrganizations.paginate)
+        [ListOrganizations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/workmail.html#WorkMail.Paginator.ListOrganizations.paginate)
         """
 
 
 class ListResourceDelegatesPaginator(Boto3Paginator):
     """
-    [Paginator.ListResourceDelegates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workmail.html#WorkMail.Paginator.ListResourceDelegates)
+    [Paginator.ListResourceDelegates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/workmail.html#WorkMail.Paginator.ListResourceDelegates)
     """
 
     def paginate(
         self, OrganizationId: str, ResourceId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListResourceDelegatesResponseTypeDef]:
         """
-        [ListResourceDelegates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workmail.html#WorkMail.Paginator.ListResourceDelegates.paginate)
+        [ListResourceDelegates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/workmail.html#WorkMail.Paginator.ListResourceDelegates.paginate)
         """
 
 
 class ListResourcesPaginator(Boto3Paginator):
     """
-    [Paginator.ListResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workmail.html#WorkMail.Paginator.ListResources)
+    [Paginator.ListResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/workmail.html#WorkMail.Paginator.ListResources)
     """
 
     def paginate(
         self, OrganizationId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListResourcesResponseTypeDef]:
         """
-        [ListResources.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workmail.html#WorkMail.Paginator.ListResources.paginate)
+        [ListResources.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/workmail.html#WorkMail.Paginator.ListResources.paginate)
         """
 
 
 class ListUsersPaginator(Boto3Paginator):
     """
-    [Paginator.ListUsers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workmail.html#WorkMail.Paginator.ListUsers)
+    [Paginator.ListUsers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/workmail.html#WorkMail.Paginator.ListUsers)
     """
 
     def paginate(
         self, OrganizationId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListUsersResponseTypeDef]:
         """
-        [ListUsers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/workmail.html#WorkMail.Paginator.ListUsers.paginate)
+        [ListUsers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/workmail.html#WorkMail.Paginator.ListUsers.paginate)
         """

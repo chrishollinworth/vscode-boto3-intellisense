@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for appsync service client paginators.
 
@@ -64,85 +63,85 @@ __all__ = (
 
 class ListApiKeysPaginator(Boto3Paginator):
     """
-    [Paginator.ListApiKeys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Paginator.ListApiKeys)
+    [Paginator.ListApiKeys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appsync.html#AppSync.Paginator.ListApiKeys)
     """
 
     def paginate(
         self, apiId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListApiKeysResponseTypeDef]:
         """
-        [ListApiKeys.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Paginator.ListApiKeys.paginate)
+        [ListApiKeys.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appsync.html#AppSync.Paginator.ListApiKeys.paginate)
         """
 
 
 class ListDataSourcesPaginator(Boto3Paginator):
     """
-    [Paginator.ListDataSources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Paginator.ListDataSources)
+    [Paginator.ListDataSources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appsync.html#AppSync.Paginator.ListDataSources)
     """
 
     def paginate(
         self, apiId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDataSourcesResponseTypeDef]:
         """
-        [ListDataSources.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Paginator.ListDataSources.paginate)
+        [ListDataSources.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appsync.html#AppSync.Paginator.ListDataSources.paginate)
         """
 
 
 class ListFunctionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListFunctions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Paginator.ListFunctions)
+    [Paginator.ListFunctions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appsync.html#AppSync.Paginator.ListFunctions)
     """
 
     def paginate(
         self, apiId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListFunctionsResponseTypeDef]:
         """
-        [ListFunctions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Paginator.ListFunctions.paginate)
+        [ListFunctions.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appsync.html#AppSync.Paginator.ListFunctions.paginate)
         """
 
 
 class ListGraphqlApisPaginator(Boto3Paginator):
     """
-    [Paginator.ListGraphqlApis documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Paginator.ListGraphqlApis)
+    [Paginator.ListGraphqlApis documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appsync.html#AppSync.Paginator.ListGraphqlApis)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListGraphqlApisResponseTypeDef]:
         """
-        [ListGraphqlApis.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Paginator.ListGraphqlApis.paginate)
+        [ListGraphqlApis.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appsync.html#AppSync.Paginator.ListGraphqlApis.paginate)
         """
 
 
 class ListResolversPaginator(Boto3Paginator):
     """
-    [Paginator.ListResolvers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Paginator.ListResolvers)
+    [Paginator.ListResolvers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appsync.html#AppSync.Paginator.ListResolvers)
     """
 
     def paginate(
         self, apiId: str, typeName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListResolversResponseTypeDef]:
         """
-        [ListResolvers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Paginator.ListResolvers.paginate)
+        [ListResolvers.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appsync.html#AppSync.Paginator.ListResolvers.paginate)
         """
 
 
 class ListResolversByFunctionPaginator(Boto3Paginator):
     """
-    [Paginator.ListResolversByFunction documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Paginator.ListResolversByFunction)
+    [Paginator.ListResolversByFunction documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appsync.html#AppSync.Paginator.ListResolversByFunction)
     """
 
     def paginate(
         self, apiId: str, functionId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListResolversByFunctionResponseTypeDef]:
         """
-        [ListResolversByFunction.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Paginator.ListResolversByFunction.paginate)
+        [ListResolversByFunction.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appsync.html#AppSync.Paginator.ListResolversByFunction.paginate)
         """
 
 
 class ListTypesPaginator(Boto3Paginator):
     """
-    [Paginator.ListTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Paginator.ListTypes)
+    [Paginator.ListTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appsync.html#AppSync.Paginator.ListTypes)
     """
 
     def paginate(
@@ -152,5 +151,5 @@ class ListTypesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListTypesResponseTypeDef]:
         """
-        [ListTypes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/appsync.html#AppSync.Paginator.ListTypes.paginate)
+        [ListTypes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/appsync.html#AppSync.Paginator.ListTypes.paginate)
         """

@@ -28,6 +28,7 @@ __all__ = (
     "GetOutpostOutputTypeDef",
     "ListOutpostsOutputTypeDef",
     "ListSitesOutputTypeDef",
+    "ListTagsForResourceResponseTypeDef",
 )
 
 InstanceTypeItemTypeDef = TypedDict("InstanceTypeItemTypeDef", {"InstanceType": str}, total=False)
@@ -100,4 +101,8 @@ ListSitesOutputTypeDef = TypedDict(
     "ListSitesOutputTypeDef",
     {"Sites": List["SiteTypeDef"], "NextToken": str, "ResponseMetadata": "ResponseMetadata"},
     total=False,
+)
+
+ListTagsForResourceResponseTypeDef = TypedDict(
+    "ListTagsForResourceResponseTypeDef", {"Tags": Dict[str, str]}, total=False
 )

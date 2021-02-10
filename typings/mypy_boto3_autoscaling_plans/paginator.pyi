@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for autoscaling-plans service client paginators.
 
@@ -35,7 +34,7 @@ __all__ = ("DescribeScalingPlanResourcesPaginator", "DescribeScalingPlansPaginat
 
 class DescribeScalingPlanResourcesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeScalingPlanResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/autoscaling-plans.html#AutoScalingPlans.Paginator.DescribeScalingPlanResources)
+    [Paginator.DescribeScalingPlanResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/autoscaling-plans.html#AutoScalingPlans.Paginator.DescribeScalingPlanResources)
     """
 
     def paginate(
@@ -45,13 +44,13 @@ class DescribeScalingPlanResourcesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeScalingPlanResourcesResponseTypeDef]:
         """
-        [DescribeScalingPlanResources.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/autoscaling-plans.html#AutoScalingPlans.Paginator.DescribeScalingPlanResources.paginate)
+        [DescribeScalingPlanResources.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/autoscaling-plans.html#AutoScalingPlans.Paginator.DescribeScalingPlanResources.paginate)
         """
 
 
 class DescribeScalingPlansPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeScalingPlans documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/autoscaling-plans.html#AutoScalingPlans.Paginator.DescribeScalingPlans)
+    [Paginator.DescribeScalingPlans documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/autoscaling-plans.html#AutoScalingPlans.Paginator.DescribeScalingPlans)
     """
 
     def paginate(
@@ -62,5 +61,5 @@ class DescribeScalingPlansPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeScalingPlansResponseTypeDef]:
         """
-        [DescribeScalingPlans.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/autoscaling-plans.html#AutoScalingPlans.Paginator.DescribeScalingPlans.paginate)
+        [DescribeScalingPlans.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/autoscaling-plans.html#AutoScalingPlans.Paginator.DescribeScalingPlans.paginate)
         """

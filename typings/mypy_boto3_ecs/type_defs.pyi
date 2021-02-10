@@ -758,6 +758,9 @@ TaskDefinitionTypeDef = TypedDict(
         "pidMode": Literal["host", "task"],
         "ipcMode": Literal["host", "task", "none"],
         "proxyConfiguration": "ProxyConfigurationTypeDef",
+        "registeredAt": datetime,
+        "deregisteredAt": datetime,
+        "registeredBy": str,
     },
     total=False,
 )

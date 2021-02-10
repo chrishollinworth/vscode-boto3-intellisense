@@ -62,6 +62,7 @@ __all__ = (
     "SimulationSoftwareSuiteTypeDef",
     "SourceTypeDef",
     "TemplateSummaryTypeDef",
+    "UploadConfigurationTypeDef",
     "VPCConfigResponseTypeDef",
     "VPCConfigTypeDef",
     "WorldConfigTypeDef",
@@ -245,6 +246,7 @@ FailedCreateSimulationJobRequestTypeDef = TypedDict(
             "WrongRegionS3Output",
             "WrongRegionRobotApplication",
             "WrongRegionSimulationApplication",
+            "UploadContentMismatchError",
         ],
         "failedAt": datetime,
     },
@@ -363,7 +365,13 @@ _RequiredRobotApplicationConfigTypeDef = TypedDict(
     {"application": str, "launchConfig": "LaunchConfigTypeDef"},
 )
 _OptionalRobotApplicationConfigTypeDef = TypedDict(
-    "_OptionalRobotApplicationConfigTypeDef", {"applicationVersion": str}, total=False
+    "_OptionalRobotApplicationConfigTypeDef",
+    {
+        "applicationVersion": str,
+        "uploadConfigurations": List["UploadConfigurationTypeDef"],
+        "useDefaultUploadConfigurations": bool,
+    },
+    total=False,
 )
 
 
@@ -478,7 +486,12 @@ _RequiredSimulationApplicationConfigTypeDef = TypedDict(
 )
 _OptionalSimulationApplicationConfigTypeDef = TypedDict(
     "_OptionalSimulationApplicationConfigTypeDef",
-    {"applicationVersion": str, "worldConfigs": List["WorldConfigTypeDef"]},
+    {
+        "applicationVersion": str,
+        "uploadConfigurations": List["UploadConfigurationTypeDef"],
+        "worldConfigs": List["WorldConfigTypeDef"],
+        "useDefaultUploadConfigurations": bool,
+    },
     total=False,
 )
 
@@ -627,6 +640,7 @@ SimulationJobTypeDef = TypedDict(
             "WrongRegionS3Output",
             "WrongRegionRobotApplication",
             "WrongRegionSimulationApplication",
+            "UploadContentMismatchError",
         ],
         "failureReason": str,
         "clientRequestToken": str,
@@ -667,6 +681,15 @@ TemplateSummaryTypeDef = TypedDict(
     "TemplateSummaryTypeDef",
     {"arn": str, "createdAt": datetime, "lastUpdatedAt": datetime, "name": str},
     total=False,
+)
+
+UploadConfigurationTypeDef = TypedDict(
+    "UploadConfigurationTypeDef",
+    {
+        "name": str,
+        "path": str,
+        "uploadBehavior": Literal["UPLOAD_ON_TERMINATE", "UPLOAD_ROLLING_AUTO_REMOVE"],
+    },
 )
 
 VPCConfigResponseTypeDef = TypedDict(
@@ -916,6 +939,7 @@ CreateSimulationJobResponseTypeDef = TypedDict(
             "WrongRegionS3Output",
             "WrongRegionRobotApplication",
             "WrongRegionSimulationApplication",
+            "UploadContentMismatchError",
         ],
         "clientRequestToken": str,
         "outputLocation": "OutputLocationTypeDef",
@@ -1185,6 +1209,7 @@ DescribeSimulationJobResponseTypeDef = TypedDict(
             "WrongRegionS3Output",
             "WrongRegionRobotApplication",
             "WrongRegionSimulationApplication",
+            "UploadContentMismatchError",
         ],
         "failureReason": str,
         "clientRequestToken": str,

@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
 """
 Main interface for ses service client waiters.
 
@@ -28,10 +27,10 @@ __all__ = ("IdentityExistsWaiter",)
 
 class IdentityExistsWaiter(Boto3Waiter):
     """
-    [Waiter.IdentityExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ses.html#SES.Waiter.IdentityExists)
+    [Waiter.IdentityExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ses.html#SES.Waiter.IdentityExists)
     """
 
     def wait(self, Identities: List[str], WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [IdentityExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ses.html#SES.Waiter.IdentityExists.wait)
+        [IdentityExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ses.html#SES.Waiter.IdentityExists.wait)
         """

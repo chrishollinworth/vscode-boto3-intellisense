@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
 """
 Main interface for signer service client waiters.
 
@@ -26,10 +25,10 @@ __all__ = ("SuccessfulSigningJobWaiter",)
 
 class SuccessfulSigningJobWaiter(Boto3Waiter):
     """
-    [Waiter.SuccessfulSigningJob documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/signer.html#Signer.Waiter.SuccessfulSigningJob)
+    [Waiter.SuccessfulSigningJob documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/signer.html#Signer.Waiter.SuccessfulSigningJob)
     """
 
     def wait(self, jobId: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [SuccessfulSigningJob.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/signer.html#Signer.Waiter.SuccessfulSigningJob.wait)
+        [SuccessfulSigningJob.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/signer.html#Signer.Waiter.SuccessfulSigningJob.wait)
         """

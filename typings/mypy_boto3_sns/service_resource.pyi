@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import
 """
 Main interface for sns service ServiceResource
 
@@ -45,7 +44,7 @@ __all__ = (
 
 class ServiceResourcePlatformApplicationsCollection(ResourceCollection):
     """
-    [ServiceResource.platform_applications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sns.html#SNS.ServiceResource.platform_applications)
+    [ServiceResource.platform_applications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sns.html#SNS.ServiceResource.platform_applications)
     """
 
     def all(self) -> "ServiceResourcePlatformApplicationsCollection":
@@ -71,7 +70,7 @@ class ServiceResourcePlatformApplicationsCollection(ResourceCollection):
 
 class ServiceResourceSubscriptionsCollection(ResourceCollection):
     """
-    [ServiceResource.subscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sns.html#SNS.ServiceResource.subscriptions)
+    [ServiceResource.subscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sns.html#SNS.ServiceResource.subscriptions)
     """
 
     def all(self) -> "ServiceResourceSubscriptionsCollection":
@@ -97,7 +96,7 @@ class ServiceResourceSubscriptionsCollection(ResourceCollection):
 
 class ServiceResourceTopicsCollection(ResourceCollection):
     """
-    [ServiceResource.topics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sns.html#SNS.ServiceResource.topics)
+    [ServiceResource.topics documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sns.html#SNS.ServiceResource.topics)
     """
 
     def all(self) -> "ServiceResourceTopicsCollection":
@@ -121,7 +120,7 @@ class ServiceResourceTopicsCollection(ResourceCollection):
 
 class PlatformApplicationEndpointsCollection(ResourceCollection):
     """
-    [PlatformApplication.endpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sns.html#SNS.PlatformApplication.endpoints)
+    [PlatformApplication.endpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sns.html#SNS.PlatformApplication.endpoints)
     """
 
     def all(self) -> "PlatformApplicationEndpointsCollection":
@@ -147,7 +146,7 @@ class PlatformApplicationEndpointsCollection(ResourceCollection):
 
 class TopicSubscriptionsCollection(ResourceCollection):
     """
-    [Topic.subscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sns.html#SNS.Topic.subscriptions)
+    [Topic.subscriptions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sns.html#SNS.Topic.subscriptions)
     """
 
     def all(self) -> "TopicSubscriptionsCollection":
@@ -171,7 +170,7 @@ class TopicSubscriptionsCollection(ResourceCollection):
 
 class PlatformEndpoint(Boto3ServiceResource):
     """
-    [PlatformEndpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sns.html#SNS.ServiceResource.PlatformEndpoint)
+    [PlatformEndpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sns.html#SNS.ServiceResource.PlatformEndpoint)
     """
 
     attributes: Dict[str, Any]
@@ -179,17 +178,17 @@ class PlatformEndpoint(Boto3ServiceResource):
 
     def delete(self) -> None:
         """
-        [PlatformEndpoint.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sns.html#SNS.PlatformEndpoint.delete)
+        [PlatformEndpoint.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sns.html#SNS.PlatformEndpoint.delete)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [PlatformEndpoint.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sns.html#SNS.PlatformEndpoint.get_available_subresources)
+        [PlatformEndpoint.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sns.html#SNS.PlatformEndpoint.get_available_subresources)
         """
 
     def load(self) -> None:
         """
-        [PlatformEndpoint.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sns.html#SNS.PlatformEndpoint.load)
+        [PlatformEndpoint.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sns.html#SNS.PlatformEndpoint.load)
         """
 
     def publish(
@@ -204,17 +203,17 @@ class PlatformEndpoint(Boto3ServiceResource):
         MessageGroupId: str = None,
     ) -> PublishResponseTypeDef:
         """
-        [PlatformEndpoint.publish documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sns.html#SNS.PlatformEndpoint.publish)
+        [PlatformEndpoint.publish documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sns.html#SNS.PlatformEndpoint.publish)
         """
 
     def reload(self) -> None:
         """
-        [PlatformEndpoint.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sns.html#SNS.PlatformEndpoint.reload)
+        [PlatformEndpoint.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sns.html#SNS.PlatformEndpoint.reload)
         """
 
     def set_attributes(self, Attributes: Dict[str, str]) -> None:
         """
-        [PlatformEndpoint.set_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sns.html#SNS.PlatformEndpoint.set_attributes)
+        [PlatformEndpoint.set_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sns.html#SNS.PlatformEndpoint.set_attributes)
         """
 
 
@@ -223,7 +222,7 @@ _PlatformEndpoint = PlatformEndpoint
 
 class Subscription(Boto3ServiceResource):
     """
-    [Subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sns.html#SNS.ServiceResource.Subscription)
+    [Subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sns.html#SNS.ServiceResource.Subscription)
     """
 
     attributes: Dict[str, Any]
@@ -231,27 +230,27 @@ class Subscription(Boto3ServiceResource):
 
     def delete(self) -> None:
         """
-        [Subscription.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sns.html#SNS.Subscription.delete)
+        [Subscription.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sns.html#SNS.Subscription.delete)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [Subscription.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sns.html#SNS.Subscription.get_available_subresources)
+        [Subscription.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sns.html#SNS.Subscription.get_available_subresources)
         """
 
     def load(self) -> None:
         """
-        [Subscription.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sns.html#SNS.Subscription.load)
+        [Subscription.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sns.html#SNS.Subscription.load)
         """
 
     def reload(self) -> None:
         """
-        [Subscription.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sns.html#SNS.Subscription.reload)
+        [Subscription.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sns.html#SNS.Subscription.reload)
         """
 
     def set_attributes(self, AttributeName: str, AttributeValue: str = None) -> None:
         """
-        [Subscription.set_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sns.html#SNS.Subscription.set_attributes)
+        [Subscription.set_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sns.html#SNS.Subscription.set_attributes)
         """
 
 
@@ -260,7 +259,7 @@ _Subscription = Subscription
 
 class PlatformApplication(Boto3ServiceResource):
     """
-    [PlatformApplication documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sns.html#SNS.ServiceResource.PlatformApplication)
+    [PlatformApplication documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sns.html#SNS.ServiceResource.PlatformApplication)
     """
 
     attributes: Dict[str, Any]
@@ -271,32 +270,32 @@ class PlatformApplication(Boto3ServiceResource):
         self, Token: str, CustomUserData: str = None, Attributes: Dict[str, str] = None
     ) -> _PlatformEndpoint:
         """
-        [PlatformApplication.create_platform_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sns.html#SNS.PlatformApplication.create_platform_endpoint)
+        [PlatformApplication.create_platform_endpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sns.html#SNS.PlatformApplication.create_platform_endpoint)
         """
 
     def delete(self) -> None:
         """
-        [PlatformApplication.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sns.html#SNS.PlatformApplication.delete)
+        [PlatformApplication.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sns.html#SNS.PlatformApplication.delete)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [PlatformApplication.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sns.html#SNS.PlatformApplication.get_available_subresources)
+        [PlatformApplication.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sns.html#SNS.PlatformApplication.get_available_subresources)
         """
 
     def load(self) -> None:
         """
-        [PlatformApplication.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sns.html#SNS.PlatformApplication.load)
+        [PlatformApplication.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sns.html#SNS.PlatformApplication.load)
         """
 
     def reload(self) -> None:
         """
-        [PlatformApplication.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sns.html#SNS.PlatformApplication.reload)
+        [PlatformApplication.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sns.html#SNS.PlatformApplication.reload)
         """
 
     def set_attributes(self, Attributes: Dict[str, str]) -> None:
         """
-        [PlatformApplication.set_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sns.html#SNS.PlatformApplication.set_attributes)
+        [PlatformApplication.set_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sns.html#SNS.PlatformApplication.set_attributes)
         """
 
 
@@ -305,7 +304,7 @@ _PlatformApplication = PlatformApplication
 
 class Topic(Boto3ServiceResource):
     """
-    [Topic documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sns.html#SNS.ServiceResource.Topic)
+    [Topic documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sns.html#SNS.ServiceResource.Topic)
     """
 
     attributes: Dict[str, Any]
@@ -314,29 +313,29 @@ class Topic(Boto3ServiceResource):
 
     def add_permission(self, Label: str, AWSAccountId: List[str], ActionName: List[str]) -> None:
         """
-        [Topic.add_permission documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sns.html#SNS.Topic.add_permission)
+        [Topic.add_permission documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sns.html#SNS.Topic.add_permission)
         """
 
     def confirm_subscription(
         self, Token: str, AuthenticateOnUnsubscribe: str = None
     ) -> _Subscription:
         """
-        [Topic.confirm_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sns.html#SNS.Topic.confirm_subscription)
+        [Topic.confirm_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sns.html#SNS.Topic.confirm_subscription)
         """
 
     def delete(self) -> None:
         """
-        [Topic.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sns.html#SNS.Topic.delete)
+        [Topic.delete documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sns.html#SNS.Topic.delete)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [Topic.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sns.html#SNS.Topic.get_available_subresources)
+        [Topic.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sns.html#SNS.Topic.get_available_subresources)
         """
 
     def load(self) -> None:
         """
-        [Topic.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sns.html#SNS.Topic.load)
+        [Topic.load documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sns.html#SNS.Topic.load)
         """
 
     def publish(
@@ -351,22 +350,22 @@ class Topic(Boto3ServiceResource):
         MessageGroupId: str = None,
     ) -> PublishResponseTypeDef:
         """
-        [Topic.publish documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sns.html#SNS.Topic.publish)
+        [Topic.publish documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sns.html#SNS.Topic.publish)
         """
 
     def reload(self) -> None:
         """
-        [Topic.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sns.html#SNS.Topic.reload)
+        [Topic.reload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sns.html#SNS.Topic.reload)
         """
 
     def remove_permission(self, Label: str) -> None:
         """
-        [Topic.remove_permission documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sns.html#SNS.Topic.remove_permission)
+        [Topic.remove_permission documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sns.html#SNS.Topic.remove_permission)
         """
 
     def set_attributes(self, AttributeName: str, AttributeValue: str = None) -> None:
         """
-        [Topic.set_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sns.html#SNS.Topic.set_attributes)
+        [Topic.set_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sns.html#SNS.Topic.set_attributes)
         """
 
     def subscribe(
@@ -377,7 +376,7 @@ class Topic(Boto3ServiceResource):
         ReturnSubscriptionArn: bool = None,
     ) -> _Subscription:
         """
-        [Topic.subscribe documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sns.html#SNS.Topic.subscribe)
+        [Topic.subscribe documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sns.html#SNS.Topic.subscribe)
         """
 
 
@@ -386,7 +385,7 @@ _Topic = Topic
 
 class SNSServiceResource(Boto3ServiceResource):
     """
-    [SNS.ServiceResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sns.html#SNS.ServiceResource)
+    [SNS.ServiceResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sns.html#SNS.ServiceResource)
     """
 
     platform_applications: ServiceResourcePlatformApplicationsCollection
@@ -395,39 +394,39 @@ class SNSServiceResource(Boto3ServiceResource):
 
     def PlatformApplication(self, arn: str) -> _PlatformApplication:
         """
-        [ServiceResource.PlatformApplication documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sns.html#SNS.ServiceResource.PlatformApplication)
+        [ServiceResource.PlatformApplication documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sns.html#SNS.ServiceResource.PlatformApplication)
         """
 
     def PlatformEndpoint(self, arn: str) -> _PlatformEndpoint:
         """
-        [ServiceResource.PlatformEndpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sns.html#SNS.ServiceResource.PlatformEndpoint)
+        [ServiceResource.PlatformEndpoint documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sns.html#SNS.ServiceResource.PlatformEndpoint)
         """
 
     def Subscription(self, arn: str) -> _Subscription:
         """
-        [ServiceResource.Subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sns.html#SNS.ServiceResource.Subscription)
+        [ServiceResource.Subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sns.html#SNS.ServiceResource.Subscription)
         """
 
     def Topic(self, arn: str) -> _Topic:
         """
-        [ServiceResource.Topic documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sns.html#SNS.ServiceResource.Topic)
+        [ServiceResource.Topic documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sns.html#SNS.ServiceResource.Topic)
         """
 
     def create_platform_application(
         self, Name: str, Platform: str, Attributes: Dict[str, str]
     ) -> _PlatformApplication:
         """
-        [ServiceResource.create_platform_application documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sns.html#SNS.ServiceResource.create_platform_application)
+        [ServiceResource.create_platform_application documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sns.html#SNS.ServiceResource.create_platform_application)
         """
 
     def create_topic(
         self, Name: str, Attributes: Dict[str, str] = None, Tags: List["TagTypeDef"] = None
     ) -> _Topic:
         """
-        [ServiceResource.create_topic documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sns.html#SNS.ServiceResource.create_topic)
+        [ServiceResource.create_topic documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sns.html#SNS.ServiceResource.create_topic)
         """
 
     def get_available_subresources(self) -> List[str]:
         """
-        [ServiceResource.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/sns.html#SNS.ServiceResource.get_available_subresources)
+        [ServiceResource.get_available_subresources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/sns.html#SNS.ServiceResource.get_available_subresources)
         """

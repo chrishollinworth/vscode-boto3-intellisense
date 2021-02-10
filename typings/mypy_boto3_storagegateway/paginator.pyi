@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for storagegateway service client paginators.
 
@@ -69,33 +68,33 @@ __all__ = (
 
 class DescribeTapeArchivesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeTapeArchives documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Paginator.DescribeTapeArchives)
+    [Paginator.DescribeTapeArchives documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Paginator.DescribeTapeArchives)
     """
 
     def paginate(
         self, TapeARNs: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeTapeArchivesOutputTypeDef]:
         """
-        [DescribeTapeArchives.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Paginator.DescribeTapeArchives.paginate)
+        [DescribeTapeArchives.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Paginator.DescribeTapeArchives.paginate)
         """
 
 
 class DescribeTapeRecoveryPointsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeTapeRecoveryPoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Paginator.DescribeTapeRecoveryPoints)
+    [Paginator.DescribeTapeRecoveryPoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Paginator.DescribeTapeRecoveryPoints)
     """
 
     def paginate(
         self, GatewayARN: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeTapeRecoveryPointsOutputTypeDef]:
         """
-        [DescribeTapeRecoveryPoints.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Paginator.DescribeTapeRecoveryPoints.paginate)
+        [DescribeTapeRecoveryPoints.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Paginator.DescribeTapeRecoveryPoints.paginate)
         """
 
 
 class DescribeTapesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeTapes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Paginator.DescribeTapes)
+    [Paginator.DescribeTapes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Paginator.DescribeTapes)
     """
 
     def paginate(
@@ -105,13 +104,13 @@ class DescribeTapesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeTapesOutputTypeDef]:
         """
-        [DescribeTapes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Paginator.DescribeTapes.paginate)
+        [DescribeTapes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Paginator.DescribeTapes.paginate)
         """
 
 
 class DescribeVTLDevicesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeVTLDevices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Paginator.DescribeVTLDevices)
+    [Paginator.DescribeVTLDevices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Paginator.DescribeVTLDevices)
     """
 
     def paginate(
@@ -121,83 +120,83 @@ class DescribeVTLDevicesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeVTLDevicesOutputTypeDef]:
         """
-        [DescribeVTLDevices.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Paginator.DescribeVTLDevices.paginate)
+        [DescribeVTLDevices.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Paginator.DescribeVTLDevices.paginate)
         """
 
 
 class ListFileSharesPaginator(Boto3Paginator):
     """
-    [Paginator.ListFileShares documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Paginator.ListFileShares)
+    [Paginator.ListFileShares documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Paginator.ListFileShares)
     """
 
     def paginate(
         self, GatewayARN: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListFileSharesOutputTypeDef]:
         """
-        [ListFileShares.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Paginator.ListFileShares.paginate)
+        [ListFileShares.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Paginator.ListFileShares.paginate)
         """
 
 
 class ListGatewaysPaginator(Boto3Paginator):
     """
-    [Paginator.ListGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Paginator.ListGateways)
+    [Paginator.ListGateways documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Paginator.ListGateways)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListGatewaysOutputTypeDef]:
         """
-        [ListGateways.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Paginator.ListGateways.paginate)
+        [ListGateways.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Paginator.ListGateways.paginate)
         """
 
 
 class ListTagsForResourcePaginator(Boto3Paginator):
     """
-    [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Paginator.ListTagsForResource)
+    [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Paginator.ListTagsForResource)
     """
 
     def paginate(
         self, ResourceARN: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTagsForResourceOutputTypeDef]:
         """
-        [ListTagsForResource.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Paginator.ListTagsForResource.paginate)
+        [ListTagsForResource.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Paginator.ListTagsForResource.paginate)
         """
 
 
 class ListTapePoolsPaginator(Boto3Paginator):
     """
-    [Paginator.ListTapePools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Paginator.ListTapePools)
+    [Paginator.ListTapePools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Paginator.ListTapePools)
     """
 
     def paginate(
         self, PoolARNs: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTapePoolsOutputTypeDef]:
         """
-        [ListTapePools.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Paginator.ListTapePools.paginate)
+        [ListTapePools.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Paginator.ListTapePools.paginate)
         """
 
 
 class ListTapesPaginator(Boto3Paginator):
     """
-    [Paginator.ListTapes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Paginator.ListTapes)
+    [Paginator.ListTapes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Paginator.ListTapes)
     """
 
     def paginate(
         self, TapeARNs: List[str] = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTapesOutputTypeDef]:
         """
-        [ListTapes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Paginator.ListTapes.paginate)
+        [ListTapes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Paginator.ListTapes.paginate)
         """
 
 
 class ListVolumesPaginator(Boto3Paginator):
     """
-    [Paginator.ListVolumes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Paginator.ListVolumes)
+    [Paginator.ListVolumes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Paginator.ListVolumes)
     """
 
     def paginate(
         self, GatewayARN: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListVolumesOutputTypeDef]:
         """
-        [ListVolumes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/storagegateway.html#StorageGateway.Paginator.ListVolumes.paginate)
+        [ListVolumes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/storagegateway.html#StorageGateway.Paginator.ListVolumes.paginate)
         """

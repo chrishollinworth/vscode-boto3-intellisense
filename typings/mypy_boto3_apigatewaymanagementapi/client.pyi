@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for apigatewaymanagementapi service client
 
@@ -38,7 +37,7 @@ class Exceptions:
 
 class ApiGatewayManagementApiClient:
     """
-    [ApiGatewayManagementApi.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/apigatewaymanagementapi.html#ApiGatewayManagementApi.Client)
+    [ApiGatewayManagementApi.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigatewaymanagementapi.html#ApiGatewayManagementApi.Client)
     """
 
     meta: ClientMeta
@@ -46,12 +45,12 @@ class ApiGatewayManagementApiClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/apigatewaymanagementapi.html#ApiGatewayManagementApi.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigatewaymanagementapi.html#ApiGatewayManagementApi.Client.can_paginate)
         """
 
     def delete_connection(self, ConnectionId: str) -> None:
         """
-        [Client.delete_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/apigatewaymanagementapi.html#ApiGatewayManagementApi.Client.delete_connection)
+        [Client.delete_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigatewaymanagementapi.html#ApiGatewayManagementApi.Client.delete_connection)
         """
 
     def generate_presigned_url(
@@ -62,15 +61,15 @@ class ApiGatewayManagementApiClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/apigatewaymanagementapi.html#ApiGatewayManagementApi.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigatewaymanagementapi.html#ApiGatewayManagementApi.Client.generate_presigned_url)
         """
 
     def get_connection(self, ConnectionId: str) -> GetConnectionResponseTypeDef:
         """
-        [Client.get_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/apigatewaymanagementapi.html#ApiGatewayManagementApi.Client.get_connection)
+        [Client.get_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigatewaymanagementapi.html#ApiGatewayManagementApi.Client.get_connection)
         """
 
     def post_to_connection(self, Data: Union[bytes, IO[bytes]], ConnectionId: str) -> None:
         """
-        [Client.post_to_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/apigatewaymanagementapi.html#ApiGatewayManagementApi.Client.post_to_connection)
+        [Client.post_to_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/apigatewaymanagementapi.html#ApiGatewayManagementApi.Client.post_to_connection)
         """

@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for devops-guru service client
 
@@ -6,9 +5,9 @@ Usage::
 
     ```python
     import boto3
-    from mypy_boto3_devops_guru import DevOpsGuruClient
+    from mypy_boto3_devops_guru import DevopsGuruClient
 
-    client: DevOpsGuruClient = boto3.client("devops-guru")
+    client: DevopsGuruClient = boto3.client("devops-guru")
     ```
 """
 import sys
@@ -58,7 +57,7 @@ else:
     from typing_extensions import Literal
 
 
-__all__ = ("DevOpsGuruClient",)
+__all__ = ("DevopsGuruClient",)
 
 
 class BotocoreClientError(BaseException):
@@ -80,9 +79,9 @@ class Exceptions:
     ValidationException: Type[BotocoreClientError]
 
 
-class DevOpsGuruClient:
+class DevopsGuruClient:
     """
-    [DevOpsGuru.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devops-guru.html#DevOpsGuru.Client)
+    [DevopsGuru.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Client)
     """
 
     meta: ClientMeta
@@ -92,46 +91,46 @@ class DevOpsGuruClient:
         self, Config: "NotificationChannelConfigTypeDef"
     ) -> AddNotificationChannelResponseTypeDef:
         """
-        [Client.add_notification_channel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devops-guru.html#DevOpsGuru.Client.add_notification_channel)
+        [Client.add_notification_channel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Client.add_notification_channel)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devops-guru.html#DevOpsGuru.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Client.can_paginate)
         """
 
     def describe_account_health(self) -> DescribeAccountHealthResponseTypeDef:
         """
-        [Client.describe_account_health documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devops-guru.html#DevOpsGuru.Client.describe_account_health)
+        [Client.describe_account_health documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Client.describe_account_health)
         """
 
     def describe_account_overview(
         self, FromTime: datetime, ToTime: datetime = None
     ) -> DescribeAccountOverviewResponseTypeDef:
         """
-        [Client.describe_account_overview documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devops-guru.html#DevOpsGuru.Client.describe_account_overview)
+        [Client.describe_account_overview documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Client.describe_account_overview)
         """
 
     def describe_anomaly(self, Id: str) -> DescribeAnomalyResponseTypeDef:
         """
-        [Client.describe_anomaly documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devops-guru.html#DevOpsGuru.Client.describe_anomaly)
+        [Client.describe_anomaly documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Client.describe_anomaly)
         """
 
     def describe_insight(self, Id: str) -> DescribeInsightResponseTypeDef:
         """
-        [Client.describe_insight documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devops-guru.html#DevOpsGuru.Client.describe_insight)
+        [Client.describe_insight documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Client.describe_insight)
         """
 
     def describe_resource_collection_health(
-        self, ResourceCollectionType: str, NextToken: str = None
+        self, ResourceCollectionType: Literal["AWS_CLOUD_FORMATION"], NextToken: str = None
     ) -> DescribeResourceCollectionHealthResponseTypeDef:
         """
-        [Client.describe_resource_collection_health documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devops-guru.html#DevOpsGuru.Client.describe_resource_collection_health)
+        [Client.describe_resource_collection_health documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Client.describe_resource_collection_health)
         """
 
     def describe_service_integration(self) -> DescribeServiceIntegrationResponseTypeDef:
         """
-        [Client.describe_service_integration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devops-guru.html#DevOpsGuru.Client.describe_service_integration)
+        [Client.describe_service_integration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Client.describe_service_integration)
         """
 
     def generate_presigned_url(
@@ -142,32 +141,32 @@ class DevOpsGuruClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devops-guru.html#DevOpsGuru.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Client.generate_presigned_url)
         """
 
     def get_resource_collection(
-        self, ResourceCollectionType: str, NextToken: str = None
+        self, ResourceCollectionType: Literal["AWS_CLOUD_FORMATION"], NextToken: str = None
     ) -> GetResourceCollectionResponseTypeDef:
         """
-        [Client.get_resource_collection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devops-guru.html#DevOpsGuru.Client.get_resource_collection)
+        [Client.get_resource_collection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Client.get_resource_collection)
         """
 
     def list_anomalies_for_insight(
         self,
         InsightId: str,
+        StartTimeRange: "StartTimeRangeTypeDef" = None,
         MaxResults: int = None,
         NextToken: str = None,
-        StartTimeRange: "StartTimeRangeTypeDef" = None,
     ) -> ListAnomaliesForInsightResponseTypeDef:
         """
-        [Client.list_anomalies_for_insight documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devops-guru.html#DevOpsGuru.Client.list_anomalies_for_insight)
+        [Client.list_anomalies_for_insight documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Client.list_anomalies_for_insight)
         """
 
     def list_events(
         self, Filters: ListEventsFiltersTypeDef, MaxResults: int = None, NextToken: str = None
     ) -> ListEventsResponseTypeDef:
         """
-        [Client.list_events documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devops-guru.html#DevOpsGuru.Client.list_events)
+        [Client.list_events documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Client.list_events)
         """
 
     def list_insights(
@@ -177,31 +176,31 @@ class DevOpsGuruClient:
         NextToken: str = None,
     ) -> ListInsightsResponseTypeDef:
         """
-        [Client.list_insights documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devops-guru.html#DevOpsGuru.Client.list_insights)
+        [Client.list_insights documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Client.list_insights)
         """
 
     def list_notification_channels(
         self, NextToken: str = None
     ) -> ListNotificationChannelsResponseTypeDef:
         """
-        [Client.list_notification_channels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devops-guru.html#DevOpsGuru.Client.list_notification_channels)
+        [Client.list_notification_channels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Client.list_notification_channels)
         """
 
     def list_recommendations(
         self, InsightId: str, NextToken: str = None
     ) -> ListRecommendationsResponseTypeDef:
         """
-        [Client.list_recommendations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devops-guru.html#DevOpsGuru.Client.list_recommendations)
+        [Client.list_recommendations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Client.list_recommendations)
         """
 
     def put_feedback(self, InsightFeedback: InsightFeedbackTypeDef = None) -> Dict[str, Any]:
         """
-        [Client.put_feedback documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devops-guru.html#DevOpsGuru.Client.put_feedback)
+        [Client.put_feedback documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Client.put_feedback)
         """
 
     def remove_notification_channel(self, Id: str) -> Dict[str, Any]:
         """
-        [Client.remove_notification_channel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devops-guru.html#DevOpsGuru.Client.remove_notification_channel)
+        [Client.remove_notification_channel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Client.remove_notification_channel)
         """
 
     def search_insights(
@@ -213,7 +212,7 @@ class DevOpsGuruClient:
         NextToken: str = None,
     ) -> SearchInsightsResponseTypeDef:
         """
-        [Client.search_insights documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devops-guru.html#DevOpsGuru.Client.search_insights)
+        [Client.search_insights documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Client.search_insights)
         """
 
     def update_resource_collection(
@@ -222,14 +221,14 @@ class DevOpsGuruClient:
         ResourceCollection: UpdateResourceCollectionFilterTypeDef,
     ) -> Dict[str, Any]:
         """
-        [Client.update_resource_collection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devops-guru.html#DevOpsGuru.Client.update_resource_collection)
+        [Client.update_resource_collection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Client.update_resource_collection)
         """
 
     def update_service_integration(
         self, ServiceIntegration: UpdateServiceIntegrationConfigTypeDef
     ) -> Dict[str, Any]:
         """
-        [Client.update_service_integration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devops-guru.html#DevOpsGuru.Client.update_service_integration)
+        [Client.update_service_integration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Client.update_service_integration)
         """
 
     @overload
@@ -237,7 +236,7 @@ class DevOpsGuruClient:
         self, operation_name: Literal["describe_resource_collection_health"]
     ) -> DescribeResourceCollectionHealthPaginator:
         """
-        [Paginator.DescribeResourceCollectionHealth documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devops-guru.html#DevOpsGuru.Paginator.DescribeResourceCollectionHealth)
+        [Paginator.DescribeResourceCollectionHealth documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Paginator.DescribeResourceCollectionHealth)
         """
 
     @overload
@@ -245,7 +244,7 @@ class DevOpsGuruClient:
         self, operation_name: Literal["get_resource_collection"]
     ) -> GetResourceCollectionPaginator:
         """
-        [Paginator.GetResourceCollection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devops-guru.html#DevOpsGuru.Paginator.GetResourceCollection)
+        [Paginator.GetResourceCollection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Paginator.GetResourceCollection)
         """
 
     @overload
@@ -253,19 +252,19 @@ class DevOpsGuruClient:
         self, operation_name: Literal["list_anomalies_for_insight"]
     ) -> ListAnomaliesForInsightPaginator:
         """
-        [Paginator.ListAnomaliesForInsight documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListAnomaliesForInsight)
+        [Paginator.ListAnomaliesForInsight documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Paginator.ListAnomaliesForInsight)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_events"]) -> ListEventsPaginator:
         """
-        [Paginator.ListEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListEvents)
+        [Paginator.ListEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Paginator.ListEvents)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_insights"]) -> ListInsightsPaginator:
         """
-        [Paginator.ListInsights documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListInsights)
+        [Paginator.ListInsights documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Paginator.ListInsights)
         """
 
     @overload
@@ -273,7 +272,7 @@ class DevOpsGuruClient:
         self, operation_name: Literal["list_notification_channels"]
     ) -> ListNotificationChannelsPaginator:
         """
-        [Paginator.ListNotificationChannels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListNotificationChannels)
+        [Paginator.ListNotificationChannels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Paginator.ListNotificationChannels)
         """
 
     @overload
@@ -281,11 +280,11 @@ class DevOpsGuruClient:
         self, operation_name: Literal["list_recommendations"]
     ) -> ListRecommendationsPaginator:
         """
-        [Paginator.ListRecommendations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devops-guru.html#DevOpsGuru.Paginator.ListRecommendations)
+        [Paginator.ListRecommendations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Paginator.ListRecommendations)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["search_insights"]) -> SearchInsightsPaginator:
         """
-        [Paginator.SearchInsights documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devops-guru.html#DevOpsGuru.Paginator.SearchInsights)
+        [Paginator.SearchInsights documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devops-guru.html#DevopsGuru.Paginator.SearchInsights)
         """

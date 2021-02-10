@@ -1,7 +1,7 @@
 from mypy_boto3_devops_guru.client import (
-    DevOpsGuruClient,
+    DevopsGuruClient,
 )
 
 __all__ = (
-    "DevOpsGuruClient",
+    "DevopsGuruClient",
 )

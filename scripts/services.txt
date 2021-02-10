@@ -2,6 +2,7 @@ accessanalyzer
 acm
 acm_pca
 alexaforbusiness
+amp
 amplify
 amplifybackend  
 apigateway
@@ -16,6 +17,7 @@ appmesh
 appstream
 appsync
 athena
+auditmanager
 autoscaling
 autoscaling_plans
 backup
@@ -86,6 +88,7 @@ elasticbeanstalk
 elastictranscoder
 elb
 elbv2
+emr_containers
 emr
 es
 events
@@ -100,9 +103,11 @@ glacier
 globalaccelerator
 glue
 greengrass
+greengrassv2
 groundstation
 guardduty
 health
+healthlake
 honeycode
 iam
 identitystore
@@ -115,11 +120,14 @@ iot_jobs_data
 iot1click_devices
 iot1click_projects
 iotanalytics
+iotdeviceadvisor
 iotevents
+iotfleethub
 iotevents_data
 iotsecuretunneling
 iotsitewise
 iotthingsgraph
+iotwireless
 ivs
 kafka
 kendra
@@ -135,8 +143,11 @@ lakeformation
 lambda
 lex_models
 lex_runtime
+lexv2_models
+lexv2_runtime
 license_manager
 lightsail
+location
 logs
 lookoutvision
 machinelearning
@@ -197,6 +208,7 @@ s3control
 s3outposts
 sagemaker
 sagemaker_a2i_runtime
+sagemaker_edge
 sagemaker_featurestore_runtime
 sagemaker_runtime
 savingsplans
@@ -237,6 +249,7 @@ translate
 waf
 waf_regional
 wafv2
+wellarchitected
 workdocs
 worklink
 workmail

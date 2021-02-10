@@ -11,7 +11,9 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import IO, Any, Dict, List
+from typing import Any, Dict, List
+
+from botocore.response import StreamingBody
 
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -411,7 +413,7 @@ StartSpeechSynthesisTaskOutputTypeDef = TypedDict(
 SynthesizeSpeechOutputTypeDef = TypedDict(
     "SynthesizeSpeechOutputTypeDef",
     {
-        "AudioStream": IO[bytes],
+        "AudioStream": StreamingBody,
         "ContentType": str,
         "RequestCharacters": int,
         "ResponseMetadata": "ResponseMetadata",

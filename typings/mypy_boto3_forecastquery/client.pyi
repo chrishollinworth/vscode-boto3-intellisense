@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for forecastquery service client
 
@@ -39,7 +38,7 @@ class Exceptions:
 
 class ForecastQueryServiceClient:
     """
-    [ForecastQueryService.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/forecastquery.html#ForecastQueryService.Client)
+    [ForecastQueryService.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecastquery.html#ForecastQueryService.Client)
     """
 
     meta: ClientMeta
@@ -47,7 +46,7 @@ class ForecastQueryServiceClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/forecastquery.html#ForecastQueryService.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecastquery.html#ForecastQueryService.Client.can_paginate)
         """
 
     def generate_presigned_url(
@@ -58,7 +57,7 @@ class ForecastQueryServiceClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/forecastquery.html#ForecastQueryService.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecastquery.html#ForecastQueryService.Client.generate_presigned_url)
         """
 
     def query_forecast(
@@ -70,5 +69,5 @@ class ForecastQueryServiceClient:
         NextToken: str = None,
     ) -> QueryForecastResponseTypeDef:
         """
-        [Client.query_forecast documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/forecastquery.html#ForecastQueryService.Client.query_forecast)
+        [Client.query_forecast documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/forecastquery.html#ForecastQueryService.Client.query_forecast)
         """

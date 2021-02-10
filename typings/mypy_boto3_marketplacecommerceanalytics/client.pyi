@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for marketplacecommerceanalytics service client
 
@@ -46,7 +45,7 @@ class Exceptions:
 
 class MarketplaceCommerceAnalyticsClient:
     """
-    [MarketplaceCommerceAnalytics.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/marketplacecommerceanalytics.html#MarketplaceCommerceAnalytics.Client)
+    [MarketplaceCommerceAnalytics.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/marketplacecommerceanalytics.html#MarketplaceCommerceAnalytics.Client)
     """
 
     meta: ClientMeta
@@ -54,7 +53,7 @@ class MarketplaceCommerceAnalyticsClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/marketplacecommerceanalytics.html#MarketplaceCommerceAnalytics.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/marketplacecommerceanalytics.html#MarketplaceCommerceAnalytics.Client.can_paginate)
         """
 
     def generate_data_set(
@@ -94,7 +93,7 @@ class MarketplaceCommerceAnalyticsClient:
         customerDefinedValues: Dict[str, str] = None,
     ) -> GenerateDataSetResultTypeDef:
         """
-        [Client.generate_data_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/marketplacecommerceanalytics.html#MarketplaceCommerceAnalytics.Client.generate_data_set)
+        [Client.generate_data_set documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/marketplacecommerceanalytics.html#MarketplaceCommerceAnalytics.Client.generate_data_set)
         """
 
     def generate_presigned_url(
@@ -105,7 +104,7 @@ class MarketplaceCommerceAnalyticsClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/marketplacecommerceanalytics.html#MarketplaceCommerceAnalytics.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/marketplacecommerceanalytics.html#MarketplaceCommerceAnalytics.Client.generate_presigned_url)
         """
 
     def start_support_data_export(
@@ -121,5 +120,5 @@ class MarketplaceCommerceAnalyticsClient:
         customerDefinedValues: Dict[str, str] = None,
     ) -> StartSupportDataExportResultTypeDef:
         """
-        [Client.start_support_data_export documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/marketplacecommerceanalytics.html#MarketplaceCommerceAnalytics.Client.start_support_data_export)
+        [Client.start_support_data_export documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/marketplacecommerceanalytics.html#MarketplaceCommerceAnalytics.Client.start_support_data_export)
         """

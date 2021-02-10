@@ -676,6 +676,8 @@ ExecutionRecordTypeDef = TypedDict(
         "executionResult": "ExecutionResultTypeDef",
         "startedAt": datetime,
         "lastUpdatedAt": datetime,
+        "dataPullStartTime": datetime,
+        "dataPullEndTime": datetime,
     },
     total=False,
 )
@@ -1005,6 +1007,7 @@ _OptionalScheduledTriggerPropertiesTypeDef = TypedDict(
         "scheduleStartTime": datetime,
         "scheduleEndTime": datetime,
         "timezone": str,
+        "scheduleOffset": int,
     },
     total=False,
 )

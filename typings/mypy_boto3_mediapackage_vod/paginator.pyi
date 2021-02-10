@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for mediapackage-vod service client paginators.
 
@@ -41,38 +40,38 @@ __all__ = (
 
 class ListAssetsPaginator(Boto3Paginator):
     """
-    [Paginator.ListAssets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediapackage-vod.html#MediaPackageVod.Paginator.ListAssets)
+    [Paginator.ListAssets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediapackage-vod.html#MediaPackageVod.Paginator.ListAssets)
     """
 
     def paginate(
         self, PackagingGroupId: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListAssetsResponseTypeDef]:
         """
-        [ListAssets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediapackage-vod.html#MediaPackageVod.Paginator.ListAssets.paginate)
+        [ListAssets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediapackage-vod.html#MediaPackageVod.Paginator.ListAssets.paginate)
         """
 
 
 class ListPackagingConfigurationsPaginator(Boto3Paginator):
     """
-    [Paginator.ListPackagingConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediapackage-vod.html#MediaPackageVod.Paginator.ListPackagingConfigurations)
+    [Paginator.ListPackagingConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediapackage-vod.html#MediaPackageVod.Paginator.ListPackagingConfigurations)
     """
 
     def paginate(
         self, PackagingGroupId: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPackagingConfigurationsResponseTypeDef]:
         """
-        [ListPackagingConfigurations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediapackage-vod.html#MediaPackageVod.Paginator.ListPackagingConfigurations.paginate)
+        [ListPackagingConfigurations.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediapackage-vod.html#MediaPackageVod.Paginator.ListPackagingConfigurations.paginate)
         """
 
 
 class ListPackagingGroupsPaginator(Boto3Paginator):
     """
-    [Paginator.ListPackagingGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediapackage-vod.html#MediaPackageVod.Paginator.ListPackagingGroups)
+    [Paginator.ListPackagingGroups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediapackage-vod.html#MediaPackageVod.Paginator.ListPackagingGroups)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListPackagingGroupsResponseTypeDef]:
         """
-        [ListPackagingGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediapackage-vod.html#MediaPackageVod.Paginator.ListPackagingGroups.paginate)
+        [ListPackagingGroups.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediapackage-vod.html#MediaPackageVod.Paginator.ListPackagingGroups.paginate)
         """

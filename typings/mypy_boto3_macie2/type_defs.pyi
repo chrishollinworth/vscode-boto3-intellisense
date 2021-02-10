@@ -41,6 +41,7 @@ __all__ = (
     "BucketPermissionConfigurationTypeDef",
     "BucketPolicyTypeDef",
     "BucketPublicAccessTypeDef",
+    "BucketServerSideEncryptionTypeDef",
     "CellTypeDef",
     "ClassificationDetailsTypeDef",
     "ClassificationExportConfigurationTypeDef",
@@ -265,6 +266,7 @@ BucketMetadataTypeDef = TypedDict(
         "publicAccess": "BucketPublicAccessTypeDef",
         "region": str,
         "replicationDetails": "ReplicationDetailsTypeDef",
+        "serverSideEncryption": "BucketServerSideEncryptionTypeDef",
         "sharedAccess": Literal["EXTERNAL", "INTERNAL", "NOT_SHARED", "UNKNOWN"],
         "sizeInBytes": int,
         "sizeInBytesCompressed": int,
@@ -297,6 +299,12 @@ BucketPublicAccessTypeDef = TypedDict(
         "effectivePermission": Literal["PUBLIC", "NOT_PUBLIC", "UNKNOWN"],
         "permissionConfiguration": "BucketPermissionConfigurationTypeDef",
     },
+    total=False,
+)
+
+BucketServerSideEncryptionTypeDef = TypedDict(
+    "BucketServerSideEncryptionTypeDef",
+    {"kmsMasterKeyId": str, "type": Literal["NONE", "AES256", "aws:kms"]},
     total=False,
 )
 
@@ -567,7 +575,7 @@ LastRunErrorStatusTypeDef = TypedDict(
 ListJobsFilterTermTypeDef = TypedDict(
     "ListJobsFilterTermTypeDef",
     {
-        "comparator": Literal["EQ", "GT", "GTE", "LT", "LTE", "NE", "CONTAINS"],
+        "comparator": Literal["EQ", "GT", "GTE", "LT", "LTE", "NE", "CONTAINS", "STARTS_WITH"],
         "key": Literal["jobType", "jobStatus", "createdAt", "name"],
         "values": List[str],
     },
@@ -657,7 +665,7 @@ ResourcesAffectedTypeDef = TypedDict(
 )
 
 S3BucketDefinitionForJobTypeDef = TypedDict(
-    "S3BucketDefinitionForJobTypeDef", {"accountId": str, "buckets": List[str]}, total=False
+    "S3BucketDefinitionForJobTypeDef", {"accountId": str, "buckets": List[str]}
 )
 
 S3BucketOwnerTypeDef = TypedDict(
@@ -778,13 +786,14 @@ SeverityTypeDef = TypedDict(
 SimpleScopeTermTypeDef = TypedDict(
     "SimpleScopeTermTypeDef",
     {
-        "comparator": Literal["EQ", "GT", "GTE", "LT", "LTE", "NE", "CONTAINS"],
+        "comparator": Literal["EQ", "GT", "GTE", "LT", "LTE", "NE", "CONTAINS", "STARTS_WITH"],
         "key": Literal[
             "BUCKET_CREATION_DATE",
             "OBJECT_EXTENSION",
             "OBJECT_LAST_MODIFIED_DATE",
             "OBJECT_SIZE",
             "TAG",
+            "OBJECT_KEY",
         ],
         "values": List[str],
     },
@@ -800,7 +809,7 @@ StatisticsTypeDef = TypedDict(
 TagScopeTermTypeDef = TypedDict(
     "TagScopeTermTypeDef",
     {
-        "comparator": Literal["EQ", "GT", "GTE", "LT", "LTE", "NE", "CONTAINS"],
+        "comparator": Literal["EQ", "GT", "GTE", "LT", "LTE", "NE", "CONTAINS", "STARTS_WITH"],
         "key": str,
         "tagValues": List["TagValuePairTypeDef"],
         "target": Literal["S3_OBJECT"],
@@ -1099,12 +1108,21 @@ GetMemberResponseTypeDef = TypedDict(
 
 GetUsageStatisticsResponseTypeDef = TypedDict(
     "GetUsageStatisticsResponseTypeDef",
-    {"nextToken": str, "records": List["UsageRecordTypeDef"]},
+    {
+        "nextToken": str,
+        "records": List["UsageRecordTypeDef"],
+        "timeRange": Literal["MONTH_TO_DATE", "PAST_30_DAYS"],
+    },
     total=False,
 )
 
 GetUsageTotalsResponseTypeDef = TypedDict(
-    "GetUsageTotalsResponseTypeDef", {"usageTotals": List["UsageTotalTypeDef"]}, total=False
+    "GetUsageTotalsResponseTypeDef",
+    {
+        "timeRange": Literal["MONTH_TO_DATE", "PAST_30_DAYS"],
+        "usageTotals": List["UsageTotalTypeDef"],
+    },
+    total=False,
 )
 
 ListClassificationJobsResponseTypeDef = TypedDict(

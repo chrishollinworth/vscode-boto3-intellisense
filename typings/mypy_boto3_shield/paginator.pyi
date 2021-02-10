@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for shield service client paginators.
 
@@ -35,7 +34,7 @@ __all__ = ("ListAttacksPaginator", "ListProtectionsPaginator")
 
 class ListAttacksPaginator(Boto3Paginator):
     """
-    [Paginator.ListAttacks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/shield.html#Shield.Paginator.ListAttacks)
+    [Paginator.ListAttacks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/shield.html#Shield.Paginator.ListAttacks)
     """
 
     def paginate(
@@ -46,18 +45,18 @@ class ListAttacksPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListAttacksResponseTypeDef]:
         """
-        [ListAttacks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/shield.html#Shield.Paginator.ListAttacks.paginate)
+        [ListAttacks.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/shield.html#Shield.Paginator.ListAttacks.paginate)
         """
 
 
 class ListProtectionsPaginator(Boto3Paginator):
     """
-    [Paginator.ListProtections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/shield.html#Shield.Paginator.ListProtections)
+    [Paginator.ListProtections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/shield.html#Shield.Paginator.ListProtections)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListProtectionsResponseTypeDef]:
         """
-        [ListProtections.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/shield.html#Shield.Paginator.ListProtections.paginate)
+        [ListProtections.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/shield.html#Shield.Paginator.ListProtections.paginate)
         """

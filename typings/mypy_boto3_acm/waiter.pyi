@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
 """
 Main interface for acm service client waiters.
 
@@ -26,10 +25,10 @@ __all__ = ("CertificateValidatedWaiter",)
 
 class CertificateValidatedWaiter(Boto3Waiter):
     """
-    [Waiter.CertificateValidated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm.html#ACM.Waiter.CertificateValidated)
+    [Waiter.CertificateValidated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/acm.html#ACM.Waiter.CertificateValidated)
     """
 
     def wait(self, CertificateArn: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [CertificateValidated.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/acm.html#ACM.Waiter.CertificateValidated.wait)
+        [CertificateValidated.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/acm.html#ACM.Waiter.CertificateValidated.wait)
         """

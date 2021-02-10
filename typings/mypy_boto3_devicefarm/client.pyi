@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for devicefarm service client
 
@@ -151,7 +150,7 @@ class Exceptions:
 
 class DeviceFarmClient:
     """
-    [DeviceFarm.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client)
+    [DeviceFarm.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client)
     """
 
     meta: ClientMeta
@@ -159,7 +158,7 @@ class DeviceFarmClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.can_paginate)
         """
 
     def create_device_pool(
@@ -171,7 +170,7 @@ class DeviceFarmClient:
         maxDevices: int = None,
     ) -> CreateDevicePoolResultTypeDef:
         """
-        [Client.create_device_pool documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.create_device_pool)
+        [Client.create_device_pool documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.create_device_pool)
         """
 
     def create_instance_profile(
@@ -183,7 +182,7 @@ class DeviceFarmClient:
         rebootAfterUse: bool = None,
     ) -> CreateInstanceProfileResultTypeDef:
         """
-        [Client.create_instance_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.create_instance_profile)
+        [Client.create_instance_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.create_instance_profile)
         """
 
     def create_network_profile(
@@ -202,14 +201,14 @@ class DeviceFarmClient:
         downlinkLossPercent: int = None,
     ) -> CreateNetworkProfileResultTypeDef:
         """
-        [Client.create_network_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.create_network_profile)
+        [Client.create_network_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.create_network_profile)
         """
 
     def create_project(
         self, name: str, defaultJobTimeoutMinutes: int = None
     ) -> CreateProjectResultTypeDef:
         """
-        [Client.create_project documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.create_project)
+        [Client.create_project documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.create_project)
         """
 
     def create_remote_access_session(
@@ -228,21 +227,21 @@ class DeviceFarmClient:
         skipAppResign: bool = None,
     ) -> CreateRemoteAccessSessionResultTypeDef:
         """
-        [Client.create_remote_access_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.create_remote_access_session)
+        [Client.create_remote_access_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.create_remote_access_session)
         """
 
     def create_test_grid_project(
         self, name: str, description: str = None
     ) -> CreateTestGridProjectResultTypeDef:
         """
-        [Client.create_test_grid_project documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.create_test_grid_project)
+        [Client.create_test_grid_project documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.create_test_grid_project)
         """
 
     def create_test_grid_url(
         self, projectArn: str, expiresInSeconds: int
     ) -> CreateTestGridUrlResultTypeDef:
         """
-        [Client.create_test_grid_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.create_test_grid_url)
+        [Client.create_test_grid_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.create_test_grid_url)
         """
 
     def create_upload(
@@ -286,7 +285,7 @@ class DeviceFarmClient:
         contentType: str = None,
     ) -> CreateUploadResultTypeDef:
         """
-        [Client.create_upload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.create_upload)
+        [Client.create_upload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.create_upload)
         """
 
     def create_vpce_configuration(
@@ -297,52 +296,52 @@ class DeviceFarmClient:
         vpceConfigurationDescription: str = None,
     ) -> CreateVPCEConfigurationResultTypeDef:
         """
-        [Client.create_vpce_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.create_vpce_configuration)
+        [Client.create_vpce_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.create_vpce_configuration)
         """
 
     def delete_device_pool(self, arn: str) -> Dict[str, Any]:
         """
-        [Client.delete_device_pool documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.delete_device_pool)
+        [Client.delete_device_pool documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.delete_device_pool)
         """
 
     def delete_instance_profile(self, arn: str) -> Dict[str, Any]:
         """
-        [Client.delete_instance_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.delete_instance_profile)
+        [Client.delete_instance_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.delete_instance_profile)
         """
 
     def delete_network_profile(self, arn: str) -> Dict[str, Any]:
         """
-        [Client.delete_network_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.delete_network_profile)
+        [Client.delete_network_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.delete_network_profile)
         """
 
     def delete_project(self, arn: str) -> Dict[str, Any]:
         """
-        [Client.delete_project documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.delete_project)
+        [Client.delete_project documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.delete_project)
         """
 
     def delete_remote_access_session(self, arn: str) -> Dict[str, Any]:
         """
-        [Client.delete_remote_access_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.delete_remote_access_session)
+        [Client.delete_remote_access_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.delete_remote_access_session)
         """
 
     def delete_run(self, arn: str) -> Dict[str, Any]:
         """
-        [Client.delete_run documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.delete_run)
+        [Client.delete_run documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.delete_run)
         """
 
     def delete_test_grid_project(self, projectArn: str) -> Dict[str, Any]:
         """
-        [Client.delete_test_grid_project documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.delete_test_grid_project)
+        [Client.delete_test_grid_project documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.delete_test_grid_project)
         """
 
     def delete_upload(self, arn: str) -> Dict[str, Any]:
         """
-        [Client.delete_upload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.delete_upload)
+        [Client.delete_upload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.delete_upload)
         """
 
     def delete_vpce_configuration(self, arn: str) -> Dict[str, Any]:
         """
-        [Client.delete_vpce_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.delete_vpce_configuration)
+        [Client.delete_vpce_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.delete_vpce_configuration)
         """
 
     def generate_presigned_url(
@@ -353,27 +352,27 @@ class DeviceFarmClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.generate_presigned_url)
         """
 
     def get_account_settings(self) -> GetAccountSettingsResultTypeDef:
         """
-        [Client.get_account_settings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.get_account_settings)
+        [Client.get_account_settings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.get_account_settings)
         """
 
     def get_device(self, arn: str) -> GetDeviceResultTypeDef:
         """
-        [Client.get_device documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.get_device)
+        [Client.get_device documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.get_device)
         """
 
     def get_device_instance(self, arn: str) -> GetDeviceInstanceResultTypeDef:
         """
-        [Client.get_device_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.get_device_instance)
+        [Client.get_device_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.get_device_instance)
         """
 
     def get_device_pool(self, arn: str) -> GetDevicePoolResultTypeDef:
         """
-        [Client.get_device_pool documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.get_device_pool)
+        [Client.get_device_pool documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.get_device_pool)
         """
 
     def get_device_pool_compatibility(
@@ -407,193 +406,193 @@ class DeviceFarmClient:
         configuration: ScheduleRunConfigurationTypeDef = None,
     ) -> GetDevicePoolCompatibilityResultTypeDef:
         """
-        [Client.get_device_pool_compatibility documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.get_device_pool_compatibility)
+        [Client.get_device_pool_compatibility documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.get_device_pool_compatibility)
         """
 
     def get_instance_profile(self, arn: str) -> GetInstanceProfileResultTypeDef:
         """
-        [Client.get_instance_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.get_instance_profile)
+        [Client.get_instance_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.get_instance_profile)
         """
 
     def get_job(self, arn: str) -> GetJobResultTypeDef:
         """
-        [Client.get_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.get_job)
+        [Client.get_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.get_job)
         """
 
     def get_network_profile(self, arn: str) -> GetNetworkProfileResultTypeDef:
         """
-        [Client.get_network_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.get_network_profile)
+        [Client.get_network_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.get_network_profile)
         """
 
     def get_offering_status(self, nextToken: str = None) -> GetOfferingStatusResultTypeDef:
         """
-        [Client.get_offering_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.get_offering_status)
+        [Client.get_offering_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.get_offering_status)
         """
 
     def get_project(self, arn: str) -> GetProjectResultTypeDef:
         """
-        [Client.get_project documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.get_project)
+        [Client.get_project documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.get_project)
         """
 
     def get_remote_access_session(self, arn: str) -> GetRemoteAccessSessionResultTypeDef:
         """
-        [Client.get_remote_access_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.get_remote_access_session)
+        [Client.get_remote_access_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.get_remote_access_session)
         """
 
     def get_run(self, arn: str) -> GetRunResultTypeDef:
         """
-        [Client.get_run documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.get_run)
+        [Client.get_run documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.get_run)
         """
 
     def get_suite(self, arn: str) -> GetSuiteResultTypeDef:
         """
-        [Client.get_suite documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.get_suite)
+        [Client.get_suite documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.get_suite)
         """
 
     def get_test(self, arn: str) -> GetTestResultTypeDef:
         """
-        [Client.get_test documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.get_test)
+        [Client.get_test documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.get_test)
         """
 
     def get_test_grid_project(self, projectArn: str) -> GetTestGridProjectResultTypeDef:
         """
-        [Client.get_test_grid_project documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.get_test_grid_project)
+        [Client.get_test_grid_project documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.get_test_grid_project)
         """
 
     def get_test_grid_session(
         self, projectArn: str = None, sessionId: str = None, sessionArn: str = None
     ) -> GetTestGridSessionResultTypeDef:
         """
-        [Client.get_test_grid_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.get_test_grid_session)
+        [Client.get_test_grid_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.get_test_grid_session)
         """
 
     def get_upload(self, arn: str) -> GetUploadResultTypeDef:
         """
-        [Client.get_upload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.get_upload)
+        [Client.get_upload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.get_upload)
         """
 
     def get_vpce_configuration(self, arn: str) -> GetVPCEConfigurationResultTypeDef:
         """
-        [Client.get_vpce_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.get_vpce_configuration)
+        [Client.get_vpce_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.get_vpce_configuration)
         """
 
     def install_to_remote_access_session(
         self, remoteAccessSessionArn: str, appArn: str
     ) -> InstallToRemoteAccessSessionResultTypeDef:
         """
-        [Client.install_to_remote_access_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.install_to_remote_access_session)
+        [Client.install_to_remote_access_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.install_to_remote_access_session)
         """
 
     def list_artifacts(
         self, arn: str, type: Literal["SCREENSHOT", "FILE", "LOG"], nextToken: str = None
     ) -> ListArtifactsResultTypeDef:
         """
-        [Client.list_artifacts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.list_artifacts)
+        [Client.list_artifacts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.list_artifacts)
         """
 
     def list_device_instances(
         self, maxResults: int = None, nextToken: str = None
     ) -> ListDeviceInstancesResultTypeDef:
         """
-        [Client.list_device_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.list_device_instances)
+        [Client.list_device_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.list_device_instances)
         """
 
     def list_device_pools(
         self, arn: str, type: Literal["CURATED", "PRIVATE"] = None, nextToken: str = None
     ) -> ListDevicePoolsResultTypeDef:
         """
-        [Client.list_device_pools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.list_device_pools)
+        [Client.list_device_pools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.list_device_pools)
         """
 
     def list_devices(
         self, arn: str = None, nextToken: str = None, filters: List["DeviceFilterTypeDef"] = None
     ) -> ListDevicesResultTypeDef:
         """
-        [Client.list_devices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.list_devices)
+        [Client.list_devices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.list_devices)
         """
 
     def list_instance_profiles(
         self, maxResults: int = None, nextToken: str = None
     ) -> ListInstanceProfilesResultTypeDef:
         """
-        [Client.list_instance_profiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.list_instance_profiles)
+        [Client.list_instance_profiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.list_instance_profiles)
         """
 
     def list_jobs(self, arn: str, nextToken: str = None) -> ListJobsResultTypeDef:
         """
-        [Client.list_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.list_jobs)
+        [Client.list_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.list_jobs)
         """
 
     def list_network_profiles(
         self, arn: str, type: Literal["CURATED", "PRIVATE"] = None, nextToken: str = None
     ) -> ListNetworkProfilesResultTypeDef:
         """
-        [Client.list_network_profiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.list_network_profiles)
+        [Client.list_network_profiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.list_network_profiles)
         """
 
     def list_offering_promotions(
         self, nextToken: str = None
     ) -> ListOfferingPromotionsResultTypeDef:
         """
-        [Client.list_offering_promotions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.list_offering_promotions)
+        [Client.list_offering_promotions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.list_offering_promotions)
         """
 
     def list_offering_transactions(
         self, nextToken: str = None
     ) -> ListOfferingTransactionsResultTypeDef:
         """
-        [Client.list_offering_transactions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.list_offering_transactions)
+        [Client.list_offering_transactions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.list_offering_transactions)
         """
 
     def list_offerings(self, nextToken: str = None) -> ListOfferingsResultTypeDef:
         """
-        [Client.list_offerings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.list_offerings)
+        [Client.list_offerings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.list_offerings)
         """
 
     def list_projects(self, arn: str = None, nextToken: str = None) -> ListProjectsResultTypeDef:
         """
-        [Client.list_projects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.list_projects)
+        [Client.list_projects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.list_projects)
         """
 
     def list_remote_access_sessions(
         self, arn: str, nextToken: str = None
     ) -> ListRemoteAccessSessionsResultTypeDef:
         """
-        [Client.list_remote_access_sessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.list_remote_access_sessions)
+        [Client.list_remote_access_sessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.list_remote_access_sessions)
         """
 
     def list_runs(self, arn: str, nextToken: str = None) -> ListRunsResultTypeDef:
         """
-        [Client.list_runs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.list_runs)
+        [Client.list_runs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.list_runs)
         """
 
     def list_samples(self, arn: str, nextToken: str = None) -> ListSamplesResultTypeDef:
         """
-        [Client.list_samples documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.list_samples)
+        [Client.list_samples documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.list_samples)
         """
 
     def list_suites(self, arn: str, nextToken: str = None) -> ListSuitesResultTypeDef:
         """
-        [Client.list_suites documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.list_suites)
+        [Client.list_suites documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.list_suites)
         """
 
     def list_tags_for_resource(self, ResourceARN: str) -> ListTagsForResourceResponseTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.list_tags_for_resource)
         """
 
     def list_test_grid_projects(
         self, maxResult: int = None, nextToken: str = None
     ) -> ListTestGridProjectsResultTypeDef:
         """
-        [Client.list_test_grid_projects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.list_test_grid_projects)
+        [Client.list_test_grid_projects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.list_test_grid_projects)
         """
 
     def list_test_grid_session_actions(
         self, sessionArn: str, maxResult: int = None, nextToken: str = None
     ) -> ListTestGridSessionActionsResultTypeDef:
         """
-        [Client.list_test_grid_session_actions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.list_test_grid_session_actions)
+        [Client.list_test_grid_session_actions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.list_test_grid_session_actions)
         """
 
     def list_test_grid_session_artifacts(
@@ -604,7 +603,7 @@ class DeviceFarmClient:
         nextToken: str = None,
     ) -> ListTestGridSessionArtifactsResultTypeDef:
         """
-        [Client.list_test_grid_session_artifacts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.list_test_grid_session_artifacts)
+        [Client.list_test_grid_session_artifacts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.list_test_grid_session_artifacts)
         """
 
     def list_test_grid_sessions(
@@ -619,19 +618,19 @@ class DeviceFarmClient:
         nextToken: str = None,
     ) -> ListTestGridSessionsResultTypeDef:
         """
-        [Client.list_test_grid_sessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.list_test_grid_sessions)
+        [Client.list_test_grid_sessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.list_test_grid_sessions)
         """
 
     def list_tests(self, arn: str, nextToken: str = None) -> ListTestsResultTypeDef:
         """
-        [Client.list_tests documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.list_tests)
+        [Client.list_tests documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.list_tests)
         """
 
     def list_unique_problems(
         self, arn: str, nextToken: str = None
     ) -> ListUniqueProblemsResultTypeDef:
         """
-        [Client.list_unique_problems documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.list_unique_problems)
+        [Client.list_unique_problems documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.list_unique_problems)
         """
 
     def list_uploads(
@@ -674,28 +673,28 @@ class DeviceFarmClient:
         nextToken: str = None,
     ) -> ListUploadsResultTypeDef:
         """
-        [Client.list_uploads documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.list_uploads)
+        [Client.list_uploads documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.list_uploads)
         """
 
     def list_vpce_configurations(
         self, maxResults: int = None, nextToken: str = None
     ) -> ListVPCEConfigurationsResultTypeDef:
         """
-        [Client.list_vpce_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.list_vpce_configurations)
+        [Client.list_vpce_configurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.list_vpce_configurations)
         """
 
     def purchase_offering(
         self, offeringId: str = None, quantity: int = None, offeringPromotionId: str = None
     ) -> PurchaseOfferingResultTypeDef:
         """
-        [Client.purchase_offering documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.purchase_offering)
+        [Client.purchase_offering documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.purchase_offering)
         """
 
     def renew_offering(
         self, offeringId: str = None, quantity: int = None
     ) -> RenewOfferingResultTypeDef:
         """
-        [Client.renew_offering documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.renew_offering)
+        [Client.renew_offering documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.renew_offering)
         """
 
     def schedule_run(
@@ -710,39 +709,39 @@ class DeviceFarmClient:
         executionConfiguration: ExecutionConfigurationTypeDef = None,
     ) -> ScheduleRunResultTypeDef:
         """
-        [Client.schedule_run documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.schedule_run)
+        [Client.schedule_run documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.schedule_run)
         """
 
     def stop_job(self, arn: str) -> StopJobResultTypeDef:
         """
-        [Client.stop_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.stop_job)
+        [Client.stop_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.stop_job)
         """
 
     def stop_remote_access_session(self, arn: str) -> StopRemoteAccessSessionResultTypeDef:
         """
-        [Client.stop_remote_access_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.stop_remote_access_session)
+        [Client.stop_remote_access_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.stop_remote_access_session)
         """
 
     def stop_run(self, arn: str) -> StopRunResultTypeDef:
         """
-        [Client.stop_run documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.stop_run)
+        [Client.stop_run documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.stop_run)
         """
 
     def tag_resource(self, ResourceARN: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.tag_resource)
         """
 
     def untag_resource(self, ResourceARN: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.untag_resource)
         """
 
     def update_device_instance(
         self, arn: str, profileArn: str = None, labels: List[str] = None
     ) -> UpdateDeviceInstanceResultTypeDef:
         """
-        [Client.update_device_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.update_device_instance)
+        [Client.update_device_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.update_device_instance)
         """
 
     def update_device_pool(
@@ -755,7 +754,7 @@ class DeviceFarmClient:
         clearMaxDevices: bool = None,
     ) -> UpdateDevicePoolResultTypeDef:
         """
-        [Client.update_device_pool documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.update_device_pool)
+        [Client.update_device_pool documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.update_device_pool)
         """
 
     def update_instance_profile(
@@ -768,7 +767,7 @@ class DeviceFarmClient:
         rebootAfterUse: bool = None,
     ) -> UpdateInstanceProfileResultTypeDef:
         """
-        [Client.update_instance_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.update_instance_profile)
+        [Client.update_instance_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.update_instance_profile)
         """
 
     def update_network_profile(
@@ -787,28 +786,28 @@ class DeviceFarmClient:
         downlinkLossPercent: int = None,
     ) -> UpdateNetworkProfileResultTypeDef:
         """
-        [Client.update_network_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.update_network_profile)
+        [Client.update_network_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.update_network_profile)
         """
 
     def update_project(
         self, arn: str, name: str = None, defaultJobTimeoutMinutes: int = None
     ) -> UpdateProjectResultTypeDef:
         """
-        [Client.update_project documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.update_project)
+        [Client.update_project documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.update_project)
         """
 
     def update_test_grid_project(
         self, projectArn: str, name: str = None, description: str = None
     ) -> UpdateTestGridProjectResultTypeDef:
         """
-        [Client.update_test_grid_project documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.update_test_grid_project)
+        [Client.update_test_grid_project documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.update_test_grid_project)
         """
 
     def update_upload(
         self, arn: str, name: str = None, contentType: str = None, editContent: bool = None
     ) -> UpdateUploadResultTypeDef:
         """
-        [Client.update_upload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.update_upload)
+        [Client.update_upload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.update_upload)
         """
 
     def update_vpce_configuration(
@@ -820,7 +819,7 @@ class DeviceFarmClient:
         vpceConfigurationDescription: str = None,
     ) -> UpdateVPCEConfigurationResultTypeDef:
         """
-        [Client.update_vpce_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Client.update_vpce_configuration)
+        [Client.update_vpce_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Client.update_vpce_configuration)
         """
 
     @overload
@@ -828,13 +827,13 @@ class DeviceFarmClient:
         self, operation_name: Literal["get_offering_status"]
     ) -> GetOfferingStatusPaginator:
         """
-        [Paginator.GetOfferingStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.GetOfferingStatus)
+        [Paginator.GetOfferingStatus documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.GetOfferingStatus)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_artifacts"]) -> ListArtifactsPaginator:
         """
-        [Paginator.ListArtifacts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListArtifacts)
+        [Paginator.ListArtifacts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListArtifacts)
         """
 
     @overload
@@ -842,7 +841,7 @@ class DeviceFarmClient:
         self, operation_name: Literal["list_device_instances"]
     ) -> ListDeviceInstancesPaginator:
         """
-        [Paginator.ListDeviceInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListDeviceInstances)
+        [Paginator.ListDeviceInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListDeviceInstances)
         """
 
     @overload
@@ -850,13 +849,13 @@ class DeviceFarmClient:
         self, operation_name: Literal["list_device_pools"]
     ) -> ListDevicePoolsPaginator:
         """
-        [Paginator.ListDevicePools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListDevicePools)
+        [Paginator.ListDevicePools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListDevicePools)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_devices"]) -> ListDevicesPaginator:
         """
-        [Paginator.ListDevices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListDevices)
+        [Paginator.ListDevices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListDevices)
         """
 
     @overload
@@ -864,13 +863,13 @@ class DeviceFarmClient:
         self, operation_name: Literal["list_instance_profiles"]
     ) -> ListInstanceProfilesPaginator:
         """
-        [Paginator.ListInstanceProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListInstanceProfiles)
+        [Paginator.ListInstanceProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListInstanceProfiles)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_jobs"]) -> ListJobsPaginator:
         """
-        [Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListJobs)
+        [Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListJobs)
         """
 
     @overload
@@ -878,7 +877,7 @@ class DeviceFarmClient:
         self, operation_name: Literal["list_network_profiles"]
     ) -> ListNetworkProfilesPaginator:
         """
-        [Paginator.ListNetworkProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListNetworkProfiles)
+        [Paginator.ListNetworkProfiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListNetworkProfiles)
         """
 
     @overload
@@ -886,7 +885,7 @@ class DeviceFarmClient:
         self, operation_name: Literal["list_offering_promotions"]
     ) -> ListOfferingPromotionsPaginator:
         """
-        [Paginator.ListOfferingPromotions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListOfferingPromotions)
+        [Paginator.ListOfferingPromotions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListOfferingPromotions)
         """
 
     @overload
@@ -894,19 +893,19 @@ class DeviceFarmClient:
         self, operation_name: Literal["list_offering_transactions"]
     ) -> ListOfferingTransactionsPaginator:
         """
-        [Paginator.ListOfferingTransactions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListOfferingTransactions)
+        [Paginator.ListOfferingTransactions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListOfferingTransactions)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_offerings"]) -> ListOfferingsPaginator:
         """
-        [Paginator.ListOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListOfferings)
+        [Paginator.ListOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListOfferings)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_projects"]) -> ListProjectsPaginator:
         """
-        [Paginator.ListProjects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListProjects)
+        [Paginator.ListProjects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListProjects)
         """
 
     @overload
@@ -914,31 +913,31 @@ class DeviceFarmClient:
         self, operation_name: Literal["list_remote_access_sessions"]
     ) -> ListRemoteAccessSessionsPaginator:
         """
-        [Paginator.ListRemoteAccessSessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListRemoteAccessSessions)
+        [Paginator.ListRemoteAccessSessions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListRemoteAccessSessions)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_runs"]) -> ListRunsPaginator:
         """
-        [Paginator.ListRuns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListRuns)
+        [Paginator.ListRuns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListRuns)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_samples"]) -> ListSamplesPaginator:
         """
-        [Paginator.ListSamples documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListSamples)
+        [Paginator.ListSamples documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListSamples)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_suites"]) -> ListSuitesPaginator:
         """
-        [Paginator.ListSuites documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListSuites)
+        [Paginator.ListSuites documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListSuites)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_tests"]) -> ListTestsPaginator:
         """
-        [Paginator.ListTests documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListTests)
+        [Paginator.ListTests documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListTests)
         """
 
     @overload
@@ -946,13 +945,13 @@ class DeviceFarmClient:
         self, operation_name: Literal["list_unique_problems"]
     ) -> ListUniqueProblemsPaginator:
         """
-        [Paginator.ListUniqueProblems documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListUniqueProblems)
+        [Paginator.ListUniqueProblems documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListUniqueProblems)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_uploads"]) -> ListUploadsPaginator:
         """
-        [Paginator.ListUploads documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListUploads)
+        [Paginator.ListUploads documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListUploads)
         """
 
     @overload
@@ -960,5 +959,5 @@ class DeviceFarmClient:
         self, operation_name: Literal["list_vpce_configurations"]
     ) -> ListVPCEConfigurationsPaginator:
         """
-        [Paginator.ListVPCEConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/devicefarm.html#DeviceFarm.Paginator.ListVPCEConfigurations)
+        [Paginator.ListVPCEConfigurations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/devicefarm.html#DeviceFarm.Paginator.ListVPCEConfigurations)
         """

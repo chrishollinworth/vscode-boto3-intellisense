@@ -18,7 +18,9 @@ from mypy_boto3_servicecatalog_appregistry.type_defs import (
     ListAssociatedAttributeGroupsResponseTypeDef,
     ListAssociatedResourcesResponseTypeDef,
     ListAttributeGroupsResponseTypeDef,
+    ListTagsForResourceResponseTypeDef,
     PaginatorConfigTypeDef,
+    SyncResourceResponseTypeDef,
     UpdateApplicationResponseTypeDef,
     UpdateAttributeGroupResponseTypeDef,
 )
@@ -43,7 +45,9 @@ __all__ = (
     "ListAssociatedAttributeGroupsResponseTypeDef",
     "ListAssociatedResourcesResponseTypeDef",
     "ListAttributeGroupsResponseTypeDef",
+    "ListTagsForResourceResponseTypeDef",
     "PaginatorConfigTypeDef",
+    "SyncResourceResponseTypeDef",
     "UpdateApplicationResponseTypeDef",
     "UpdateAttributeGroupResponseTypeDef",
 )

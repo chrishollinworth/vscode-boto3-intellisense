@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for resourcegroupstaggingapi service client paginators.
 
@@ -53,7 +52,7 @@ __all__ = (
 
 class GetComplianceSummaryPaginator(Boto3Paginator):
     """
-    [Paginator.GetComplianceSummary documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/resourcegroupstaggingapi.html#ResourceGroupsTaggingAPI.Paginator.GetComplianceSummary)
+    [Paginator.GetComplianceSummary documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/resourcegroupstaggingapi.html#ResourceGroupsTaggingAPI.Paginator.GetComplianceSummary)
     """
 
     def paginate(
@@ -66,13 +65,13 @@ class GetComplianceSummaryPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetComplianceSummaryOutputTypeDef]:
         """
-        [GetComplianceSummary.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/resourcegroupstaggingapi.html#ResourceGroupsTaggingAPI.Paginator.GetComplianceSummary.paginate)
+        [GetComplianceSummary.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/resourcegroupstaggingapi.html#ResourceGroupsTaggingAPI.Paginator.GetComplianceSummary.paginate)
         """
 
 
 class GetResourcesPaginator(Boto3Paginator):
     """
-    [Paginator.GetResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/resourcegroupstaggingapi.html#ResourceGroupsTaggingAPI.Paginator.GetResources)
+    [Paginator.GetResources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/resourcegroupstaggingapi.html#ResourceGroupsTaggingAPI.Paginator.GetResources)
     """
 
     def paginate(
@@ -82,34 +81,35 @@ class GetResourcesPaginator(Boto3Paginator):
         ResourceTypeFilters: List[str] = None,
         IncludeComplianceDetails: bool = None,
         ExcludeCompliantResources: bool = None,
+        ResourceARNList: List[str] = None,
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[GetResourcesOutputTypeDef]:
         """
-        [GetResources.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/resourcegroupstaggingapi.html#ResourceGroupsTaggingAPI.Paginator.GetResources.paginate)
+        [GetResources.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/resourcegroupstaggingapi.html#ResourceGroupsTaggingAPI.Paginator.GetResources.paginate)
         """
 
 
 class GetTagKeysPaginator(Boto3Paginator):
     """
-    [Paginator.GetTagKeys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/resourcegroupstaggingapi.html#ResourceGroupsTaggingAPI.Paginator.GetTagKeys)
+    [Paginator.GetTagKeys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/resourcegroupstaggingapi.html#ResourceGroupsTaggingAPI.Paginator.GetTagKeys)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetTagKeysOutputTypeDef]:
         """
-        [GetTagKeys.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/resourcegroupstaggingapi.html#ResourceGroupsTaggingAPI.Paginator.GetTagKeys.paginate)
+        [GetTagKeys.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/resourcegroupstaggingapi.html#ResourceGroupsTaggingAPI.Paginator.GetTagKeys.paginate)
         """
 
 
 class GetTagValuesPaginator(Boto3Paginator):
     """
-    [Paginator.GetTagValues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/resourcegroupstaggingapi.html#ResourceGroupsTaggingAPI.Paginator.GetTagValues)
+    [Paginator.GetTagValues documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/resourcegroupstaggingapi.html#ResourceGroupsTaggingAPI.Paginator.GetTagValues)
     """
 
     def paginate(
         self, Key: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetTagValuesOutputTypeDef]:
         """
-        [GetTagValues.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/resourcegroupstaggingapi.html#ResourceGroupsTaggingAPI.Paginator.GetTagValues.paginate)
+        [GetTagValues.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/resourcegroupstaggingapi.html#ResourceGroupsTaggingAPI.Paginator.GetTagValues.paginate)
         """

@@ -37,11 +37,13 @@ __all__ = (
     "MemberLogPublishingConfigurationTypeDef",
     "MemberSummaryTypeDef",
     "MemberTypeDef",
+    "NetworkEthereumAttributesTypeDef",
     "NetworkFabricAttributesTypeDef",
     "NetworkFabricConfigurationTypeDef",
     "NetworkFrameworkAttributesTypeDef",
     "NetworkSummaryTypeDef",
     "NetworkTypeDef",
+    "NodeEthereumAttributesTypeDef",
     "NodeFabricAttributesTypeDef",
     "NodeFabricLogPublishingConfigurationTypeDef",
     "NodeFrameworkAttributesTypeDef",
@@ -69,6 +71,7 @@ __all__ = (
     "ListNodesOutputTypeDef",
     "ListProposalVotesOutputTypeDef",
     "ListProposalsOutputTypeDef",
+    "ListTagsForResourceResponseTypeDef",
     "MemberConfigurationTypeDef",
     "NetworkFrameworkConfigurationTypeDef",
     "NodeConfigurationTypeDef",
@@ -92,6 +95,7 @@ InvitationTypeDef = TypedDict(
         "ExpirationDate": datetime,
         "Status": Literal["PENDING", "ACCEPTED", "ACCEPTING", "REJECTED", "EXPIRED"],
         "NetworkSummary": "NetworkSummaryTypeDef",
+        "Arn": str,
     },
     total=False,
 )
@@ -145,6 +149,7 @@ MemberSummaryTypeDef = TypedDict(
         ],
         "CreationDate": datetime,
         "IsOwned": bool,
+        "Arn": str,
     },
     total=False,
 )
@@ -162,8 +167,14 @@ MemberTypeDef = TypedDict(
             "CREATING", "AVAILABLE", "CREATE_FAILED", "UPDATING", "DELETING", "DELETED"
         ],
         "CreationDate": datetime,
+        "Tags": Dict[str, str],
+        "Arn": str,
     },
     total=False,
+)
+
+NetworkEthereumAttributesTypeDef = TypedDict(
+    "NetworkEthereumAttributesTypeDef", {"ChainId": str}, total=False
 )
 
 NetworkFabricAttributesTypeDef = TypedDict(
@@ -177,7 +188,9 @@ NetworkFabricConfigurationTypeDef = TypedDict(
 )
 
 NetworkFrameworkAttributesTypeDef = TypedDict(
-    "NetworkFrameworkAttributesTypeDef", {"Fabric": "NetworkFabricAttributesTypeDef"}, total=False
+    "NetworkFrameworkAttributesTypeDef",
+    {"Fabric": "NetworkFabricAttributesTypeDef", "Ethereum": "NetworkEthereumAttributesTypeDef"},
+    total=False,
 )
 
 NetworkSummaryTypeDef = TypedDict(
@@ -186,10 +199,11 @@ NetworkSummaryTypeDef = TypedDict(
         "Id": str,
         "Name": str,
         "Description": str,
-        "Framework": Literal["HYPERLEDGER_FABRIC"],
+        "Framework": Literal["HYPERLEDGER_FABRIC", "ETHEREUM"],
         "FrameworkVersion": str,
         "Status": Literal["CREATING", "AVAILABLE", "CREATE_FAILED", "DELETING", "DELETED"],
         "CreationDate": datetime,
+        "Arn": str,
     },
     total=False,
 )
@@ -200,15 +214,21 @@ NetworkTypeDef = TypedDict(
         "Id": str,
         "Name": str,
         "Description": str,
-        "Framework": Literal["HYPERLEDGER_FABRIC"],
+        "Framework": Literal["HYPERLEDGER_FABRIC", "ETHEREUM"],
         "FrameworkVersion": str,
         "FrameworkAttributes": "NetworkFrameworkAttributesTypeDef",
         "VpcEndpointServiceName": str,
         "VotingPolicy": "VotingPolicyTypeDef",
         "Status": Literal["CREATING", "AVAILABLE", "CREATE_FAILED", "DELETING", "DELETED"],
         "CreationDate": datetime,
+        "Tags": Dict[str, str],
+        "Arn": str,
     },
     total=False,
+)
+
+NodeEthereumAttributesTypeDef = TypedDict(
+    "NodeEthereumAttributesTypeDef", {"HttpEndpoint": str, "WebSocketEndpoint": str}, total=False
 )
 
 NodeFabricAttributesTypeDef = TypedDict(
@@ -222,7 +242,9 @@ NodeFabricLogPublishingConfigurationTypeDef = TypedDict(
 )
 
 NodeFrameworkAttributesTypeDef = TypedDict(
-    "NodeFrameworkAttributesTypeDef", {"Fabric": "NodeFabricAttributesTypeDef"}, total=False
+    "NodeFrameworkAttributesTypeDef",
+    {"Fabric": "NodeFabricAttributesTypeDef", "Ethereum": "NodeEthereumAttributesTypeDef"},
+    total=False,
 )
 
 NodeLogPublishingConfigurationTypeDef = TypedDict(
@@ -236,11 +258,19 @@ NodeSummaryTypeDef = TypedDict(
     {
         "Id": str,
         "Status": Literal[
-            "CREATING", "AVAILABLE", "CREATE_FAILED", "UPDATING", "DELETING", "DELETED", "FAILED"
+            "CREATING",
+            "AVAILABLE",
+            "UNHEALTHY",
+            "CREATE_FAILED",
+            "UPDATING",
+            "DELETING",
+            "DELETED",
+            "FAILED",
         ],
         "CreationDate": datetime,
         "AvailabilityZone": str,
         "InstanceType": str,
+        "Arn": str,
     },
     total=False,
 )
@@ -257,9 +287,18 @@ NodeTypeDef = TypedDict(
         "LogPublishingConfiguration": "NodeLogPublishingConfigurationTypeDef",
         "StateDB": Literal["LevelDB", "CouchDB"],
         "Status": Literal[
-            "CREATING", "AVAILABLE", "CREATE_FAILED", "UPDATING", "DELETING", "DELETED", "FAILED"
+            "CREATING",
+            "AVAILABLE",
+            "UNHEALTHY",
+            "CREATE_FAILED",
+            "UPDATING",
+            "DELETING",
+            "DELETED",
+            "FAILED",
         ],
         "CreationDate": datetime,
+        "Tags": Dict[str, str],
+        "Arn": str,
     },
     total=False,
 )
@@ -280,6 +319,7 @@ ProposalSummaryTypeDef = TypedDict(
         "Status": Literal["IN_PROGRESS", "APPROVED", "REJECTED", "EXPIRED", "ACTION_FAILED"],
         "CreationDate": datetime,
         "ExpirationDate": datetime,
+        "Arn": str,
     },
     total=False,
 )
@@ -299,6 +339,8 @@ ProposalTypeDef = TypedDict(
         "YesVoteCount": int,
         "NoVoteCount": int,
         "OutstandingVoteCount": int,
+        "Tags": Dict[str, str],
+        "Arn": str,
     },
     total=False,
 )
@@ -430,13 +472,21 @@ ListProposalsOutputTypeDef = TypedDict(
     total=False,
 )
 
+ListTagsForResourceResponseTypeDef = TypedDict(
+    "ListTagsForResourceResponseTypeDef", {"Tags": Dict[str, str]}, total=False
+)
+
 _RequiredMemberConfigurationTypeDef = TypedDict(
     "_RequiredMemberConfigurationTypeDef",
     {"Name": str, "FrameworkConfiguration": "MemberFrameworkConfigurationTypeDef"},
 )
 _OptionalMemberConfigurationTypeDef = TypedDict(
     "_OptionalMemberConfigurationTypeDef",
-    {"Description": str, "LogPublishingConfiguration": "MemberLogPublishingConfigurationTypeDef"},
+    {
+        "Description": str,
+        "LogPublishingConfiguration": "MemberLogPublishingConfigurationTypeDef",
+        "Tags": Dict[str, str],
+    },
     total=False,
 )
 
@@ -454,11 +504,12 @@ NetworkFrameworkConfigurationTypeDef = TypedDict(
 )
 
 _RequiredNodeConfigurationTypeDef = TypedDict(
-    "_RequiredNodeConfigurationTypeDef", {"InstanceType": str, "AvailabilityZone": str}
+    "_RequiredNodeConfigurationTypeDef", {"InstanceType": str}
 )
 _OptionalNodeConfigurationTypeDef = TypedDict(
     "_OptionalNodeConfigurationTypeDef",
     {
+        "AvailabilityZone": str,
         "LogPublishingConfiguration": "NodeLogPublishingConfigurationTypeDef",
         "StateDB": Literal["LevelDB", "CouchDB"],
     },

@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for codeguruprofiler service client
 
@@ -71,7 +70,7 @@ class Exceptions:
 
 class CodeGuruProfilerClient:
     """
-    [CodeGuruProfiler.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client)
+    [CodeGuruProfiler.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client)
     """
 
     meta: ClientMeta
@@ -81,7 +80,7 @@ class CodeGuruProfilerClient:
         self, channels: List["ChannelTypeDef"], profilingGroupName: str
     ) -> AddNotificationChannelsResponseTypeDef:
         """
-        [Client.add_notification_channels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.add_notification_channels)
+        [Client.add_notification_channels documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.add_notification_channels)
         """
 
     def batch_get_frame_metric_data(
@@ -94,12 +93,12 @@ class CodeGuruProfilerClient:
         targetResolution: Literal["P1D", "PT1H", "PT5M"] = None,
     ) -> BatchGetFrameMetricDataResponseTypeDef:
         """
-        [Client.batch_get_frame_metric_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.batch_get_frame_metric_data)
+        [Client.batch_get_frame_metric_data documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.batch_get_frame_metric_data)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.can_paginate)
         """
 
     def configure_agent(
@@ -122,7 +121,7 @@ class CodeGuruProfilerClient:
         ] = None,
     ) -> ConfigureAgentResponseTypeDef:
         """
-        [Client.configure_agent documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.configure_agent)
+        [Client.configure_agent documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.configure_agent)
         """
 
     def create_profiling_group(
@@ -134,19 +133,19 @@ class CodeGuruProfilerClient:
         tags: Dict[str, str] = None,
     ) -> CreateProfilingGroupResponseTypeDef:
         """
-        [Client.create_profiling_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.create_profiling_group)
+        [Client.create_profiling_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.create_profiling_group)
         """
 
     def delete_profiling_group(self, profilingGroupName: str) -> Dict[str, Any]:
         """
-        [Client.delete_profiling_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.delete_profiling_group)
+        [Client.delete_profiling_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.delete_profiling_group)
         """
 
     def describe_profiling_group(
         self, profilingGroupName: str
     ) -> DescribeProfilingGroupResponseTypeDef:
         """
-        [Client.describe_profiling_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.describe_profiling_group)
+        [Client.describe_profiling_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.describe_profiling_group)
         """
 
     def generate_presigned_url(
@@ -157,26 +156,26 @@ class CodeGuruProfilerClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.generate_presigned_url)
         """
 
     def get_findings_report_account_summary(
         self, dailyReportsOnly: bool = None, maxResults: int = None, nextToken: str = None
     ) -> GetFindingsReportAccountSummaryResponseTypeDef:
         """
-        [Client.get_findings_report_account_summary documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.get_findings_report_account_summary)
+        [Client.get_findings_report_account_summary documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.get_findings_report_account_summary)
         """
 
     def get_notification_configuration(
         self, profilingGroupName: str
     ) -> GetNotificationConfigurationResponseTypeDef:
         """
-        [Client.get_notification_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.get_notification_configuration)
+        [Client.get_notification_configuration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.get_notification_configuration)
         """
 
     def get_policy(self, profilingGroupName: str) -> GetPolicyResponseTypeDef:
         """
-        [Client.get_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.get_policy)
+        [Client.get_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.get_policy)
         """
 
     def get_profile(
@@ -189,14 +188,14 @@ class CodeGuruProfilerClient:
         startTime: datetime = None,
     ) -> GetProfileResponseTypeDef:
         """
-        [Client.get_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.get_profile)
+        [Client.get_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.get_profile)
         """
 
     def get_recommendations(
         self, endTime: datetime, profilingGroupName: str, startTime: datetime, locale: str = None
     ) -> GetRecommendationsResponseTypeDef:
         """
-        [Client.get_recommendations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.get_recommendations)
+        [Client.get_recommendations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.get_recommendations)
         """
 
     def list_findings_reports(
@@ -209,7 +208,7 @@ class CodeGuruProfilerClient:
         nextToken: str = None,
     ) -> ListFindingsReportsResponseTypeDef:
         """
-        [Client.list_findings_reports documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.list_findings_reports)
+        [Client.list_findings_reports documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.list_findings_reports)
         """
 
     def list_profile_times(
@@ -223,19 +222,19 @@ class CodeGuruProfilerClient:
         orderBy: Literal["TimestampAscending", "TimestampDescending"] = None,
     ) -> ListProfileTimesResponseTypeDef:
         """
-        [Client.list_profile_times documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.list_profile_times)
+        [Client.list_profile_times documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.list_profile_times)
         """
 
     def list_profiling_groups(
         self, includeDescription: bool = None, maxResults: int = None, nextToken: str = None
     ) -> ListProfilingGroupsResponseTypeDef:
         """
-        [Client.list_profiling_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.list_profiling_groups)
+        [Client.list_profiling_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.list_profiling_groups)
         """
 
     def list_tags_for_resource(self, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.list_tags_for_resource)
         """
 
     def post_agent_profile(
@@ -246,7 +245,7 @@ class CodeGuruProfilerClient:
         profileToken: str = None,
     ) -> Dict[str, Any]:
         """
-        [Client.post_agent_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.post_agent_profile)
+        [Client.post_agent_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.post_agent_profile)
         """
 
     def put_permission(
@@ -257,21 +256,21 @@ class CodeGuruProfilerClient:
         revisionId: str = None,
     ) -> PutPermissionResponseTypeDef:
         """
-        [Client.put_permission documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.put_permission)
+        [Client.put_permission documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.put_permission)
         """
 
     def remove_notification_channel(
         self, channelId: str, profilingGroupName: str
     ) -> RemoveNotificationChannelResponseTypeDef:
         """
-        [Client.remove_notification_channel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.remove_notification_channel)
+        [Client.remove_notification_channel documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.remove_notification_channel)
         """
 
     def remove_permission(
         self, actionGroup: Literal["agentPermissions"], profilingGroupName: str, revisionId: str
     ) -> RemovePermissionResponseTypeDef:
         """
-        [Client.remove_permission documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.remove_permission)
+        [Client.remove_permission documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.remove_permission)
         """
 
     def submit_feedback(
@@ -282,29 +281,29 @@ class CodeGuruProfilerClient:
         comment: str = None,
     ) -> Dict[str, Any]:
         """
-        [Client.submit_feedback documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.submit_feedback)
+        [Client.submit_feedback documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.submit_feedback)
         """
 
     def tag_resource(self, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.tag_resource)
         """
 
     def untag_resource(self, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.untag_resource)
         """
 
     def update_profiling_group(
         self, agentOrchestrationConfig: "AgentOrchestrationConfigTypeDef", profilingGroupName: str
     ) -> UpdateProfilingGroupResponseTypeDef:
         """
-        [Client.update_profiling_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.update_profiling_group)
+        [Client.update_profiling_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codeguruprofiler.html#CodeGuruProfiler.Client.update_profiling_group)
         """
 
     def get_paginator(
         self, operation_name: Literal["list_profile_times"]
     ) -> ListProfileTimesPaginator:
         """
-        [Paginator.ListProfileTimes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codeguruprofiler.html#CodeGuruProfiler.Paginator.ListProfileTimes)
+        [Paginator.ListProfileTimes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codeguruprofiler.html#CodeGuruProfiler.Paginator.ListProfileTimes)
         """

@@ -10,27 +10,27 @@ Usage::
         ListDatasetEntriesPaginator,
         ListModelsPaginator,
         ListProjectsPaginator,
-        LookoutForVisionClient,
+        LookoutforVisionClient,
     )
 
     session = boto3.Session()
 
-    client: LookoutForVisionClient = boto3.client("lookoutvision")
-    session_client: LookoutForVisionClient = session.client("lookoutvision")
+    client: LookoutforVisionClient = boto3.client("lookoutvision")
+    session_client: LookoutforVisionClient = session.client("lookoutvision")
 
     list_dataset_entries_paginator: ListDatasetEntriesPaginator = client.get_paginator("list_dataset_entries")
     list_models_paginator: ListModelsPaginator = client.get_paginator("list_models")
     list_projects_paginator: ListProjectsPaginator = client.get_paginator("list_projects")
     ```
 """
-from mypy_boto3_lookoutvision.client import LookoutForVisionClient
+from mypy_boto3_lookoutvision.client import LookoutforVisionClient
 from mypy_boto3_lookoutvision.paginator import (
     ListDatasetEntriesPaginator,
     ListModelsPaginator,
     ListProjectsPaginator,
 )
 
-Client = LookoutForVisionClient
+Client = LookoutforVisionClient
 
 
 __all__ = (
@@ -38,5 +38,5 @@ __all__ = (
     "ListDatasetEntriesPaginator",
     "ListModelsPaginator",
     "ListProjectsPaginator",
-    "LookoutForVisionClient",
+    "LookoutforVisionClient",
 )

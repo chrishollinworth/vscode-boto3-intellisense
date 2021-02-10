@@ -11,7 +11,9 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import IO, Any, Dict, List
+from typing import Any, Dict, List
+
+from botocore.response import StreamingBody
 
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -39,6 +41,7 @@ __all__ = (
     "AudioPidSelectionTypeDef",
     "AudioSelectorSettingsTypeDef",
     "AudioSelectorTypeDef",
+    "AudioSilenceFailoverSettingsTypeDef",
     "AudioTrackSelectionTypeDef",
     "AudioTrackTypeDef",
     "AutomaticInputFailoverSettingsTypeDef",
@@ -107,6 +110,7 @@ __all__ = (
     "InputDeviceNetworkSettingsTypeDef",
     "InputDeviceSettingsTypeDef",
     "InputDeviceSummaryTypeDef",
+    "InputDeviceUhdSettingsTypeDef",
     "InputLocationTypeDef",
     "InputLossBehaviorTypeDef",
     "InputLossFailoverSettingsTypeDef",
@@ -192,12 +196,14 @@ __all__ = (
     "UdpContainerSettingsTypeDef",
     "UdpGroupSettingsTypeDef",
     "UdpOutputSettingsTypeDef",
+    "VideoBlackFailoverSettingsTypeDef",
     "VideoCodecSettingsTypeDef",
     "VideoDescriptionTypeDef",
     "VideoSelectorPidTypeDef",
     "VideoSelectorProgramIdTypeDef",
     "VideoSelectorSettingsTypeDef",
     "VideoSelectorTypeDef",
+    "VpcOutputSettingsTypeDef",
     "WavSettingsTypeDef",
     "BatchDeleteResponseTypeDef",
     "BatchScheduleActionCreateRequestTypeDef",
@@ -453,6 +459,20 @@ class AudioSelectorTypeDef(_RequiredAudioSelectorTypeDef, _OptionalAudioSelector
     pass
 
 
+_RequiredAudioSilenceFailoverSettingsTypeDef = TypedDict(
+    "_RequiredAudioSilenceFailoverSettingsTypeDef", {"AudioSelectorName": str}
+)
+_OptionalAudioSilenceFailoverSettingsTypeDef = TypedDict(
+    "_OptionalAudioSilenceFailoverSettingsTypeDef", {"AudioSilenceThresholdMsec": int}, total=False
+)
+
+
+class AudioSilenceFailoverSettingsTypeDef(
+    _RequiredAudioSilenceFailoverSettingsTypeDef, _OptionalAudioSilenceFailoverSettingsTypeDef
+):
+    pass
+
+
 AudioTrackSelectionTypeDef = TypedDict(
     "AudioTrackSelectionTypeDef", {"Tracks": List["AudioTrackTypeDef"]}
 )
@@ -660,6 +680,7 @@ ChannelSummaryTypeDef = TypedDict(
             "UPDATE_FAILED",
         ],
         "Tags": Dict[str, str],
+        "Vpc": "VpcOutputSettingsTypeDef",
     },
     total=False,
 )
@@ -695,6 +716,7 @@ ChannelTypeDef = TypedDict(
             "UPDATE_FAILED",
         ],
         "Tags": Dict[str, str],
+        "Vpc": "VpcOutputSettingsTypeDef",
     },
     total=False,
 )
@@ -834,7 +856,11 @@ class EncoderSettingsTypeDef(_RequiredEncoderSettingsTypeDef, _OptionalEncoderSe
 
 FailoverConditionSettingsTypeDef = TypedDict(
     "FailoverConditionSettingsTypeDef",
-    {"InputLossSettings": "InputLossFailoverSettingsTypeDef"},
+    {
+        "AudioSilenceSettings": "AudioSilenceFailoverSettingsTypeDef",
+        "InputLossSettings": "InputLossFailoverSettingsTypeDef",
+        "VideoBlackSettings": "VideoBlackFailoverSettingsTypeDef",
+    },
     total=False,
 )
 
@@ -883,21 +909,11 @@ FrameCaptureOutputSettingsTypeDef = TypedDict(
     "FrameCaptureOutputSettingsTypeDef", {"NameModifier": str}, total=False
 )
 
-_RequiredFrameCaptureSettingsTypeDef = TypedDict(
-    "_RequiredFrameCaptureSettingsTypeDef", {"CaptureInterval": int}
-)
-_OptionalFrameCaptureSettingsTypeDef = TypedDict(
-    "_OptionalFrameCaptureSettingsTypeDef",
-    {"CaptureIntervalUnits": Literal["MILLISECONDS", "SECONDS"]},
+FrameCaptureSettingsTypeDef = TypedDict(
+    "FrameCaptureSettingsTypeDef",
+    {"CaptureInterval": int, "CaptureIntervalUnits": Literal["MILLISECONDS", "SECONDS"]},
     total=False,
 )
-
-
-class FrameCaptureSettingsTypeDef(
-    _RequiredFrameCaptureSettingsTypeDef, _OptionalFrameCaptureSettingsTypeDef
-):
-    pass
-
 
 GlobalConfigurationTypeDef = TypedDict(
     "GlobalConfigurationTypeDef",
@@ -1233,6 +1249,7 @@ HlsSettingsTypeDef = TypedDict(
     {
         "AudioOnlyHlsSettings": "AudioOnlyHlsSettingsTypeDef",
         "Fmp4HlsSettings": "Fmp4HlsSettingsTypeDef",
+        "FrameCaptureHlsSettings": Dict[str, Any],
         "StandardHlsSettings": "StandardHlsSettingsTypeDef",
     },
     total=False,
@@ -1337,6 +1354,22 @@ InputDeviceSummaryTypeDef = TypedDict(
         "NetworkSettings": "InputDeviceNetworkSettingsTypeDef",
         "SerialNumber": str,
         "Type": Literal["HD"],
+        "UhdDeviceSettings": "InputDeviceUhdSettingsTypeDef",
+    },
+    total=False,
+)
+
+InputDeviceUhdSettingsTypeDef = TypedDict(
+    "InputDeviceUhdSettingsTypeDef",
+    {
+        "ActiveInput": Literal["HDMI", "SDI"],
+        "ConfiguredInput": Literal["AUTO", "HDMI", "SDI"],
+        "DeviceState": Literal["IDLE", "STREAMING"],
+        "Framerate": float,
+        "Height": int,
+        "MaxBitrate": int,
+        "ScanType": Literal["INTERLACED", "PROGRESSIVE"],
+        "Width": int,
     },
     total=False,
 )
@@ -2369,6 +2402,12 @@ class UdpOutputSettingsTypeDef(
     pass
 
 
+VideoBlackFailoverSettingsTypeDef = TypedDict(
+    "VideoBlackFailoverSettingsTypeDef",
+    {"BlackDetectThreshold": float, "VideoBlackThresholdMsec": int},
+    total=False,
+)
+
 VideoCodecSettingsTypeDef = TypedDict(
     "VideoCodecSettingsTypeDef",
     {
@@ -2423,6 +2462,22 @@ VideoSelectorTypeDef = TypedDict(
     },
     total=False,
 )
+
+_RequiredVpcOutputSettingsTypeDef = TypedDict(
+    "_RequiredVpcOutputSettingsTypeDef", {"SubnetIds": List[str]}
+)
+_OptionalVpcOutputSettingsTypeDef = TypedDict(
+    "_OptionalVpcOutputSettingsTypeDef",
+    {"PublicAddressAllocationIds": List[str], "SecurityGroupIds": List[str]},
+    total=False,
+)
+
+
+class VpcOutputSettingsTypeDef(
+    _RequiredVpcOutputSettingsTypeDef, _OptionalVpcOutputSettingsTypeDef
+):
+    pass
+
 
 WavSettingsTypeDef = TypedDict(
     "WavSettingsTypeDef",
@@ -2535,6 +2590,7 @@ DeleteChannelResponseTypeDef = TypedDict(
             "UPDATE_FAILED",
         ],
         "Tags": Dict[str, str],
+        "Vpc": "VpcOutputSettingsTypeDef",
     },
     total=False,
 )
@@ -2634,6 +2690,7 @@ DescribeChannelResponseTypeDef = TypedDict(
             "UPDATE_FAILED",
         ],
         "Tags": Dict[str, str],
+        "Vpc": "VpcOutputSettingsTypeDef",
     },
     total=False,
 )
@@ -2652,6 +2709,7 @@ DescribeInputDeviceResponseTypeDef = TypedDict(
         "NetworkSettings": "InputDeviceNetworkSettingsTypeDef",
         "SerialNumber": str,
         "Type": Literal["HD"],
+        "UhdDeviceSettings": "InputDeviceUhdSettingsTypeDef",
     },
     total=False,
 )
@@ -2659,7 +2717,7 @@ DescribeInputDeviceResponseTypeDef = TypedDict(
 DescribeInputDeviceThumbnailResponseTypeDef = TypedDict(
     "DescribeInputDeviceThumbnailResponseTypeDef",
     {
-        "Body": IO[bytes],
+        "Body": StreamingBody,
         "ContentType": Literal["image/jpeg"],
         "ContentLength": int,
         "ETag": str,
@@ -2932,6 +2990,7 @@ StartChannelResponseTypeDef = TypedDict(
             "UPDATE_FAILED",
         ],
         "Tags": Dict[str, str],
+        "Vpc": "VpcOutputSettingsTypeDef",
     },
     total=False,
 )
@@ -2994,6 +3053,7 @@ StopChannelResponseTypeDef = TypedDict(
             "UPDATE_FAILED",
         ],
         "Tags": Dict[str, str],
+        "Vpc": "VpcOutputSettingsTypeDef",
     },
     total=False,
 )
@@ -3047,6 +3107,7 @@ UpdateInputDeviceResponseTypeDef = TypedDict(
         "NetworkSettings": "InputDeviceNetworkSettingsTypeDef",
         "SerialNumber": str,
         "Type": Literal["HD"],
+        "UhdDeviceSettings": "InputDeviceUhdSettingsTypeDef",
     },
     total=False,
 )

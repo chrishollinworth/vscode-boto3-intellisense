@@ -441,7 +441,9 @@ PipelineExecutionSummaryTypeDef = TypedDict(
     "PipelineExecutionSummaryTypeDef",
     {
         "pipelineExecutionId": str,
-        "status": Literal["InProgress", "Stopped", "Stopping", "Succeeded", "Superseded", "Failed"],
+        "status": Literal[
+            "Cancelled", "InProgress", "Stopped", "Stopping", "Succeeded", "Superseded", "Failed"
+        ],
         "startTime": datetime,
         "lastUpdateTime": datetime,
         "sourceRevisions": List["SourceRevisionTypeDef"],
@@ -457,7 +459,10 @@ PipelineExecutionTypeDef = TypedDict(
         "pipelineName": str,
         "pipelineVersion": int,
         "pipelineExecutionId": str,
-        "status": Literal["InProgress", "Stopped", "Stopping", "Succeeded", "Superseded", "Failed"],
+        "status": Literal[
+            "Cancelled", "InProgress", "Stopped", "Stopping", "Succeeded", "Superseded", "Failed"
+        ],
+        "statusSummary": str,
         "artifactRevisions": List["ArtifactRevisionTypeDef"],
     },
     total=False,
@@ -522,7 +527,7 @@ StageExecutionTypeDef = TypedDict(
     "StageExecutionTypeDef",
     {
         "pipelineExecutionId": str,
-        "status": Literal["InProgress", "Failed", "Stopped", "Stopping", "Succeeded"],
+        "status": Literal["Cancelled", "InProgress", "Failed", "Stopped", "Stopping", "Succeeded"],
     },
 )
 

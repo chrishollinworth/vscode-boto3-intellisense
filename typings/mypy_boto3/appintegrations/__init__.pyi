@@ -1,9 +1,9 @@
 from mypy_boto3_appintegrations import (
-    AppIntegrationsClient,
+    AppIntegrationsServiceClient,
     Client,
 )
 
 __all__ = (
-    "AppIntegrationsClient",
+    "AppIntegrationsServiceClient",
     "Client",
 )

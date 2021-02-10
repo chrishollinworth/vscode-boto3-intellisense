@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for opsworks service client
 
@@ -104,7 +103,7 @@ class Exceptions:
 
 class OpsWorksClient:
     """
-    [OpsWorks.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client)
+    [OpsWorks.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client)
     """
 
     meta: ClientMeta
@@ -112,27 +111,27 @@ class OpsWorksClient:
 
     def assign_instance(self, InstanceId: str, LayerIds: List[str]) -> None:
         """
-        [Client.assign_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.assign_instance)
+        [Client.assign_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.assign_instance)
         """
 
     def assign_volume(self, VolumeId: str, InstanceId: str = None) -> None:
         """
-        [Client.assign_volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.assign_volume)
+        [Client.assign_volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.assign_volume)
         """
 
     def associate_elastic_ip(self, ElasticIp: str, InstanceId: str = None) -> None:
         """
-        [Client.associate_elastic_ip documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.associate_elastic_ip)
+        [Client.associate_elastic_ip documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.associate_elastic_ip)
         """
 
     def attach_elastic_load_balancer(self, ElasticLoadBalancerName: str, LayerId: str) -> None:
         """
-        [Client.attach_elastic_load_balancer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.attach_elastic_load_balancer)
+        [Client.attach_elastic_load_balancer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.attach_elastic_load_balancer)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.can_paginate)
         """
 
     def clone_stack(
@@ -161,7 +160,7 @@ class OpsWorksClient:
         AgentVersion: str = None,
     ) -> CloneStackResultTypeDef:
         """
-        [Client.clone_stack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.clone_stack)
+        [Client.clone_stack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.clone_stack)
         """
 
     def create_app(
@@ -182,7 +181,7 @@ class OpsWorksClient:
         Environment: List["EnvironmentVariableTypeDef"] = None,
     ) -> CreateAppResultTypeDef:
         """
-        [Client.create_app documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.create_app)
+        [Client.create_app documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.create_app)
         """
 
     def create_deployment(
@@ -196,7 +195,7 @@ class OpsWorksClient:
         CustomJson: str = None,
     ) -> CreateDeploymentResultTypeDef:
         """
-        [Client.create_deployment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.create_deployment)
+        [Client.create_deployment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.create_deployment)
         """
 
     def create_instance(
@@ -221,7 +220,7 @@ class OpsWorksClient:
         Tenancy: str = None,
     ) -> CreateInstanceResultTypeDef:
         """
-        [Client.create_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.create_instance)
+        [Client.create_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.create_instance)
         """
 
     def create_layer(
@@ -288,7 +287,7 @@ class OpsWorksClient:
         LifecycleEventConfiguration: "LifecycleEventConfigurationTypeDef" = None,
     ) -> CreateLayerResultTypeDef:
         """
-        [Client.create_layer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.create_layer)
+        [Client.create_layer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.create_layer)
         """
 
     def create_stack(
@@ -314,7 +313,7 @@ class OpsWorksClient:
         AgentVersion: str = None,
     ) -> CreateStackResultTypeDef:
         """
-        [Client.create_stack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.create_stack)
+        [Client.create_stack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.create_stack)
         """
 
     def create_user_profile(
@@ -325,87 +324,87 @@ class OpsWorksClient:
         AllowSelfManagement: bool = None,
     ) -> CreateUserProfileResultTypeDef:
         """
-        [Client.create_user_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.create_user_profile)
+        [Client.create_user_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.create_user_profile)
         """
 
     def delete_app(self, AppId: str) -> None:
         """
-        [Client.delete_app documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.delete_app)
+        [Client.delete_app documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.delete_app)
         """
 
     def delete_instance(
         self, InstanceId: str, DeleteElasticIp: bool = None, DeleteVolumes: bool = None
     ) -> None:
         """
-        [Client.delete_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.delete_instance)
+        [Client.delete_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.delete_instance)
         """
 
     def delete_layer(self, LayerId: str) -> None:
         """
-        [Client.delete_layer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.delete_layer)
+        [Client.delete_layer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.delete_layer)
         """
 
     def delete_stack(self, StackId: str) -> None:
         """
-        [Client.delete_stack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.delete_stack)
+        [Client.delete_stack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.delete_stack)
         """
 
     def delete_user_profile(self, IamUserArn: str) -> None:
         """
-        [Client.delete_user_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.delete_user_profile)
+        [Client.delete_user_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.delete_user_profile)
         """
 
     def deregister_ecs_cluster(self, EcsClusterArn: str) -> None:
         """
-        [Client.deregister_ecs_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.deregister_ecs_cluster)
+        [Client.deregister_ecs_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.deregister_ecs_cluster)
         """
 
     def deregister_elastic_ip(self, ElasticIp: str) -> None:
         """
-        [Client.deregister_elastic_ip documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.deregister_elastic_ip)
+        [Client.deregister_elastic_ip documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.deregister_elastic_ip)
         """
 
     def deregister_instance(self, InstanceId: str) -> None:
         """
-        [Client.deregister_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.deregister_instance)
+        [Client.deregister_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.deregister_instance)
         """
 
     def deregister_rds_db_instance(self, RdsDbInstanceArn: str) -> None:
         """
-        [Client.deregister_rds_db_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.deregister_rds_db_instance)
+        [Client.deregister_rds_db_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.deregister_rds_db_instance)
         """
 
     def deregister_volume(self, VolumeId: str) -> None:
         """
-        [Client.deregister_volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.deregister_volume)
+        [Client.deregister_volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.deregister_volume)
         """
 
     def describe_agent_versions(
         self, StackId: str = None, ConfigurationManager: "StackConfigurationManagerTypeDef" = None
     ) -> DescribeAgentVersionsResultTypeDef:
         """
-        [Client.describe_agent_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.describe_agent_versions)
+        [Client.describe_agent_versions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.describe_agent_versions)
         """
 
     def describe_apps(
         self, StackId: str = None, AppIds: List[str] = None
     ) -> DescribeAppsResultTypeDef:
         """
-        [Client.describe_apps documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.describe_apps)
+        [Client.describe_apps documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.describe_apps)
         """
 
     def describe_commands(
         self, DeploymentId: str = None, InstanceId: str = None, CommandIds: List[str] = None
     ) -> DescribeCommandsResultTypeDef:
         """
-        [Client.describe_commands documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.describe_commands)
+        [Client.describe_commands documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.describe_commands)
         """
 
     def describe_deployments(
         self, StackId: str = None, AppId: str = None, DeploymentIds: List[str] = None
     ) -> DescribeDeploymentsResultTypeDef:
         """
-        [Client.describe_deployments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.describe_deployments)
+        [Client.describe_deployments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.describe_deployments)
         """
 
     def describe_ecs_clusters(
@@ -416,111 +415,111 @@ class OpsWorksClient:
         MaxResults: int = None,
     ) -> DescribeEcsClustersResultTypeDef:
         """
-        [Client.describe_ecs_clusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.describe_ecs_clusters)
+        [Client.describe_ecs_clusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.describe_ecs_clusters)
         """
 
     def describe_elastic_ips(
         self, InstanceId: str = None, StackId: str = None, Ips: List[str] = None
     ) -> DescribeElasticIpsResultTypeDef:
         """
-        [Client.describe_elastic_ips documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.describe_elastic_ips)
+        [Client.describe_elastic_ips documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.describe_elastic_ips)
         """
 
     def describe_elastic_load_balancers(
         self, StackId: str = None, LayerIds: List[str] = None
     ) -> DescribeElasticLoadBalancersResultTypeDef:
         """
-        [Client.describe_elastic_load_balancers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.describe_elastic_load_balancers)
+        [Client.describe_elastic_load_balancers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.describe_elastic_load_balancers)
         """
 
     def describe_instances(
         self, StackId: str = None, LayerId: str = None, InstanceIds: List[str] = None
     ) -> DescribeInstancesResultTypeDef:
         """
-        [Client.describe_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.describe_instances)
+        [Client.describe_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.describe_instances)
         """
 
     def describe_layers(
         self, StackId: str = None, LayerIds: List[str] = None
     ) -> DescribeLayersResultTypeDef:
         """
-        [Client.describe_layers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.describe_layers)
+        [Client.describe_layers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.describe_layers)
         """
 
     def describe_load_based_auto_scaling(
         self, LayerIds: List[str]
     ) -> DescribeLoadBasedAutoScalingResultTypeDef:
         """
-        [Client.describe_load_based_auto_scaling documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.describe_load_based_auto_scaling)
+        [Client.describe_load_based_auto_scaling documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.describe_load_based_auto_scaling)
         """
 
     def describe_my_user_profile(self) -> DescribeMyUserProfileResultTypeDef:
         """
-        [Client.describe_my_user_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.describe_my_user_profile)
+        [Client.describe_my_user_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.describe_my_user_profile)
         """
 
     def describe_operating_systems(self) -> DescribeOperatingSystemsResponseTypeDef:
         """
-        [Client.describe_operating_systems documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.describe_operating_systems)
+        [Client.describe_operating_systems documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.describe_operating_systems)
         """
 
     def describe_permissions(
         self, IamUserArn: str = None, StackId: str = None
     ) -> DescribePermissionsResultTypeDef:
         """
-        [Client.describe_permissions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.describe_permissions)
+        [Client.describe_permissions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.describe_permissions)
         """
 
     def describe_raid_arrays(
         self, InstanceId: str = None, StackId: str = None, RaidArrayIds: List[str] = None
     ) -> DescribeRaidArraysResultTypeDef:
         """
-        [Client.describe_raid_arrays documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.describe_raid_arrays)
+        [Client.describe_raid_arrays documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.describe_raid_arrays)
         """
 
     def describe_rds_db_instances(
         self, StackId: str, RdsDbInstanceArns: List[str] = None
     ) -> DescribeRdsDbInstancesResultTypeDef:
         """
-        [Client.describe_rds_db_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.describe_rds_db_instances)
+        [Client.describe_rds_db_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.describe_rds_db_instances)
         """
 
     def describe_service_errors(
         self, StackId: str = None, InstanceId: str = None, ServiceErrorIds: List[str] = None
     ) -> DescribeServiceErrorsResultTypeDef:
         """
-        [Client.describe_service_errors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.describe_service_errors)
+        [Client.describe_service_errors documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.describe_service_errors)
         """
 
     def describe_stack_provisioning_parameters(
         self, StackId: str
     ) -> DescribeStackProvisioningParametersResultTypeDef:
         """
-        [Client.describe_stack_provisioning_parameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.describe_stack_provisioning_parameters)
+        [Client.describe_stack_provisioning_parameters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.describe_stack_provisioning_parameters)
         """
 
     def describe_stack_summary(self, StackId: str) -> DescribeStackSummaryResultTypeDef:
         """
-        [Client.describe_stack_summary documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.describe_stack_summary)
+        [Client.describe_stack_summary documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.describe_stack_summary)
         """
 
     def describe_stacks(self, StackIds: List[str] = None) -> DescribeStacksResultTypeDef:
         """
-        [Client.describe_stacks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.describe_stacks)
+        [Client.describe_stacks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.describe_stacks)
         """
 
     def describe_time_based_auto_scaling(
         self, InstanceIds: List[str]
     ) -> DescribeTimeBasedAutoScalingResultTypeDef:
         """
-        [Client.describe_time_based_auto_scaling documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.describe_time_based_auto_scaling)
+        [Client.describe_time_based_auto_scaling documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.describe_time_based_auto_scaling)
         """
 
     def describe_user_profiles(
         self, IamUserArns: List[str] = None
     ) -> DescribeUserProfilesResultTypeDef:
         """
-        [Client.describe_user_profiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.describe_user_profiles)
+        [Client.describe_user_profiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.describe_user_profiles)
         """
 
     def describe_volumes(
@@ -531,17 +530,17 @@ class OpsWorksClient:
         VolumeIds: List[str] = None,
     ) -> DescribeVolumesResultTypeDef:
         """
-        [Client.describe_volumes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.describe_volumes)
+        [Client.describe_volumes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.describe_volumes)
         """
 
     def detach_elastic_load_balancer(self, ElasticLoadBalancerName: str, LayerId: str) -> None:
         """
-        [Client.detach_elastic_load_balancer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.detach_elastic_load_balancer)
+        [Client.detach_elastic_load_balancer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.detach_elastic_load_balancer)
         """
 
     def disassociate_elastic_ip(self, ElasticIp: str) -> None:
         """
-        [Client.disassociate_elastic_ip documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.disassociate_elastic_ip)
+        [Client.disassociate_elastic_ip documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.disassociate_elastic_ip)
         """
 
     def generate_presigned_url(
@@ -552,43 +551,43 @@ class OpsWorksClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.generate_presigned_url)
         """
 
     def get_hostname_suggestion(self, LayerId: str) -> GetHostnameSuggestionResultTypeDef:
         """
-        [Client.get_hostname_suggestion documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.get_hostname_suggestion)
+        [Client.get_hostname_suggestion documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.get_hostname_suggestion)
         """
 
     def grant_access(
         self, InstanceId: str, ValidForInMinutes: int = None
     ) -> GrantAccessResultTypeDef:
         """
-        [Client.grant_access documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.grant_access)
+        [Client.grant_access documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.grant_access)
         """
 
     def list_tags(
         self, ResourceArn: str, MaxResults: int = None, NextToken: str = None
     ) -> ListTagsResultTypeDef:
         """
-        [Client.list_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.list_tags)
+        [Client.list_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.list_tags)
         """
 
     def reboot_instance(self, InstanceId: str) -> None:
         """
-        [Client.reboot_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.reboot_instance)
+        [Client.reboot_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.reboot_instance)
         """
 
     def register_ecs_cluster(
         self, EcsClusterArn: str, StackId: str
     ) -> RegisterEcsClusterResultTypeDef:
         """
-        [Client.register_ecs_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.register_ecs_cluster)
+        [Client.register_ecs_cluster documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.register_ecs_cluster)
         """
 
     def register_elastic_ip(self, ElasticIp: str, StackId: str) -> RegisterElasticIpResultTypeDef:
         """
-        [Client.register_elastic_ip documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.register_elastic_ip)
+        [Client.register_elastic_ip documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.register_elastic_ip)
         """
 
     def register_instance(
@@ -602,19 +601,19 @@ class OpsWorksClient:
         InstanceIdentity: InstanceIdentityTypeDef = None,
     ) -> RegisterInstanceResultTypeDef:
         """
-        [Client.register_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.register_instance)
+        [Client.register_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.register_instance)
         """
 
     def register_rds_db_instance(
         self, StackId: str, RdsDbInstanceArn: str, DbUser: str, DbPassword: str
     ) -> None:
         """
-        [Client.register_rds_db_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.register_rds_db_instance)
+        [Client.register_rds_db_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.register_rds_db_instance)
         """
 
     def register_volume(self, StackId: str, Ec2VolumeId: str = None) -> RegisterVolumeResultTypeDef:
         """
-        [Client.register_volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.register_volume)
+        [Client.register_volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.register_volume)
         """
 
     def set_load_based_auto_scaling(
@@ -625,7 +624,7 @@ class OpsWorksClient:
         DownScaling: "AutoScalingThresholdsTypeDef" = None,
     ) -> None:
         """
-        [Client.set_load_based_auto_scaling documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.set_load_based_auto_scaling)
+        [Client.set_load_based_auto_scaling documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.set_load_based_auto_scaling)
         """
 
     def set_permission(
@@ -637,54 +636,54 @@ class OpsWorksClient:
         Level: str = None,
     ) -> None:
         """
-        [Client.set_permission documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.set_permission)
+        [Client.set_permission documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.set_permission)
         """
 
     def set_time_based_auto_scaling(
         self, InstanceId: str, AutoScalingSchedule: "WeeklyAutoScalingScheduleTypeDef" = None
     ) -> None:
         """
-        [Client.set_time_based_auto_scaling documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.set_time_based_auto_scaling)
+        [Client.set_time_based_auto_scaling documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.set_time_based_auto_scaling)
         """
 
     def start_instance(self, InstanceId: str) -> None:
         """
-        [Client.start_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.start_instance)
+        [Client.start_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.start_instance)
         """
 
     def start_stack(self, StackId: str) -> None:
         """
-        [Client.start_stack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.start_stack)
+        [Client.start_stack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.start_stack)
         """
 
     def stop_instance(self, InstanceId: str, Force: bool = None) -> None:
         """
-        [Client.stop_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.stop_instance)
+        [Client.stop_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.stop_instance)
         """
 
     def stop_stack(self, StackId: str) -> None:
         """
-        [Client.stop_stack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.stop_stack)
+        [Client.stop_stack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.stop_stack)
         """
 
     def tag_resource(self, ResourceArn: str, Tags: Dict[str, str]) -> None:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.tag_resource)
         """
 
     def unassign_instance(self, InstanceId: str) -> None:
         """
-        [Client.unassign_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.unassign_instance)
+        [Client.unassign_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.unassign_instance)
         """
 
     def unassign_volume(self, VolumeId: str) -> None:
         """
-        [Client.unassign_volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.unassign_volume)
+        [Client.unassign_volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.unassign_volume)
         """
 
     def untag_resource(self, ResourceArn: str, TagKeys: List[str]) -> None:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.untag_resource)
         """
 
     def update_app(
@@ -704,12 +703,12 @@ class OpsWorksClient:
         Environment: List["EnvironmentVariableTypeDef"] = None,
     ) -> None:
         """
-        [Client.update_app documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.update_app)
+        [Client.update_app documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.update_app)
         """
 
     def update_elastic_ip(self, ElasticIp: str, Name: str = None) -> None:
         """
-        [Client.update_elastic_ip documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.update_elastic_ip)
+        [Client.update_elastic_ip documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.update_elastic_ip)
         """
 
     def update_instance(
@@ -728,7 +727,7 @@ class OpsWorksClient:
         AgentVersion: str = None,
     ) -> None:
         """
-        [Client.update_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.update_instance)
+        [Client.update_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.update_instance)
         """
 
     def update_layer(
@@ -781,19 +780,19 @@ class OpsWorksClient:
         LifecycleEventConfiguration: "LifecycleEventConfigurationTypeDef" = None,
     ) -> None:
         """
-        [Client.update_layer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.update_layer)
+        [Client.update_layer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.update_layer)
         """
 
     def update_my_user_profile(self, SshPublicKey: str = None) -> None:
         """
-        [Client.update_my_user_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.update_my_user_profile)
+        [Client.update_my_user_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.update_my_user_profile)
         """
 
     def update_rds_db_instance(
         self, RdsDbInstanceArn: str, DbUser: str = None, DbPassword: str = None
     ) -> None:
         """
-        [Client.update_rds_db_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.update_rds_db_instance)
+        [Client.update_rds_db_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.update_rds_db_instance)
         """
 
     def update_stack(
@@ -818,7 +817,7 @@ class OpsWorksClient:
         AgentVersion: str = None,
     ) -> None:
         """
-        [Client.update_stack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.update_stack)
+        [Client.update_stack documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.update_stack)
         """
 
     def update_user_profile(
@@ -829,25 +828,25 @@ class OpsWorksClient:
         AllowSelfManagement: bool = None,
     ) -> None:
         """
-        [Client.update_user_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.update_user_profile)
+        [Client.update_user_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.update_user_profile)
         """
 
     def update_volume(self, VolumeId: str, Name: str = None, MountPoint: str = None) -> None:
         """
-        [Client.update_volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Client.update_volume)
+        [Client.update_volume documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Client.update_volume)
         """
 
     def get_paginator(
         self, operation_name: Literal["describe_ecs_clusters"]
     ) -> DescribeEcsClustersPaginator:
         """
-        [Paginator.DescribeEcsClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Paginator.DescribeEcsClusters)
+        [Paginator.DescribeEcsClusters documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Paginator.DescribeEcsClusters)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["app_exists"]) -> AppExistsWaiter:
         """
-        [Waiter.AppExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Waiter.AppExists)
+        [Waiter.AppExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Waiter.AppExists)
         """
 
     @overload
@@ -855,29 +854,29 @@ class OpsWorksClient:
         self, waiter_name: Literal["deployment_successful"]
     ) -> DeploymentSuccessfulWaiter:
         """
-        [Waiter.DeploymentSuccessful documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Waiter.DeploymentSuccessful)
+        [Waiter.DeploymentSuccessful documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Waiter.DeploymentSuccessful)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["instance_online"]) -> InstanceOnlineWaiter:
         """
-        [Waiter.InstanceOnline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Waiter.InstanceOnline)
+        [Waiter.InstanceOnline documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Waiter.InstanceOnline)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["instance_registered"]) -> InstanceRegisteredWaiter:
         """
-        [Waiter.InstanceRegistered documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Waiter.InstanceRegistered)
+        [Waiter.InstanceRegistered documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Waiter.InstanceRegistered)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["instance_stopped"]) -> InstanceStoppedWaiter:
         """
-        [Waiter.InstanceStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Waiter.InstanceStopped)
+        [Waiter.InstanceStopped documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Waiter.InstanceStopped)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["instance_terminated"]) -> InstanceTerminatedWaiter:
         """
-        [Waiter.InstanceTerminated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/opsworks.html#OpsWorks.Waiter.InstanceTerminated)
+        [Waiter.InstanceTerminated documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/opsworks.html#OpsWorks.Waiter.InstanceTerminated)
         """

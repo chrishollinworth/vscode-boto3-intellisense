@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for route53domains service client
 
@@ -81,7 +80,7 @@ class Exceptions:
 
 class Route53DomainsClient:
     """
-    [Route53Domains.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53domains.html#Route53Domains.Client)
+    [Route53Domains.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53domains.html#Route53Domains.Client)
     """
 
     meta: ClientMeta
@@ -91,62 +90,62 @@ class Route53DomainsClient:
         self, DomainName: str, Password: str
     ) -> AcceptDomainTransferFromAnotherAwsAccountResponseTypeDef:
         """
-        [Client.accept_domain_transfer_from_another_aws_account documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53domains.html#Route53Domains.Client.accept_domain_transfer_from_another_aws_account)
+        [Client.accept_domain_transfer_from_another_aws_account documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53domains.html#Route53Domains.Client.accept_domain_transfer_from_another_aws_account)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53domains.html#Route53Domains.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53domains.html#Route53Domains.Client.can_paginate)
         """
 
     def cancel_domain_transfer_to_another_aws_account(
         self, DomainName: str
     ) -> CancelDomainTransferToAnotherAwsAccountResponseTypeDef:
         """
-        [Client.cancel_domain_transfer_to_another_aws_account documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53domains.html#Route53Domains.Client.cancel_domain_transfer_to_another_aws_account)
+        [Client.cancel_domain_transfer_to_another_aws_account documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53domains.html#Route53Domains.Client.cancel_domain_transfer_to_another_aws_account)
         """
 
     def check_domain_availability(
         self, DomainName: str, IdnLangCode: str = None
     ) -> CheckDomainAvailabilityResponseTypeDef:
         """
-        [Client.check_domain_availability documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53domains.html#Route53Domains.Client.check_domain_availability)
+        [Client.check_domain_availability documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53domains.html#Route53Domains.Client.check_domain_availability)
         """
 
     def check_domain_transferability(
         self, DomainName: str, AuthCode: str = None
     ) -> CheckDomainTransferabilityResponseTypeDef:
         """
-        [Client.check_domain_transferability documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53domains.html#Route53Domains.Client.check_domain_transferability)
+        [Client.check_domain_transferability documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53domains.html#Route53Domains.Client.check_domain_transferability)
         """
 
     def delete_tags_for_domain(self, DomainName: str, TagsToDelete: List[str]) -> Dict[str, Any]:
         """
-        [Client.delete_tags_for_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53domains.html#Route53Domains.Client.delete_tags_for_domain)
+        [Client.delete_tags_for_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53domains.html#Route53Domains.Client.delete_tags_for_domain)
         """
 
     def disable_domain_auto_renew(self, DomainName: str) -> Dict[str, Any]:
         """
-        [Client.disable_domain_auto_renew documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53domains.html#Route53Domains.Client.disable_domain_auto_renew)
+        [Client.disable_domain_auto_renew documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53domains.html#Route53Domains.Client.disable_domain_auto_renew)
         """
 
     def disable_domain_transfer_lock(
         self, DomainName: str
     ) -> DisableDomainTransferLockResponseTypeDef:
         """
-        [Client.disable_domain_transfer_lock documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53domains.html#Route53Domains.Client.disable_domain_transfer_lock)
+        [Client.disable_domain_transfer_lock documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53domains.html#Route53Domains.Client.disable_domain_transfer_lock)
         """
 
     def enable_domain_auto_renew(self, DomainName: str) -> Dict[str, Any]:
         """
-        [Client.enable_domain_auto_renew documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53domains.html#Route53Domains.Client.enable_domain_auto_renew)
+        [Client.enable_domain_auto_renew documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53domains.html#Route53Domains.Client.enable_domain_auto_renew)
         """
 
     def enable_domain_transfer_lock(
         self, DomainName: str
     ) -> EnableDomainTransferLockResponseTypeDef:
         """
-        [Client.enable_domain_transfer_lock documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53domains.html#Route53Domains.Client.enable_domain_transfer_lock)
+        [Client.enable_domain_transfer_lock documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53domains.html#Route53Domains.Client.enable_domain_transfer_lock)
         """
 
     def generate_presigned_url(
@@ -157,48 +156,48 @@ class Route53DomainsClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53domains.html#Route53Domains.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53domains.html#Route53Domains.Client.generate_presigned_url)
         """
 
     def get_contact_reachability_status(
         self, domainName: str = None
     ) -> GetContactReachabilityStatusResponseTypeDef:
         """
-        [Client.get_contact_reachability_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53domains.html#Route53Domains.Client.get_contact_reachability_status)
+        [Client.get_contact_reachability_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53domains.html#Route53Domains.Client.get_contact_reachability_status)
         """
 
     def get_domain_detail(self, DomainName: str) -> GetDomainDetailResponseTypeDef:
         """
-        [Client.get_domain_detail documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53domains.html#Route53Domains.Client.get_domain_detail)
+        [Client.get_domain_detail documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53domains.html#Route53Domains.Client.get_domain_detail)
         """
 
     def get_domain_suggestions(
         self, DomainName: str, SuggestionCount: int, OnlyAvailable: bool
     ) -> GetDomainSuggestionsResponseTypeDef:
         """
-        [Client.get_domain_suggestions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53domains.html#Route53Domains.Client.get_domain_suggestions)
+        [Client.get_domain_suggestions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53domains.html#Route53Domains.Client.get_domain_suggestions)
         """
 
     def get_operation_detail(self, OperationId: str) -> GetOperationDetailResponseTypeDef:
         """
-        [Client.get_operation_detail documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53domains.html#Route53Domains.Client.get_operation_detail)
+        [Client.get_operation_detail documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53domains.html#Route53Domains.Client.get_operation_detail)
         """
 
     def list_domains(self, Marker: str = None, MaxItems: int = None) -> ListDomainsResponseTypeDef:
         """
-        [Client.list_domains documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53domains.html#Route53Domains.Client.list_domains)
+        [Client.list_domains documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53domains.html#Route53Domains.Client.list_domains)
         """
 
     def list_operations(
         self, SubmittedSince: datetime = None, Marker: str = None, MaxItems: int = None
     ) -> ListOperationsResponseTypeDef:
         """
-        [Client.list_operations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53domains.html#Route53Domains.Client.list_operations)
+        [Client.list_operations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53domains.html#Route53Domains.Client.list_operations)
         """
 
     def list_tags_for_domain(self, DomainName: str) -> ListTagsForDomainResponseTypeDef:
         """
-        [Client.list_tags_for_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53domains.html#Route53Domains.Client.list_tags_for_domain)
+        [Client.list_tags_for_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53domains.html#Route53Domains.Client.list_tags_for_domain)
         """
 
     def register_domain(
@@ -215,33 +214,33 @@ class Route53DomainsClient:
         PrivacyProtectTechContact: bool = None,
     ) -> RegisterDomainResponseTypeDef:
         """
-        [Client.register_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53domains.html#Route53Domains.Client.register_domain)
+        [Client.register_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53domains.html#Route53Domains.Client.register_domain)
         """
 
     def reject_domain_transfer_from_another_aws_account(
         self, DomainName: str
     ) -> RejectDomainTransferFromAnotherAwsAccountResponseTypeDef:
         """
-        [Client.reject_domain_transfer_from_another_aws_account documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53domains.html#Route53Domains.Client.reject_domain_transfer_from_another_aws_account)
+        [Client.reject_domain_transfer_from_another_aws_account documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53domains.html#Route53Domains.Client.reject_domain_transfer_from_another_aws_account)
         """
 
     def renew_domain(
         self, DomainName: str, CurrentExpiryYear: int, DurationInYears: int = None
     ) -> RenewDomainResponseTypeDef:
         """
-        [Client.renew_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53domains.html#Route53Domains.Client.renew_domain)
+        [Client.renew_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53domains.html#Route53Domains.Client.renew_domain)
         """
 
     def resend_contact_reachability_email(
         self, domainName: str = None
     ) -> ResendContactReachabilityEmailResponseTypeDef:
         """
-        [Client.resend_contact_reachability_email documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53domains.html#Route53Domains.Client.resend_contact_reachability_email)
+        [Client.resend_contact_reachability_email documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53domains.html#Route53Domains.Client.resend_contact_reachability_email)
         """
 
     def retrieve_domain_auth_code(self, DomainName: str) -> RetrieveDomainAuthCodeResponseTypeDef:
         """
-        [Client.retrieve_domain_auth_code documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53domains.html#Route53Domains.Client.retrieve_domain_auth_code)
+        [Client.retrieve_domain_auth_code documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53domains.html#Route53Domains.Client.retrieve_domain_auth_code)
         """
 
     def transfer_domain(
@@ -260,14 +259,14 @@ class Route53DomainsClient:
         PrivacyProtectTechContact: bool = None,
     ) -> TransferDomainResponseTypeDef:
         """
-        [Client.transfer_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53domains.html#Route53Domains.Client.transfer_domain)
+        [Client.transfer_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53domains.html#Route53Domains.Client.transfer_domain)
         """
 
     def transfer_domain_to_another_aws_account(
         self, DomainName: str, AccountId: str
     ) -> TransferDomainToAnotherAwsAccountResponseTypeDef:
         """
-        [Client.transfer_domain_to_another_aws_account documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53domains.html#Route53Domains.Client.transfer_domain_to_another_aws_account)
+        [Client.transfer_domain_to_another_aws_account documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53domains.html#Route53Domains.Client.transfer_domain_to_another_aws_account)
         """
 
     def update_domain_contact(
@@ -278,7 +277,7 @@ class Route53DomainsClient:
         TechContact: "ContactDetailTypeDef" = None,
     ) -> UpdateDomainContactResponseTypeDef:
         """
-        [Client.update_domain_contact documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53domains.html#Route53Domains.Client.update_domain_contact)
+        [Client.update_domain_contact documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53domains.html#Route53Domains.Client.update_domain_contact)
         """
 
     def update_domain_contact_privacy(
@@ -289,44 +288,44 @@ class Route53DomainsClient:
         TechPrivacy: bool = None,
     ) -> UpdateDomainContactPrivacyResponseTypeDef:
         """
-        [Client.update_domain_contact_privacy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53domains.html#Route53Domains.Client.update_domain_contact_privacy)
+        [Client.update_domain_contact_privacy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53domains.html#Route53Domains.Client.update_domain_contact_privacy)
         """
 
     def update_domain_nameservers(
         self, DomainName: str, Nameservers: List["NameserverTypeDef"], FIAuthKey: str = None
     ) -> UpdateDomainNameserversResponseTypeDef:
         """
-        [Client.update_domain_nameservers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53domains.html#Route53Domains.Client.update_domain_nameservers)
+        [Client.update_domain_nameservers documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53domains.html#Route53Domains.Client.update_domain_nameservers)
         """
 
     def update_tags_for_domain(
         self, DomainName: str, TagsToUpdate: List["TagTypeDef"] = None
     ) -> Dict[str, Any]:
         """
-        [Client.update_tags_for_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53domains.html#Route53Domains.Client.update_tags_for_domain)
+        [Client.update_tags_for_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53domains.html#Route53Domains.Client.update_tags_for_domain)
         """
 
     def view_billing(
         self, Start: datetime = None, End: datetime = None, Marker: str = None, MaxItems: int = None
     ) -> ViewBillingResponseTypeDef:
         """
-        [Client.view_billing documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53domains.html#Route53Domains.Client.view_billing)
+        [Client.view_billing documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53domains.html#Route53Domains.Client.view_billing)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_domains"]) -> ListDomainsPaginator:
         """
-        [Paginator.ListDomains documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53domains.html#Route53Domains.Paginator.ListDomains)
+        [Paginator.ListDomains documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53domains.html#Route53Domains.Paginator.ListDomains)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_operations"]) -> ListOperationsPaginator:
         """
-        [Paginator.ListOperations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53domains.html#Route53Domains.Paginator.ListOperations)
+        [Paginator.ListOperations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53domains.html#Route53Domains.Paginator.ListOperations)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["view_billing"]) -> ViewBillingPaginator:
         """
-        [Paginator.ViewBilling documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/route53domains.html#Route53Domains.Paginator.ViewBilling)
+        [Paginator.ViewBilling documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/route53domains.html#Route53Domains.Paginator.ViewBilling)
         """

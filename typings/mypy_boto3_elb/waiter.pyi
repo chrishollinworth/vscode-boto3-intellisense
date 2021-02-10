@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
 """
 Main interface for elb service client waiters.
 
@@ -32,7 +31,7 @@ __all__ = ("AnyInstanceInServiceWaiter", "InstanceDeregisteredWaiter", "Instance
 
 class AnyInstanceInServiceWaiter(Boto3Waiter):
     """
-    [Waiter.AnyInstanceInService documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elb.html#ElasticLoadBalancing.Waiter.AnyInstanceInService)
+    [Waiter.AnyInstanceInService documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elb.html#ElasticLoadBalancing.Waiter.AnyInstanceInService)
     """
 
     def wait(
@@ -42,13 +41,13 @@ class AnyInstanceInServiceWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [AnyInstanceInService.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elb.html#ElasticLoadBalancing.Waiter.AnyInstanceInService.wait)
+        [AnyInstanceInService.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elb.html#ElasticLoadBalancing.Waiter.AnyInstanceInService.wait)
         """
 
 
 class InstanceDeregisteredWaiter(Boto3Waiter):
     """
-    [Waiter.InstanceDeregistered documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elb.html#ElasticLoadBalancing.Waiter.InstanceDeregistered)
+    [Waiter.InstanceDeregistered documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elb.html#ElasticLoadBalancing.Waiter.InstanceDeregistered)
     """
 
     def wait(
@@ -58,13 +57,13 @@ class InstanceDeregisteredWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [InstanceDeregistered.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elb.html#ElasticLoadBalancing.Waiter.InstanceDeregistered.wait)
+        [InstanceDeregistered.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elb.html#ElasticLoadBalancing.Waiter.InstanceDeregistered.wait)
         """
 
 
 class InstanceInServiceWaiter(Boto3Waiter):
     """
-    [Waiter.InstanceInService documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elb.html#ElasticLoadBalancing.Waiter.InstanceInService)
+    [Waiter.InstanceInService documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elb.html#ElasticLoadBalancing.Waiter.InstanceInService)
     """
 
     def wait(
@@ -74,5 +73,5 @@ class InstanceInServiceWaiter(Boto3Waiter):
         WaiterConfig: WaiterConfigTypeDef = None,
     ) -> None:
         """
-        [InstanceInService.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/elb.html#ElasticLoadBalancing.Waiter.InstanceInService.wait)
+        [InstanceInService.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/elb.html#ElasticLoadBalancing.Waiter.InstanceInService.wait)
         """

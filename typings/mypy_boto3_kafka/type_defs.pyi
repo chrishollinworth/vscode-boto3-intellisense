@@ -89,6 +89,7 @@ __all__ = (
     "RebootBrokerResponseTypeDef",
     "UpdateBrokerCountResponseTypeDef",
     "UpdateBrokerStorageResponseTypeDef",
+    "UpdateBrokerTypeResponseTypeDef",
     "UpdateClusterConfigurationResponseTypeDef",
     "UpdateClusterKafkaVersionResponseTypeDef",
     "UpdateConfigurationResponseTypeDef",
@@ -181,6 +182,7 @@ ClusterInfoTypeDef = TypedDict(
             "CREATING",
             "DELETING",
             "FAILED",
+            "HEALING",
             "MAINTENANCE",
             "REBOOTING_BROKER",
             "UPDATING",
@@ -311,6 +313,7 @@ MutableClusterInfoTypeDef = TypedDict(
         "OpenMonitoring": "OpenMonitoringTypeDef",
         "KafkaVersion": str,
         "LoggingInfo": "LoggingInfoTypeDef",
+        "InstanceType": str,
     },
     total=False,
 )
@@ -406,6 +409,7 @@ CreateClusterResponseTypeDef = TypedDict(
             "CREATING",
             "DELETING",
             "FAILED",
+            "HEALING",
             "MAINTENANCE",
             "REBOOTING_BROKER",
             "UPDATING",
@@ -435,6 +439,7 @@ DeleteClusterResponseTypeDef = TypedDict(
             "CREATING",
             "DELETING",
             "FAILED",
+            "HEALING",
             "MAINTENANCE",
             "REBOOTING_BROKER",
             "UPDATING",
@@ -565,6 +570,10 @@ UpdateBrokerStorageResponseTypeDef = TypedDict(
     "UpdateBrokerStorageResponseTypeDef",
     {"ClusterArn": str, "ClusterOperationArn": str},
     total=False,
+)
+
+UpdateBrokerTypeResponseTypeDef = TypedDict(
+    "UpdateBrokerTypeResponseTypeDef", {"ClusterArn": str, "ClusterOperationArn": str}, total=False
 )
 
 UpdateClusterConfigurationResponseTypeDef = TypedDict(

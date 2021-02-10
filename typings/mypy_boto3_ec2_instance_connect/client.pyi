@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for ec2-instance-connect service client
 
@@ -39,7 +38,7 @@ class Exceptions:
 
 class EC2InstanceConnectClient:
     """
-    [EC2InstanceConnect.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2-instance-connect.html#EC2InstanceConnect.Client)
+    [EC2InstanceConnect.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2-instance-connect.html#EC2InstanceConnect.Client)
     """
 
     meta: ClientMeta
@@ -47,7 +46,7 @@ class EC2InstanceConnectClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2-instance-connect.html#EC2InstanceConnect.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2-instance-connect.html#EC2InstanceConnect.Client.can_paginate)
         """
 
     def generate_presigned_url(
@@ -58,12 +57,12 @@ class EC2InstanceConnectClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2-instance-connect.html#EC2InstanceConnect.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2-instance-connect.html#EC2InstanceConnect.Client.generate_presigned_url)
         """
 
     def send_ssh_public_key(
         self, InstanceId: str, InstanceOSUser: str, SSHPublicKey: str, AvailabilityZone: str
     ) -> SendSSHPublicKeyResponseTypeDef:
         """
-        [Client.send_ssh_public_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/ec2-instance-connect.html#EC2InstanceConnect.Client.send_ssh_public_key)
+        [Client.send_ssh_public_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/ec2-instance-connect.html#EC2InstanceConnect.Client.send_ssh_public_key)
         """

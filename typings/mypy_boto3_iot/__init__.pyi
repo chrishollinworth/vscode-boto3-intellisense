@@ -7,6 +7,7 @@ Usage::
     import boto3
     from mypy_boto3_iot import (
         Client,
+        GetBehaviorModelTrainingSummariesPaginator,
         IoTClient,
         ListActiveViolationsPaginator,
         ListAttachedPoliciesPaginator,
@@ -20,6 +21,9 @@ Usage::
         ListCACertificatesPaginator,
         ListCertificatesByCAPaginator,
         ListCertificatesPaginator,
+        ListCustomMetricsPaginator,
+        ListDetectMitigationActionsExecutionsPaginator,
+        ListDetectMitigationActionsTasksPaginator,
         ListDimensionsPaginator,
         ListDomainConfigurationsPaginator,
         ListIndicesPaginator,
@@ -63,6 +67,7 @@ Usage::
     client: IoTClient = boto3.client("iot")
     session_client: IoTClient = session.client("iot")
 
+    get_behavior_model_training_summaries_paginator: GetBehaviorModelTrainingSummariesPaginator = client.get_paginator("get_behavior_model_training_summaries")
     list_active_violations_paginator: ListActiveViolationsPaginator = client.get_paginator("list_active_violations")
     list_attached_policies_paginator: ListAttachedPoliciesPaginator = client.get_paginator("list_attached_policies")
     list_audit_findings_paginator: ListAuditFindingsPaginator = client.get_paginator("list_audit_findings")
@@ -75,6 +80,9 @@ Usage::
     list_ca_certificates_paginator: ListCACertificatesPaginator = client.get_paginator("list_ca_certificates")
     list_certificates_paginator: ListCertificatesPaginator = client.get_paginator("list_certificates")
     list_certificates_by_ca_paginator: ListCertificatesByCAPaginator = client.get_paginator("list_certificates_by_ca")
+    list_custom_metrics_paginator: ListCustomMetricsPaginator = client.get_paginator("list_custom_metrics")
+    list_detect_mitigation_actions_executions_paginator: ListDetectMitigationActionsExecutionsPaginator = client.get_paginator("list_detect_mitigation_actions_executions")
+    list_detect_mitigation_actions_tasks_paginator: ListDetectMitigationActionsTasksPaginator = client.get_paginator("list_detect_mitigation_actions_tasks")
     list_dimensions_paginator: ListDimensionsPaginator = client.get_paginator("list_dimensions")
     list_domain_configurations_paginator: ListDomainConfigurationsPaginator = client.get_paginator("list_domain_configurations")
     list_indices_paginator: ListIndicesPaginator = client.get_paginator("list_indices")
@@ -115,6 +123,7 @@ Usage::
 """
 from mypy_boto3_iot.client import IoTClient
 from mypy_boto3_iot.paginator import (
+    GetBehaviorModelTrainingSummariesPaginator,
     ListActiveViolationsPaginator,
     ListAttachedPoliciesPaginator,
     ListAuditFindingsPaginator,
@@ -127,6 +136,9 @@ from mypy_boto3_iot.paginator import (
     ListCACertificatesPaginator,
     ListCertificatesByCAPaginator,
     ListCertificatesPaginator,
+    ListCustomMetricsPaginator,
+    ListDetectMitigationActionsExecutionsPaginator,
+    ListDetectMitigationActionsTasksPaginator,
     ListDimensionsPaginator,
     ListDomainConfigurationsPaginator,
     ListIndicesPaginator,
@@ -170,6 +182,7 @@ Client = IoTClient
 
 __all__ = (
     "Client",
+    "GetBehaviorModelTrainingSummariesPaginator",
     "IoTClient",
     "ListActiveViolationsPaginator",
     "ListAttachedPoliciesPaginator",
@@ -183,6 +196,9 @@ __all__ = (
     "ListCACertificatesPaginator",
     "ListCertificatesByCAPaginator",
     "ListCertificatesPaginator",
+    "ListCustomMetricsPaginator",
+    "ListDetectMitigationActionsExecutionsPaginator",
+    "ListDetectMitigationActionsTasksPaginator",
     "ListDimensionsPaginator",
     "ListDomainConfigurationsPaginator",
     "ListIndicesPaginator",

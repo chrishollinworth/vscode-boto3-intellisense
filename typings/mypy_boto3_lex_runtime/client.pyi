@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for lex-runtime service client
 
@@ -54,7 +53,7 @@ class Exceptions:
 
 class LexRuntimeServiceClient:
     """
-    [LexRuntimeService.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lex-runtime.html#LexRuntimeService.Client)
+    [LexRuntimeService.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lex-runtime.html#LexRuntimeService.Client)
     """
 
     meta: ClientMeta
@@ -62,14 +61,14 @@ class LexRuntimeServiceClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lex-runtime.html#LexRuntimeService.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lex-runtime.html#LexRuntimeService.Client.can_paginate)
         """
 
     def delete_session(
         self, botName: str, botAlias: str, userId: str
     ) -> DeleteSessionResponseTypeDef:
         """
-        [Client.delete_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lex-runtime.html#LexRuntimeService.Client.delete_session)
+        [Client.delete_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lex-runtime.html#LexRuntimeService.Client.delete_session)
         """
 
     def generate_presigned_url(
@@ -80,14 +79,14 @@ class LexRuntimeServiceClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lex-runtime.html#LexRuntimeService.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lex-runtime.html#LexRuntimeService.Client.generate_presigned_url)
         """
 
     def get_session(
         self, botName: str, botAlias: str, userId: str, checkpointLabelFilter: str = None
     ) -> GetSessionResponseTypeDef:
         """
-        [Client.get_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lex-runtime.html#LexRuntimeService.Client.get_session)
+        [Client.get_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lex-runtime.html#LexRuntimeService.Client.get_session)
         """
 
     def post_content(
@@ -103,7 +102,7 @@ class LexRuntimeServiceClient:
         activeContexts: str = None,
     ) -> PostContentResponseTypeDef:
         """
-        [Client.post_content documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lex-runtime.html#LexRuntimeService.Client.post_content)
+        [Client.post_content documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lex-runtime.html#LexRuntimeService.Client.post_content)
         """
 
     def post_text(
@@ -117,7 +116,7 @@ class LexRuntimeServiceClient:
         activeContexts: List["ActiveContextTypeDef"] = None,
     ) -> PostTextResponseTypeDef:
         """
-        [Client.post_text documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lex-runtime.html#LexRuntimeService.Client.post_text)
+        [Client.post_text documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lex-runtime.html#LexRuntimeService.Client.post_text)
         """
 
     def put_session(
@@ -132,5 +131,5 @@ class LexRuntimeServiceClient:
         activeContexts: List["ActiveContextTypeDef"] = None,
     ) -> PutSessionResponseTypeDef:
         """
-        [Client.put_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/lex-runtime.html#LexRuntimeService.Client.put_session)
+        [Client.put_session documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/lex-runtime.html#LexRuntimeService.Client.put_session)
         """

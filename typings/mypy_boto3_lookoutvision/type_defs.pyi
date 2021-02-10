@@ -39,6 +39,7 @@ __all__ = (
     "ProjectDescriptionTypeDef",
     "ProjectMetadataTypeDef",
     "S3LocationTypeDef",
+    "TagTypeDef",
     "CreateDatasetResponseTypeDef",
     "CreateModelResponseTypeDef",
     "CreateProjectResponseTypeDef",
@@ -52,6 +53,7 @@ __all__ = (
     "ListDatasetEntriesResponseTypeDef",
     "ListModelsResponseTypeDef",
     "ListProjectsResponseTypeDef",
+    "ListTagsForResourceResponseTypeDef",
     "PaginatorConfigTypeDef",
     "StartModelResponseTypeDef",
     "StopModelResponseTypeDef",
@@ -221,6 +223,8 @@ class S3LocationTypeDef(_RequiredS3LocationTypeDef, _OptionalS3LocationTypeDef):
     pass
 
 
+TagTypeDef = TypedDict("TagTypeDef", {"Key": str, "Value": str})
+
 CreateDatasetResponseTypeDef = TypedDict(
     "CreateDatasetResponseTypeDef", {"DatasetMetadata": "DatasetMetadataTypeDef"}, total=False
 )
@@ -283,6 +287,10 @@ ListProjectsResponseTypeDef = TypedDict(
     "ListProjectsResponseTypeDef",
     {"Projects": List["ProjectMetadataTypeDef"], "NextToken": str},
     total=False,
+)
+
+ListTagsForResourceResponseTypeDef = TypedDict(
+    "ListTagsForResourceResponseTypeDef", {"Tags": List["TagTypeDef"]}, total=False
 )
 
 PaginatorConfigTypeDef = TypedDict(

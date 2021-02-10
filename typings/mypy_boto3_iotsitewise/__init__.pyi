@@ -16,6 +16,7 @@ Usage::
         IoTSiteWiseClient,
         ListAccessPoliciesPaginator,
         ListAssetModelsPaginator,
+        ListAssetRelationshipsPaginator,
         ListAssetsPaginator,
         ListAssociatedAssetsPaginator,
         ListDashboardsPaginator,
@@ -43,6 +44,7 @@ Usage::
     get_asset_property_value_history_paginator: GetAssetPropertyValueHistoryPaginator = client.get_paginator("get_asset_property_value_history")
     list_access_policies_paginator: ListAccessPoliciesPaginator = client.get_paginator("list_access_policies")
     list_asset_models_paginator: ListAssetModelsPaginator = client.get_paginator("list_asset_models")
+    list_asset_relationships_paginator: ListAssetRelationshipsPaginator = client.get_paginator("list_asset_relationships")
     list_assets_paginator: ListAssetsPaginator = client.get_paginator("list_assets")
     list_associated_assets_paginator: ListAssociatedAssetsPaginator = client.get_paginator("list_associated_assets")
     list_dashboards_paginator: ListDashboardsPaginator = client.get_paginator("list_dashboards")
@@ -58,6 +60,7 @@ from mypy_boto3_iotsitewise.paginator import (
     GetAssetPropertyValueHistoryPaginator,
     ListAccessPoliciesPaginator,
     ListAssetModelsPaginator,
+    ListAssetRelationshipsPaginator,
     ListAssetsPaginator,
     ListAssociatedAssetsPaginator,
     ListDashboardsPaginator,
@@ -89,6 +92,7 @@ __all__ = (
     "IoTSiteWiseClient",
     "ListAccessPoliciesPaginator",
     "ListAssetModelsPaginator",
+    "ListAssetRelationshipsPaginator",
     "ListAssetsPaginator",
     "ListAssociatedAssetsPaginator",
     "ListDashboardsPaginator",

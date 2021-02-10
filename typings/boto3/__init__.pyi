@@ -9,6 +9,7 @@ from mypy_boto3.accessanalyzer import AccessAnalyzerClient
 from mypy_boto3.acm import ACMClient
 from mypy_boto3.acm_pca import ACMPCAClient
 from mypy_boto3.alexaforbusiness import AlexaForBusinessClient
+from mypy_boto3.amp import PrometheusServiceClient
 from mypy_boto3.amplify import AmplifyClient
 from mypy_boto3.amplifybackend import AmplifyBackendClient
 from mypy_boto3.apigateway import APIGatewayClient
@@ -16,13 +17,14 @@ from mypy_boto3.apigatewaymanagementapi import ApiGatewayManagementApiClient
 from mypy_boto3.apigatewayv2 import ApiGatewayV2Client
 from mypy_boto3.appconfig import AppConfigClient
 from mypy_boto3.appflow import AppflowClient
-from mypy_boto3.appintegrations import AppIntegrationsClient
+from mypy_boto3.appintegrations import AppIntegrationsServiceClient
 from mypy_boto3.application_autoscaling import ApplicationAutoScalingClient
 from mypy_boto3.application_insights import ApplicationInsightsClient
 from mypy_boto3.appmesh import AppMeshClient
 from mypy_boto3.appstream import AppStreamClient
 from mypy_boto3.appsync import AppSyncClient
 from mypy_boto3.athena import AthenaClient
+from mypy_boto3.auditmanager import AuditManagerClient
 from mypy_boto3.autoscaling import AutoScalingClient
 from mypy_boto3.autoscaling_plans import AutoScalingPlansClient
 from mypy_boto3.backup import BackupClient
@@ -72,7 +74,7 @@ from mypy_boto3.datasync import DataSyncClient
 from mypy_boto3.dax import DAXClient
 from mypy_boto3.detective import DetectiveClient
 from mypy_boto3.devicefarm import DeviceFarmClient
-from mypy_boto3.devops_guru import DevOpsGuruClient
+from mypy_boto3.devops_guru import DevopsGuruClient
 from mypy_boto3.directconnect import DirectConnectClient
 from mypy_boto3.discovery import ApplicationDiscoveryServiceClient
 from mypy_boto3.dlm import DLMClient
@@ -98,6 +100,7 @@ from mypy_boto3.elastictranscoder import ElasticTranscoderClient
 from mypy_boto3.elb import ElasticLoadBalancingClient
 from mypy_boto3.elbv2 import ElasticLoadBalancingv2Client
 from mypy_boto3.emr import EMRClient
+from mypy_boto3.emr_containers import EMRContainersClient
 from mypy_boto3.es import ElasticsearchServiceClient
 from mypy_boto3.events import EventBridgeClient
 from mypy_boto3.firehose import FirehoseClient
@@ -112,9 +115,11 @@ from mypy_boto3.glacier import GlacierServiceResource
 from mypy_boto3.globalaccelerator import GlobalAcceleratorClient
 from mypy_boto3.glue import GlueClient
 from mypy_boto3.greengrass import GreengrassClient
+from mypy_boto3.greengrassv2 import GreengrassV2Client
 from mypy_boto3.groundstation import GroundStationClient
 from mypy_boto3.guardduty import GuardDutyClient
 from mypy_boto3.health import HealthClient
+from mypy_boto3.healthlake import HealthLakeClient
 from mypy_boto3.honeycode import HoneycodeClient
 from mypy_boto3.iam import IAMClient
 from mypy_boto3.iam import IAMServiceResource
@@ -128,11 +133,14 @@ from mypy_boto3.iot_jobs_data import IoTJobsDataPlaneClient
 from mypy_boto3.iot1click_devices import IoT1ClickDevicesServiceClient
 from mypy_boto3.iot1click_projects import IoT1ClickProjectsClient
 from mypy_boto3.iotanalytics import IoTAnalyticsClient
+from mypy_boto3.iotdeviceadvisor import IoTDeviceAdvisorClient
 from mypy_boto3.iotevents import IoTEventsClient
 from mypy_boto3.iotevents_data import IoTEventsDataClient
+from mypy_boto3.iotfleethub import IoTFleetHubClient
 from mypy_boto3.iotsecuretunneling import IoTSecureTunnelingClient
 from mypy_boto3.iotsitewise import IoTSiteWiseClient
 from mypy_boto3.iotthingsgraph import IoTThingsGraphClient
+from mypy_boto3.iotwireless import IoTWirelessClient
 from mypy_boto3.ivs import IVSClient
 from mypy_boto3.kafka import KafkaClient
 from mypy_boto3.kendra import KendraClient
@@ -148,10 +156,13 @@ from mypy_boto3.lakeformation import LakeFormationClient
 from mypy_boto3.lambda_ import LambdaClient
 from mypy_boto3.lex_models import LexModelBuildingServiceClient
 from mypy_boto3.lex_runtime import LexRuntimeServiceClient
+from mypy_boto3.lexv2_models import LexModelsV2Client
+from mypy_boto3.lexv2_runtime import LexRuntimeV2Client
 from mypy_boto3.license_manager import LicenseManagerClient
 from mypy_boto3.lightsail import LightsailClient
+from mypy_boto3.location import LocationServiceClient
 from mypy_boto3.logs import CloudWatchLogsClient
-from mypy_boto3.lookoutvision import LookoutForVisionClient
+from mypy_boto3.lookoutvision import LookoutforVisionClient
 from mypy_boto3.machinelearning import MachineLearningClient
 from mypy_boto3.macie import MacieClient
 from mypy_boto3.macie2 import Macie2Client
@@ -212,7 +223,8 @@ from mypy_boto3.s3control import S3ControlClient
 from mypy_boto3.s3outposts import S3OutpostsClient
 from mypy_boto3.sagemaker import SageMakerClient
 from mypy_boto3.sagemaker_a2i_runtime import AugmentedAIRuntimeClient
-from mypy_boto3.sagemaker_featurestore_runtime import SageMakerFeatureStoreRuntimeClient
+from mypy_boto3.sagemaker_edge import SagemakerEdgeManagerClient
+from mypy_boto3.sagemaker_featurestore_runtime import SagemakerFeatureStoreRuntimeClient
 from mypy_boto3.sagemaker_runtime import SageMakerRuntimeClient
 from mypy_boto3.savingsplans import SavingsPlansClient
 from mypy_boto3.schemas import SchemasClient
@@ -222,7 +234,7 @@ from mypy_boto3.securityhub import SecurityHubClient
 from mypy_boto3.serverlessrepo import ServerlessApplicationRepositoryClient
 from mypy_boto3.service_quotas import ServiceQuotasClient
 from mypy_boto3.servicecatalog import ServiceCatalogClient
-from mypy_boto3.servicecatalog_appregistry import ServiceCatalogAppRegistryClient
+from mypy_boto3.servicecatalog_appregistry import AppRegistryClient
 from mypy_boto3.servicediscovery import ServiceDiscoveryClient
 from mypy_boto3.ses import SESClient
 from mypy_boto3.sesv2 import SESV2Client
@@ -254,6 +266,7 @@ from mypy_boto3.translate import TranslateClient
 from mypy_boto3.waf import WAFClient
 from mypy_boto3.waf_regional import WAFRegionalClient
 from mypy_boto3.wafv2 import WAFV2Client
+from mypy_boto3.wellarchitected import WellArchitectedClient
 from mypy_boto3.workdocs import WorkDocsClient
 from mypy_boto3.worklink import WorkLinkClient
 from mypy_boto3.workmail import WorkMailClient
@@ -316,6 +329,20 @@ def client(
     aws_session_token: str = None,
     config: Config = None,
 ) -> AlexaForBusinessClient:
+    pass
+@overload
+def client(
+    service_name: Literal["amp"],
+    region_name: str = None,
+    api_version: str = None,
+    use_ssl: bool = None,
+    verify: Union[str, bool] = None,
+    endpoint_url: str = None,
+    aws_access_key_id: str = None,
+    aws_secret_access_key: str = None,
+    aws_session_token: str = None,
+    config: Config = None,
+) -> PrometheusServiceClient:
     pass
 @overload
 def client(
@@ -427,7 +454,7 @@ def client(
     aws_secret_access_key: str = None,
     aws_session_token: str = None,
     config: Config = None,
-) -> AppIntegrationsClient:
+) -> AppIntegrationsServiceClient:
     pass
 @overload
 def client(
@@ -512,6 +539,20 @@ def client(
     aws_session_token: str = None,
     config: Config = None,
 ) -> AthenaClient:
+    pass
+@overload
+def client(
+    service_name: Literal["auditmanager"],
+    region_name: str = None,
+    api_version: str = None,
+    use_ssl: bool = None,
+    verify: Union[str, bool] = None,
+    endpoint_url: str = None,
+    aws_access_key_id: str = None,
+    aws_secret_access_key: str = None,
+    aws_session_token: str = None,
+    config: Config = None,
+) -> AuditManagerClient:
     pass
 @overload
 def client(
@@ -1183,7 +1224,7 @@ def client(
     aws_secret_access_key: str = None,
     aws_session_token: str = None,
     config: Config = None,
-) -> DevOpsGuruClient:
+) -> DevopsGuruClient:
     pass
 @overload
 def client(
@@ -1509,6 +1550,20 @@ def client(
     pass
 @overload
 def client(
+    service_name: Literal["emr-containers"],
+    region_name: str = None,
+    api_version: str = None,
+    use_ssl: bool = None,
+    verify: Union[str, bool] = None,
+    endpoint_url: str = None,
+    aws_access_key_id: str = None,
+    aws_secret_access_key: str = None,
+    aws_session_token: str = None,
+    config: Config = None,
+) -> EMRContainersClient:
+    pass
+@overload
+def client(
     service_name: Literal["es"],
     region_name: str = None,
     api_version: str = None,
@@ -1691,6 +1746,20 @@ def client(
     pass
 @overload
 def client(
+    service_name: Literal["greengrassv2"],
+    region_name: str = None,
+    api_version: str = None,
+    use_ssl: bool = None,
+    verify: Union[str, bool] = None,
+    endpoint_url: str = None,
+    aws_access_key_id: str = None,
+    aws_secret_access_key: str = None,
+    aws_session_token: str = None,
+    config: Config = None,
+) -> GreengrassV2Client:
+    pass
+@overload
+def client(
     service_name: Literal["groundstation"],
     region_name: str = None,
     api_version: str = None,
@@ -1730,6 +1799,20 @@ def client(
     aws_session_token: str = None,
     config: Config = None,
 ) -> HealthClient:
+    pass
+@overload
+def client(
+    service_name: Literal["healthlake"],
+    region_name: str = None,
+    api_version: str = None,
+    use_ssl: bool = None,
+    verify: Union[str, bool] = None,
+    endpoint_url: str = None,
+    aws_access_key_id: str = None,
+    aws_secret_access_key: str = None,
+    aws_session_token: str = None,
+    config: Config = None,
+) -> HealthLakeClient:
     pass
 @overload
 def client(
@@ -1901,6 +1984,20 @@ def client(
     pass
 @overload
 def client(
+    service_name: Literal["iotdeviceadvisor"],
+    region_name: str = None,
+    api_version: str = None,
+    use_ssl: bool = None,
+    verify: Union[str, bool] = None,
+    endpoint_url: str = None,
+    aws_access_key_id: str = None,
+    aws_secret_access_key: str = None,
+    aws_session_token: str = None,
+    config: Config = None,
+) -> IoTDeviceAdvisorClient:
+    pass
+@overload
+def client(
     service_name: Literal["iotevents"],
     region_name: str = None,
     api_version: str = None,
@@ -1926,6 +2023,20 @@ def client(
     aws_session_token: str = None,
     config: Config = None,
 ) -> IoTEventsDataClient:
+    pass
+@overload
+def client(
+    service_name: Literal["iotfleethub"],
+    region_name: str = None,
+    api_version: str = None,
+    use_ssl: bool = None,
+    verify: Union[str, bool] = None,
+    endpoint_url: str = None,
+    aws_access_key_id: str = None,
+    aws_secret_access_key: str = None,
+    aws_session_token: str = None,
+    config: Config = None,
+) -> IoTFleetHubClient:
     pass
 @overload
 def client(
@@ -1968,6 +2079,20 @@ def client(
     aws_session_token: str = None,
     config: Config = None,
 ) -> IoTThingsGraphClient:
+    pass
+@overload
+def client(
+    service_name: Literal["iotwireless"],
+    region_name: str = None,
+    api_version: str = None,
+    use_ssl: bool = None,
+    verify: Union[str, bool] = None,
+    endpoint_url: str = None,
+    aws_access_key_id: str = None,
+    aws_secret_access_key: str = None,
+    aws_session_token: str = None,
+    config: Config = None,
+) -> IoTWirelessClient:
     pass
 @overload
 def client(
@@ -2181,6 +2306,34 @@ def client(
     pass
 @overload
 def client(
+    service_name: Literal["lexv2-models"],
+    region_name: str = None,
+    api_version: str = None,
+    use_ssl: bool = None,
+    verify: Union[str, bool] = None,
+    endpoint_url: str = None,
+    aws_access_key_id: str = None,
+    aws_secret_access_key: str = None,
+    aws_session_token: str = None,
+    config: Config = None,
+) -> LexModelsV2Client:
+    pass
+@overload
+def client(
+    service_name: Literal["lexv2-runtime"],
+    region_name: str = None,
+    api_version: str = None,
+    use_ssl: bool = None,
+    verify: Union[str, bool] = None,
+    endpoint_url: str = None,
+    aws_access_key_id: str = None,
+    aws_secret_access_key: str = None,
+    aws_session_token: str = None,
+    config: Config = None,
+) -> LexRuntimeV2Client:
+    pass
+@overload
+def client(
     service_name: Literal["license-manager"],
     region_name: str = None,
     api_version: str = None,
@@ -2209,6 +2362,20 @@ def client(
     pass
 @overload
 def client(
+    service_name: Literal["location"],
+    region_name: str = None,
+    api_version: str = None,
+    use_ssl: bool = None,
+    verify: Union[str, bool] = None,
+    endpoint_url: str = None,
+    aws_access_key_id: str = None,
+    aws_secret_access_key: str = None,
+    aws_session_token: str = None,
+    config: Config = None,
+) -> LocationServiceClient:
+    pass
+@overload
+def client(
     service_name: Literal["logs"],
     region_name: str = None,
     api_version: str = None,
@@ -2233,7 +2400,7 @@ def client(
     aws_secret_access_key: str = None,
     aws_session_token: str = None,
     config: Config = None,
-) -> LookoutForVisionClient:
+) -> LookoutforVisionClient:
     pass
 @overload
 def client(
@@ -3049,6 +3216,20 @@ def client(
     pass
 @overload
 def client(
+    service_name: Literal["sagemaker-edge"],
+    region_name: str = None,
+    api_version: str = None,
+    use_ssl: bool = None,
+    verify: Union[str, bool] = None,
+    endpoint_url: str = None,
+    aws_access_key_id: str = None,
+    aws_secret_access_key: str = None,
+    aws_session_token: str = None,
+    config: Config = None,
+) -> SagemakerEdgeManagerClient:
+    pass
+@overload
+def client(
     service_name: Literal["sagemaker-featurestore-runtime"],
     region_name: str = None,
     api_version: str = None,
@@ -3059,7 +3240,7 @@ def client(
     aws_secret_access_key: str = None,
     aws_session_token: str = None,
     config: Config = None,
-) -> SageMakerFeatureStoreRuntimeClient:
+) -> SagemakerFeatureStoreRuntimeClient:
     pass
 @overload
 def client(
@@ -3199,7 +3380,7 @@ def client(
     aws_secret_access_key: str = None,
     aws_session_token: str = None,
     config: Config = None,
-) -> ServiceCatalogAppRegistryClient:
+) -> AppRegistryClient:
     pass
 @overload
 def client(
@@ -3606,6 +3787,20 @@ def client(
     aws_session_token: str = None,
     config: Config = None,
 ) -> WAFV2Client:
+    pass
+@overload
+def client(
+    service_name: Literal["wellarchitected"],
+    region_name: str = None,
+    api_version: str = None,
+    use_ssl: bool = None,
+    verify: Union[str, bool] = None,
+    endpoint_url: str = None,
+    aws_access_key_id: str = None,
+    aws_secret_access_key: str = None,
+    aws_session_token: str = None,
+    config: Config = None,
+) -> WellArchitectedClient:
     pass
 @overload
 def client(

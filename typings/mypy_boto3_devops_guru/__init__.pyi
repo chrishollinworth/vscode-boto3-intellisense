@@ -8,7 +8,7 @@ Usage::
     from mypy_boto3_devops_guru import (
         Client,
         DescribeResourceCollectionHealthPaginator,
-        DevOpsGuruClient,
+        DevopsGuruClient,
         GetResourceCollectionPaginator,
         ListAnomaliesForInsightPaginator,
         ListEventsPaginator,
@@ -20,8 +20,8 @@ Usage::
 
     session = boto3.Session()
 
-    client: DevOpsGuruClient = boto3.client("devops-guru")
-    session_client: DevOpsGuruClient = session.client("devops-guru")
+    client: DevopsGuruClient = boto3.client("devops-guru")
+    session_client: DevopsGuruClient = session.client("devops-guru")
 
     describe_resource_collection_health_paginator: DescribeResourceCollectionHealthPaginator = client.get_paginator("describe_resource_collection_health")
     get_resource_collection_paginator: GetResourceCollectionPaginator = client.get_paginator("get_resource_collection")
@@ -33,7 +33,7 @@ Usage::
     search_insights_paginator: SearchInsightsPaginator = client.get_paginator("search_insights")
     ```
 """
-from mypy_boto3_devops_guru.client import DevOpsGuruClient
+from mypy_boto3_devops_guru.client import DevopsGuruClient
 from mypy_boto3_devops_guru.paginator import (
     DescribeResourceCollectionHealthPaginator,
     GetResourceCollectionPaginator,
@@ -45,13 +45,13 @@ from mypy_boto3_devops_guru.paginator import (
     SearchInsightsPaginator,
 )
 
-Client = DevOpsGuruClient
+Client = DevopsGuruClient
 
 
 __all__ = (
     "Client",
     "DescribeResourceCollectionHealthPaginator",
-    "DevOpsGuruClient",
+    "DevopsGuruClient",
     "GetResourceCollectionPaginator",
     "ListAnomaliesForInsightPaginator",
     "ListEventsPaginator",

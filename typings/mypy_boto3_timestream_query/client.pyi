@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for timestream-query service client
 
@@ -53,7 +52,7 @@ class Exceptions:
 
 class TimestreamQueryClient:
     """
-    [TimestreamQuery.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/timestream-query.html#TimestreamQuery.Client)
+    [TimestreamQuery.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-query.html#TimestreamQuery.Client)
     """
 
     meta: ClientMeta
@@ -61,17 +60,17 @@ class TimestreamQueryClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/timestream-query.html#TimestreamQuery.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-query.html#TimestreamQuery.Client.can_paginate)
         """
 
     def cancel_query(self, QueryId: str) -> CancelQueryResponseTypeDef:
         """
-        [Client.cancel_query documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/timestream-query.html#TimestreamQuery.Client.cancel_query)
+        [Client.cancel_query documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-query.html#TimestreamQuery.Client.cancel_query)
         """
 
     def describe_endpoints(self) -> DescribeEndpointsResponseTypeDef:
         """
-        [Client.describe_endpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/timestream-query.html#TimestreamQuery.Client.describe_endpoints)
+        [Client.describe_endpoints documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-query.html#TimestreamQuery.Client.describe_endpoints)
         """
 
     def generate_presigned_url(
@@ -82,17 +81,17 @@ class TimestreamQueryClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/timestream-query.html#TimestreamQuery.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-query.html#TimestreamQuery.Client.generate_presigned_url)
         """
 
     def query(
         self, QueryString: str, ClientToken: str = None, NextToken: str = None, MaxRows: int = None
     ) -> QueryResponseTypeDef:
         """
-        [Client.query documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/timestream-query.html#TimestreamQuery.Client.query)
+        [Client.query documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-query.html#TimestreamQuery.Client.query)
         """
 
     def get_paginator(self, operation_name: Literal["query"]) -> QueryPaginator:
         """
-        [Paginator.Query documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/timestream-query.html#TimestreamQuery.Paginator.Query)
+        [Paginator.Query documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/timestream-query.html#TimestreamQuery.Paginator.Query)
         """

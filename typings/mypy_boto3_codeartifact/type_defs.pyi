@@ -11,7 +11,9 @@ Usage::
 """
 import sys
 from datetime import datetime
-from typing import IO, Dict, List
+from typing import Dict, List
+
+from botocore.response import StreamingBody
 
 if sys.version_info >= (3, 8):
     from typing import Literal
@@ -330,7 +332,12 @@ GetDomainPermissionsPolicyResultTypeDef = TypedDict(
 
 GetPackageVersionAssetResultTypeDef = TypedDict(
     "GetPackageVersionAssetResultTypeDef",
-    {"asset": IO[bytes], "assetName": str, "packageVersion": str, "packageVersionRevision": str},
+    {
+        "asset": StreamingBody,
+        "assetName": str,
+        "packageVersion": str,
+        "packageVersionRevision": str,
+    },
     total=False,
 )
 

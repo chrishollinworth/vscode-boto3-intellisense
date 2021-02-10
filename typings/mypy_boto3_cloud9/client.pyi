@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for cloud9 service client
 
@@ -63,7 +62,7 @@ class Exceptions:
 
 class Cloud9Client:
     """
-    [Cloud9.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloud9.html#Cloud9.Client)
+    [Cloud9.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloud9.html#Cloud9.Client)
     """
 
     meta: ClientMeta
@@ -71,7 +70,7 @@ class Cloud9Client:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloud9.html#Cloud9.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloud9.html#Cloud9.Client.can_paginate)
         """
 
     def create_environment_ec2(
@@ -87,24 +86,24 @@ class Cloud9Client:
         connectionType: Literal["CONNECT_SSH", "CONNECT_SSM"] = None,
     ) -> CreateEnvironmentEC2ResultTypeDef:
         """
-        [Client.create_environment_ec2 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloud9.html#Cloud9.Client.create_environment_ec2)
+        [Client.create_environment_ec2 documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloud9.html#Cloud9.Client.create_environment_ec2)
         """
 
     def create_environment_membership(
         self, environmentId: str, userArn: str, permissions: Literal["read-write", "read-only"]
     ) -> CreateEnvironmentMembershipResultTypeDef:
         """
-        [Client.create_environment_membership documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloud9.html#Cloud9.Client.create_environment_membership)
+        [Client.create_environment_membership documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloud9.html#Cloud9.Client.create_environment_membership)
         """
 
     def delete_environment(self, environmentId: str) -> Dict[str, Any]:
         """
-        [Client.delete_environment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloud9.html#Cloud9.Client.delete_environment)
+        [Client.delete_environment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloud9.html#Cloud9.Client.delete_environment)
         """
 
     def delete_environment_membership(self, environmentId: str, userArn: str) -> Dict[str, Any]:
         """
-        [Client.delete_environment_membership documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloud9.html#Cloud9.Client.delete_environment_membership)
+        [Client.delete_environment_membership documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloud9.html#Cloud9.Client.delete_environment_membership)
         """
 
     def describe_environment_memberships(
@@ -116,19 +115,19 @@ class Cloud9Client:
         maxResults: int = None,
     ) -> DescribeEnvironmentMembershipsResultTypeDef:
         """
-        [Client.describe_environment_memberships documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloud9.html#Cloud9.Client.describe_environment_memberships)
+        [Client.describe_environment_memberships documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloud9.html#Cloud9.Client.describe_environment_memberships)
         """
 
     def describe_environment_status(
         self, environmentId: str
     ) -> DescribeEnvironmentStatusResultTypeDef:
         """
-        [Client.describe_environment_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloud9.html#Cloud9.Client.describe_environment_status)
+        [Client.describe_environment_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloud9.html#Cloud9.Client.describe_environment_status)
         """
 
     def describe_environments(self, environmentIds: List[str]) -> DescribeEnvironmentsResultTypeDef:
         """
-        [Client.describe_environments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloud9.html#Cloud9.Client.describe_environments)
+        [Client.describe_environments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloud9.html#Cloud9.Client.describe_environments)
         """
 
     def generate_presigned_url(
@@ -139,43 +138,43 @@ class Cloud9Client:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloud9.html#Cloud9.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloud9.html#Cloud9.Client.generate_presigned_url)
         """
 
     def list_environments(
         self, nextToken: str = None, maxResults: int = None
     ) -> ListEnvironmentsResultTypeDef:
         """
-        [Client.list_environments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloud9.html#Cloud9.Client.list_environments)
+        [Client.list_environments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloud9.html#Cloud9.Client.list_environments)
         """
 
     def list_tags_for_resource(self, ResourceARN: str) -> ListTagsForResourceResponseTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloud9.html#Cloud9.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloud9.html#Cloud9.Client.list_tags_for_resource)
         """
 
     def tag_resource(self, ResourceARN: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloud9.html#Cloud9.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloud9.html#Cloud9.Client.tag_resource)
         """
 
     def untag_resource(self, ResourceARN: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloud9.html#Cloud9.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloud9.html#Cloud9.Client.untag_resource)
         """
 
     def update_environment(
         self, environmentId: str, name: str = None, description: str = None
     ) -> Dict[str, Any]:
         """
-        [Client.update_environment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloud9.html#Cloud9.Client.update_environment)
+        [Client.update_environment documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloud9.html#Cloud9.Client.update_environment)
         """
 
     def update_environment_membership(
         self, environmentId: str, userArn: str, permissions: Literal["read-write", "read-only"]
     ) -> UpdateEnvironmentMembershipResultTypeDef:
         """
-        [Client.update_environment_membership documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloud9.html#Cloud9.Client.update_environment_membership)
+        [Client.update_environment_membership documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloud9.html#Cloud9.Client.update_environment_membership)
         """
 
     @overload
@@ -183,7 +182,7 @@ class Cloud9Client:
         self, operation_name: Literal["describe_environment_memberships"]
     ) -> DescribeEnvironmentMembershipsPaginator:
         """
-        [Paginator.DescribeEnvironmentMemberships documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloud9.html#Cloud9.Paginator.DescribeEnvironmentMemberships)
+        [Paginator.DescribeEnvironmentMemberships documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloud9.html#Cloud9.Paginator.DescribeEnvironmentMemberships)
         """
 
     @overload
@@ -191,5 +190,5 @@ class Cloud9Client:
         self, operation_name: Literal["list_environments"]
     ) -> ListEnvironmentsPaginator:
         """
-        [Paginator.ListEnvironments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloud9.html#Cloud9.Paginator.ListEnvironments)
+        [Paginator.ListEnvironments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloud9.html#Cloud9.Paginator.ListEnvironments)
         """

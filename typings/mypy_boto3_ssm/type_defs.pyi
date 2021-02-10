@@ -49,8 +49,11 @@ __all__ = (
     "DocumentDefaultVersionDescriptionTypeDef",
     "DocumentDescriptionTypeDef",
     "DocumentIdentifierTypeDef",
+    "DocumentMetadataResponseInfoTypeDef",
     "DocumentParameterTypeDef",
     "DocumentRequiresTypeDef",
+    "DocumentReviewCommentSourceTypeDef",
+    "DocumentReviewerResponseSourceTypeDef",
     "DocumentVersionInfoTypeDef",
     "EffectivePatchTypeDef",
     "FailedCreateAssociationTypeDef",
@@ -85,15 +88,19 @@ __all__ = (
     "MaintenanceWindowTaskInvocationParametersTypeDef",
     "MaintenanceWindowTaskParameterValueExpressionTypeDef",
     "MaintenanceWindowTaskTypeDef",
+    "MetadataValueTypeDef",
     "NonCompliantSummaryTypeDef",
     "NotificationConfigTypeDef",
     "OpsEntityItemTypeDef",
     "OpsEntityTypeDef",
     "OpsFilterTypeDef",
     "OpsItemDataValueTypeDef",
+    "OpsItemEventSummaryTypeDef",
+    "OpsItemIdentityTypeDef",
     "OpsItemNotificationTypeDef",
     "OpsItemSummaryTypeDef",
     "OpsItemTypeDef",
+    "OpsMetadataTypeDef",
     "OutputSourceTypeDef",
     "ParameterHistoryTypeDef",
     "ParameterInlinePolicyTypeDef",
@@ -119,6 +126,8 @@ __all__ = (
     "ResourceDataSyncOrganizationalUnitTypeDef",
     "ResourceDataSyncS3DestinationTypeDef",
     "ResourceDataSyncSourceWithStateTypeDef",
+    "ReviewInformationTypeDef",
+    "RunbookTypeDef",
     "S3OutputLocationTypeDef",
     "S3OutputUrlTypeDef",
     "ScheduledWindowExecutionTypeDef",
@@ -145,6 +154,7 @@ __all__ = (
     "CreateDocumentResultTypeDef",
     "CreateMaintenanceWindowResultTypeDef",
     "CreateOpsItemResponseTypeDef",
+    "CreateOpsMetadataResultTypeDef",
     "CreatePatchBaselineResultTypeDef",
     "DeleteInventoryResultTypeDef",
     "DeleteMaintenanceWindowResultTypeDef",
@@ -190,6 +200,7 @@ __all__ = (
     "InventoryAggregatorTypeDef",
     "DocumentFilterTypeDef",
     "DocumentKeyValuesFilterTypeDef",
+    "DocumentReviewsTypeDef",
     "GetAutomationExecutionResultTypeDef",
     "GetCalendarStateResponseTypeDef",
     "GetCommandInvocationResultTypeDef",
@@ -205,6 +216,7 @@ __all__ = (
     "GetMaintenanceWindowResultTypeDef",
     "GetMaintenanceWindowTaskResultTypeDef",
     "GetOpsItemResponseTypeDef",
+    "GetOpsMetadataResultTypeDef",
     "GetOpsSummaryResultTypeDef",
     "GetParameterHistoryResultTypeDef",
     "GetParameterResultTypeDef",
@@ -224,14 +236,19 @@ __all__ = (
     "ListCommandsResultTypeDef",
     "ListComplianceItemsResultTypeDef",
     "ListComplianceSummariesResultTypeDef",
+    "ListDocumentMetadataHistoryResponseTypeDef",
     "ListDocumentVersionsResultTypeDef",
     "ListDocumentsResultTypeDef",
     "ListInventoryEntriesResultTypeDef",
+    "ListOpsItemEventsResponseTypeDef",
+    "ListOpsMetadataResultTypeDef",
     "ListResourceComplianceSummariesResultTypeDef",
     "ListResourceDataSyncResultTypeDef",
     "ListTagsForResourceResultTypeDef",
     "MaintenanceWindowFilterTypeDef",
+    "OpsItemEventFilterTypeDef",
     "OpsItemFilterTypeDef",
+    "OpsMetadataFilterTypeDef",
     "OpsResultAttributeTypeDef",
     "PaginatorConfigTypeDef",
     "ParameterStringFilterTypeDef",
@@ -250,6 +267,7 @@ __all__ = (
     "SendCommandResultTypeDef",
     "SessionFilterTypeDef",
     "StartAutomationExecutionResultTypeDef",
+    "StartChangeRequestExecutionResultTypeDef",
     "StartSessionResponseTypeDef",
     "StepExecutionFilterTypeDef",
     "TerminateSessionResponseTypeDef",
@@ -260,6 +278,7 @@ __all__ = (
     "UpdateMaintenanceWindowResultTypeDef",
     "UpdateMaintenanceWindowTargetResultTypeDef",
     "UpdateMaintenanceWindowTaskResultTypeDef",
+    "UpdateOpsMetadataResultTypeDef",
     "UpdatePatchBaselineResultTypeDef",
     "WaiterConfigTypeDef",
 )
@@ -310,6 +329,7 @@ AssociationDescriptionTypeDef = TypedDict(
         "ComplianceSeverity": Literal["CRITICAL", "HIGH", "MEDIUM", "LOW", "UNSPECIFIED"],
         "SyncCompliance": Literal["AUTO", "MANUAL"],
         "ApplyOnlyAtCronInterval": bool,
+        "TargetLocations": List["TargetLocationTypeDef"],
     },
     total=False,
 )
@@ -401,6 +421,7 @@ AssociationVersionInfoTypeDef = TypedDict(
         "ComplianceSeverity": Literal["CRITICAL", "HIGH", "MEDIUM", "LOW", "UNSPECIFIED"],
         "SyncCompliance": Literal["AUTO", "MANUAL"],
         "ApplyOnlyAtCronInterval": bool,
+        "TargetLocations": List["TargetLocationTypeDef"],
     },
     total=False,
 )
@@ -428,6 +449,16 @@ AutomationExecutionMetadataTypeDef = TypedDict(
             "Cancelling",
             "Cancelled",
             "Failed",
+            "PendingApproval",
+            "Approved",
+            "Rejected",
+            "Scheduled",
+            "RunbookInProgress",
+            "PendingChangeCalendarOverride",
+            "ChangeCalendarOverrideApproved",
+            "ChangeCalendarOverrideRejected",
+            "CompletedWithSuccess",
+            "CompletedWithFailure",
         ],
         "ExecutionStartTime": datetime,
         "ExecutionEndTime": datetime,
@@ -447,6 +478,12 @@ AutomationExecutionMetadataTypeDef = TypedDict(
         "MaxErrors": str,
         "Target": str,
         "AutomationType": Literal["CrossAccount", "Local"],
+        "AutomationSubtype": Literal["ChangeRequest"],
+        "ScheduledTime": datetime,
+        "Runbooks": List["RunbookTypeDef"],
+        "OpsItemId": str,
+        "AssociationId": str,
+        "ChangeRequestName": str,
     },
     total=False,
 )
@@ -468,6 +505,16 @@ AutomationExecutionTypeDef = TypedDict(
             "Cancelling",
             "Cancelled",
             "Failed",
+            "PendingApproval",
+            "Approved",
+            "Rejected",
+            "Scheduled",
+            "RunbookInProgress",
+            "PendingChangeCalendarOverride",
+            "ChangeCalendarOverrideApproved",
+            "ChangeCalendarOverrideRejected",
+            "CompletedWithSuccess",
+            "CompletedWithFailure",
         ],
         "StepExecutions": List["StepExecutionTypeDef"],
         "StepExecutionsTruncated": bool,
@@ -488,6 +535,12 @@ AutomationExecutionTypeDef = TypedDict(
         "Target": str,
         "TargetLocations": List["TargetLocationTypeDef"],
         "ProgressCounters": "ProgressCountersTypeDef",
+        "AutomationSubtype": Literal["ChangeRequest"],
+        "ScheduledTime": datetime,
+        "Runbooks": List["RunbookTypeDef"],
+        "OpsItemId": str,
+        "AssociationId": str,
+        "ChangeRequestName": str,
     },
     total=False,
 )
@@ -649,6 +702,7 @@ _OptionalCreateAssociationBatchRequestEntryTypeDef = TypedDict(
         "ComplianceSeverity": Literal["CRITICAL", "HIGH", "MEDIUM", "LOW", "UNSPECIFIED"],
         "SyncCompliance": Literal["AUTO", "MANUAL"],
         "ApplyOnlyAtCronInterval": bool,
+        "TargetLocations": List["TargetLocationTypeDef"],
     },
     total=False,
 )
@@ -693,6 +747,7 @@ DocumentDescriptionTypeDef = TypedDict(
             "ApplicationConfigurationSchema",
             "DeploymentStrategy",
             "ChangeCalendar",
+            "Automation.ChangeTemplate",
         ],
         "SchemaVersion": str,
         "LatestVersion": str,
@@ -702,6 +757,11 @@ DocumentDescriptionTypeDef = TypedDict(
         "Tags": List["TagTypeDef"],
         "AttachmentsInformation": List["AttachmentInformationTypeDef"],
         "Requires": List["DocumentRequiresTypeDef"],
+        "Author": str,
+        "ReviewInformation": List["ReviewInformationTypeDef"],
+        "ApprovedVersion": str,
+        "PendingReviewVersion": str,
+        "ReviewStatus": Literal["APPROVED", "NOT_REVIEWED", "PENDING", "REJECTED"],
     },
     total=False,
 )
@@ -724,13 +784,22 @@ DocumentIdentifierTypeDef = TypedDict(
             "ApplicationConfigurationSchema",
             "DeploymentStrategy",
             "ChangeCalendar",
+            "Automation.ChangeTemplate",
         ],
         "SchemaVersion": str,
         "DocumentFormat": Literal["YAML", "JSON", "TEXT"],
         "TargetType": str,
         "Tags": List["TagTypeDef"],
         "Requires": List["DocumentRequiresTypeDef"],
+        "ReviewStatus": Literal["APPROVED", "NOT_REVIEWED", "PENDING", "REJECTED"],
+        "Author": str,
     },
+    total=False,
+)
+
+DocumentMetadataResponseInfoTypeDef = TypedDict(
+    "DocumentMetadataResponseInfoTypeDef",
+    {"ReviewerResponse": List["DocumentReviewerResponseSourceTypeDef"]},
     total=False,
 )
 
@@ -750,6 +819,22 @@ class DocumentRequiresTypeDef(_RequiredDocumentRequiresTypeDef, _OptionalDocumen
     pass
 
 
+DocumentReviewCommentSourceTypeDef = TypedDict(
+    "DocumentReviewCommentSourceTypeDef", {"Type": Literal["Comment"], "Content": str}, total=False
+)
+
+DocumentReviewerResponseSourceTypeDef = TypedDict(
+    "DocumentReviewerResponseSourceTypeDef",
+    {
+        "CreateTime": datetime,
+        "UpdatedTime": datetime,
+        "ReviewStatus": Literal["APPROVED", "NOT_REVIEWED", "PENDING", "REJECTED"],
+        "Comment": List["DocumentReviewCommentSourceTypeDef"],
+        "Reviewer": str,
+    },
+    total=False,
+)
+
 DocumentVersionInfoTypeDef = TypedDict(
     "DocumentVersionInfoTypeDef",
     {
@@ -761,6 +846,7 @@ DocumentVersionInfoTypeDef = TypedDict(
         "DocumentFormat": Literal["YAML", "JSON", "TEXT"],
         "Status": Literal["Creating", "Active", "Updating", "Deleting", "Failed"],
         "StatusInformation": str,
+        "ReviewStatus": Literal["APPROVED", "NOT_REVIEWED", "PENDING", "REJECTED"],
     },
     total=False,
 )
@@ -1172,6 +1258,8 @@ MaintenanceWindowTaskTypeDef = TypedDict(
     total=False,
 )
 
+MetadataValueTypeDef = TypedDict("MetadataValueTypeDef", {"Value": str}, total=False)
+
 NonCompliantSummaryTypeDef = TypedDict(
     "NonCompliantSummaryTypeDef",
     {"NonCompliantCount": int, "SeveritySummary": "SeveritySummaryTypeDef"},
@@ -1218,6 +1306,22 @@ OpsItemDataValueTypeDef = TypedDict(
     total=False,
 )
 
+OpsItemEventSummaryTypeDef = TypedDict(
+    "OpsItemEventSummaryTypeDef",
+    {
+        "OpsItemId": str,
+        "EventId": str,
+        "Source": str,
+        "DetailType": str,
+        "Detail": str,
+        "CreatedBy": "OpsItemIdentityTypeDef",
+        "CreatedTime": datetime,
+    },
+    total=False,
+)
+
+OpsItemIdentityTypeDef = TypedDict("OpsItemIdentityTypeDef", {"Arn": str}, total=False)
+
 OpsItemNotificationTypeDef = TypedDict("OpsItemNotificationTypeDef", {"Arn": str}, total=False)
 
 OpsItemSummaryTypeDef = TypedDict(
@@ -1229,12 +1333,36 @@ OpsItemSummaryTypeDef = TypedDict(
         "LastModifiedTime": datetime,
         "Priority": int,
         "Source": str,
-        "Status": Literal["Open", "InProgress", "Resolved"],
+        "Status": Literal[
+            "Open",
+            "InProgress",
+            "Resolved",
+            "Pending",
+            "TimedOut",
+            "Cancelling",
+            "Cancelled",
+            "Failed",
+            "CompletedWithSuccess",
+            "CompletedWithFailure",
+            "Scheduled",
+            "RunbookInProgress",
+            "PendingChangeCalendarOverride",
+            "ChangeCalendarOverrideApproved",
+            "ChangeCalendarOverrideRejected",
+            "PendingApproval",
+            "Approved",
+            "Rejected",
+        ],
         "OpsItemId": str,
         "Title": str,
         "OperationalData": Dict[str, "OpsItemDataValueTypeDef"],
         "Category": str,
         "Severity": str,
+        "OpsItemType": str,
+        "ActualStartTime": datetime,
+        "ActualEndTime": datetime,
+        "PlannedStartTime": datetime,
+        "PlannedEndTime": datetime,
     },
     total=False,
 )
@@ -1243,6 +1371,7 @@ OpsItemTypeDef = TypedDict(
     "OpsItemTypeDef",
     {
         "CreatedBy": str,
+        "OpsItemType": str,
         "CreatedTime": datetime,
         "Description": str,
         "LastModifiedBy": str,
@@ -1250,7 +1379,26 @@ OpsItemTypeDef = TypedDict(
         "Notifications": List["OpsItemNotificationTypeDef"],
         "Priority": int,
         "RelatedOpsItems": List["RelatedOpsItemTypeDef"],
-        "Status": Literal["Open", "InProgress", "Resolved"],
+        "Status": Literal[
+            "Open",
+            "InProgress",
+            "Resolved",
+            "Pending",
+            "TimedOut",
+            "Cancelling",
+            "Cancelled",
+            "Failed",
+            "CompletedWithSuccess",
+            "CompletedWithFailure",
+            "Scheduled",
+            "RunbookInProgress",
+            "PendingChangeCalendarOverride",
+            "ChangeCalendarOverrideApproved",
+            "ChangeCalendarOverrideRejected",
+            "PendingApproval",
+            "Approved",
+            "Rejected",
+        ],
         "OpsItemId": str,
         "Version": str,
         "Title": str,
@@ -1258,6 +1406,22 @@ OpsItemTypeDef = TypedDict(
         "OperationalData": Dict[str, "OpsItemDataValueTypeDef"],
         "Category": str,
         "Severity": str,
+        "ActualStartTime": datetime,
+        "ActualEndTime": datetime,
+        "PlannedStartTime": datetime,
+        "PlannedEndTime": datetime,
+    },
+    total=False,
+)
+
+OpsMetadataTypeDef = TypedDict(
+    "OpsMetadataTypeDef",
+    {
+        "ResourceId": str,
+        "OpsMetadataArn": str,
+        "LastModifiedDate": datetime,
+        "LastModifiedUser": str,
+        "CreationDate": datetime,
     },
     total=False,
 )
@@ -1341,6 +1505,7 @@ PatchBaselineIdentityTypeDef = TypedDict(
             "CENTOS",
             "ORACLE_LINUX",
             "DEBIAN",
+            "MACOS",
         ],
         "BaselineDescription": str,
         "DefaultBaseline": bool,
@@ -1599,6 +1764,36 @@ ResourceDataSyncSourceWithStateTypeDef = TypedDict(
     total=False,
 )
 
+ReviewInformationTypeDef = TypedDict(
+    "ReviewInformationTypeDef",
+    {
+        "ReviewedTime": datetime,
+        "Status": Literal["APPROVED", "NOT_REVIEWED", "PENDING", "REJECTED"],
+        "Reviewer": str,
+    },
+    total=False,
+)
+
+_RequiredRunbookTypeDef = TypedDict("_RequiredRunbookTypeDef", {"DocumentName": str})
+_OptionalRunbookTypeDef = TypedDict(
+    "_OptionalRunbookTypeDef",
+    {
+        "DocumentVersion": str,
+        "Parameters": Dict[str, List[str]],
+        "TargetParameterName": str,
+        "Targets": List["TargetTypeDef"],
+        "MaxConcurrency": str,
+        "MaxErrors": str,
+        "TargetLocations": List["TargetLocationTypeDef"],
+    },
+    total=False,
+)
+
+
+class RunbookTypeDef(_RequiredRunbookTypeDef, _OptionalRunbookTypeDef):
+    pass
+
+
 S3OutputLocationTypeDef = TypedDict(
     "S3OutputLocationTypeDef",
     {"OutputS3Region": str, "OutputS3BucketName": str, "OutputS3KeyPrefix": str},
@@ -1680,6 +1875,16 @@ StepExecutionTypeDef = TypedDict(
             "Cancelling",
             "Cancelled",
             "Failed",
+            "PendingApproval",
+            "Approved",
+            "Rejected",
+            "Scheduled",
+            "RunbookInProgress",
+            "PendingChangeCalendarOverride",
+            "ChangeCalendarOverrideApproved",
+            "ChangeCalendarOverrideRejected",
+            "CompletedWithSuccess",
+            "CompletedWithFailure",
         ],
         "ResponseCode": str,
         "Inputs": Dict[str, str],
@@ -1770,6 +1975,8 @@ AutomationExecutionFilterTypeDef = TypedDict(
             "AutomationType",
             "TagKey",
             "TargetResourceGroup",
+            "AutomationSubtype",
+            "OpsItemId",
         ],
         "Values": List[str],
     },
@@ -1848,6 +2055,10 @@ CreateMaintenanceWindowResultTypeDef = TypedDict(
 
 CreateOpsItemResponseTypeDef = TypedDict(
     "CreateOpsItemResponseTypeDef", {"OpsItemId": str}, total=False
+)
+
+CreateOpsMetadataResultTypeDef = TypedDict(
+    "CreateOpsMetadataResultTypeDef", {"OpsMetadataArn": str}, total=False
 )
 
 CreatePatchBaselineResultTypeDef = TypedDict(
@@ -1948,7 +2159,11 @@ DescribeAvailablePatchesResultTypeDef = TypedDict(
 
 DescribeDocumentPermissionResponseTypeDef = TypedDict(
     "DescribeDocumentPermissionResponseTypeDef",
-    {"AccountIds": List[str], "AccountSharingInfoList": List["AccountSharingInfoTypeDef"]},
+    {
+        "AccountIds": List[str],
+        "AccountSharingInfoList": List["AccountSharingInfoTypeDef"],
+        "NextToken": str,
+    },
     total=False,
 )
 
@@ -2147,6 +2362,21 @@ DocumentKeyValuesFilterTypeDef = TypedDict(
     "DocumentKeyValuesFilterTypeDef", {"Key": str, "Values": List[str]}, total=False
 )
 
+_RequiredDocumentReviewsTypeDef = TypedDict(
+    "_RequiredDocumentReviewsTypeDef",
+    {"Action": Literal["SendForReview", "UpdateReview", "Approve", "Reject"]},
+)
+_OptionalDocumentReviewsTypeDef = TypedDict(
+    "_OptionalDocumentReviewsTypeDef",
+    {"Comment": List["DocumentReviewCommentSourceTypeDef"]},
+    total=False,
+)
+
+
+class DocumentReviewsTypeDef(_RequiredDocumentReviewsTypeDef, _OptionalDocumentReviewsTypeDef):
+    pass
+
+
 GetAutomationExecutionResultTypeDef = TypedDict(
     "GetAutomationExecutionResultTypeDef",
     {"AutomationExecution": "AutomationExecutionTypeDef"},
@@ -2212,6 +2442,7 @@ GetDefaultPatchBaselineResultTypeDef = TypedDict(
             "CENTOS",
             "ORACLE_LINUX",
             "DEBIAN",
+            "MACOS",
         ],
     },
     total=False,
@@ -2242,10 +2473,12 @@ GetDocumentResultTypeDef = TypedDict(
             "ApplicationConfigurationSchema",
             "DeploymentStrategy",
             "ChangeCalendar",
+            "Automation.ChangeTemplate",
         ],
         "DocumentFormat": Literal["YAML", "JSON", "TEXT"],
         "Requires": List["DocumentRequiresTypeDef"],
         "AttachmentsContent": List["AttachmentContentTypeDef"],
+        "ReviewStatus": Literal["APPROVED", "NOT_REVIEWED", "PENDING", "REJECTED"],
     },
     total=False,
 )
@@ -2388,6 +2621,12 @@ GetOpsItemResponseTypeDef = TypedDict(
     "GetOpsItemResponseTypeDef", {"OpsItem": "OpsItemTypeDef"}, total=False
 )
 
+GetOpsMetadataResultTypeDef = TypedDict(
+    "GetOpsMetadataResultTypeDef",
+    {"ResourceId": str, "Metadata": Dict[str, "MetadataValueTypeDef"], "NextToken": str},
+    total=False,
+)
+
 GetOpsSummaryResultTypeDef = TypedDict(
     "GetOpsSummaryResultTypeDef",
     {"Entities": List["OpsEntityTypeDef"], "NextToken": str},
@@ -2431,6 +2670,7 @@ GetPatchBaselineForPatchGroupResultTypeDef = TypedDict(
             "CENTOS",
             "ORACLE_LINUX",
             "DEBIAN",
+            "MACOS",
         ],
     },
     total=False,
@@ -2451,6 +2691,7 @@ GetPatchBaselineResultTypeDef = TypedDict(
             "CENTOS",
             "ORACLE_LINUX",
             "DEBIAN",
+            "MACOS",
         ],
         "GlobalFilters": "PatchFilterGroupTypeDef",
         "ApprovalRules": "PatchRuleGroupTypeDef",
@@ -2558,6 +2799,18 @@ ListComplianceSummariesResultTypeDef = TypedDict(
     total=False,
 )
 
+ListDocumentMetadataHistoryResponseTypeDef = TypedDict(
+    "ListDocumentMetadataHistoryResponseTypeDef",
+    {
+        "Name": str,
+        "DocumentVersion": str,
+        "Author": str,
+        "Metadata": "DocumentMetadataResponseInfoTypeDef",
+        "NextToken": str,
+    },
+    total=False,
+)
+
 ListDocumentVersionsResultTypeDef = TypedDict(
     "ListDocumentVersionsResultTypeDef",
     {"DocumentVersions": List["DocumentVersionInfoTypeDef"], "NextToken": str},
@@ -2580,6 +2833,18 @@ ListInventoryEntriesResultTypeDef = TypedDict(
         "Entries": List[Dict[str, str]],
         "NextToken": str,
     },
+    total=False,
+)
+
+ListOpsItemEventsResponseTypeDef = TypedDict(
+    "ListOpsItemEventsResponseTypeDef",
+    {"NextToken": str, "Summaries": List["OpsItemEventSummaryTypeDef"]},
+    total=False,
+)
+
+ListOpsMetadataResultTypeDef = TypedDict(
+    "ListOpsMetadataResultTypeDef",
+    {"OpsMetadataList": List["OpsMetadataTypeDef"], "NextToken": str},
     total=False,
 )
 
@@ -2606,6 +2871,11 @@ MaintenanceWindowFilterTypeDef = TypedDict(
     "MaintenanceWindowFilterTypeDef", {"Key": str, "Values": List[str]}, total=False
 )
 
+OpsItemEventFilterTypeDef = TypedDict(
+    "OpsItemEventFilterTypeDef",
+    {"Key": Literal["OpsItemId"], "Values": List[str], "Operator": Literal["Equal"]},
+)
+
 OpsItemFilterTypeDef = TypedDict(
     "OpsItemFilterTypeDef",
     {
@@ -2618,6 +2888,10 @@ OpsItemFilterTypeDef = TypedDict(
             "OpsItemId",
             "CreatedTime",
             "LastModifiedTime",
+            "ActualStartTime",
+            "ActualEndTime",
+            "PlannedStartTime",
+            "PlannedEndTime",
             "OperationalData",
             "OperationalDataKey",
             "OperationalDataValue",
@@ -2625,11 +2899,20 @@ OpsItemFilterTypeDef = TypedDict(
             "AutomationId",
             "Category",
             "Severity",
+            "OpsItemType",
+            "ChangeRequestByRequesterArn",
+            "ChangeRequestByRequesterName",
+            "ChangeRequestByApproverArn",
+            "ChangeRequestByApproverName",
+            "ChangeRequestByTemplate",
+            "ChangeRequestByTargetsResourceGroup",
         ],
         "Values": List[str],
         "Operator": Literal["Equal", "Contains", "GreaterThan", "LessThan"],
     },
 )
+
+OpsMetadataFilterTypeDef = TypedDict("OpsMetadataFilterTypeDef", {"Key": str, "Values": List[str]})
 
 OpsResultAttributeTypeDef = TypedDict("OpsResultAttributeTypeDef", {"TypeName": str})
 
@@ -2730,6 +3013,10 @@ SessionFilterTypeDef = TypedDict(
 
 StartAutomationExecutionResultTypeDef = TypedDict(
     "StartAutomationExecutionResultTypeDef", {"AutomationExecutionId": str}, total=False
+)
+
+StartChangeRequestExecutionResultTypeDef = TypedDict(
+    "StartChangeRequestExecutionResultTypeDef", {"AutomationExecutionId": str}, total=False
 )
 
 StartSessionResponseTypeDef = TypedDict(
@@ -2833,6 +3120,10 @@ UpdateMaintenanceWindowTaskResultTypeDef = TypedDict(
     total=False,
 )
 
+UpdateOpsMetadataResultTypeDef = TypedDict(
+    "UpdateOpsMetadataResultTypeDef", {"OpsMetadataArn": str}, total=False
+)
+
 UpdatePatchBaselineResultTypeDef = TypedDict(
     "UpdatePatchBaselineResultTypeDef",
     {
@@ -2848,6 +3139,7 @@ UpdatePatchBaselineResultTypeDef = TypedDict(
             "CENTOS",
             "ORACLE_LINUX",
             "DEBIAN",
+            "MACOS",
         ],
         "GlobalFilters": "PatchFilterGroupTypeDef",
         "ApprovalRules": "PatchRuleGroupTypeDef",

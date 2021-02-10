@@ -14,6 +14,10 @@ from datetime import datetime
 from typing import Dict, List
 
 if sys.version_info >= (3, 8):
+    from typing import Literal
+else:
+    from typing_extensions import Literal
+if sys.version_info >= (3, 8):
     from typing import TypedDict
 else:
     from typing_extensions import TypedDict
@@ -39,7 +43,9 @@ __all__ = (
     "ListAssociatedAttributeGroupsResponseTypeDef",
     "ListAssociatedResourcesResponseTypeDef",
     "ListAttributeGroupsResponseTypeDef",
+    "ListTagsForResourceResponseTypeDef",
     "PaginatorConfigTypeDef",
+    "SyncResourceResponseTypeDef",
     "UpdateApplicationResponseTypeDef",
     "UpdateAttributeGroupResponseTypeDef",
 )
@@ -192,8 +198,18 @@ ListAttributeGroupsResponseTypeDef = TypedDict(
     total=False,
 )
 
+ListTagsForResourceResponseTypeDef = TypedDict(
+    "ListTagsForResourceResponseTypeDef", {"tags": Dict[str, str]}, total=False
+)
+
 PaginatorConfigTypeDef = TypedDict(
     "PaginatorConfigTypeDef", {"MaxItems": int, "PageSize": int, "StartingToken": str}, total=False
+)
+
+SyncResourceResponseTypeDef = TypedDict(
+    "SyncResourceResponseTypeDef",
+    {"applicationArn": str, "resourceArn": str, "actionTaken": Literal["START_SYNC", "NO_ACTION"]},
+    total=False,
 )
 
 UpdateApplicationResponseTypeDef = TypedDict(

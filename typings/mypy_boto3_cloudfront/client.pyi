@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for cloudfront service client
 
@@ -241,7 +240,7 @@ class Exceptions:
 
 class CloudFrontClient:
     """
-    [CloudFront.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client)
+    [CloudFront.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client)
     """
 
     meta: ClientMeta
@@ -249,160 +248,160 @@ class CloudFrontClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.can_paginate)
         """
 
     def create_cache_policy(
         self, CachePolicyConfig: "CachePolicyConfigTypeDef"
     ) -> CreateCachePolicyResultTypeDef:
         """
-        [Client.create_cache_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.create_cache_policy)
+        [Client.create_cache_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.create_cache_policy)
         """
 
     def create_cloud_front_origin_access_identity(
         self, CloudFrontOriginAccessIdentityConfig: "CloudFrontOriginAccessIdentityConfigTypeDef"
     ) -> CreateCloudFrontOriginAccessIdentityResultTypeDef:
         """
-        [Client.create_cloud_front_origin_access_identity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.create_cloud_front_origin_access_identity)
+        [Client.create_cloud_front_origin_access_identity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.create_cloud_front_origin_access_identity)
         """
 
     def create_distribution(
         self, DistributionConfig: "DistributionConfigTypeDef"
     ) -> CreateDistributionResultTypeDef:
         """
-        [Client.create_distribution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.create_distribution)
+        [Client.create_distribution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.create_distribution)
         """
 
     def create_distribution_with_tags(
         self, DistributionConfigWithTags: DistributionConfigWithTagsTypeDef
     ) -> CreateDistributionWithTagsResultTypeDef:
         """
-        [Client.create_distribution_with_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.create_distribution_with_tags)
+        [Client.create_distribution_with_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.create_distribution_with_tags)
         """
 
     def create_field_level_encryption_config(
         self, FieldLevelEncryptionConfig: "FieldLevelEncryptionConfigTypeDef"
     ) -> CreateFieldLevelEncryptionConfigResultTypeDef:
         """
-        [Client.create_field_level_encryption_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.create_field_level_encryption_config)
+        [Client.create_field_level_encryption_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.create_field_level_encryption_config)
         """
 
     def create_field_level_encryption_profile(
         self, FieldLevelEncryptionProfileConfig: "FieldLevelEncryptionProfileConfigTypeDef"
     ) -> CreateFieldLevelEncryptionProfileResultTypeDef:
         """
-        [Client.create_field_level_encryption_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.create_field_level_encryption_profile)
+        [Client.create_field_level_encryption_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.create_field_level_encryption_profile)
         """
 
     def create_invalidation(
         self, DistributionId: str, InvalidationBatch: "InvalidationBatchTypeDef"
     ) -> CreateInvalidationResultTypeDef:
         """
-        [Client.create_invalidation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.create_invalidation)
+        [Client.create_invalidation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.create_invalidation)
         """
 
     def create_key_group(
         self, KeyGroupConfig: "KeyGroupConfigTypeDef"
     ) -> CreateKeyGroupResultTypeDef:
         """
-        [Client.create_key_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.create_key_group)
+        [Client.create_key_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.create_key_group)
         """
 
     def create_monitoring_subscription(
         self, DistributionId: str, MonitoringSubscription: "MonitoringSubscriptionTypeDef"
     ) -> CreateMonitoringSubscriptionResultTypeDef:
         """
-        [Client.create_monitoring_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.create_monitoring_subscription)
+        [Client.create_monitoring_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.create_monitoring_subscription)
         """
 
     def create_origin_request_policy(
         self, OriginRequestPolicyConfig: "OriginRequestPolicyConfigTypeDef"
     ) -> CreateOriginRequestPolicyResultTypeDef:
         """
-        [Client.create_origin_request_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.create_origin_request_policy)
+        [Client.create_origin_request_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.create_origin_request_policy)
         """
 
     def create_public_key(
         self, PublicKeyConfig: "PublicKeyConfigTypeDef"
     ) -> CreatePublicKeyResultTypeDef:
         """
-        [Client.create_public_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.create_public_key)
+        [Client.create_public_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.create_public_key)
         """
 
     def create_realtime_log_config(
         self, EndPoints: List["EndPointTypeDef"], Fields: List[str], Name: str, SamplingRate: int
     ) -> CreateRealtimeLogConfigResultTypeDef:
         """
-        [Client.create_realtime_log_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.create_realtime_log_config)
+        [Client.create_realtime_log_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.create_realtime_log_config)
         """
 
     def create_streaming_distribution(
         self, StreamingDistributionConfig: "StreamingDistributionConfigTypeDef"
     ) -> CreateStreamingDistributionResultTypeDef:
         """
-        [Client.create_streaming_distribution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.create_streaming_distribution)
+        [Client.create_streaming_distribution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.create_streaming_distribution)
         """
 
     def create_streaming_distribution_with_tags(
         self, StreamingDistributionConfigWithTags: StreamingDistributionConfigWithTagsTypeDef
     ) -> CreateStreamingDistributionWithTagsResultTypeDef:
         """
-        [Client.create_streaming_distribution_with_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.create_streaming_distribution_with_tags)
+        [Client.create_streaming_distribution_with_tags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.create_streaming_distribution_with_tags)
         """
 
     def delete_cache_policy(self, Id: str, IfMatch: str = None) -> None:
         """
-        [Client.delete_cache_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.delete_cache_policy)
+        [Client.delete_cache_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.delete_cache_policy)
         """
 
     def delete_cloud_front_origin_access_identity(self, Id: str, IfMatch: str = None) -> None:
         """
-        [Client.delete_cloud_front_origin_access_identity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.delete_cloud_front_origin_access_identity)
+        [Client.delete_cloud_front_origin_access_identity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.delete_cloud_front_origin_access_identity)
         """
 
     def delete_distribution(self, Id: str, IfMatch: str = None) -> None:
         """
-        [Client.delete_distribution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.delete_distribution)
+        [Client.delete_distribution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.delete_distribution)
         """
 
     def delete_field_level_encryption_config(self, Id: str, IfMatch: str = None) -> None:
         """
-        [Client.delete_field_level_encryption_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.delete_field_level_encryption_config)
+        [Client.delete_field_level_encryption_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.delete_field_level_encryption_config)
         """
 
     def delete_field_level_encryption_profile(self, Id: str, IfMatch: str = None) -> None:
         """
-        [Client.delete_field_level_encryption_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.delete_field_level_encryption_profile)
+        [Client.delete_field_level_encryption_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.delete_field_level_encryption_profile)
         """
 
     def delete_key_group(self, Id: str, IfMatch: str = None) -> None:
         """
-        [Client.delete_key_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.delete_key_group)
+        [Client.delete_key_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.delete_key_group)
         """
 
     def delete_monitoring_subscription(self, DistributionId: str) -> Dict[str, Any]:
         """
-        [Client.delete_monitoring_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.delete_monitoring_subscription)
+        [Client.delete_monitoring_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.delete_monitoring_subscription)
         """
 
     def delete_origin_request_policy(self, Id: str, IfMatch: str = None) -> None:
         """
-        [Client.delete_origin_request_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.delete_origin_request_policy)
+        [Client.delete_origin_request_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.delete_origin_request_policy)
         """
 
     def delete_public_key(self, Id: str, IfMatch: str = None) -> None:
         """
-        [Client.delete_public_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.delete_public_key)
+        [Client.delete_public_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.delete_public_key)
         """
 
     def delete_realtime_log_config(self, Name: str = None, ARN: str = None) -> None:
         """
-        [Client.delete_realtime_log_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.delete_realtime_log_config)
+        [Client.delete_realtime_log_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.delete_realtime_log_config)
         """
 
     def delete_streaming_distribution(self, Id: str, IfMatch: str = None) -> None:
         """
-        [Client.delete_streaming_distribution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.delete_streaming_distribution)
+        [Client.delete_streaming_distribution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.delete_streaming_distribution)
         """
 
     def generate_presigned_url(
@@ -413,172 +412,172 @@ class CloudFrontClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.generate_presigned_url)
         """
 
     def get_cache_policy(self, Id: str) -> GetCachePolicyResultTypeDef:
         """
-        [Client.get_cache_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.get_cache_policy)
+        [Client.get_cache_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.get_cache_policy)
         """
 
     def get_cache_policy_config(self, Id: str) -> GetCachePolicyConfigResultTypeDef:
         """
-        [Client.get_cache_policy_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.get_cache_policy_config)
+        [Client.get_cache_policy_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.get_cache_policy_config)
         """
 
     def get_cloud_front_origin_access_identity(
         self, Id: str
     ) -> GetCloudFrontOriginAccessIdentityResultTypeDef:
         """
-        [Client.get_cloud_front_origin_access_identity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.get_cloud_front_origin_access_identity)
+        [Client.get_cloud_front_origin_access_identity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.get_cloud_front_origin_access_identity)
         """
 
     def get_cloud_front_origin_access_identity_config(
         self, Id: str
     ) -> GetCloudFrontOriginAccessIdentityConfigResultTypeDef:
         """
-        [Client.get_cloud_front_origin_access_identity_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.get_cloud_front_origin_access_identity_config)
+        [Client.get_cloud_front_origin_access_identity_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.get_cloud_front_origin_access_identity_config)
         """
 
     def get_distribution(self, Id: str) -> GetDistributionResultTypeDef:
         """
-        [Client.get_distribution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.get_distribution)
+        [Client.get_distribution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.get_distribution)
         """
 
     def get_distribution_config(self, Id: str) -> GetDistributionConfigResultTypeDef:
         """
-        [Client.get_distribution_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.get_distribution_config)
+        [Client.get_distribution_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.get_distribution_config)
         """
 
     def get_field_level_encryption(self, Id: str) -> GetFieldLevelEncryptionResultTypeDef:
         """
-        [Client.get_field_level_encryption documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.get_field_level_encryption)
+        [Client.get_field_level_encryption documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.get_field_level_encryption)
         """
 
     def get_field_level_encryption_config(
         self, Id: str
     ) -> GetFieldLevelEncryptionConfigResultTypeDef:
         """
-        [Client.get_field_level_encryption_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.get_field_level_encryption_config)
+        [Client.get_field_level_encryption_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.get_field_level_encryption_config)
         """
 
     def get_field_level_encryption_profile(
         self, Id: str
     ) -> GetFieldLevelEncryptionProfileResultTypeDef:
         """
-        [Client.get_field_level_encryption_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.get_field_level_encryption_profile)
+        [Client.get_field_level_encryption_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.get_field_level_encryption_profile)
         """
 
     def get_field_level_encryption_profile_config(
         self, Id: str
     ) -> GetFieldLevelEncryptionProfileConfigResultTypeDef:
         """
-        [Client.get_field_level_encryption_profile_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.get_field_level_encryption_profile_config)
+        [Client.get_field_level_encryption_profile_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.get_field_level_encryption_profile_config)
         """
 
     def get_invalidation(self, DistributionId: str, Id: str) -> GetInvalidationResultTypeDef:
         """
-        [Client.get_invalidation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.get_invalidation)
+        [Client.get_invalidation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.get_invalidation)
         """
 
     def get_key_group(self, Id: str) -> GetKeyGroupResultTypeDef:
         """
-        [Client.get_key_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.get_key_group)
+        [Client.get_key_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.get_key_group)
         """
 
     def get_key_group_config(self, Id: str) -> GetKeyGroupConfigResultTypeDef:
         """
-        [Client.get_key_group_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.get_key_group_config)
+        [Client.get_key_group_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.get_key_group_config)
         """
 
     def get_monitoring_subscription(
         self, DistributionId: str
     ) -> GetMonitoringSubscriptionResultTypeDef:
         """
-        [Client.get_monitoring_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.get_monitoring_subscription)
+        [Client.get_monitoring_subscription documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.get_monitoring_subscription)
         """
 
     def get_origin_request_policy(self, Id: str) -> GetOriginRequestPolicyResultTypeDef:
         """
-        [Client.get_origin_request_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.get_origin_request_policy)
+        [Client.get_origin_request_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.get_origin_request_policy)
         """
 
     def get_origin_request_policy_config(
         self, Id: str
     ) -> GetOriginRequestPolicyConfigResultTypeDef:
         """
-        [Client.get_origin_request_policy_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.get_origin_request_policy_config)
+        [Client.get_origin_request_policy_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.get_origin_request_policy_config)
         """
 
     def get_public_key(self, Id: str) -> GetPublicKeyResultTypeDef:
         """
-        [Client.get_public_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.get_public_key)
+        [Client.get_public_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.get_public_key)
         """
 
     def get_public_key_config(self, Id: str) -> GetPublicKeyConfigResultTypeDef:
         """
-        [Client.get_public_key_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.get_public_key_config)
+        [Client.get_public_key_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.get_public_key_config)
         """
 
     def get_realtime_log_config(
         self, Name: str = None, ARN: str = None
     ) -> GetRealtimeLogConfigResultTypeDef:
         """
-        [Client.get_realtime_log_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.get_realtime_log_config)
+        [Client.get_realtime_log_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.get_realtime_log_config)
         """
 
     def get_streaming_distribution(self, Id: str) -> GetStreamingDistributionResultTypeDef:
         """
-        [Client.get_streaming_distribution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.get_streaming_distribution)
+        [Client.get_streaming_distribution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.get_streaming_distribution)
         """
 
     def get_streaming_distribution_config(
         self, Id: str
     ) -> GetStreamingDistributionConfigResultTypeDef:
         """
-        [Client.get_streaming_distribution_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.get_streaming_distribution_config)
+        [Client.get_streaming_distribution_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.get_streaming_distribution_config)
         """
 
     def list_cache_policies(
         self, Type: Literal["managed", "custom"] = None, Marker: str = None, MaxItems: str = None
     ) -> ListCachePoliciesResultTypeDef:
         """
-        [Client.list_cache_policies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.list_cache_policies)
+        [Client.list_cache_policies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.list_cache_policies)
         """
 
     def list_cloud_front_origin_access_identities(
         self, Marker: str = None, MaxItems: str = None
     ) -> ListCloudFrontOriginAccessIdentitiesResultTypeDef:
         """
-        [Client.list_cloud_front_origin_access_identities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.list_cloud_front_origin_access_identities)
+        [Client.list_cloud_front_origin_access_identities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.list_cloud_front_origin_access_identities)
         """
 
     def list_distributions(
         self, Marker: str = None, MaxItems: str = None
     ) -> ListDistributionsResultTypeDef:
         """
-        [Client.list_distributions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.list_distributions)
+        [Client.list_distributions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.list_distributions)
         """
 
     def list_distributions_by_cache_policy_id(
         self, CachePolicyId: str, Marker: str = None, MaxItems: str = None
     ) -> ListDistributionsByCachePolicyIdResultTypeDef:
         """
-        [Client.list_distributions_by_cache_policy_id documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.list_distributions_by_cache_policy_id)
+        [Client.list_distributions_by_cache_policy_id documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.list_distributions_by_cache_policy_id)
         """
 
     def list_distributions_by_key_group(
         self, KeyGroupId: str, Marker: str = None, MaxItems: str = None
     ) -> ListDistributionsByKeyGroupResultTypeDef:
         """
-        [Client.list_distributions_by_key_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.list_distributions_by_key_group)
+        [Client.list_distributions_by_key_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.list_distributions_by_key_group)
         """
 
     def list_distributions_by_origin_request_policy_id(
         self, OriginRequestPolicyId: str, Marker: str = None, MaxItems: str = None
     ) -> ListDistributionsByOriginRequestPolicyIdResultTypeDef:
         """
-        [Client.list_distributions_by_origin_request_policy_id documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.list_distributions_by_origin_request_policy_id)
+        [Client.list_distributions_by_origin_request_policy_id documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.list_distributions_by_origin_request_policy_id)
         """
 
     def list_distributions_by_realtime_log_config(
@@ -589,92 +588,92 @@ class CloudFrontClient:
         RealtimeLogConfigArn: str = None,
     ) -> ListDistributionsByRealtimeLogConfigResultTypeDef:
         """
-        [Client.list_distributions_by_realtime_log_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.list_distributions_by_realtime_log_config)
+        [Client.list_distributions_by_realtime_log_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.list_distributions_by_realtime_log_config)
         """
 
     def list_distributions_by_web_acl_id(
         self, WebACLId: str, Marker: str = None, MaxItems: str = None
     ) -> ListDistributionsByWebACLIdResultTypeDef:
         """
-        [Client.list_distributions_by_web_acl_id documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.list_distributions_by_web_acl_id)
+        [Client.list_distributions_by_web_acl_id documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.list_distributions_by_web_acl_id)
         """
 
     def list_field_level_encryption_configs(
         self, Marker: str = None, MaxItems: str = None
     ) -> ListFieldLevelEncryptionConfigsResultTypeDef:
         """
-        [Client.list_field_level_encryption_configs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.list_field_level_encryption_configs)
+        [Client.list_field_level_encryption_configs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.list_field_level_encryption_configs)
         """
 
     def list_field_level_encryption_profiles(
         self, Marker: str = None, MaxItems: str = None
     ) -> ListFieldLevelEncryptionProfilesResultTypeDef:
         """
-        [Client.list_field_level_encryption_profiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.list_field_level_encryption_profiles)
+        [Client.list_field_level_encryption_profiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.list_field_level_encryption_profiles)
         """
 
     def list_invalidations(
         self, DistributionId: str, Marker: str = None, MaxItems: str = None
     ) -> ListInvalidationsResultTypeDef:
         """
-        [Client.list_invalidations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.list_invalidations)
+        [Client.list_invalidations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.list_invalidations)
         """
 
     def list_key_groups(
         self, Marker: str = None, MaxItems: str = None
     ) -> ListKeyGroupsResultTypeDef:
         """
-        [Client.list_key_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.list_key_groups)
+        [Client.list_key_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.list_key_groups)
         """
 
     def list_origin_request_policies(
         self, Type: Literal["managed", "custom"] = None, Marker: str = None, MaxItems: str = None
     ) -> ListOriginRequestPoliciesResultTypeDef:
         """
-        [Client.list_origin_request_policies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.list_origin_request_policies)
+        [Client.list_origin_request_policies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.list_origin_request_policies)
         """
 
     def list_public_keys(
         self, Marker: str = None, MaxItems: str = None
     ) -> ListPublicKeysResultTypeDef:
         """
-        [Client.list_public_keys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.list_public_keys)
+        [Client.list_public_keys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.list_public_keys)
         """
 
     def list_realtime_log_configs(
         self, MaxItems: str = None, Marker: str = None
     ) -> ListRealtimeLogConfigsResultTypeDef:
         """
-        [Client.list_realtime_log_configs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.list_realtime_log_configs)
+        [Client.list_realtime_log_configs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.list_realtime_log_configs)
         """
 
     def list_streaming_distributions(
         self, Marker: str = None, MaxItems: str = None
     ) -> ListStreamingDistributionsResultTypeDef:
         """
-        [Client.list_streaming_distributions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.list_streaming_distributions)
+        [Client.list_streaming_distributions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.list_streaming_distributions)
         """
 
     def list_tags_for_resource(self, Resource: str) -> ListTagsForResourceResultTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.list_tags_for_resource)
         """
 
     def tag_resource(self, Resource: str, Tags: "TagsTypeDef") -> None:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.tag_resource)
         """
 
     def untag_resource(self, Resource: str, TagKeys: TagKeysTypeDef) -> None:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.untag_resource)
         """
 
     def update_cache_policy(
         self, CachePolicyConfig: "CachePolicyConfigTypeDef", Id: str, IfMatch: str = None
     ) -> UpdateCachePolicyResultTypeDef:
         """
-        [Client.update_cache_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.update_cache_policy)
+        [Client.update_cache_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.update_cache_policy)
         """
 
     def update_cloud_front_origin_access_identity(
@@ -684,14 +683,14 @@ class CloudFrontClient:
         IfMatch: str = None,
     ) -> UpdateCloudFrontOriginAccessIdentityResultTypeDef:
         """
-        [Client.update_cloud_front_origin_access_identity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.update_cloud_front_origin_access_identity)
+        [Client.update_cloud_front_origin_access_identity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.update_cloud_front_origin_access_identity)
         """
 
     def update_distribution(
         self, DistributionConfig: "DistributionConfigTypeDef", Id: str, IfMatch: str = None
     ) -> UpdateDistributionResultTypeDef:
         """
-        [Client.update_distribution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.update_distribution)
+        [Client.update_distribution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.update_distribution)
         """
 
     def update_field_level_encryption_config(
@@ -701,7 +700,7 @@ class CloudFrontClient:
         IfMatch: str = None,
     ) -> UpdateFieldLevelEncryptionConfigResultTypeDef:
         """
-        [Client.update_field_level_encryption_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.update_field_level_encryption_config)
+        [Client.update_field_level_encryption_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.update_field_level_encryption_config)
         """
 
     def update_field_level_encryption_profile(
@@ -711,14 +710,14 @@ class CloudFrontClient:
         IfMatch: str = None,
     ) -> UpdateFieldLevelEncryptionProfileResultTypeDef:
         """
-        [Client.update_field_level_encryption_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.update_field_level_encryption_profile)
+        [Client.update_field_level_encryption_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.update_field_level_encryption_profile)
         """
 
     def update_key_group(
         self, KeyGroupConfig: "KeyGroupConfigTypeDef", Id: str, IfMatch: str = None
     ) -> UpdateKeyGroupResultTypeDef:
         """
-        [Client.update_key_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.update_key_group)
+        [Client.update_key_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.update_key_group)
         """
 
     def update_origin_request_policy(
@@ -728,14 +727,14 @@ class CloudFrontClient:
         IfMatch: str = None,
     ) -> UpdateOriginRequestPolicyResultTypeDef:
         """
-        [Client.update_origin_request_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.update_origin_request_policy)
+        [Client.update_origin_request_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.update_origin_request_policy)
         """
 
     def update_public_key(
         self, PublicKeyConfig: "PublicKeyConfigTypeDef", Id: str, IfMatch: str = None
     ) -> UpdatePublicKeyResultTypeDef:
         """
-        [Client.update_public_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.update_public_key)
+        [Client.update_public_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.update_public_key)
         """
 
     def update_realtime_log_config(
@@ -747,7 +746,7 @@ class CloudFrontClient:
         SamplingRate: int = None,
     ) -> UpdateRealtimeLogConfigResultTypeDef:
         """
-        [Client.update_realtime_log_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.update_realtime_log_config)
+        [Client.update_realtime_log_config documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.update_realtime_log_config)
         """
 
     def update_streaming_distribution(
@@ -757,7 +756,7 @@ class CloudFrontClient:
         IfMatch: str = None,
     ) -> UpdateStreamingDistributionResultTypeDef:
         """
-        [Client.update_streaming_distribution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Client.update_streaming_distribution)
+        [Client.update_streaming_distribution documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Client.update_streaming_distribution)
         """
 
     @overload
@@ -765,7 +764,7 @@ class CloudFrontClient:
         self, operation_name: Literal["list_cloud_front_origin_access_identities"]
     ) -> ListCloudFrontOriginAccessIdentitiesPaginator:
         """
-        [Paginator.ListCloudFrontOriginAccessIdentities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Paginator.ListCloudFrontOriginAccessIdentities)
+        [Paginator.ListCloudFrontOriginAccessIdentities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Paginator.ListCloudFrontOriginAccessIdentities)
         """
 
     @overload
@@ -773,7 +772,7 @@ class CloudFrontClient:
         self, operation_name: Literal["list_distributions"]
     ) -> ListDistributionsPaginator:
         """
-        [Paginator.ListDistributions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Paginator.ListDistributions)
+        [Paginator.ListDistributions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Paginator.ListDistributions)
         """
 
     @overload
@@ -781,7 +780,7 @@ class CloudFrontClient:
         self, operation_name: Literal["list_invalidations"]
     ) -> ListInvalidationsPaginator:
         """
-        [Paginator.ListInvalidations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Paginator.ListInvalidations)
+        [Paginator.ListInvalidations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Paginator.ListInvalidations)
         """
 
     @overload
@@ -789,7 +788,7 @@ class CloudFrontClient:
         self, operation_name: Literal["list_streaming_distributions"]
     ) -> ListStreamingDistributionsPaginator:
         """
-        [Paginator.ListStreamingDistributions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Paginator.ListStreamingDistributions)
+        [Paginator.ListStreamingDistributions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Paginator.ListStreamingDistributions)
         """
 
     @overload
@@ -797,7 +796,7 @@ class CloudFrontClient:
         self, waiter_name: Literal["distribution_deployed"]
     ) -> DistributionDeployedWaiter:
         """
-        [Waiter.DistributionDeployed documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Waiter.DistributionDeployed)
+        [Waiter.DistributionDeployed documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Waiter.DistributionDeployed)
         """
 
     @overload
@@ -805,7 +804,7 @@ class CloudFrontClient:
         self, waiter_name: Literal["invalidation_completed"]
     ) -> InvalidationCompletedWaiter:
         """
-        [Waiter.InvalidationCompleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Waiter.InvalidationCompleted)
+        [Waiter.InvalidationCompleted documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Waiter.InvalidationCompleted)
         """
 
     @overload
@@ -813,5 +812,5 @@ class CloudFrontClient:
         self, waiter_name: Literal["streaming_distribution_deployed"]
     ) -> StreamingDistributionDeployedWaiter:
         """
-        [Waiter.StreamingDistributionDeployed documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudfront.html#CloudFront.Waiter.StreamingDistributionDeployed)
+        [Waiter.StreamingDistributionDeployed documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudfront.html#CloudFront.Waiter.StreamingDistributionDeployed)
         """

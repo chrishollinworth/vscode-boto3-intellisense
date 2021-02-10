@@ -94,6 +94,8 @@ __all__ = (
     "SourceTypeDef",
     "SsmControlsTypeDef",
     "StaticValueTypeDef",
+    "StoredQueryMetadataTypeDef",
+    "StoredQueryTypeDef",
     "TagTypeDef",
     "BatchGetAggregateResourceConfigResponseTypeDef",
     "BatchGetResourceConfigResponseTypeDef",
@@ -127,6 +129,7 @@ __all__ = (
     "DescribeRemediationExceptionsResponseTypeDef",
     "DescribeRemediationExecutionStatusResponseTypeDef",
     "DescribeRetentionConfigurationsResponseTypeDef",
+    "ExternalEvaluationTypeDef",
     "GetAggregateComplianceDetailsByConfigRuleResponseTypeDef",
     "GetAggregateConfigRuleComplianceSummaryResponseTypeDef",
     "GetAggregateDiscoveredResourceCountsResponseTypeDef",
@@ -141,8 +144,10 @@ __all__ = (
     "GetOrganizationConfigRuleDetailedStatusResponseTypeDef",
     "GetOrganizationConformancePackDetailedStatusResponseTypeDef",
     "GetResourceConfigHistoryResponseTypeDef",
+    "GetStoredQueryResponseTypeDef",
     "ListAggregateDiscoveredResourcesResponseTypeDef",
     "ListDiscoveredResourcesResponseTypeDef",
+    "ListStoredQueriesResponseTypeDef",
     "ListTagsForResourceResponseTypeDef",
     "OrganizationResourceDetailedStatusFiltersTypeDef",
     "PaginatorConfigTypeDef",
@@ -155,6 +160,7 @@ __all__ = (
     "PutRemediationConfigurationsResponseTypeDef",
     "PutRemediationExceptionsResponseTypeDef",
     "PutRetentionConfigurationResponseTypeDef",
+    "PutStoredQueryResponseTypeDef",
     "ResourceCountFiltersTypeDef",
     "ResourceFiltersTypeDef",
     "SelectAggregateResourceConfigResponseTypeDef",
@@ -279,6 +285,9 @@ _RequiredAggregateResourceIdentifierTypeDef = TypedDict(
             "AWS::CloudFront::Distribution",
             "AWS::CloudFront::StreamingDistribution",
             "AWS::Lambda::Function",
+            "AWS::NetworkFirewall::Firewall",
+            "AWS::NetworkFirewall::FirewallPolicy",
+            "AWS::NetworkFirewall::RuleGroup",
             "AWS::ElasticBeanstalk::Application",
             "AWS::ElasticBeanstalk::ApplicationVersion",
             "AWS::ElasticBeanstalk::Environment",
@@ -427,6 +436,9 @@ BaseConfigurationItemTypeDef = TypedDict(
             "AWS::CloudFront::Distribution",
             "AWS::CloudFront::StreamingDistribution",
             "AWS::Lambda::Function",
+            "AWS::NetworkFirewall::Firewall",
+            "AWS::NetworkFirewall::FirewallPolicy",
+            "AWS::NetworkFirewall::RuleGroup",
             "AWS::ElasticBeanstalk::Application",
             "AWS::ElasticBeanstalk::ApplicationVersion",
             "AWS::ElasticBeanstalk::Environment",
@@ -683,6 +695,9 @@ ConfigurationItemTypeDef = TypedDict(
             "AWS::CloudFront::Distribution",
             "AWS::CloudFront::StreamingDistribution",
             "AWS::Lambda::Function",
+            "AWS::NetworkFirewall::Firewall",
+            "AWS::NetworkFirewall::FirewallPolicy",
+            "AWS::NetworkFirewall::RuleGroup",
             "AWS::ElasticBeanstalk::Application",
             "AWS::ElasticBeanstalk::ApplicationVersion",
             "AWS::ElasticBeanstalk::Environment",
@@ -1271,6 +1286,9 @@ RecordingGroupTypeDef = TypedDict(
                 "AWS::CloudFront::Distribution",
                 "AWS::CloudFront::StreamingDistribution",
                 "AWS::Lambda::Function",
+                "AWS::NetworkFirewall::Firewall",
+                "AWS::NetworkFirewall::FirewallPolicy",
+                "AWS::NetworkFirewall::RuleGroup",
                 "AWS::ElasticBeanstalk::Application",
                 "AWS::ElasticBeanstalk::ApplicationVersion",
                 "AWS::ElasticBeanstalk::Environment",
@@ -1374,6 +1392,9 @@ RelationshipTypeDef = TypedDict(
             "AWS::CloudFront::Distribution",
             "AWS::CloudFront::StreamingDistribution",
             "AWS::Lambda::Function",
+            "AWS::NetworkFirewall::Firewall",
+            "AWS::NetworkFirewall::FirewallPolicy",
+            "AWS::NetworkFirewall::RuleGroup",
             "AWS::ElasticBeanstalk::Application",
             "AWS::ElasticBeanstalk::ApplicationVersion",
             "AWS::ElasticBeanstalk::Environment",
@@ -1557,6 +1578,9 @@ ResourceCountTypeDef = TypedDict(
             "AWS::CloudFront::Distribution",
             "AWS::CloudFront::StreamingDistribution",
             "AWS::Lambda::Function",
+            "AWS::NetworkFirewall::Firewall",
+            "AWS::NetworkFirewall::FirewallPolicy",
+            "AWS::NetworkFirewall::RuleGroup",
             "AWS::ElasticBeanstalk::Application",
             "AWS::ElasticBeanstalk::ApplicationVersion",
             "AWS::ElasticBeanstalk::Environment",
@@ -1660,6 +1684,9 @@ ResourceIdentifierTypeDef = TypedDict(
             "AWS::CloudFront::Distribution",
             "AWS::CloudFront::StreamingDistribution",
             "AWS::Lambda::Function",
+            "AWS::NetworkFirewall::Firewall",
+            "AWS::NetworkFirewall::FirewallPolicy",
+            "AWS::NetworkFirewall::RuleGroup",
             "AWS::ElasticBeanstalk::Application",
             "AWS::ElasticBeanstalk::ApplicationVersion",
             "AWS::ElasticBeanstalk::Environment",
@@ -1765,6 +1792,9 @@ ResourceKeyTypeDef = TypedDict(
             "AWS::CloudFront::Distribution",
             "AWS::CloudFront::StreamingDistribution",
             "AWS::Lambda::Function",
+            "AWS::NetworkFirewall::Firewall",
+            "AWS::NetworkFirewall::FirewallPolicy",
+            "AWS::NetworkFirewall::RuleGroup",
             "AWS::ElasticBeanstalk::Application",
             "AWS::ElasticBeanstalk::ApplicationVersion",
             "AWS::ElasticBeanstalk::Environment",
@@ -1851,6 +1881,32 @@ SsmControlsTypeDef = TypedDict(
 )
 
 StaticValueTypeDef = TypedDict("StaticValueTypeDef", {"Values": List[str]})
+
+_RequiredStoredQueryMetadataTypeDef = TypedDict(
+    "_RequiredStoredQueryMetadataTypeDef", {"QueryId": str, "QueryArn": str, "QueryName": str}
+)
+_OptionalStoredQueryMetadataTypeDef = TypedDict(
+    "_OptionalStoredQueryMetadataTypeDef", {"Description": str}, total=False
+)
+
+
+class StoredQueryMetadataTypeDef(
+    _RequiredStoredQueryMetadataTypeDef, _OptionalStoredQueryMetadataTypeDef
+):
+    pass
+
+
+_RequiredStoredQueryTypeDef = TypedDict("_RequiredStoredQueryTypeDef", {"QueryName": str})
+_OptionalStoredQueryTypeDef = TypedDict(
+    "_OptionalStoredQueryTypeDef",
+    {"QueryId": str, "QueryArn": str, "Description": str, "Expression": str},
+    total=False,
+)
+
+
+class StoredQueryTypeDef(_RequiredStoredQueryTypeDef, _OptionalStoredQueryTypeDef):
+    pass
+
 
 TagTypeDef = TypedDict("TagTypeDef", {"Key": str, "Value": str}, total=False)
 
@@ -2082,6 +2138,28 @@ DescribeRetentionConfigurationsResponseTypeDef = TypedDict(
     total=False,
 )
 
+_RequiredExternalEvaluationTypeDef = TypedDict(
+    "_RequiredExternalEvaluationTypeDef",
+    {
+        "ComplianceResourceType": str,
+        "ComplianceResourceId": str,
+        "ComplianceType": Literal[
+            "COMPLIANT", "NON_COMPLIANT", "NOT_APPLICABLE", "INSUFFICIENT_DATA"
+        ],
+        "OrderingTimestamp": datetime,
+    },
+)
+_OptionalExternalEvaluationTypeDef = TypedDict(
+    "_OptionalExternalEvaluationTypeDef", {"Annotation": str}, total=False
+)
+
+
+class ExternalEvaluationTypeDef(
+    _RequiredExternalEvaluationTypeDef, _OptionalExternalEvaluationTypeDef
+):
+    pass
+
+
 GetAggregateComplianceDetailsByConfigRuleResponseTypeDef = TypedDict(
     "GetAggregateComplianceDetailsByConfigRuleResponseTypeDef",
     {"AggregateEvaluationResults": List["AggregateEvaluationResultTypeDef"], "NextToken": str},
@@ -2212,6 +2290,10 @@ GetResourceConfigHistoryResponseTypeDef = TypedDict(
     total=False,
 )
 
+GetStoredQueryResponseTypeDef = TypedDict(
+    "GetStoredQueryResponseTypeDef", {"StoredQuery": "StoredQueryTypeDef"}, total=False
+)
+
 ListAggregateDiscoveredResourcesResponseTypeDef = TypedDict(
     "ListAggregateDiscoveredResourcesResponseTypeDef",
     {"ResourceIdentifiers": List["AggregateResourceIdentifierTypeDef"], "NextToken": str},
@@ -2221,6 +2303,12 @@ ListAggregateDiscoveredResourcesResponseTypeDef = TypedDict(
 ListDiscoveredResourcesResponseTypeDef = TypedDict(
     "ListDiscoveredResourcesResponseTypeDef",
     {"resourceIdentifiers": List["ResourceIdentifierTypeDef"], "nextToken": str},
+    total=False,
+)
+
+ListStoredQueriesResponseTypeDef = TypedDict(
+    "ListStoredQueriesResponseTypeDef",
+    {"StoredQueryMetadata": List["StoredQueryMetadataTypeDef"], "NextToken": str},
     total=False,
 )
 
@@ -2301,6 +2389,10 @@ PutRetentionConfigurationResponseTypeDef = TypedDict(
     total=False,
 )
 
+PutStoredQueryResponseTypeDef = TypedDict(
+    "PutStoredQueryResponseTypeDef", {"QueryArn": str}, total=False
+)
+
 ResourceCountFiltersTypeDef = TypedDict(
     "ResourceCountFiltersTypeDef",
     {
@@ -2370,6 +2462,9 @@ ResourceCountFiltersTypeDef = TypedDict(
             "AWS::CloudFront::Distribution",
             "AWS::CloudFront::StreamingDistribution",
             "AWS::Lambda::Function",
+            "AWS::NetworkFirewall::Firewall",
+            "AWS::NetworkFirewall::FirewallPolicy",
+            "AWS::NetworkFirewall::RuleGroup",
             "AWS::ElasticBeanstalk::Application",
             "AWS::ElasticBeanstalk::ApplicationVersion",
             "AWS::ElasticBeanstalk::Environment",

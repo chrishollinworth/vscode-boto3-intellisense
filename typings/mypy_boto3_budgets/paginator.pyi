@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for budgets service client paginators.
 
@@ -59,7 +58,7 @@ __all__ = (
 
 class DescribeBudgetActionHistoriesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeBudgetActionHistories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetActionHistories)
+    [Paginator.DescribeBudgetActionHistories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetActionHistories)
     """
 
     def paginate(
@@ -71,39 +70,39 @@ class DescribeBudgetActionHistoriesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeBudgetActionHistoriesResponseTypeDef]:
         """
-        [DescribeBudgetActionHistories.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetActionHistories.paginate)
+        [DescribeBudgetActionHistories.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetActionHistories.paginate)
         """
 
 
 class DescribeBudgetActionsForAccountPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeBudgetActionsForAccount documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetActionsForAccount)
+    [Paginator.DescribeBudgetActionsForAccount documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetActionsForAccount)
     """
 
     def paginate(
         self, AccountId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeBudgetActionsForAccountResponseTypeDef]:
         """
-        [DescribeBudgetActionsForAccount.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetActionsForAccount.paginate)
+        [DescribeBudgetActionsForAccount.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetActionsForAccount.paginate)
         """
 
 
 class DescribeBudgetActionsForBudgetPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeBudgetActionsForBudget documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetActionsForBudget)
+    [Paginator.DescribeBudgetActionsForBudget documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetActionsForBudget)
     """
 
     def paginate(
         self, AccountId: str, BudgetName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeBudgetActionsForBudgetResponseTypeDef]:
         """
-        [DescribeBudgetActionsForBudget.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetActionsForBudget.paginate)
+        [DescribeBudgetActionsForBudget.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetActionsForBudget.paginate)
         """
 
 
 class DescribeBudgetPerformanceHistoryPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeBudgetPerformanceHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetPerformanceHistory)
+    [Paginator.DescribeBudgetPerformanceHistory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetPerformanceHistory)
     """
 
     def paginate(
@@ -114,39 +113,39 @@ class DescribeBudgetPerformanceHistoryPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeBudgetPerformanceHistoryResponseTypeDef]:
         """
-        [DescribeBudgetPerformanceHistory.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetPerformanceHistory.paginate)
+        [DescribeBudgetPerformanceHistory.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/budgets.html#Budgets.Paginator.DescribeBudgetPerformanceHistory.paginate)
         """
 
 
 class DescribeBudgetsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeBudgets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/budgets.html#Budgets.Paginator.DescribeBudgets)
+    [Paginator.DescribeBudgets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/budgets.html#Budgets.Paginator.DescribeBudgets)
     """
 
     def paginate(
         self, AccountId: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeBudgetsResponseTypeDef]:
         """
-        [DescribeBudgets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/budgets.html#Budgets.Paginator.DescribeBudgets.paginate)
+        [DescribeBudgets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/budgets.html#Budgets.Paginator.DescribeBudgets.paginate)
         """
 
 
 class DescribeNotificationsForBudgetPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeNotificationsForBudget documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/budgets.html#Budgets.Paginator.DescribeNotificationsForBudget)
+    [Paginator.DescribeNotificationsForBudget documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/budgets.html#Budgets.Paginator.DescribeNotificationsForBudget)
     """
 
     def paginate(
         self, AccountId: str, BudgetName: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeNotificationsForBudgetResponseTypeDef]:
         """
-        [DescribeNotificationsForBudget.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/budgets.html#Budgets.Paginator.DescribeNotificationsForBudget.paginate)
+        [DescribeNotificationsForBudget.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/budgets.html#Budgets.Paginator.DescribeNotificationsForBudget.paginate)
         """
 
 
 class DescribeSubscribersForNotificationPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeSubscribersForNotification documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/budgets.html#Budgets.Paginator.DescribeSubscribersForNotification)
+    [Paginator.DescribeSubscribersForNotification documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/budgets.html#Budgets.Paginator.DescribeSubscribersForNotification)
     """
 
     def paginate(
@@ -157,5 +156,5 @@ class DescribeSubscribersForNotificationPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeSubscribersForNotificationResponseTypeDef]:
         """
-        [DescribeSubscribersForNotification.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/budgets.html#Budgets.Paginator.DescribeSubscribersForNotification.paginate)
+        [DescribeSubscribersForNotification.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/budgets.html#Budgets.Paginator.DescribeSubscribersForNotification.paginate)
         """

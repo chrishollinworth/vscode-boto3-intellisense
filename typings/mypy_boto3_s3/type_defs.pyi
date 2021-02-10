@@ -13,6 +13,8 @@ import sys
 from datetime import datetime
 from typing import IO, Any, Dict, List, Union
 
+from botocore.response import StreamingBody
+
 if sys.version_info >= (3, 8):
     from typing import Literal
 else:
@@ -1745,7 +1747,7 @@ GetObjectLockConfigurationOutputTypeDef = TypedDict(
 GetObjectOutputTypeDef = TypedDict(
     "GetObjectOutputTypeDef",
     {
-        "Body": IO[bytes],
+        "Body": StreamingBody,
         "DeleteMarker": bool,
         "AcceptRanges": str,
         "Expiration": str,
@@ -1816,7 +1818,7 @@ class GetObjectTaggingOutputTypeDef(
 GetObjectTorrentOutputTypeDef = TypedDict(
     "GetObjectTorrentOutputTypeDef",
     {
-        "Body": IO[bytes],
+        "Body": StreamingBody,
         "RequestCharged": Literal["requester"],
         "ResponseMetadata": "ResponseMetadata",
     },

@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for iotthingsgraph service client
 
@@ -95,7 +94,7 @@ class Exceptions:
 
 class IoTThingsGraphClient:
     """
-    [IoTThingsGraph.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Client)
+    [IoTThingsGraph.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Client)
     """
 
     meta: ClientMeta
@@ -105,19 +104,19 @@ class IoTThingsGraphClient:
         self, thingName: str, entityId: str, namespaceVersion: int = None
     ) -> Dict[str, Any]:
         """
-        [Client.associate_entity_to_thing documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.associate_entity_to_thing)
+        [Client.associate_entity_to_thing documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.associate_entity_to_thing)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.can_paginate)
         """
 
     def create_flow_template(
         self, definition: "DefinitionDocumentTypeDef", compatibleNamespaceVersion: int = None
     ) -> CreateFlowTemplateResponseTypeDef:
         """
-        [Client.create_flow_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.create_flow_template)
+        [Client.create_flow_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.create_flow_template)
         """
 
     def create_system_instance(
@@ -131,54 +130,54 @@ class IoTThingsGraphClient:
         flowActionsRoleArn: str = None,
     ) -> CreateSystemInstanceResponseTypeDef:
         """
-        [Client.create_system_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.create_system_instance)
+        [Client.create_system_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.create_system_instance)
         """
 
     def create_system_template(
         self, definition: "DefinitionDocumentTypeDef", compatibleNamespaceVersion: int = None
     ) -> CreateSystemTemplateResponseTypeDef:
         """
-        [Client.create_system_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.create_system_template)
+        [Client.create_system_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.create_system_template)
         """
 
     def delete_flow_template(self, id: str) -> Dict[str, Any]:
         """
-        [Client.delete_flow_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.delete_flow_template)
+        [Client.delete_flow_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.delete_flow_template)
         """
 
     def delete_namespace(self) -> DeleteNamespaceResponseTypeDef:
         """
-        [Client.delete_namespace documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.delete_namespace)
+        [Client.delete_namespace documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.delete_namespace)
         """
 
     def delete_system_instance(self, id: str = None) -> Dict[str, Any]:
         """
-        [Client.delete_system_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.delete_system_instance)
+        [Client.delete_system_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.delete_system_instance)
         """
 
     def delete_system_template(self, id: str) -> Dict[str, Any]:
         """
-        [Client.delete_system_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.delete_system_template)
+        [Client.delete_system_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.delete_system_template)
         """
 
     def deploy_system_instance(self, id: str = None) -> DeploySystemInstanceResponseTypeDef:
         """
-        [Client.deploy_system_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.deploy_system_instance)
+        [Client.deploy_system_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.deploy_system_instance)
         """
 
     def deprecate_flow_template(self, id: str) -> Dict[str, Any]:
         """
-        [Client.deprecate_flow_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.deprecate_flow_template)
+        [Client.deprecate_flow_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.deprecate_flow_template)
         """
 
     def deprecate_system_template(self, id: str) -> Dict[str, Any]:
         """
-        [Client.deprecate_system_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.deprecate_system_template)
+        [Client.deprecate_system_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.deprecate_system_template)
         """
 
     def describe_namespace(self, namespaceName: str = None) -> DescribeNamespaceResponseTypeDef:
         """
-        [Client.describe_namespace documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.describe_namespace)
+        [Client.describe_namespace documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.describe_namespace)
         """
 
     def dissociate_entity_from_thing(
@@ -198,7 +197,7 @@ class IoTThingsGraphClient:
         ],
     ) -> Dict[str, Any]:
         """
-        [Client.dissociate_entity_from_thing documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.dissociate_entity_from_thing)
+        [Client.dissociate_entity_from_thing documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.dissociate_entity_from_thing)
         """
 
     def generate_presigned_url(
@@ -209,71 +208,71 @@ class IoTThingsGraphClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.generate_presigned_url)
         """
 
     def get_entities(
         self, ids: List[str], namespaceVersion: int = None
     ) -> GetEntitiesResponseTypeDef:
         """
-        [Client.get_entities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.get_entities)
+        [Client.get_entities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.get_entities)
         """
 
     def get_flow_template(
         self, id: str, revisionNumber: int = None
     ) -> GetFlowTemplateResponseTypeDef:
         """
-        [Client.get_flow_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.get_flow_template)
+        [Client.get_flow_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.get_flow_template)
         """
 
     def get_flow_template_revisions(
         self, id: str, nextToken: str = None, maxResults: int = None
     ) -> GetFlowTemplateRevisionsResponseTypeDef:
         """
-        [Client.get_flow_template_revisions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.get_flow_template_revisions)
+        [Client.get_flow_template_revisions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.get_flow_template_revisions)
         """
 
     def get_namespace_deletion_status(self) -> GetNamespaceDeletionStatusResponseTypeDef:
         """
-        [Client.get_namespace_deletion_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.get_namespace_deletion_status)
+        [Client.get_namespace_deletion_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.get_namespace_deletion_status)
         """
 
     def get_system_instance(self, id: str) -> GetSystemInstanceResponseTypeDef:
         """
-        [Client.get_system_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.get_system_instance)
+        [Client.get_system_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.get_system_instance)
         """
 
     def get_system_template(
         self, id: str, revisionNumber: int = None
     ) -> GetSystemTemplateResponseTypeDef:
         """
-        [Client.get_system_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.get_system_template)
+        [Client.get_system_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.get_system_template)
         """
 
     def get_system_template_revisions(
         self, id: str, nextToken: str = None, maxResults: int = None
     ) -> GetSystemTemplateRevisionsResponseTypeDef:
         """
-        [Client.get_system_template_revisions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.get_system_template_revisions)
+        [Client.get_system_template_revisions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.get_system_template_revisions)
         """
 
     def get_upload_status(self, uploadId: str) -> GetUploadStatusResponseTypeDef:
         """
-        [Client.get_upload_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.get_upload_status)
+        [Client.get_upload_status documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.get_upload_status)
         """
 
     def list_flow_execution_messages(
         self, flowExecutionId: str, nextToken: str = None, maxResults: int = None
     ) -> ListFlowExecutionMessagesResponseTypeDef:
         """
-        [Client.list_flow_execution_messages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.list_flow_execution_messages)
+        [Client.list_flow_execution_messages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.list_flow_execution_messages)
         """
 
     def list_tags_for_resource(
         self, resourceArn: str, maxResults: int = None, nextToken: str = None
     ) -> ListTagsForResourceResponseTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.list_tags_for_resource)
         """
 
     def search_entities(
@@ -298,7 +297,7 @@ class IoTThingsGraphClient:
         namespaceVersion: int = None,
     ) -> SearchEntitiesResponseTypeDef:
         """
-        [Client.search_entities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.search_entities)
+        [Client.search_entities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.search_entities)
         """
 
     def search_flow_executions(
@@ -311,7 +310,7 @@ class IoTThingsGraphClient:
         maxResults: int = None,
     ) -> SearchFlowExecutionsResponseTypeDef:
         """
-        [Client.search_flow_executions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.search_flow_executions)
+        [Client.search_flow_executions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.search_flow_executions)
         """
 
     def search_flow_templates(
@@ -321,7 +320,7 @@ class IoTThingsGraphClient:
         maxResults: int = None,
     ) -> SearchFlowTemplatesResponseTypeDef:
         """
-        [Client.search_flow_templates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.search_flow_templates)
+        [Client.search_flow_templates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.search_flow_templates)
         """
 
     def search_system_instances(
@@ -331,7 +330,7 @@ class IoTThingsGraphClient:
         maxResults: int = None,
     ) -> SearchSystemInstancesResponseTypeDef:
         """
-        [Client.search_system_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.search_system_instances)
+        [Client.search_system_instances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.search_system_instances)
         """
 
     def search_system_templates(
@@ -341,7 +340,7 @@ class IoTThingsGraphClient:
         maxResults: int = None,
     ) -> SearchSystemTemplatesResponseTypeDef:
         """
-        [Client.search_system_templates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.search_system_templates)
+        [Client.search_system_templates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.search_system_templates)
         """
 
     def search_things(
@@ -352,22 +351,22 @@ class IoTThingsGraphClient:
         namespaceVersion: int = None,
     ) -> SearchThingsResponseTypeDef:
         """
-        [Client.search_things documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.search_things)
+        [Client.search_things documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.search_things)
         """
 
     def tag_resource(self, resourceArn: str, tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.tag_resource)
         """
 
     def undeploy_system_instance(self, id: str = None) -> UndeploySystemInstanceResponseTypeDef:
         """
-        [Client.undeploy_system_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.undeploy_system_instance)
+        [Client.undeploy_system_instance documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.undeploy_system_instance)
         """
 
     def untag_resource(self, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.untag_resource)
         """
 
     def update_flow_template(
@@ -377,7 +376,7 @@ class IoTThingsGraphClient:
         compatibleNamespaceVersion: int = None,
     ) -> UpdateFlowTemplateResponseTypeDef:
         """
-        [Client.update_flow_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.update_flow_template)
+        [Client.update_flow_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.update_flow_template)
         """
 
     def update_system_template(
@@ -387,7 +386,7 @@ class IoTThingsGraphClient:
         compatibleNamespaceVersion: int = None,
     ) -> UpdateSystemTemplateResponseTypeDef:
         """
-        [Client.update_system_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.update_system_template)
+        [Client.update_system_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.update_system_template)
         """
 
     def upload_entity_definitions(
@@ -397,7 +396,7 @@ class IoTThingsGraphClient:
         deprecateExistingEntities: bool = None,
     ) -> UploadEntityDefinitionsResponseTypeDef:
         """
-        [Client.upload_entity_definitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.upload_entity_definitions)
+        [Client.upload_entity_definitions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Client.upload_entity_definitions)
         """
 
     @overload
@@ -405,7 +404,7 @@ class IoTThingsGraphClient:
         self, operation_name: Literal["get_flow_template_revisions"]
     ) -> GetFlowTemplateRevisionsPaginator:
         """
-        [Paginator.GetFlowTemplateRevisions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.GetFlowTemplateRevisions)
+        [Paginator.GetFlowTemplateRevisions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.GetFlowTemplateRevisions)
         """
 
     @overload
@@ -413,7 +412,7 @@ class IoTThingsGraphClient:
         self, operation_name: Literal["get_system_template_revisions"]
     ) -> GetSystemTemplateRevisionsPaginator:
         """
-        [Paginator.GetSystemTemplateRevisions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.GetSystemTemplateRevisions)
+        [Paginator.GetSystemTemplateRevisions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.GetSystemTemplateRevisions)
         """
 
     @overload
@@ -421,7 +420,7 @@ class IoTThingsGraphClient:
         self, operation_name: Literal["list_flow_execution_messages"]
     ) -> ListFlowExecutionMessagesPaginator:
         """
-        [Paginator.ListFlowExecutionMessages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.ListFlowExecutionMessages)
+        [Paginator.ListFlowExecutionMessages documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.ListFlowExecutionMessages)
         """
 
     @overload
@@ -429,13 +428,13 @@ class IoTThingsGraphClient:
         self, operation_name: Literal["list_tags_for_resource"]
     ) -> ListTagsForResourcePaginator:
         """
-        [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.ListTagsForResource)
+        [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.ListTagsForResource)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["search_entities"]) -> SearchEntitiesPaginator:
         """
-        [Paginator.SearchEntities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchEntities)
+        [Paginator.SearchEntities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchEntities)
         """
 
     @overload
@@ -443,7 +442,7 @@ class IoTThingsGraphClient:
         self, operation_name: Literal["search_flow_executions"]
     ) -> SearchFlowExecutionsPaginator:
         """
-        [Paginator.SearchFlowExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchFlowExecutions)
+        [Paginator.SearchFlowExecutions documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchFlowExecutions)
         """
 
     @overload
@@ -451,7 +450,7 @@ class IoTThingsGraphClient:
         self, operation_name: Literal["search_flow_templates"]
     ) -> SearchFlowTemplatesPaginator:
         """
-        [Paginator.SearchFlowTemplates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchFlowTemplates)
+        [Paginator.SearchFlowTemplates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchFlowTemplates)
         """
 
     @overload
@@ -459,7 +458,7 @@ class IoTThingsGraphClient:
         self, operation_name: Literal["search_system_instances"]
     ) -> SearchSystemInstancesPaginator:
         """
-        [Paginator.SearchSystemInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchSystemInstances)
+        [Paginator.SearchSystemInstances documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchSystemInstances)
         """
 
     @overload
@@ -467,11 +466,11 @@ class IoTThingsGraphClient:
         self, operation_name: Literal["search_system_templates"]
     ) -> SearchSystemTemplatesPaginator:
         """
-        [Paginator.SearchSystemTemplates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchSystemTemplates)
+        [Paginator.SearchSystemTemplates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchSystemTemplates)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["search_things"]) -> SearchThingsPaginator:
         """
-        [Paginator.SearchThings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchThings)
+        [Paginator.SearchThings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iotthingsgraph.html#IoTThingsGraph.Paginator.SearchThings)
         """

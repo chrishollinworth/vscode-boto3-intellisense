@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for mediaconnect service client
 
@@ -90,7 +89,7 @@ class Exceptions:
 
 class MediaConnectClient:
     """
-    [MediaConnect.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediaconnect.html#MediaConnect.Client)
+    [MediaConnect.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediaconnect.html#MediaConnect.Client)
     """
 
     meta: ClientMeta
@@ -100,26 +99,26 @@ class MediaConnectClient:
         self, FlowArn: str, Outputs: List[AddOutputRequestTypeDef]
     ) -> AddFlowOutputsResponseTypeDef:
         """
-        [Client.add_flow_outputs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediaconnect.html#MediaConnect.Client.add_flow_outputs)
+        [Client.add_flow_outputs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediaconnect.html#MediaConnect.Client.add_flow_outputs)
         """
 
     def add_flow_sources(
         self, FlowArn: str, Sources: List[SetSourceRequestTypeDef]
     ) -> AddFlowSourcesResponseTypeDef:
         """
-        [Client.add_flow_sources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediaconnect.html#MediaConnect.Client.add_flow_sources)
+        [Client.add_flow_sources documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediaconnect.html#MediaConnect.Client.add_flow_sources)
         """
 
     def add_flow_vpc_interfaces(
         self, FlowArn: str, VpcInterfaces: List[VpcInterfaceRequestTypeDef]
     ) -> AddFlowVpcInterfacesResponseTypeDef:
         """
-        [Client.add_flow_vpc_interfaces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediaconnect.html#MediaConnect.Client.add_flow_vpc_interfaces)
+        [Client.add_flow_vpc_interfaces documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediaconnect.html#MediaConnect.Client.add_flow_vpc_interfaces)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediaconnect.html#MediaConnect.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediaconnect.html#MediaConnect.Client.can_paginate)
         """
 
     def create_flow(
@@ -134,27 +133,27 @@ class MediaConnectClient:
         VpcInterfaces: List[VpcInterfaceRequestTypeDef] = None,
     ) -> CreateFlowResponseTypeDef:
         """
-        [Client.create_flow documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediaconnect.html#MediaConnect.Client.create_flow)
+        [Client.create_flow documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediaconnect.html#MediaConnect.Client.create_flow)
         """
 
     def delete_flow(self, FlowArn: str) -> DeleteFlowResponseTypeDef:
         """
-        [Client.delete_flow documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediaconnect.html#MediaConnect.Client.delete_flow)
+        [Client.delete_flow documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediaconnect.html#MediaConnect.Client.delete_flow)
         """
 
     def describe_flow(self, FlowArn: str) -> DescribeFlowResponseTypeDef:
         """
-        [Client.describe_flow documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediaconnect.html#MediaConnect.Client.describe_flow)
+        [Client.describe_flow documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediaconnect.html#MediaConnect.Client.describe_flow)
         """
 
     def describe_offering(self, OfferingArn: str) -> DescribeOfferingResponseTypeDef:
         """
-        [Client.describe_offering documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediaconnect.html#MediaConnect.Client.describe_offering)
+        [Client.describe_offering documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediaconnect.html#MediaConnect.Client.describe_offering)
         """
 
     def describe_reservation(self, ReservationArn: str) -> DescribeReservationResponseTypeDef:
         """
-        [Client.describe_reservation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediaconnect.html#MediaConnect.Client.describe_reservation)
+        [Client.describe_reservation documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediaconnect.html#MediaConnect.Client.describe_reservation)
         """
 
     def generate_presigned_url(
@@ -165,103 +164,103 @@ class MediaConnectClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediaconnect.html#MediaConnect.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediaconnect.html#MediaConnect.Client.generate_presigned_url)
         """
 
     def grant_flow_entitlements(
         self, Entitlements: List[GrantEntitlementRequestTypeDef], FlowArn: str
     ) -> GrantFlowEntitlementsResponseTypeDef:
         """
-        [Client.grant_flow_entitlements documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediaconnect.html#MediaConnect.Client.grant_flow_entitlements)
+        [Client.grant_flow_entitlements documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediaconnect.html#MediaConnect.Client.grant_flow_entitlements)
         """
 
     def list_entitlements(
         self, MaxResults: int = None, NextToken: str = None
     ) -> ListEntitlementsResponseTypeDef:
         """
-        [Client.list_entitlements documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediaconnect.html#MediaConnect.Client.list_entitlements)
+        [Client.list_entitlements documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediaconnect.html#MediaConnect.Client.list_entitlements)
         """
 
     def list_flows(self, MaxResults: int = None, NextToken: str = None) -> ListFlowsResponseTypeDef:
         """
-        [Client.list_flows documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediaconnect.html#MediaConnect.Client.list_flows)
+        [Client.list_flows documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediaconnect.html#MediaConnect.Client.list_flows)
         """
 
     def list_offerings(
         self, MaxResults: int = None, NextToken: str = None
     ) -> ListOfferingsResponseTypeDef:
         """
-        [Client.list_offerings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediaconnect.html#MediaConnect.Client.list_offerings)
+        [Client.list_offerings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediaconnect.html#MediaConnect.Client.list_offerings)
         """
 
     def list_reservations(
         self, MaxResults: int = None, NextToken: str = None
     ) -> ListReservationsResponseTypeDef:
         """
-        [Client.list_reservations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediaconnect.html#MediaConnect.Client.list_reservations)
+        [Client.list_reservations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediaconnect.html#MediaConnect.Client.list_reservations)
         """
 
     def list_tags_for_resource(self, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediaconnect.html#MediaConnect.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediaconnect.html#MediaConnect.Client.list_tags_for_resource)
         """
 
     def purchase_offering(
         self, OfferingArn: str, ReservationName: str, Start: str
     ) -> PurchaseOfferingResponseTypeDef:
         """
-        [Client.purchase_offering documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediaconnect.html#MediaConnect.Client.purchase_offering)
+        [Client.purchase_offering documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediaconnect.html#MediaConnect.Client.purchase_offering)
         """
 
     def remove_flow_output(self, FlowArn: str, OutputArn: str) -> RemoveFlowOutputResponseTypeDef:
         """
-        [Client.remove_flow_output documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediaconnect.html#MediaConnect.Client.remove_flow_output)
+        [Client.remove_flow_output documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediaconnect.html#MediaConnect.Client.remove_flow_output)
         """
 
     def remove_flow_source(self, FlowArn: str, SourceArn: str) -> RemoveFlowSourceResponseTypeDef:
         """
-        [Client.remove_flow_source documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediaconnect.html#MediaConnect.Client.remove_flow_source)
+        [Client.remove_flow_source documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediaconnect.html#MediaConnect.Client.remove_flow_source)
         """
 
     def remove_flow_vpc_interface(
         self, FlowArn: str, VpcInterfaceName: str
     ) -> RemoveFlowVpcInterfaceResponseTypeDef:
         """
-        [Client.remove_flow_vpc_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediaconnect.html#MediaConnect.Client.remove_flow_vpc_interface)
+        [Client.remove_flow_vpc_interface documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediaconnect.html#MediaConnect.Client.remove_flow_vpc_interface)
         """
 
     def revoke_flow_entitlement(
         self, EntitlementArn: str, FlowArn: str
     ) -> RevokeFlowEntitlementResponseTypeDef:
         """
-        [Client.revoke_flow_entitlement documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediaconnect.html#MediaConnect.Client.revoke_flow_entitlement)
+        [Client.revoke_flow_entitlement documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediaconnect.html#MediaConnect.Client.revoke_flow_entitlement)
         """
 
     def start_flow(self, FlowArn: str) -> StartFlowResponseTypeDef:
         """
-        [Client.start_flow documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediaconnect.html#MediaConnect.Client.start_flow)
+        [Client.start_flow documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediaconnect.html#MediaConnect.Client.start_flow)
         """
 
     def stop_flow(self, FlowArn: str) -> StopFlowResponseTypeDef:
         """
-        [Client.stop_flow documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediaconnect.html#MediaConnect.Client.stop_flow)
+        [Client.stop_flow documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediaconnect.html#MediaConnect.Client.stop_flow)
         """
 
     def tag_resource(self, ResourceArn: str, Tags: Dict[str, str]) -> None:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediaconnect.html#MediaConnect.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediaconnect.html#MediaConnect.Client.tag_resource)
         """
 
     def untag_resource(self, ResourceArn: str, TagKeys: List[str]) -> None:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediaconnect.html#MediaConnect.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediaconnect.html#MediaConnect.Client.untag_resource)
         """
 
     def update_flow(
         self, FlowArn: str, SourceFailoverConfig: UpdateFailoverConfigTypeDef = None
     ) -> UpdateFlowResponseTypeDef:
         """
-        [Client.update_flow documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediaconnect.html#MediaConnect.Client.update_flow)
+        [Client.update_flow documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediaconnect.html#MediaConnect.Client.update_flow)
         """
 
     def update_flow_entitlement(
@@ -274,7 +273,7 @@ class MediaConnectClient:
         Subscribers: List[str] = None,
     ) -> UpdateFlowEntitlementResponseTypeDef:
         """
-        [Client.update_flow_entitlement documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediaconnect.html#MediaConnect.Client.update_flow_entitlement)
+        [Client.update_flow_entitlement documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediaconnect.html#MediaConnect.Client.update_flow_entitlement)
         """
 
     def update_flow_output(
@@ -294,7 +293,7 @@ class MediaConnectClient:
         VpcInterfaceAttachment: "VpcInterfaceAttachmentTypeDef" = None,
     ) -> UpdateFlowOutputResponseTypeDef:
         """
-        [Client.update_flow_output documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediaconnect.html#MediaConnect.Client.update_flow_output)
+        [Client.update_flow_output documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediaconnect.html#MediaConnect.Client.update_flow_output)
         """
 
     def update_flow_source(
@@ -313,7 +312,7 @@ class MediaConnectClient:
         WhitelistCidr: str = None,
     ) -> UpdateFlowSourceResponseTypeDef:
         """
-        [Client.update_flow_source documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediaconnect.html#MediaConnect.Client.update_flow_source)
+        [Client.update_flow_source documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediaconnect.html#MediaConnect.Client.update_flow_source)
         """
 
     @overload
@@ -321,19 +320,19 @@ class MediaConnectClient:
         self, operation_name: Literal["list_entitlements"]
     ) -> ListEntitlementsPaginator:
         """
-        [Paginator.ListEntitlements documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediaconnect.html#MediaConnect.Paginator.ListEntitlements)
+        [Paginator.ListEntitlements documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediaconnect.html#MediaConnect.Paginator.ListEntitlements)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_flows"]) -> ListFlowsPaginator:
         """
-        [Paginator.ListFlows documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediaconnect.html#MediaConnect.Paginator.ListFlows)
+        [Paginator.ListFlows documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediaconnect.html#MediaConnect.Paginator.ListFlows)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_offerings"]) -> ListOfferingsPaginator:
         """
-        [Paginator.ListOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediaconnect.html#MediaConnect.Paginator.ListOfferings)
+        [Paginator.ListOfferings documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediaconnect.html#MediaConnect.Paginator.ListOfferings)
         """
 
     @overload
@@ -341,5 +340,5 @@ class MediaConnectClient:
         self, operation_name: Literal["list_reservations"]
     ) -> ListReservationsPaginator:
         """
-        [Paginator.ListReservations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/mediaconnect.html#MediaConnect.Paginator.ListReservations)
+        [Paginator.ListReservations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/mediaconnect.html#MediaConnect.Paginator.ListReservations)
         """

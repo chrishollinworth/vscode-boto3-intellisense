@@ -1,7 +1,7 @@
 from mypy_boto3_lookoutvision.client import (
-    LookoutForVisionClient,
+    LookoutforVisionClient,
 )
 
 __all__ = (
-    "LookoutForVisionClient",
+    "LookoutforVisionClient",
 )

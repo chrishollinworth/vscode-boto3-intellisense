@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for kinesis-video-archived-media service client
 
@@ -61,7 +60,7 @@ class Exceptions:
 
 class KinesisVideoArchivedMediaClient:
     """
-    [KinesisVideoArchivedMedia.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis-video-archived-media.html#KinesisVideoArchivedMedia.Client)
+    [KinesisVideoArchivedMedia.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis-video-archived-media.html#KinesisVideoArchivedMedia.Client)
     """
 
     meta: ClientMeta
@@ -69,7 +68,7 @@ class KinesisVideoArchivedMediaClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis-video-archived-media.html#KinesisVideoArchivedMedia.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis-video-archived-media.html#KinesisVideoArchivedMedia.Client.can_paginate)
         """
 
     def generate_presigned_url(
@@ -80,7 +79,7 @@ class KinesisVideoArchivedMediaClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis-video-archived-media.html#KinesisVideoArchivedMedia.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis-video-archived-media.html#KinesisVideoArchivedMedia.Client.generate_presigned_url)
         """
 
     def get_clip(
@@ -90,7 +89,7 @@ class KinesisVideoArchivedMediaClient:
         StreamARN: str = None,
     ) -> GetClipOutputTypeDef:
         """
-        [Client.get_clip documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis-video-archived-media.html#KinesisVideoArchivedMedia.Client.get_clip)
+        [Client.get_clip documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis-video-archived-media.html#KinesisVideoArchivedMedia.Client.get_clip)
         """
 
     def get_dash_streaming_session_url(
@@ -105,7 +104,7 @@ class KinesisVideoArchivedMediaClient:
         MaxManifestFragmentResults: int = None,
     ) -> GetDASHStreamingSessionURLOutputTypeDef:
         """
-        [Client.get_dash_streaming_session_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis-video-archived-media.html#KinesisVideoArchivedMedia.Client.get_dash_streaming_session_url)
+        [Client.get_dash_streaming_session_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis-video-archived-media.html#KinesisVideoArchivedMedia.Client.get_dash_streaming_session_url)
         """
 
     def get_hls_streaming_session_url(
@@ -121,14 +120,14 @@ class KinesisVideoArchivedMediaClient:
         MaxMediaPlaylistFragmentResults: int = None,
     ) -> GetHLSStreamingSessionURLOutputTypeDef:
         """
-        [Client.get_hls_streaming_session_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis-video-archived-media.html#KinesisVideoArchivedMedia.Client.get_hls_streaming_session_url)
+        [Client.get_hls_streaming_session_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis-video-archived-media.html#KinesisVideoArchivedMedia.Client.get_hls_streaming_session_url)
         """
 
     def get_media_for_fragment_list(
         self, StreamName: str, Fragments: List[str]
     ) -> GetMediaForFragmentListOutputTypeDef:
         """
-        [Client.get_media_for_fragment_list documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis-video-archived-media.html#KinesisVideoArchivedMedia.Client.get_media_for_fragment_list)
+        [Client.get_media_for_fragment_list documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis-video-archived-media.html#KinesisVideoArchivedMedia.Client.get_media_for_fragment_list)
         """
 
     def list_fragments(
@@ -139,10 +138,10 @@ class KinesisVideoArchivedMediaClient:
         FragmentSelector: FragmentSelectorTypeDef = None,
     ) -> ListFragmentsOutputTypeDef:
         """
-        [Client.list_fragments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis-video-archived-media.html#KinesisVideoArchivedMedia.Client.list_fragments)
+        [Client.list_fragments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis-video-archived-media.html#KinesisVideoArchivedMedia.Client.list_fragments)
         """
 
     def get_paginator(self, operation_name: Literal["list_fragments"]) -> ListFragmentsPaginator:
         """
-        [Paginator.ListFragments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/kinesis-video-archived-media.html#KinesisVideoArchivedMedia.Paginator.ListFragments)
+        [Paginator.ListFragments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/kinesis-video-archived-media.html#KinesisVideoArchivedMedia.Paginator.ListFragments)
         """

@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for fsx service client
 
@@ -93,7 +92,7 @@ class Exceptions:
 
 class FSxClient:
     """
-    [FSx.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/fsx.html#FSx.Client)
+    [FSx.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/fsx.html#FSx.Client)
     """
 
     meta: ClientMeta
@@ -103,24 +102,24 @@ class FSxClient:
         self, FileSystemId: str, Aliases: List[str], ClientRequestToken: str = None
     ) -> AssociateFileSystemAliasesResponseTypeDef:
         """
-        [Client.associate_file_system_aliases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/fsx.html#FSx.Client.associate_file_system_aliases)
+        [Client.associate_file_system_aliases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/fsx.html#FSx.Client.associate_file_system_aliases)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/fsx.html#FSx.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/fsx.html#FSx.Client.can_paginate)
         """
 
     def cancel_data_repository_task(self, TaskId: str) -> CancelDataRepositoryTaskResponseTypeDef:
         """
-        [Client.cancel_data_repository_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/fsx.html#FSx.Client.cancel_data_repository_task)
+        [Client.cancel_data_repository_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/fsx.html#FSx.Client.cancel_data_repository_task)
         """
 
     def create_backup(
         self, FileSystemId: str, ClientRequestToken: str = None, Tags: List["TagTypeDef"] = None
     ) -> CreateBackupResponseTypeDef:
         """
-        [Client.create_backup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/fsx.html#FSx.Client.create_backup)
+        [Client.create_backup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/fsx.html#FSx.Client.create_backup)
         """
 
     def create_data_repository_task(
@@ -133,7 +132,7 @@ class FSxClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateDataRepositoryTaskResponseTypeDef:
         """
-        [Client.create_data_repository_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/fsx.html#FSx.Client.create_data_repository_task)
+        [Client.create_data_repository_task documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/fsx.html#FSx.Client.create_data_repository_task)
         """
 
     def create_file_system(
@@ -150,7 +149,7 @@ class FSxClient:
         LustreConfiguration: CreateFileSystemLustreConfigurationTypeDef = None,
     ) -> CreateFileSystemResponseTypeDef:
         """
-        [Client.create_file_system documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/fsx.html#FSx.Client.create_file_system)
+        [Client.create_file_system documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/fsx.html#FSx.Client.create_file_system)
         """
 
     def create_file_system_from_backup(
@@ -165,14 +164,14 @@ class FSxClient:
         StorageType: Literal["SSD", "HDD"] = None,
     ) -> CreateFileSystemFromBackupResponseTypeDef:
         """
-        [Client.create_file_system_from_backup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/fsx.html#FSx.Client.create_file_system_from_backup)
+        [Client.create_file_system_from_backup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/fsx.html#FSx.Client.create_file_system_from_backup)
         """
 
     def delete_backup(
         self, BackupId: str, ClientRequestToken: str = None
     ) -> DeleteBackupResponseTypeDef:
         """
-        [Client.delete_backup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/fsx.html#FSx.Client.delete_backup)
+        [Client.delete_backup documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/fsx.html#FSx.Client.delete_backup)
         """
 
     def delete_file_system(
@@ -183,7 +182,7 @@ class FSxClient:
         LustreConfiguration: DeleteFileSystemLustreConfigurationTypeDef = None,
     ) -> DeleteFileSystemResponseTypeDef:
         """
-        [Client.delete_file_system documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/fsx.html#FSx.Client.delete_file_system)
+        [Client.delete_file_system documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/fsx.html#FSx.Client.delete_file_system)
         """
 
     def describe_backups(
@@ -194,7 +193,7 @@ class FSxClient:
         NextToken: str = None,
     ) -> DescribeBackupsResponseTypeDef:
         """
-        [Client.describe_backups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/fsx.html#FSx.Client.describe_backups)
+        [Client.describe_backups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/fsx.html#FSx.Client.describe_backups)
         """
 
     def describe_data_repository_tasks(
@@ -205,7 +204,7 @@ class FSxClient:
         NextToken: str = None,
     ) -> DescribeDataRepositoryTasksResponseTypeDef:
         """
-        [Client.describe_data_repository_tasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/fsx.html#FSx.Client.describe_data_repository_tasks)
+        [Client.describe_data_repository_tasks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/fsx.html#FSx.Client.describe_data_repository_tasks)
         """
 
     def describe_file_system_aliases(
@@ -216,21 +215,21 @@ class FSxClient:
         NextToken: str = None,
     ) -> DescribeFileSystemAliasesResponseTypeDef:
         """
-        [Client.describe_file_system_aliases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/fsx.html#FSx.Client.describe_file_system_aliases)
+        [Client.describe_file_system_aliases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/fsx.html#FSx.Client.describe_file_system_aliases)
         """
 
     def describe_file_systems(
         self, FileSystemIds: List[str] = None, MaxResults: int = None, NextToken: str = None
     ) -> DescribeFileSystemsResponseTypeDef:
         """
-        [Client.describe_file_systems documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/fsx.html#FSx.Client.describe_file_systems)
+        [Client.describe_file_systems documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/fsx.html#FSx.Client.describe_file_systems)
         """
 
     def disassociate_file_system_aliases(
         self, FileSystemId: str, Aliases: List[str], ClientRequestToken: str = None
     ) -> DisassociateFileSystemAliasesResponseTypeDef:
         """
-        [Client.disassociate_file_system_aliases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/fsx.html#FSx.Client.disassociate_file_system_aliases)
+        [Client.disassociate_file_system_aliases documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/fsx.html#FSx.Client.disassociate_file_system_aliases)
         """
 
     def generate_presigned_url(
@@ -241,24 +240,24 @@ class FSxClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/fsx.html#FSx.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/fsx.html#FSx.Client.generate_presigned_url)
         """
 
     def list_tags_for_resource(
         self, ResourceARN: str, MaxResults: int = None, NextToken: str = None
     ) -> ListTagsForResourceResponseTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/fsx.html#FSx.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/fsx.html#FSx.Client.list_tags_for_resource)
         """
 
     def tag_resource(self, ResourceARN: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/fsx.html#FSx.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/fsx.html#FSx.Client.tag_resource)
         """
 
     def untag_resource(self, ResourceARN: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/fsx.html#FSx.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/fsx.html#FSx.Client.untag_resource)
         """
 
     def update_file_system(
@@ -270,7 +269,7 @@ class FSxClient:
         LustreConfiguration: UpdateFileSystemLustreConfigurationTypeDef = None,
     ) -> UpdateFileSystemResponseTypeDef:
         """
-        [Client.update_file_system documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/fsx.html#FSx.Client.update_file_system)
+        [Client.update_file_system documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/fsx.html#FSx.Client.update_file_system)
         """
 
     @overload
@@ -278,7 +277,7 @@ class FSxClient:
         self, operation_name: Literal["describe_backups"]
     ) -> DescribeBackupsPaginator:
         """
-        [Paginator.DescribeBackups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/fsx.html#FSx.Paginator.DescribeBackups)
+        [Paginator.DescribeBackups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/fsx.html#FSx.Paginator.DescribeBackups)
         """
 
     @overload
@@ -286,7 +285,7 @@ class FSxClient:
         self, operation_name: Literal["describe_file_systems"]
     ) -> DescribeFileSystemsPaginator:
         """
-        [Paginator.DescribeFileSystems documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/fsx.html#FSx.Paginator.DescribeFileSystems)
+        [Paginator.DescribeFileSystems documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/fsx.html#FSx.Paginator.DescribeFileSystems)
         """
 
     @overload
@@ -294,5 +293,5 @@ class FSxClient:
         self, operation_name: Literal["list_tags_for_resource"]
     ) -> ListTagsForResourcePaginator:
         """
-        [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/fsx.html#FSx.Paginator.ListTagsForResource)
+        [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/fsx.html#FSx.Paginator.ListTagsForResource)
         """

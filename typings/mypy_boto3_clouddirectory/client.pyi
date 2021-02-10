@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for clouddirectory service client
 
@@ -167,7 +166,7 @@ class Exceptions:
 
 class CloudDirectoryClient:
     """
-    [CloudDirectory.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client)
+    [CloudDirectory.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client)
     """
 
     meta: ClientMeta
@@ -181,14 +180,14 @@ class CloudDirectoryClient:
         ObjectAttributeList: List["AttributeKeyAndValueTypeDef"] = None,
     ) -> Dict[str, Any]:
         """
-        [Client.add_facet_to_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.add_facet_to_object)
+        [Client.add_facet_to_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.add_facet_to_object)
         """
 
     def apply_schema(
         self, PublishedSchemaArn: str, DirectoryArn: str
     ) -> ApplySchemaResponseTypeDef:
         """
-        [Client.apply_schema documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.apply_schema)
+        [Client.apply_schema documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.apply_schema)
         """
 
     def attach_object(
@@ -199,7 +198,7 @@ class CloudDirectoryClient:
         LinkName: str,
     ) -> AttachObjectResponseTypeDef:
         """
-        [Client.attach_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.attach_object)
+        [Client.attach_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.attach_object)
         """
 
     def attach_policy(
@@ -209,7 +208,7 @@ class CloudDirectoryClient:
         ObjectReference: "ObjectReferenceTypeDef",
     ) -> Dict[str, Any]:
         """
-        [Client.attach_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.attach_policy)
+        [Client.attach_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.attach_policy)
         """
 
     def attach_to_index(
@@ -219,7 +218,7 @@ class CloudDirectoryClient:
         TargetReference: "ObjectReferenceTypeDef",
     ) -> AttachToIndexResponseTypeDef:
         """
-        [Client.attach_to_index documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.attach_to_index)
+        [Client.attach_to_index documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.attach_to_index)
         """
 
     def attach_typed_link(
@@ -231,7 +230,7 @@ class CloudDirectoryClient:
         Attributes: List["AttributeNameAndValueTypeDef"],
     ) -> AttachTypedLinkResponseTypeDef:
         """
-        [Client.attach_typed_link documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.attach_typed_link)
+        [Client.attach_typed_link documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.attach_typed_link)
         """
 
     def batch_read(
@@ -241,24 +240,24 @@ class CloudDirectoryClient:
         ConsistencyLevel: Literal["SERIALIZABLE", "EVENTUAL"] = None,
     ) -> BatchReadResponseTypeDef:
         """
-        [Client.batch_read documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.batch_read)
+        [Client.batch_read documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.batch_read)
         """
 
     def batch_write(
         self, DirectoryArn: str, Operations: List[BatchWriteOperationTypeDef]
     ) -> BatchWriteResponseTypeDef:
         """
-        [Client.batch_write documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.batch_write)
+        [Client.batch_write documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.batch_write)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.can_paginate)
         """
 
     def create_directory(self, Name: str, SchemaArn: str) -> CreateDirectoryResponseTypeDef:
         """
-        [Client.create_directory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.create_directory)
+        [Client.create_directory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.create_directory)
         """
 
     def create_facet(
@@ -270,7 +269,7 @@ class CloudDirectoryClient:
         FacetStyle: Literal["STATIC", "DYNAMIC"] = None,
     ) -> Dict[str, Any]:
         """
-        [Client.create_facet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.create_facet)
+        [Client.create_facet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.create_facet)
         """
 
     def create_index(
@@ -282,7 +281,7 @@ class CloudDirectoryClient:
         LinkName: str = None,
     ) -> CreateIndexResponseTypeDef:
         """
-        [Client.create_index documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.create_index)
+        [Client.create_index documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.create_index)
         """
 
     def create_object(
@@ -294,46 +293,46 @@ class CloudDirectoryClient:
         LinkName: str = None,
     ) -> CreateObjectResponseTypeDef:
         """
-        [Client.create_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.create_object)
+        [Client.create_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.create_object)
         """
 
     def create_schema(self, Name: str) -> CreateSchemaResponseTypeDef:
         """
-        [Client.create_schema documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.create_schema)
+        [Client.create_schema documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.create_schema)
         """
 
     def create_typed_link_facet(
         self, SchemaArn: str, Facet: TypedLinkFacetTypeDef
     ) -> Dict[str, Any]:
         """
-        [Client.create_typed_link_facet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.create_typed_link_facet)
+        [Client.create_typed_link_facet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.create_typed_link_facet)
         """
 
     def delete_directory(self, DirectoryArn: str) -> DeleteDirectoryResponseTypeDef:
         """
-        [Client.delete_directory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.delete_directory)
+        [Client.delete_directory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.delete_directory)
         """
 
     def delete_facet(self, SchemaArn: str, Name: str) -> Dict[str, Any]:
         """
-        [Client.delete_facet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.delete_facet)
+        [Client.delete_facet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.delete_facet)
         """
 
     def delete_object(
         self, DirectoryArn: str, ObjectReference: "ObjectReferenceTypeDef"
     ) -> Dict[str, Any]:
         """
-        [Client.delete_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.delete_object)
+        [Client.delete_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.delete_object)
         """
 
     def delete_schema(self, SchemaArn: str) -> DeleteSchemaResponseTypeDef:
         """
-        [Client.delete_schema documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.delete_schema)
+        [Client.delete_schema documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.delete_schema)
         """
 
     def delete_typed_link_facet(self, SchemaArn: str, Name: str) -> Dict[str, Any]:
         """
-        [Client.delete_typed_link_facet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.delete_typed_link_facet)
+        [Client.delete_typed_link_facet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.delete_typed_link_facet)
         """
 
     def detach_from_index(
@@ -343,14 +342,14 @@ class CloudDirectoryClient:
         TargetReference: "ObjectReferenceTypeDef",
     ) -> DetachFromIndexResponseTypeDef:
         """
-        [Client.detach_from_index documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.detach_from_index)
+        [Client.detach_from_index documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.detach_from_index)
         """
 
     def detach_object(
         self, DirectoryArn: str, ParentReference: "ObjectReferenceTypeDef", LinkName: str
     ) -> DetachObjectResponseTypeDef:
         """
-        [Client.detach_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.detach_object)
+        [Client.detach_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.detach_object)
         """
 
     def detach_policy(
@@ -360,24 +359,24 @@ class CloudDirectoryClient:
         ObjectReference: "ObjectReferenceTypeDef",
     ) -> Dict[str, Any]:
         """
-        [Client.detach_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.detach_policy)
+        [Client.detach_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.detach_policy)
         """
 
     def detach_typed_link(
         self, DirectoryArn: str, TypedLinkSpecifier: "TypedLinkSpecifierTypeDef"
     ) -> None:
         """
-        [Client.detach_typed_link documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.detach_typed_link)
+        [Client.detach_typed_link documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.detach_typed_link)
         """
 
     def disable_directory(self, DirectoryArn: str) -> DisableDirectoryResponseTypeDef:
         """
-        [Client.disable_directory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.disable_directory)
+        [Client.disable_directory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.disable_directory)
         """
 
     def enable_directory(self, DirectoryArn: str) -> EnableDirectoryResponseTypeDef:
         """
-        [Client.enable_directory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.enable_directory)
+        [Client.enable_directory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.enable_directory)
         """
 
     def generate_presigned_url(
@@ -388,22 +387,22 @@ class CloudDirectoryClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.generate_presigned_url)
         """
 
     def get_applied_schema_version(self, SchemaArn: str) -> GetAppliedSchemaVersionResponseTypeDef:
         """
-        [Client.get_applied_schema_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.get_applied_schema_version)
+        [Client.get_applied_schema_version documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.get_applied_schema_version)
         """
 
     def get_directory(self, DirectoryArn: str) -> GetDirectoryResponseTypeDef:
         """
-        [Client.get_directory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.get_directory)
+        [Client.get_directory documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.get_directory)
         """
 
     def get_facet(self, SchemaArn: str, Name: str) -> GetFacetResponseTypeDef:
         """
-        [Client.get_facet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.get_facet)
+        [Client.get_facet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.get_facet)
         """
 
     def get_link_attributes(
@@ -414,7 +413,7 @@ class CloudDirectoryClient:
         ConsistencyLevel: Literal["SERIALIZABLE", "EVENTUAL"] = None,
     ) -> GetLinkAttributesResponseTypeDef:
         """
-        [Client.get_link_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.get_link_attributes)
+        [Client.get_link_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.get_link_attributes)
         """
 
     def get_object_attributes(
@@ -426,7 +425,7 @@ class CloudDirectoryClient:
         ConsistencyLevel: Literal["SERIALIZABLE", "EVENTUAL"] = None,
     ) -> GetObjectAttributesResponseTypeDef:
         """
-        [Client.get_object_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.get_object_attributes)
+        [Client.get_object_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.get_object_attributes)
         """
 
     def get_object_information(
@@ -436,19 +435,19 @@ class CloudDirectoryClient:
         ConsistencyLevel: Literal["SERIALIZABLE", "EVENTUAL"] = None,
     ) -> GetObjectInformationResponseTypeDef:
         """
-        [Client.get_object_information documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.get_object_information)
+        [Client.get_object_information documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.get_object_information)
         """
 
     def get_schema_as_json(self, SchemaArn: str) -> GetSchemaAsJsonResponseTypeDef:
         """
-        [Client.get_schema_as_json documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.get_schema_as_json)
+        [Client.get_schema_as_json documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.get_schema_as_json)
         """
 
     def get_typed_link_facet_information(
         self, SchemaArn: str, Name: str
     ) -> GetTypedLinkFacetInformationResponseTypeDef:
         """
-        [Client.get_typed_link_facet_information documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.get_typed_link_facet_information)
+        [Client.get_typed_link_facet_information documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.get_typed_link_facet_information)
         """
 
     def list_applied_schema_arns(
@@ -459,7 +458,7 @@ class CloudDirectoryClient:
         MaxResults: int = None,
     ) -> ListAppliedSchemaArnsResponseTypeDef:
         """
-        [Client.list_applied_schema_arns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.list_applied_schema_arns)
+        [Client.list_applied_schema_arns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.list_applied_schema_arns)
         """
 
     def list_attached_indices(
@@ -471,14 +470,14 @@ class CloudDirectoryClient:
         ConsistencyLevel: Literal["SERIALIZABLE", "EVENTUAL"] = None,
     ) -> ListAttachedIndicesResponseTypeDef:
         """
-        [Client.list_attached_indices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.list_attached_indices)
+        [Client.list_attached_indices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.list_attached_indices)
         """
 
     def list_development_schema_arns(
         self, NextToken: str = None, MaxResults: int = None
     ) -> ListDevelopmentSchemaArnsResponseTypeDef:
         """
-        [Client.list_development_schema_arns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.list_development_schema_arns)
+        [Client.list_development_schema_arns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.list_development_schema_arns)
         """
 
     def list_directories(
@@ -488,21 +487,21 @@ class CloudDirectoryClient:
         state: Literal["ENABLED", "DISABLED", "DELETED"] = None,
     ) -> ListDirectoriesResponseTypeDef:
         """
-        [Client.list_directories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.list_directories)
+        [Client.list_directories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.list_directories)
         """
 
     def list_facet_attributes(
         self, SchemaArn: str, Name: str, NextToken: str = None, MaxResults: int = None
     ) -> ListFacetAttributesResponseTypeDef:
         """
-        [Client.list_facet_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.list_facet_attributes)
+        [Client.list_facet_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.list_facet_attributes)
         """
 
     def list_facet_names(
         self, SchemaArn: str, NextToken: str = None, MaxResults: int = None
     ) -> ListFacetNamesResponseTypeDef:
         """
-        [Client.list_facet_names documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.list_facet_names)
+        [Client.list_facet_names documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.list_facet_names)
         """
 
     def list_incoming_typed_links(
@@ -516,7 +515,7 @@ class CloudDirectoryClient:
         ConsistencyLevel: Literal["SERIALIZABLE", "EVENTUAL"] = None,
     ) -> ListIncomingTypedLinksResponseTypeDef:
         """
-        [Client.list_incoming_typed_links documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.list_incoming_typed_links)
+        [Client.list_incoming_typed_links documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.list_incoming_typed_links)
         """
 
     def list_index(
@@ -529,14 +528,14 @@ class CloudDirectoryClient:
         ConsistencyLevel: Literal["SERIALIZABLE", "EVENTUAL"] = None,
     ) -> ListIndexResponseTypeDef:
         """
-        [Client.list_index documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.list_index)
+        [Client.list_index documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.list_index)
         """
 
     def list_managed_schema_arns(
         self, SchemaArn: str = None, NextToken: str = None, MaxResults: int = None
     ) -> ListManagedSchemaArnsResponseTypeDef:
         """
-        [Client.list_managed_schema_arns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.list_managed_schema_arns)
+        [Client.list_managed_schema_arns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.list_managed_schema_arns)
         """
 
     def list_object_attributes(
@@ -549,7 +548,7 @@ class CloudDirectoryClient:
         FacetFilter: "SchemaFacetTypeDef" = None,
     ) -> ListObjectAttributesResponseTypeDef:
         """
-        [Client.list_object_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.list_object_attributes)
+        [Client.list_object_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.list_object_attributes)
         """
 
     def list_object_children(
@@ -561,7 +560,7 @@ class CloudDirectoryClient:
         ConsistencyLevel: Literal["SERIALIZABLE", "EVENTUAL"] = None,
     ) -> ListObjectChildrenResponseTypeDef:
         """
-        [Client.list_object_children documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.list_object_children)
+        [Client.list_object_children documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.list_object_children)
         """
 
     def list_object_parent_paths(
@@ -572,7 +571,7 @@ class CloudDirectoryClient:
         MaxResults: int = None,
     ) -> ListObjectParentPathsResponseTypeDef:
         """
-        [Client.list_object_parent_paths documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.list_object_parent_paths)
+        [Client.list_object_parent_paths documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.list_object_parent_paths)
         """
 
     def list_object_parents(
@@ -585,7 +584,7 @@ class CloudDirectoryClient:
         IncludeAllLinksToEachParent: bool = None,
     ) -> ListObjectParentsResponseTypeDef:
         """
-        [Client.list_object_parents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.list_object_parents)
+        [Client.list_object_parents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.list_object_parents)
         """
 
     def list_object_policies(
@@ -597,7 +596,7 @@ class CloudDirectoryClient:
         ConsistencyLevel: Literal["SERIALIZABLE", "EVENTUAL"] = None,
     ) -> ListObjectPoliciesResponseTypeDef:
         """
-        [Client.list_object_policies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.list_object_policies)
+        [Client.list_object_policies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.list_object_policies)
         """
 
     def list_outgoing_typed_links(
@@ -611,7 +610,7 @@ class CloudDirectoryClient:
         ConsistencyLevel: Literal["SERIALIZABLE", "EVENTUAL"] = None,
     ) -> ListOutgoingTypedLinksResponseTypeDef:
         """
-        [Client.list_outgoing_typed_links documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.list_outgoing_typed_links)
+        [Client.list_outgoing_typed_links documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.list_outgoing_typed_links)
         """
 
     def list_policy_attachments(
@@ -623,35 +622,35 @@ class CloudDirectoryClient:
         ConsistencyLevel: Literal["SERIALIZABLE", "EVENTUAL"] = None,
     ) -> ListPolicyAttachmentsResponseTypeDef:
         """
-        [Client.list_policy_attachments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.list_policy_attachments)
+        [Client.list_policy_attachments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.list_policy_attachments)
         """
 
     def list_published_schema_arns(
         self, SchemaArn: str = None, NextToken: str = None, MaxResults: int = None
     ) -> ListPublishedSchemaArnsResponseTypeDef:
         """
-        [Client.list_published_schema_arns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.list_published_schema_arns)
+        [Client.list_published_schema_arns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.list_published_schema_arns)
         """
 
     def list_tags_for_resource(
         self, ResourceArn: str, NextToken: str = None, MaxResults: int = None
     ) -> ListTagsForResourceResponseTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.list_tags_for_resource)
         """
 
     def list_typed_link_facet_attributes(
         self, SchemaArn: str, Name: str, NextToken: str = None, MaxResults: int = None
     ) -> ListTypedLinkFacetAttributesResponseTypeDef:
         """
-        [Client.list_typed_link_facet_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.list_typed_link_facet_attributes)
+        [Client.list_typed_link_facet_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.list_typed_link_facet_attributes)
         """
 
     def list_typed_link_facet_names(
         self, SchemaArn: str, NextToken: str = None, MaxResults: int = None
     ) -> ListTypedLinkFacetNamesResponseTypeDef:
         """
-        [Client.list_typed_link_facet_names documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.list_typed_link_facet_names)
+        [Client.list_typed_link_facet_names documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.list_typed_link_facet_names)
         """
 
     def lookup_policy(
@@ -662,21 +661,21 @@ class CloudDirectoryClient:
         MaxResults: int = None,
     ) -> LookupPolicyResponseTypeDef:
         """
-        [Client.lookup_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.lookup_policy)
+        [Client.lookup_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.lookup_policy)
         """
 
     def publish_schema(
         self, DevelopmentSchemaArn: str, Version: str, MinorVersion: str = None, Name: str = None
     ) -> PublishSchemaResponseTypeDef:
         """
-        [Client.publish_schema documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.publish_schema)
+        [Client.publish_schema documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.publish_schema)
         """
 
     def put_schema_from_json(
         self, SchemaArn: str, Document: str
     ) -> PutSchemaFromJsonResponseTypeDef:
         """
-        [Client.put_schema_from_json documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.put_schema_from_json)
+        [Client.put_schema_from_json documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.put_schema_from_json)
         """
 
     def remove_facet_from_object(
@@ -686,17 +685,17 @@ class CloudDirectoryClient:
         ObjectReference: "ObjectReferenceTypeDef",
     ) -> Dict[str, Any]:
         """
-        [Client.remove_facet_from_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.remove_facet_from_object)
+        [Client.remove_facet_from_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.remove_facet_from_object)
         """
 
     def tag_resource(self, ResourceArn: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.tag_resource)
         """
 
     def untag_resource(self, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.untag_resource)
         """
 
     def update_facet(
@@ -707,7 +706,7 @@ class CloudDirectoryClient:
         ObjectType: Literal["NODE", "LEAF_NODE", "POLICY", "INDEX"] = None,
     ) -> Dict[str, Any]:
         """
-        [Client.update_facet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.update_facet)
+        [Client.update_facet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.update_facet)
         """
 
     def update_link_attributes(
@@ -717,7 +716,7 @@ class CloudDirectoryClient:
         AttributeUpdates: List["LinkAttributeUpdateTypeDef"],
     ) -> Dict[str, Any]:
         """
-        [Client.update_link_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.update_link_attributes)
+        [Client.update_link_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.update_link_attributes)
         """
 
     def update_object_attributes(
@@ -727,12 +726,12 @@ class CloudDirectoryClient:
         AttributeUpdates: List["ObjectAttributeUpdateTypeDef"],
     ) -> UpdateObjectAttributesResponseTypeDef:
         """
-        [Client.update_object_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.update_object_attributes)
+        [Client.update_object_attributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.update_object_attributes)
         """
 
     def update_schema(self, SchemaArn: str, Name: str) -> UpdateSchemaResponseTypeDef:
         """
-        [Client.update_schema documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.update_schema)
+        [Client.update_schema documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.update_schema)
         """
 
     def update_typed_link_facet(
@@ -743,14 +742,14 @@ class CloudDirectoryClient:
         IdentityAttributeOrder: List[str],
     ) -> Dict[str, Any]:
         """
-        [Client.update_typed_link_facet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.update_typed_link_facet)
+        [Client.update_typed_link_facet documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.update_typed_link_facet)
         """
 
     def upgrade_applied_schema(
         self, PublishedSchemaArn: str, DirectoryArn: str, DryRun: bool = None
     ) -> UpgradeAppliedSchemaResponseTypeDef:
         """
-        [Client.upgrade_applied_schema documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.upgrade_applied_schema)
+        [Client.upgrade_applied_schema documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.upgrade_applied_schema)
         """
 
     def upgrade_published_schema(
@@ -761,7 +760,7 @@ class CloudDirectoryClient:
         DryRun: bool = None,
     ) -> UpgradePublishedSchemaResponseTypeDef:
         """
-        [Client.upgrade_published_schema documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Client.upgrade_published_schema)
+        [Client.upgrade_published_schema documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Client.upgrade_published_schema)
         """
 
     @overload
@@ -769,7 +768,7 @@ class CloudDirectoryClient:
         self, operation_name: Literal["list_applied_schema_arns"]
     ) -> ListAppliedSchemaArnsPaginator:
         """
-        [Paginator.ListAppliedSchemaArns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListAppliedSchemaArns)
+        [Paginator.ListAppliedSchemaArns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListAppliedSchemaArns)
         """
 
     @overload
@@ -777,7 +776,7 @@ class CloudDirectoryClient:
         self, operation_name: Literal["list_attached_indices"]
     ) -> ListAttachedIndicesPaginator:
         """
-        [Paginator.ListAttachedIndices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListAttachedIndices)
+        [Paginator.ListAttachedIndices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListAttachedIndices)
         """
 
     @overload
@@ -785,7 +784,7 @@ class CloudDirectoryClient:
         self, operation_name: Literal["list_development_schema_arns"]
     ) -> ListDevelopmentSchemaArnsPaginator:
         """
-        [Paginator.ListDevelopmentSchemaArns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListDevelopmentSchemaArns)
+        [Paginator.ListDevelopmentSchemaArns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListDevelopmentSchemaArns)
         """
 
     @overload
@@ -793,7 +792,7 @@ class CloudDirectoryClient:
         self, operation_name: Literal["list_directories"]
     ) -> ListDirectoriesPaginator:
         """
-        [Paginator.ListDirectories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListDirectories)
+        [Paginator.ListDirectories documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListDirectories)
         """
 
     @overload
@@ -801,13 +800,13 @@ class CloudDirectoryClient:
         self, operation_name: Literal["list_facet_attributes"]
     ) -> ListFacetAttributesPaginator:
         """
-        [Paginator.ListFacetAttributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListFacetAttributes)
+        [Paginator.ListFacetAttributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListFacetAttributes)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_facet_names"]) -> ListFacetNamesPaginator:
         """
-        [Paginator.ListFacetNames documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListFacetNames)
+        [Paginator.ListFacetNames documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListFacetNames)
         """
 
     @overload
@@ -815,13 +814,13 @@ class CloudDirectoryClient:
         self, operation_name: Literal["list_incoming_typed_links"]
     ) -> ListIncomingTypedLinksPaginator:
         """
-        [Paginator.ListIncomingTypedLinks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListIncomingTypedLinks)
+        [Paginator.ListIncomingTypedLinks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListIncomingTypedLinks)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_index"]) -> ListIndexPaginator:
         """
-        [Paginator.ListIndex documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListIndex)
+        [Paginator.ListIndex documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListIndex)
         """
 
     @overload
@@ -829,7 +828,7 @@ class CloudDirectoryClient:
         self, operation_name: Literal["list_managed_schema_arns"]
     ) -> ListManagedSchemaArnsPaginator:
         """
-        [Paginator.ListManagedSchemaArns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListManagedSchemaArns)
+        [Paginator.ListManagedSchemaArns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListManagedSchemaArns)
         """
 
     @overload
@@ -837,7 +836,7 @@ class CloudDirectoryClient:
         self, operation_name: Literal["list_object_attributes"]
     ) -> ListObjectAttributesPaginator:
         """
-        [Paginator.ListObjectAttributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListObjectAttributes)
+        [Paginator.ListObjectAttributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListObjectAttributes)
         """
 
     @overload
@@ -845,7 +844,7 @@ class CloudDirectoryClient:
         self, operation_name: Literal["list_object_parent_paths"]
     ) -> ListObjectParentPathsPaginator:
         """
-        [Paginator.ListObjectParentPaths documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListObjectParentPaths)
+        [Paginator.ListObjectParentPaths documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListObjectParentPaths)
         """
 
     @overload
@@ -853,7 +852,7 @@ class CloudDirectoryClient:
         self, operation_name: Literal["list_object_policies"]
     ) -> ListObjectPoliciesPaginator:
         """
-        [Paginator.ListObjectPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListObjectPolicies)
+        [Paginator.ListObjectPolicies documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListObjectPolicies)
         """
 
     @overload
@@ -861,7 +860,7 @@ class CloudDirectoryClient:
         self, operation_name: Literal["list_outgoing_typed_links"]
     ) -> ListOutgoingTypedLinksPaginator:
         """
-        [Paginator.ListOutgoingTypedLinks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListOutgoingTypedLinks)
+        [Paginator.ListOutgoingTypedLinks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListOutgoingTypedLinks)
         """
 
     @overload
@@ -869,7 +868,7 @@ class CloudDirectoryClient:
         self, operation_name: Literal["list_policy_attachments"]
     ) -> ListPolicyAttachmentsPaginator:
         """
-        [Paginator.ListPolicyAttachments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListPolicyAttachments)
+        [Paginator.ListPolicyAttachments documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListPolicyAttachments)
         """
 
     @overload
@@ -877,7 +876,7 @@ class CloudDirectoryClient:
         self, operation_name: Literal["list_published_schema_arns"]
     ) -> ListPublishedSchemaArnsPaginator:
         """
-        [Paginator.ListPublishedSchemaArns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListPublishedSchemaArns)
+        [Paginator.ListPublishedSchemaArns documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListPublishedSchemaArns)
         """
 
     @overload
@@ -885,7 +884,7 @@ class CloudDirectoryClient:
         self, operation_name: Literal["list_tags_for_resource"]
     ) -> ListTagsForResourcePaginator:
         """
-        [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListTagsForResource)
+        [Paginator.ListTagsForResource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListTagsForResource)
         """
 
     @overload
@@ -893,7 +892,7 @@ class CloudDirectoryClient:
         self, operation_name: Literal["list_typed_link_facet_attributes"]
     ) -> ListTypedLinkFacetAttributesPaginator:
         """
-        [Paginator.ListTypedLinkFacetAttributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListTypedLinkFacetAttributes)
+        [Paginator.ListTypedLinkFacetAttributes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListTypedLinkFacetAttributes)
         """
 
     @overload
@@ -901,11 +900,11 @@ class CloudDirectoryClient:
         self, operation_name: Literal["list_typed_link_facet_names"]
     ) -> ListTypedLinkFacetNamesPaginator:
         """
-        [Paginator.ListTypedLinkFacetNames documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListTypedLinkFacetNames)
+        [Paginator.ListTypedLinkFacetNames documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Paginator.ListTypedLinkFacetNames)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["lookup_policy"]) -> LookupPolicyPaginator:
         """
-        [Paginator.LookupPolicy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/clouddirectory.html#CloudDirectory.Paginator.LookupPolicy)
+        [Paginator.LookupPolicy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/clouddirectory.html#CloudDirectory.Paginator.LookupPolicy)
         """

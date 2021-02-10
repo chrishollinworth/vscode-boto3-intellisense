@@ -4,9 +4,9 @@ Main interface for dlm service type definitions.
 Usage::
 
     ```python
-    from mypy_boto3_dlm.type_defs import CreateRuleTypeDef
+    from mypy_boto3_dlm.type_defs import ActionTypeDef
 
-    data: CreateRuleTypeDef = {...}
+    data: ActionTypeDef = {...}
     ```
 """
 import sys
@@ -24,9 +24,14 @@ else:
 
 
 __all__ = (
+    "ActionTypeDef",
     "CreateRuleTypeDef",
+    "CrossRegionCopyActionTypeDef",
     "CrossRegionCopyRetainRuleTypeDef",
     "CrossRegionCopyRuleTypeDef",
+    "EncryptionConfigurationTypeDef",
+    "EventParametersTypeDef",
+    "EventSourceTypeDef",
     "FastRestoreRuleTypeDef",
     "LifecyclePolicySummaryTypeDef",
     "LifecyclePolicyTypeDef",
@@ -34,6 +39,7 @@ __all__ = (
     "PolicyDetailsTypeDef",
     "RetainRuleTypeDef",
     "ScheduleTypeDef",
+    "ShareRuleTypeDef",
     "TagTypeDef",
     "CreateLifecyclePolicyResponseTypeDef",
     "GetLifecyclePoliciesResponseTypeDef",
@@ -41,11 +47,38 @@ __all__ = (
     "ListTagsForResourceResponseTypeDef",
 )
 
+ActionTypeDef = TypedDict(
+    "ActionTypeDef", {"Name": str, "CrossRegionCopy": List["CrossRegionCopyActionTypeDef"]}
+)
+
 CreateRuleTypeDef = TypedDict(
     "CreateRuleTypeDef",
-    {"Interval": int, "IntervalUnit": Literal["HOURS"], "Times": List[str], "CronExpression": str},
+    {
+        "Location": Literal["CLOUD", "OUTPOST_LOCAL"],
+        "Interval": int,
+        "IntervalUnit": Literal["HOURS"],
+        "Times": List[str],
+        "CronExpression": str,
+    },
     total=False,
 )
+
+_RequiredCrossRegionCopyActionTypeDef = TypedDict(
+    "_RequiredCrossRegionCopyActionTypeDef",
+    {"Target": str, "EncryptionConfiguration": "EncryptionConfigurationTypeDef"},
+)
+_OptionalCrossRegionCopyActionTypeDef = TypedDict(
+    "_OptionalCrossRegionCopyActionTypeDef",
+    {"RetainRule": "CrossRegionCopyRetainRuleTypeDef"},
+    total=False,
+)
+
+
+class CrossRegionCopyActionTypeDef(
+    _RequiredCrossRegionCopyActionTypeDef, _OptionalCrossRegionCopyActionTypeDef
+):
+    pass
+
 
 CrossRegionCopyRetainRuleTypeDef = TypedDict(
     "CrossRegionCopyRetainRuleTypeDef",
@@ -54,11 +87,17 @@ CrossRegionCopyRetainRuleTypeDef = TypedDict(
 )
 
 _RequiredCrossRegionCopyRuleTypeDef = TypedDict(
-    "_RequiredCrossRegionCopyRuleTypeDef", {"TargetRegion": str, "Encrypted": bool}
+    "_RequiredCrossRegionCopyRuleTypeDef", {"Encrypted": bool}
 )
 _OptionalCrossRegionCopyRuleTypeDef = TypedDict(
     "_OptionalCrossRegionCopyRuleTypeDef",
-    {"CmkArn": str, "CopyTags": bool, "RetainRule": "CrossRegionCopyRetainRuleTypeDef"},
+    {
+        "TargetRegion": str,
+        "Target": str,
+        "CmkArn": str,
+        "CopyTags": bool,
+        "RetainRule": "CrossRegionCopyRetainRuleTypeDef",
+    },
     total=False,
 )
 
@@ -66,6 +105,37 @@ _OptionalCrossRegionCopyRuleTypeDef = TypedDict(
 class CrossRegionCopyRuleTypeDef(
     _RequiredCrossRegionCopyRuleTypeDef, _OptionalCrossRegionCopyRuleTypeDef
 ):
+    pass
+
+
+_RequiredEncryptionConfigurationTypeDef = TypedDict(
+    "_RequiredEncryptionConfigurationTypeDef", {"Encrypted": bool}
+)
+_OptionalEncryptionConfigurationTypeDef = TypedDict(
+    "_OptionalEncryptionConfigurationTypeDef", {"CmkArn": str}, total=False
+)
+
+
+class EncryptionConfigurationTypeDef(
+    _RequiredEncryptionConfigurationTypeDef, _OptionalEncryptionConfigurationTypeDef
+):
+    pass
+
+
+EventParametersTypeDef = TypedDict(
+    "EventParametersTypeDef",
+    {"EventType": Literal["shareSnapshot"], "SnapshotOwner": List[str], "DescriptionRegex": str},
+)
+
+_RequiredEventSourceTypeDef = TypedDict(
+    "_RequiredEventSourceTypeDef", {"Type": Literal["MANAGED_CWE"]}
+)
+_OptionalEventSourceTypeDef = TypedDict(
+    "_OptionalEventSourceTypeDef", {"Parameters": "EventParametersTypeDef"}, total=False
+)
+
+
+class EventSourceTypeDef(_RequiredEventSourceTypeDef, _OptionalEventSourceTypeDef):
     pass
 
 
@@ -90,7 +160,7 @@ LifecyclePolicySummaryTypeDef = TypedDict(
         "Description": str,
         "State": Literal["ENABLED", "DISABLED", "ERROR"],
         "Tags": Dict[str, str],
-        "PolicyType": Literal["EBS_SNAPSHOT_MANAGEMENT", "IMAGE_MANAGEMENT"],
+        "PolicyType": Literal["EBS_SNAPSHOT_MANAGEMENT", "IMAGE_MANAGEMENT", "EVENT_BASED_POLICY"],
     },
     total=False,
 )
@@ -119,11 +189,14 @@ ParametersTypeDef = TypedDict(
 PolicyDetailsTypeDef = TypedDict(
     "PolicyDetailsTypeDef",
     {
-        "PolicyType": Literal["EBS_SNAPSHOT_MANAGEMENT", "IMAGE_MANAGEMENT"],
+        "PolicyType": Literal["EBS_SNAPSHOT_MANAGEMENT", "IMAGE_MANAGEMENT", "EVENT_BASED_POLICY"],
         "ResourceTypes": List[Literal["VOLUME", "INSTANCE"]],
+        "ResourceLocations": List[Literal["CLOUD", "OUTPOST"]],
         "TargetTags": List["TagTypeDef"],
         "Schedules": List["ScheduleTypeDef"],
         "Parameters": "ParametersTypeDef",
+        "EventSource": "EventSourceTypeDef",
+        "Actions": List["ActionTypeDef"],
     },
     total=False,
 )
@@ -145,9 +218,22 @@ ScheduleTypeDef = TypedDict(
         "RetainRule": "RetainRuleTypeDef",
         "FastRestoreRule": "FastRestoreRuleTypeDef",
         "CrossRegionCopyRules": List["CrossRegionCopyRuleTypeDef"],
+        "ShareRules": List["ShareRuleTypeDef"],
     },
     total=False,
 )
+
+_RequiredShareRuleTypeDef = TypedDict("_RequiredShareRuleTypeDef", {"TargetAccounts": List[str]})
+_OptionalShareRuleTypeDef = TypedDict(
+    "_OptionalShareRuleTypeDef",
+    {"UnshareInterval": int, "UnshareIntervalUnit": Literal["DAYS", "WEEKS", "MONTHS", "YEARS"]},
+    total=False,
+)
+
+
+class ShareRuleTypeDef(_RequiredShareRuleTypeDef, _OptionalShareRuleTypeDef):
+    pass
+
 
 TagTypeDef = TypedDict("TagTypeDef", {"Key": str, "Value": str})
 

@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for networkmanager service client
 
@@ -18,21 +17,27 @@ from botocore.client import ClientMeta
 
 from mypy_boto3_networkmanager.paginator import (
     DescribeGlobalNetworksPaginator,
+    GetConnectionsPaginator,
     GetCustomerGatewayAssociationsPaginator,
     GetDevicesPaginator,
     GetLinkAssociationsPaginator,
     GetLinksPaginator,
     GetSitesPaginator,
+    GetTransitGatewayConnectPeerAssociationsPaginator,
     GetTransitGatewayRegistrationsPaginator,
 )
 from mypy_boto3_networkmanager.type_defs import (
     AssociateCustomerGatewayResponseTypeDef,
     AssociateLinkResponseTypeDef,
+    AssociateTransitGatewayConnectPeerResponseTypeDef,
+    AWSLocationTypeDef,
     BandwidthTypeDef,
+    CreateConnectionResponseTypeDef,
     CreateDeviceResponseTypeDef,
     CreateGlobalNetworkResponseTypeDef,
     CreateLinkResponseTypeDef,
     CreateSiteResponseTypeDef,
+    DeleteConnectionResponseTypeDef,
     DeleteDeviceResponseTypeDef,
     DeleteGlobalNetworkResponseTypeDef,
     DeleteLinkResponseTypeDef,
@@ -41,16 +46,20 @@ from mypy_boto3_networkmanager.type_defs import (
     DescribeGlobalNetworksResponseTypeDef,
     DisassociateCustomerGatewayResponseTypeDef,
     DisassociateLinkResponseTypeDef,
+    DisassociateTransitGatewayConnectPeerResponseTypeDef,
+    GetConnectionsResponseTypeDef,
     GetCustomerGatewayAssociationsResponseTypeDef,
     GetDevicesResponseTypeDef,
     GetLinkAssociationsResponseTypeDef,
     GetLinksResponseTypeDef,
     GetSitesResponseTypeDef,
+    GetTransitGatewayConnectPeerAssociationsResponseTypeDef,
     GetTransitGatewayRegistrationsResponseTypeDef,
     ListTagsForResourceResponseTypeDef,
     LocationTypeDef,
     RegisterTransitGatewayResponseTypeDef,
     TagTypeDef,
+    UpdateConnectionResponseTypeDef,
     UpdateDeviceResponseTypeDef,
     UpdateGlobalNetworkResponseTypeDef,
     UpdateLinkResponseTypeDef,
@@ -87,7 +96,7 @@ class Exceptions:
 
 class NetworkManagerClient:
     """
-    [NetworkManager.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/networkmanager.html#NetworkManager.Client)
+    [NetworkManager.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Client)
     """
 
     meta: ClientMeta
@@ -97,24 +106,50 @@ class NetworkManagerClient:
         self, CustomerGatewayArn: str, GlobalNetworkId: str, DeviceId: str, LinkId: str = None
     ) -> AssociateCustomerGatewayResponseTypeDef:
         """
-        [Client.associate_customer_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/networkmanager.html#NetworkManager.Client.associate_customer_gateway)
+        [Client.associate_customer_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Client.associate_customer_gateway)
         """
 
     def associate_link(
         self, GlobalNetworkId: str, DeviceId: str, LinkId: str
     ) -> AssociateLinkResponseTypeDef:
         """
-        [Client.associate_link documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/networkmanager.html#NetworkManager.Client.associate_link)
+        [Client.associate_link documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Client.associate_link)
+        """
+
+    def associate_transit_gateway_connect_peer(
+        self,
+        GlobalNetworkId: str,
+        TransitGatewayConnectPeerArn: str,
+        DeviceId: str,
+        LinkId: str = None,
+    ) -> AssociateTransitGatewayConnectPeerResponseTypeDef:
+        """
+        [Client.associate_transit_gateway_connect_peer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Client.associate_transit_gateway_connect_peer)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/networkmanager.html#NetworkManager.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Client.can_paginate)
+        """
+
+    def create_connection(
+        self,
+        GlobalNetworkId: str,
+        DeviceId: str,
+        ConnectedDeviceId: str,
+        LinkId: str = None,
+        ConnectedLinkId: str = None,
+        Description: str = None,
+        Tags: List["TagTypeDef"] = None,
+    ) -> CreateConnectionResponseTypeDef:
+        """
+        [Client.create_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Client.create_connection)
         """
 
     def create_device(
         self,
         GlobalNetworkId: str,
+        AWSLocation: "AWSLocationTypeDef" = None,
         Description: str = None,
         Type: str = None,
         Vendor: str = None,
@@ -125,14 +160,14 @@ class NetworkManagerClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateDeviceResponseTypeDef:
         """
-        [Client.create_device documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/networkmanager.html#NetworkManager.Client.create_device)
+        [Client.create_device documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Client.create_device)
         """
 
     def create_global_network(
         self, Description: str = None, Tags: List["TagTypeDef"] = None
     ) -> CreateGlobalNetworkResponseTypeDef:
         """
-        [Client.create_global_network documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/networkmanager.html#NetworkManager.Client.create_global_network)
+        [Client.create_global_network documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Client.create_global_network)
         """
 
     def create_link(
@@ -146,7 +181,7 @@ class NetworkManagerClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateLinkResponseTypeDef:
         """
-        [Client.create_link documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/networkmanager.html#NetworkManager.Client.create_link)
+        [Client.create_link documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Client.create_link)
         """
 
     def create_site(
@@ -157,55 +192,69 @@ class NetworkManagerClient:
         Tags: List["TagTypeDef"] = None,
     ) -> CreateSiteResponseTypeDef:
         """
-        [Client.create_site documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/networkmanager.html#NetworkManager.Client.create_site)
+        [Client.create_site documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Client.create_site)
+        """
+
+    def delete_connection(
+        self, GlobalNetworkId: str, ConnectionId: str
+    ) -> DeleteConnectionResponseTypeDef:
+        """
+        [Client.delete_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Client.delete_connection)
         """
 
     def delete_device(self, GlobalNetworkId: str, DeviceId: str) -> DeleteDeviceResponseTypeDef:
         """
-        [Client.delete_device documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/networkmanager.html#NetworkManager.Client.delete_device)
+        [Client.delete_device documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Client.delete_device)
         """
 
     def delete_global_network(self, GlobalNetworkId: str) -> DeleteGlobalNetworkResponseTypeDef:
         """
-        [Client.delete_global_network documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/networkmanager.html#NetworkManager.Client.delete_global_network)
+        [Client.delete_global_network documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Client.delete_global_network)
         """
 
     def delete_link(self, GlobalNetworkId: str, LinkId: str) -> DeleteLinkResponseTypeDef:
         """
-        [Client.delete_link documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/networkmanager.html#NetworkManager.Client.delete_link)
+        [Client.delete_link documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Client.delete_link)
         """
 
     def delete_site(self, GlobalNetworkId: str, SiteId: str) -> DeleteSiteResponseTypeDef:
         """
-        [Client.delete_site documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/networkmanager.html#NetworkManager.Client.delete_site)
+        [Client.delete_site documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Client.delete_site)
         """
 
     def deregister_transit_gateway(
         self, GlobalNetworkId: str, TransitGatewayArn: str
     ) -> DeregisterTransitGatewayResponseTypeDef:
         """
-        [Client.deregister_transit_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/networkmanager.html#NetworkManager.Client.deregister_transit_gateway)
+        [Client.deregister_transit_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Client.deregister_transit_gateway)
         """
 
     def describe_global_networks(
         self, GlobalNetworkIds: List[str] = None, MaxResults: int = None, NextToken: str = None
     ) -> DescribeGlobalNetworksResponseTypeDef:
         """
-        [Client.describe_global_networks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/networkmanager.html#NetworkManager.Client.describe_global_networks)
+        [Client.describe_global_networks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Client.describe_global_networks)
         """
 
     def disassociate_customer_gateway(
         self, GlobalNetworkId: str, CustomerGatewayArn: str
     ) -> DisassociateCustomerGatewayResponseTypeDef:
         """
-        [Client.disassociate_customer_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/networkmanager.html#NetworkManager.Client.disassociate_customer_gateway)
+        [Client.disassociate_customer_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Client.disassociate_customer_gateway)
         """
 
     def disassociate_link(
         self, GlobalNetworkId: str, DeviceId: str, LinkId: str
     ) -> DisassociateLinkResponseTypeDef:
         """
-        [Client.disassociate_link documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/networkmanager.html#NetworkManager.Client.disassociate_link)
+        [Client.disassociate_link documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Client.disassociate_link)
+        """
+
+    def disassociate_transit_gateway_connect_peer(
+        self, GlobalNetworkId: str, TransitGatewayConnectPeerArn: str
+    ) -> DisassociateTransitGatewayConnectPeerResponseTypeDef:
+        """
+        [Client.disassociate_transit_gateway_connect_peer documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Client.disassociate_transit_gateway_connect_peer)
         """
 
     def generate_presigned_url(
@@ -216,7 +265,19 @@ class NetworkManagerClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/networkmanager.html#NetworkManager.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Client.generate_presigned_url)
+        """
+
+    def get_connections(
+        self,
+        GlobalNetworkId: str,
+        ConnectionIds: List[str] = None,
+        DeviceId: str = None,
+        MaxResults: int = None,
+        NextToken: str = None,
+    ) -> GetConnectionsResponseTypeDef:
+        """
+        [Client.get_connections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Client.get_connections)
         """
 
     def get_customer_gateway_associations(
@@ -227,7 +288,7 @@ class NetworkManagerClient:
         NextToken: str = None,
     ) -> GetCustomerGatewayAssociationsResponseTypeDef:
         """
-        [Client.get_customer_gateway_associations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/networkmanager.html#NetworkManager.Client.get_customer_gateway_associations)
+        [Client.get_customer_gateway_associations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Client.get_customer_gateway_associations)
         """
 
     def get_devices(
@@ -239,7 +300,7 @@ class NetworkManagerClient:
         NextToken: str = None,
     ) -> GetDevicesResponseTypeDef:
         """
-        [Client.get_devices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/networkmanager.html#NetworkManager.Client.get_devices)
+        [Client.get_devices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Client.get_devices)
         """
 
     def get_link_associations(
@@ -251,7 +312,7 @@ class NetworkManagerClient:
         NextToken: str = None,
     ) -> GetLinkAssociationsResponseTypeDef:
         """
-        [Client.get_link_associations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/networkmanager.html#NetworkManager.Client.get_link_associations)
+        [Client.get_link_associations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Client.get_link_associations)
         """
 
     def get_links(
@@ -265,7 +326,7 @@ class NetworkManagerClient:
         NextToken: str = None,
     ) -> GetLinksResponseTypeDef:
         """
-        [Client.get_links documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/networkmanager.html#NetworkManager.Client.get_links)
+        [Client.get_links documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Client.get_links)
         """
 
     def get_sites(
@@ -276,7 +337,18 @@ class NetworkManagerClient:
         NextToken: str = None,
     ) -> GetSitesResponseTypeDef:
         """
-        [Client.get_sites documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/networkmanager.html#NetworkManager.Client.get_sites)
+        [Client.get_sites documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Client.get_sites)
+        """
+
+    def get_transit_gateway_connect_peer_associations(
+        self,
+        GlobalNetworkId: str,
+        TransitGatewayConnectPeerArns: List[str] = None,
+        MaxResults: int = None,
+        NextToken: str = None,
+    ) -> GetTransitGatewayConnectPeerAssociationsResponseTypeDef:
+        """
+        [Client.get_transit_gateway_connect_peer_associations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Client.get_transit_gateway_connect_peer_associations)
         """
 
     def get_transit_gateway_registrations(
@@ -287,35 +359,48 @@ class NetworkManagerClient:
         NextToken: str = None,
     ) -> GetTransitGatewayRegistrationsResponseTypeDef:
         """
-        [Client.get_transit_gateway_registrations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/networkmanager.html#NetworkManager.Client.get_transit_gateway_registrations)
+        [Client.get_transit_gateway_registrations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Client.get_transit_gateway_registrations)
         """
 
     def list_tags_for_resource(self, ResourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/networkmanager.html#NetworkManager.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Client.list_tags_for_resource)
         """
 
     def register_transit_gateway(
         self, GlobalNetworkId: str, TransitGatewayArn: str
     ) -> RegisterTransitGatewayResponseTypeDef:
         """
-        [Client.register_transit_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/networkmanager.html#NetworkManager.Client.register_transit_gateway)
+        [Client.register_transit_gateway documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Client.register_transit_gateway)
         """
 
     def tag_resource(self, ResourceArn: str, Tags: List["TagTypeDef"]) -> Dict[str, Any]:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/networkmanager.html#NetworkManager.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Client.tag_resource)
         """
 
     def untag_resource(self, ResourceArn: str, TagKeys: List[str]) -> Dict[str, Any]:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/networkmanager.html#NetworkManager.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Client.untag_resource)
+        """
+
+    def update_connection(
+        self,
+        GlobalNetworkId: str,
+        ConnectionId: str,
+        LinkId: str = None,
+        ConnectedLinkId: str = None,
+        Description: str = None,
+    ) -> UpdateConnectionResponseTypeDef:
+        """
+        [Client.update_connection documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Client.update_connection)
         """
 
     def update_device(
         self,
         GlobalNetworkId: str,
         DeviceId: str,
+        AWSLocation: "AWSLocationTypeDef" = None,
         Description: str = None,
         Type: str = None,
         Vendor: str = None,
@@ -325,14 +410,14 @@ class NetworkManagerClient:
         SiteId: str = None,
     ) -> UpdateDeviceResponseTypeDef:
         """
-        [Client.update_device documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/networkmanager.html#NetworkManager.Client.update_device)
+        [Client.update_device documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Client.update_device)
         """
 
     def update_global_network(
         self, GlobalNetworkId: str, Description: str = None
     ) -> UpdateGlobalNetworkResponseTypeDef:
         """
-        [Client.update_global_network documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/networkmanager.html#NetworkManager.Client.update_global_network)
+        [Client.update_global_network documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Client.update_global_network)
         """
 
     def update_link(
@@ -345,7 +430,7 @@ class NetworkManagerClient:
         Provider: str = None,
     ) -> UpdateLinkResponseTypeDef:
         """
-        [Client.update_link documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/networkmanager.html#NetworkManager.Client.update_link)
+        [Client.update_link documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Client.update_link)
         """
 
     def update_site(
@@ -356,7 +441,7 @@ class NetworkManagerClient:
         Location: "LocationTypeDef" = None,
     ) -> UpdateSiteResponseTypeDef:
         """
-        [Client.update_site documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/networkmanager.html#NetworkManager.Client.update_site)
+        [Client.update_site documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Client.update_site)
         """
 
     @overload
@@ -364,7 +449,13 @@ class NetworkManagerClient:
         self, operation_name: Literal["describe_global_networks"]
     ) -> DescribeGlobalNetworksPaginator:
         """
-        [Paginator.DescribeGlobalNetworks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/networkmanager.html#NetworkManager.Paginator.DescribeGlobalNetworks)
+        [Paginator.DescribeGlobalNetworks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Paginator.DescribeGlobalNetworks)
+        """
+
+    @overload
+    def get_paginator(self, operation_name: Literal["get_connections"]) -> GetConnectionsPaginator:
+        """
+        [Paginator.GetConnections documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Paginator.GetConnections)
         """
 
     @overload
@@ -372,13 +463,13 @@ class NetworkManagerClient:
         self, operation_name: Literal["get_customer_gateway_associations"]
     ) -> GetCustomerGatewayAssociationsPaginator:
         """
-        [Paginator.GetCustomerGatewayAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/networkmanager.html#NetworkManager.Paginator.GetCustomerGatewayAssociations)
+        [Paginator.GetCustomerGatewayAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Paginator.GetCustomerGatewayAssociations)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_devices"]) -> GetDevicesPaginator:
         """
-        [Paginator.GetDevices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/networkmanager.html#NetworkManager.Paginator.GetDevices)
+        [Paginator.GetDevices documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Paginator.GetDevices)
         """
 
     @overload
@@ -386,19 +477,27 @@ class NetworkManagerClient:
         self, operation_name: Literal["get_link_associations"]
     ) -> GetLinkAssociationsPaginator:
         """
-        [Paginator.GetLinkAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/networkmanager.html#NetworkManager.Paginator.GetLinkAssociations)
+        [Paginator.GetLinkAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Paginator.GetLinkAssociations)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_links"]) -> GetLinksPaginator:
         """
-        [Paginator.GetLinks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/networkmanager.html#NetworkManager.Paginator.GetLinks)
+        [Paginator.GetLinks documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Paginator.GetLinks)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["get_sites"]) -> GetSitesPaginator:
         """
-        [Paginator.GetSites documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/networkmanager.html#NetworkManager.Paginator.GetSites)
+        [Paginator.GetSites documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Paginator.GetSites)
+        """
+
+    @overload
+    def get_paginator(
+        self, operation_name: Literal["get_transit_gateway_connect_peer_associations"]
+    ) -> GetTransitGatewayConnectPeerAssociationsPaginator:
+        """
+        [Paginator.GetTransitGatewayConnectPeerAssociations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Paginator.GetTransitGatewayConnectPeerAssociations)
         """
 
     @overload
@@ -406,5 +505,5 @@ class NetworkManagerClient:
         self, operation_name: Literal["get_transit_gateway_registrations"]
     ) -> GetTransitGatewayRegistrationsPaginator:
         """
-        [Paginator.GetTransitGatewayRegistrations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/networkmanager.html#NetworkManager.Paginator.GetTransitGatewayRegistrations)
+        [Paginator.GetTransitGatewayRegistrations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/networkmanager.html#NetworkManager.Paginator.GetTransitGatewayRegistrations)
         """

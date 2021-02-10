@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for customer-profiles service client
 
@@ -77,7 +76,7 @@ class Exceptions:
 
 class CustomerProfilesClient:
     """
-    [CustomerProfiles.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/customer-profiles.html#CustomerProfiles.Client)
+    [CustomerProfiles.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/customer-profiles.html#CustomerProfiles.Client)
     """
 
     meta: ClientMeta
@@ -87,12 +86,12 @@ class CustomerProfilesClient:
         self, ProfileId: str, KeyName: str, Values: List[str], DomainName: str
     ) -> AddProfileKeyResponseTypeDef:
         """
-        [Client.add_profile_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/customer-profiles.html#CustomerProfiles.Client.add_profile_key)
+        [Client.add_profile_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/customer-profiles.html#CustomerProfiles.Client.add_profile_key)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/customer-profiles.html#CustomerProfiles.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/customer-profiles.html#CustomerProfiles.Client.can_paginate)
         """
 
     def create_domain(
@@ -104,7 +103,7 @@ class CustomerProfilesClient:
         Tags: Dict[str, str] = None,
     ) -> CreateDomainResponseTypeDef:
         """
-        [Client.create_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/customer-profiles.html#CustomerProfiles.Client.create_domain)
+        [Client.create_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/customer-profiles.html#CustomerProfiles.Client.create_domain)
         """
 
     def create_profile(
@@ -133,45 +132,43 @@ class CustomerProfilesClient:
         Attributes: Dict[str, str] = None,
     ) -> CreateProfileResponseTypeDef:
         """
-        [Client.create_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/customer-profiles.html#CustomerProfiles.Client.create_profile)
+        [Client.create_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/customer-profiles.html#CustomerProfiles.Client.create_profile)
         """
 
     def delete_domain(self, DomainName: str) -> DeleteDomainResponseTypeDef:
         """
-        [Client.delete_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/customer-profiles.html#CustomerProfiles.Client.delete_domain)
+        [Client.delete_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/customer-profiles.html#CustomerProfiles.Client.delete_domain)
         """
 
-    def delete_integration(
-        self, DomainName: str, Uri: str = None
-    ) -> DeleteIntegrationResponseTypeDef:
+    def delete_integration(self, DomainName: str, Uri: str) -> DeleteIntegrationResponseTypeDef:
         """
-        [Client.delete_integration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/customer-profiles.html#CustomerProfiles.Client.delete_integration)
+        [Client.delete_integration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/customer-profiles.html#CustomerProfiles.Client.delete_integration)
         """
 
     def delete_profile(self, ProfileId: str, DomainName: str) -> DeleteProfileResponseTypeDef:
         """
-        [Client.delete_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/customer-profiles.html#CustomerProfiles.Client.delete_profile)
+        [Client.delete_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/customer-profiles.html#CustomerProfiles.Client.delete_profile)
         """
 
     def delete_profile_key(
         self, ProfileId: str, KeyName: str, Values: List[str], DomainName: str
     ) -> DeleteProfileKeyResponseTypeDef:
         """
-        [Client.delete_profile_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/customer-profiles.html#CustomerProfiles.Client.delete_profile_key)
+        [Client.delete_profile_key documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/customer-profiles.html#CustomerProfiles.Client.delete_profile_key)
         """
 
     def delete_profile_object(
         self, ProfileId: str, ProfileObjectUniqueKey: str, ObjectTypeName: str, DomainName: str
     ) -> DeleteProfileObjectResponseTypeDef:
         """
-        [Client.delete_profile_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/customer-profiles.html#CustomerProfiles.Client.delete_profile_object)
+        [Client.delete_profile_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/customer-profiles.html#CustomerProfiles.Client.delete_profile_object)
         """
 
     def delete_profile_object_type(
         self, DomainName: str, ObjectTypeName: str
     ) -> DeleteProfileObjectTypeResponseTypeDef:
         """
-        [Client.delete_profile_object_type documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/customer-profiles.html#CustomerProfiles.Client.delete_profile_object_type)
+        [Client.delete_profile_object_type documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/customer-profiles.html#CustomerProfiles.Client.delete_profile_object_type)
         """
 
     def generate_presigned_url(
@@ -182,66 +179,66 @@ class CustomerProfilesClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/customer-profiles.html#CustomerProfiles.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/customer-profiles.html#CustomerProfiles.Client.generate_presigned_url)
         """
 
     def get_domain(self, DomainName: str) -> GetDomainResponseTypeDef:
         """
-        [Client.get_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/customer-profiles.html#CustomerProfiles.Client.get_domain)
+        [Client.get_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/customer-profiles.html#CustomerProfiles.Client.get_domain)
         """
 
-    def get_integration(self, DomainName: str, Uri: str = None) -> GetIntegrationResponseTypeDef:
+    def get_integration(self, DomainName: str, Uri: str) -> GetIntegrationResponseTypeDef:
         """
-        [Client.get_integration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/customer-profiles.html#CustomerProfiles.Client.get_integration)
+        [Client.get_integration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/customer-profiles.html#CustomerProfiles.Client.get_integration)
         """
 
     def get_profile_object_type(
         self, DomainName: str, ObjectTypeName: str
     ) -> GetProfileObjectTypeResponseTypeDef:
         """
-        [Client.get_profile_object_type documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/customer-profiles.html#CustomerProfiles.Client.get_profile_object_type)
+        [Client.get_profile_object_type documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/customer-profiles.html#CustomerProfiles.Client.get_profile_object_type)
         """
 
     def get_profile_object_type_template(
         self, TemplateId: str
     ) -> GetProfileObjectTypeTemplateResponseTypeDef:
         """
-        [Client.get_profile_object_type_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/customer-profiles.html#CustomerProfiles.Client.get_profile_object_type_template)
+        [Client.get_profile_object_type_template documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/customer-profiles.html#CustomerProfiles.Client.get_profile_object_type_template)
         """
 
     def list_account_integrations(
         self, Uri: str, NextToken: str = None, MaxResults: int = None
     ) -> ListAccountIntegrationsResponseTypeDef:
         """
-        [Client.list_account_integrations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/customer-profiles.html#CustomerProfiles.Client.list_account_integrations)
+        [Client.list_account_integrations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/customer-profiles.html#CustomerProfiles.Client.list_account_integrations)
         """
 
     def list_domains(
         self, NextToken: str = None, MaxResults: int = None
     ) -> ListDomainsResponseTypeDef:
         """
-        [Client.list_domains documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/customer-profiles.html#CustomerProfiles.Client.list_domains)
+        [Client.list_domains documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/customer-profiles.html#CustomerProfiles.Client.list_domains)
         """
 
     def list_integrations(
         self, DomainName: str, NextToken: str = None, MaxResults: int = None
     ) -> ListIntegrationsResponseTypeDef:
         """
-        [Client.list_integrations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/customer-profiles.html#CustomerProfiles.Client.list_integrations)
+        [Client.list_integrations documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/customer-profiles.html#CustomerProfiles.Client.list_integrations)
         """
 
     def list_profile_object_type_templates(
         self, NextToken: str = None, MaxResults: int = None
     ) -> ListProfileObjectTypeTemplatesResponseTypeDef:
         """
-        [Client.list_profile_object_type_templates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/customer-profiles.html#CustomerProfiles.Client.list_profile_object_type_templates)
+        [Client.list_profile_object_type_templates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/customer-profiles.html#CustomerProfiles.Client.list_profile_object_type_templates)
         """
 
     def list_profile_object_types(
         self, DomainName: str, NextToken: str = None, MaxResults: int = None
     ) -> ListProfileObjectTypesResponseTypeDef:
         """
-        [Client.list_profile_object_types documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/customer-profiles.html#CustomerProfiles.Client.list_profile_object_types)
+        [Client.list_profile_object_types documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/customer-profiles.html#CustomerProfiles.Client.list_profile_object_types)
         """
 
     def list_profile_objects(
@@ -253,26 +250,26 @@ class CustomerProfilesClient:
         MaxResults: int = None,
     ) -> ListProfileObjectsResponseTypeDef:
         """
-        [Client.list_profile_objects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/customer-profiles.html#CustomerProfiles.Client.list_profile_objects)
+        [Client.list_profile_objects documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/customer-profiles.html#CustomerProfiles.Client.list_profile_objects)
         """
 
     def list_tags_for_resource(self, resourceArn: str) -> ListTagsForResourceResponseTypeDef:
         """
-        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/customer-profiles.html#CustomerProfiles.Client.list_tags_for_resource)
+        [Client.list_tags_for_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/customer-profiles.html#CustomerProfiles.Client.list_tags_for_resource)
         """
 
     def put_integration(
         self, DomainName: str, Uri: str, ObjectTypeName: str, Tags: Dict[str, str] = None
     ) -> PutIntegrationResponseTypeDef:
         """
-        [Client.put_integration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/customer-profiles.html#CustomerProfiles.Client.put_integration)
+        [Client.put_integration documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/customer-profiles.html#CustomerProfiles.Client.put_integration)
         """
 
     def put_profile_object(
         self, ObjectTypeName: str, Object: str, DomainName: str
     ) -> PutProfileObjectResponseTypeDef:
         """
-        [Client.put_profile_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/customer-profiles.html#CustomerProfiles.Client.put_profile_object)
+        [Client.put_profile_object documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/customer-profiles.html#CustomerProfiles.Client.put_profile_object)
         """
 
     def put_profile_object_type(
@@ -289,7 +286,7 @@ class CustomerProfilesClient:
         Tags: Dict[str, str] = None,
     ) -> PutProfileObjectTypeResponseTypeDef:
         """
-        [Client.put_profile_object_type documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/customer-profiles.html#CustomerProfiles.Client.put_profile_object_type)
+        [Client.put_profile_object_type documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/customer-profiles.html#CustomerProfiles.Client.put_profile_object_type)
         """
 
     def search_profiles(
@@ -301,17 +298,17 @@ class CustomerProfilesClient:
         MaxResults: int = None,
     ) -> SearchProfilesResponseTypeDef:
         """
-        [Client.search_profiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/customer-profiles.html#CustomerProfiles.Client.search_profiles)
+        [Client.search_profiles documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/customer-profiles.html#CustomerProfiles.Client.search_profiles)
         """
 
     def tag_resource(self, resourceArn: str, tags: Dict[str, str]) -> Dict[str, Any]:
         """
-        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/customer-profiles.html#CustomerProfiles.Client.tag_resource)
+        [Client.tag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/customer-profiles.html#CustomerProfiles.Client.tag_resource)
         """
 
     def untag_resource(self, resourceArn: str, tagKeys: List[str]) -> Dict[str, Any]:
         """
-        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/customer-profiles.html#CustomerProfiles.Client.untag_resource)
+        [Client.untag_resource documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/customer-profiles.html#CustomerProfiles.Client.untag_resource)
         """
 
     def update_domain(
@@ -323,7 +320,7 @@ class CustomerProfilesClient:
         Tags: Dict[str, str] = None,
     ) -> UpdateDomainResponseTypeDef:
         """
-        [Client.update_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/customer-profiles.html#CustomerProfiles.Client.update_domain)
+        [Client.update_domain documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/customer-profiles.html#CustomerProfiles.Client.update_domain)
         """
 
     def update_profile(
@@ -353,5 +350,5 @@ class CustomerProfilesClient:
         Attributes: Dict[str, str] = None,
     ) -> UpdateProfileResponseTypeDef:
         """
-        [Client.update_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/customer-profiles.html#CustomerProfiles.Client.update_profile)
+        [Client.update_profile documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/customer-profiles.html#CustomerProfiles.Client.update_profile)
         """

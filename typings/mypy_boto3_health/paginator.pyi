@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for health service client paginators.
 
@@ -69,20 +68,20 @@ __all__ = (
 
 class DescribeAffectedAccountsForOrganizationPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeAffectedAccountsForOrganization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/health.html#Health.Paginator.DescribeAffectedAccountsForOrganization)
+    [Paginator.DescribeAffectedAccountsForOrganization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/health.html#Health.Paginator.DescribeAffectedAccountsForOrganization)
     """
 
     def paginate(
         self, eventArn: str, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[DescribeAffectedAccountsForOrganizationResponseTypeDef]:
         """
-        [DescribeAffectedAccountsForOrganization.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/health.html#Health.Paginator.DescribeAffectedAccountsForOrganization.paginate)
+        [DescribeAffectedAccountsForOrganization.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/health.html#Health.Paginator.DescribeAffectedAccountsForOrganization.paginate)
         """
 
 
 class DescribeAffectedEntitiesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeAffectedEntities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/health.html#Health.Paginator.DescribeAffectedEntities)
+    [Paginator.DescribeAffectedEntities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/health.html#Health.Paginator.DescribeAffectedEntities)
     """
 
     def paginate(
@@ -92,13 +91,13 @@ class DescribeAffectedEntitiesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeAffectedEntitiesResponseTypeDef]:
         """
-        [DescribeAffectedEntities.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/health.html#Health.Paginator.DescribeAffectedEntities.paginate)
+        [DescribeAffectedEntities.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/health.html#Health.Paginator.DescribeAffectedEntities.paginate)
         """
 
 
 class DescribeAffectedEntitiesForOrganizationPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeAffectedEntitiesForOrganization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/health.html#Health.Paginator.DescribeAffectedEntitiesForOrganization)
+    [Paginator.DescribeAffectedEntitiesForOrganization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/health.html#Health.Paginator.DescribeAffectedEntitiesForOrganization)
     """
 
     def paginate(
@@ -108,13 +107,13 @@ class DescribeAffectedEntitiesForOrganizationPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeAffectedEntitiesForOrganizationResponseTypeDef]:
         """
-        [DescribeAffectedEntitiesForOrganization.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/health.html#Health.Paginator.DescribeAffectedEntitiesForOrganization.paginate)
+        [DescribeAffectedEntitiesForOrganization.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/health.html#Health.Paginator.DescribeAffectedEntitiesForOrganization.paginate)
         """
 
 
 class DescribeEventAggregatesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeEventAggregates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/health.html#Health.Paginator.DescribeEventAggregates)
+    [Paginator.DescribeEventAggregates documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/health.html#Health.Paginator.DescribeEventAggregates)
     """
 
     def paginate(
@@ -124,13 +123,13 @@ class DescribeEventAggregatesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeEventAggregatesResponseTypeDef]:
         """
-        [DescribeEventAggregates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/health.html#Health.Paginator.DescribeEventAggregates.paginate)
+        [DescribeEventAggregates.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/health.html#Health.Paginator.DescribeEventAggregates.paginate)
         """
 
 
 class DescribeEventTypesPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeEventTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/health.html#Health.Paginator.DescribeEventTypes)
+    [Paginator.DescribeEventTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/health.html#Health.Paginator.DescribeEventTypes)
     """
 
     def paginate(
@@ -140,13 +139,13 @@ class DescribeEventTypesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeEventTypesResponseTypeDef]:
         """
-        [DescribeEventTypes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/health.html#Health.Paginator.DescribeEventTypes.paginate)
+        [DescribeEventTypes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/health.html#Health.Paginator.DescribeEventTypes.paginate)
         """
 
 
 class DescribeEventsPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/health.html#Health.Paginator.DescribeEvents)
+    [Paginator.DescribeEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/health.html#Health.Paginator.DescribeEvents)
     """
 
     def paginate(
@@ -156,13 +155,13 @@ class DescribeEventsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeEventsResponseTypeDef]:
         """
-        [DescribeEvents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/health.html#Health.Paginator.DescribeEvents.paginate)
+        [DescribeEvents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/health.html#Health.Paginator.DescribeEvents.paginate)
         """
 
 
 class DescribeEventsForOrganizationPaginator(Boto3Paginator):
     """
-    [Paginator.DescribeEventsForOrganization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/health.html#Health.Paginator.DescribeEventsForOrganization)
+    [Paginator.DescribeEventsForOrganization documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/health.html#Health.Paginator.DescribeEventsForOrganization)
     """
 
     def paginate(
@@ -172,5 +171,5 @@ class DescribeEventsForOrganizationPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[DescribeEventsForOrganizationResponseTypeDef]:
         """
-        [DescribeEventsForOrganization.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/health.html#Health.Paginator.DescribeEventsForOrganization.paginate)
+        [DescribeEventsForOrganization.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/health.html#Health.Paginator.DescribeEventsForOrganization.paginate)
         """

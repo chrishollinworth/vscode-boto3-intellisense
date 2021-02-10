@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for identitystore service client
 
@@ -45,7 +44,7 @@ class Exceptions:
 
 class IdentityStoreClient:
     """
-    [IdentityStore.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/identitystore.html#IdentityStore.Client)
+    [IdentityStore.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/identitystore.html#IdentityStore.Client)
     """
 
     meta: ClientMeta
@@ -53,17 +52,17 @@ class IdentityStoreClient:
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/identitystore.html#IdentityStore.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/identitystore.html#IdentityStore.Client.can_paginate)
         """
 
     def describe_group(self, IdentityStoreId: str, GroupId: str) -> DescribeGroupResponseTypeDef:
         """
-        [Client.describe_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/identitystore.html#IdentityStore.Client.describe_group)
+        [Client.describe_group documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/identitystore.html#IdentityStore.Client.describe_group)
         """
 
     def describe_user(self, IdentityStoreId: str, UserId: str) -> DescribeUserResponseTypeDef:
         """
-        [Client.describe_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/identitystore.html#IdentityStore.Client.describe_user)
+        [Client.describe_user documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/identitystore.html#IdentityStore.Client.describe_user)
         """
 
     def generate_presigned_url(
@@ -74,7 +73,7 @@ class IdentityStoreClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/identitystore.html#IdentityStore.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/identitystore.html#IdentityStore.Client.generate_presigned_url)
         """
 
     def list_groups(
@@ -85,7 +84,7 @@ class IdentityStoreClient:
         Filters: List[FilterTypeDef] = None,
     ) -> ListGroupsResponseTypeDef:
         """
-        [Client.list_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/identitystore.html#IdentityStore.Client.list_groups)
+        [Client.list_groups documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/identitystore.html#IdentityStore.Client.list_groups)
         """
 
     def list_users(
@@ -96,5 +95,5 @@ class IdentityStoreClient:
         Filters: List[FilterTypeDef] = None,
     ) -> ListUsersResponseTypeDef:
         """
-        [Client.list_users documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/identitystore.html#IdentityStore.Client.list_users)
+        [Client.list_users documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/identitystore.html#IdentityStore.Client.list_users)
         """

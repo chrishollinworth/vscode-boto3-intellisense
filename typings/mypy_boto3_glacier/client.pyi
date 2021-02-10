@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,too-many-locals,unused-import,unused-argument,super-init-not-called
 """
 Main interface for glacier service client
 
@@ -82,7 +81,7 @@ class Exceptions:
 
 class GlacierClient:
     """
-    [Glacier.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Client)
+    [Glacier.Client documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Client)
     """
 
     meta: ClientMeta
@@ -90,24 +89,24 @@ class GlacierClient:
 
     def abort_multipart_upload(self, accountId: str, vaultName: str, uploadId: str) -> None:
         """
-        [Client.abort_multipart_upload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Client.abort_multipart_upload)
+        [Client.abort_multipart_upload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Client.abort_multipart_upload)
         """
 
     def abort_vault_lock(self, accountId: str, vaultName: str) -> None:
         """
-        [Client.abort_vault_lock documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Client.abort_vault_lock)
+        [Client.abort_vault_lock documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Client.abort_vault_lock)
         """
 
     def add_tags_to_vault(
         self, accountId: str, vaultName: str, Tags: Dict[str, str] = None
     ) -> None:
         """
-        [Client.add_tags_to_vault documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Client.add_tags_to_vault)
+        [Client.add_tags_to_vault documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Client.add_tags_to_vault)
         """
 
     def can_paginate(self, operation_name: str) -> bool:
         """
-        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Client.can_paginate)
+        [Client.can_paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Client.can_paginate)
         """
 
     def complete_multipart_upload(
@@ -119,49 +118,49 @@ class GlacierClient:
         checksum: str = None,
     ) -> ArchiveCreationOutputTypeDef:
         """
-        [Client.complete_multipart_upload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Client.complete_multipart_upload)
+        [Client.complete_multipart_upload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Client.complete_multipart_upload)
         """
 
     def complete_vault_lock(self, accountId: str, vaultName: str, lockId: str) -> None:
         """
-        [Client.complete_vault_lock documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Client.complete_vault_lock)
+        [Client.complete_vault_lock documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Client.complete_vault_lock)
         """
 
     def create_vault(self, accountId: str, vaultName: str) -> CreateVaultOutputTypeDef:
         """
-        [Client.create_vault documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Client.create_vault)
+        [Client.create_vault documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Client.create_vault)
         """
 
     def delete_archive(self, accountId: str, vaultName: str, archiveId: str) -> None:
         """
-        [Client.delete_archive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Client.delete_archive)
+        [Client.delete_archive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Client.delete_archive)
         """
 
     def delete_vault(self, accountId: str, vaultName: str) -> None:
         """
-        [Client.delete_vault documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Client.delete_vault)
+        [Client.delete_vault documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Client.delete_vault)
         """
 
     def delete_vault_access_policy(self, accountId: str, vaultName: str) -> None:
         """
-        [Client.delete_vault_access_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Client.delete_vault_access_policy)
+        [Client.delete_vault_access_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Client.delete_vault_access_policy)
         """
 
     def delete_vault_notifications(self, accountId: str, vaultName: str) -> None:
         """
-        [Client.delete_vault_notifications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Client.delete_vault_notifications)
+        [Client.delete_vault_notifications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Client.delete_vault_notifications)
         """
 
     def describe_job(
         self, accountId: str, vaultName: str, jobId: str
     ) -> "GlacierJobDescriptionTypeDef":
         """
-        [Client.describe_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Client.describe_job)
+        [Client.describe_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Client.describe_job)
         """
 
     def describe_vault(self, accountId: str, vaultName: str) -> "DescribeVaultOutputTypeDef":
         """
-        [Client.describe_vault documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Client.describe_vault)
+        [Client.describe_vault documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Client.describe_vault)
         """
 
     def generate_presigned_url(
@@ -172,59 +171,59 @@ class GlacierClient:
         HttpMethod: str = None,
     ) -> str:
         """
-        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Client.generate_presigned_url)
+        [Client.generate_presigned_url documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Client.generate_presigned_url)
         """
 
     def get_data_retrieval_policy(self, accountId: str) -> GetDataRetrievalPolicyOutputTypeDef:
         """
-        [Client.get_data_retrieval_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Client.get_data_retrieval_policy)
+        [Client.get_data_retrieval_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Client.get_data_retrieval_policy)
         """
 
     def get_job_output(
         self, accountId: str, vaultName: str, jobId: str, range: str = None
     ) -> GetJobOutputOutputTypeDef:
         """
-        [Client.get_job_output documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Client.get_job_output)
+        [Client.get_job_output documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Client.get_job_output)
         """
 
     def get_vault_access_policy(
         self, accountId: str, vaultName: str
     ) -> GetVaultAccessPolicyOutputTypeDef:
         """
-        [Client.get_vault_access_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Client.get_vault_access_policy)
+        [Client.get_vault_access_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Client.get_vault_access_policy)
         """
 
     def get_vault_lock(self, accountId: str, vaultName: str) -> GetVaultLockOutputTypeDef:
         """
-        [Client.get_vault_lock documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Client.get_vault_lock)
+        [Client.get_vault_lock documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Client.get_vault_lock)
         """
 
     def get_vault_notifications(
         self, accountId: str, vaultName: str
     ) -> GetVaultNotificationsOutputTypeDef:
         """
-        [Client.get_vault_notifications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Client.get_vault_notifications)
+        [Client.get_vault_notifications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Client.get_vault_notifications)
         """
 
     def initiate_job(
         self, accountId: str, vaultName: str, jobParameters: JobParametersTypeDef = None
     ) -> InitiateJobOutputTypeDef:
         """
-        [Client.initiate_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Client.initiate_job)
+        [Client.initiate_job documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Client.initiate_job)
         """
 
     def initiate_multipart_upload(
         self, accountId: str, vaultName: str, archiveDescription: str = None, partSize: str = None
     ) -> InitiateMultipartUploadOutputTypeDef:
         """
-        [Client.initiate_multipart_upload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Client.initiate_multipart_upload)
+        [Client.initiate_multipart_upload documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Client.initiate_multipart_upload)
         """
 
     def initiate_vault_lock(
         self, accountId: str, vaultName: str, policy: VaultLockPolicyTypeDef = None
     ) -> InitiateVaultLockOutputTypeDef:
         """
-        [Client.initiate_vault_lock documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Client.initiate_vault_lock)
+        [Client.initiate_vault_lock documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Client.initiate_vault_lock)
         """
 
     def list_jobs(
@@ -237,66 +236,66 @@ class GlacierClient:
         completed: str = None,
     ) -> ListJobsOutputTypeDef:
         """
-        [Client.list_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Client.list_jobs)
+        [Client.list_jobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Client.list_jobs)
         """
 
     def list_multipart_uploads(
         self, accountId: str, vaultName: str, marker: str = None, limit: str = None
     ) -> ListMultipartUploadsOutputTypeDef:
         """
-        [Client.list_multipart_uploads documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Client.list_multipart_uploads)
+        [Client.list_multipart_uploads documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Client.list_multipart_uploads)
         """
 
     def list_parts(
         self, accountId: str, vaultName: str, uploadId: str, marker: str = None, limit: str = None
     ) -> ListPartsOutputTypeDef:
         """
-        [Client.list_parts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Client.list_parts)
+        [Client.list_parts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Client.list_parts)
         """
 
     def list_provisioned_capacity(self, accountId: str) -> ListProvisionedCapacityOutputTypeDef:
         """
-        [Client.list_provisioned_capacity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Client.list_provisioned_capacity)
+        [Client.list_provisioned_capacity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Client.list_provisioned_capacity)
         """
 
     def list_tags_for_vault(self, accountId: str, vaultName: str) -> ListTagsForVaultOutputTypeDef:
         """
-        [Client.list_tags_for_vault documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Client.list_tags_for_vault)
+        [Client.list_tags_for_vault documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Client.list_tags_for_vault)
         """
 
     def list_vaults(
         self, accountId: str, marker: str = None, limit: str = None
     ) -> ListVaultsOutputTypeDef:
         """
-        [Client.list_vaults documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Client.list_vaults)
+        [Client.list_vaults documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Client.list_vaults)
         """
 
     def purchase_provisioned_capacity(
         self, accountId: str
     ) -> PurchaseProvisionedCapacityOutputTypeDef:
         """
-        [Client.purchase_provisioned_capacity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Client.purchase_provisioned_capacity)
+        [Client.purchase_provisioned_capacity documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Client.purchase_provisioned_capacity)
         """
 
     def remove_tags_from_vault(
         self, accountId: str, vaultName: str, TagKeys: List[str] = None
     ) -> None:
         """
-        [Client.remove_tags_from_vault documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Client.remove_tags_from_vault)
+        [Client.remove_tags_from_vault documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Client.remove_tags_from_vault)
         """
 
     def set_data_retrieval_policy(
         self, accountId: str, Policy: "DataRetrievalPolicyTypeDef" = None
     ) -> None:
         """
-        [Client.set_data_retrieval_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Client.set_data_retrieval_policy)
+        [Client.set_data_retrieval_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Client.set_data_retrieval_policy)
         """
 
     def set_vault_access_policy(
         self, accountId: str, vaultName: str, policy: "VaultAccessPolicyTypeDef" = None
     ) -> None:
         """
-        [Client.set_vault_access_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Client.set_vault_access_policy)
+        [Client.set_vault_access_policy documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Client.set_vault_access_policy)
         """
 
     def set_vault_notifications(
@@ -306,7 +305,7 @@ class GlacierClient:
         vaultNotificationConfig: "VaultNotificationConfigTypeDef" = None,
     ) -> None:
         """
-        [Client.set_vault_notifications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Client.set_vault_notifications)
+        [Client.set_vault_notifications documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Client.set_vault_notifications)
         """
 
     def upload_archive(
@@ -318,7 +317,7 @@ class GlacierClient:
         body: Union[bytes, IO[bytes]] = None,
     ) -> ArchiveCreationOutputTypeDef:
         """
-        [Client.upload_archive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Client.upload_archive)
+        [Client.upload_archive documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Client.upload_archive)
         """
 
     def upload_multipart_part(
@@ -331,13 +330,13 @@ class GlacierClient:
         body: Union[bytes, IO[bytes]] = None,
     ) -> UploadMultipartPartOutputTypeDef:
         """
-        [Client.upload_multipart_part documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Client.upload_multipart_part)
+        [Client.upload_multipart_part documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Client.upload_multipart_part)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_jobs"]) -> ListJobsPaginator:
         """
-        [Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Paginator.ListJobs)
+        [Paginator.ListJobs documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Paginator.ListJobs)
         """
 
     @overload
@@ -345,29 +344,29 @@ class GlacierClient:
         self, operation_name: Literal["list_multipart_uploads"]
     ) -> ListMultipartUploadsPaginator:
         """
-        [Paginator.ListMultipartUploads documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Paginator.ListMultipartUploads)
+        [Paginator.ListMultipartUploads documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Paginator.ListMultipartUploads)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_parts"]) -> ListPartsPaginator:
         """
-        [Paginator.ListParts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Paginator.ListParts)
+        [Paginator.ListParts documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Paginator.ListParts)
         """
 
     @overload
     def get_paginator(self, operation_name: Literal["list_vaults"]) -> ListVaultsPaginator:
         """
-        [Paginator.ListVaults documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Paginator.ListVaults)
+        [Paginator.ListVaults documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Paginator.ListVaults)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["vault_exists"]) -> VaultExistsWaiter:
         """
-        [Waiter.VaultExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Waiter.VaultExists)
+        [Waiter.VaultExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Waiter.VaultExists)
         """
 
     @overload
     def get_waiter(self, waiter_name: Literal["vault_not_exists"]) -> VaultNotExistsWaiter:
         """
-        [Waiter.VaultNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/glacier.html#Glacier.Waiter.VaultNotExists)
+        [Waiter.VaultNotExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/glacier.html#Glacier.Waiter.VaultNotExists)
         """

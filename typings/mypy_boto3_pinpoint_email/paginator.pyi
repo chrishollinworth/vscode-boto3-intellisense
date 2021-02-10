@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for pinpoint-email service client paginators.
 
@@ -49,64 +48,64 @@ __all__ = (
 
 class GetDedicatedIpsPaginator(Boto3Paginator):
     """
-    [Paginator.GetDedicatedIps documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/pinpoint-email.html#PinpointEmail.Paginator.GetDedicatedIps)
+    [Paginator.GetDedicatedIps documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/pinpoint-email.html#PinpointEmail.Paginator.GetDedicatedIps)
     """
 
     def paginate(
         self, PoolName: str = None, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[GetDedicatedIpsResponseTypeDef]:
         """
-        [GetDedicatedIps.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/pinpoint-email.html#PinpointEmail.Paginator.GetDedicatedIps.paginate)
+        [GetDedicatedIps.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/pinpoint-email.html#PinpointEmail.Paginator.GetDedicatedIps.paginate)
         """
 
 
 class ListConfigurationSetsPaginator(Boto3Paginator):
     """
-    [Paginator.ListConfigurationSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/pinpoint-email.html#PinpointEmail.Paginator.ListConfigurationSets)
+    [Paginator.ListConfigurationSets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/pinpoint-email.html#PinpointEmail.Paginator.ListConfigurationSets)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListConfigurationSetsResponseTypeDef]:
         """
-        [ListConfigurationSets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/pinpoint-email.html#PinpointEmail.Paginator.ListConfigurationSets.paginate)
+        [ListConfigurationSets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/pinpoint-email.html#PinpointEmail.Paginator.ListConfigurationSets.paginate)
         """
 
 
 class ListDedicatedIpPoolsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDedicatedIpPools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/pinpoint-email.html#PinpointEmail.Paginator.ListDedicatedIpPools)
+    [Paginator.ListDedicatedIpPools documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/pinpoint-email.html#PinpointEmail.Paginator.ListDedicatedIpPools)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDedicatedIpPoolsResponseTypeDef]:
         """
-        [ListDedicatedIpPools.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/pinpoint-email.html#PinpointEmail.Paginator.ListDedicatedIpPools.paginate)
+        [ListDedicatedIpPools.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/pinpoint-email.html#PinpointEmail.Paginator.ListDedicatedIpPools.paginate)
         """
 
 
 class ListDeliverabilityTestReportsPaginator(Boto3Paginator):
     """
-    [Paginator.ListDeliverabilityTestReports documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/pinpoint-email.html#PinpointEmail.Paginator.ListDeliverabilityTestReports)
+    [Paginator.ListDeliverabilityTestReports documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/pinpoint-email.html#PinpointEmail.Paginator.ListDeliverabilityTestReports)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListDeliverabilityTestReportsResponseTypeDef]:
         """
-        [ListDeliverabilityTestReports.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/pinpoint-email.html#PinpointEmail.Paginator.ListDeliverabilityTestReports.paginate)
+        [ListDeliverabilityTestReports.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/pinpoint-email.html#PinpointEmail.Paginator.ListDeliverabilityTestReports.paginate)
         """
 
 
 class ListEmailIdentitiesPaginator(Boto3Paginator):
     """
-    [Paginator.ListEmailIdentities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/pinpoint-email.html#PinpointEmail.Paginator.ListEmailIdentities)
+    [Paginator.ListEmailIdentities documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/pinpoint-email.html#PinpointEmail.Paginator.ListEmailIdentities)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListEmailIdentitiesResponseTypeDef]:
         """
-        [ListEmailIdentities.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/pinpoint-email.html#PinpointEmail.Paginator.ListEmailIdentities.paginate)
+        [ListEmailIdentities.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/pinpoint-email.html#PinpointEmail.Paginator.ListEmailIdentities.paginate)
         """

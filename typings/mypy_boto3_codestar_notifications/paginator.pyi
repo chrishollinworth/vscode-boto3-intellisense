@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for codestar-notifications service client paginators.
 
@@ -40,7 +39,7 @@ __all__ = ("ListEventTypesPaginator", "ListNotificationRulesPaginator", "ListTar
 
 class ListEventTypesPaginator(Boto3Paginator):
     """
-    [Paginator.ListEventTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar-notifications.html#CodeStarNotifications.Paginator.ListEventTypes)
+    [Paginator.ListEventTypes documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar-notifications.html#CodeStarNotifications.Paginator.ListEventTypes)
     """
 
     def paginate(
@@ -49,13 +48,13 @@ class ListEventTypesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListEventTypesResultTypeDef]:
         """
-        [ListEventTypes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar-notifications.html#CodeStarNotifications.Paginator.ListEventTypes.paginate)
+        [ListEventTypes.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar-notifications.html#CodeStarNotifications.Paginator.ListEventTypes.paginate)
         """
 
 
 class ListNotificationRulesPaginator(Boto3Paginator):
     """
-    [Paginator.ListNotificationRules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar-notifications.html#CodeStarNotifications.Paginator.ListNotificationRules)
+    [Paginator.ListNotificationRules documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar-notifications.html#CodeStarNotifications.Paginator.ListNotificationRules)
     """
 
     def paginate(
@@ -64,13 +63,13 @@ class ListNotificationRulesPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListNotificationRulesResultTypeDef]:
         """
-        [ListNotificationRules.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar-notifications.html#CodeStarNotifications.Paginator.ListNotificationRules.paginate)
+        [ListNotificationRules.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar-notifications.html#CodeStarNotifications.Paginator.ListNotificationRules.paginate)
         """
 
 
 class ListTargetsPaginator(Boto3Paginator):
     """
-    [Paginator.ListTargets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar-notifications.html#CodeStarNotifications.Paginator.ListTargets)
+    [Paginator.ListTargets documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar-notifications.html#CodeStarNotifications.Paginator.ListTargets)
     """
 
     def paginate(
@@ -79,5 +78,5 @@ class ListTargetsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListTargetsResultTypeDef]:
         """
-        [ListTargets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/codestar-notifications.html#CodeStarNotifications.Paginator.ListTargets.paginate)
+        [ListTargets.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/codestar-notifications.html#CodeStarNotifications.Paginator.ListTargets.paginate)
         """

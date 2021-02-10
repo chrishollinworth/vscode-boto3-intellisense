@@ -24,6 +24,7 @@ else:
 
 __all__ = (
     "IpAddressResponseTypeDef",
+    "ResolverDnssecConfigTypeDef",
     "ResolverEndpointTypeDef",
     "ResolverQueryLogConfigAssociationTypeDef",
     "ResolverQueryLogConfigTypeDef",
@@ -44,6 +45,7 @@ __all__ = (
     "DisassociateResolverQueryLogConfigResponseTypeDef",
     "DisassociateResolverRuleResponseTypeDef",
     "FilterTypeDef",
+    "GetResolverDnssecConfigResponseTypeDef",
     "GetResolverEndpointResponseTypeDef",
     "GetResolverQueryLogConfigAssociationResponseTypeDef",
     "GetResolverQueryLogConfigPolicyResponseTypeDef",
@@ -53,6 +55,7 @@ __all__ = (
     "GetResolverRuleResponseTypeDef",
     "IpAddressRequestTypeDef",
     "IpAddressUpdateTypeDef",
+    "ListResolverDnssecConfigsResponseTypeDef",
     "ListResolverEndpointIpAddressesResponseTypeDef",
     "ListResolverEndpointsResponseTypeDef",
     "ListResolverQueryLogConfigAssociationsResponseTypeDef",
@@ -64,6 +67,7 @@ __all__ = (
     "PutResolverQueryLogConfigPolicyResponseTypeDef",
     "PutResolverRulePolicyResponseTypeDef",
     "ResolverRuleConfigTypeDef",
+    "UpdateResolverDnssecConfigResponseTypeDef",
     "UpdateResolverEndpointResponseTypeDef",
     "UpdateResolverRuleResponseTypeDef",
 )
@@ -89,6 +93,17 @@ IpAddressResponseTypeDef = TypedDict(
         "StatusMessage": str,
         "CreationTime": str,
         "ModificationTime": str,
+    },
+    total=False,
+)
+
+ResolverDnssecConfigTypeDef = TypedDict(
+    "ResolverDnssecConfigTypeDef",
+    {
+        "Id": str,
+        "OwnerId": str,
+        "ResourceId": str,
+        "ValidationStatus": Literal["ENABLING", "ENABLED", "DISABLING", "DISABLED"],
     },
     total=False,
 )
@@ -263,6 +278,12 @@ DisassociateResolverRuleResponseTypeDef = TypedDict(
 
 FilterTypeDef = TypedDict("FilterTypeDef", {"Name": str, "Values": List[str]}, total=False)
 
+GetResolverDnssecConfigResponseTypeDef = TypedDict(
+    "GetResolverDnssecConfigResponseTypeDef",
+    {"ResolverDNSSECConfig": "ResolverDnssecConfigTypeDef"},
+    total=False,
+)
+
 GetResolverEndpointResponseTypeDef = TypedDict(
     "GetResolverEndpointResponseTypeDef",
     {"ResolverEndpoint": "ResolverEndpointTypeDef"},
@@ -313,6 +334,12 @@ class IpAddressRequestTypeDef(_RequiredIpAddressRequestTypeDef, _OptionalIpAddre
 
 IpAddressUpdateTypeDef = TypedDict(
     "IpAddressUpdateTypeDef", {"IpId": str, "SubnetId": str, "Ip": str}, total=False
+)
+
+ListResolverDnssecConfigsResponseTypeDef = TypedDict(
+    "ListResolverDnssecConfigsResponseTypeDef",
+    {"NextToken": str, "ResolverDnssecConfigs": List["ResolverDnssecConfigTypeDef"]},
+    total=False,
 )
 
 ListResolverEndpointIpAddressesResponseTypeDef = TypedDict(
@@ -386,6 +413,12 @@ PutResolverRulePolicyResponseTypeDef = TypedDict(
 ResolverRuleConfigTypeDef = TypedDict(
     "ResolverRuleConfigTypeDef",
     {"Name": str, "TargetIps": List["TargetAddressTypeDef"], "ResolverEndpointId": str},
+    total=False,
+)
+
+UpdateResolverDnssecConfigResponseTypeDef = TypedDict(
+    "UpdateResolverDnssecConfigResponseTypeDef",
+    {"ResolverDNSSECConfig": "ResolverDnssecConfigTypeDef"},
     total=False,
 )
 

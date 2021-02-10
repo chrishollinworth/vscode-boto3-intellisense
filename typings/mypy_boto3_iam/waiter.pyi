@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin
 """
 Main interface for iam service client waiters.
 
@@ -37,43 +36,43 @@ __all__ = (
 
 class InstanceProfileExistsWaiter(Boto3Waiter):
     """
-    [Waiter.InstanceProfileExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iam.html#IAM.Waiter.InstanceProfileExists)
+    [Waiter.InstanceProfileExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iam.html#IAM.Waiter.InstanceProfileExists)
     """
 
     def wait(self, InstanceProfileName: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [InstanceProfileExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iam.html#IAM.Waiter.InstanceProfileExists.wait)
+        [InstanceProfileExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iam.html#IAM.Waiter.InstanceProfileExists.wait)
         """
 
 
 class PolicyExistsWaiter(Boto3Waiter):
     """
-    [Waiter.PolicyExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iam.html#IAM.Waiter.PolicyExists)
+    [Waiter.PolicyExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iam.html#IAM.Waiter.PolicyExists)
     """
 
     def wait(self, PolicyArn: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [PolicyExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iam.html#IAM.Waiter.PolicyExists.wait)
+        [PolicyExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iam.html#IAM.Waiter.PolicyExists.wait)
         """
 
 
 class RoleExistsWaiter(Boto3Waiter):
     """
-    [Waiter.RoleExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iam.html#IAM.Waiter.RoleExists)
+    [Waiter.RoleExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iam.html#IAM.Waiter.RoleExists)
     """
 
     def wait(self, RoleName: str, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [RoleExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iam.html#IAM.Waiter.RoleExists.wait)
+        [RoleExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iam.html#IAM.Waiter.RoleExists.wait)
         """
 
 
 class UserExistsWaiter(Boto3Waiter):
     """
-    [Waiter.UserExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iam.html#IAM.Waiter.UserExists)
+    [Waiter.UserExists documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iam.html#IAM.Waiter.UserExists)
     """
 
     def wait(self, UserName: str = None, WaiterConfig: WaiterConfigTypeDef = None) -> None:
         """
-        [UserExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/iam.html#IAM.Waiter.UserExists.wait)
+        [UserExists.wait documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/iam.html#IAM.Waiter.UserExists.wait)
         """

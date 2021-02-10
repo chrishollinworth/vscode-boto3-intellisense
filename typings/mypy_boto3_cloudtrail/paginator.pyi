@@ -1,4 +1,3 @@
-# pylint: disable=arguments-differ,redefined-outer-name,redefined-builtin,unused-import
 """
 Main interface for cloudtrail service client paginators.
 
@@ -54,7 +53,7 @@ __all__ = (
 
 class ListPublicKeysPaginator(Boto3Paginator):
     """
-    [Paginator.ListPublicKeys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudtrail.html#CloudTrail.Paginator.ListPublicKeys)
+    [Paginator.ListPublicKeys documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Paginator.ListPublicKeys)
     """
 
     def paginate(
@@ -64,39 +63,39 @@ class ListPublicKeysPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[ListPublicKeysResponseTypeDef]:
         """
-        [ListPublicKeys.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudtrail.html#CloudTrail.Paginator.ListPublicKeys.paginate)
+        [ListPublicKeys.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Paginator.ListPublicKeys.paginate)
         """
 
 
 class ListTagsPaginator(Boto3Paginator):
     """
-    [Paginator.ListTags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudtrail.html#CloudTrail.Paginator.ListTags)
+    [Paginator.ListTags documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Paginator.ListTags)
     """
 
     def paginate(
         self, ResourceIdList: List[str], PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTagsResponseTypeDef]:
         """
-        [ListTags.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudtrail.html#CloudTrail.Paginator.ListTags.paginate)
+        [ListTags.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Paginator.ListTags.paginate)
         """
 
 
 class ListTrailsPaginator(Boto3Paginator):
     """
-    [Paginator.ListTrails documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudtrail.html#CloudTrail.Paginator.ListTrails)
+    [Paginator.ListTrails documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Paginator.ListTrails)
     """
 
     def paginate(
         self, PaginationConfig: PaginatorConfigTypeDef = None
     ) -> Iterator[ListTrailsResponseTypeDef]:
         """
-        [ListTrails.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudtrail.html#CloudTrail.Paginator.ListTrails.paginate)
+        [ListTrails.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Paginator.ListTrails.paginate)
         """
 
 
 class LookupEventsPaginator(Boto3Paginator):
     """
-    [Paginator.LookupEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudtrail.html#CloudTrail.Paginator.LookupEvents)
+    [Paginator.LookupEvents documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Paginator.LookupEvents)
     """
 
     def paginate(
@@ -108,5 +107,5 @@ class LookupEventsPaginator(Boto3Paginator):
         PaginationConfig: PaginatorConfigTypeDef = None,
     ) -> Iterator[LookupEventsResponseTypeDef]:
         """
-        [LookupEvents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.16.28/reference/services/cloudtrail.html#CloudTrail.Paginator.LookupEvents.paginate)
+        [LookupEvents.paginate documentation](https://boto3.amazonaws.com/v1/documentation/api/1.17.5/reference/services/cloudtrail.html#CloudTrail.Paginator.LookupEvents.paginate)
         """
